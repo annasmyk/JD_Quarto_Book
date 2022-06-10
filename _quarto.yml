@@ -13,6 +13,7 @@ book:
     - outlier-detection.qmd
     - sa-hf.qmd
     - benchmarking.qmd
+    - trend-cycle-estimation.qmd
     - references.qmd
 
 bibliography: references.bib
