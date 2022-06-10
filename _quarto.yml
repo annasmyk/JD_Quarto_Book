@@ -14,6 +14,9 @@ book:
     - sa-hf.qmd
     - benchmarking.qmd
     - trend-cycle-estimation.qmd
+    - nowcasting.qmd
+    - graphical-user-interface.qmd
+    - r-packages.qmd
     - references.qmd
 
 bibliography: references.bib

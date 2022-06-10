@@ -208,5 +208,61 @@
     "title": "7  Trend-cycle estimation",
     "section": "7.3 Tools",
     "text": "7.3 Tools\n\n7.3.1 rjdfilters package"
+  },
+  {
+    "objectID": "nowcasting.html#underlying-theory",
+    "href": "nowcasting.html#underlying-theory",
+    "title": "8  Nowcasting",
+    "section": "8.2 Underlying Theory",
+    "text": "8.2 Underlying Theory"
+  },
+  {
+    "objectID": "nowcasting.html#tools",
+    "href": "nowcasting.html#tools",
+    "title": "8  Nowcasting",
+    "section": "8.3 Tools",
+    "text": "8.3 Tools"
+  },
+  {
+    "objectID": "graphical-user-interface.html",
+    "href": "graphical-user-interface.html",
+    "title": "9  Graphical User Interface",
+    "section": "",
+    "text": "why use the graphical user interface ? what is not directly available in R yet?\nobjective: describe the general features (independent of algorithms) - general layout - import data - documents - workspaces - specifications - output\nold content can be recycled but - very heavy (trim from md or txt files) - check version 3 - see if we stick with pasted screen shots"
+  },
+  {
+    "objectID": "r-packages.html",
+    "href": "r-packages.html",
+    "title": "10  R packages",
+    "section": "",
+    "text": "table"
+  },
+  {
+    "objectID": "r-packages.html#organisation-overview",
+    "href": "r-packages.html#organisation-overview",
+    "title": "10  R packages",
+    "section": "10.2 Organisation overview",
+    "text": "10.2 Organisation overview\na suite (order)\ngeneral output organisation"
+  },
+  {
+    "objectID": "r-packages.html#installation-procedure",
+    "href": "r-packages.html#installation-procedure",
+    "title": "10  R packages",
+    "section": "10.3 Installation procedure",
+    "text": "10.3 Installation procedure"
+  },
+  {
+    "objectID": "r-packages.html#interaction-with-gui",
+    "href": "r-packages.html#interaction-with-gui",
+    "title": "10  R packages",
+    "section": "10.4 Interaction with GUI",
+    "text": "10.4 Interaction with GUI"
+  },
+  {
+    "objectID": "r-packages.html#full-list",
+    "href": "r-packages.html#full-list",
+    "title": "10  R packages",
+    "section": "10.5 Full list",
+    "text": "10.5 Full list\n\n10.5.1 rjd3modelling\nmain functions: table"
   }
 ]
