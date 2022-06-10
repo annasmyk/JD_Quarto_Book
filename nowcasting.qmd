@@ -1,6 +1,5 @@
 # Nowcasting
 
-
 ## Motivation
 
 ## Underlying Theory

@@ -1,0 +1,20 @@
+# Production
+
+
+### Revision Policies 
+
+obj here: general explanations + examples ?
+here : explain voc discrepancies vs guidelines
+bbk controlled current link to plug in 
+illustration 
+links on covid
+
+
+
+JDemetra+
+offers several options for refreshing the output, which are in line with
+the ESS Guidelines on Seasonal Adjustment (2015) (link)
+requirements.
+
+reprduce table cf. my pdf (xls) doc 
+remark: rjwsa cruncher vignette is not up to date

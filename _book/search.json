@@ -264,5 +264,19 @@
     "title": "10  R packages",
     "section": "10.5 Full list",
     "text": "10.5 Full list\n\n10.5.1 rjd3modelling\nmain functions: table"
+  },
+  {
+    "objectID": "plug-ins.html",
+    "href": "plug-ins.html",
+    "title": "11  Plug-ins for JDemetra+",
+    "section": "",
+    "text": "table"
+  },
+  {
+    "objectID": "production.html",
+    "href": "production.html",
+    "title": "12  Production",
+    "section": "",
+    "text": "obj here: general explanations + examples ? here : explain voc discrepancies vs guidelines bbk controlled current link to plug in illustration links on covid\nJDemetra+ offers several options for refreshing the output, which are in line with the ESS Guidelines on Seasonal Adjustment (2015) (link) requirements.\nreprduce table cf. my pdf (xls) doc remark: rjwsa cruncher vignette is not up to date"
   }
 ]

@@ -17,6 +17,8 @@ book:
     - nowcasting.qmd
     - graphical-user-interface.qmd
     - r-packages.qmd
+    - plug-ins.qmd
+    - production.qmd
     - references.qmd
 
 bibliography: references.bib
