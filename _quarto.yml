@@ -12,6 +12,7 @@ book:
     - main-features.qmd
     - outlier-detection.qmd
     - sa-hf.qmd
+    - benchmarking.qmd
     - references.qmd
 
 bibliography: references.bib
