@@ -2,13 +2,13 @@ project:
   type: book
 
 book:
-  title: "Book_template"
-  author: "Jane Doe"
+  title: "JDemetra+ online documentation"
+  author: "Anna Smyk and alli"
   date: "01/06/2022"
   chapters:
     - index.qmd
     - intro.qmd
-    - summary.qmd
+    - SA_HF.qmd
     - references.qmd
 
 bibliography: references.bib

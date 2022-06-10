@@ -2,7 +2,7 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Book_template",
+    "title": "JDemetra+ online documentation",
     "section": "",
     "text": "This is a Quarto book.\nTo learn more about Quarto books visit https://quarto.org/docs/books.\n\n1 + 1\n\n[1] 2"
   },
@@ -14,11 +14,53 @@
     "text": "See Knuth (1984) for additional discussion of literate programming.\n\n1 + 1\n\n[1] 2\n\n\nif I where to change the intro….\n\n\n\n\nKnuth, Donald E. 1984. “Literate Programming.” Comput. J. 27 (2): 97–111. https://doi.org/10.1093/comjnl/27.2.97."
   },
   {
-    "objectID": "summary.html",
-    "href": "summary.html",
-    "title": "2  Summary",
-    "section": "",
-    "text": "1 + 1\n\n[1] 2"
+    "objectID": "SA_HF.html#tools",
+    "href": "SA_HF.html#tools",
+    "title": "2  Seasonal adjutsment of high frequency data",
+    "section": "2.2 Tools",
+    "text": "2.2 Tools\ncode here and/or link to R packages chapter"
+  },
+  {
+    "objectID": "SA_HF.html#unobserved-components",
+    "href": "SA_HF.html#unobserved-components",
+    "title": "2  Seasonal adjutsment of high frequency data",
+    "section": "2.3 Unobserved Components",
+    "text": "2.3 Unobserved Components"
+  },
+  {
+    "objectID": "SA_HF.html#seasonality-tests",
+    "href": "SA_HF.html#seasonality-tests",
+    "title": "2  Seasonal adjutsment of high frequency data",
+    "section": "2.4 Seasonality tests",
+    "text": "2.4 Seasonality tests\n\n2.4.1 Spectral analysis"
+  },
+  {
+    "objectID": "SA_HF.html#pre-adjustment",
+    "href": "SA_HF.html#pre-adjustment",
+    "title": "2  Seasonal adjutsment of high frequency data",
+    "section": "2.5 Pre-adjustment",
+    "text": "2.5 Pre-adjustment\n\n2.5.1 Calendar correction\n\n\n2.5.2 Outliers and intervention variables\n\n\n2.5.3 Linearization"
+  },
+  {
+    "objectID": "SA_HF.html#decomposition",
+    "href": "SA_HF.html#decomposition",
+    "title": "2  Seasonal adjutsment of high frequency data",
+    "section": "2.6 Decomposition",
+    "text": "2.6 Decomposition\n\n2.6.1 Extended X-11\n\n\n2.6.2 STL decompostion\n\n\n2.6.3 Arima Model Based (AMB) Decomposition"
+  },
+  {
+    "objectID": "SA_HF.html#quality-assessment",
+    "href": "SA_HF.html#quality-assessment",
+    "title": "2  Seasonal adjutsment of high frequency data",
+    "section": "2.7 Quality assessment",
+    "text": "2.7 Quality assessment\n\n2.7.1 Residual seasonality\n\n\n2.7.2 Residual Celendar effects\n\n\n2.7.3 Arima Model"
+  },
+  {
+    "objectID": "SA_HF.html#forecasting",
+    "href": "SA_HF.html#forecasting",
+    "title": "2  Seasonal adjutsment of high frequency data",
+    "section": "2.8 Forecasting",
+    "text": "2.8 Forecasting"
   },
   {
     "objectID": "references.html",

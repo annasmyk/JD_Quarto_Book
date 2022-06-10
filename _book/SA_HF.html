@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-0.9.492">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>JDemetra+ online documentation - 2&nbsp; Seasonal adjutsment of high frequency data</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+</style>
+
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./references.html" rel="next">
+<link href="./intro.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Seasonal adjutsment of high frequency data</span></h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">JDemetra+ online documentation</a> 
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">Preface</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./intro.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./SA_HF.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Seasonal adjutsment of high frequency data</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">References</a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#motivation" id="toc-motivation" class="nav-link active" data-scroll-target="#motivation"> <span class="header-section-number">2.1</span> Motivation</a>
+  <ul class="collapse">
+  <li><a href="#ubiquitous-use" id="toc-ubiquitous-use" class="nav-link" data-scroll-target="#ubiquitous-use"> <span class="header-section-number">2.1.1</span> Ubiquitous use</a></li>
+  <li><a href="#data-specificitites" id="toc-data-specificitites" class="nav-link" data-scroll-target="#data-specificitites"> <span class="header-section-number">2.1.2</span> Data specificitites</a></li>
+  </ul></li>
+  <li><a href="#tools" id="toc-tools" class="nav-link" data-scroll-target="#tools"> <span class="header-section-number">2.2</span> Tools</a></li>
+  <li><a href="#unobserved-components" id="toc-unobserved-components" class="nav-link" data-scroll-target="#unobserved-components"> <span class="header-section-number">2.3</span> Unobserved Components</a></li>
+  <li><a href="#seasonality-tests" id="toc-seasonality-tests" class="nav-link" data-scroll-target="#seasonality-tests"> <span class="header-section-number">2.4</span> Seasonality tests</a>
+  <ul class="collapse">
+  <li><a href="#spectral-analysis" id="toc-spectral-analysis" class="nav-link" data-scroll-target="#spectral-analysis"> <span class="header-section-number">2.4.1</span> Spectral analysis</a></li>
+  </ul></li>
+  <li><a href="#pre-adjustment" id="toc-pre-adjustment" class="nav-link" data-scroll-target="#pre-adjustment"> <span class="header-section-number">2.5</span> Pre-adjustment</a>
+  <ul class="collapse">
+  <li><a href="#calendar-correction" id="toc-calendar-correction" class="nav-link" data-scroll-target="#calendar-correction"> <span class="header-section-number">2.5.1</span> Calendar correction</a></li>
+  <li><a href="#outliers-and-intervention-variables" id="toc-outliers-and-intervention-variables" class="nav-link" data-scroll-target="#outliers-and-intervention-variables"> <span class="header-section-number">2.5.2</span> Outliers and intervention variables</a></li>
+  <li><a href="#linearization" id="toc-linearization" class="nav-link" data-scroll-target="#linearization"> <span class="header-section-number">2.5.3</span> Linearization</a></li>
+  </ul></li>
+  <li><a href="#decomposition" id="toc-decomposition" class="nav-link" data-scroll-target="#decomposition"> <span class="header-section-number">2.6</span> Decomposition</a>
+  <ul class="collapse">
+  <li><a href="#extended-x-11" id="toc-extended-x-11" class="nav-link" data-scroll-target="#extended-x-11"> <span class="header-section-number">2.6.1</span> Extended X-11</a></li>
+  <li><a href="#stl-decompostion" id="toc-stl-decompostion" class="nav-link" data-scroll-target="#stl-decompostion"> <span class="header-section-number">2.6.2</span> STL decompostion</a></li>
+  <li><a href="#arima-model-based-amb-decomposition" id="toc-arima-model-based-amb-decomposition" class="nav-link" data-scroll-target="#arima-model-based-amb-decomposition"> <span class="header-section-number">2.6.3</span> Arima Model Based (AMB) Decomposition</a></li>
+  </ul></li>
+  <li><a href="#quality-assessment" id="toc-quality-assessment" class="nav-link" data-scroll-target="#quality-assessment"> <span class="header-section-number">2.7</span> Quality assessment</a>
+  <ul class="collapse">
+  <li><a href="#residual-seasonality" id="toc-residual-seasonality" class="nav-link" data-scroll-target="#residual-seasonality"> <span class="header-section-number">2.7.1</span> Residual seasonality</a></li>
+  <li><a href="#residual-celendar-effects" id="toc-residual-celendar-effects" class="nav-link" data-scroll-target="#residual-celendar-effects"> <span class="header-section-number">2.7.2</span> Residual Celendar effects</a></li>
+  <li><a href="#arima-model" id="toc-arima-model" class="nav-link" data-scroll-target="#arima-model"> <span class="header-section-number">2.7.3</span> Arima Model</a></li>
+  </ul></li>
+  <li><a href="#forecasting" id="toc-forecasting" class="nav-link" data-scroll-target="#forecasting"> <span class="header-section-number">2.8</span> Forecasting</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Seasonal adjutsment of high frequency data</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    
+  </div>
+  
+
+</header>
+
+<section id="motivation" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="motivation"><span class="header-section-number">2.1</span> Motivation</h2>
+<section id="ubiquitous-use" class="level3" data-number="2.1.1">
+<h3 data-number="2.1.1" class="anchored" data-anchor-id="ubiquitous-use"><span class="header-section-number">2.1.1</span> Ubiquitous use</h3>
+</section>
+<section id="data-specificitites" class="level3" data-number="2.1.2">
+<h3 data-number="2.1.2" class="anchored" data-anchor-id="data-specificitites"><span class="header-section-number">2.1.2</span> Data specificitites</h3>
+</section>
+</section>
+<section id="tools" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="tools"><span class="header-section-number">2.2</span> Tools</h2>
+<p>code here and/or link to R packages chapter</p>
+</section>
+<section id="unobserved-components" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="unobserved-components"><span class="header-section-number">2.3</span> Unobserved Components</h2>
+</section>
+<section id="seasonality-tests" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="seasonality-tests"><span class="header-section-number">2.4</span> Seasonality tests</h2>
+<section id="spectral-analysis" class="level3" data-number="2.4.1">
+<h3 data-number="2.4.1" class="anchored" data-anchor-id="spectral-analysis"><span class="header-section-number">2.4.1</span> Spectral analysis</h3>
+</section>
+</section>
+<section id="pre-adjustment" class="level2" data-number="2.5">
+<h2 data-number="2.5" class="anchored" data-anchor-id="pre-adjustment"><span class="header-section-number">2.5</span> Pre-adjustment</h2>
+<section id="calendar-correction" class="level3" data-number="2.5.1">
+<h3 data-number="2.5.1" class="anchored" data-anchor-id="calendar-correction"><span class="header-section-number">2.5.1</span> Calendar correction</h3>
+</section>
+<section id="outliers-and-intervention-variables" class="level3" data-number="2.5.2">
+<h3 data-number="2.5.2" class="anchored" data-anchor-id="outliers-and-intervention-variables"><span class="header-section-number">2.5.2</span> Outliers and intervention variables</h3>
+</section>
+<section id="linearization" class="level3" data-number="2.5.3">
+<h3 data-number="2.5.3" class="anchored" data-anchor-id="linearization"><span class="header-section-number">2.5.3</span> Linearization</h3>
+</section>
+</section>
+<section id="decomposition" class="level2" data-number="2.6">
+<h2 data-number="2.6" class="anchored" data-anchor-id="decomposition"><span class="header-section-number">2.6</span> Decomposition</h2>
+<section id="extended-x-11" class="level3" data-number="2.6.1">
+<h3 data-number="2.6.1" class="anchored" data-anchor-id="extended-x-11"><span class="header-section-number">2.6.1</span> Extended X-11</h3>
+</section>
+<section id="stl-decompostion" class="level3" data-number="2.6.2">
+<h3 data-number="2.6.2" class="anchored" data-anchor-id="stl-decompostion"><span class="header-section-number">2.6.2</span> STL decompostion</h3>
+</section>
+<section id="arima-model-based-amb-decomposition" class="level3" data-number="2.6.3">
+<h3 data-number="2.6.3" class="anchored" data-anchor-id="arima-model-based-amb-decomposition"><span class="header-section-number">2.6.3</span> Arima Model Based (AMB) Decomposition</h3>
+</section>
+</section>
+<section id="quality-assessment" class="level2" data-number="2.7">
+<h2 data-number="2.7" class="anchored" data-anchor-id="quality-assessment"><span class="header-section-number">2.7</span> Quality assessment</h2>
+<section id="residual-seasonality" class="level3" data-number="2.7.1">
+<h3 data-number="2.7.1" class="anchored" data-anchor-id="residual-seasonality"><span class="header-section-number">2.7.1</span> Residual seasonality</h3>
+</section>
+<section id="residual-celendar-effects" class="level3" data-number="2.7.2">
+<h3 data-number="2.7.2" class="anchored" data-anchor-id="residual-celendar-effects"><span class="header-section-number">2.7.2</span> Residual Celendar effects</h3>
+</section>
+<section id="arima-model" class="level3" data-number="2.7.3">
+<h3 data-number="2.7.3" class="anchored" data-anchor-id="arima-model"><span class="header-section-number">2.7.3</span> Arima Model</h3>
+</section>
+</section>
+<section id="forecasting" class="level2" data-number="2.8">
+<h2 data-number="2.8" class="anchored" data-anchor-id="forecasting"><span class="header-section-number">2.8</span> Forecasting</h2>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      let href = ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./intro.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./references.html" class="pagination-link">
+        <span class="nav-page-text">References</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>
