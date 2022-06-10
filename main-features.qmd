@@ -1,0 +1,45 @@
+# Main functions overview 
+
+
+link to key references 
+* 2 handbooks
+* sets of guidelines  
+
+Objective: present JDemetra+ capabilities by category
+
+
+
+## Seasonal adjustment algorithms 
+
+
+*below: pieces of old pages to edit and update*
+
+### Data frequencies 
+The seasonal adjustment methods available in JDemetra+ aim to decompose
+a time series into components and remove seasonal fluctuations from the
+observed time series. The X-11 method considers monthly and quarterly
+series while SEATS is able to decompose series with 2, 3, 4, 6 and 12
+observations per year.
+
+### X-13
+
+X-13ARIMA is a seasonal adjustment program developed and supported
+by the U.S. Census Bureau. It is based on the U.S. Census Bureau\'s
+earlier X-11 program, the X-11-ARIMA program developed at Statistics
+Canada, the X-12-ARIMA program developed by the U.S. Census Bureau, and
+the SEATS program developed at the Banco de España. The program is now
+used by the U.S. Census Bureau for a seasonal adjustment of time series.
+
+### Tramo-Seats
+
+
+### STL
+
+
+### Basic Structural Models 
+
+## Trend-cycle estimation 
+
+## Nowacsting
+
+## Temporal Disaggregation

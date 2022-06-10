@@ -1,0 +1,45 @@
+# Seasonal adjustment of high frequency data
+
+## Motivation
+
+### Ubiquitous use
+
+### Data specificities
+
+## Tools
+
+code here and/or link to R packages chapter
+
+## Unobserved Components
+
+## Seasonality tests
+
+### Spectral analysis
+
+## Pre-adjustment
+
+### Calendar correction
+
+### Outliers and intervention variables
+
+### Linearization
+
+## Decomposition
+
+### Extended X-11
+
+### STL decomposition
+
+### Arima Model Based (AMB) Decomposition
+
+### State Space framework
+
+## Quality assessment
+
+### Residual seasonality
+
+### Residual Calendar effects
+
+### Arima Model
+
+## Forecasting

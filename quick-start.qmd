@@ -1,0 +1,12 @@
+# Quick start with...
+
+objective: describe key steps + provide useful liks to relevant code 
+
+
+## Seasonal Adjustment 
+
+## Seasonal Adjustment of High-Frequency Data
+
+## Use of JD+ algorithms in R
+
+## Use of JD+ graphical interface

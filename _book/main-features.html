@@ -6,10 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Stace documentation group">
-<meta name="dcterms.date" content="2022-12-01">
 
-<title>JDemetra+ online documentation</title>
+<title>JDemetra+ online documentation - 3&nbsp; Main functions overview</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -47,7 +45,8 @@ ul.task-list{list-style: none;}
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./what-is-jd.html" rel="next">
+<link href="./outlier-detection.html" rel="next">
+<link href="./quick-start.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -65,7 +64,7 @@ ul.task-list{list-style: none;}
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">JDemetra+ online documentation</h1>
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Main functions overview</span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -90,7 +89,7 @@ ul.task-list{list-style: none;}
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">Preface</a>
+  <a href="./index.html" class="sidebar-item-text sidebar-link">Preface</a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -105,7 +104,7 @@ ul.task-list{list-style: none;}
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./main-features.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Main functions overview</span></a>
+  <a href="./main-features.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Main functions overview</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -132,7 +131,17 @@ ul.task-list{list-style: none;}
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#preface" id="toc-preface" class="nav-link active" data-scroll-target="#preface">Preface</a></li>
+  <li><a href="#seasonal-adjustment-algorithms" id="toc-seasonal-adjustment-algorithms" class="nav-link active" data-scroll-target="#seasonal-adjustment-algorithms"> <span class="header-section-number">3.1</span> Seasonal adjustment algorithms</a>
+  <ul class="collapse">
+  <li><a href="#data-frequencies" id="toc-data-frequencies" class="nav-link" data-scroll-target="#data-frequencies"> <span class="header-section-number">3.1.1</span> Data frequencies</a></li>
+  <li><a href="#x-13" id="toc-x-13" class="nav-link" data-scroll-target="#x-13"> <span class="header-section-number">3.1.2</span> X-13</a></li>
+  <li><a href="#tramo-seats" id="toc-tramo-seats" class="nav-link" data-scroll-target="#tramo-seats"> <span class="header-section-number">3.1.3</span> Tramo-Seats</a></li>
+  <li><a href="#stl" id="toc-stl" class="nav-link" data-scroll-target="#stl"> <span class="header-section-number">3.1.4</span> STL</a></li>
+  <li><a href="#basic-structural-models" id="toc-basic-structural-models" class="nav-link" data-scroll-target="#basic-structural-models"> <span class="header-section-number">3.1.5</span> Basic Structural Models</a></li>
+  </ul></li>
+  <li><a href="#trend-cycle-estimation" id="toc-trend-cycle-estimation" class="nav-link" data-scroll-target="#trend-cycle-estimation"> <span class="header-section-number">3.2</span> Trend-cycle estimation</a></li>
+  <li><a href="#nowacsting" id="toc-nowacsting" class="nav-link" data-scroll-target="#nowacsting"> <span class="header-section-number">3.3</span> Nowacsting</a></li>
+  <li><a href="#temporal-disaggregation" id="toc-temporal-disaggregation" class="nav-link" data-scroll-target="#temporal-disaggregation"> <span class="header-section-number">3.4</span> Temporal Disaggregation</a></li>
   </ul>
 </nav>
     </div>
@@ -141,36 +150,51 @@ ul.task-list{list-style: none;}
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">JDemetra+ online documentation</h1>
+<h1 class="title d-none d-lg-block"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Main functions overview</span></h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Stace documentation group </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">December 1, 2022</p>
-    </div>
-  </div>
     
   </div>
   
 
 </header>
 
-<section id="preface" class="level1 unnumbered">
-<h1 class="unnumbered">Preface</h1>
-<p>This is a Quarto book.</p>
-<p>To learn more about Quarto books visit <a href="https://quarto.org/docs/books" class="uri">https://quarto.org/docs/books</a>.</p>
+<p>link to key references * 2 handbooks * sets of guidelines</p>
+<p>Objective: present JDemetra+ capabilities by category</p>
+<section id="seasonal-adjustment-algorithms" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="seasonal-adjustment-algorithms"><span class="header-section-number">3.1</span> Seasonal adjustment algorithms</h2>
+<p><em>below: pieces of old pages to edit and update</em></p>
+<section id="data-frequencies" class="level3" data-number="3.1.1">
+<h3 data-number="3.1.1" class="anchored" data-anchor-id="data-frequencies"><span class="header-section-number">3.1.1</span> Data frequencies</h3>
+<p>The seasonal adjustment methods available in JDemetra+ aim to decompose a time series into components and remove seasonal fluctuations from the observed time series. The X-11 method considers monthly and quarterly series while SEATS is able to decompose series with 2, 3, 4, 6 and 12 observations per year.</p>
+</section>
+<section id="x-13" class="level3" data-number="3.1.2">
+<h3 data-number="3.1.2" class="anchored" data-anchor-id="x-13"><span class="header-section-number">3.1.2</span> X-13</h3>
+<p>X-13ARIMA is a seasonal adjustment program developed and supported by the U.S. Census Bureau. It is based on the U.S. Census Bureau's earlier X-11 program, the X-11-ARIMA program developed at Statistics Canada, the X-12-ARIMA program developed by the U.S. Census Bureau, and the SEATS program developed at the Banco de España. The program is now used by the U.S. Census Bureau for a seasonal adjustment of time series.</p>
+</section>
+<section id="tramo-seats" class="level3" data-number="3.1.3">
+<h3 data-number="3.1.3" class="anchored" data-anchor-id="tramo-seats"><span class="header-section-number">3.1.3</span> Tramo-Seats</h3>
+</section>
+<section id="stl" class="level3" data-number="3.1.4">
+<h3 data-number="3.1.4" class="anchored" data-anchor-id="stl"><span class="header-section-number">3.1.4</span> STL</h3>
+</section>
+<section id="basic-structural-models" class="level3" data-number="3.1.5">
+<h3 data-number="3.1.5" class="anchored" data-anchor-id="basic-structural-models"><span class="header-section-number">3.1.5</span> Basic Structural Models</h3>
+</section>
+</section>
+<section id="trend-cycle-estimation" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="trend-cycle-estimation"><span class="header-section-number">3.2</span> Trend-cycle estimation</h2>
+</section>
+<section id="nowacsting" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="nowacsting"><span class="header-section-number">3.3</span> Nowacsting</h2>
+</section>
+<section id="temporal-disaggregation" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="temporal-disaggregation"><span class="header-section-number">3.4</span> Temporal Disaggregation</h2>
 
 
 </section>
@@ -257,10 +281,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="./quick-start.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Quick start with…</span></span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./what-is-jd.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">JDemetra+ Software</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./outlier-detection.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Outlier detection</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

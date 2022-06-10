@@ -7,9 +7,11 @@ book:
   date: "12/01/2022"
   chapters:
     - index.qmd
-    - what_is_jd.qmd
-    - quick_start.qmd
-    - SA_HF.qmd
+    - what-is-jd.qmd
+    - quick-start.qmd
+    - main-features.qmd
+    - outlier-detection.qmd
+    - sa-hf.qmd
     - references.qmd
 
 bibliography: references.bib
