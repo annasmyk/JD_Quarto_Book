@@ -3,11 +3,12 @@ project:
 
 book:
   title: "JDemetra+ online documentation"
-  author: "Anna Smyk and alli"
-  date: "01/06/2022"
+  author: "Stace documentation group"
+  date: "12/01/2022"
   chapters:
     - index.qmd
-    - intro.qmd
+    - what_is_jd.qmd
+    - quick_start.qmd
     - SA_HF.qmd
     - references.qmd
 

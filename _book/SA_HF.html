@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>JDemetra+ online documentation - 2&nbsp; Seasonal adjutsment of high frequency data</title>
+<title>JDemetra+ online documentation - 3&nbsp; Seasonal adjutsment of high frequency data</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -46,7 +46,7 @@ ul.task-list{list-style: none;}
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
 <link href="./references.html" rel="next">
-<link href="./intro.html" rel="prev">
+<link href="./quick_start.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -64,7 +64,7 @@ ul.task-list{list-style: none;}
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Seasonal adjutsment of high frequency data</span></h1>
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Seasonal adjutsment of high frequency data</span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -94,12 +94,17 @@ ul.task-list{list-style: none;}
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./intro.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></a>
+  <a href="./what_is_jd.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">JDemetra+ Software</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./SA_HF.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Seasonal adjutsment of high frequency data</span></a>
+  <a href="./quick_start.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Quick start with…</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./SA_HF.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Seasonal adjutsment of high frequency data</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -116,36 +121,37 @@ ul.task-list{list-style: none;}
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#motivation" id="toc-motivation" class="nav-link active" data-scroll-target="#motivation"> <span class="header-section-number">2.1</span> Motivation</a>
+  <li><a href="#motivation" id="toc-motivation" class="nav-link active" data-scroll-target="#motivation"> <span class="header-section-number">3.1</span> Motivation</a>
   <ul class="collapse">
-  <li><a href="#ubiquitous-use" id="toc-ubiquitous-use" class="nav-link" data-scroll-target="#ubiquitous-use"> <span class="header-section-number">2.1.1</span> Ubiquitous use</a></li>
-  <li><a href="#data-specificitites" id="toc-data-specificitites" class="nav-link" data-scroll-target="#data-specificitites"> <span class="header-section-number">2.1.2</span> Data specificitites</a></li>
+  <li><a href="#ubiquitous-use" id="toc-ubiquitous-use" class="nav-link" data-scroll-target="#ubiquitous-use"> <span class="header-section-number">3.1.1</span> Ubiquitous use</a></li>
+  <li><a href="#data-specificities" id="toc-data-specificities" class="nav-link" data-scroll-target="#data-specificities"> <span class="header-section-number">3.1.2</span> Data specificities</a></li>
   </ul></li>
-  <li><a href="#tools" id="toc-tools" class="nav-link" data-scroll-target="#tools"> <span class="header-section-number">2.2</span> Tools</a></li>
-  <li><a href="#unobserved-components" id="toc-unobserved-components" class="nav-link" data-scroll-target="#unobserved-components"> <span class="header-section-number">2.3</span> Unobserved Components</a></li>
-  <li><a href="#seasonality-tests" id="toc-seasonality-tests" class="nav-link" data-scroll-target="#seasonality-tests"> <span class="header-section-number">2.4</span> Seasonality tests</a>
+  <li><a href="#tools" id="toc-tools" class="nav-link" data-scroll-target="#tools"> <span class="header-section-number">3.2</span> Tools</a></li>
+  <li><a href="#unobserved-components" id="toc-unobserved-components" class="nav-link" data-scroll-target="#unobserved-components"> <span class="header-section-number">3.3</span> Unobserved Components</a></li>
+  <li><a href="#seasonality-tests" id="toc-seasonality-tests" class="nav-link" data-scroll-target="#seasonality-tests"> <span class="header-section-number">3.4</span> Seasonality tests</a>
   <ul class="collapse">
-  <li><a href="#spectral-analysis" id="toc-spectral-analysis" class="nav-link" data-scroll-target="#spectral-analysis"> <span class="header-section-number">2.4.1</span> Spectral analysis</a></li>
+  <li><a href="#spectral-analysis" id="toc-spectral-analysis" class="nav-link" data-scroll-target="#spectral-analysis"> <span class="header-section-number">3.4.1</span> Spectral analysis</a></li>
   </ul></li>
-  <li><a href="#pre-adjustment" id="toc-pre-adjustment" class="nav-link" data-scroll-target="#pre-adjustment"> <span class="header-section-number">2.5</span> Pre-adjustment</a>
+  <li><a href="#pre-adjustment" id="toc-pre-adjustment" class="nav-link" data-scroll-target="#pre-adjustment"> <span class="header-section-number">3.5</span> Pre-adjustment</a>
   <ul class="collapse">
-  <li><a href="#calendar-correction" id="toc-calendar-correction" class="nav-link" data-scroll-target="#calendar-correction"> <span class="header-section-number">2.5.1</span> Calendar correction</a></li>
-  <li><a href="#outliers-and-intervention-variables" id="toc-outliers-and-intervention-variables" class="nav-link" data-scroll-target="#outliers-and-intervention-variables"> <span class="header-section-number">2.5.2</span> Outliers and intervention variables</a></li>
-  <li><a href="#linearization" id="toc-linearization" class="nav-link" data-scroll-target="#linearization"> <span class="header-section-number">2.5.3</span> Linearization</a></li>
+  <li><a href="#calendar-correction" id="toc-calendar-correction" class="nav-link" data-scroll-target="#calendar-correction"> <span class="header-section-number">3.5.1</span> Calendar correction</a></li>
+  <li><a href="#outliers-and-intervention-variables" id="toc-outliers-and-intervention-variables" class="nav-link" data-scroll-target="#outliers-and-intervention-variables"> <span class="header-section-number">3.5.2</span> Outliers and intervention variables</a></li>
+  <li><a href="#linearization" id="toc-linearization" class="nav-link" data-scroll-target="#linearization"> <span class="header-section-number">3.5.3</span> Linearization</a></li>
   </ul></li>
-  <li><a href="#decomposition" id="toc-decomposition" class="nav-link" data-scroll-target="#decomposition"> <span class="header-section-number">2.6</span> Decomposition</a>
+  <li><a href="#decomposition" id="toc-decomposition" class="nav-link" data-scroll-target="#decomposition"> <span class="header-section-number">3.6</span> Decomposition</a>
   <ul class="collapse">
-  <li><a href="#extended-x-11" id="toc-extended-x-11" class="nav-link" data-scroll-target="#extended-x-11"> <span class="header-section-number">2.6.1</span> Extended X-11</a></li>
-  <li><a href="#stl-decompostion" id="toc-stl-decompostion" class="nav-link" data-scroll-target="#stl-decompostion"> <span class="header-section-number">2.6.2</span> STL decompostion</a></li>
-  <li><a href="#arima-model-based-amb-decomposition" id="toc-arima-model-based-amb-decomposition" class="nav-link" data-scroll-target="#arima-model-based-amb-decomposition"> <span class="header-section-number">2.6.3</span> Arima Model Based (AMB) Decomposition</a></li>
+  <li><a href="#extended-x-11" id="toc-extended-x-11" class="nav-link" data-scroll-target="#extended-x-11"> <span class="header-section-number">3.6.1</span> Extended X-11</a></li>
+  <li><a href="#stl-decompostion" id="toc-stl-decompostion" class="nav-link" data-scroll-target="#stl-decompostion"> <span class="header-section-number">3.6.2</span> STL decompostion</a></li>
+  <li><a href="#arima-model-based-amb-decomposition" id="toc-arima-model-based-amb-decomposition" class="nav-link" data-scroll-target="#arima-model-based-amb-decomposition"> <span class="header-section-number">3.6.3</span> Arima Model Based (AMB) Decomposition</a></li>
+  <li><a href="#state-space-framework" id="toc-state-space-framework" class="nav-link" data-scroll-target="#state-space-framework"> <span class="header-section-number">3.6.4</span> State Space framework</a></li>
   </ul></li>
-  <li><a href="#quality-assessment" id="toc-quality-assessment" class="nav-link" data-scroll-target="#quality-assessment"> <span class="header-section-number">2.7</span> Quality assessment</a>
+  <li><a href="#quality-assessment" id="toc-quality-assessment" class="nav-link" data-scroll-target="#quality-assessment"> <span class="header-section-number">3.7</span> Quality assessment</a>
   <ul class="collapse">
-  <li><a href="#residual-seasonality" id="toc-residual-seasonality" class="nav-link" data-scroll-target="#residual-seasonality"> <span class="header-section-number">2.7.1</span> Residual seasonality</a></li>
-  <li><a href="#residual-celendar-effects" id="toc-residual-celendar-effects" class="nav-link" data-scroll-target="#residual-celendar-effects"> <span class="header-section-number">2.7.2</span> Residual Celendar effects</a></li>
-  <li><a href="#arima-model" id="toc-arima-model" class="nav-link" data-scroll-target="#arima-model"> <span class="header-section-number">2.7.3</span> Arima Model</a></li>
+  <li><a href="#residual-seasonality" id="toc-residual-seasonality" class="nav-link" data-scroll-target="#residual-seasonality"> <span class="header-section-number">3.7.1</span> Residual seasonality</a></li>
+  <li><a href="#residual-celendar-effects" id="toc-residual-celendar-effects" class="nav-link" data-scroll-target="#residual-celendar-effects"> <span class="header-section-number">3.7.2</span> Residual Celendar effects</a></li>
+  <li><a href="#arima-model" id="toc-arima-model" class="nav-link" data-scroll-target="#arima-model"> <span class="header-section-number">3.7.3</span> Arima Model</a></li>
   </ul></li>
-  <li><a href="#forecasting" id="toc-forecasting" class="nav-link" data-scroll-target="#forecasting"> <span class="header-section-number">2.8</span> Forecasting</a></li>
+  <li><a href="#forecasting" id="toc-forecasting" class="nav-link" data-scroll-target="#forecasting"> <span class="header-section-number">3.8</span> Forecasting</a></li>
   </ul>
 </nav>
     </div>
@@ -154,7 +160,7 @@ ul.task-list{list-style: none;}
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Seasonal adjutsment of high frequency data</span></h1>
+<h1 class="title d-none d-lg-block"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Seasonal adjutsment of high frequency data</span></h1>
 </div>
 
 
@@ -168,66 +174,69 @@ ul.task-list{list-style: none;}
 
 </header>
 
-<section id="motivation" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="motivation"><span class="header-section-number">2.1</span> Motivation</h2>
-<section id="ubiquitous-use" class="level3" data-number="2.1.1">
-<h3 data-number="2.1.1" class="anchored" data-anchor-id="ubiquitous-use"><span class="header-section-number">2.1.1</span> Ubiquitous use</h3>
+<section id="motivation" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="motivation"><span class="header-section-number">3.1</span> Motivation</h2>
+<section id="ubiquitous-use" class="level3" data-number="3.1.1">
+<h3 data-number="3.1.1" class="anchored" data-anchor-id="ubiquitous-use"><span class="header-section-number">3.1.1</span> Ubiquitous use</h3>
 </section>
-<section id="data-specificitites" class="level3" data-number="2.1.2">
-<h3 data-number="2.1.2" class="anchored" data-anchor-id="data-specificitites"><span class="header-section-number">2.1.2</span> Data specificitites</h3>
+<section id="data-specificities" class="level3" data-number="3.1.2">
+<h3 data-number="3.1.2" class="anchored" data-anchor-id="data-specificities"><span class="header-section-number">3.1.2</span> Data specificities</h3>
 </section>
 </section>
-<section id="tools" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="tools"><span class="header-section-number">2.2</span> Tools</h2>
+<section id="tools" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="tools"><span class="header-section-number">3.2</span> Tools</h2>
 <p>code here and/or link to R packages chapter</p>
 </section>
-<section id="unobserved-components" class="level2" data-number="2.3">
-<h2 data-number="2.3" class="anchored" data-anchor-id="unobserved-components"><span class="header-section-number">2.3</span> Unobserved Components</h2>
+<section id="unobserved-components" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="unobserved-components"><span class="header-section-number">3.3</span> Unobserved Components</h2>
 </section>
-<section id="seasonality-tests" class="level2" data-number="2.4">
-<h2 data-number="2.4" class="anchored" data-anchor-id="seasonality-tests"><span class="header-section-number">2.4</span> Seasonality tests</h2>
-<section id="spectral-analysis" class="level3" data-number="2.4.1">
-<h3 data-number="2.4.1" class="anchored" data-anchor-id="spectral-analysis"><span class="header-section-number">2.4.1</span> Spectral analysis</h3>
-</section>
-</section>
-<section id="pre-adjustment" class="level2" data-number="2.5">
-<h2 data-number="2.5" class="anchored" data-anchor-id="pre-adjustment"><span class="header-section-number">2.5</span> Pre-adjustment</h2>
-<section id="calendar-correction" class="level3" data-number="2.5.1">
-<h3 data-number="2.5.1" class="anchored" data-anchor-id="calendar-correction"><span class="header-section-number">2.5.1</span> Calendar correction</h3>
-</section>
-<section id="outliers-and-intervention-variables" class="level3" data-number="2.5.2">
-<h3 data-number="2.5.2" class="anchored" data-anchor-id="outliers-and-intervention-variables"><span class="header-section-number">2.5.2</span> Outliers and intervention variables</h3>
-</section>
-<section id="linearization" class="level3" data-number="2.5.3">
-<h3 data-number="2.5.3" class="anchored" data-anchor-id="linearization"><span class="header-section-number">2.5.3</span> Linearization</h3>
+<section id="seasonality-tests" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="seasonality-tests"><span class="header-section-number">3.4</span> Seasonality tests</h2>
+<section id="spectral-analysis" class="level3" data-number="3.4.1">
+<h3 data-number="3.4.1" class="anchored" data-anchor-id="spectral-analysis"><span class="header-section-number">3.4.1</span> Spectral analysis</h3>
 </section>
 </section>
-<section id="decomposition" class="level2" data-number="2.6">
-<h2 data-number="2.6" class="anchored" data-anchor-id="decomposition"><span class="header-section-number">2.6</span> Decomposition</h2>
-<section id="extended-x-11" class="level3" data-number="2.6.1">
-<h3 data-number="2.6.1" class="anchored" data-anchor-id="extended-x-11"><span class="header-section-number">2.6.1</span> Extended X-11</h3>
+<section id="pre-adjustment" class="level2" data-number="3.5">
+<h2 data-number="3.5" class="anchored" data-anchor-id="pre-adjustment"><span class="header-section-number">3.5</span> Pre-adjustment</h2>
+<section id="calendar-correction" class="level3" data-number="3.5.1">
+<h3 data-number="3.5.1" class="anchored" data-anchor-id="calendar-correction"><span class="header-section-number">3.5.1</span> Calendar correction</h3>
 </section>
-<section id="stl-decompostion" class="level3" data-number="2.6.2">
-<h3 data-number="2.6.2" class="anchored" data-anchor-id="stl-decompostion"><span class="header-section-number">2.6.2</span> STL decompostion</h3>
+<section id="outliers-and-intervention-variables" class="level3" data-number="3.5.2">
+<h3 data-number="3.5.2" class="anchored" data-anchor-id="outliers-and-intervention-variables"><span class="header-section-number">3.5.2</span> Outliers and intervention variables</h3>
 </section>
-<section id="arima-model-based-amb-decomposition" class="level3" data-number="2.6.3">
-<h3 data-number="2.6.3" class="anchored" data-anchor-id="arima-model-based-amb-decomposition"><span class="header-section-number">2.6.3</span> Arima Model Based (AMB) Decomposition</h3>
-</section>
-</section>
-<section id="quality-assessment" class="level2" data-number="2.7">
-<h2 data-number="2.7" class="anchored" data-anchor-id="quality-assessment"><span class="header-section-number">2.7</span> Quality assessment</h2>
-<section id="residual-seasonality" class="level3" data-number="2.7.1">
-<h3 data-number="2.7.1" class="anchored" data-anchor-id="residual-seasonality"><span class="header-section-number">2.7.1</span> Residual seasonality</h3>
-</section>
-<section id="residual-celendar-effects" class="level3" data-number="2.7.2">
-<h3 data-number="2.7.2" class="anchored" data-anchor-id="residual-celendar-effects"><span class="header-section-number">2.7.2</span> Residual Celendar effects</h3>
-</section>
-<section id="arima-model" class="level3" data-number="2.7.3">
-<h3 data-number="2.7.3" class="anchored" data-anchor-id="arima-model"><span class="header-section-number">2.7.3</span> Arima Model</h3>
+<section id="linearization" class="level3" data-number="3.5.3">
+<h3 data-number="3.5.3" class="anchored" data-anchor-id="linearization"><span class="header-section-number">3.5.3</span> Linearization</h3>
 </section>
 </section>
-<section id="forecasting" class="level2" data-number="2.8">
-<h2 data-number="2.8" class="anchored" data-anchor-id="forecasting"><span class="header-section-number">2.8</span> Forecasting</h2>
+<section id="decomposition" class="level2" data-number="3.6">
+<h2 data-number="3.6" class="anchored" data-anchor-id="decomposition"><span class="header-section-number">3.6</span> Decomposition</h2>
+<section id="extended-x-11" class="level3" data-number="3.6.1">
+<h3 data-number="3.6.1" class="anchored" data-anchor-id="extended-x-11"><span class="header-section-number">3.6.1</span> Extended X-11</h3>
+</section>
+<section id="stl-decompostion" class="level3" data-number="3.6.2">
+<h3 data-number="3.6.2" class="anchored" data-anchor-id="stl-decompostion"><span class="header-section-number">3.6.2</span> STL decompostion</h3>
+</section>
+<section id="arima-model-based-amb-decomposition" class="level3" data-number="3.6.3">
+<h3 data-number="3.6.3" class="anchored" data-anchor-id="arima-model-based-amb-decomposition"><span class="header-section-number">3.6.3</span> Arima Model Based (AMB) Decomposition</h3>
+</section>
+<section id="state-space-framework" class="level3" data-number="3.6.4">
+<h3 data-number="3.6.4" class="anchored" data-anchor-id="state-space-framework"><span class="header-section-number">3.6.4</span> State Space framework</h3>
+</section>
+</section>
+<section id="quality-assessment" class="level2" data-number="3.7">
+<h2 data-number="3.7" class="anchored" data-anchor-id="quality-assessment"><span class="header-section-number">3.7</span> Quality assessment</h2>
+<section id="residual-seasonality" class="level3" data-number="3.7.1">
+<h3 data-number="3.7.1" class="anchored" data-anchor-id="residual-seasonality"><span class="header-section-number">3.7.1</span> Residual seasonality</h3>
+</section>
+<section id="residual-celendar-effects" class="level3" data-number="3.7.2">
+<h3 data-number="3.7.2" class="anchored" data-anchor-id="residual-celendar-effects"><span class="header-section-number">3.7.2</span> Residual Celendar effects</h3>
+</section>
+<section id="arima-model" class="level3" data-number="3.7.3">
+<h3 data-number="3.7.3" class="anchored" data-anchor-id="arima-model"><span class="header-section-number">3.7.3</span> Arima Model</h3>
+</section>
+</section>
+<section id="forecasting" class="level2" data-number="3.8">
+<h2 data-number="3.8" class="anchored" data-anchor-id="forecasting"><span class="header-section-number">3.8</span> Forecasting</h2>
 
 
 </section>
@@ -314,8 +323,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./intro.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction</span></span>
+      <a href="./quick_start.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Quick start with…</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">

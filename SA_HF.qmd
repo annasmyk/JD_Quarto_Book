@@ -1,16 +1,16 @@
-# Seasonal adjutsment of high frequency data 
+# Seasonal adjutsment of high frequency data
 
 ## Motivation
 
-### Ubiquitous use 
+### Ubiquitous use
 
-### Data specificitites
+### Data specificities 
 
-## Tools 
+## Tools
 
 code here and/or link to R packages chapter
 
-## Unobserved Components 
+## Unobserved Components
 
 ## Seasonality tests
 
@@ -20,27 +20,26 @@ code here and/or link to R packages chapter
 
 ### Calendar correction
 
-### Outliers and intervention variables 
+### Outliers and intervention variables
 
 ### Linearization
-
 
 ## Decomposition
 
 ### Extended X-11
 
-### STL decompostion 
+### STL decompostion
 
-### Arima Model Based (AMB) Decomposition 
+### Arima Model Based (AMB) Decomposition
 
-
+### State Space framework
 
 ## Quality assessment
 
 ### Residual seasonality
 
-### Residual Celendar effects 
+### Residual Celendar effects
 
-### Arima Model 
+### Arima Model
 
 ## Forecasting

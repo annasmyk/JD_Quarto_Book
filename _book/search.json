@@ -4,69 +4,104 @@
     "href": "index.html",
     "title": "JDemetra+ online documentation",
     "section": "",
-    "text": "This is a Quarto book.\nTo learn more about Quarto books visit https://quarto.org/docs/books.\n\n1 + 1\n\n[1] 2"
+    "text": "This is a Quarto book.\nTo learn more about Quarto books visit https://quarto.org/docs/books."
   },
   {
-    "objectID": "intro.html",
-    "href": "intro.html",
-    "title": "1  Introduction",
+    "objectID": "what_is_jd.html#audience",
+    "href": "what_is_jd.html#audience",
+    "title": "1  JDemetra+ Software",
+    "section": "1.2 Audience",
+    "text": "1.2 Audience"
+  },
+  {
+    "objectID": "what_is_jd.html#how-jdemetra-came-to-be",
+    "href": "what_is_jd.html#how-jdemetra-came-to-be",
+    "title": "1  JDemetra+ Software",
+    "section": "1.3 How Jdemetra+ came to be",
+    "text": "1.3 How Jdemetra+ came to be\nhistory of the project ."
+  },
+  {
+    "objectID": "quick_start.html",
+    "href": "quick_start.html",
+    "title": "2  Quick start with…",
     "section": "",
-    "text": "See Knuth (1984) for additional discussion of literate programming.\n\n1 + 1\n\n[1] 2\n\n\nif I where to change the intro….\n\n\n\n\nKnuth, Donald E. 1984. “Literate Programming.” Comput. J. 27 (2): 97–111. https://doi.org/10.1093/comjnl/27.2.97."
+    "text": "objective: describe key steps + provide useful liks to relevant code"
+  },
+  {
+    "objectID": "quick_start.html#seasonal-adjustment",
+    "href": "quick_start.html#seasonal-adjustment",
+    "title": "2  Quick start with…",
+    "section": "2.1 Seasonal Adjustment",
+    "text": "2.1 Seasonal Adjustment"
+  },
+  {
+    "objectID": "quick_start.html#seasonal-adjustment-of-high-frequency-data",
+    "href": "quick_start.html#seasonal-adjustment-of-high-frequency-data",
+    "title": "2  Quick start with…",
+    "section": "2.2 Seasonal Adjustment of High-Frequency Data",
+    "text": "2.2 Seasonal Adjustment of High-Frequency Data"
+  },
+  {
+    "objectID": "quick_start.html#use-of-jd-algorithms-in-r",
+    "href": "quick_start.html#use-of-jd-algorithms-in-r",
+    "title": "2  Quick start with…",
+    "section": "2.3 Use of JD+ algorithms in R",
+    "text": "2.3 Use of JD+ algorithms in R"
+  },
+  {
+    "objectID": "quick_start.html#use-of-jd-graphical-interface",
+    "href": "quick_start.html#use-of-jd-graphical-interface",
+    "title": "2  Quick start with…",
+    "section": "2.4 Use of JD+ graphical interface",
+    "text": "2.4 Use of JD+ graphical interface"
   },
   {
     "objectID": "SA_HF.html#tools",
     "href": "SA_HF.html#tools",
-    "title": "2  Seasonal adjutsment of high frequency data",
-    "section": "2.2 Tools",
-    "text": "2.2 Tools\ncode here and/or link to R packages chapter"
+    "title": "3  Seasonal adjutsment of high frequency data",
+    "section": "3.2 Tools",
+    "text": "3.2 Tools\ncode here and/or link to R packages chapter"
   },
   {
     "objectID": "SA_HF.html#unobserved-components",
     "href": "SA_HF.html#unobserved-components",
-    "title": "2  Seasonal adjutsment of high frequency data",
-    "section": "2.3 Unobserved Components",
-    "text": "2.3 Unobserved Components"
+    "title": "3  Seasonal adjutsment of high frequency data",
+    "section": "3.3 Unobserved Components",
+    "text": "3.3 Unobserved Components"
   },
   {
     "objectID": "SA_HF.html#seasonality-tests",
     "href": "SA_HF.html#seasonality-tests",
-    "title": "2  Seasonal adjutsment of high frequency data",
-    "section": "2.4 Seasonality tests",
-    "text": "2.4 Seasonality tests\n\n2.4.1 Spectral analysis"
+    "title": "3  Seasonal adjutsment of high frequency data",
+    "section": "3.4 Seasonality tests",
+    "text": "3.4 Seasonality tests\n\n3.4.1 Spectral analysis"
   },
   {
     "objectID": "SA_HF.html#pre-adjustment",
     "href": "SA_HF.html#pre-adjustment",
-    "title": "2  Seasonal adjutsment of high frequency data",
-    "section": "2.5 Pre-adjustment",
-    "text": "2.5 Pre-adjustment\n\n2.5.1 Calendar correction\n\n\n2.5.2 Outliers and intervention variables\n\n\n2.5.3 Linearization"
+    "title": "3  Seasonal adjutsment of high frequency data",
+    "section": "3.5 Pre-adjustment",
+    "text": "3.5 Pre-adjustment\n\n3.5.1 Calendar correction\n\n\n3.5.2 Outliers and intervention variables\n\n\n3.5.3 Linearization"
   },
   {
     "objectID": "SA_HF.html#decomposition",
     "href": "SA_HF.html#decomposition",
-    "title": "2  Seasonal adjutsment of high frequency data",
-    "section": "2.6 Decomposition",
-    "text": "2.6 Decomposition\n\n2.6.1 Extended X-11\n\n\n2.6.2 STL decompostion\n\n\n2.6.3 Arima Model Based (AMB) Decomposition"
+    "title": "3  Seasonal adjutsment of high frequency data",
+    "section": "3.6 Decomposition",
+    "text": "3.6 Decomposition\n\n3.6.1 Extended X-11\n\n\n3.6.2 STL decompostion\n\n\n3.6.3 Arima Model Based (AMB) Decomposition\n\n\n3.6.4 State Space framework"
   },
   {
     "objectID": "SA_HF.html#quality-assessment",
     "href": "SA_HF.html#quality-assessment",
-    "title": "2  Seasonal adjutsment of high frequency data",
-    "section": "2.7 Quality assessment",
-    "text": "2.7 Quality assessment\n\n2.7.1 Residual seasonality\n\n\n2.7.2 Residual Celendar effects\n\n\n2.7.3 Arima Model"
+    "title": "3  Seasonal adjutsment of high frequency data",
+    "section": "3.7 Quality assessment",
+    "text": "3.7 Quality assessment\n\n3.7.1 Residual seasonality\n\n\n3.7.2 Residual Celendar effects\n\n\n3.7.3 Arima Model"
   },
   {
     "objectID": "SA_HF.html#forecasting",
     "href": "SA_HF.html#forecasting",
-    "title": "2  Seasonal adjutsment of high frequency data",
-    "section": "2.8 Forecasting",
-    "text": "2.8 Forecasting"
-  },
-  {
-    "objectID": "references.html",
-    "href": "references.html",
-    "title": "References",
-    "section": "",
-    "text": "Knuth, Donald E. 1984. “Literate Programming.” Comput.\nJ. 27 (2): 97–111. https://doi.org/10.1093/comjnl/27.2.97."
+    "title": "3  Seasonal adjutsment of high frequency data",
+    "section": "3.8 Forecasting",
+    "text": "3.8 Forecasting"
   }
 ]
