@@ -194,5 +194,19 @@
     "title": "6  Benchmarking and temporal disagreggation",
     "section": "6.4 References",
     "text": "6.4 References"
+  },
+  {
+    "objectID": "trend-cycle-estimation.html#underlying-theory",
+    "href": "trend-cycle-estimation.html#underlying-theory",
+    "title": "7  Trend-cycle estimation",
+    "section": "7.2 Underlying Theory",
+    "text": "7.2 Underlying Theory"
+  },
+  {
+    "objectID": "trend-cycle-estimation.html#tools",
+    "href": "trend-cycle-estimation.html#tools",
+    "title": "7  Trend-cycle estimation",
+    "section": "7.3 Tools",
+    "text": "7.3 Tools\n\n7.3.1 rjdfilters package"
   }
 ]
