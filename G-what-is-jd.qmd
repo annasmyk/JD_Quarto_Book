@@ -1,18 +1,19 @@
 # JDemetra+ Software
 
-## Structure of this book
-
-### Available algorithms
-
-
-### Tools to access this algorithms
-
-
-### Underlying Statistical Methods 
-
-## Audience
-
+## A library of algorithms
 
 ## How Jdemetra+ came to be
 
-history of the project .
+history of the project
+
+## Structure of this book
+
+### Algorithms
+
+### Tools
+
+how to run to run an algorithm
+
+### Underlying Statistical Methods
+
+## Audience

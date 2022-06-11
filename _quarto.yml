@@ -10,7 +10,9 @@ book:
     - G-what-is-jd.qmd
     - G-quick-start.qmd
     - G-main-features.qmd
+    - A-sa.qmd
     - A-outlier-detection.qmd
+    - A-calendar-and-input.qmd
     - A-sa-hf.qmd
     - A-benchmarking.qmd
     - A-trend-cycle-estimation.qmd

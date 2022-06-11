@@ -7,18 +7,25 @@
     "text": "Welcome to the JDemetra+ online documentation.\nJDemetra+ is a software developed in Eurostat’s Centre of Excellence on Statistical Methods and Tools.\nTo learn more about visit. https://ec.europa.eu/eurostat/cros/content/centre-excellence-statistical-methods-and-tools."
   },
   {
-    "objectID": "G-what-is-jd.html#audience",
-    "href": "G-what-is-jd.html#audience",
-    "title": "1  JDemetra+ Software",
-    "section": "1.2 Audience",
-    "text": "1.2 Audience"
-  },
-  {
     "objectID": "G-what-is-jd.html#how-jdemetra-came-to-be",
     "href": "G-what-is-jd.html#how-jdemetra-came-to-be",
     "title": "1  JDemetra+ Software",
-    "section": "1.3 How Jdemetra+ came to be",
-    "text": "1.3 How Jdemetra+ came to be\nhistory of the project ."
+    "section": "1.2 How Jdemetra+ came to be",
+    "text": "1.2 How Jdemetra+ came to be\nhistory of the project"
+  },
+  {
+    "objectID": "G-what-is-jd.html#structure-of-this-book",
+    "href": "G-what-is-jd.html#structure-of-this-book",
+    "title": "1  JDemetra+ Software",
+    "section": "1.3 Structure of this book",
+    "text": "1.3 Structure of this book\n\n1.3.1 Algorithms\n\n\n1.3.2 Tools\nhow to run to run an algorithm\n\n\n1.3.3 Underlying Statistical Methods"
+  },
+  {
+    "objectID": "G-what-is-jd.html#audience",
+    "href": "G-what-is-jd.html#audience",
+    "title": "1  JDemetra+ Software",
+    "section": "1.4 Audience",
+    "text": "1.4 Audience"
   },
   {
     "objectID": "G-quick-start.html",
@@ -91,247 +98,275 @@
     "text": "3.4 Temporal Disaggregation"
   },
   {
+    "objectID": "A-sa.html",
+    "href": "A-sa.html",
+    "title": "4  Seasonal Adjustment",
+    "section": "",
+    "text": "The primary aim of the seasonal adjustment process is to remove seasonal fluctuations from the time series. To achieve this goal, seasonal adjustment methods decompose the original time series into components that capture specific movements. These components are: trend-cycle, seasonality and irregularity. The trend-cycle component includes long-term and medium-term movements in the data. For seasonal adjustment purposes there is no need to divide this component into two parts. JDemetra+ refers to the trend-cycle as trend and consequently this convention is used here."
+  },
+  {
     "objectID": "A-outlier-detection.html",
     "href": "A-outlier-detection.html",
-    "title": "4  Outlier detection",
+    "title": "5  Outlier detection",
     "section": "",
     "text": "in or outside a seasonal adjustment process"
   },
   {
     "objectID": "A-outlier-detection.html#motivation",
     "href": "A-outlier-detection.html#motivation",
-    "title": "4  Outlier detection",
-    "section": "4.1 Motivation",
-    "text": "4.1 Motivation"
+    "title": "5  Outlier detection",
+    "section": "5.1 Motivation",
+    "text": "5.1 Motivation"
   },
   {
     "objectID": "A-outlier-detection.html#with-reg-arima-models",
     "href": "A-outlier-detection.html#with-reg-arima-models",
-    "title": "4  Outlier detection",
-    "section": "4.2 With Reg Arima models",
-    "text": "4.2 With Reg Arima models\n\n4.2.1 Part of preadjustment\n\n\n4.2.2 Specific TERROR tool"
+    "title": "5  Outlier detection",
+    "section": "5.2 With Reg Arima models",
+    "text": "5.2 With Reg Arima models\n\n5.2.1 Part of preadjustment\n\n\n5.2.2 Specific TERROR tool"
   },
   {
     "objectID": "A-outlier-detection.html#with-structural-models",
     "href": "A-outlier-detection.html#with-structural-models",
-    "title": "4  Outlier detection",
-    "section": "4.3 With structural models",
-    "text": "4.3 With structural models"
+    "title": "5  Outlier detection",
+    "section": "5.3 With structural models",
+    "text": "5.3 With structural models"
+  },
+  {
+    "objectID": "A-calendar-and-input.html",
+    "href": "A-calendar-and-input.html",
+    "title": "6  Calendar correction and user-defined corrections",
+    "section": "",
+    "text": "generating Calendar regressors and other input variables"
+  },
+  {
+    "objectID": "A-calendar-and-input.html#motivation",
+    "href": "A-calendar-and-input.html#motivation",
+    "title": "6  Calendar correction and user-defined corrections",
+    "section": "6.1 Motivation",
+    "text": "6.1 Motivation"
+  },
+  {
+    "objectID": "A-calendar-and-input.html#underlying-theory",
+    "href": "A-calendar-and-input.html#underlying-theory",
+    "title": "6  Calendar correction and user-defined corrections",
+    "section": "6.2 Underlying theory",
+    "text": "6.2 Underlying theory\n\n6.2.1 Overview of Calendar effects in JDemetra+\nThe following description of the calendar effects in JDemetra+ is strictly based on PALATE, J. (2014).\nA natural way for modelling calendar effects consists of distributing the days of each period into different groups. The regression variable corresponding to a type of day (a group) is simply defined by the number of days it contains for each period. Usual classifications are:\n\nTrading days (7 groups): each day of the week defines a group (Mondays,...,Sundays);\nWorking days (2 groups): week days and weekends.\n\nThe definition of a group could involve partial days. For instance, we could consider that one half of Saturdays belong to week days and the second half to weekends.\nUsually, specific holidays are handled as Sundays and they are included in the group corresponding to \"non-working days\". This approach assumes that the economic activity on national holidays is the same (or very close to) the level of activity that is typical for Sundays. Alternatively, specific holidays can be considered separately, e.g. by the specification that divided days into three groups:\n\nWorking days (Mondays to Fridays, except for specific holidays),\nNon-working days (Saturdays and Sundays, except for specific holidays),\nSpecific holidays."
   },
   {
     "objectID": "A-sa-hf.html#tools",
     "href": "A-sa-hf.html#tools",
-    "title": "5  Seasonal adjustment of high frequency data",
-    "section": "5.2 Tools",
-    "text": "5.2 Tools\ncode here and/or link to R packages chapter"
+    "title": "7  Seasonal adjustment of high frequency data",
+    "section": "7.2 Tools",
+    "text": "7.2 Tools\ncode here and/or link to R packages chapter"
   },
   {
     "objectID": "A-sa-hf.html#unobserved-components",
     "href": "A-sa-hf.html#unobserved-components",
-    "title": "5  Seasonal adjustment of high frequency data",
-    "section": "5.3 Unobserved Components",
-    "text": "5.3 Unobserved Components"
+    "title": "7  Seasonal adjustment of high frequency data",
+    "section": "7.3 Unobserved Components",
+    "text": "7.3 Unobserved Components"
   },
   {
     "objectID": "A-sa-hf.html#seasonality-tests",
     "href": "A-sa-hf.html#seasonality-tests",
-    "title": "5  Seasonal adjustment of high frequency data",
-    "section": "5.4 Seasonality tests",
-    "text": "5.4 Seasonality tests\n\n5.4.1 Spectral analysis"
+    "title": "7  Seasonal adjustment of high frequency data",
+    "section": "7.4 Seasonality tests",
+    "text": "7.4 Seasonality tests\n\n7.4.1 Spectral analysis"
   },
   {
     "objectID": "A-sa-hf.html#pre-adjustment",
     "href": "A-sa-hf.html#pre-adjustment",
-    "title": "5  Seasonal adjustment of high frequency data",
-    "section": "5.5 Pre-adjustment",
-    "text": "5.5 Pre-adjustment\n\n5.5.1 Calendar correction\n\n\n5.5.2 Outliers and intervention variables\n\n\n5.5.3 Linearization"
+    "title": "7  Seasonal adjustment of high frequency data",
+    "section": "7.5 Pre-adjustment",
+    "text": "7.5 Pre-adjustment\n\n7.5.1 Calendar correction\n\n\n7.5.2 Outliers and intervention variables\n\n\n7.5.3 Linearization"
   },
   {
     "objectID": "A-sa-hf.html#decomposition",
     "href": "A-sa-hf.html#decomposition",
-    "title": "5  Seasonal adjustment of high frequency data",
-    "section": "5.6 Decomposition",
-    "text": "5.6 Decomposition\n\n5.6.1 Extended X-11\n\n\n5.6.2 STL decomposition\n\n\n5.6.3 Arima Model Based (AMB) Decomposition\n\n\n5.6.4 State Space framework"
+    "title": "7  Seasonal adjustment of high frequency data",
+    "section": "7.6 Decomposition",
+    "text": "7.6 Decomposition\n\n7.6.1 Extended X-11\n\n\n7.6.2 STL decomposition\n\n\n7.6.3 Arima Model Based (AMB) Decomposition\n\n\n7.6.4 State Space framework"
   },
   {
     "objectID": "A-sa-hf.html#quality-assessment",
     "href": "A-sa-hf.html#quality-assessment",
-    "title": "5  Seasonal adjustment of high frequency data",
-    "section": "5.7 Quality assessment",
-    "text": "5.7 Quality assessment\n\n5.7.1 Residual seasonality\n\n\n5.7.2 Residual Calendar effects\n\n\n5.7.3 Arima Model"
+    "title": "7  Seasonal adjustment of high frequency data",
+    "section": "7.7 Quality assessment",
+    "text": "7.7 Quality assessment\n\n7.7.1 Residual seasonality\n\n\n7.7.2 Residual Calendar effects\n\n\n7.7.3 Arima Model"
   },
   {
     "objectID": "A-sa-hf.html#forecasting",
     "href": "A-sa-hf.html#forecasting",
-    "title": "5  Seasonal adjustment of high frequency data",
-    "section": "5.8 Forecasting",
-    "text": "5.8 Forecasting"
+    "title": "7  Seasonal adjustment of high frequency data",
+    "section": "7.8 Forecasting",
+    "text": "7.8 Forecasting"
   },
   {
     "objectID": "A-benchmarking.html",
     "href": "A-benchmarking.html",
-    "title": "6  Benchmarking and temporal disagreggation",
+    "title": "8  Benchmarking and temporal disagreggation",
     "section": "",
     "text": "Often one has two (or multiple) datasets of different frequency for the same target variable. Sometimes, however, these datasets are not coherent in the sense that they don’t match up. Benchmarking[^1] is a method todeal with this situation. An aggregate of a higher-frequency measurement variables is not necessarily equal to the corresponding lower-frequency less-aggregated measurement. Moreover, the sources of data may have different reliability levels. Usually, less frequent data are considered more trustworthy as they are based on larger samples and compiled more precisely. The more reliable measurements, hence often the less frequent, will serve as benchmark.\nIn seasonal adjustment methods benchmarking is the procedure that ensures the consistency over the year between adjusted and non-seasonally adjusted data. It should be noted that the [ESS Guidelines on Seasonal Adjustment (2015)] (https://ec.europa.eu/eurostat/documents/3859598/6830795/KS-GQ-15-001-EN-N.pdf/d8f1e5f5-251b-4a69-93e3-079031b74bd3), do not recommend benchmarking as it introduces a bias in the seasonally adjusted data. The U.S. Census Bureau also points out that “forcing the seasonal adjustment totals to be the same as the original series annual totals can degrade the quality of the seasonal adjustment, especially when the seasonal pattern is undergoing change. It is not natural if trading day adjustment is performed because the aggregate trading day effect over a year is variable and moderately different from zero”[^2]. Nevertheless, some users may need that the annual totals of the seasonally adjusted series match the annual totals of the original, non-seasonally adjusted series[^3].\nAccording to the [ESS Guidelines on Seasonal Adjustment (2015)] (https://ec.europa.eu/eurostat/documents/3859598/6830795/KS-GQ-15-001-EN-N.pdf/d8f1e5f5-251b-4a69-93e3-079031b74bd3), the only benefit of this approach is that there is consistency over the year between adjusted and the non-seasonally adjusted data; this can be of particular interest when low-frequency (e.g. annual) benchmarking figures officially exist (e.g. National Accounts, Balance of Payments, External Trade, etc.) and where users’ needs for time consistency are stronger."
   },
   {
     "objectID": "A-benchmarking.html#underlying-theory",
     "href": "A-benchmarking.html#underlying-theory",
-    "title": "6  Benchmarking and temporal disagreggation",
-    "section": "6.2 Underlying Theory",
-    "text": "6.2 Underlying Theory\nBenchmarking1 is a procedure widely used when for the same target variable the two or more sources of data with different frequency are available. Generally, the two sources of data rarely agree, as an aggregate of higher-frequency measurements is not necessarily equal to the less-aggregated measurement. Moreover, the sources of data may have different reliability. Usually it is thought that less frequent data are more trustworthy as they are based on larger samples and compiled more precisely. The more reliable measurement is considered as a benchmark.\nBenchmarking also occurs in the context of seasonal adjustment. Seasonal adjustment causes discrepancies between the annual totals of the seasonally unadjusted (raw) and the corresponding annual totals of the seasonally adjusted series. Therefore, seasonally adjusted series are benchmarked to the annual totals of the raw time series2. Therefore, in such a case benchmarking means the procedure that ensures the consistency over the year between adjusted and non-seasonally adjusted data. It should be noted that the ‘ESS Guidelines on Seasonal Adjustment’ (2015) do not recommend benchmarking as it introduces a bias in the seasonally adjusted data. Also the U.S. Census Bureau points out that: Forcing the seasonal adjustment totals to be the same as the original series annual totals can degrade the quality of the seasonal adjustment, especially when the seasonal pattern is undergoing change. It is not natural if trading day adjustment is performed because the aggregate trading day effect over a year is variable and moderately different from zero.3 Nevertheless, some users may prefer the annual totals for the seasonally adjusted series to match the annual totals for the original, non-seasonally adjusted series4. According to the ‘ESS Guidelines on Seasonal Adjustment’ (2015), the only benefit of this approach is that there is consistency over the year between adjusted and non-seasonally adjusted data; this can be of particular interest when low-frequency (e.g. annual) benchmarking figures officially exist (e.g. National Accounts, Balance of Payments, External Trade, etc.) where user needs for time consistency are stronger.\nThe benchmarking procedure in JDemetra+ is available for a single seasonally adjusted series and for an indirect seasonal adjustment of an aggregated series. In the first case, univariate benchmarking ensures consistency between the raw and seasonally adjusted series. In the second case, the multivariate benchmarking aims for consistency between the seasonally adjusted aggregate and its seasonally adjusted components.\nGiven a set of initial time series \\[\\left\\{ z_{i,t} \\right\\}_{i \\in I}\\], the aim of the benchmarking procedure is to find the corresponding\n\\[\\left\\{ x_{i,t} \\right\\}_{i \\in I}\\] that respect temporal aggregation constraints, represented by \\[X_{i,T} = \\sum_{t \\in T}^{}x_{i,t}\\] and contemporaneous constraints given by \\[q_{k,t} = \\sum_{j \\in J_{k}}^{}{w_{\\text{kj}}x_{j,t}}\\] or, in matrix\nform: \\[q_{k,t} = w_{k}x_{t}\\].\nThe underlying benchmarking method implemented in JDemetra+ is an extension of Cholette's5 method, which generalises, amongst others, the additive and the multiplicative Denton procedure as well as simple proportional benchmarking.\nThe JDemetra+ solution uses the following routines that are described in DURBIN, J., and KOOPMAN, S.J. (2001):\n\nThe multivariate model is handled through its univariate transformation,\nThe smoothed states are computed by means of the disturbance smoother.\n\nThe performance of the resulting algorithm is highly dependent on the number of variables involved in the model (\\(\\propto \\ n^{3}\\)). The other components of the problem (number of constraints, frequency of the series, and length of the series) are much less important (\\(\\propto \\ n\\)).\nFrom a theoretical point of view, it should be noted that this approach may handle any set of linear restrictions (equalities), endogenous (between variables) or exogenous (related to external values), provided that they don’t contain incompatible equations. The restrictions can also be relaxed for any period by considering their \"observation\" as missing. However, in practice, it appears that several kinds of contemporaneous constraints yield unstable results. This is more especially true for constraints that contain differences (which is the case for non-binding constraints). The use of a special square root initialiser improves in a significant way the stability of the algorithm."
+    "title": "8  Benchmarking and temporal disagreggation",
+    "section": "8.2 Underlying Theory",
+    "text": "8.2 Underlying Theory\nBenchmarking1 is a procedure widely used when for the same target variable the two or more sources of data with different frequency are available. Generally, the two sources of data rarely agree, as an aggregate of higher-frequency measurements is not necessarily equal to the less-aggregated measurement. Moreover, the sources of data may have different reliability. Usually it is thought that less frequent data are more trustworthy as they are based on larger samples and compiled more precisely. The more reliable measurement is considered as a benchmark.\nBenchmarking also occurs in the context of seasonal adjustment. Seasonal adjustment causes discrepancies between the annual totals of the seasonally unadjusted (raw) and the corresponding annual totals of the seasonally adjusted series. Therefore, seasonally adjusted series are benchmarked to the annual totals of the raw time series2. Therefore, in such a case benchmarking means the procedure that ensures the consistency over the year between adjusted and non-seasonally adjusted data. It should be noted that the ‘ESS Guidelines on Seasonal Adjustment’ (2015) do not recommend benchmarking as it introduces a bias in the seasonally adjusted data. Also the U.S. Census Bureau points out that: Forcing the seasonal adjustment totals to be the same as the original series annual totals can degrade the quality of the seasonal adjustment, especially when the seasonal pattern is undergoing change. It is not natural if trading day adjustment is performed because the aggregate trading day effect over a year is variable and moderately different from zero.3 Nevertheless, some users may prefer the annual totals for the seasonally adjusted series to match the annual totals for the original, non-seasonally adjusted series4. According to the ‘ESS Guidelines on Seasonal Adjustment’ (2015), the only benefit of this approach is that there is consistency over the year between adjusted and non-seasonally adjusted data; this can be of particular interest when low-frequency (e.g. annual) benchmarking figures officially exist (e.g. National Accounts, Balance of Payments, External Trade, etc.) where user needs for time consistency are stronger.\nThe benchmarking procedure in JDemetra+ is available for a single seasonally adjusted series and for an indirect seasonal adjustment of an aggregated series. In the first case, univariate benchmarking ensures consistency between the raw and seasonally adjusted series. In the second case, the multivariate benchmarking aims for consistency between the seasonally adjusted aggregate and its seasonally adjusted components.\nGiven a set of initial time series \\[\\left\\{ z_{i,t} \\right\\}_{i \\in I}\\], the aim of the benchmarking procedure is to find the corresponding\n\\[\\left\\{ x_{i,t} \\right\\}_{i \\in I}\\] that respect temporal aggregation constraints, represented by \\[X_{i,T} = \\sum_{t \\in T}^{}x_{i,t}\\] and contemporaneous constraints given by \\[q_{k,t} = \\sum_{j \\in J_{k}}^{}{w_{\\text{kj}}x_{j,t}}\\] or, in matrix\nform: \\[q_{k,t} = w_{k}x_{t}\\].\nThe underlying benchmarking method implemented in JDemetra+ is an extension of Cholette's5 method, which generalises, amongst others, the additive and the multiplicative Denton procedure as well as simple proportional benchmarking.\nThe JDemetra+ solution uses the following routines that are described in DURBIN, J., and KOOPMAN, S.J. (2001):\n\nThe multivariate model is handled through its univariate transformation,\nThe smoothed states are computed by means of the disturbance smoother.\n\nThe performance of the resulting algorithm is highly dependent on the number of variables involved in the model (\\(\\propto \\ n^{3}\\)). The other components of the problem (number of constraints, frequency of the series, and length of the series) are much less important (\\(\\propto \\ n\\)).\nFrom a theoretical point of view, it should be noted that this approach may handle any set of linear restrictions (equalities), endogenous (between variables) or exogenous (related to external values), provided that they don’t contain incompatible equations. The restrictions can also be relaxed for any period by considering their \"observation\" as missing. However, in practice, it appears that several kinds of contemporaneous constraints yield unstable results. This is more especially true for constraints that contain differences (which is the case for non-binding constraints). The use of a special square root initialiser improves in a significant way the stability of the algorithm."
   },
   {
     "objectID": "A-benchmarking.html#tools",
     "href": "A-benchmarking.html#tools",
-    "title": "6  Benchmarking and temporal disagreggation",
-    "section": "6.3 Tools",
-    "text": "6.3 Tools"
-  },
-  {
-    "objectID": "A-benchmarking.html#references",
-    "href": "A-benchmarking.html#references",
-    "title": "6  Benchmarking and temporal disagreggation",
-    "section": "6.4 References",
-    "text": "6.4 References"
-  },
-  {
-    "objectID": "A-trend-cycle-estimation.html#underlying-theory",
-    "href": "A-trend-cycle-estimation.html#underlying-theory",
-    "title": "7  Trend-cycle estimation",
-    "section": "7.2 Underlying Theory",
-    "text": "7.2 Underlying Theory"
-  },
-  {
-    "objectID": "A-trend-cycle-estimation.html#tools",
-    "href": "A-trend-cycle-estimation.html#tools",
-    "title": "7  Trend-cycle estimation",
-    "section": "7.3 Tools",
-    "text": "7.3 Tools\n\n7.3.1 rjdfilters package"
-  },
-  {
-    "objectID": "A-nowcasting.html#underlying-theory",
-    "href": "A-nowcasting.html#underlying-theory",
-    "title": "8  Nowcasting",
-    "section": "8.2 Underlying Theory",
-    "text": "8.2 Underlying Theory"
-  },
-  {
-    "objectID": "A-nowcasting.html#tools",
-    "href": "A-nowcasting.html#tools",
-    "title": "8  Nowcasting",
+    "title": "8  Benchmarking and temporal disagreggation",
     "section": "8.3 Tools",
     "text": "8.3 Tools"
   },
   {
+    "objectID": "A-benchmarking.html#references",
+    "href": "A-benchmarking.html#references",
+    "title": "8  Benchmarking and temporal disagreggation",
+    "section": "8.4 References",
+    "text": "8.4 References"
+  },
+  {
+    "objectID": "A-trend-cycle-estimation.html#underlying-theory",
+    "href": "A-trend-cycle-estimation.html#underlying-theory",
+    "title": "9  Trend-cycle estimation",
+    "section": "9.2 Underlying Theory",
+    "text": "9.2 Underlying Theory"
+  },
+  {
+    "objectID": "A-trend-cycle-estimation.html#tools",
+    "href": "A-trend-cycle-estimation.html#tools",
+    "title": "9  Trend-cycle estimation",
+    "section": "9.3 Tools",
+    "text": "9.3 Tools\n\n9.3.1 rjdfilters package"
+  },
+  {
+    "objectID": "A-nowcasting.html#underlying-theory",
+    "href": "A-nowcasting.html#underlying-theory",
+    "title": "10  Nowcasting",
+    "section": "10.2 Underlying Theory",
+    "text": "10.2 Underlying Theory"
+  },
+  {
+    "objectID": "A-nowcasting.html#tools",
+    "href": "A-nowcasting.html#tools",
+    "title": "10  Nowcasting",
+    "section": "10.3 Tools",
+    "text": "10.3 Tools"
+  },
+  {
     "objectID": "T-graphical-user-interface.html",
     "href": "T-graphical-user-interface.html",
-    "title": "9  Graphical User Interface",
+    "title": "11  Graphical User Interface",
     "section": "",
     "text": "why use the graphical user interface ? what is not directly available in R yet?\nobjective: describe the general features (independent of algorithms) - general layout - import data - documents - workspaces - specifications - output\nold content can be recycled but - very heavy (trim from md or txt files) - check version 3 - see if we stick with pasted screen shots"
   },
   {
     "objectID": "T-r-packages.html",
     "href": "T-r-packages.html",
-    "title": "10  R packages",
+    "title": "12  R packages",
     "section": "",
     "text": "table"
   },
   {
     "objectID": "T-r-packages.html#organisation-overview",
     "href": "T-r-packages.html#organisation-overview",
-    "title": "10  R packages",
-    "section": "10.2 Organisation overview",
-    "text": "10.2 Organisation overview\na suite (order)\ngeneral output organisation"
+    "title": "12  R packages",
+    "section": "12.2 Organisation overview",
+    "text": "12.2 Organisation overview\na suite (order)\ngeneral output organisation"
   },
   {
     "objectID": "T-r-packages.html#installation-procedure",
     "href": "T-r-packages.html#installation-procedure",
-    "title": "10  R packages",
-    "section": "10.3 Installation procedure",
-    "text": "10.3 Installation procedure"
+    "title": "12  R packages",
+    "section": "12.3 Installation procedure",
+    "text": "12.3 Installation procedure"
   },
   {
     "objectID": "T-r-packages.html#interaction-with-gui",
     "href": "T-r-packages.html#interaction-with-gui",
-    "title": "10  R packages",
-    "section": "10.4 Interaction with GUI",
-    "text": "10.4 Interaction with GUI"
+    "title": "12  R packages",
+    "section": "12.4 Interaction with GUI",
+    "text": "12.4 Interaction with GUI"
   },
   {
     "objectID": "T-r-packages.html#full-list",
     "href": "T-r-packages.html#full-list",
-    "title": "10  R packages",
-    "section": "10.5 Full list",
-    "text": "10.5 Full list\n\n10.5.1 rjd3modelling\nmain functions: table"
+    "title": "12  R packages",
+    "section": "12.5 Full list",
+    "text": "12.5 Full list\n\n12.5.1 rjd3modelling\nmain functions: table"
   },
   {
     "objectID": "T-plug-ins.html",
     "href": "T-plug-ins.html",
-    "title": "11  Plug-ins for JDemetra+",
+    "title": "13  Plug-ins for JDemetra+",
     "section": "",
     "text": "table"
   },
   {
     "objectID": "T-production.html",
     "href": "T-production.html",
-    "title": "12  Production",
+    "title": "14  Production",
     "section": "",
     "text": "obj here: general explanations + examples ? here : explain voc discrepancies vs guidelines bbk controlled current link to plug in illustration links on covid\nJDemetra+ offers several options for refreshing the output, which are in line with the ESS Guidelines on Seasonal Adjustment (2015) (link) requirements.\nreprduce table cf. my pdf (xls) doc remark: rjwsa cruncher vignette is not up to date"
   },
   {
     "objectID": "T-tool-selection.html",
     "href": "T-tool-selection.html",
-    "title": "13  Tool selection issues",
+    "title": "15  Tool selection issues",
     "section": "",
     "text": "objective : select wisely between GUI(+ cruncher and plug ins) and R packages"
   },
   {
     "objectID": "M-spectral-analysis.html",
     "href": "M-spectral-analysis.html",
-    "title": "14  Spectral Analysis Principles and Tools",
+    "title": "16  Spectral Analysis Principles and Tools",
     "section": "",
     "text": "add : R code, rjd3toolkit references"
   },
   {
     "objectID": "M-spectral-analysis.html#overview",
     "href": "M-spectral-analysis.html#overview",
-    "title": "14  Spectral Analysis Principles and Tools",
-    "section": "14.1 Overview",
-    "text": "14.1 Overview\na lot of information might be recycled from the old online documentation cf file\n17-Meth-Spectral_Analysis.Rmd\nwhere info from the old pages is gathered formulas and tables compatibility with quarto have to be checked before pasting in the book"
+    "title": "16  Spectral Analysis Principles and Tools",
+    "section": "16.1 Overview",
+    "text": "16.1 Overview\na lot of information might be recycled from the old online documentation cf file\n17-Meth-Spectral_Analysis.Rmd\nwhere info from the old pages is gathered formulas and tables compatibility with quarto have to be checked before pasting in the book"
   },
   {
     "objectID": "M-reg-arima-modelling.html",
     "href": "M-reg-arima-modelling.html",
-    "title": "15  Reg-Arima models",
+    "title": "17  Reg-Arima models",
     "section": "",
     "text": "lot of information might be recycled from the old online documentation cf file 18-Meth-Reg-Arima-Modelling.Rmd where info from the old pages is gathered formulas and tables compatibility with quarto have to be checked before pasting in the book\nIn the chapter on SA, in the pre-adjustment section, we tackle: purpose, principles and results of reg-arima models (tramo or reg-arima)\nObjectives of the chapter: * all the technical non SA specific details * differences (none left ?) between Tramo and Reg-Arima (X13)"
   },
   {
     "objectID": "M-reg-arima-modelling.html#regarima-model",
     "href": "M-reg-arima-modelling.html#regarima-model",
-    "title": "15  Reg-Arima models",
-    "section": "15.2 RegARIMA model",
-    "text": "15.2 RegARIMA model\nThe primary aim of seasonal adjustment is to remove the unobservable seasonal component from the observed series. The decomposition routines implemented in the seasonal adjustment methods make specific assumptions concerning the input series. One of the crucial assumptions is that the input series is stochastic, i.e. it is clean of deterministic effects. Another important limitation derives from the symmetric linear filter used in TRAMO-SEATS and X-13ARIMA-SEATS. A symmetric linear filter cannot be applied to the first and last observations with the same set of weights as for the central observations[^1]. Therefore, for the most recent observations these filters provide estimates that are subject to revisions.\nTo overcome these constrains both seasonal adjustment methods discussed here include a modelling step that aims to analyse the time series development and provide a better input for decomposition purposes. The tool that is frequently used for this purpose is the ARIMA model, as discussed by BOX, G.E.P., and JENKINS, G.M. (1970). However, time series are often affected by the outliers, other deterministic effects and missing observations. The presence of these effects is not in line with the ARIMA model assumptions. The presence of outliers and other deterministic effects impede the identification of an optimal ARIMA model due to the important bias in the estimation of parameters of sample autocorrelation functions (both global and partial)[^3]. Therefore, the original series need to be corrected for any deterministic effects and missing observations. This process is called linearisation and results in the stochastic series that can be modelled by ARIMA.\nFor this purpose both TRAMO and RegARIMA use regression models with ARIMA errors. With these models TRAMO and RegARIMA also produce forecasts."
+    "title": "17  Reg-Arima models",
+    "section": "17.2 RegARIMA model",
+    "text": "17.2 RegARIMA model\nThe primary aim of seasonal adjustment is to remove the unobservable seasonal component from the observed series. The decomposition routines implemented in the seasonal adjustment methods make specific assumptions concerning the input series. One of the crucial assumptions is that the input series is stochastic, i.e. it is clean of deterministic effects. Another important limitation derives from the symmetric linear filter used in TRAMO-SEATS and X-13ARIMA-SEATS. A symmetric linear filter cannot be applied to the first and last observations with the same set of weights as for the central observations[^1]. Therefore, for the most recent observations these filters provide estimates that are subject to revisions.\nTo overcome these constrains both seasonal adjustment methods discussed here include a modelling step that aims to analyse the time series development and provide a better input for decomposition purposes. The tool that is frequently used for this purpose is the ARIMA model, as discussed by BOX, G.E.P., and JENKINS, G.M. (1970). However, time series are often affected by the outliers, other deterministic effects and missing observations. The presence of these effects is not in line with the ARIMA model assumptions. The presence of outliers and other deterministic effects impede the identification of an optimal ARIMA model due to the important bias in the estimation of parameters of sample autocorrelation functions (both global and partial)[^3]. Therefore, the original series need to be corrected for any deterministic effects and missing observations. This process is called linearisation and results in the stochastic series that can be modelled by ARIMA.\nFor this purpose both TRAMO and RegARIMA use regression models with ARIMA errors. With these models TRAMO and RegARIMA also produce forecasts."
   },
   {
     "objectID": "M-moving-average-decomposition.html",
     "href": "M-moving-average-decomposition.html",
-    "title": "16  Moving average based decomposition",
+    "title": "18  Moving average based decomposition",
     "section": "",
     "text": "a lot of information might be recycled from the old online documentation cf file 19-Meth-Local-decomposition.Rmd where info from the old pages is gathered formulas and tables compatibility with quarto have to be checked before pasting in the book\nlinks to rjdfilters"
   },
   {
     "objectID": "M-local-regression-decomposition.html",
     "href": "M-local-regression-decomposition.html",
-    "title": "17  Local regression decomposition",
+    "title": "19  Local regression decomposition",
     "section": "",
     "text": "goal of the chapter : details on STL which are not in the SA chapter"
   },
   {
     "objectID": "M-amb-decomposition.html",
     "href": "M-amb-decomposition.html",
-    "title": "18  Arima Model Based AMB decomposition",
+    "title": "20  Arima Model Based AMB decomposition",
     "section": "",
     "text": "goal of the chapter : details on SEATS which are not in the SA chapter\na lot of information might be recycled from the old online documentation cf file 20-Meth-AMB-decomposition.Rmd where info from the old pages is gathered formulas and tables compatibility with quarto have to be checked before pasting in the book"
   }

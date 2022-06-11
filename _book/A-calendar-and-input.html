@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>JDemetra+ online documentation - 13&nbsp; Plug-ins for JDemetra+</title>
+<title>JDemetra+ online documentation - 6&nbsp; Calendar correction and user-defined corrections</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -45,8 +45,8 @@ ul.task-list{list-style: none;}
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./T-production.html" rel="next">
-<link href="./T-r-packages.html" rel="prev">
+<link href="./A-sa-hf.html" rel="next">
+<link href="./A-outlier-detection.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -64,7 +64,7 @@ ul.task-list{list-style: none;}
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Plug-ins for JDemetra+</span></h1>
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Calendar correction and user-defined corrections</span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -119,7 +119,7 @@ ul.task-list{list-style: none;}
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./A-calendar-and-input.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Calendar correction and user-defined corrections</span></a>
+  <a href="./A-calendar-and-input.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Calendar correction and user-defined corrections</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -154,7 +154,7 @@ ul.task-list{list-style: none;}
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./T-plug-ins.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Plug-ins for JDemetra+</span></a>
+  <a href="./T-plug-ins.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Plug-ins for JDemetra+</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -211,7 +211,11 @@ ul.task-list{list-style: none;}
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#main-functions" id="toc-main-functions" class="nav-link active" data-scroll-target="#main-functions"> <span class="header-section-number">13.1</span> Main functions</a></li>
+  <li><a href="#motivation" id="toc-motivation" class="nav-link active" data-scroll-target="#motivation"> <span class="header-section-number">6.1</span> Motivation</a></li>
+  <li><a href="#underlying-theory" id="toc-underlying-theory" class="nav-link" data-scroll-target="#underlying-theory"> <span class="header-section-number">6.2</span> Underlying theory</a>
+  <ul class="collapse">
+  <li><a href="#overview-of-calendar-effects-in-jdemetra" id="toc-overview-of-calendar-effects-in-jdemetra" class="nav-link" data-scroll-target="#overview-of-calendar-effects-in-jdemetra"> <span class="header-section-number">6.2.1</span> Overview of Calendar effects in JDemetra+</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -220,7 +224,7 @@ ul.task-list{list-style: none;}
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Plug-ins for JDemetra+</span></h1>
+<h1 class="title d-none d-lg-block"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Calendar correction and user-defined corrections</span></h1>
 </div>
 
 
@@ -234,11 +238,30 @@ ul.task-list{list-style: none;}
 
 </header>
 
-<section id="main-functions" class="level2" data-number="13.1">
-<h2 data-number="13.1" class="anchored" data-anchor-id="main-functions"><span class="header-section-number">13.1</span> Main functions</h2>
-<p>table</p>
+<p>generating Calendar regressors and other input variables</p>
+<section id="motivation" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="motivation"><span class="header-section-number">6.1</span> Motivation</h2>
+</section>
+<section id="underlying-theory" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="underlying-theory"><span class="header-section-number">6.2</span> Underlying theory</h2>
+<section id="overview-of-calendar-effects-in-jdemetra" class="level3" data-number="6.2.1">
+<h3 data-number="6.2.1" class="anchored" data-anchor-id="overview-of-calendar-effects-in-jdemetra"><span class="header-section-number">6.2.1</span> Overview of Calendar effects in JDemetra+</h3>
+<p>The following description of the calendar effects in JDemetra+ is strictly based on PALATE, J. (2014).</p>
+<p>A natural way for modelling calendar effects consists of distributing the days of each period into different groups. The regression variable corresponding to a type of day (a group) is simply defined by the number of days it contains for each period. Usual classifications are:</p>
+<ul>
+<li><p>Trading days (7 groups): each day of the week defines a group (Mondays,...,Sundays);</p></li>
+<li><p>Working days (2 groups): week days and weekends.</p></li>
+</ul>
+<p>The definition of a group could involve partial days. For instance, we could consider that one half of Saturdays belong to week days and the second half to weekends.</p>
+<p>Usually, specific holidays are handled as Sundays and they are included in the group corresponding to "non-working days". This approach assumes that the economic activity on national holidays is the same (or very close to) the level of activity that is typical for Sundays. Alternatively, specific holidays can be considered separately, e.g.&nbsp;by the specification that divided days into three groups:</p>
+<ul>
+<li><p>Working days (Mondays to Fridays, except for specific holidays),</p></li>
+<li><p>Non-working days (Saturdays and Sundays, except for specific holidays),</p></li>
+<li><p>Specific holidays.</p></li>
+</ul>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -323,13 +346,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./T-r-packages.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">R packages</span></span>
+      <a href="./A-outlier-detection.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Outlier detection</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./T-production.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Production</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./A-sa-hf.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Seasonal adjustment of high frequency data</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

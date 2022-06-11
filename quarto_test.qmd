@@ -1,9 +1,0 @@
----
-title: "TEST"
-format: html
-editor: visual
----
-
-# Small test
-
-with *quarto* format
