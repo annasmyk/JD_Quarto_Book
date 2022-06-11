@@ -1,0 +1,11 @@
+# Tool selection issues
+
+might be integrated to another chapter 
+
+objective : select wisely between GUI(+ cruncher) and R packages
+
+
+
+
+
+

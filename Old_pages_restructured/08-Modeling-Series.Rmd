@@ -1,0 +1,14 @@
+# Modelling and forecasting Time Series
+
+
+here details on modelisation (independently from seasonal adjustement) 
+- reg-arima models
+- state space framework 
+
+## Motivation
+
+## Tools 
+
+### GUI 
+
+### R packages 

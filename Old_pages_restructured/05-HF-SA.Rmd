@@ -1,0 +1,21 @@
+# High Frequency data (seasonal adjustment)
+
+## Motivation
+
+## Unobserved Components 
+
+## Spedcral analysis
+
+## Seasonality tests
+
+## Calendar correction
+
+## Outliers and intervention variables 
+
+## Pre-adjustment
+
+## Decomposition
+
+## Quality assessment
+
+### Seasonlity tests 

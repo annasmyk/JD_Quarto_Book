@@ -1,0 +1,24 @@
+# R packages
+
+## Available algorithms 
+
+table
+
+## Organisation overview 
+
+a suite (order)
+
+general output organisation
+
+## Installation procedure 
+
+
+
+## Interaction with GUI
+
+
+## Full list
+
+### rjd3modelling 
+
+main functions, table 

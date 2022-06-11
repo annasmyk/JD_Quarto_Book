@@ -1,0 +1,9 @@
+# Trend-cycle estimation 
+
+## Motivation
+
+## Underlying Theory
+
+## Tools
+
+### rjdfilters package

@@ -1,0 +1,76 @@
+# Main functions overview 
+
+
+link to key references 
+* 2 handbooks
+* sets of guidelines
+
+(start with goof practice rules)
+
+
+
+## Seasonal adjustment algorithms 
+
+### Data frequencies 
+link to HF
+(edit)
+The seasonal adjustment methods available in JDemetra+ aim to decompose
+a time series into components and remove seasonal fluctuations from the
+observed time series. The X-11 method considers monthly and quarterly
+series while SEATS is able to decompose series with 2, 3, 4, 6 and 12
+observations per year.
+
+### X-13
+
+X-13ARIMA-SEATS is a seasonal adjustment program developed and supported
+by the U.S. Census Bureau. It is based on the U.S. Census Bureau\'s
+earlier X-11 program, the X-11-ARIMA program developed at Statistics
+Canada, the X-12-ARIMA program developed by the U.S. Census Bureau, and
+the SEATS program developed at the Banco de España. The program is now
+used by the U.S. Census Bureau for a seasonal adjustment of time series.
+Users can download the X-13ARIMA-SEATS application, which is a Windows
+interface for the X-13ARIMA-SEATS program. Detailed information on
+X-13ARIMA-SEATS can be found at a <a href="https://www.census.gov/srd/www/winx13//" target="_blank">dedicated U.S. Census Bureau webpage</a>.
+
+In contrast to the earlier product (X-12-ARIMA), X-13ARIMA-SEATS
+includes not only the enhanced X-11 seasonal adjustment procedure but
+also the capability to generate ARIMA model-based seasonal adjustment
+using a version of the SEATS procedure originally developed by Victor
+Gómez and Agustín Maravall at the Banco de España. The program also
+includes a variety of new tools to overcome adjustment problems and
+thereby enlarge the range of economic time series that can be adequately
+seasonally adjusted.
+
+In general, X-13ARIMA-SEATS can perform seasonal adjustment in two ways:
+either using ARIMA model-based seasonal adjustment as in [SEATS](../theory/SA_SEATS.html) or by
+means of an enhanced [X-11 method](../theory/SA_X11.html).
+
+
+### STL
+
+### Tramo-Seats
+links : to pre adj, decomp, tools, methods
+
+TRAMO-SEATS is a model-based seasonal adjustment method developed by
+Victor Gómez (Ministerio de Hacienda), and Agustin Maravall (Banco de
+España). It consists of two linked programs: TRAMO and SEATS. TRAMO
+(Time Series Regression with ARIMA Noise, Missing Observations, and
+Outliers) performs estimation, forecasting, and interpolation of
+regression models with missing observations and ARIMA errors, in the
+presence of possibly several types of outlier. SEATS (Signal
+Extraction in ARIMA Time Series) performs an ARIMA-based decomposition
+of an observed time series into unobserved components. Information about
+the TRAMO-SEATS method available in this section derives directly from
+papers by Victor Gómez and Agustin Maravall; the most important ones
+are: GÓMEZ, V., and MARAVALL, A. (1996), GÓMEZ, V., and MARAVALL, A.
+(2001a, b) and MARAVALL, A. (2009). More information about the
+TRAMO-SEATS method, TRAMO-SEATS software (DOS version and TSW+ -- Tramo
+Seats Windows software and several interfaces) and its documentation as
+well as papers on methodology and application of the programs, can be
+found in the dedicated section of the 
+<a href="https://www.bde.es/bde/en/secciones/servicios/Profesionales/Programas_estadi/Programas_estad_d9fa7f3710fd821.html" target="_blank">Banco de España website</a>.
+
+
+### Basic Strcutural models 
+
+## Trend-cycle estimation 
