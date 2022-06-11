@@ -1,0 +1,13 @@
+# Spectral Analysis Principles and Tools
+
+add : R code, rjd3toolkit references 
+
+## Overview
+
+a lot of information might be recycled from the old online documentation
+cf file 
+
+17-Meth-Spectral_Analysis.Rmd
+
+where info from the old pages is gathered 
+formulas and tables compatibility with quarto have to be checked before pasting in the book

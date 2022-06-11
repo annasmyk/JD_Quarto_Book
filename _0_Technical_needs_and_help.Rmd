@@ -5,21 +5,22 @@ date: '2022-05-13'
 ---
 
 ## questions (alain ?)
-* when they say to launch code : where to write it ? index ? indep script ?
-* knit one file, without building the book
-* miktek story and pdf book deactivation
-* preview chapter 
-* parts in book 
-* menu de droite
-* harmonization police et formulas 
-* images in r chunk to adjust size 
-* gestion des tableaux
-* get rid of numbers under a certain depth (from 4th level ? cf. utiltr)
 
+-   when they say to launch code : where to write it ? index ? indep script ?
+-   knit one file, without building the book
+-   miktek story and pdf book deactivation
+-   preview chapter
+-   parts in book
+-   menu de droite
+-   harmonization police et formulas
+-   images in r chunk to adjust size
+-   gestion des tableaux
+-   get rid of numbers under a certain depth (from 4th level ? cf. utiltr)
 
-## how to 
-* nice table (ok insert)
+## how to
 
-## infos 
-* utilitR code explo 
+-   nice table (ok insert)
 
+## infos
+
+-   utilitR code explo

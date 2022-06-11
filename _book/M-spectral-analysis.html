@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>JDemetra+ online documentation - 4&nbsp; Outlier detection</title>
+<title>JDemetra+ online documentation - 14&nbsp; Spectral Analysis Principles and Tools</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -45,8 +45,8 @@ ul.task-list{list-style: none;}
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./sa-hf.html" rel="next">
-<link href="./main-features.html" rel="prev">
+<link href="./M-reg-arima-modelling.html" rel="next">
+<link href="./T-tool-selection.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -64,7 +64,7 @@ ul.task-list{list-style: none;}
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Outlier detection</span></h1>
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Spectral Analysis Principles and Tools</span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -94,62 +94,77 @@ ul.task-list{list-style: none;}
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./what-is-jd.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">JDemetra+ Software</span></a>
+  <a href="./G-what-is-jd.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">JDemetra+ Software</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./quick-start.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Quick start with…</span></a>
+  <a href="./G-quick-start.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Quick start with…</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./main-features.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Main functions overview</span></a>
+  <a href="./G-main-features.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Main functions overview</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./outlier-detection.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Outlier detection</span></a>
+  <a href="./A-outlier-detection.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Outlier detection</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./sa-hf.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Seasonal adjustment of high frequency data</span></a>
+  <a href="./A-sa-hf.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Seasonal adjustment of high frequency data</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./benchmarking.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Benchmarking and temporal disagreggation</span></a>
+  <a href="./A-benchmarking.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Benchmarking and temporal disagreggation</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./trend-cycle-estimation.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Trend-cycle estimation</span></a>
+  <a href="./A-trend-cycle-estimation.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Trend-cycle estimation</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./nowcasting.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Nowcasting</span></a>
+  <a href="./A-nowcasting.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Nowcasting</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./graphical-user-interface.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Graphical User Interface</span></a>
+  <a href="./T-graphical-user-interface.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Graphical User Interface</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./r-packages.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">R packages</span></a>
+  <a href="./T-r-packages.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">R packages</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./plug-ins.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Plug-ins for JDemetra+</span></a>
+  <a href="./T-plug-ins.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Plug-ins for JDemetra+</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./production.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Production</span></a>
+  <a href="./T-production.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Production</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./T-tool-selection.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Tool selection issues</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./M-spectral-analysis.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Spectral Analysis Principles and Tools</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./M-reg-arima-modelling.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Reg-Arima models</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -166,13 +181,7 @@ ul.task-list{list-style: none;}
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#motivation" id="toc-motivation" class="nav-link active" data-scroll-target="#motivation"> <span class="header-section-number">4.1</span> Motivation</a></li>
-  <li><a href="#with-reg-arima-models" id="toc-with-reg-arima-models" class="nav-link" data-scroll-target="#with-reg-arima-models"> <span class="header-section-number">4.2</span> With Reg Arima models</a>
-  <ul class="collapse">
-  <li><a href="#part-of-preadjustment" id="toc-part-of-preadjustment" class="nav-link" data-scroll-target="#part-of-preadjustment"> <span class="header-section-number">4.2.1</span> Part of preadjustment</a></li>
-  <li><a href="#specific-terror-tool" id="toc-specific-terror-tool" class="nav-link" data-scroll-target="#specific-terror-tool"> <span class="header-section-number">4.2.2</span> Specific TERROR tool</a></li>
-  </ul></li>
-  <li><a href="#with-structural-models" id="toc-with-structural-models" class="nav-link" data-scroll-target="#with-structural-models"> <span class="header-section-number">4.3</span> With structural models</a></li>
+  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview"> <span class="header-section-number">14.1</span> Overview</a></li>
   </ul>
 </nav>
     </div>
@@ -181,7 +190,7 @@ ul.task-list{list-style: none;}
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Outlier detection</span></h1>
+<h1 class="title d-none d-lg-block"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Spectral Analysis Principles and Tools</span></h1>
 </div>
 
 
@@ -195,21 +204,12 @@ ul.task-list{list-style: none;}
 
 </header>
 
-<p>in or outside a seasonal adjustment process</p>
-<section id="motivation" class="level2" data-number="4.1">
-<h2 data-number="4.1" class="anchored" data-anchor-id="motivation"><span class="header-section-number">4.1</span> Motivation</h2>
-</section>
-<section id="with-reg-arima-models" class="level2" data-number="4.2">
-<h2 data-number="4.2" class="anchored" data-anchor-id="with-reg-arima-models"><span class="header-section-number">4.2</span> With Reg Arima models</h2>
-<section id="part-of-preadjustment" class="level3" data-number="4.2.1">
-<h3 data-number="4.2.1" class="anchored" data-anchor-id="part-of-preadjustment"><span class="header-section-number">4.2.1</span> Part of preadjustment</h3>
-</section>
-<section id="specific-terror-tool" class="level3" data-number="4.2.2">
-<h3 data-number="4.2.2" class="anchored" data-anchor-id="specific-terror-tool"><span class="header-section-number">4.2.2</span> Specific TERROR tool</h3>
-</section>
-</section>
-<section id="with-structural-models" class="level2" data-number="4.3">
-<h2 data-number="4.3" class="anchored" data-anchor-id="with-structural-models"><span class="header-section-number">4.3</span> With structural models</h2>
+<p>add : R code, rjd3toolkit references</p>
+<section id="overview" class="level2" data-number="14.1">
+<h2 data-number="14.1" class="anchored" data-anchor-id="overview"><span class="header-section-number">14.1</span> Overview</h2>
+<p>a lot of information might be recycled from the old online documentation cf file</p>
+<p>17-Meth-Spectral_Analysis.Rmd</p>
+<p>where info from the old pages is gathered formulas and tables compatibility with quarto have to be checked before pasting in the book</p>
 
 
 </section>
@@ -296,13 +296,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./main-features.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Main functions overview</span></span>
+      <a href="./T-tool-selection.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Tool selection issues</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./sa-hf.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Seasonal adjustment of high frequency data</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./M-reg-arima-modelling.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Reg-Arima models</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

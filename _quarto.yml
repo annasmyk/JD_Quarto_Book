@@ -7,18 +7,21 @@ book:
   date: "12/01/2022"
   chapters:
     - index.qmd
-    - what-is-jd.qmd
-    - quick-start.qmd
-    - main-features.qmd
-    - outlier-detection.qmd
-    - sa-hf.qmd
-    - benchmarking.qmd
-    - trend-cycle-estimation.qmd
-    - nowcasting.qmd
-    - graphical-user-interface.qmd
-    - r-packages.qmd
-    - plug-ins.qmd
-    - production.qmd
+    - G-what-is-jd.qmd
+    - G-quick-start.qmd
+    - G-main-features.qmd
+    - A-outlier-detection.qmd
+    - A-sa-hf.qmd
+    - A-benchmarking.qmd
+    - A-trend-cycle-estimation.qmd
+    - A-nowcasting.qmd
+    - T-graphical-user-interface.qmd
+    - T-r-packages.qmd
+    - T-plug-ins.qmd
+    - T-production.qmd
+    - T-tool-selection.qmd
+    - M-spectral-analysis.qmd
+    - M-reg-arima-modelling.qmd
     - references.qmd
 
 bibliography: references.bib
