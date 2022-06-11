@@ -1,0 +1,4 @@
+# Local regression decomposition
+
+goal of the chapter : details on STL which are not in the SA chapter
+

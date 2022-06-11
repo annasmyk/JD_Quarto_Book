@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>JDemetra+ online documentation - 15&nbsp; Reg-Arima models</title>
+<title>JDemetra+ online documentation - 17&nbsp; Local regression decomposition</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -45,8 +45,8 @@ ul.task-list{list-style: none;}
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./M-moving-average-decomposition.html" rel="next">
-<link href="./M-spectral-analysis.html" rel="prev">
+<link href="./M-amb-decomposition.html" rel="next">
+<link href="./M-moving-average-decomposition.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -64,7 +64,7 @@ ul.task-list{list-style: none;}
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Reg-Arima models</span></h1>
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Local regression decomposition</span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -164,7 +164,7 @@ ul.task-list{list-style: none;}
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./M-reg-arima-modelling.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Reg-Arima models</span></a>
+  <a href="./M-reg-arima-modelling.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Reg-Arima models</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -174,7 +174,7 @@ ul.task-list{list-style: none;}
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./M-local-regression-decomposition.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Local regression decomposition</span></a>
+  <a href="./M-local-regression-decomposition.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Local regression decomposition</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -197,21 +197,14 @@ ul.task-list{list-style: none;}
 </nav>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc">
-    <h2 id="toc-title">Table of contents</h2>
-   
-  <ul>
-  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview"> <span class="header-section-number">15.1</span> Overview</a></li>
-  <li><a href="#regarima-model" id="toc-regarima-model" class="nav-link" data-scroll-target="#regarima-model"> <span class="header-section-number">15.2</span> RegARIMA model</a></li>
-  </ul>
-</nav>
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Reg-Arima models</span></h1>
+<h1 class="title d-none d-lg-block"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Local regression decomposition</span></h1>
 </div>
 
 
@@ -225,20 +218,9 @@ ul.task-list{list-style: none;}
 
 </header>
 
-<section id="overview" class="level2" data-number="15.1">
-<h2 data-number="15.1" class="anchored" data-anchor-id="overview"><span class="header-section-number">15.1</span> Overview</h2>
-<p>lot of information might be recycled from the old online documentation cf file 18-Meth-Reg-Arima-Modelling.Rmd where info from the old pages is gathered formulas and tables compatibility with quarto have to be checked before pasting in the book</p>
-<p>In the chapter on SA, in the pre-adjustment section, we tackle: purpose, principles and results of reg-arima models (tramo or reg-arima)</p>
-<p>Objectives of the chapter: * all the technical non SA specific details * differences (none left ?) between Tramo and Reg-Arima (X13)</p>
-</section>
-<section id="regarima-model" class="level2" data-number="15.2">
-<h2 data-number="15.2" class="anchored" data-anchor-id="regarima-model"><span class="header-section-number">15.2</span> RegARIMA model</h2>
-<p>The primary aim of seasonal adjustment is to remove the unobservable seasonal component from the observed series. The decomposition routines implemented in the seasonal adjustment methods make specific assumptions concerning the input series. One of the crucial assumptions is that the input series is stochastic, i.e.&nbsp;it is clean of deterministic effects. Another important limitation derives from the symmetric linear filter used in TRAMO-SEATS and X-13ARIMA-SEATS. A symmetric linear filter cannot be applied to the first and last observations with the same set of weights as for the central observations[^1]. Therefore, for the most recent observations these filters provide estimates that are subject to revisions.</p>
-<p>To overcome these constrains both seasonal adjustment methods discussed here include a modelling step that aims to analyse the time series development and provide a better input for decomposition purposes. The tool that is frequently used for this purpose is the ARIMA model, as discussed by BOX, G.E.P., and JENKINS, G.M. (1970). However, time series are often affected by the outliers, other deterministic effects and missing observations. The presence of these effects is not in line with the ARIMA model assumptions. The presence of outliers and other deterministic effects impede the identification of an optimal ARIMA model due to the important bias in the estimation of parameters of <a href="../theory/ACF_and_PACF.html">sample autocorrelation functions</a> (both global and partial)[^3]. Therefore, the original series need to be corrected for any deterministic effects and missing observations. This process is called linearisation and results in the stochastic series that can be modelled by ARIMA.</p>
-<p>For this purpose both TRAMO and RegARIMA use regression models with ARIMA errors. With these models TRAMO and RegARIMA also produce forecasts.</p>
+<p>goal of the chapter : details on STL which are not in the SA chapter</p>
 
 
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -322,13 +304,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./M-spectral-analysis.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Spectral Analysis Principles and Tools</span></span>
+      <a href="./M-moving-average-decomposition.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Moving average based decomposition</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./M-moving-average-decomposition.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Moving average based decomposition</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./M-amb-decomposition.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Arima Model Based AMB decomposition</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

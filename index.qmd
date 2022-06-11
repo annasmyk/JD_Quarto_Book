@@ -1,5 +1,7 @@
 # Preface {.unnumbered}
 
-Welcome to the JDemetra+ online documentation.
+Welcome to the JDemetra+ online documentation.  
 
-To learn more about Quarto books visit <https://quarto.org/docs/books>.
+JDemetra+ is a software developed in Eurostat's Centre of Excellence on Statistical Methods and Tools.
+
+To learn more about visit. <https://ec.europa.eu/eurostat/cros/content/centre-excellence-statistical-methods-and-tools>.

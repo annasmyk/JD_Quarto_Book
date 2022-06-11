@@ -7,8 +7,8 @@ editor_options:
     wrap: 72
 ---
 
-here wrongling with structure indeas : sort of sand box  
-trying to keep coherent templates 
+here wrongling with structure indeas : sort of sand box\
+trying to keep coherent templates
 
 ## Key words
 
@@ -25,15 +25,11 @@ bricks)
 
 ## Chapter on Algorithms
 
-list..
-* SA
-* SA on HF
+list.. \* SA \* SA on HF
 
-What do we want here : 
+What do we want here :
 
-
-Theory : 
-Tool specific
+Theory : Tool specific
 
 This will be the template for each algo
 
@@ -42,38 +38,40 @@ This will be the template for each algo
 ### Parameters
 
 #### Common infos (in the algo part)
+
 #### specific infos declined by tools GUI and R (links)
+
 link to tool part
 
 ### output
+
 #### diagnostics common info (in the algo part)
+
 #### diagnostics infos declined by tools GUI and R
+
 #### series common
+
 #### series specific : link to tool part
 
 ## Tools
 
 ### Available Algos list
-* quick links
 
+-   quick links
 
 ### Global info for each Tool ex GUI and R Packages
-* overwiew independent of algo details 
-* installation (might be slightly different dor R packages by algo)
-* global display and philo 
-+ ex list of lists : the output..with repetition of the input 
 
-3.  For each algo 
+-   overwiew independent of algo details
+-   installation (might be slightly different dor R packages by algo)
+-   global display and philo
+-   ex list of lists : the output..with repetition of the input
 
-* SA : steps with GUI (2 sub algo pre adj and decomp)
-Table : list of steps with links 
+3.  For each algo
 
-steps 
+-   SA : steps with GUI (2 sub algo pre adj and decomp) Table : list of
+    steps with links
 
-
-
-
-
+steps
 
 ### Methods
 

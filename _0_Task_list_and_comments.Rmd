@@ -14,14 +14,11 @@ NOW as pasting of old content is over : hurra !!
 
 ### make a list of CHUNKS
 
-(use tables)\
-Priorities : create new content \#### HF \#### R packages : insatllation, functions and state of doc \#### Calendars
-
 ### split old info between algos, tools methods
 
 ### table with : chunk, tasks, timeline and outsourcing
 
-## GUI : simplify (cf greg), but maybe not destroy
+## GUI : simplify (cf greg), but maybe not destroy ?
 
 global view (print ?) and RECYCLE
 

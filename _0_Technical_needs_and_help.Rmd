@@ -5,11 +5,6 @@ date: '2022-05-13'
 ---
 
 ## questions (alain ?)
-
--   when they say to launch code : where to write it ? index ? indep script ?
--   knit one file, without building the book
--   miktek story and pdf book deactivation
--   preview chapter
 -   parts in book
 -   menu de droite
 -   harmonization police et formulas

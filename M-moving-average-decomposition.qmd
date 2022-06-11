@@ -1,0 +1,11 @@
+# Moving average based decomposition
+
+goal of the chapter : details on X-11 which are not in the SA chapter
+
+a lot of information might be recycled from the old online documentation
+cf file 
+19-Meth-Local-decomposition.Rmd
+where info from the old pages is gathered 
+formulas and tables compatibility with quarto have to be checked before pasting in the book
+
+links to rjdfilters

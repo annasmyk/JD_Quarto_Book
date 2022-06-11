@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "JDemetra+ online documentation",
     "section": "",
-    "text": "Welcome to the JDemetra+ online documentation.\nTo learn more about Quarto books visit https://quarto.org/docs/books."
+    "text": "Welcome to the JDemetra+ online documentation.\nJDemetra+ is a software developed in Eurostat’s Centre of Excellence on Statistical Methods and Tools.\nTo learn more about visit. https://ec.europa.eu/eurostat/cros/content/centre-excellence-statistical-methods-and-tools."
   },
   {
     "objectID": "G-what-is-jd.html#audience",
@@ -313,5 +313,26 @@
     "title": "15  Reg-Arima models",
     "section": "15.2 RegARIMA model",
     "text": "15.2 RegARIMA model\nThe primary aim of seasonal adjustment is to remove the unobservable seasonal component from the observed series. The decomposition routines implemented in the seasonal adjustment methods make specific assumptions concerning the input series. One of the crucial assumptions is that the input series is stochastic, i.e. it is clean of deterministic effects. Another important limitation derives from the symmetric linear filter used in TRAMO-SEATS and X-13ARIMA-SEATS. A symmetric linear filter cannot be applied to the first and last observations with the same set of weights as for the central observations[^1]. Therefore, for the most recent observations these filters provide estimates that are subject to revisions.\nTo overcome these constrains both seasonal adjustment methods discussed here include a modelling step that aims to analyse the time series development and provide a better input for decomposition purposes. The tool that is frequently used for this purpose is the ARIMA model, as discussed by BOX, G.E.P., and JENKINS, G.M. (1970). However, time series are often affected by the outliers, other deterministic effects and missing observations. The presence of these effects is not in line with the ARIMA model assumptions. The presence of outliers and other deterministic effects impede the identification of an optimal ARIMA model due to the important bias in the estimation of parameters of sample autocorrelation functions (both global and partial)[^3]. Therefore, the original series need to be corrected for any deterministic effects and missing observations. This process is called linearisation and results in the stochastic series that can be modelled by ARIMA.\nFor this purpose both TRAMO and RegARIMA use regression models with ARIMA errors. With these models TRAMO and RegARIMA also produce forecasts."
+  },
+  {
+    "objectID": "M-moving-average-decomposition.html",
+    "href": "M-moving-average-decomposition.html",
+    "title": "16  Moving average based decomposition",
+    "section": "",
+    "text": "a lot of information might be recycled from the old online documentation cf file 19-Meth-Local-decomposition.Rmd where info from the old pages is gathered formulas and tables compatibility with quarto have to be checked before pasting in the book\nlinks to rjdfilters"
+  },
+  {
+    "objectID": "M-local-regression-decomposition.html",
+    "href": "M-local-regression-decomposition.html",
+    "title": "17  Local regression decomposition",
+    "section": "",
+    "text": "goal of the chapter : details on STL which are not in the SA chapter"
+  },
+  {
+    "objectID": "M-amb-decomposition.html",
+    "href": "M-amb-decomposition.html",
+    "title": "18  Arima Model Based AMB decomposition",
+    "section": "",
+    "text": "goal of the chapter : details on SEATS which are not in the SA chapter\na lot of information might be recycled from the old online documentation cf file 20-Meth-AMB-decomposition.Rmd where info from the old pages is gathered formulas and tables compatibility with quarto have to be checked before pasting in the book"
   }
 ]

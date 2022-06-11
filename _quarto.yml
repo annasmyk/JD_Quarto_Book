@@ -22,6 +22,10 @@ book:
     - T-tool-selection.qmd
     - M-spectral-analysis.qmd
     - M-reg-arima-modelling.qmd
+    - M-moving-average-decomposition.qmd
+    - M-local-regression-decomposition.qmd
+    - M-amb-decomposition.qmd
+    - M-state-space-framework.qmd
     - references.qmd
 
 bibliography: references.bib
