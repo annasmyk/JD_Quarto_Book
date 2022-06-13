@@ -4,4 +4,4 @@ Welcome to the JDemetra+ online documentation.
 
 JDemetra+ is a software developed in Eurostat's Centre of Excellence on Statistical Methods and Tools.
 
-To learn more about visit. <https://ec.europa.eu/eurostat/cros/content/centre-excellence-statistical-methods-and-tools>.
+To learn more about this project <https://ec.europa.eu/eurostat/cros/content/centre-excellence-statistical-methods-and-tools>.
