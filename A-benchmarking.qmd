@@ -2,140 +2,139 @@
 
 ## Benchmarking overview
 
-Often one has two (or multiple) datasets of different frequency for the same
-target variable. Sometimes, however, these datasets are not coherent in the
-sense that they don’t match up. Benchmarking[^1] is a method todeal with
-this situation. An aggregate of a higher-frequency measurement variables is not necessarily
-equal to the corresponding lower-frequency less-aggregated measurement.
-Moreover, the sources of data may have different reliability levels. Usually,
-less frequent data are considered more trustworthy as they are
-based on larger samples and compiled more precisely. The
-more reliable measurements, hence often the less frequent, will serve as benchmark.
+Often one has two (or multiple) datasets of different frequency for the same target variable. Sometimes, however, these data sets are not coherent in the sense that they don't match up. Benchmarking\[\^1\] is a method to deal with this situation. An aggregate of a higher-frequency measurement variables is not necessarily equal to the corresponding lower-frequency less-aggregated measurement. Moreover, the sources of data may have different reliability levels. Usually, less frequent data are considered more trustworthy as they are based on larger samples and compiled more precisely. The more reliable measurements, hence often the less frequent, will serve as benchmark.
 
-In seasonal adjustment methods benchmarking is the procedure that
-ensures the consistency over the year between adjusted and
-non-seasonally adjusted data. It should be noted that the 
-[ESS Guidelines on Seasonal Adjustment (2015)]
-(https://ec.europa.eu/eurostat/documents/3859598/6830795/KS-GQ-15-001-EN-N.pdf/d8f1e5f5-251b-4a69-93e3-079031b74bd3),
-do not recommend benchmarking as it introduces a bias in the seasonally adjusted data.
-The U.S. Census Bureau also points out that "*forcing the seasonal
-adjustment totals to be the same as the original series annual totals
-can degrade the quality of the seasonal adjustment, especially when the
-seasonal pattern is undergoing change. It is not natural if trading day
-adjustment is performed because the aggregate trading day effect over a
-year is variable and moderately different from zero*"[^2]. Nevertheless,
-some users may need that the annual totals of the seasonally adjusted
-series match the annual totals of the original, non-seasonally adjusted
-series[^3].
+In seasonal adjustment methods benchmarking is the procedure that ensures the consistency over the year between adjusted and non-seasonally adjusted data. It should be noted that the \[ESS Guidelines on Seasonal Adjustment (2015)\] (https://ec.europa.eu/eurostat/documents/3859598/6830795/KS-GQ-15-001-EN-N.pdf/d8f1e5f5-251b-4a69-93e3-079031b74bd3), do not recommend benchmarking as it introduces a bias in the seasonally adjusted data. The U.S. Census Bureau also points out that "*forcing the seasonal adjustment totals to be the same as the original series annual totals can degrade the quality of the seasonal adjustment, especially when the seasonal pattern is undergoing change. It is not natural if trading day adjustment is performed because the aggregate trading day effect over a year is variable and moderately different from zero*"\[\^2\]. Nevertheless, some users may need that the annual totals of the seasonally adjusted series match the annual totals of the original, non-seasonally adjusted series\[\^3\].
 
-According to the
-[ESS Guidelines on Seasonal Adjustment (2015)]
-(https://ec.europa.eu/eurostat/documents/3859598/6830795/KS-GQ-15-001-EN-N.pdf/d8f1e5f5-251b-4a69-93e3-079031b74bd3), the
-only benefit of this approach is that there is consistency over the year
-between adjusted and the non-seasonally adjusted data; this can be of
-particular interest when low-frequency (e.g. annual) benchmarking
-figures officially exist (e.g. National Accounts, Balance of Payments,
-External Trade, etc.) and where users' needs for time consistency are
-stronger.
+According to the \[ESS Guidelines on Seasonal Adjustment (2015)\] (https://ec.europa.eu/eurostat/documents/3859598/6830795/KS-GQ-15-001-EN-N.pdf/d8f1e5f5-251b-4a69-93e3-079031b74bd3), the only benefit of this approach is that there is consistency over the year between adjusted and the non-seasonally adjusted data; this can be of particular interest when low-frequency (e.g. annual) benchmarking figures officially exist (e.g. National Accounts, Balance of Payments, External Trade, etc.) and where users' needs for time consistency are stronger.
 
 ## Underlying Theory
 
+Benchmarking[^a-benchmarking-1] is a procedure widely used when for the same target variable the two or more sources of data with different frequency are available. Generally, the two sources of data rarely agree, as an aggregate of higher-frequency measurements is not necessarily equal to the less-aggregated measurement. Moreover, the sources of data may have different reliability. Usually it is thought that less frequent data are more trustworthy as they are based on larger samples and compiled more precisely. The more reliable measurement is considered as a benchmark.
 
-Benchmarking[^86] is a procedure widely used when for the same target
-variable the two or more sources of data with different frequency are
-available. Generally, the two sources of data rarely agree, as an
-aggregate of higher-frequency measurements is not necessarily equal to
-the less-aggregated measurement. Moreover, the sources of data may have
-different reliability. Usually it is thought that less frequent data are
-more trustworthy as they are based on larger samples and compiled more
-precisely. The more reliable measurement is considered as a benchmark.
+[^a-benchmarking-1]: Description of the idea of benchmarking is based on DAGUM, B.E., and CHOLETTE, P.A. (1994) and QUENNEVILLE, B. et all (2003). Detailed information can be found in: DAGUM, B.E., and CHOLETTE, P.A. (2006).
 
-Benchmarking also occurs in the context of seasonal adjustment. Seasonal
-adjustment causes discrepancies between the annual totals of the
-seasonally unadjusted (raw) and the corresponding annual totals of the
-seasonally adjusted series. Therefore, seasonally adjusted series are
-benchmarked to the annual totals of the raw time series[^87]. Therefore,
-in such a case benchmarking means the procedure that ensures the
-consistency over the year between adjusted and non-seasonally adjusted
-data. It should be noted that the '*ESS Guidelines on Seasonal
-Adjustment*' (2015) do not recommend benchmarking as it introduces a
-bias in the seasonally adjusted data. Also the U.S. Census Bureau points
-out that: *Forcing the seasonal adjustment totals to be the same as the
-original series annual totals can degrade the quality of the seasonal
-adjustment, especially when the seasonal pattern is undergoing change.
-It is not natural if trading day adjustment is performed because the
-aggregate trading day effect over a year is variable and moderately
-different from zero*.[^88] Nevertheless, some users may prefer the
-annual totals for the seasonally adjusted series to match the annual
-totals for the original, non-seasonally adjusted series[^89]. According
-to the '*ESS Guidelines on Seasonal Adjustment*' (2015), the only
-benefit of this approach is that there is consistency over the year
-between adjusted and non-seasonally adjusted data; this can be of
-particular interest when low-frequency (e.g. annual) benchmarking
-figures officially exist (e.g. National Accounts, Balance of Payments,
-External Trade, etc.) where user needs for time consistency are
-stronger.
+Benchmarking also occurs in the context of seasonal adjustment. Seasonal adjustment causes discrepancies between the annual totals of the seasonally unadjusted (raw) and the corresponding annual totals of the seasonally adjusted series. Therefore, seasonally adjusted series are benchmarked to the annual totals of the raw time series[^a-benchmarking-2]. Therefore, in such a case benchmarking means the procedure that ensures the consistency over the year between adjusted and non-seasonally adjusted data. It should be noted that the '*ESS Guidelines on Seasonal Adjustment*' (2015) do not recommend benchmarking as it introduces a bias in the seasonally adjusted data. Also the U.S. Census Bureau points out that: *Forcing the seasonal adjustment totals to be the same as the original series annual totals can degrade the quality of the seasonal adjustment, especially when the seasonal pattern is undergoing change. It is not natural if trading day adjustment is performed because the aggregate trading day effect over a year is variable and moderately different from zero*.[^a-benchmarking-3] Nevertheless, some users may prefer the annual totals for the seasonally adjusted series to match the annual totals for the original, non-seasonally adjusted series[^a-benchmarking-4]. According to the '*ESS Guidelines on Seasonal Adjustment*' (2015), the only benefit of this approach is that there is consistency over the year between adjusted and non-seasonally adjusted data; this can be of particular interest when low-frequency (e.g. annual) benchmarking figures officially exist (e.g. National Accounts, Balance of Payments, External Trade, etc.) where user needs for time consistency are stronger.
 
-The benchmarking procedure in JDemetra+ is available for a single
-seasonally adjusted series and for an indirect seasonal adjustment of an
-aggregated series. In the first case, univariate benchmarking ensures
-consistency between the raw and seasonally adjusted series. In the
-second case, the multivariate benchmarking aims for consistency between
-the seasonally adjusted aggregate and its seasonally adjusted
-components.
+[^a-benchmarking-2]: DAGUM, B.E., and CHOLETTE, P.A. (2006).
 
-Given a set of initial time series $$\left\{ z_{i,t} \right\}_{i \in I}$$,
-the aim of the benchmarking procedure is to find the corresponding
-$$\left\{ x_{i,t} \right\}_{i \in I}$$ that respect temporal aggregation
-constraints, represented by $$X_{i,T} = \sum_{t \in T}^{}x_{i,t}$$ and
-contemporaneous constraints given by
-$$q_{k,t} = \sum_{j \in J_{k}}^{}{w_{\text{kj}}x_{j,t}}$$ or, in matrix
-form: $$q_{k,t} = w_{k}x_{t}$$.
+[^a-benchmarking-3]: '*X-12-ARIMA Reference Manual'* (2011).
 
-The underlying benchmarking method implemented in JDemetra+ is an
-extension of Cholette\'s[^90] method, which generalises, amongst others,
-the additive and the multiplicative Denton procedure as well as simple
-proportional benchmarking.
+[^a-benchmarking-4]: HOOD, C.C.H. (2005).
 
-The JDemetra+ solution uses the following routines that are described in
-DURBIN, J., and KOOPMAN, S.J. (2001):
+The benchmarking procedure in JDemetra+ is available for a single seasonally adjusted series and for an indirect seasonal adjustment of an aggregated series. In the first case, univariate benchmarking ensures consistency between the raw and seasonally adjusted series. In the second case, the multivariate benchmarking aims for consistency between the seasonally adjusted aggregate and its seasonally adjusted components.
 
--   The multivariate model is handled through its univariate
-    transformation,
+Given a set of initial time series $$\left\{ z_{i,t} \right\}_{i \in I}$$, the aim of the benchmarking procedure is to find the corresponding $$\left\{ x_{i,t} \right\}_{i \in I}$$ that respect temporal aggregation constraints, represented by $$X_{i,T} = \sum_{t \in T}^{}x_{i,t}$$ and contemporaneous constraints given by $$q_{k,t} = \sum_{j \in J_{k}}^{}{w_{\text{kj}}x_{j,t}}$$ or, in matrix form: $$q_{k,t} = w_{k}x_{t}$$.
 
--   The smoothed states are computed by means of the disturbance
-    smoother.
+The underlying benchmarking method implemented in JDemetra+ is an extension of Cholette's[^a-benchmarking-5] method, which generalises, amongst others, the additive and the multiplicative Denton procedure as well as simple proportional benchmarking.
 
-The performance of the resulting algorithm is highly dependent on the
-number of variables involved in the model ($\propto \ n^{3}$). The other
-components of the problem (number of constraints, frequency of the
-series, and length of the series) are much less important
-($\propto \ n$).
+[^a-benchmarking-5]: CHOLETTE, P.A. (1979).
 
-From a theoretical point of view, it should be noted that this approach
-may handle any set of linear restrictions (equalities), endogenous
-(between variables) or exogenous (related to external values), provided
-that they don't contain incompatible equations. The restrictions can
-also be relaxed for any period by considering their \"observation\" as
-missing. However, in practice, it appears that several kinds of
-contemporaneous constraints yield unstable results. This is more
-especially true for constraints that contain differences (which is the
-case for non-binding constraints). The use of a special square root
-initialiser improves in a significant way the stability of the
-algorithm. 
+The JDemetra+ solution uses the following routines that are described in DURBIN, J., and KOOPMAN, S.J. (2001):
+
+-   The multivariate model is handled through its univariate transformation,
+
+-   The smoothed states are computed by means of the disturbance smoother.
+
+The performance of the resulting algorithm is highly dependent on the number of variables involved in the model ($\propto \ n^{3}$). The other components of the problem (number of constraints, frequency of the series, and length of the series) are much less important ($\propto \ n$).
+
+From a theoretical point of view, it should be noted that this approach may handle any set of linear restrictions (equalities), endogenous (between variables) or exogenous (related to external values), provided that they don't contain incompatible equations. The restrictions can also be relaxed for any period by considering their "observation" as missing. However, in practice, it appears that several kinds of contemporaneous constraints yield unstable results. This is more especially true for constraints that contain differences (which is the case for non-binding constraints). The use of a special square root initialiser improves in a significant way the stability of the algorithm.
 
 ## Tools
 
-## References
-[^86]: Description of the idea of benchmarking is based on DAGUM, B.E.,
-    and CHOLETTE, P.A. (1994) and QUENNEVILLE, B. et all (2003).
-    Detailed information can be found in: DAGUM, B.E., and CHOLETTE,
-    P.A. (2006).
+### Benchmarking with GUI 
+1.  With the [pre-defined specifcations](../reference-manual/sa-specifications.html) the benchmarking functionality is not
+    applied by default following the *ESS Guidelines on Seasonal Adjustment* (2015)
+    recommendations. It means that once the user has seasonally adjustd the series with a pre-defined specifcation the *Benchmarking* node is empty.
+	To execute benchmarking click on
+    the *Specifications* button and activate the checkbox in the
+    *Benchmarking* section.
+	
+	
+	![Text](All_images/UDimage1.jpg)
 
-[^87]: DAGUM, B.E., and CHOLETTE, P.A. (2006).
+	
 
-[^88]: '*X-12-ARIMA Reference Manual'* (2011).
+	**Benchmarking option – a default view**
 
-[^89]: HOOD, C.C.H. (2005).
+1.  Three parameters can be set here. *Target* specifies the target
+    variable for the benchmarking procedure. It can be either the *Original* (the
+    raw time series) or the *Calendar
+    Adjusted* (the time series adjusted for calendar effects). *Rho* is a value of the AR(1) parameter
+    (set between 0 and 1). By default it is set to 1. Finally, *Lambda*
+    is a parameter that relates to the weights in the regression
+    equation. It is typically equal to 0 (for an additive
+    decomposition), 0.5 (for a proportional decomposition) or 1 (for a
+    multiplicative decomposition). The default value is 1.
 
-[^90]: CHOLETTE, P.A. (1979). 
+2.  To launch the benchmarking procedure click on the **Apply** button. The
+    results are displayed in four panels. The top-left one compares the
+    original output from the seasonal adjustment procedure with the result
+    from applying a benchmarking to the seasonal adjustment. The
+    bottom-left panel highlights the differences between these two
+    results. The outcomes are also presented in a table in the top-right
+    panel. The relevant statistics concerning relative differences are
+    presented in the bottom-right panel.
+
+	
+	![Text](All_images/UDimage2.jpg)
+
+	
+
+	**The results of the benchmarking procedure**
+
+1.  Both pictures and the table can be copied the usual way 
+    (see the [*Simple seasonal adjustment of a single time series*](../case-studies/simplesa-single.html) scenario).
+
+	
+	![Text](All_images/UDimage3.jpg)
+
+	
+
+	**Options for benchmarking results**
+
+1.  To export the result of the benchmarking procedure (*benchmarking.result*) and
+    the target data (*benchmarking.target*) one needs to once execute the seasonal adjustment with benchmarking using the
+	muli-processing option (see the [*Simple seasonal adjustment of multiple time series*](../case-studies/simplesa-muliple.html) scenario.
+	Once the muli-processing is executed, select the *Output* item from the *SAProcessing* menu.
+
+	
+	![Text](All_images/UG_SSA_image28.jpg)
+
+	
+
+	**The *SAProcessing* menu**
+	
+1. Expand the \"+\" menu and choose an appropriate data format (here
+    Excel has been chosen). It is possible to save the results in TXT,
+    XLS, CSV, and CSV matrix formats. Note that the [available content of
+    the output depends on the output type](../theory/output.html).
+
+	
+	![Text](All_images/UG_SSA_image29.jpg)
+
+	
+
+	**Exporting data to an Excel file**
+
+1. Chose the output items that refer to the results from the benchmarking procedure, move them to the window on the right and  click **OK**.
+
+
+	 
+	![Text](All_images/UDimage4.jpg)
+
+	
+
+	**Exporting the results of the benchmarking procedure**
+
+
+### Bennchmarking in R
+
+package rjd3 bench
+orga doc 
+- here 
+- in package
+- example
+
+## references
+
