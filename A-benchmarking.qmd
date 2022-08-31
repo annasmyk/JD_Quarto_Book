@@ -128,13 +128,13 @@ From a theoretical point of view, it should be noted that this approach may hand
 	**Exporting the results of the benchmarking procedure**
 
 
-### Bennchmarking in R
+### Benchmarking in R
 
-package rjd3 bench
+package rjd3bench
 orga doc 
 - here 
 - in package
 - example
 
-## references
+## References
 

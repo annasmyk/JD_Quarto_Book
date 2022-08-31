@@ -27,6 +27,7 @@ book:
     - M-moving-average-decomposition.qmd
     - M-local-regression-decomposition.qmd
     - M-amb-decomposition.qmd
+    - M-tests.qmd
     - M-state-space-framework.qmd
     - references.qmd
     - Buffer.qmd
