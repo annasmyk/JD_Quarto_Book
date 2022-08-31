@@ -29,6 +29,7 @@ book:
     - M-amb-decomposition.qmd
     - M-state-space-framework.qmd
     - references.qmd
+    - Buffer.qmd
 
 bibliography: references.bib
 

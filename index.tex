@@ -1,0 +1,1354 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+%
+\documentclass[
+  letterpaper,
+  DIV=11,
+  numbers=noendperiod]{scrreprt}
+
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\setcounter{secnumdepth}{5}
+% Make \paragraph and \subparagraph free-standing
+\ifx\paragraph\undefined\else
+  \let\oldparagraph\paragraph
+  \renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+  \let\oldsubparagraph\subparagraph
+  \renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\newlength{\cslhangindent}
+\setlength{\cslhangindent}{1.5em}
+\newlength{\csllabelwidth}
+\setlength{\csllabelwidth}{3em}
+\newlength{\cslentryspacingunit} % times entry-spacing
+\setlength{\cslentryspacingunit}{\parskip}
+\newenvironment{CSLReferences}[2] % #1 hanging-ident, #2 entry spacing
+ {% don't indent paragraphs
+  \setlength{\parindent}{0pt}
+  % turn on hanging indent if param 1 is 1
+  \ifodd #1
+  \let\oldpar\par
+  \def\par{\hangindent=\cslhangindent\oldpar}
+  \fi
+  % set entry spacing
+  \setlength{\parskip}{#2\cslentryspacingunit}
+ }%
+ {}
+\usepackage{calc}
+\newcommand{\CSLBlock}[1]{#1\hfill\break}
+\newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{#1}}
+\newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{#1}\break}
+\newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
+
+\KOMAoption{captions}{tableheading}
+\makeatletter
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\AtBeginDocument{%
+\ifdefined\contentsname
+  \renewcommand*\contentsname{Table of contents}
+\else
+  \newcommand\contentsname{Table of contents}
+\fi
+\ifdefined\listfigurename
+  \renewcommand*\listfigurename{List of Figures}
+\else
+  \newcommand\listfigurename{List of Figures}
+\fi
+\ifdefined\listtablename
+  \renewcommand*\listtablename{List of Tables}
+\else
+  \newcommand\listtablename{List of Tables}
+\fi
+\ifdefined\figurename
+  \renewcommand*\figurename{Figure}
+\else
+  \newcommand\figurename{Figure}
+\fi
+\ifdefined\tablename
+  \renewcommand*\tablename{Table}
+\else
+  \newcommand\tablename{Table}
+\fi
+}
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\floatstyle{ruled}
+\@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
+\floatname{codelisting}{Listing}
+\newcommand*\listoflistings{\listof{codelisting}{List of Listings}}
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
+\makeatother
+\makeatletter
+\@ifpackageloaded{tcolorbox}{}{\usepackage[many]{tcolorbox}}
+\makeatother
+\makeatletter
+\@ifundefined{shadecolor}{\definecolor{shadecolor}{rgb}{.97, .97, .97}}
+\makeatother
+\makeatletter
+\makeatother
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  pdftitle={JDemetra+ online documentation},
+  pdfauthor={Stace documentation group},
+  colorlinks=true,
+  linkcolor={blue},
+  filecolor={Maroon},
+  citecolor={Blue},
+  urlcolor={Blue},
+  pdfcreator={LaTeX via pandoc}}
+
+\title{JDemetra+ online documentation}
+\author{Stace documentation group}
+\date{12/01/2022}
+
+\begin{document}
+\maketitle
+\ifdefined\Shaded\renewenvironment{Shaded}{\begin{tcolorbox}[sharp corners, interior hidden, boxrule=0pt, frame hidden, enhanced, borderline west={3pt}{0pt}{shadecolor}, breakable]}{\end{tcolorbox}}\fi
+
+\renewcommand*\contentsname{Table of contents}
+{
+\hypersetup{linkcolor=}
+\setcounter{tocdepth}{2}
+\tableofcontents
+}
+\hypertarget{preface}{%
+\chapter*{Preface}\label{preface}}
+\addcontentsline{toc}{chapter}{Preface}
+
+Welcome to the JDemetra+ online documentation.
+
+JDemetra+ is a software for seasonal adjustment and other time series
+functions, developed in Eurostat's ``Centre of Excellence on Statistical
+Methods and Tools''.
+
+To learn more about this project
+\url{https://ec.europa.eu/eurostat/cros/content/centre-excellence-statistical-methods-and-tools}.
+
+\hypertarget{jdemetra-software}{%
+\chapter{JDemetra+ Software}\label{jdemetra-software}}
+
+ressources for descrption - R tools WP - desp in esp
+
+\hypertarget{a-library-of-algorithms-for-time-series-related-functions-needs}{%
+\section{A library of algorithms for time series related functions ?
+needs
+?}\label{a-library-of-algorithms-for-time-series-related-functions-needs}}
+
+You can learn more about the history of the project here (link to below)
+
+\hypertarget{structure-of-this-book}{%
+\section{Structure of this book}\label{structure-of-this-book}}
+
+This book is divided in four parts, each being an entry point for the
+user.
+
+\hypertarget{algorithms}{%
+\subsection{Algorithms}\label{algorithms}}
+
+This part provides a step by step description of all the algorithms
+featured in JD+, grouped by purpose - seasonal adjstement - benchmarking
+- temporal disaggregation - \ldots{} links
+
+\hypertarget{tools}{%
+\subsection{Tools}\label{tools}}
+
+Jdemetra+ offers 3 kind of tools
+
+\hypertarget{underlying-statistical-methods}{%
+\subsection{Underlying Statistical
+Methods}\label{underlying-statistical-methods}}
+
+This part gives details about the underlying statistical methods to
+foster a more in-depth understanding of the algorithms.Those methods are
+described in the light and spirit of their use as buliding blocks of the
+algorithms presented above, not aiming at all at their comprehensive
+coverage.
+
+\hypertarget{how-to-use-this-book}{%
+\section{How to use this book}\label{how-to-use-this-book}}
+
+audience: book targets the beginner as well as seasoned (pun
+moethodlogist. The beginner is advised to use the quick start chapter as
+an etrey point, it's presneted like a decsion tree which will point
+directly to the the part it's useful to review.
+
+the seasoned methodologist will benefit from the detailed chapter ad
+part strucutre to quickly find the needed information.
+
+\hypertarget{quick-start-with}{%
+\chapter{Quick start with\ldots{}}\label{quick-start-with}}
+
+objective: describe key steps + provide useful liks to relevant code
+
+\hypertarget{seasonal-adjustment}{%
+\section{Seasonal Adjustment}\label{seasonal-adjustment}}
+
+\hypertarget{seasonal-adjustment-of-high-frequency-data}{%
+\section{Seasonal Adjustment of High-Frequency
+Data}\label{seasonal-adjustment-of-high-frequency-data}}
+
+\hypertarget{use-of-jd-algorithms-in-r}{%
+\section{Use of JD+ algorithms in R}\label{use-of-jd-algorithms-in-r}}
+
+\hypertarget{use-of-jd-graphical-interface}{%
+\section{Use of JD+ graphical
+interface}\label{use-of-jd-graphical-interface}}
+
+\hypertarget{main-functions-overview}{%
+\chapter{Main functions overview}\label{main-functions-overview}}
+
+link to key references * 2 handbooks * sets of guidelines
+
+Objective: present JDemetra+ capabilities by category
+
+\hypertarget{seasonal-adjustment-algorithms}{%
+\section{Seasonal adjustment
+algorithms}\label{seasonal-adjustment-algorithms}}
+
+\emph{below: pieces of old pages to edit and update}
+
+\hypertarget{data-frequencies}{%
+\subsection{Data frequencies}\label{data-frequencies}}
+
+The seasonal adjustment methods available in JDemetra+ aim to decompose
+a time series into components and remove seasonal fluctuations from the
+observed time series. The X-11 method considers monthly and quarterly
+series while SEATS is able to decompose series with 2, 3, 4, 6 and 12
+observations per year.
+
+\hypertarget{x-13}{%
+\subsection{X-13}\label{x-13}}
+
+X-13ARIMA is a seasonal adjustment program developed and supported by
+the U.S. Census Bureau. It is based on the U.S. Census Bureau's earlier
+X-11 program, the X-11-ARIMA program developed at Statistics Canada, the
+X-12-ARIMA program developed by the U.S. Census Bureau, and the SEATS
+program developed at the Banco de España. The program is now used by the
+U.S. Census Bureau for a seasonal adjustment of time series.
+
+\hypertarget{tramo-seats}{%
+\subsection{Tramo-Seats}\label{tramo-seats}}
+
+\hypertarget{stl}{%
+\subsection{STL}\label{stl}}
+
+\hypertarget{basic-structural-models}{%
+\subsection{Basic Structural Models}\label{basic-structural-models}}
+
+\hypertarget{trend-cycle-estimation}{%
+\section{Trend-cycle estimation}\label{trend-cycle-estimation}}
+
+\hypertarget{nowacsting}{%
+\section{Nowacsting}\label{nowacsting}}
+
+\hypertarget{temporal-disaggregation}{%
+\section{Temporal Disaggregation}\label{temporal-disaggregation}}
+
+\hypertarget{seasonal-adjustment-1}{%
+\chapter{Seasonal Adjustment}\label{seasonal-adjustment-1}}
+
+\hypertarget{motivation}{%
+\section{Motivation}\label{motivation}}
+
+The primary aim of the seasonal adjustment process is to remove seasonal
+fluctuations from the time series. To achieve this goal, seasonal
+adjustment methods decompose the original time series into components
+that capture specific movements. These components are: trend-cycle,
+seasonality and irregularity. The trend-cycle component includes
+long-term and medium-term movements in the data. For seasonal adjustment
+purposes there is no need to divide this component into two parts.
+JDemetra+ refers to the trend-cycle as trend and consequently this
+convention is used here.
+
+\hypertarget{outlier-detection}{%
+\chapter{Outlier detection}\label{outlier-detection}}
+
+in or outside a seasonal adjustment process
+
+\hypertarget{motivation-1}{%
+\section{Motivation}\label{motivation-1}}
+
+\hypertarget{with-reg-arima-models}{%
+\section{With Reg Arima models}\label{with-reg-arima-models}}
+
+\hypertarget{part-of-preadjustment}{%
+\subsection{Part of preadjustment}\label{part-of-preadjustment}}
+
+\hypertarget{specific-terror-tool}{%
+\subsection{Specific TERROR tool}\label{specific-terror-tool}}
+
+\hypertarget{with-structural-models}{%
+\section{With structural models}\label{with-structural-models}}
+
+\hypertarget{calendar-correction-and-user-defined-corrections}{%
+\chapter{Calendar correction and user-defined
+corrections}\label{calendar-correction-and-user-defined-corrections}}
+
+generating Calendar regressors and other input variables
+
+\hypertarget{motivation-2}{%
+\section{Motivation}\label{motivation-2}}
+
+\hypertarget{underlying-theory}{%
+\section{Underlying theory}\label{underlying-theory}}
+
+\hypertarget{overview-of-calendar-effects-in-jdemetra}{%
+\subsection{Overview of Calendar effects in
+JDemetra+}\label{overview-of-calendar-effects-in-jdemetra}}
+
+The following description of the calendar effects in JDemetra+ is
+strictly based on PALATE, J. (2014).
+
+A natural way for modelling calendar effects consists of distributing
+the days of each period into different groups. The regression variable
+corresponding to a type of day (a group) is simply defined by the number
+of days it contains for each period. Usual classifications are:
+
+\begin{itemize}
+\item
+  Trading days (7 groups): each day of the week defines a group
+  (Mondays,...,Sundays);
+\item
+  Working days (2 groups): week days and weekends.
+\end{itemize}
+
+The definition of a group could involve partial days. For instance, we
+could consider that one half of Saturdays belong to week days and the
+second half to weekends.
+
+Usually, specific holidays are handled as Sundays and they are included
+in the group corresponding to "non-working days". This approach assumes
+that the economic activity on national holidays is the same (or very
+close to) the level of activity that is typical for Sundays.
+Alternatively, specific holidays can be considered separately, e.g.~by
+the specification that divided days into three groups:
+
+\begin{itemize}
+\item
+  Working days (Mondays to Fridays, except for specific holidays),
+\item
+  Non-working days (Saturdays and Sundays, except for specific
+  holidays),
+\item
+  Specific holidays.
+\end{itemize}
+
+\hypertarget{seasonal-adjustment-of-high-frequency-data-1}{%
+\chapter{Seasonal adjustment of high frequency
+data}\label{seasonal-adjustment-of-high-frequency-data-1}}
+
+\hypertarget{motivation-3}{%
+\section{Motivation}\label{motivation-3}}
+
+\hypertarget{ubiquitous-use}{%
+\subsection{Ubiquitous use}\label{ubiquitous-use}}
+
+\hypertarget{data-specificities}{%
+\subsection{Data specificities}\label{data-specificities}}
+
+\hypertarget{tools-1}{%
+\section{Tools}\label{tools-1}}
+
+code here and/or link to R packages chapter
+
+\hypertarget{unobserved-components}{%
+\section{Unobserved Components}\label{unobserved-components}}
+
+\hypertarget{seasonality-tests}{%
+\section{Seasonality tests}\label{seasonality-tests}}
+
+\hypertarget{spectral-analysis}{%
+\subsection{Spectral analysis}\label{spectral-analysis}}
+
+\hypertarget{pre-adjustment}{%
+\section{Pre-adjustment}\label{pre-adjustment}}
+
+\hypertarget{calendar-correction}{%
+\subsection{Calendar correction}\label{calendar-correction}}
+
+\hypertarget{outliers-and-intervention-variables}{%
+\subsection{Outliers and intervention
+variables}\label{outliers-and-intervention-variables}}
+
+\hypertarget{linearization}{%
+\subsection{Linearization}\label{linearization}}
+
+\hypertarget{decomposition}{%
+\section{Decomposition}\label{decomposition}}
+
+\hypertarget{extended-x-11}{%
+\subsection{Extended X-11}\label{extended-x-11}}
+
+\hypertarget{stl-decomposition}{%
+\subsection{STL decomposition}\label{stl-decomposition}}
+
+\hypertarget{arima-model-based-amb-decomposition}{%
+\subsection{Arima Model Based (AMB)
+Decomposition}\label{arima-model-based-amb-decomposition}}
+
+\hypertarget{state-space-framework}{%
+\subsection{State Space framework}\label{state-space-framework}}
+
+\hypertarget{quality-assessment}{%
+\section{Quality assessment}\label{quality-assessment}}
+
+\hypertarget{residual-seasonality}{%
+\subsection{Residual seasonality}\label{residual-seasonality}}
+
+\hypertarget{residual-calendar-effects}{%
+\subsection{Residual Calendar effects}\label{residual-calendar-effects}}
+
+\hypertarget{arima-model}{%
+\subsection{Arima Model}\label{arima-model}}
+
+\hypertarget{forecasting}{%
+\section{Forecasting}\label{forecasting}}
+
+\hypertarget{benchmarking-and-temporal-disagreggation}{%
+\chapter{Benchmarking and temporal
+disagreggation}\label{benchmarking-and-temporal-disagreggation}}
+
+\hypertarget{benchmarking-overview}{%
+\section{Benchmarking overview}\label{benchmarking-overview}}
+
+Often one has two (or multiple) datasets of different frequency for the
+same target variable. Sometimes, however, these datasets are not
+coherent in the sense that they don't match up. Benchmarking{[}\^{}1{]}
+is a method todeal with this situation. An aggregate of a
+higher-frequency measurement variables is not necessarily equal to the
+corresponding lower-frequency less-aggregated measurement. Moreover, the
+sources of data may have different reliability levels. Usually, less
+frequent data are considered more trustworthy as they are based on
+larger samples and compiled more precisely. The more reliable
+measurements, hence often the less frequent, will serve as benchmark.
+
+In seasonal adjustment methods benchmarking is the procedure that
+ensures the consistency over the year between adjusted and
+non-seasonally adjusted data. It should be noted that the {[}ESS
+Guidelines on Seasonal Adjustment (2015){]}
+(https://ec.europa.eu/eurostat/documents/3859598/6830795/KS-GQ-15-001-EN-N.pdf/d8f1e5f5-251b-4a69-93e3-079031b74bd3),
+do not recommend benchmarking as it introduces a bias in the seasonally
+adjusted data. The U.S. Census Bureau also points out that
+``\emph{forcing the seasonal adjustment totals to be the same as the
+original series annual totals can degrade the quality of the seasonal
+adjustment, especially when the seasonal pattern is undergoing change.
+It is not natural if trading day adjustment is performed because the
+aggregate trading day effect over a year is variable and moderately
+different from zero}''{[}\^{}2{]}. Nevertheless, some users may need
+that the annual totals of the seasonally adjusted series match the
+annual totals of the original, non-seasonally adjusted
+series{[}\^{}3{]}.
+
+According to the {[}ESS Guidelines on Seasonal Adjustment (2015){]}
+(https://ec.europa.eu/eurostat/documents/3859598/6830795/KS-GQ-15-001-EN-N.pdf/d8f1e5f5-251b-4a69-93e3-079031b74bd3),
+the only benefit of this approach is that there is consistency over the
+year between adjusted and the non-seasonally adjusted data; this can be
+of particular interest when low-frequency (e.g.~annual) benchmarking
+figures officially exist (e.g.~National Accounts, Balance of Payments,
+External Trade, etc.) and where users' needs for time consistency are
+stronger.
+
+\hypertarget{underlying-theory-1}{%
+\section{Underlying Theory}\label{underlying-theory-1}}
+
+Benchmarking\footnote{Description of the idea of benchmarking is based
+  on DAGUM, B.E., and CHOLETTE, P.A. (1994) and QUENNEVILLE, B. et all
+  (2003). Detailed information can be found in: DAGUM, B.E., and
+  CHOLETTE, P.A. (2006).} is a procedure widely used when for the same
+target variable the two or more sources of data with different frequency
+are available. Generally, the two sources of data rarely agree, as an
+aggregate of higher-frequency measurements is not necessarily equal to
+the less-aggregated measurement. Moreover, the sources of data may have
+different reliability. Usually it is thought that less frequent data are
+more trustworthy as they are based on larger samples and compiled more
+precisely. The more reliable measurement is considered as a benchmark.
+
+Benchmarking also occurs in the context of seasonal adjustment. Seasonal
+adjustment causes discrepancies between the annual totals of the
+seasonally unadjusted (raw) and the corresponding annual totals of the
+seasonally adjusted series. Therefore, seasonally adjusted series are
+benchmarked to the annual totals of the raw time series\footnote{DAGUM,
+  B.E., and CHOLETTE, P.A. (2006).}. Therefore, in such a case
+benchmarking means the procedure that ensures the consistency over the
+year between adjusted and non-seasonally adjusted data. It should be
+noted that the `\emph{ESS Guidelines on Seasonal Adjustment}' (2015) do
+not recommend benchmarking as it introduces a bias in the seasonally
+adjusted data. Also the U.S. Census Bureau points out that:
+\emph{Forcing the seasonal adjustment totals to be the same as the
+original series annual totals can degrade the quality of the seasonal
+adjustment, especially when the seasonal pattern is undergoing change.
+It is not natural if trading day adjustment is performed because the
+aggregate trading day effect over a year is variable and moderately
+different from zero}.\footnote{'\emph{X-12-ARIMA Reference Manual'}
+  (2011).} Nevertheless, some users may prefer the annual totals for the
+seasonally adjusted series to match the annual totals for the original,
+non-seasonally adjusted series\footnote{HOOD, C.C.H. (2005).}. According
+to the `\emph{ESS Guidelines on Seasonal Adjustment}' (2015), the only
+benefit of this approach is that there is consistency over the year
+between adjusted and non-seasonally adjusted data; this can be of
+particular interest when low-frequency (e.g.~annual) benchmarking
+figures officially exist (e.g.~National Accounts, Balance of Payments,
+External Trade, etc.) where user needs for time consistency are
+stronger.
+
+The benchmarking procedure in JDemetra+ is available for a single
+seasonally adjusted series and for an indirect seasonal adjustment of an
+aggregated series. In the first case, univariate benchmarking ensures
+consistency between the raw and seasonally adjusted series. In the
+second case, the multivariate benchmarking aims for consistency between
+the seasonally adjusted aggregate and its seasonally adjusted
+components.
+
+Given a set of initial time series
+\[\left\{ z_{i,t} \right\}_{i \in I}\], the aim of the benchmarking
+procedure is to find the corresponding
+
+\[\left\{ x_{i,t} \right\}_{i \in I}\] that respect temporal aggregation
+constraints, represented by \[X_{i,T} = \sum_{t \in T}^{}x_{i,t}\] and
+contemporaneous constraints given by
+\[q_{k,t} = \sum_{j \in J_{k}}^{}{w_{\text{kj}}x_{j,t}}\] or, in matrix
+
+form: \[q_{k,t} = w_{k}x_{t}\].
+
+The underlying benchmarking method implemented in JDemetra+ is an
+extension of Cholette's\footnote{CHOLETTE, P.A. (1979).} method, which
+generalises, amongst others, the additive and the multiplicative Denton
+procedure as well as simple proportional benchmarking.
+
+The JDemetra+ solution uses the following routines that are described in
+DURBIN, J., and KOOPMAN, S.J. (2001):
+
+\begin{itemize}
+\item
+  The multivariate model is handled through its univariate
+  transformation,
+\item
+  The smoothed states are computed by means of the disturbance smoother.
+\end{itemize}
+
+The performance of the resulting algorithm is highly dependent on the
+number of variables involved in the model (\(\propto \ n^{3}\)). The
+other components of the problem (number of constraints, frequency of the
+series, and length of the series) are much less important
+(\(\propto \ n\)).
+
+From a theoretical point of view, it should be noted that this approach
+may handle any set of linear restrictions (equalities), endogenous
+(between variables) or exogenous (related to external values), provided
+that they don't contain incompatible equations. The restrictions can
+also be relaxed for any period by considering their "observation" as
+missing. However, in practice, it appears that several kinds of
+contemporaneous constraints yield unstable results. This is more
+especially true for constraints that contain differences (which is the
+case for non-binding constraints). The use of a special square root
+initialiser improves in a significant way the stability of the
+algorithm.
+
+\hypertarget{tools-2}{%
+\section{Tools}\label{tools-2}}
+
+\hypertarget{references}{%
+\section{References}\label{references}}
+
+\hypertarget{trend-cycle-estimation-1}{%
+\chapter{Trend-cycle estimation}\label{trend-cycle-estimation-1}}
+
+\hypertarget{motivation-4}{%
+\section{Motivation}\label{motivation-4}}
+
+\hypertarget{underlying-theory-2}{%
+\section{Underlying Theory}\label{underlying-theory-2}}
+
+\hypertarget{tools-3}{%
+\section{Tools}\label{tools-3}}
+
+\hypertarget{rjdfilters-package}{%
+\subsection{rjdfilters package}\label{rjdfilters-package}}
+
+\hypertarget{nowcasting}{%
+\chapter{Nowcasting}\label{nowcasting}}
+
+\hypertarget{motivation-5}{%
+\section{Motivation}\label{motivation-5}}
+
+\hypertarget{underlying-theory-3}{%
+\section{Underlying Theory}\label{underlying-theory-3}}
+
+\hypertarget{tools-4}{%
+\section{Tools}\label{tools-4}}
+
+\hypertarget{graphical-user-interface}{%
+\chapter{Graphical User Interface}\label{graphical-user-interface}}
+
+\hypertarget{overview}{%
+\section{Overview}\label{overview}}
+
+why use the graphical user interface ? what is not directly available in
+R yet?
+
+objective: describe the general features (independent of algorithms) -
+general layout - import data - documents - workspaces - specifications -
+output
+
+old content can be recycled but - very heavy (trim from md or txt files)
+- check version 3 - see if we stick with pasted screen shots
+
+\hypertarget{r-packages}{%
+\chapter{R packages}\label{r-packages}}
+
+\hypertarget{available-algorithms}{%
+\section{Available algorithms}\label{available-algorithms}}
+
+table
+
+\hypertarget{organisation-overview}{%
+\section{Organisation overview}\label{organisation-overview}}
+
+a suite (order)
+
+general output organisation
+
+\hypertarget{installation-procedure}{%
+\section{Installation procedure}\label{installation-procedure}}
+
+\hypertarget{interaction-with-gui}{%
+\section{Interaction with GUI}\label{interaction-with-gui}}
+
+\hypertarget{full-list}{%
+\section{Full list}\label{full-list}}
+
+\hypertarget{rjd3modelling}{%
+\subsection{rjd3modelling}\label{rjd3modelling}}
+
+main functions: table
+
+\hypertarget{plug-ins-for-jdemetra}{%
+\chapter{Plug-ins for JDemetra+}\label{plug-ins-for-jdemetra}}
+
+\hypertarget{main-functions}{%
+\section{Main functions}\label{main-functions}}
+
+table
+
+\hypertarget{production}{%
+\chapter{Production}\label{production}}
+
+\hypertarget{revision-policies}{%
+\subsection{Revision Policies}\label{revision-policies}}
+
+obj here: general explanations + examples ? here : explain voc
+discrepancies vs guidelines bbk controlled current link to plug in
+illustration links on covid
+
+JDemetra+ offers several options for refreshing the output, which are in
+line with the ESS Guidelines on Seasonal Adjustment (2015) (link)
+requirements.
+
+reprduce table cf.~my pdf (xls) doc remark: rjwsa cruncher vignette is
+not up to date
+
+\hypertarget{tool-selection-issues}{%
+\chapter{Tool selection issues}\label{tool-selection-issues}}
+
+might be integrated to another chapter
+
+objective : select wisely between GUI(+ cruncher and plug ins) and R
+packages
+
+\hypertarget{spectral-analysis-principles-and-tools}{%
+\chapter{Spectral Analysis Principles and
+Tools}\label{spectral-analysis-principles-and-tools}}
+
+\hypertarget{chapter-building-process}{%
+\section{Chapter building process}\label{chapter-building-process}}
+
+\hypertarget{spectral-analysis-concepts-and-overview}{%
+\section{Spectral analysis concepts and
+overview}\label{spectral-analysis-concepts-and-overview}}
+
+A time series \(x_{t}\) with stationary covariance, mean \(μ\) and
+\(k^{th}\) autocovariance \(E(x_{t}-\mu)(x_{t- k}\mu))=\gamma(k)\) can
+be described as a weighted sum of periodic trigonometric functions:
+\(sin(\omega t)\) and \(cos(\omega t)\), where \(\omega=\frac{2*pi}{T}\)
+denotes frequency. Spectral analysis investigates this frequency domain
+representation of \(x_{t}\) to determine how important cycles of
+different frequencies are in accounting for the behavior of \(x_{t}\).
+
+Assuming that the autocovariances \(\gamma(k)\) are absolutely
+summable(\(\sum_{k =-\infty}^{\infty}|\gamma(k)|<\infty\)), the
+autocovariance generating function, which summarizes these
+autocovariances through a scalar valued function, is given by equation
+{[}1{]}\footnote{HAMILTON, J.D. (1994).}.
+
+\(acgf(z)=\sum_{k=-\infty}^{\infty}{z^{k}\gamma(k)}\),
+
+where \(z\) denotes complex scalar.
+
+Once the equation {[}1{]}is divided by \(\pi\) and evaluated at some
+\(z{= e}^{- i\omega} = cos\omega - isin\omega\), where
+\(i = \sqrt{- 1}\) and \(\omega\) is a real
+scalar,\(\  - \infty < \ \omega < \infty\), the result of this
+transformation is called a population spectrum \$f( \omega )\$for
+\(\ x_{t}\), given in equation {[}2{]}\footnote{HAMILTON, J.D. (1994).}.
+
+\[f( \omega ) = \frac{1}{\pi}\sum_{k = - \infty}^{\infty}{e^{- ik\omega}\gamma(k)}\]
+
+Therefore, the analysis of the population spectrum in the frequency
+domain is equivalent to the examination of the autocovariance function
+in the time domain analysis; however it provides an alternative way of
+inspecting the process. Because \(f( \omega )\text{dω}\) is interpreted
+as a contribution to the variance of components with frequencies in the
+range \((\omega,\ \omega + d\omega)\), a peak in the spectrum indicates
+an important contribution to the variance at frequencies near the value
+that corresponds to this peak.
+
+As \$e\^{}\{- i\omega\} = cos\omega - isin\omega,\$the spectrum can be
+also expressed as in equation {[}3{]}.
+
+\[f( \omega ) = \frac{1}{\pi}\sum_{k = - \infty}^{\infty}{(cos\omega k - isin\omega k)\gamma(k)}\]
+
+Since \(\gamma(k) = \gamma( - k)\) (i.e.~\$\gamma(k)\$is an even
+function of \(k\)) and \(\sin{( - x)}\  = \operatorname{-sin}x\),
+{[}3{]} can be presented as equation
+
+\[f( \omega ) = \frac{1}{\pi}\lbrack \ \gamma(0) + 2\sum_{k = 1}^{\infty}{\ \gamma(k)}cos\text{ωk} \rbrack\],
+
+This implies that if autocovariances are absolutely summable the
+population spectrum exists and is a continuous, real-valued function of
+\(\omega\). Due to the properties of trigonometric functions \$( \cos( -
+\omega k ) = \cos( \text{ωk} ) .~\$and \$. ~\cos( \omega + 2\pi j)k =
+cos(\omega k ) )\$the spectrum is a periodic, even function of
+\(\omega\), symmetric around \(\omega = 0\). Therefore, the analysis of
+the spectrum can be reduced to the interval \(( - \pi,\pi).\) The
+spectrum is non-negative for all \(\omega \in ( - \pi,\pi)\).
+
+The shortest cycle that can be distinguished in a time series lasts two
+periods. The frequency which corresponds to this cycle is
+\(\omega = \pi\) and is called the Nyquist frequency. The frequency of
+the longest cycles that can be observed in the time series with \(n\)
+observations is \(\omega = \frac{2\pi}{n}\) and is called the
+fundamental (Fourier) frequency.
+
+Note that if \(x_{t}\) is a white noise process with zero mean and
+variance \(\sigma^{2}\), then for all \(|k|> 0\) \(\gamma(k)=0\) and the
+spectrum of \(x_{t}\) is constant
+(\(f(\omega)= \frac{\sigma^{2}}{\pi}\)) since each frequency in the
+spectrum contributes equally to the variance of the process\footnote{BROCKWELL,
+  P.J., and DAVIS, R.A. (2002).}.
+
+The aim of spectral analysis is to determine how important cycles of
+different frequencies are in accounting for the behaviour of a time
+series\footnote{HAMILTON, J.D. (1994).}. Since spectral analysis can be
+used to detect the presence of periodic components, it is a natural
+diagnostic tool for detecting trading day effects as well as seasonal
+effects\footnote{SOKUP, R.J., and FINDLEY, D. F. (1999).}. Among the
+tools used for spectral analysis are the autoregressive spectrum and the
+periodogram.
+
+The explanations given in the subsections of this node derive mainly
+from DE ANTONIO, D., and PALATE, J. (2015) and BROCKWELL, P.J., and
+DAVIS, R.A. (2006).
+
+comment1: end old intro: ok
+
+\hypertarget{theoretical-spectral-density-of-an-arima-model}{%
+\subsection{Theoretical spectral density of an ARIMA
+model}\label{theoretical-spectral-density-of-an-arima-model}}
+
+\hypertarget{spectral-density-estimation}{%
+\section{Spectral density
+estimation}\label{spectral-density-estimation}}
+
+\hypertarget{method-1-the-periodogram}{%
+\subsection{Method 1: The periodogram}\label{method-1-the-periodogram}}
+
+For any given frequency \(\omega\) the sample periodogram is the sample
+analog of the sample spectrum. In general, the periodogram is used to
+identify the periodic components of unknown frequency in the time
+series. X-13ARIMA-SEATS and TRAMO-SEATS use this tool for detecting
+seasonality in raw time series and seasonally adjusted series. Apart
+from this it is applied for checking randomness of the residuals from
+the ARIMA model.
+
+To define the periodogram, first consider the vector of complex
+numbers\footnote{BROCKWELL, P.J., and DAVIS, R.A. (2002).}:
+
+\$\$\mathbf{x} =
+
+\begin{bmatrix}      
+
+
+  x_{1} \\                             
+  x_{2} \\                             
+  . \\                                 
+  . \\                                 
+  . \\                                 
+  x_{n} \\                             
+  \end{bmatrix}
+
+\in \mathbb{C}\^{}\{n\}\$\$
+
+where \(\mathbb{C}^{n}\) is the set of all column vectors with
+complex-valued components.
+
+The Fourier frequencies associated with the sample size \(n\) are
+defined as a set of values \(ω_{j} = \frac{2\pi j}{n}\),
+\(j = - \lbrack \frac{n-1}{2}\rbrack,\ldots,\lbrack\frac{n}{2}\rbrack\),
+\(-\pi< \omega_{j} \leq \pi\), \(j\in F_{n}\), where
+\({\lbrack n\rbrack}\) denotes the largest integer less than or equal to
+\(n\). The Fourier frequencies, which are called harmonics, are given by
+integer multiples of the fundamental frequency \(\ \frac{2\pi}{n}\).
+
+Now the \(n\) vectors
+\[e_{j} = n^{- \frac{1}{2}}\left(e^{-i\omega_{j}},e^{-i{2\omega}_{j}},
+\ldots,e^{- inω_{j}}\right)^{'}\] can be defined. Vectors
+\[e_{1},\ldots, e_{n}\] are orthonormal in the sense that:
+
+\[
+ {\mathbf{e}_{j}^{*}\mathbf{e}}_{k} = n^{- 1}\sum_{r = 1}^{n}e^{ir(\omega_{j} - \omega_{k})} = \left\{ \begin{matrix}  
+  1,\ if\ j = k \\                                                                                                         
+  0,\ if\ j \neq k \\                                                                                                      
+  \end{matrix} \right.\ 
+\]
+
+where \[\mathbf{e}_{j}^{*}\] denotes the row vector, which \[k^{th}\]
+component is the complex conjugate of the \[k^{th}\] component of
+\[\mathbf{e}_{j}\].\footnote{For details see BROCKWELL, P.J., and DAVIS,
+  R.A. (2006).} These vectors are a basis of \[F_{n}\], so that any
+\[\mathbf{x}\in\mathbb{C}^{n}\] can be expressed as a sum of \[n\]
+components:
+
+\[
+ \mathbf{x} = \sum_{j = - \lbrack\frac{n - 1}{2}\rbrack}^{\lbrack\frac{n}{2}\rbrack}{a_{j}\mathbf{e}_{j}}
+\]
+
+where the coefficients
+\[a_{j} = \mathbf{e}_{j}^{*}\mathbf{x}=n^{-\frac{1}{2}}\sum_{t = 1}^{n}x_{t}e^{-it\omega_{j}}\]
+are derived from {[}3{]} by multiplying the equation on the left by
+\[\mathbf{e}_{j}^{*}\] and using {[}1{]}.
+
+The sequence of \(\{a_{j},j\in F_{n}\}\) is referred as a discrete
+Fourier transform of \(\mathbf{x}\mathbb{\in C}^{n}\) and the
+periodogram \(I(\omega_{j})\) of \(\mathbf{x}\) at Fourier frequency
+\(\omega_{j} = \frac{2\pi j}{n}\) is defined as the square of the
+Fourier transform \[\{a_{j}\}\] of \(\mathbf{x}\):
+
+\[
+{I\left( \omega_{j} \right)\mathbf{=}{\left| a_{j} \right|^{2}}_{\ } = n^{- \ 1}\left| \sum_{t = 1}^{n}x_{t}e^{- it\omega_{j}} \right|^{2}}_{\mathbf{\ }}
+\]
+
+From {[}2{]} and {[}3{]} it can be shown that in fact the periodogram
+decomposes the total sum of squares
+\(\sum_{t = 1}^{n}\left| x_{t} \right|^{2}\) into a sums of components
+associated with the Fourier frequencies \[ω_{j}\]:
+
+\[
+  \sum_{t=1}^{n}{\left|x_{t}\right|}^{2} = \sum_{j = - \lbrack\frac{n - 1}{2}\rbrack}^{\lbrack\frac{n}{2}\rbrack}\left|a_{j}\right|^{2} = \sum_{j = - \lbrack\frac{n - 1}{2}\rbrack}^{\lbrack\frac{n}{2}\rbrack}{I\left( \omega_{j} \right)}
+\]
+
+If \(\ \mathbf{x\  \in}\ {R}^{n}\), \(\omega_{j}\) and \[{-\omega}_{j}\]
+are both in \[\lbrack- \pi, -\pi \rbrack\] and \[a_{j}\] is presented in
+its polar form (i.e.\[a_{j} = r_{j}\exp\left( i\theta_{j} \right)\]),
+where \(r_{j}\) is the modulus of \[a_{j}\], then {[}3{]} can be
+rewritten in the form:
+
+\[
+ \mathbf{x} = a_{0}\mathbf{e}_{0} + \sum_{j = 1}^{\lbrack\frac{n - 1}{2}\rbrack}{ {2^{1/2}r}_{j}{(\mathbf{c}}_{j}\cos\theta_{j}{- \mathbf{s}}_{j}\sin\theta_{j}) + a_{n/2}\mathbf{e}_{n/2}}
+ \]
+
+The orthonormal basis for \[{R}^{n}\] is
+\[\{\mathbf{e}_{0},\mathbf{c}_{1},\mathbf{s}_{1},\ldots,\mathbf{c}_{\lbrack\frac{n - 1}{2}\rbrack},\mathbf{s}_{\lbrack\frac{n - 1}{2}\rbrack},\mathbf{e}_{\frac{n}{2}(excluded\ if\ n\ is\ odd)}\}
+\], where:
+
+\[\mathbf{e}_{0}\] is a vector composed of n elements equal to
+\[n^{- 1/2}\], which implies that
+\[\mathbf{a}_{0}\mathbf{e}_{0} = {(n^{-1}\sum_{t = 1}^{n}x_{t},\ldots,n^{- 1}\sum_{t=1}^{n}x_{t})}^{'}\];
+
+\$\$
+
+\mathbf{c}\emph{\{j\}=\left(\frac{n}{2}\right)\^{}\{-
+1/2\}\{\left(\cos\omega}\{j\},\cos{2\omega}\_\{j\},\ldots,\cos{n\omega_{j}}\right)\}\^{}\{'\},
+for 1 \leq j \leq \lbrack \frac{(n - 1)}{2}\rbrack
+
+\$\$ ;
+
+\$\$
+
+\mathbf{s}\_\{j\} = \{\left( \frac{n}{2}
+\right)\}\textsuperscript{\{-1/2\}\{\left(\sin{\omega_{j}},\sin{2\omega_{j}},\ldots,\sin{n\omega_{j}}\right)\}}\{'\},~for~1
+\leq j \leq \lbrack \frac{(n - 1)}{2} \rbrack
+
+\$\$;
+
+\$\$
+
+\mathbf{e}\_\{n/2\} = \{\left(-
+\left(n\textsuperscript{\{-\frac{1}{2}\}\right),n}\{-
+\frac{1}{2}\},\ldots,\{-\left(n\right)\}\^{}\{-
+\frac{1}{2}\}),n\textsuperscript{\{-\frac{1}{2}\}\right)\}}\{'\}
+
+\$\$.
+
+Equation {[}5{]} can be seen as an OLS regression of \[x_{t}\] on a
+constant and the trigonometric terms. As the vector of explanatory
+variables includes \[n\] elements, the number of explanatory variables
+in {[}5{]} is equal to the number of observations. HAMILTON, J.D. (1994)
+shows that the explanatory variables are linearly independent, which
+implies that an OLS regression yields a perfect fit (i.e.~without an
+error term). The coefficients have the form of a simple OLS projection
+of the data on the orthonormal basis:
+
+\$\$
+
+\{\widehat{a}\}\emph{\{0\}=\frac{1}{\sqrt{n}}\sum}\{t=1\}\^{}\{n\}x\_\{t\}
+\$\$ {[}7{]}
+
+\[
+  {\widehat{a}}_{n/2}=\frac{1}{\sqrt{n}}\sum_{t=1}^{n}{(-1)}^{t}x_{t}\left(   \text{only when n is even} \right)
+  \] {[}8{]}
+
+\$\$
+
+\{\widehat{a}\}\emph{\{0\}=\frac{1}{\sqrt{n}}\sum}\{t=1\}\^{}\{n\}x\_\{t\}
+\$\$ {[}9{]}
+
+\[
+  {\widehat{\alpha}}_{j} = 2^{1/2}r_{j}\cos{\theta_{j}} = {\left(\frac{n}{2} \right)}^{- 1/2}\sum_{t = 1}^{n}x_{t}\cos{\left(t\frac{2\pi j}{n}\right)}, j   = 1,\ldots,\lbrack\frac{n - 1}{2}\rbrack
+  \] {[}10{]}
+
+\$\$
+
+\{\widehat{\beta}\}\emph{\{j\} = 2\^{}\{1/2\}r}\{j\}\sin{\theta_{j}} =
+\{\left( \frac{n}{2} \right)\}\^{}\{-1/2\}\sum\emph{\{t =
+1\}\^{}\{n\}x}\{t\}\sin{\left(t\frac{2\pi j}{n} \right)}, j =
+1,\ldots,\lbrack\frac{n - 1}{2}\rbrack \$\$ {[}11{]}
+
+With {[}5{]} the total sum of squares
+\(\sum_{t = 1}^{n}\left| x_{t} \right|^{2}\) can be decomposed into
+\[2 \times \lbrack\frac{n - 1}{2}\rbrack\] components corresponding to
+\[\mathbf{c}_{j}\] and \[\mathbf{s}_{j}\], which are grouped to produce
+the ``frequency \[ω_{j}\]'' component for
+\[1 \geq j \geq \lbrack\frac{n - 1}{2}\rbrack\]. As it is shown in the
+table below, the value of the periodogram at the frequency
+\(\omega_{j}\) is the contribution of the\$~j\^{}\{\text{th}\}\$harmonic
+to the total sum of squares
+\(\sum_{t = 1}^{n}\left| x_{t} \right|^{2}\).
+
+\textbf{Decomposition of sum of squares into components corresponding to
+the harmonics}
+
+\{: .table .table-style\} \textbar{}\textbf{Frequency}
+\textbar{}\textbf{Degrees of freedom} \textbar{}\textbf{Sum of squares
+decomposition}\textbar{}
+\textbar-----------------------------------------------
+\textbar------------------------
+\textbar-------------------------------------------------------------\textbar{}
+\textbar{}\(\omega_{0}\)(mean) \textbar1
+\textbar{}\[{a_{0}^{2}}_{\ }=n^{- 1}\left( \sum_{t=1}^{n}x_{t} \right)^{2} = I\left( 0 \right)\]\textbar{}
+\textbar{}\[\omega_{1}\] \textbar2
+\textbar{}\[{2r_{1}^{2}}_{\ } = 2{\|a_{1}\|}^{2} = 2I\left( \omega_{1} \right)\]\textbar{}
+\textbar{}\[\vdots\] \textbar{}\[\vdots\] \textbar{}\[\vdots\]\textbar{}
+\textbar{}\[\omega_{k}\] \textbar2
+\textbar{}\[{2r_{k}^{2}}_{\ } = 2{\|a_{k}\|}^{2} = 2I\left( \omega_{k} \right)\]\textbar{}
+\textbar{}\[\vdots\] \textbar{}\[\vdots\] \textbar{}\[\vdots\]\textbar{}
+\textbar{}\(\omega_{n/2} = \pi\) (excluded if \(n\) is odd) \textbar1
+\textbar{}\[a_{n/2}^{2} = I\left( \pi \right)\]\textbar{}
+\textbar{}\textbf{Total} \textbar{}\[\mathbf{n}\]
+\textbar{}\[\sum_{\mathbf{t = 1}}^{\mathbf{n}}\mathbf{x}_{\mathbf{t}}^{\mathbf{2}}\]\textbar{}
+
+Source: DE ANTONIO, D., and PALATE, J. (2015).
+
+Obviously, if series were random then each component \$I\left(
+\omega\_\{j\} \right)\$would have the same expectation. On the contrary,
+when the series contains a systematic sine component having a frequency
+\(j\) and amplitude \(A\) then the sum of squares
+\(I\left( \omega_{j} \right)\) increases with \(A\). In practice, it is
+unlikely that the frequency \(j\) of an unknown systematic sine
+component would exacly match any of the frequencies, for which
+peridogram have been calcuated. Therefore, the periodogram would show an
+increase in intensities in the immediate vicinity of \(j\).\footnote{BOX,
+  G.E.P., JENKINS, G.M., and REINSEL, G.C. (2007).}
+
+Note that in JDemetra+ the periodogram object corresponds exactly to the
+contribution to the sum of squares of the standardised data, since the
+series are divided by their standard deviation for computational
+reasons.
+
+Using the decomposition presented in table above the periodogram can be
+expressed as:
+
+\[
+I\left( \omega_{j} \right)\mathbf{=}\begin{matrix}                                                                                r_{j}^{2} = \frac{1}{2}{(\alpha}_{j}^{2} + \beta_{j}^{2}) = \ {\frac{1}{n}\left( \sum_{t = 1}^{n}{x_{t}\cos{\left( {t\frac{2\pi j}{n}}_{\ } \right)\ }} \right)}^{2} + \frac{1}{n}\left( \sum_{t = 1}^{n}{x_{t}\sin\left( t\frac{2\pi j}{n} \right)_{\ }} \right)^{2} \\   
+\end{matrix}
+\] {[}12{]}
+
+where \(j = 0,\ldots,\left\lbrack \frac{n}{2} \right\rbrack\)\emph{.}
+
+Since \(\mathbf{x} - \overline{\mathbf{x}}\) are generated by an
+orthonormal basis, and
+\(\overline{\mathbf{x}}\mathbf{=}a_{0}\mathbf{e}_{0}\) {[}5{]} can be
+rearranged to show that the sum of squares is equal to the sum of the
+squared coefficients:
+
+\[
+ \mathbf{x} - a_{0}\mathbf{e}_{0} =\sum_{j=1}^{\lbrack(n - 1)/2\rbrack}\left(\alpha_{j}\mathbf{c}_{j}+\beta_{j}\mathbf{s}_{j}\right) + a_{n/2}\mathbf{e}_{n/2}
+ \]. {[}13{]}
+
+Thus the sample variance of \[x_{t}\] can be expressed as:
+
+\$\$
+
+n\^{}\{-
+1\}\sum\emph{\{t=1\}\textsuperscript{\{n\}\{\left(x\_\{t\}-\overline{x}\right)\}}\{2\}=n\textsuperscript{\{-1\}\left(\sum\emph{\{k=1\}\^{}\{\lbrack(n
+- 1)/2\rbrack\}2\{r}\{j\}\}}\{2\} +\{a}\{n/2\}\}\^{}\{2\}\right)
+
+\$\$, {[}14{]}
+
+where \(a_{n/2}^{2}\) is excluded if \(n\) is odd.
+
+The term \[2{r_{j}}^{2}\] in {[}14{]} is then the contribution of the
+\(j^{\text{th}}\) harmonic to the variance and {[}14{]} shows then how
+the total variance is partitioned.
+
+The periodogram ordinate \(I\left( \omega_{j} \right)\) and the
+autocovariance coefficient \(\gamma(k)\) are both quadratic forms of
+\[x_{t}\]. It can be shown that the periodogram and autocovarinace
+function are related and the periodogram can be written in terms of the
+sample autocovariance function for any non-zero Fourier frequency
+\[ω_{j}\] :\footnote{The proof is given in BROCKWELL, P.J., and DAVIS,
+  R.A. (2006).}
+
+\$\$
+
+I\left( \omega\emph{\{j\} \right) = \sum}\{\left\textbar{} k
+\right\textbar{} \textless{} n\}\^{}\{~\}\{\widehat{\gamma}\left( k
+\right)\}\emph{\{~\}e\^{}\{- ik\omega}\{j\}\} = \{\widehat{\gamma}\left(
+0 \right)\}\emph{\{~\} + 2\sum}\{k = 1\}\^{}\{n -
+1\}\{\widehat{\gamma}\left( k \right)\cos{(k\omega_{j})}\}\_\{~\} \$\$
+
+and for the zero frequency
+\(\ I\left( 0 \right) = n\left| \overline{x} \right|^{2}\).
+
+Once comparing {[}15{]} with an expression for the spectral density of a
+stationary process:
+
+\[
+f\left( \omega_{\ } \right) = \frac{1}{2\pi}\sum_{k < - \infty}^{\infty}{\gamma\left( k \right)}_{\ }e^{- ik\omega_{\ }} = \frac{1}{2\pi}\left\lbrack {\gamma\left( 0 \right)}_{\ } + 2\left(\sum_{k = 1}^{\infty}{\gamma\left( k \right)\cos{(k\omega_{\ })}} \right) \right\rbrack
+\]
+
+It can be noticed that the periodogram is a sample analog of the
+population spectrum. In fact, it can be shown that the periodogram is
+asymptotically unbiased but inconsistent estimator of the population
+spectrum \(f(\omega)\).{[}\^{}75{]} Therefore, the periodogram is a
+wildly fluctuating, with high variance, estimate of the spectrum.
+However, the consistent estimator can be achieved by applying the
+different linear smoothing filters to the periodogram, called lag-window
+estimators. The lag-window estimators implemented in JDemetra+ includes
+square, Welch, Tukey, Barlett, Hanning and Parzen. They are described in
+DE ANTONIO, D., and PALATE, J. (2015). Alternatively, the model-based
+consistent estimation procedure, resulting in autoregressive spectrum
+estimator, can be applied.
+
+comment2: end part theory\textgreater spectral
+analysis\textgreater periodogram
+
+\hypertarget{method-2-autoregressive-spectrum-estimation}{%
+\subsection{Method 2: Autoregressive spectrum
+estimation}\label{method-2-autoregressive-spectrum-estimation}}
+
+BROCKWELL, P.J., and DAVIS, R.A. (2006) point out that for any
+real-valued stationary process \(\left\(x_{t}\right\)\) with continuous
+spectral density \(f\left\(\omega\right\)\) it is possible to find both
+\(AR(p)\) and \(MA(q)\) processes which spectral densities are
+arbitrarily close to \(f\left\(\omega\right)\). For this reason, in some
+sense, \(\left\(x_{t}\right\)\) can be approximated by either \(AR(p)\)
+or \(MA(q)\) process. This fact is a basis of one of the methods of
+achieving a consistent estimator of the spectrum, which is called an
+autoregressive spectrum estimation. It is based on the approximation of
+the stochastic process \(\left\(x_{t}\right\)\) by an autoregressive
+process of sufficiently high order \(p\):
+
+\[
+  x_{t} = \mu + \left( \phi_{1}B + \ldots + \phi_{p}B^{p} \right)x_{t} + \varepsilon_{t}
+  \]
+
+where \[\varepsilon_{t}\] is a white-noise variable with mean zero and a
+constant variance.
+
+The autoregressive spectrum estimator for the series \(x_{t}\) is
+defined as: \footnote{Definition from `\emph{X-12-ARIMA Reference
+  Manual}' (2011).}
+
+\$\$
+
+\widehat{s}\left( \omega \right) =
+10\operatorname{\times}{\log_{10}\frac{\sigma_{x}^{2}}{2\pi{|1 - \sum_{k = 1}^{p}{\widehat{\phi}}_{k}e^{- ik\omega}|}^{2}}}
+\$\$
+
+where:
+
+\(\omega\)-- frequency, \(0 \leq \omega \leq \pi\);
+
+\(\sigma_{x}^{2}\) -- the innovation variance of the sample residuals;
+
+\[{\widehat{\phi}}_{k}\] -- \(\text{AR}\left\(k\right\)\) coefficient
+estimates of the linear regression of \(x_{t} - \overline{x}\) on
+\(x_{t - k} - \overline{x}\), \(1 \leq k \leq p\).
+
+The autoregressive spectrum estimator is used in the visual spectral
+analysis tool for detecting significant peaks in the spectrum. The
+criterion of \emph{visual significance}, implemented in JDemetra+, is
+based on the range \({\widehat{s}}^{\max} - {\widehat{s}}^{\min}\) of
+the \(\widehat{s}\left( \omega \right)\) values, where
+\({\widehat{s}}^{\max} = \max_{k}\widehat{s}\left( \omega_{k} \right)\);
+\({\widehat{s}}^{\min} = \min_{k}\widehat{s}\left( \omega_{k} \right);\)
+and \$\widehat{s}\left( \omega\_\{k\} \right)\$is \(k^{\text{th}}\)
+value of autoregressive spectrum estimator.
+
+The particular value is considered to be visually significant if, at a
+trading day or at a seasonal frequency \(\omega_{k}\) (other than the
+seasonal frequency \(\omega_{60} = \pi\)), \$\widehat{s}\left(
+\omega\_\{k\} \right)\$is above the median of the plotted values of
+\(\widehat{s}\left( \omega_{k} \right)\) and is larger than both
+neighbouring values \(\widehat{s}\left( \omega_{k - 1} \right)\) and
+\(\widehat{s}\left( \omega_{k + 1} \right)\) by at least
+\(\frac{6}{52}\) times the range
+\({\widehat{s}}^{\max} - {\widehat{s}}^{\min}\).
+
+Following the suggestion of SOUKUP, R.J., and FINDLEY, D.F. (1999),
+JDemetra+ uses an autoregressive model spectral estimator of model order
+30. This order yields high resolution of strong components, meaning
+peaks that are sharply defined in the plot of
+\(\widehat{s}\left( \omega \right)\) with 61 frequencies. The minimum
+number of observations needed to compute the spectrum is set to \(n =\)
+80 for monthly data and to \(n =\) 60 for quarterly series while the
+maximum number of observations considered for the estimation is 121.
+Consequently, with these settings it is possible to identify up to 30
+peaks in the plot of 61 frequencies. By choosing
+\(\omega_{k} = \frac{\text{πk}}{60}\) for \$k = \$0,1,\ldots,60 the
+density estimates are calculated at exact seasonal frequencies (1, 2, 3,
+4, 5 and 6 cycles per year).
+
+The model order can also be selected based on the AIC criterion (in
+practice it is much lower than 30). A lower order produces the smoother
+spectrum, but the contrast between the spectral amplitudes at the
+trading day frequencies and neighbouring frequencies is weaker, and
+therefore not as suitable for automatic detection.
+
+SOUKUP, R.J., and FINDLEY, D.F. (1999) also explain that the periodogram
+can be used in the \emph{visual significance} test as it has as good as
+those of the AR(30) spectrum abilities to detect trading day effect, but
+also has a greater false alarm rate\footnote{The false alarm rate is
+  defined as the fraction of the 50 replicates for which a visually
+  significant spectral peak occurred at one of the trading day
+  frequencies being considered in the designated output spectra (SOUKUP,
+  R.J., and FINDLEY, D.F. (1999)).}.
+
+comment2: end part theory\textgreater spectral
+analysis\textgreater auto-regressive spectrum
+
+\hypertarget{reg-arima-models}{%
+\chapter{Reg-Arima models}\label{reg-arima-models}}
+
+\hypertarget{overview-1}{%
+\section{Overview}\label{overview-1}}
+
+lot of information might be recycled from the old online documentation
+cf file 18-Meth-Reg-Arima-Modelling.Rmd where info from the old pages is
+gathered formulas and tables compatibility with quarto have to be
+checked before pasting in the book
+
+In the chapter on SA, in the pre-adjustment section, we tackle: purpose,
+principles and results of reg-arima models (tramo or reg-arima)
+
+Objectives of the chapter: * all the technical non SA specific details *
+differences (none left ?) between Tramo and Reg-Arima (X13)
+
+\hypertarget{regarima-model}{%
+\section{RegARIMA model}\label{regarima-model}}
+
+The primary aim of seasonal adjustment is to remove the unobservable
+seasonal component from the observed series. The decomposition routines
+implemented in the seasonal adjustment methods make specific assumptions
+concerning the input series. One of the crucial assumptions is that the
+input series is stochastic, i.e.~it is clean of deterministic effects.
+Another important limitation derives from the symmetric linear filter
+used in TRAMO-SEATS and X-13ARIMA-SEATS. A symmetric linear filter
+cannot be applied to the first and last observations with the same set
+of weights as for the central observations{[}\^{}1{]}. Therefore, for
+the most recent observations these filters provide estimates that are
+subject to revisions.
+
+To overcome these constrains both seasonal adjustment methods discussed
+here include a modelling step that aims to analyse the time series
+development and provide a better input for decomposition purposes. The
+tool that is frequently used for this purpose is the ARIMA model, as
+discussed by BOX, G.E.P., and JENKINS, G.M. (1970). However, time series
+are often affected by the outliers, other deterministic effects and
+missing observations. The presence of these effects is not in line with
+the ARIMA model assumptions. The presence of outliers and other
+deterministic effects impede the identification of an optimal ARIMA
+model due to the important bias in the estimation of parameters of
+\href{../theory/ACF_and_PACF.html}{sample autocorrelation functions}
+(both global and partial){[}\^{}3{]}. Therefore, the original series
+need to be corrected for any deterministic effects and missing
+observations. This process is called linearisation and results in the
+stochastic series that can be modelled by ARIMA.
+
+For this purpose both TRAMO and RegARIMA use regression models with
+ARIMA errors. With these models TRAMO and RegARIMA also produce
+forecasts.
+
+\hypertarget{moving-average-based-decomposition}{%
+\chapter{Moving average based
+decomposition}\label{moving-average-based-decomposition}}
+
+goal of the chapter : details on X-11 which are not in the SA chapter
+
+a lot of information might be recycled from the old online documentation
+cf file 19-Meth-Local-decomposition.Rmd where info from the old pages is
+gathered formulas and tables compatibility with quarto have to be
+checked before pasting in the book
+
+links to rjdfilters
+
+\hypertarget{local-regression-decomposition}{%
+\chapter{Local regression
+decomposition}\label{local-regression-decomposition}}
+
+goal of the chapter : details on STL which are not in the SA chapter
+
+\hypertarget{arima-model-based-amb-decomposition-1}{%
+\chapter{Arima Model Based AMB
+decomposition}\label{arima-model-based-amb-decomposition-1}}
+
+\hypertarget{moving-average-based-decomposition-1}{%
+\chapter{Moving average based
+decomposition}\label{moving-average-based-decomposition-1}}
+
+goal of the chapter : details on SEATS which are not in the SA chapter
+
+a lot of information might be recycled from the old online documentation
+cf file 20-Meth-AMB-decomposition.Rmd where info from the old pages is
+gathered formulas and tables compatibility with quarto have to be
+checked before pasting in the book
+
+\hypertarget{seats}{%
+\section{SEATS}\label{seats}}
+
+\hypertarget{state-space-framework-1}{%
+\chapter{State Space Framework}\label{state-space-framework-1}}
+
+\hypertarget{references-1}{%
+\chapter*{References}\label{references-1}}
+\addcontentsline{toc}{chapter}{References}
+
+\hypertarget{refs}{}
+\begin{CSLReferences}{0}{0}
+\end{CSLReferences}
+
+\hypertarget{theoretical-spectral-density-of-an-arima-model-1}{%
+\subsection{Theoretical spectral density of an ARIMA
+model}\label{theoretical-spectral-density-of-an-arima-model-1}}
+
+old title: Theoretical spectrum of the ARIMA model link to graph display
+in GUI
+
+In the bottom part the panel \href{../theory/SA_lin.html}{the ARIMA
+model} used by TRAMO is presented using symbolic notation
+\textbackslash((P,D,Q)(PB,DB,QB)\textbackslash). Estimated parameters'
+coefficients (regular and seasonal AR and MA) are shown in closed form
+(i.e.~using the backshift operator\footnote{A backshift operator
+  \textbackslash(B~\textbackslash)is defined as:
+  (\(B^{k}x_{t} = x_{t - k})\). It is used to denote lagged series.}
+\textbackslash(B\textbackslash)). For each regular AR root (i.e.~the
+solution of the characteristic equation) the
+\protect\hyperlink{derivation-of-the-models-for-the-components}{argument
+and modulus} are given.
+
+\begin{figure}
+
+{\centering \includegraphics{./All_images/RM_C_pic03.jpg}
+
+}
+
+\caption{Text}
+
+\end{figure}
+
+\textbf{The details of ARIMA model used for modelling}
+
+For each regular AR root the argument and modulus are also reported (if
+present, i.e.~if \textbackslash(\mathbf{P > 0}\textbackslash)) to inform
+to which time series component the regular roots would be assigned.
+
+
+
+\end{document}

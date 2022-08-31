@@ -5,7 +5,8 @@
 ### Available algorithms
 
 
-### Tools to access this algorithms
+### Tools 
+to access this algorithms
 
 
 ### Underlying Statistical Methods 

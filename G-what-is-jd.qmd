@@ -1,19 +1,41 @@
 # JDemetra+ Software
 
-## A library of algorithms
+ressources for descrption 
+- R tools WP
+- desp in esp
 
-## How Jdemetra+ came to be
+## A library of algorithms for time series related functions ? needs ?
 
-history of the project
+
+You can learn more about the history of the project here (link to below)
 
 ## Structure of this book
 
+This book is divided in four parts, each being an entry point for the user. 
+
 ### Algorithms
+
+This part provides a step by step description of all the algorithms featured in JD+, grouped by purpose 
+- seasonal adjstement
+- benchmarking
+- temporal disaggregation
+- ...
+links
 
 ### Tools
 
-how to run to run an algorithm
+Jdemetra+ offers 3 kind of tools
+
 
 ### Underlying Statistical Methods
 
-## Audience
+This part gives details about the underlying statistical methods to foster a more in-depth understanding of the algorithms.Those methods are described in the light and spirit of their use as buliding blocks of the algorithms presented above, not aiming at all at their comprehensive coverage. 
+
+## How to use this book
+
+
+audience: book targets the beginner as well as seasoned (pun 
+moethodlogist.
+The beginner is advised to use the quick start chapter as an etrey point, it's presneted like a decsion tree which will point directly to the the part it's useful to review.
+
+the seasoned methodologist will benefit from the detailed chapter ad part strucutre to quickly find the needed information. 
