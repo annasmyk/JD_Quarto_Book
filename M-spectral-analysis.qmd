@@ -2,14 +2,14 @@
 
 ## Chapter building process
 
-### Edit content :
+### Edit content
 
 add: 
 - R code or refernces to
 - rjd3sa (?) references to tests 
 - more explanations on spectral analysis rationale
 
-### Vocabulary precision:
+### Vocabulary precision
 - spectral density 
 - periodgram 
 - spectral density estimator 

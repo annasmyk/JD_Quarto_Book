@@ -222,7 +222,11 @@ ul.task-list{list-style: none;}
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#chapter-building-process" id="toc-chapter-building-process" class="nav-link active" data-scroll-target="#chapter-building-process"> <span class="header-section-number">16.1</span> Chapter building process</a></li>
+  <li><a href="#chapter-building-process" id="toc-chapter-building-process" class="nav-link active" data-scroll-target="#chapter-building-process"> <span class="header-section-number">16.1</span> Chapter building process</a>
+  <ul class="collapse">
+  <li><a href="#edit-content" id="toc-edit-content" class="nav-link" data-scroll-target="#edit-content"> <span class="header-section-number">16.1.1</span> Edit content</a></li>
+  <li><a href="#vocabulary-precision" id="toc-vocabulary-precision" class="nav-link" data-scroll-target="#vocabulary-precision"> <span class="header-section-number">16.1.2</span> Vocabulary precision</a></li>
+  </ul></li>
   <li><a href="#spectral-analysis-concepts-and-overview" id="toc-spectral-analysis-concepts-and-overview" class="nav-link" data-scroll-target="#spectral-analysis-concepts-and-overview"> <span class="header-section-number">16.2</span> Spectral analysis concepts and overview</a>
   <ul class="collapse">
   <li><a href="#theoretical-spectral-density-of-an-arima-model" id="toc-theoretical-spectral-density-of-an-arima-model" class="nav-link" data-scroll-target="#theoretical-spectral-density-of-an-arima-model"> <span class="header-section-number">16.2.1</span> Theoretical spectral density of an ARIMA model</a></li>
@@ -259,6 +263,19 @@ ul.task-list{list-style: none;}
 
 <section id="chapter-building-process" class="level2" data-number="16.1">
 <h2 data-number="16.1" class="anchored" data-anchor-id="chapter-building-process"><span class="header-section-number">16.1</span> Chapter building process</h2>
+<section id="edit-content" class="level3" data-number="16.1.1">
+<h3 data-number="16.1.1" class="anchored" data-anchor-id="edit-content"><span class="header-section-number">16.1.1</span> Edit content</h3>
+<p>add: - R code or refernces to - rjd3sa (?) references to tests - more explanations on spectral analysis rationale</p>
+</section>
+<section id="vocabulary-precision" class="level3" data-number="16.1.2">
+<h3 data-number="16.1.2" class="anchored" data-anchor-id="vocabulary-precision"><span class="header-section-number">16.1.2</span> Vocabulary precision</h3>
+<ul>
+<li>spectral density</li>
+<li>periodgram</li>
+<li>spectral density estimator</li>
+<li>“spectrum” is used too ubiquitously</li>
+</ul>
+</section>
 </section>
 <section id="spectral-analysis-concepts-and-overview" class="level2" data-number="16.2">
 <h2 data-number="16.2" class="anchored" data-anchor-id="spectral-analysis-concepts-and-overview"><span class="header-section-number">16.2</span> Spectral analysis concepts and overview</h2>
@@ -422,15 +439,14 @@ f(\omega_{\ }) = \frac{1}{2\pi}\sum_{k &lt; - \infty}^{\infty}{\gamma( k)}_{\ }e
 <li><p>The peaks should exceed the spectrum of the two adjacent values by more than a critical value.</p></li>
 </ul>
 <blockquote class="blockquote">
-<p>JDemetra+ performs this test on the original series. If these two requirements are met, the test results are displayed in green. The statistical significance of each of the seasonal peaks (i.e. frequencies <span class="math inline">\(\frac{\pi}{6},\ \frac{\pi}{3},\ \frac{\pi}{2},\ \frac{2\pi}{3}\)</span> and $$ corresponding to 1, 2, 3, 4 and 5 cycles per year) is also displayed. The seasonal and trading days frequencies depends on the frequency of time series. They are shown in the table below. The symbol <span class="math inline">\(d\)</span> denotes a default frequency and is described below the table.</p>
+<p>JDemetra+ performs this test on the original series. If these two requirements are met, the test results are displayed in green. The statistical significance of each of the seasonal peaks (i.e.&nbsp;frequencies <span class="math inline">\(\frac{\pi}{6},\ \frac{\pi}{3},\ \frac{\pi}{2},\ \frac{2\pi}{3}\)</span> and $$ corresponding to 1, 2, 3, 4 and 5 cycles per year) is also displayed. The seasonal and trading days frequencies depends on the frequency of time series. They are shown in the table below. The symbol <span class="math inline">\(d\)</span> denotes a default frequency and is described below the table.</p>
 </blockquote>
 <p><strong>The seasonal and trading day frequencies by time series frequency</strong></p>
 <p>{: .table .table-style} |<strong>Number of months per full period</strong> | <strong>Seasonal frequency</strong> | <strong>Trading day frequency (radians)</strong>| |————————————–| ————————————————————————————-| ————————————| |12 | <span class="math inline">\(\frac{\pi}{6},\frac{\pi}{3},\ \frac{\pi}{2},\frac{2\pi}{3},\ \frac{5\pi}{6},\ \pi\)</span> | <span class="math inline">\(d\)</span>, 2.714| |6 | <span class="math inline">\(\frac{\pi}{3},\frac{2\pi}{3}\)</span>, <span class="math inline">\(\pi\)</span> | <span class="math display">\[d\]</span> |4 | <span class="math inline">\(\frac{\pi}{2}\)</span>, <span class="math inline">\(\pi\)</span> | <span class="math inline">\(d\)</span>, 1.292, 1.850, 2.128| |3 | <span class="math display">\[\pi\]</span> | <span class="math display">\[d\]</span>| |2 | <span class="math display">\[\pi\]</span> | <span class="math display">\[d\]</span>|</p>
-<p>The calendar (trading day or working day) effects, related to the variation in the number of different days of the week per period, can induce periodic patterns in the data that can be similar to those resulting from pure seasonal effects. From the theoretical point of view, trading day variability is mainly due to the fact that the average number of days in the months or quarters is not equal to a multiple of 7 (the average number of days of a month in the year of 365.25 days is equal to <span class="math inline">\(\frac{365.25}{12} =\)</span> 30.4375 days). This effect occurs <span class="math inline">\(\frac{365.25}{12} \times \frac{1}{7} =\)</span> 4.3482 times per month: one time for each one of the four complete weeks of each month, and a residual of 0.3482 cycles per month, i.e. <span class="math inline">\(0.3482 \times 2\pi = 2.1878\)</span> radians. This turns out to be a fundamental frequency for the effects associated with monthly data. In JDemetra+ the fundamental frequency corresponding to 0.3482 cycles per month is used in place of the closest frequency <span class="math inline">\(\frac{\text{πk}}{60}\)</span>. Thus, the quantity <span class="math inline">\(\frac{\pi \times 42}{60}\)</span> is replaced by <span class="math inline">\(\omega_{42} = 0.3482 \times 2\pi = 2.1878\)</span>. The frequencies neighbouring <span class="math inline">\(\omega_{42}\)</span>, i.e.&nbsp;<span class="math inline">\(\omega_{41}\)</span> and <span class="math inline">\(\omega_{43}\)</span> are set to, respectively, <span class="math inline">\(2.1865 - \frac{1}{60}\)</span> and <span class="math inline">\(2.1865 + \frac{1}{60}\)</span>.</p>
-<p>The default frequencies (<span class="math inline">\(d)\ \)</span>for calendar effect are: 2.188 (monthly series) and 0.280 (quarterly series). They are computed as:</p>
-<p><span class="math display">\[
-\omega_{\text{ce}} = \frac{2\pi}{7}\left( n - 7 \times \left\lbrack \frac{n}{7} \right\rbrack \right)
-\]</span>, [1] <!---\[7.158\]      --></p>
+<p>The calendar (trading day or working day) effects, related to the variation in the number of different days of the week per period, can induce periodic patterns in the data that can be similar to those resulting from pure seasonal effects. From the theoretical point of view, trading day variability is mainly due to the fact that the average number of days in the months or quarters is not equal to a multiple of 7 (the average number of days of a month in the year of 365.25 days is equal to <span class="math inline">\(\frac{365.25}{12} =\)</span> 30.4375 days). This effect occurs <span class="math inline">\(\frac{365.25}{12} \times \frac{1}{7} =\)</span> 4.3482 times per month: one time for each one of the four complete weeks of each month, and a residual of 0.3482 cycles per month, i.e.&nbsp;<span class="math inline">\(0.3482 \times 2\pi = 2.1878\)</span> radians. This turns out to be a fundamental frequency for the effects associated with monthly data. In JDemetra+ the fundamental frequency corresponding to 0.3482 cycles per month is used in place of the closest frequency <span class="math inline">\(\frac{\text{πk}}{60}\)</span>. Thus, the quantity <span class="math inline">\(\frac{\pi \times 42}{60}\)</span> is replaced by <span class="math inline">\(\omega_{42} = 0.3482 \times 2\pi = 2.1878\)</span>. The frequencies neighbouring <span class="math inline">\(\omega_{42}\)</span>, i.e.&nbsp;<span class="math inline">\(\omega_{41}\)</span> and <span class="math inline">\(\omega_{43}\)</span> are set to, respectively, <span class="math inline">\(2.1865 - \frac{1}{60}\)</span> and <span class="math inline">\(2.1865 + \frac{1}{60}\)</span>.</p>
+<p>The default frequencies ($d)$for calendar effect are: 2.188 (monthly series) and 0.280 (quarterly series). They are computed as:</p>
+<p>$$</p>
+<p>_{} = ( n - 7 ) $$, [1] <!---\[7.158\]      --></p>
 <p>where:</p>
 <p><span class="math inline">\(n = \frac{365.25}{s}\)</span>, <span class="math inline">\(s = 4\)</span> for quarterly series and <span class="math inline">\(s = 12\)</span> for monthly series.</p>
 <p>Other frequencies that correspond to trading day frequencies are: 2.714 (monthly series) and 1.292, 1.850, 2.128 (quarterly series).</p>
@@ -450,11 +466,8 @@ f(\omega_{\ }) = \frac{1}{2\pi}\sum_{k &lt; - \infty}^{\infty}{\gamma( k)}_{\ }e
 </section>
 <section id="tukey-spectrum-definition" class="level4" data-number="16.4.0.2">
 <h4 data-number="16.4.0.2" class="anchored" data-anchor-id="tukey-spectrum-definition"><span class="header-section-number">16.4.0.2</span> Tukey Spectrum definition</h4>
-<p>The Tukey spectrum belongs to the class of lag-window estimators. A lag window estimator of the spectral density $$</p>
-<p>f()=_{k&lt;-}<sup>{}(k)e</sup>{i k }</p>
-<p><span class="math display">\[
-is defined as follows:
-\]</span></p>
+<p>The Tukey spectrum belongs to the class of lag-window estimators. A lag window estimator of the spectral density $$ f()=_{k&lt;-}<sup>{}(k)e</sup>{i k }</p>
+<p><span class="math display">\[ is defined as follows: \]</span></p>
 <p><em>{L}()=</em>{| h | r } w(h/r)(h)e^{i h }</p>
 <p>$$</p>
 <p>where <span class="math display">\[\hat{\gamma}(.) \]</span> is the sample autocovariance function, <span class="math display">\[w(.)\]</span> is the lag window, and <span class="math display">\[r\]</span> is the truncation lag. <span class="math display">\[\left| w(x)\right| \]</span> is always less than or equal to one, <span class="math display">\[w(0)=1\]</span> and <span class="math display">\[w(x)=0\]</span> for <span class="math display">\[\left| x \right| &gt; 1\]</span>. The simple idea behind this formula is to down-weight the autocovariance function for high lags where <span class="math display">\[\hat{\gamma}(h)\]</span> is more unreliable. This estimator requires choosing <span class="math display">\[r\]</span> as a function of the sample size such that <span class="math display">\[r/n \rightarrow 0 \]</span> and <span class="math display">\[r\rightarrow \infty \]</span> when <span class="math display">\[ n \rightarrow \infty \]</span> . These conditions guarantee that the estimator converges to the true density.</p>
@@ -468,8 +481,7 @@ is defined as follows:
 <p>$$</p>
 <p> CV(_{j})</p>
 <p>$$</p>
-<p>where <span class="math display">\[ CV(\omega_{j})\]</span> is the critical value of a <span class="math display">\[F(d_{1},d_{2})\]</span> distribution, where the degrees of freedom are determined using simulations. For</p>
-<p><span class="math display">\[\omega_{j}= \pi\]</span>, we have a significant peak when <span class="math display">\[\frac{f_{x}(\omega_{[n/2]})}{\left[ f_{x}(\omega_{[(n-1)/2]})\right]} \ge CV(\omega_{j}) \]</span></p>
+<p>where <span class="math display">\[ CV(\omega_{j})\]</span> is the critical value of a <span class="math display">\[F(d_{1},d_{2})\]</span> distribution, where the degrees of freedom are determined using simulations. For <span class="math display">\[\omega_{j}= \pi\]</span>, we have a significant peak when <span class="math display">\[\frac{f_{x}(\omega_{[n/2]})}{\left[ f_{x}(\omega_{[(n-1)/2]})\right]} \ge CV(\omega_{j}) \]</span></p>
 <p>Two significant levels for this test are considered: <span class="math display">\[\alpha=0.05\]</span> (code “t”) and <span class="math display">\[\alpha=0.01\]</span> (code “T”).</p>
 <p>As opposed to the <a href="%7B%7B%20site.baseurl%20%7D%7D/pages/theory/Tests_ARspectrum.html">AR spectrum</a>, which is computed on the basis of the last <span class="math display">\[120\]</span> data points, we will use here all available observations. Those critical values have been calculated given the recommended truncation lag <span class="math display">\[r=79\]</span> for a sample size within the interval <span class="math display">\[n \in [80,119]\]</span> and <span class="math display">\[r=112\]</span> for <span class="math display">\[n \in [120,300]\]</span> . The <span class="math display">\[F\]</span> approximation is less accurate for sample sizes larger than <span class="math display">\[300\]</span>. For quarterly data, <span class="math display">\[r=44 \]</span>, but there are no recommendations regarding the required sample size</p>
 </section>
@@ -482,13 +494,13 @@ is defined as follows:
 <p></p><figcaption aria-hidden="true" class="figure-caption">tktest</figcaption><p></p>
 </figure>
 </div>
-<p>JDemetra+ considers critical values for <span class="math display">\[ \alpha=1\%\]</span> (code “T”) and <span class="math display">\[ \alpha=5\%\]</span> (code “t”) at each one of the seasonal frequencies represented in the table below, e.g.&nbsp;frequencies <span class="math inline">\(\frac{\pi}{6},\ \frac{\pi}{3},\ \frac{\pi}{2},\ \frac{2\pi}{3}\text{ and } \frac{5\pi}{6}\ \)</span> corresponding to 1, 2, 3, 4, 5 and 6 cycles per year in this example, since we are dealing with monthly data. The codes “a” and “A” correpond to the so-called <a href="%7B%7B%20site.baseurl%20%7D%7D/pages/theory/Tests_ARspectrum.html">AR spectrum</a>, so ignore them for the moment.</p>
+<p>JDemetra+ considers critical values for <span class="math display">\[ \alpha=1\%\]</span> (code “T”) and <span class="math display">\[ \alpha=5\%\]</span> (code “t”) at each one of the seasonal frequencies represented in the table below, e.g.&nbsp;frequencies $,&nbsp;,&nbsp;,&nbsp; $ corresponding to 1, 2, 3, 4, 5 and 6 cycles per year in this example, since we are dealing with monthly data. The codes “a” and “A” correpond to the so-called <a href="%7B%7B%20site.baseurl%20%7D%7D/pages/theory/Tests_ARspectrum.html">AR spectrum</a>, so ignore them for the moment.</p>
 <p><strong>The seasonal and trading day frequencies by time series frequency</strong></p>
 <table class="table">
 <colgroup>
-<col style="width: 23%">
-<col style="width: 53%">
-<col style="width: 22%">
+<col style="width: 25%">
+<col style="width: 50%">
+<col style="width: 25%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -556,10 +568,7 @@ is defined as follows:
 <h4 data-number="16.4.0.7" class="anchored" data-anchor-id="graphical-test-1"><span class="header-section-number">16.4.0.7</span> Graphical Test</h4>
 <p>The statistical significance of the peaks associated to a given frequency can be informally tested using a visual criterion, which has proved to perform well in simulation experiments. Visually significant peaks for a frequency <span class="math display">\[\lambda_{j}\]</span> satisfy both conditions:</p>
 <ul>
-<li><span class="math display">\[ \frac{f_{x}(\lambda_{j})- \max \left\{f_{x}(\lambda_{j+1}),f_{x}(\lambda_{j-1}) \right\}}{\left[ \max_{k}f_{x}(\lambda_{k})-\min_{i}f_{x}(\lambda_{i}) \right]}\ge CV(\lambda_{j}) \]</span>, where</li>
-</ul>
-<p><span class="math display">\[ CV(\lambda_{j})\]</span> can be set equal to <span class="math display">\[6/52 \]</span> for all <span class="math display">\[j\]</span></p>
-<ul>
+<li><span class="math display">\[ \frac{f_{x}(\lambda_{j})- \max \left\{f_{x}(\lambda_{j+1}),f_{x}(\lambda_{j-1}) \right\}}{\left[ \max_{k}f_{x}(\lambda_{k})-\min_{i}f_{x}(\lambda_{i}) \right]}\ge CV(\lambda_{j}) \]</span>, where <span class="math display">\[ CV(\lambda_{j})\]</span> can be set equal to <span class="math display">\[6/52 \]</span> for all <span class="math display">\[j\]</span></li>
 <li><span class="math display">\[ f_{x}(\lambda_{j})&gt; median_{j} \left\{ f_{x}(\lambda_{j}) \right\}\]</span>, which guarantees <span class="math display">\[ f_{x}(\lambda_{j}) \]</span> it is not a local peak.</li>
 </ul>
 <p>The first condition implies that if we divide the range <span class="math display">\[\max_{k}f_{x}(\lambda_{k})-\min_{i}f_{x}(\lambda_{i})\]</span> in 52 parts (traditionally represented by stars) the height of each pick should be at least 6 stars.</p>
@@ -573,7 +582,7 @@ is defined as follows:
 <p></p><figcaption aria-hidden="true" class="figure-caption">artest</figcaption><p></p>
 </figure>
 </div>
-<p>JDemetra+ considers critical values for <span class="math display">\[ \alpha=1\%\]</span> (code “A”) and <span class="math display">\[ \alpha=5\%\]</span> (code “a”) at each one of the seasonal frequencies represented in the table below, e.g.&nbsp;frequencies <span class="math inline">\(\frac{\pi}{6},\ \frac{\pi}{3},\ \frac{\pi}{2},\ \frac{2\pi}{3}\text{ and } \frac{5\pi}{6}\ \)</span> corresponding to 1, 2, 3, 4, 5 and 6 cycles per year in this example, since we are dealing with monthly data. The codes “t” and “T” correpond to the so-called <a href="%7B%7B%20site.baseurl%20%7D%7D/pages/theory/Tests_TKspectrum.html">Tukey spectrum</a>, so ignore them for the moment.</p>
+<p>JDemetra+ considers critical values for <span class="math display">\[ \alpha=1\%\]</span> (code “A”) and <span class="math display">\[ \alpha=5\%\]</span> (code “a”) at each one of the seasonal frequencies represented in the table below, e.g.&nbsp;frequencies $,&nbsp;,&nbsp;,&nbsp; $ corresponding to 1, 2, 3, 4, 5 and 6 cycles per year in this example, since we are dealing with monthly data. The codes “t” and “T” correpond to the so-called <a href="%7B%7B%20site.baseurl%20%7D%7D/pages/theory/Tests_TKspectrum.html">Tukey spectrum</a>, so ignore them for the moment.</p>
 <p><strong>The seasonal and trading day frequencies by time series frequency</strong></p>
 <p>{: .table .table-style} |<strong>Number of months per full period</strong> | <strong>Seasonal frequency</strong> | <strong>Trading day frequency (radians)</strong>| |————————————–| ————————————————————————————-| ————————————| |12 | <span class="math inline">\(\frac{\pi}{6},\frac{\pi}{3},\ \frac{\pi}{2},\frac{2\pi}{3},\ \frac{5\pi}{6},\ \pi\)</span> | <span class="math inline">\(d\)</span>, 2.714| |6 | <span class="math inline">\(\frac{\pi}{3},\frac{2\pi}{3}\)</span>, <span class="math inline">\(\pi\)</span> | <span class="math display">\[d\]</span> |4 | <span class="math inline">\(\frac{\pi}{2}\)</span>, <span class="math inline">\(\pi\)</span> | <span class="math inline">\(d\)</span>, 1.292, 1.850, 2.128| |3 | <span class="math display">\[\pi\]</span> | <span class="math display">\[d\]</span>| |2 | <span class="math display">\[\pi\]</span> | <span class="math display">\[d\]</span>|</p>
 <p>Currently, only seasonal frequencies are tested, but the program allows you to manually plot the AR spectrum and focus your attention on both seasonal and trading day frequencies. Agustin Maravall has conducted a simulation experiment to calculate <span class="math display">\[ CV(\lambda_{42}) \]</span> (trading day frequency) and proposes to set for all <span class="math display">\[j\]</span> equal to the critical value associated to the trading frequency, but this is currently not part of the current automatic testing procedure of JDemetra+.</p>
@@ -598,68 +607,52 @@ is defined as follows:
 <p>An orthonormal basis in <span class="math display">\[ \mathbb{R}^n \]</span>:</p>
 <p>$$</p>
 <p>{ e_0, ~~~~~~c_1, s_1, ~~~<del></del>~~~&nbsp;, ~~<del>c_{[(n-1)/2]}, s_{[(n-1)/2]},</del>~~~~ e_{n/2} },</p>
-<p><span class="math display">\[
-where \]</span> e_{n/2} <span class="math display">\[ is excluded if \]</span> n $$ is odd,<br>
+<p><span class="math display">\[ where \]</span> e_{n/2} <span class="math display">\[ is excluded if \]</span> n $$ is odd,<br>
 can be used to project the data and obtain the spectral decomposition</p>
 <p>Thus, the periodogram is given by the projection coefficients and represents the contribution of the jth harmonic to the total sum of squares, as illustrated by Brockwell and Davis (1991):</p>
 <table class="table">
-<colgroup>
-<col style="width: 25%">
-<col style="width: 41%">
-<col style="width: 33%">
-</colgroup>
 <thead>
 <tr class="header">
 <th>Source</th>
 <th style="text-align: center;">Degrees of freedom</th>
-<th style="text-align: right;"><span class="math display">\[~~~~\]</span> Sum of squares decomposition</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td>Frequency <span class="math display">\[ \omega_{0} \]</span></td>
 <td style="text-align: center;">1</td>
-<td style="text-align: right;"><span class="math display">\[ a_{0}^{2}= n^{-1}(\sum_{t=1}^{n}x_t )^2 =I(0)\]</span></td>
 </tr>
 <tr class="even">
 <td>Frequency <span class="math display">\[ \omega_{1} \]</span></td>
 <td style="text-align: center;">2</td>
-<td style="text-align: right;"><span class="math display">\[ 2 r^{2}_{1} = 2 \left\| a_{1} \right\|^{2} = 2 I(\omega_{1}) \]</span></td>
 </tr>
 <tr class="odd">
 <td><span class="math display">\[ \vdots \]</span></td>
 <td style="text-align: center;"><span class="math display">\[ \vdots \]</span></td>
-<td style="text-align: right;"><span class="math display">\[ \vdots \]</span></td>
 </tr>
 <tr class="even">
 <td>Frequency <span class="math display">\[ \omega_{k} \]</span></td>
 <td style="text-align: center;">2</td>
-<td style="text-align: right;"><span class="math display">\[ 2 r^{2}_{k} = 2 \left\| a_{k} \right\|^{2} = 2 I(\omega_{k}) \]</span></td>
 </tr>
 <tr class="odd">
 <td><span class="math display">\[ \vdots \]</span></td>
 <td style="text-align: center;"><span class="math display">\[ \vdots \]</span></td>
-<td style="text-align: right;"><span class="math display">\[ \vdots \]</span></td>
 </tr>
 <tr class="even">
 <td>Frequency <span class="math display">\[ \omega_{n/2}=\pi \]</span></td>
 <td style="text-align: center;">1</td>
-<td style="text-align: right;"><span class="math display">\[ a_{n/2}^{2} = I(\pi) \]</span></td>
 </tr>
 <tr class="odd">
 <td>(excluded if <span class="math display">\[ n \]</span> is odd)</td>
 <td style="text-align: center;"></td>
-<td style="text-align: right;"></td>
 </tr>
 <tr class="even">
 <td><span class="math display">\[ ========= \]</span></td>
 <td style="text-align: center;"><span class="math display">\[ ====== \]</span></td>
-<td style="text-align: right;"><span class="math display">\[ ============ \]</span></td>
 </tr>
 <tr class="odd">
 <td>Total</td>
 <td style="text-align: center;">n</td>
-<td style="text-align: right;"><span class="math display">\[ \sum_{t=1}^{n}\mathbf{X^2_t} \]</span></td>
 </tr>
 </tbody>
 </table>
@@ -670,25 +663,15 @@ can be used to project the data and obtain the spectral decomposition</p>
 <h4 data-number="16.4.0.11" class="anchored" data-anchor-id="defining-a-f-test"><span class="header-section-number">16.4.0.11</span> Defining a F-test</h4>
 <p>Brockwell and Davis (1991, section 10.2) exploit the fact that the periodogram can be expressed as the projection on the orthonormal basis defined above to derive a test. Thus, under the null hypothesis:</p>
 <ul>
-<li><span class="math display">\[ 2I(\omega_{k})= \| P_{\bar{sp}_{\left\{ c_{k},s_{k} \right\}}} \mathbf{X} \|^{2}  \sim \sigma^{2} \chi^{2}(2) \]</span>, for Fourier frequencies</li>
-</ul>
-<p><span class="math display">\[ 0 &lt; \omega_{k}=2\pi k/n &lt; \pi \]</span></p>
-<ul>
+<li><span class="math display">\[ 2I(\omega_{k})= \| P_{\bar{sp}_{\left\{ c_{k},s_{k} \right\}}} \mathbf{X} \|^{2}  \sim \sigma^{2} \chi^{2}(2) \]</span>, for Fourier frequencies <span class="math display">\[ 0 &lt; \omega_{k}=2\pi k/n &lt; \pi \]</span></li>
 <li><span class="math display">\[ I(\pi)= \| P_{\bar{sp}_{\left\{ e_{n/2} \right\}}} \mathbf{X} \|^{2}  \sim \sigma^{2} \chi^{2}(1) \]</span>, for <span class="math display">\[ \pi \]</span></li>
 </ul>
 <p>Because <span class="math display">\[ I(\omega_{k}) \]</span> is independent from the projection error sum of squares, we can define our F-test statistic as follows:</p>
 <ul>
-<li><span class="math display">\[ \frac{ 2I(\omega_{k})}{\|\mathbf{X}-P_{\bar{sp}_{\left\{ e_0,c_{k},s_{k} \right\}}} \mathbf{X}\|^2} \frac{n-3}{2} \sim F(2,n-3) \]</span>, for Fourier frequencies</li>
-</ul>
-<p><span class="math display">\[ 0 &lt; \omega_{k}=2\pi k/n &lt; \pi \]</span></p>
-<ul>
+<li><span class="math display">\[ \frac{ 2I(\omega_{k})}{\|\mathbf{X}-P_{\bar{sp}_{\left\{ e_0,c_{k},s_{k} \right\}}} \mathbf{X}\|^2} \frac{n-3}{2} \sim F(2,n-3) \]</span>, for Fourier frequencies <span class="math display">\[ 0 &lt; \omega_{k}=2\pi k/n &lt; \pi \]</span></li>
 <li><span class="math display">\[ \frac{ I(\pi)}{\|\mathbf{X}-P_{\bar{sp}_{\left\{ e_0,e_{n/2} \right\}}} \mathbf{X}\|^2} \frac{n-2}{1} \sim F(1,n-2)\]</span>, for <span class="math display">\[ \pi \]</span></li>
 </ul>
-<p>where - <span class="math display">\[ \|\mathbf{X}-P_{\bar{sp}_{\left\{ e_0,c_{k},s_{k} \right\}}} \mathbf{X}\|^2  = \sum_{i=1}^{n}\mathbf{X^2_i}-I(0)-2I(\omega_{k}) \sim \sigma^{2} \chi^{2}(n-3)\]</span> for Fourier frequencies</p>
-<p><span class="math display">\[ 0 &lt; \omega_{k}=2\pi k/n &lt; \pi \]</span></p>
-<ul>
-<li><span class="math display">\[ \|\mathbf{X}-P_{\bar{sp}_{\left\{ e_0,e_{n/2} \right\}}} \mathbf{X}\|^2 = \sum_{i=1}^{n}\mathbf{X^2_i}-I(0)-I(\pi) \sim \sigma^{2} \chi^{2}(n-2)  \]</span> for <span class="math display">\[ \pi \]</span></li>
-</ul>
+<p>where - <span class="math display">\[ \|\mathbf{X}-P_{\bar{sp}_{\left\{ e_0,c_{k},s_{k} \right\}}} \mathbf{X}\|^2  = \sum_{i=1}^{n}\mathbf{X^2_i}-I(0)-2I(\omega_{k}) \sim \sigma^{2} \chi^{2}(n-3)\]</span> for Fourier frequencies <span class="math display">\[ 0 &lt; \omega_{k}=2\pi k/n &lt; \pi \]</span> - <span class="math display">\[ \|\mathbf{X}-P_{\bar{sp}_{\left\{ e_0,e_{n/2} \right\}}} \mathbf{X}\|^2 = \sum_{i=1}^{n}\mathbf{X^2_i}-I(0)-I(\pi) \sim \sigma^{2} \chi^{2}(n-2)  \]</span> for <span class="math display">\[ \pi \]</span></p>
 <p>Thus, we reject the null if our F-test statistic computed at a given seasonal frequency (different from <span class="math display">\[ \pi \]</span>) is larger than <span class="math display">\[ F_{1-α}(2,n-3)\]</span>. If we consider <span class="math display">\[ \pi  \]</span>, our test statistic follows a <span class="math display">\[ F_{1-α}(1,n-2)\]</span> distribution.</p>
 </section>
 <section id="seasonality-test" class="level4" data-number="16.4.0.12">
@@ -696,8 +679,7 @@ can be used to project the data and obtain the spectral decomposition</p>
 <p>The implementation of JDemetra+ considers simultaneously the whole set of seasonal frequencies (1, 2, 3, 4, 5 and 6 cycles per year). Thus, the resulting test-statistic is:</p>
 <p>$$</p>
 <p> F(11-,n-12+)</p>
-<p><span class="math display">\[
-where  \]</span> <span class="math display">\[  if \]</span> n $$ is even and 0 otherwise.</p>
+<p><span class="math display">\[ where \]</span> <span class="math display">\[ if \]</span> n $$ is even and 0 otherwise.</p>
 <p>In small samples, the test performs better when the periodogram is evaluated as the exact seasonal frequencies. JDemetra+ modifies the sample size to ensure the seasonal frequencies belong to the set of Fourier frequencies. This strategy provides a very simple and effective way to eliminate the leakage problem.</p>
 <p>Example of how results are displayed:</p>
 <div class="quarto-figure quarto-figure-center">
@@ -719,7 +701,7 @@ where  \]</span> <span class="math display">\[  if \]</span> n $$ is even and 0 
 <p>This scenario is designed for advanced users interested in an in-depth analysis of time series in the frequency domain using three spectral graphs. Those graphs can also be used as a complementary analysis for a better understanding of the results obtained with some of the tests described above.</p>
 <p>Economic time series are usually presented in a time domain (X-axis). However, for analytical purposes it is convenient to convert the series to a frequency domain due to the fact that any stationary time series can be expressed as a combination of cosine (or sine) functions. These functions are characterized with different periods (amount of time to complete a full cycle) and amplitudes (maximum/minimum value during the cycle).</p>
 <p>The tool used for the analysis of a time series in a frequency domain is called a spectrum. The peaks in the spectrum indicate the presence of cyclical movements with periodicity between two months and one year. A seasonal series should have peaks at the seasonal frequencies. Calendar adjusted data are not expected to have peak at with a calendar frequency.</p>
-<p>The periodicity of the phenomenon at frequency <em>f</em> is <span class="math inline">\(\frac{2\pi}{f}\)</span>. It means that for a monthly time series the seasonal frequencies <span class="math inline">\(\frac{\pi}{6},\ \frac{\pi}{3},\ \frac{\pi}{2},\ \frac{2\pi}{3},\ \frac{5\pi}{6}\ \)</span> and <span class="math inline">\(\pi\)</span> correspond to 1, 2, 3, 4, 5 and 6 cycles per year. For example, the frequency <span class="math inline">\(\frac{\pi}{3}\)</span> corresponds to a periodicity of 6 months (2 cycles per year are completed). For the quarterly series there are two seasonal frequencies: <span class="math inline">\(\frac{\pi}{2}\)</span> (one cycle per year) and <span class="math inline">\(\pi\)</span> (two cycles per year). A peak at the zero frequency always corresponds to the trend component of the series. Seasonal frequencies are marked as grey vertical lines, while violet vertical lines represent the trading-days frequencies. The trading day frequency is 0.348 and derives from the fact that a daily component which repeats every seven days goes through 4.348 cycles in a month of average length 30.4375 days. It is therefore seen to advance 0.348 cycles per month when the data are obtained at twelve equally spaced times in 365.25 days (the average length of a year).</p>
+<p>The periodicity of the phenomenon at frequency <em>f</em> is <span class="math inline">\(\frac{2\pi}{f}\)</span>. It means that for a monthly time series the seasonal frequencies $,&nbsp;,&nbsp;,&nbsp;,&nbsp;$ and <span class="math inline">\(\pi\)</span> correspond to 1, 2, 3, 4, 5 and 6 cycles per year. For example, the frequency <span class="math inline">\(\frac{\pi}{3}\)</span> corresponds to a periodicity of 6 months (2 cycles per year are completed). For the quarterly series there are two seasonal frequencies: <span class="math inline">\(\frac{\pi}{2}\)</span> (one cycle per year) and <span class="math inline">\(\pi\)</span> (two cycles per year). A peak at the zero frequency always corresponds to the trend component of the series. Seasonal frequencies are marked as grey vertical lines, while violet vertical lines represent the trading-days frequencies. The trading day frequency is 0.348 and derives from the fact that a daily component which repeats every seven days goes through 4.348 cycles in a month of average length 30.4375 days. It is therefore seen to advance 0.348 cycles per month when the data are obtained at twelve equally spaced times in 365.25 days (the average length of a year).</p>
 <p>The interpretation of the spectral graph is rather straightforward. When the values of a spectral graph for low frequencies (i.e.&nbsp;one year and more) are large in relation to its other values it means that the long-term movements dominate in the series. When the values of a spectral graph for high frequencies (i.e.&nbsp;below one year) are large in relation to its other values it means that the series are rather trendless and contains a lot of noise. When the values of a spectral graph are distributed randomly around a constant without any visible peaks, then it is highly probable that the series is a random process. The presence of seasonality in a time series is manifested in a spectral graph by the peaks on the seasonal frequencies.</p>
 <p>Spectral graphs in GUI</p>
 <div class="quarto-figure quarto-figure-center">

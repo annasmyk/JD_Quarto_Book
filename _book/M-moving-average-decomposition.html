@@ -37,6 +37,7 @@ ul.task-list{list-style: none;}
   }
 }</script>
 
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="site_libs/quarto-nav/headroom.min.js"></script>
@@ -217,7 +218,20 @@ ul.task-list{list-style: none;}
 </nav>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#chapter-building-process" id="toc-chapter-building-process" class="nav-link active" data-scroll-target="#chapter-building-process"> <span class="header-section-number">18.1</span> Chapter building process</a>
+  <ul class="collapse">
+  <li><a href="#edit-content" id="toc-edit-content" class="nav-link" data-scroll-target="#edit-content"> <span class="header-section-number">18.1.1</span> Edit content</a></li>
+  </ul></li>
+  <li><a href="#x-11" id="toc-x-11" class="nav-link" data-scroll-target="#x-11"> <span class="header-section-number">18.2</span> X-11</a>
+  <ul class="collapse">
+  <li><a href="#m-stats" id="toc-m-stats" class="nav-link" data-scroll-target="#m-stats"> <span class="header-section-number">18.2.1</span> M-stats</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -238,11 +252,79 @@ ul.task-list{list-style: none;}
 
 </header>
 
-<p>goal of the chapter : details on X-11 which are not in the SA chapter</p>
-<p>a lot of information might be recycled from the old online documentation cf file 19-Meth-Local-decomposition.Rmd where info from the old pages is gathered formulas and tables compatibility with quarto have to be checked before pasting in the book</p>
-<p>links to rjdfilters</p>
+<section id="chapter-building-process" class="level2" data-number="18.1">
+<h2 data-number="18.1" class="anchored" data-anchor-id="chapter-building-process"><span class="header-section-number">18.1</span> Chapter building process</h2>
+<section id="edit-content" class="level3" data-number="18.1.1">
+<h3 data-number="18.1.1" class="anchored" data-anchor-id="edit-content"><span class="header-section-number">18.1.1</span> Edit content</h3>
+<p>goal of the chapter : details on X-11 which won’t be in the SA chapter</p>
+</section>
+</section>
+<section id="x-11" class="level2" data-number="18.2">
+<h2 data-number="18.2" class="anchored" data-anchor-id="x-11"><span class="header-section-number">18.2</span> X-11</h2>
+<section id="m-stats" class="level3" data-number="18.2.1">
+<h3 data-number="18.2.1" class="anchored" data-anchor-id="m-stats"><span class="header-section-number">18.2.1</span> M-stats</h3>
+<p>The details about the measures are given below.</p>
+<ul>
+<li><p><span class="math inline">\(M1\)</span> measures the contribution of the irregular component to the total variance. When it is above 1 some changes in outlier correction should be considered.</p></li>
+<li><p><span class="math inline">\(M2\)</span>, which is a very similar to <span class="math inline">\(M1\)</span>, is calculated on the basis of the contribution of the irregular component to the stationary portion of the variance. When it is above 1, some changes in an outlier correction should be considered.</p></li>
+<li><p><span class="math inline">\(M3\)</span> compares the irregular to the trend taken from a preliminary estimate of the seasonally adjusted series. If this ratio is too large, it is difficult to separate the two components from each other. When it is above 1 some changes in outlier correction should be considered.</p></li>
+<li><p><span class="math inline">\(M4\)</span> tests the randomness of the irregular component. A value above 1 denotes a correlation in the irregular component. In such case a shorter seasonal moving average filter should be considered.</p></li>
+<li><p><span class="math inline">\(M5\)</span> is used to compare the significance of changes in the trend with that in the irregular. When it is above 1 some changes in outlier correction should be considered.</p></li>
+<li><p><span class="math inline">\(M6\)</span> checks the <span class="math inline">\(\text{SI}\)</span> (seasonal – irregular components ratio). If annual changes in the irregular component are too small in relation to the annual changes in the seasonal component, the <span class="math inline">\(3 \times 5\)</span> seasonal filter used for the estimation of the seasonal component is not flexible enough to follow the seasonal movement. In such case a longer seasonal moving average filter should be considered. It should be stressed that <span class="math inline">\(M6\)</span> is calculated only if the <span class="math inline">\(3 \times 5\)</span> filter has been applied in the model.</p></li>
+<li><p><span class="math inline">\(M7\)</span> is the combined test for the presence of an identifiable seasonality. The test compares the relative contribution of stable and moving seasonality[^37].</p></li>
+<li><p><span class="math inline">\(M8\)</span> to <span class="math inline">\(M11\)</span> measure if the movements due to the short-term quasi-random variations and movements due to the long-term changes are not changing too much over the years. If the changes are too strong then the seasonal factors could be erroneous. In such case a correction for a seasonal break or the change of the seasonal filter should be considered.</p></li>
+</ul>
+<p>The <span class="math inline">\(Q\)</span> statistic is a composite indicator calculated from the <span class="math inline">\(M\)</span> statistics.</p>
+<table class="table">
+<colgroup>
+<col style="width: 4%">
+<col style="width: 86%">
+<col style="width: 9%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td></td>
+<td>\[Q = \]</td>
+<td>[1]<!---\[5.25\]--></td>
+</tr>
+</tbody>
+</table>
+<p><span class="math inline">\(Q = Q - M2\)</span> (also called <span class="math inline">\(Q2\)</span>) is the <span class="math inline">\(Q\)</span> statistic for which the <span class="math inline">\(M2\)</span> statistics was excluded from the formula, i.e.:</p>
+<table class="table">
+<colgroup>
+<col style="width: 4%">
+<col style="width: 85%">
+<col style="width: 9%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td></td>
+<td>\[Q - M2 = \]</td>
+<td>[2]<!---\[5.26\]--></td>
+</tr>
+</tbody>
+</table>
+<p>If a time series does not cover at least 6 years, the <span class="math inline">\(M8\)</span>, <span class="math inline">\(M9\)</span>, <span class="math inline">\(M10\)</span> and <span class="math inline">\(M11\)</span> statistics cannot be calculated. In this case the <span class="math inline">\(Q\)</span> statistic is computed as:</p>
+<table class="table">
+<colgroup>
+<col style="width: 5%">
+<col style="width: 82%">
+<col style="width: 11%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td></td>
+<td>\[Q = \]</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>The model has a satisfactory quality if the <span class="math inline">\(Q\)</span> statistic is lower than 1.</p>
+<p>The tables displayed in the <em>Quality measures <strong>→</strong> Details</em> node correspond to the F-set of tables produced by the original X-11 algorithm. To facilitate the analysis of the results, the numbers and the names of the tables are given under each table following the convention used in LADIRAY, D., and QUENNEVILLE, B. (1999).</p>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
