@@ -4,11 +4,10 @@ in or outside a seasonal adjustment process
 
 ## Motivation
 
-
-## With Reg Arima models 
+## With Reg Arima models
 
 ### Part of preadjustment
 
 ### Specific TERROR tool
 
-## With structural models 
+## With structural models

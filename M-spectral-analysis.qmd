@@ -4,16 +4,14 @@
 
 ### Edit content
 
-add: 
-- R code or refernces to
-- rjd3sa (?) references to tests 
-- more explanations on spectral analysis rationale
+add: - R code or refernces to - rjd3sa (?) references to tests - more explanations on spectral analysis rationale
 
 ### Vocabulary precision
-- spectral density 
-- periodgram 
-- spectral density estimator 
-- "spectrum" is used too ubiquitously
+
+-   spectral density
+-   periodgram
+-   spectral density estimator
+-   "spectrum" is used too ubiquitously
 
 ## Spectral analysis concepts and overview
 
@@ -31,7 +29,7 @@ Once the equation \[1\]is divided by $\pi$ and evaluated at some $z{= e}^{- i\om
 
 [^m-spectral-analysis-2]: HAMILTON, J.D. (1994).
 
-$$f(\omega) = \frac{1}{\pi}\sum_{k = - \infty}^{\infty}{e^{- ik\omega}\gamma(k)}$$
+$$f(\omega) = \frac{1}{\pi}\sum_{k=- \infty}^{\infty}{e^{- ik\omega}\gamma(k)}$$
 
 Therefore, the analysis of the population spectrum in the frequency domain is equivalent to the examination of the autocovariance function in the time domain analysis; however it provides an alternative way of inspecting the process. Because $f(\omega)\text{dω}$ is interpreted as a contribution to the variance of components with frequencies in the range $(\omega,\ \omega + d\omega)$, a peak in the spectrum indicates an important contribution to the variance at frequencies near the value that corresponds to this peak.
 
@@ -356,7 +354,7 @@ JDemetra+ considers critical values for $$ \alpha=1\%$$ (code "T") and $$ \alpha
 **The seasonal and trading day frequencies by time series frequency**
 
 | **Number of months per full period** | **Seasonal frequency**                                                              | **Trading day frequency (radians)** |
-|------------------|------------------------------------|------------------|
+|--------------------------------------|-------------------------------------------------------------------------------------|-------------------------------------|
 | 12                                   | $\frac{\pi}{6},\frac{\pi}{3},\ \frac{\pi}{2},\frac{2\pi}{3},\ \frac{5\pi}{6},\ \pi$ | $d$, 2.714                          |
 | 6                                    | $\frac{\pi}{3},\frac{2\pi}{3}$, $\pi$                                               | $$d$$                               |
 | 4                                    | $\frac{\pi}{2}$, $\pi$                                                              | $d$, 1.292, 1.850, 2.128            |

@@ -1,5 +1,13 @@
 # Seasonal Adjustment
 
+## Chapter building process
+
+### Edit content
+
+- much less text than current doc (too long)
+- method details -> to method chapters 
+- tools details in tools: GUI or R
+
 ## Motivation
 
 The primary aim of the seasonal adjustment process is to remove seasonal
@@ -20,7 +28,7 @@ different approach to the decomposition, the output produced for both of
 them has different structure and content. Therefore, the results for
 both methods are discussed separately. However, in contrast to the
 original programs, in JDemetra+ some quality indicators have been
-implemented for both methods, allowing for an easier compaison of the
+implemented for both methods, allowing for an easier comparison of the
 results.
 
 
@@ -173,13 +181,27 @@ algorithms.
 
 details of regressor building in calendar chapter 
 
+#### rationale 
+
+#### method
+
+#### tools
+
 ### Outliers 
+
+#### rationale 
+
+#### method
+
+#### tools
 
 ### Reg-Arima Model 
 
-Tramo and Reg-Arima are very similar...
+Tramo and Reg-Arima are very similar...details in M chapter 
 
-### Modelling assessment 
+### Model evaluation
+
+goodness-of-fit
 
 ## Non Parametric Decomposition 
 

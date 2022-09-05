@@ -12,9 +12,11 @@ code here and/or link to R packages chapter
 
 ## Unobserved Components
 
-## Seasonality tests
+## Identifying seasonal patterns
 
 ### Spectral analysis
+
+### Seasonality tests
 
 ## Pre-adjustment
 
@@ -40,6 +42,4 @@ code here and/or link to R packages chapter
 
 ### Residual Calendar effects
 
-### Arima Model
 
-## Forecasting

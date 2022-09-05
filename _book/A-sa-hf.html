@@ -119,7 +119,7 @@ ul.task-list{list-style: none;}
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./A-calendar-and-input.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Calendar correction and user-defined corrections</span></a>
+  <a href="./A-calendar-and-input.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Calendar and user-defined corrections</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -228,9 +228,10 @@ ul.task-list{list-style: none;}
   </ul></li>
   <li><a href="#tools" id="toc-tools" class="nav-link" data-scroll-target="#tools"> <span class="header-section-number">7.2</span> Tools</a></li>
   <li><a href="#unobserved-components" id="toc-unobserved-components" class="nav-link" data-scroll-target="#unobserved-components"> <span class="header-section-number">7.3</span> Unobserved Components</a></li>
-  <li><a href="#seasonality-tests" id="toc-seasonality-tests" class="nav-link" data-scroll-target="#seasonality-tests"> <span class="header-section-number">7.4</span> Seasonality tests</a>
+  <li><a href="#identifying-seasonal-patterns" id="toc-identifying-seasonal-patterns" class="nav-link" data-scroll-target="#identifying-seasonal-patterns"> <span class="header-section-number">7.4</span> Identifying seasonal patterns</a>
   <ul class="collapse">
   <li><a href="#spectral-analysis" id="toc-spectral-analysis" class="nav-link" data-scroll-target="#spectral-analysis"> <span class="header-section-number">7.4.1</span> Spectral analysis</a></li>
+  <li><a href="#seasonality-tests" id="toc-seasonality-tests" class="nav-link" data-scroll-target="#seasonality-tests"> <span class="header-section-number">7.4.2</span> Seasonality tests</a></li>
   </ul></li>
   <li><a href="#pre-adjustment" id="toc-pre-adjustment" class="nav-link" data-scroll-target="#pre-adjustment"> <span class="header-section-number">7.5</span> Pre-adjustment</a>
   <ul class="collapse">
@@ -249,9 +250,7 @@ ul.task-list{list-style: none;}
   <ul class="collapse">
   <li><a href="#residual-seasonality" id="toc-residual-seasonality" class="nav-link" data-scroll-target="#residual-seasonality"> <span class="header-section-number">7.7.1</span> Residual seasonality</a></li>
   <li><a href="#residual-calendar-effects" id="toc-residual-calendar-effects" class="nav-link" data-scroll-target="#residual-calendar-effects"> <span class="header-section-number">7.7.2</span> Residual Calendar effects</a></li>
-  <li><a href="#arima-model" id="toc-arima-model" class="nav-link" data-scroll-target="#arima-model"> <span class="header-section-number">7.7.3</span> Arima Model</a></li>
   </ul></li>
-  <li><a href="#forecasting" id="toc-forecasting" class="nav-link" data-scroll-target="#forecasting"> <span class="header-section-number">7.8</span> Forecasting</a></li>
   </ul>
 </nav>
     </div>
@@ -290,10 +289,13 @@ ul.task-list{list-style: none;}
 <section id="unobserved-components" class="level2" data-number="7.3">
 <h2 data-number="7.3" class="anchored" data-anchor-id="unobserved-components"><span class="header-section-number">7.3</span> Unobserved Components</h2>
 </section>
-<section id="seasonality-tests" class="level2" data-number="7.4">
-<h2 data-number="7.4" class="anchored" data-anchor-id="seasonality-tests"><span class="header-section-number">7.4</span> Seasonality tests</h2>
+<section id="identifying-seasonal-patterns" class="level2" data-number="7.4">
+<h2 data-number="7.4" class="anchored" data-anchor-id="identifying-seasonal-patterns"><span class="header-section-number">7.4</span> Identifying seasonal patterns</h2>
 <section id="spectral-analysis" class="level3" data-number="7.4.1">
 <h3 data-number="7.4.1" class="anchored" data-anchor-id="spectral-analysis"><span class="header-section-number">7.4.1</span> Spectral analysis</h3>
+</section>
+<section id="seasonality-tests" class="level3" data-number="7.4.2">
+<h3 data-number="7.4.2" class="anchored" data-anchor-id="seasonality-tests"><span class="header-section-number">7.4.2</span> Seasonality tests</h3>
 </section>
 </section>
 <section id="pre-adjustment" class="level2" data-number="7.5">
@@ -330,15 +332,9 @@ ul.task-list{list-style: none;}
 </section>
 <section id="residual-calendar-effects" class="level3" data-number="7.7.2">
 <h3 data-number="7.7.2" class="anchored" data-anchor-id="residual-calendar-effects"><span class="header-section-number">7.7.2</span> Residual Calendar effects</h3>
-</section>
-<section id="arima-model" class="level3" data-number="7.7.3">
-<h3 data-number="7.7.3" class="anchored" data-anchor-id="arima-model"><span class="header-section-number">7.7.3</span> Arima Model</h3>
-</section>
-</section>
-<section id="forecasting" class="level2" data-number="7.8">
-<h2 data-number="7.8" class="anchored" data-anchor-id="forecasting"><span class="header-section-number">7.8</span> Forecasting</h2>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -424,7 +420,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./A-calendar-and-input.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Calendar correction and user-defined corrections</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Calendar and user-defined corrections</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
