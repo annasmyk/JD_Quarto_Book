@@ -5,3 +5,8 @@
 nul
 /.quarto/
 
+*.jpg
+*.png
+*.gif
+*.jpeg
+*.mov
