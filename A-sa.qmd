@@ -207,6 +207,15 @@ goodness-of-fit
 
 ### X-11
 
+this part should allow to use x-11 via RJDemetra as well as via GUI
+
+#### quick launch with default specifications 
+
+#### specifications 
+
+#### output 1: series
+
+
 ### STL 
 
 ## Model Based decompostion 
