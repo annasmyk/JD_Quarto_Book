@@ -64,14 +64,14 @@ Edit : problem with tables display
 
 |     |                                                                                               |          |
 |-----|-----------------------------------------------------------------------------------------------|----------|
-|     | \\[Q = \frac{10M1 + 11M2 + 10M3 + 8M4 + 11M5 + 10M6 + 18M7 + 7M8 + 7M9 + 4M10 + 4M11}{100}\\] | \[1\]<!---\[5.25\]--> |
+|     | $Q = \frac{10M1 + 11M2 + 10M3 + 8M4 + 11M5 + 10M6 + 18M7 + 7M8 + 7M9 + 4M10 + 4M11}{100}$ | [1]<!---[5.25]--> |
 
 $Q = Q - M2$ (also called $Q2$) is the $Q$ statistic for
 which the $M2$ statistics was excluded from the formula, i.e.:
 
 |     |                                                                                            |          |
 |-----|--------------------------------------------------------------------------------------------|----------|
-|     | \\[Q - M2 = \frac{10M1 + 10M3 + 8M4 + 11M5 + 10M6 + 18M7 + 7M8 + 7M9 + 4M10 + 4M11}{89}\\] | \[2\]<!---\[5.26\]--> |
+|     | $Q - M2 = \frac{10M1 + 10M3 + 8M4 + 11M5 + 10M6 + 18M7 + 7M8 + 7M9 + 4M10 + 4M11}{89}$ | [2]<!---[5.26]--> |
 
 If a time series does not cover at least 6 years, the $M8$,
 $M9$, $M10$ and $M11$ statistics cannot be calculated. In
@@ -79,7 +79,7 @@ this case the $Q$ statistic is computed as:
 
 |     |                                                                     |          |
 |-----|---------------------------------------------------------------------|----------|
-|     | \\[Q = \frac{14M1 + 15M2 + 10M3 + 8M4 + 11M5 + 10M6 + 32M7}{100}\\] |  |
+|     | $Q = \frac{14M1 + 15M2 + 10M3 + 8M4 + 11M5 + 10M6 + 32M7}{100}$ |  |
 
 The model has a satisfactory quality if the $Q$ statistic is lower
 than 1.
@@ -129,7 +129,7 @@ absolute changes over several periods are calculated as[^38]:
 
 $$
 \text{Component}_{d} = \frac{1}{n - d}\sum_{t = d + 1}^{n}|Table_{t} - Table_{t - d}|
-$$ \[4\]
+$$ [4]
  
 where:
 
@@ -158,14 +158,14 @@ components are independent, the following relation is valid:
 
 |                                                                                           |          |
 |-------------------------------------------------------------------------------------------|----------|
-| $O_{d}^{2} \approx C_{d}^{2} + S_{d}^{2} + I_{d}^{2} + P_{d}^{2} + {TD\& H}_{d}^{2}$. | \[5\]<!---\[5.29\]--> |
+| $O_{d}^{2} \approx C_{d}^{2} + S_{d}^{2} + I_{d}^{2} + P_{d}^{2} + {TD\& H}_{d}^{2}$. | [5]<!---[5.29]--> |
 
 In order to simplify the analysis, the approximation can be replaced by
 the following equation:
 
 |     |                                                                                      |          |
 |-----|--------------------------------------------------------------------------------------|----------|
-|     | $O_{d}^{*2} = C_{d}^{2} + S_{d}^{2} + I_{d}^{2} + P_{d}^{2} + {TD\& H}_{d}^{2}$. | \[6\]<!---\[5.30\]--> |
+|     | $O_{d}^{*2} = C_{d}^{2} + S_{d}^{2} + I_{d}^{2} + P_{d}^{2} + {TD\& H}_{d}^{2}$. | [6]<!---[5.30]--> |
 
 The notation is the same as for Table F2A. The column $\text{Total}$
 denotes total changes in the raw time series.
@@ -193,7 +193,7 @@ $100 \times \frac{O_{d}^{*2}}{O_{d}^{2}}$,
 
 which is an indicator of how well the approximation
 
- ${(O_{d}^{*})}^{2} \approx O_{d}^{2}$
+${(O_{d}^{*})}^{2} \approx O_{d}^{2}$
  
  
 holds.
@@ -262,7 +262,9 @@ for time lags between 1 and the number of periods per year +2 using the
 formula[^40]:
 
 
-$$\text{Corr}_{k}I = \frac{\sum_{t = k + 1}^{N}{(I_{t} - 1)(I_{t - k} - 1)}}{\sum_{t = 1}^{N}{(I_{t} - 1)}^{2}}]$$ \[7\]<!---\[5.31\]-->
+$$
+\text{Corr}_{k}I = \frac{\sum_{t = k + 1}^{N}{(I_{t} - 1)(I_{t - k} - 1)}}{\sum_{t = 1}^{N}{(I_{t} - 1)}^{2}}]
+$$ [7]<!---[5.31]-->
 
 where $N$ is number of observations in the time series and
 $\text{k}$ the lag.
@@ -308,7 +310,9 @@ $$,
 where $N_{i}$ refers to the number of months $\text{i}$ in the
 data, and the moving seasonality ratio of month $i$:
 
-$$MSR_{i} = \frac{\overline{I}_{i}}{\overline{S}_{i}}$$
+$$
+MSR_{i} = \frac{\overline{I}_{i}}{\overline{S}_{i}}
+$$
 
 These ratios are published in Table D9A in X13ARIMA-SEATS software. In
 JDemetra+ they are presented in the details of the quality measures.
@@ -336,13 +340,16 @@ suitable given the noisiness of the series.
 [^37]: See section [Combined seasonality tests](../theory/Tests_combined.html).
 
 [^38]: For the multiplicative decomposition the following formula is
-    used: $$\text{Component}_{d} = \frac{1}{n - d}\sum_{t = d + 1}^{n}{|\frac{\text{Tabl}e_{t}}{\text{Table}_{t - d}} - 1|}$$.
+    used: 
+$$
+\text{Component}_{d} = \frac{1}{n - d}\sum_{t = d + 1}^{n}{|\frac{\text{Tabl}e_{t}}{\text{Table}_{t - d}} - 1|}
+$$.
 
 [^39]: The component is estimated by extracting a linear trend from the
     trend component presented in Table D12.
 
 [^40]: For the additive decomposition the formula is:
-	$$
-	Corr_{k}I_{t} = \frac{\sum_{t = k + 1}^{N}{(I_{t} \times I_{t - k})}}{\sum_{t = 1}^{N}{(I_{t})}^{2}}
-	$$
+$$
+Corr_{k}I_{t} = \frac{\sum_{t = k + 1}^{N}{(I_{t} \times I_{t - k})}}{\sum_{t = 1}^{N}{(I_{t})}^{2}}
+$$
 
