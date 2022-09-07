@@ -4,9 +4,9 @@
 old title: Theoretical spectrum of the ARIMA model
 link to graph display in GUI
 
-In the bottom part the panel [the ARIMA model](../theory/SA_lin.html) used by TRAMO is presented using symbolic notation \\((P,D,Q)(PB,DB,QB)\\). Estimated parameters' coefficients (regular and seasonal AR and MA) are shown in closed form (i.e. using the backshift operator[^17-meth-spectral_analysis-12] \\(B\\)). For each regular AR root (i.e. the solution of the characteristic equation) the [argument and modulus](../theory/SA_SEATS.html#derivation-of-the-models-for-the-components) are given.
+In the bottom part the panel [the ARIMA model](../theory/SA_lin.html) used by TRAMO is presented using symbolic notation $(P,D,Q)(PB,DB,QB)$. Estimated parameters' coefficients (regular and seasonal AR and MA) are shown in closed form (i.e. using the backshift operator[^17-meth-spectral_analysis-12] $B$). For each regular AR root (i.e. the solution of the characteristic equation) the [argument and modulus](../theory/SA_SEATS.html#derivation-of-the-models-for-the-components) are given.
 
-[^17-meth-spectral_analysis-12]: A backshift operator \\(B \\)is defined as: ($B^{k}x_{t} = x_{t - k})$. It is used to denote lagged series.
+[^17-meth-spectral_analysis-12]: A backshift operator $B$ is defined as: ($B^{k}x_{t} = x_{t - k})$. It is used to denote lagged series.
 
 ![Text](All_images/RM_C_pic03.jpg)
 
