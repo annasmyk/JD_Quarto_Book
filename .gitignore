@@ -11,8 +11,6 @@ nul
 *.jpeg
 *.mov
 
-*.html
-*.pdf
 *.log
 *.tex
 *.aux
