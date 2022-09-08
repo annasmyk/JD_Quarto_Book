@@ -4,200 +4,100 @@
 
 ### Edit content
 
-- much less text than current doc (too long)
-- method details -> to method chapters 
-- tools details in tools: GUI or R
+-   much less text than current doc (too long)
+-   method details -\> to method chapters
+-   tools details in tools: GUI or R
 
 ## Motivation
 
-The primary aim of the seasonal adjustment process is to remove seasonal
-fluctuations from the time series. To achieve this goal, seasonal
-adjustment methods decompose the original time series into components
-that capture specific movements. These components are: trend-cycle,
-seasonality and irregularity. The trend-cycle component includes
-long-term and medium-term movements in the data. For seasonal adjustment
-purposes there is no need to divide this component into two parts.
-JDemetra+ refers to the trend-cycle as trend and consequently this
-convention is used here.
+The primary aim of the seasonal adjustment process is to remove seasonal fluctuations from the time series. To achieve this goal, seasonal adjustment methods decompose the original time series into components that capture specific movements. These components are: trend-cycle, seasonality and irregularity. The trend-cycle component includes long-term and medium-term movements in the data. For seasonal adjustment purposes there is no need to divide this component into two parts. JDemetra+ refers to the trend-cycle as trend and consequently this convention is used here.
 
-This section presents the options of the seasonal adjustment processes
-performed by the methods implemented in JDemetra+
-(X-12-ARIMA/X-13ARIMA-SEATS and TRAMO/SEATS) and discusses the output
-displayed by JDemetra+. As these seasonal adjustment methods use
-different approach to the decomposition, the output produced for both of
-them has different structure and content. Therefore, the results for
-both methods are discussed separately. However, in contrast to the
-original programs, in JDemetra+ some quality indicators have been
-implemented for both methods, allowing for an easier comparison of the
-results.
-
+This section presents the options of the seasonal adjustment processes performed by the methods implemented in JDemetra+ (X-12-ARIMA/X-13ARIMA-SEATS and TRAMO/SEATS) and discusses the output displayed by JDemetra+. As these seasonal adjustment methods use different approach to the decomposition, the output produced for both of them has different structure and content. Therefore, the results for both methods are discussed separately. However, in contrast to the original programs, in JDemetra+ some quality indicators have been implemented for both methods, allowing for an easier comparison of the results.
 
 ## Unobserved Components (UC)
 
-The main components, each representing the impact of certain types of
-phenomena on the time series ($X_{t}$), are:
+The main components, each representing the impact of certain types of phenomena on the time series ($X_{t}$), are:
 
--   The trend ($T_{t}$) that captures long-term and medium-term
-    behaviour;
+-   The trend ($T_{t}$) that captures long-term and medium-term behaviour;
 
--   The seasonal component ($S_{t}$) representing intra-year
-    fluctuations, monthly or quarterly, that are repeated more or less
-    regularly year after year;
+-   The seasonal component ($S_{t}$) representing intra-year fluctuations, monthly or quarterly, that are repeated more or less regularly year after year;
 
--   The irregular component ($I_{t}$) combining all the other more or
-    less erratic fluctuations not covered by the previous components.
+-   The irregular component ($I_{t}$) combining all the other more or less erratic fluctuations not covered by the previous components.
 
 In general, the trend consists of 2 sub-components:
 
 -   The long-term evolution of the series;
 
--   The cycle, that represents the smooth, almost periodic movement
-    around the long-term evolution of the series. It reveals a
-    succession of phases of growth and recession.
+-   The cycle, that represents the smooth, almost periodic movement around the long-term evolution of the series. It reveals a succession of phases of growth and recession.
 
-For seasonal adjustment purposes both TRAMO-SEATS and X-13ARIMA-SEATS do
-not separate the long-term trend from the cycle as these two components
-are usually too short to perform their reliable estimation.
-Consequently, hereafter TRAMO-SEATS and X-13ARIMA-SEATS estimate the
-trend component. However, the original TRAMO-SEATS may separate the
-long-term trend from the cycle through the Hodrick-Precsott filter using
-the output of the standard decomposition. It should be remembered that
-JDemetra+ refers to the trend-cycle as trend ($T_{t}$), and consequently
-this convention is used in this document.
+For seasonal adjustment purposes both TRAMO-SEATS and X-13ARIMA-SEATS do not separate the long-term trend from the cycle as these two components are usually too short to perform their reliable estimation. Consequently, hereafter TRAMO-SEATS and X-13ARIMA-SEATS estimate the trend component. However, the original TRAMO-SEATS may separate the long-term trend from the cycle through the Hodrick-Precsott filter using the output of the standard decomposition. It should be remembered that JDemetra+ refers to the trend-cycle as trend ($T_{t}$), and consequently this convention is used in this document.
 
 TRAMO-SEATS considers two decomposition models:
 
 -   The additive model: $X_{t} = T_{t} + S_{t} + I_{t}$;
 
--   The log additive model:
-    $log(X_{t}) = log(T_{t}) + log(S_{t}) + log(I_{t})$.
+-   The log additive model: $log(X_{t}) = log(T_{t}) + log(S_{t}) + log(I_{t})$.
 
-Apart from these two decomposition types X-13ARIMA-SEATS allows the user
-to apply also the multiplicative model:
-$X_{t} = T_{t} \times S_{t} \times I_{t}$.
+Apart from these two decomposition types X-13ARIMA-SEATS allows the user to apply also the multiplicative model: $X_{t} = T_{t} \times S_{t} \times I_{t}$.
 
-A time series $x_{t}$, which is a subject to a decomposition, is assumed
-to be a realisation of a discrete-time stochastic, covariance-stationary
-linear process, which is a collection of random variables $x_{t}$, where
-$t$ denotes time. It can be shown that any stochastic,
-covariance-stationary process can be presented in the form:
+A time series $x_{t}$, which is a subject to a decomposition, is assumed to be a realisation of a discrete-time stochastic, covariance-stationary linear process, which is a collection of random variables $x_{t}$, where $t$ denotes time. It can be shown that any stochastic, covariance-stationary process can be presented in the form:
 
 $x_{t} = \mu_{t} + {\widetilde{x}}_{t}$, $$1$$
 
-where $\mu_{t}$ is a linearly deterministic component and
-${\widetilde{x}}_{t}$ is a linearly interderministic component, such as:
+where $\mu_{t}$ is a linearly deterministic component and ${\widetilde{x}}_{t}$ is a linearly interderministic component, such as:
 
 $${\widetilde{x}}_{t} = {\sum_{j = 0}^{\infty}\psi_{j}a}_{t - j}
   $$, $$2$$
 
-where $\sum_{j = 0}^{\infty}\psi_{i}^{2} < \infty$ (coefficients
-$\psi_{j}$ are absolutely summable), $\psi_{0} = 1$ and $a_{t}$ is the
-white noise error with zero mean and constant variance $V_{a}$. The
-error term $a_{t}$ represents the one-period ahead forecast error of
-$x_{t}$, that is:
+where $\sum_{j = 0}^{\infty}\psi_{i}^{2} < \infty$ (coefficients $\psi_{j}$ are absolutely summable), $\psi_{0} = 1$ and $a_{t}$ is the white noise error with zero mean and constant variance $V_{a}$. The error term $a_{t}$ represents the one-period ahead forecast error of $x_{t}$, that is:
 
 $$
   a_{t} = {\widetilde{x}}_{t} - {\widehat{x}}_{t|t - 1}
   $$, $$3$$
 
-where $${\widehat{x}}_{t|t - 1}$$ is the forecast of
-$${\widetilde{x}}_{t}$$ made at period $t - 1$. As $a_{t}$ represents
-what is new in $${\widetilde{x}}_{t}$$ in point $t$, i.e., not contained
-in the past values of $${\widetilde{x}}_{t}$$, it is also called
-innovation of the process. From $$3$$ $${\widetilde{x}}_{t}$$ can be
-viewed as a linear filter applied to the innovations.
+where $${\widehat{x}}_{t|t - 1}$$ is the forecast of $${\widetilde{x}}_{t}$$ made at period $t - 1$. As $a_{t}$ represents what is new in $${\widetilde{x}}_{t}$$ in point $t$, i.e., not contained in the past values of $${\widetilde{x}}_{t}$$, it is also called innovation of the process. From $$3$$ $${\widetilde{x}}_{t}$$ can be viewed as a linear filter applied to the innovations.
 
-The equation 7.1 is called a Wold representation. It presents a process
-as a sum of linearly deterministic component $\mu_{t}$ and linearly
-interderministic component $\sum_{j = 0}^{\infty}\psi_{j}a_{t - j}$, the
-first one is perfectly predictable once the history of the process
-$x_{t - 1}$ is known and the second one is impossible to predict
-perfectly. This explains why the stochastic process cannot be perfectly
-predicted.
+The equation 7.1 is called a Wold representation. It presents a process as a sum of linearly deterministic component $\mu_{t}$ and linearly interderministic component $\sum_{j = 0}^{\infty}\psi_{j}a_{t - j}$, the first one is perfectly predictable once the history of the process $x_{t - 1}$ is known and the second one is impossible to predict perfectly. This explains why the stochastic process cannot be perfectly predicted.
 
-Under suitable conditions $${\widetilde{x}}_{t}$$ can be presented as a
-weighted sum of its past values and $a_{t}$, i.e.:
+Under suitable conditions $${\widetilde{x}}_{t}$$ can be presented as a weighted sum of its past values and $a_{t}$, i.e.:
 
 $$
   { {\widetilde{x}}_{t} = \sum_{j = 0}^{\infty}\pi_{j}{\widetilde{x}}_{t - j} + a}_{t}
   $$, $$4$$
 
-In general, for the observed time series, the assumptions concerning the
-nature of the process $$1$$ do not hold for various reasons. Firstly,
-most observed time series display a mean that cannot be assumed to be
-constant due to the presence of a trend and the seasonal movements.
-Secondly, the variance of the time series may vary in time. Finally, the
-observed time series usually contain outliers, calendar effects and
-regression effects, which are treated as deterministic. Therefore, in
-practice a prior transformation and an adjustment need to be applied to
-the time series. The constant variance is usually achieved through
-taking a logarithmic transformation and the correction for the
-deterministic effects, while stationarity of the mean is achieved by
-applying regular and seasonal differencing. These processes, jointly
-referred to as preadjustment or linearization, can be performed with the
-TRAMO or RegARIMA models. Besides the linearisation, forecasts and
-backcasts of stochastic time series are estimated with the ARIMA model,
-allowing for later application of linear filters at both ends of time
-series. The estimation performed with these models delivers the
-stochastic part of the time series, called the linearised series, which
-is assumed to be an output of a linear stochastic
-process.[^seasonal-adjustment-1] The deterministic effects are removed
-from the time series and used to form the final components.
+In general, for the observed time series, the assumptions concerning the nature of the process $$1$$ do not hold for various reasons. Firstly, most observed time series display a mean that cannot be assumed to be constant due to the presence of a trend and the seasonal movements. Secondly, the variance of the time series may vary in time. Finally, the observed time series usually contain outliers, calendar effects and regression effects, which are treated as deterministic. Therefore, in practice a prior transformation and an adjustment need to be applied to the time series. The constant variance is usually achieved through taking a logarithmic transformation and the correction for the deterministic effects, while stationarity of the mean is achieved by applying regular and seasonal differencing. These processes, jointly referred to as preadjustment or linearization, can be performed with the TRAMO or RegARIMA models. Besides the linearisation, forecasts and backcasts of stochastic time series are estimated with the ARIMA model, allowing for later application of linear filters at both ends of time series. The estimation performed with these models delivers the stochastic part of the time series, called the linearised series, which is assumed to be an output of a linear stochastic process.[^a-sa-1] The deterministic effects are removed from the time series and used to form the final components.
 
-[^seasonal-adjustment-1]: When the series are non-stationary
-    differentiation is performed before the seasonality tests.
+[^a-sa-1]: When the series are non-stationary differentiation is performed before the seasonality tests.
 
-In the next step the linearised series is decomposed into its
-components. There is a fundamental difference in how this process is
-performed in TRAMO-SEATS and X-13ARIMA-SEATS. In TRAMO-SEATS the
-decomposition is performed by the SEATS procedure, which follows a so
-called ARIMA model based approach. In principle, it aims to derive the
-components with statistical models. More information is given in the
-[SEATS](../theory/SA_SEATS.html) section. X-13ARIMA-SEATS offers two
-algorithms for decomposition: SEATS and X-11. The X-11 algorithm, which
-is described in the [X-11 section](../theory/SA_X11.html) section,
-decomposes a series by means of linear filters. Finally, in both methods
-the final components are derived by the assignment of the deterministic
-effects to the stochastic components. Consequently, the role of the
-ARIMA models is different in each method. TRAMO-SEATS applies the ARIMA
-models both in the preadjustment step and in the decomposition
-procedure. On the contrary, when the X-11 algorithm is used for
-decomposition, X-13ARIMA-SEATS uses the ARIMA model only in the
-preadjustment step. In summary, the decomposition procedure that results
-in an estimation of the seasonal component requires prior identification
-of the deterministic effects and their removal from the time series.
-This is achieved through the linearisation process performed by the
-TRAMO and the RegARIMA models, shortly discussed in the [Linearisation
-with the TRAMO and RegARIMA models](../theory/SA_lin.html) section.The
-linearised series is then decomposed into the stochastic components with
-[SEATS](../theory/SA_SEATS.html) or [X-11](../theory/SA_X11.html)
-algorithms.
+In the next step the linearised series is decomposed into its components. There is a fundamental difference in how this process is performed in TRAMO-SEATS and X-13ARIMA-SEATS. In TRAMO-SEATS the decomposition is performed by the SEATS procedure, which follows a so called ARIMA model based approach. In principle, it aims to derive the components with statistical models. More information is given in the [SEATS](../theory/SA_SEATS.html) section. X-13ARIMA-SEATS offers two algorithms for decomposition: SEATS and X-11. The X-11 algorithm, which is described in the [X-11 section](../theory/SA_X11.html) section, decomposes a series by means of linear filters. Finally, in both methods the final components are derived by the assignment of the deterministic effects to the stochastic components. Consequently, the role of the ARIMA models is different in each method. TRAMO-SEATS applies the ARIMA models both in the preadjustment step and in the decomposition procedure. On the contrary, when the X-11 algorithm is used for decomposition, X-13ARIMA-SEATS uses the ARIMA model only in the preadjustment step. In summary, the decomposition procedure that results in an estimation of the seasonal component requires prior identification of the deterministic effects and their removal from the time series. This is achieved through the linearisation process performed by the TRAMO and the RegARIMA models, shortly discussed in the [Linearisation with the TRAMO and RegARIMA models](../theory/SA_lin.html) section.The linearised series is then decomposed into the stochastic components with [SEATS](../theory/SA_SEATS.html) or [X-11](../theory/SA_X11.html) algorithms.
 
-## Detecting seasonal patterns 
+## Detecting seasonal patterns
 
-## Pre-treatment 
+## Pre-treatment
 
-### Calendar correction 
 
-details of regressor building in calendar chapter 
 
-#### rationale 
+### Calendar correction
+
+details of regressor building in calendar chapter
+
+#### rationale
 
 #### method
 
 #### tools
 
-### Outliers 
+### Outliers
 
-#### rationale 
+#### rationale
 
 #### method
 
 #### tools
 
-### Reg-Arima Model 
+### Reg-Arima Model
 
-Tramo and Reg-Arima are very similar...details in M chapter 
+Tramo and Reg-Arima are very similar...details in M chapter
 
 ### Model evaluation
 
@@ -207,133 +107,147 @@ goodness-of-fit
 
 this part should allow to use x-11 via RJDemetra as well as via GUI
 
-### Quick launch with default specifications 
+### Quick launch with default specifications
 
 ### Output 1: series
 
-### Output 2: diagnostics 
+### Output 2: diagnostics
 
-### Specifications / parameters 
+### Specifications / parameters
 
 #### List
 
 ##### General settings
-- **Mode**
-  - check if this option still works, if so add and edit instructions from old page)
-  - if not but button present : explain that the mode is determined in pre-adjustment (function) 
 
-- **Seasonal component**
-  - check if still relevant, idem as above
-  - in v.2.3 if not ticked, S estimated but options on seasonal filter not available
+-   **Mode**
+    -   check if this option still works, if so add and edit instructions from old page)
+    -   if not but button present : explain that the mode is determined in pre-adjustment (function)
+-   **Seasonal component**
+    -   check if still relevant, idem as above
+    -   in v.2.3 if not ticked, S estimated but options on seasonal filter not available
+-   **Forecasts horizon**
 
-- **Forecasts horizon**
+Length of the forecasts generated by the RegARIMA model - in months (positive values) - years (negative values) - if set to is set to 0, the X-11 procedure does not use any model-based forecasts but the original X-11 type forecasts for one year. - default value: -1, thus one year from the Arima model
 
-Length of the forecasts generated by the RegARIMA model 
-  - in months (positive values) 
-  - years (negative values)
-  - if set to is set to 0, the X-11 procedure does not use any model-based forecasts but the original X-11 type forecasts for one year. 
-  - default value: -1, thus one year from the Arima model 
+-   **Backcasts horizon**
 
-- **Backcasts horizon**
+Length of the backcasts generated by the RegARIMA model - in months (positive values) - years (negative values) - default value: 0
 
-Length of the backcasts generated by the RegARIMA model 
-  - in months (positive values) 
-  - years (negative values) 
-  - default value: 0
+##### Irregular correction
 
-##### Irregular correction 
+-   **LSigma**
 
-- **LSigma**
-  - sets lower sigma (standard deviation) limit used to down-weight the extreme irregular     values in the internal seasonal adjustment iterations, learn more here (LINK to M_ chapter) 
-  - values in $[0,Usigma]$ 
-  - default value is 1.5
+    -   sets lower sigma (standard deviation) limit used to down-weight the extreme irregular values in the internal seasonal adjustment iterations, learn more here (LINK to M\_ chapter)
+    -   values in $[0,Usigma]$
+    -   default value is 1.5
 
-- **USigma**
-  - sets upper sigma (standard deviation)
-  - values in $[Lsigma,+\infty]$
-  - default value is 2.5
-  
-- **Calendarsigma**
-  - allows to set different **LSigma** and **USigma** for each period
-  - values 
-    - None (default)
-    - All: standard errors used for the extreme values detection and adjustment computed separately for each calendar month/quarter
-    - Signif: groups determined by cochran test (check)
-    - Sigmavec: set two customized groups of periods
-  
-- **Excludeforecasts**
+-   **USigma**
 
-  - ticked : forecasts and backcasts from the RegARIMA model not used in Irregular Correction
-  - unticked (default): forecasts and backcasts used 
-  
-  
+    -   sets upper sigma (standard deviation)
+    -   values in $[Lsigma,+\infty]$
+    -   default value is 2.5
+
+-   **Calendarsigma**
+
+    -   allows to set different **LSigma** and **USigma** for each period
+    -   values
+        -   None (default)
+        -   All: standard errors used for the extreme values detection and adjustment computed separately for each calendar month/quarter
+        -   Signif: groups determined by cochran test (check)
+        -   Sigmavec: set two customized groups of periods
+
+-   **Excludeforecasts**
+
+    -   ticked : forecasts and backcasts from the RegARIMA model not used in Irregular Correction
+    -   unticked (default): forecasts and backcasts used
+
 ##### Seasonality extraction filters
 
-- **Seasonal filter** choice
+-   **Seasonal filter** choice
 
 Specifies which be used to estimate the seasonal factors for the entire series (link to relevant part in M chapter)
 
-- <em>S</em>3 × 1 – <span class="math inline">3 × 1</span> moving average.
-- <em>S</em>3 × 3 – <span class="math inline">3 × 3</span> moving average.
-- <em>S</em>3 × 5 – <span class="math inline">3 × 5</span> moving average.
-- <em>S</em>3 × 9 – <span class="math inline">3 × 9 </span>moving average.
-- <em>S</em>3 × 15 – <span class="math inline">3 × 15</span> moving average.
-- <em>Stable</em> – a single seasonal factor for each calendar period is generated by calculating a simple average over all values for each period (taken after detrending and outlier correction).
-- <em>X11Default</em> – <span class="math inline">3 × 3</span> moving average is used to calculate the initial seasonal factors and a <span class="math inline">3 × 5</span> moving average to calculate the final seasonal factors.
-- <em>Msr</em> – automatic choice of a seasonal filter. The seasonal filters can be selected for the entire series, or for a particular month or quarter.
+-   <em>S</em>3 × 1 -- [3 × 1]{.math .inline} moving average.
 
-- default value: <em>Msr</em>
+-   <em>S</em>3 × 3 -- [3 × 3]{.math .inline} moving average.
 
-Check: will user choice be applied to all steps or only to final phase D step 
+-   <em>S</em>3 × 5 -- [3 × 5]{.math .inline} moving average.
 
+-   <em>S</em>3 × 9 -- [3 × 9 ]{.math .inline}moving average.
 
-- **Details on seasonal filters**
-   
+-   <em>S</em>3 × 15 -- [3 × 15]{.math .inline} moving average.
+
+-   <em>Stable</em> -- a single seasonal factor for each calendar period is generated by calculating a simple average over all values for each period (taken after detrending and outlier correction).
+
+-   <em>X11Default</em> -- [3 × 3]{.math .inline} moving average is used to calculate the initial seasonal factors and a [3 × 5]{.math .inline} moving average to calculate the final seasonal factors.
+
+-   <em>Msr</em> -- automatic choice of a seasonal filter. The seasonal filters can be selected for the entire series, or for a particular month or quarter.
+
+-   default value: <em>Msr</em>
+
+Check: will user choice be applied to all steps or only to final phase D step
+
+-   **Details on seasonal filters**
+
 Sets different seasonal filters by period in order to account for seasonal heteroskedasticity (link to M chapter)
 
-- default value: empty
+-   default value: empty
 
-##### Trend estimation filters 
+##### Trend estimation filters
 
-- **Automatic Henderson filter** our user-defined
-  - default: lentgh 13
-  - unticked: user defined length choice
+-   **Automatic Henderson filter** our user-defined
 
-- **Henderson filter** length choice
+    -   default: lentgh 13
+    -   unticked: user defined length choice
 
-  - values: odd number in in $[3,101]$ 
-  - default value: 13
+-   **Henderson filter** length choice
 
-Check: will user choice be applied to all steps or only to final phase D step 
+    -   values: odd number in in $[3,101]$
+    -   default value: 13
 
-#### Parameter setting in GUI 
+Check: will user choice be applied to all steps or only to final phase D step
+
+#### Parameter setting in GUI
 
 here v2, adjust to v3 asap
 
-#### Parameter setting in R packages 
+#### Parameter setting in R packages
 
-extensive help on functions available in package help pages 
-Rcode snippet 
+extensive help on functions available in package help pages Rcode snippet
 
-In R, to implement any param change, reqyuired to retrieve current specmodify it and aplly it again see T R packages chapter for details. (specific link)
+In R, to implement any param change, it is required to retrieve current spec, modify it and apply it again (see T R packages chapter for details). (specific link)
 
 here example changing all the settings (just remove irrelevant changes)
 
 Rjdemetra (v2)
+Edit : here static R code and link to a "worked example" wih dynamic code 
 
-rjd3sa
+```{r}
+```
 
 
-## STL 
+- customizing decomposition filters
+Henderson moving average (ma) length for trend
+Seasonal moving average (ma) length for seasonal component's extraction
+- starting from spec_1
+spec_6 <- x13_spec(spec_1,x11.trendma = 23,x11.seasonalma = "S3X9")
+- new sa processing
+model_sa_6<-x13(serie_brute,spec_5)
+
+- to access the current parameters 
+s_decomp ?
+
+
+rjd3sa ? 
+
+## STL
 
 ## SEATS
 
 ## SSF
 
-## Quality assessment 
+## Quality assessment
 
 ### Residual seasonality
 
-### Residual calendar effects 
-
-
+### Residual calendar effects

@@ -318,16 +318,6 @@ f(\omega) = \frac{1}{\pi}\lbrack \ \gamma(0) + 2\sum_{k = 1}^{\infty}{\ \gamma(k
 <h3 data-number="16.3.1" class="anchored" data-anchor-id="method-1-the-periodogram"><span class="header-section-number">16.3.1</span> Method 1: The periodogram</h3>
 <p>For any given frequency <span class="math inline">\(\omega\)</span> the sample periodogram is the sample analog of the sample spectrum. In general, the periodogram is used to identify the periodic components of unknown frequency in the time series. X-13ARIMA-SEATS and TRAMO-SEATS use this tool for detecting seasonality in raw time series and seasonally adjusted series. Apart from this it is applied for checking randomness of the residuals from the ARIMA model.</p>
 <p>To define the periodogram, first consider the vector of complex numbers<a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a>:</p>
-<<<<<<< HEAD
-<p><span class="math display">\[\mathbf{x} = \begin{bmatrix}      
-  x_{1} \\                             
-  x_{2} \\                             
-  . \\                                 
-  . \\                                 
-  . \\                                 
-  x_{n} \\                             
-  \end{bmatrix} \in \mathbb{C}^{n}\]</span></p>
-=======
 <p><span class="math display">\[
 \mathbf{x} = \begin{bmatrix}
   x_{1} \\
@@ -338,7 +328,6 @@ f(\omega) = \frac{1}{\pi}\lbrack \ \gamma(0) + 2\sum_{k = 1}^{\infty}{\ \gamma(k
   x_{n} \\
   \end{bmatrix} \in \mathbb{C}^{n}
 \]</span></p>
->>>>>>> 0c74c19c0b1f58d4eeac510deebcc218927a9cd0
 <p>where <span class="math inline">\(\mathbb{C}^{n}\)</span> is the set of all column vectors with complex-valued components.</p>
 <p>The Fourier frequencies associated with the sample size <span class="math inline">\(n\)</span> are defined as a set of values <span class="math inline">\(ω_{j} = \frac{2\pi j}{n}\)</span>, <span class="math inline">\(j = - \lbrack \frac{n-1}{2}\rbrack,\ldots,\lbrack\frac{n}{2}\rbrack\)</span>, <span class="math inline">\(-\pi&lt; \omega_{j} \leq \pi\)</span>, <span class="math inline">\(j\in F_{n}\)</span>, where <span class="math inline">\({\lbrack n\rbrack}\)</span> denotes the largest integer less than or equal to <span class="math inline">\(n\)</span>. The Fourier frequencies, which are called harmonics, are given by integer multiples of the fundamental frequency <span class="math inline">\(\ \frac{2\pi}{n}\)</span>.</p>
 <p>Now the <span class="math inline">\(n\)</span> vectors <span class="math inline">\(e_{j} = n^{- \frac{1}{2}}(e^{-i\omega_{j}},e^{-i{2\omega}_{j}},\ldots,e^{- inω_{j}})^{'}\)</span> can be defined. Vectors <span class="math inline">\(e_{1},\ldots, e_{n}\)</span> are orthonormal in the sense that:</p>
@@ -365,14 +354,8 @@ f(\omega) = \frac{1}{\pi}\lbrack \ \gamma(0) + 2\sum_{k = 1}^{\infty}{\ \gamma(k
 <p><span class="math display">\[
 \mathbf{x} = a_{0}\mathbf{e}_{0} + \sum_{j = 1}^{\lbrack\frac{n - 1}{2}\rbrack}{ {2^{1/2}r}_{j}{(\mathbf{c}}_{j}\cos\theta_{j}{- \mathbf{s}}_{j}\sin\theta_{j}) + a_{n/2}\mathbf{e}_{n/2}}
 \]</span></p>
-<<<<<<< HEAD
-<p>The orthonormal basis for <span class="math display">\[{R}^{n}\]</span> is <span class="math display">\[\{\mathbf{e}_{0},\mathbf{c}_{1},\mathbf{s}_{1},\ldots,\mathbf{c}_{\lbrack\frac{n - 1}{2}\rbrack},\mathbf{s}_{\lbrack\frac{n - 1}{2}\rbrack},\mathbf{e}_{\frac{n}{2}(excluded\ if\ n\ is\ odd)}\}
-\]</span>, where:</p>
-<p><span class="math display">\[\mathbf{e}_{0}\]</span> is a vector composed of n elements equal to <span class="math display">\[n^{- 1/2}\]</span>, which implies that <span class="math display">\[\mathbf{a}_{0}\mathbf{e}_{0} = {(n^{-1}\sum_{t = 1}^{n}x_{t},\ldots,n^{- 1}\sum_{t=1}^{n}x_{t})}^{'}\]</span>;</p>
-=======
 <p>The orthonormal basis for <span class="math inline">\({R}^{n}\)</span> is <span class="math inline">\(\{\mathbf{e}_{0},\mathbf{c}_{1},\mathbf{s}_{1},\ldots,\mathbf{c}_{\lbrack\frac{n - 1}{2}\rbrack},\mathbf{s}_{\lbrack\frac{n - 1}{2}\rbrack},\mathbf{e}_{\frac{n}{2}(excluded\ if\ n\ is\ odd)}\}\)</span>, where:</p>
 <p><span class="math inline">\(\mathbf{e}_{0}\)</span> is a vector composed of n elements equal to <span class="math inline">\(n^{- 1/2}\)</span>, which implies that <span class="math inline">\(\mathbf{a}_{0}\mathbf{e}_{0} = {(n^{-1}\sum_{t = 1}^{n}x_{t},\ldots,n^{- 1}\sum_{t=1}^{n}x_{t})}^{'}\)</span>;</p>
->>>>>>> 0c74c19c0b1f58d4eeac510deebcc218927a9cd0
 <p><span class="math display">\[
 \mathbf{c}_{j}=(\frac{n}{2})^{- 1/2}{(\cos\omega_{j},\cos{2\omega}_{j},\ldots,\cos{n\omega_{j}})}^{'}, for 1 \leq j \leq \lbrack \frac{(n - 1)}{2}\rbrack
 \]</span> ;</p>
@@ -382,25 +365,6 @@ f(\omega) = \frac{1}{\pi}\lbrack \ \gamma(0) + 2\sum_{k = 1}^{\infty}{\ \gamma(k
 <p><span class="math display">\[
 \mathbf{e}_{n/2} = {(- (n^{-\frac{1}{2}}),n^{- \frac{1}{2}},\ldots,{-(n)}^{- \frac{1}{2}}),n^{-\frac{1}{2}})}^{'}
 \]</span>.</p>
-<<<<<<< HEAD
-<p>Equation [5] can be seen as an OLS regression of <span class="math display">\[x_{t}\]</span> on a constant and the trigonometric terms. As the vector of explanatory variables includes <span class="math display">\[n\]</span> elements, the number of explanatory variables in [5] is equal to the number of observations. HAMILTON, J.D. (1994) shows that the explanatory variables are linearly independent, which implies that an OLS regression yields a perfect fit (i.e.&nbsp;without an error term). The coefficients have the form of a simple OLS projection of the data on the orthonormal basis:</p>
-<p><span class="math display">\[
-  {\widehat{a}}_{0}=\frac{1}{\sqrt{n}}\sum_{t=1}^{n}x_{t}
-  \]</span> [7] <!---\[7.108\]      --></p>
-<p><span class="math display">\[
-  {\widehat{a}}_{n/2}=\frac{1}{\sqrt{n}}\sum_{t=1}^{n}{(-1)}^{t}x_{t}(   \text{only when n is even})
-  \]</span> [8] <!---\[7.109\]      --></p>
-<p><span class="math display">\[
-  {\widehat{a}}_{0}=\frac{1}{\sqrt{n}}\sum_{t=1}^{n}x_{t}
-  \]</span> [9] <!---\[7.110\]      --></p>
-<p><span class="math display">\[
-  {\widehat{\alpha}}_{j} = 2^{1/2}r_{j}\cos{\theta_{j}} = {(\frac{n}{2})}^{- 1/2}\sum_{t = 1}^{n}x_{t}\cos{(t\frac{2\pi j}{n})}, j   = 1,\ldots,\lbrack\frac{n - 1}{2}\rbrack
-  \]</span> [10] <!---\[7.111\]      --></p>
-<p><span class="math display">\[
-  {\widehat{\beta}}_{j} = 2^{1/2}r_{j}\sin{\theta_{j}} = {(\frac{n}{2})}^{-1/2}\sum_{t = 1}^{n}x_{t}\sin{(t\frac{2\pi j}{n})}, j = 1,\ldots,\lbrack\frac{n - 1}{2}\rbrack
-  \]</span> [11] <!---\[7.112\]      --></p>
-<p>With [5] the total sum of squares <span class="math inline">\(\sum_{t = 1}^{n}| x_{t} |^{2}\)</span> can be decomposed into <span class="math display">\[2 \times \lbrack\frac{n - 1}{2}\rbrack\]</span> components corresponding to <span class="math display">\[\mathbf{c}_{j}\]</span> and <span class="math display">\[\mathbf{s}_{j}\]</span>, which are grouped to produce the “frequency <span class="math display">\[ω_{j}\]</span>” component for <span class="math display">\[1 \geq j \geq \lbrack\frac{n - 1}{2}\rbrack\]</span>. As it is shown in the table below, the value of the periodogram at the frequency <span class="math inline">\(\omega_{j}\)</span> is the contribution of the$&nbsp;j^{}$harmonic to the total sum of squares <span class="math inline">\(\sum_{t = 1}^{n}| x_{t} |^{2}\)</span>.</p>
-=======
 <p>Equation [5] can be seen as an OLS regression of <span class="math inline">\(x_{t}\)</span> on a constant and the trigonometric terms. As the vector of explanatory variables includes <span class="math inline">\(n\)</span> elements, the number of explanatory variables in [5] is equal to the number of observations. HAMILTON, J.D. (1994) shows that the explanatory variables are linearly independent, which implies that an OLS regression yields a perfect fit (i.e.&nbsp;without an error term). The coefficients have the form of a simple OLS projection of the data on the orthonormal basis:</p>
 <p><span class="math display">\[
   {\widehat{a}}_{0}=\frac{1}{\sqrt{n}}\sum_{t=1}^{n}x_{t}
@@ -418,7 +382,6 @@ f(\omega) = \frac{1}{\pi}\lbrack \ \gamma(0) + 2\sum_{k = 1}^{\infty}{\ \gamma(k
   {\widehat{\beta}}_{j} = 2^{1/2}r_{j}\sin{\theta_{j}} = {(\frac{n}{2})}^{-1/2}\sum_{t = 1}^{n}x_{t}\sin{(t\frac{2\pi j}{n})}, j = 1,\ldots,\lbrack\frac{n - 1}{2}\rbrack
 \]</span> [11] <!---[7.112]      --></p>
 <p>With [5] the total sum of squares <span class="math inline">\(\sum_{t = 1}^{n}| x_{t} |^{2}\)</span> can be decomposed into <span class="math inline">\(2 \times \lbrack\frac{n - 1}{2}\rbrack\)</span> components corresponding to <span class="math inline">\(\mathbf{c}_{j}\)</span> and <span class="math inline">\(\mathbf{s}_{j}\)</span>, which are grouped to produce the “frequency <span class="math inline">\(ω_{j}\)</span>” component for <span class="math inline">\(1 \geq j \geq \lbrack\frac{n - 1}{2}\rbrack\)</span>. As it is shown in the table below, the value of the periodogram at the frequency <span class="math inline">\(\omega_{j}\)</span> is the contribution of the <span class="math inline">\(j\^{\text{th}}\)</span> harmonic to the total sum of squares <span class="math inline">\(\sum_{t = 1}^{n}| x_{t} |^{2}\)</span>.</p>
->>>>>>> 0c74c19c0b1f58d4eeac510deebcc218927a9cd0
 <p><strong>Decomposition of sum of squares into components corresponding to the harmonics</strong></p>
 <p>{: .table .table-style} |<strong>Frequency</strong> |<strong>Degrees of freedom</strong> |<strong>Sum of squares decomposition</strong>| |———————————————– |———————— |————————————————————-| |<span class="math inline">\(\omega_{0}\)</span>(mean) |1 |<span class="math inline">\({a_{0}^{2}}_{\ }=n^{- 1}(\sum_{t=1}^{n}x_{t})^{2} = I( 0)\)</span>| |<span class="math inline">\(\omega_{1}\)</span> |2 |<span class="math inline">\({2r_{1}^{2}}_{\ } = 2{\|a_{1}\|}^{2} = 2I(\omega_{1})\)</span>| |<span class="math inline">\(\vdots\)</span> |<span class="math inline">\(\vdots\)</span> |<span class="math inline">\(\vdots\)</span>| |<span class="math inline">\(\omega_{k}\)</span> |2 |<span class="math inline">\({2r_{k}^{2}}_{\ } = 2{\|a_{k}\|}^{2} = 2I(\omega_{k})\)</span>| |<span class="math display">\[\vdots\]</span> |<span class="math inline">\(\vdots\)</span> |<span class="math inline">\(\vdots\)</span>| |<span class="math inline">\(\omega_{n/2} = \pi\)</span> (excluded if <span class="math inline">\(n\)</span> is odd) |1 |<span class="math inline">\(a_{n/2}^{2} = I(\pi)\)</span>| |<strong>Total</strong> |<span class="math inline">\(\mathbf{n}\)</span> |<span class="math inline">\(\sum_{\mathbf{t = 1}}^{\mathbf{n}}\mathbf{x}_{\mathbf{t}}^{\mathbf{2}}\)</span>|</p>
 <p>Source: DE ANTONIO, D., and PALATE, J. (2015).</p>
@@ -438,15 +401,6 @@ I(\omega_{j})\mathbf{=}\begin{matrix}                                           
 <p><span class="math display">\[
 n^{- 1}\sum_{t=1}^{n}{(x_{t}-\overline{x})}^{2}=n^{-1}(\sum_{k=1}^{\lbrack(n - 1)/2\rbrack}2{r_{j}}^{2}
 +{a_{n/2}}^{2})
-<<<<<<< HEAD
-\]</span>, [14] <!---\[7.115\]      --></p>
-<p>where <span class="math inline">\(a_{n/2}^{2}\)</span> is excluded if <span class="math inline">\(n\)</span> is odd.</p>
-<p>The term <span class="math display">\[2{r_{j}}^{2}\]</span> in [14] is then the contribution of the <span class="math inline">\(j^{\text{th}}\)</span> harmonic to the variance and [14] shows then how the total variance is partitioned.</p>
-<p>The periodogram ordinate <span class="math inline">\(I(\omega_{j})\)</span> and the autocovariance coefficient <span class="math inline">\(\gamma(k)\)</span> are both quadratic forms of <span class="math display">\[x_{t}\]</span>. It can be shown that the periodogram and autocovarinace function are related and the periodogram can be written in terms of the sample autocovariance function for any non-zero Fourier frequency <span class="math display">\[ω_{j}\]</span> :<a href="#fn9" class="footnote-ref" id="fnref9" role="doc-noteref"><sup>9</sup></a></p>
-<p><span class="math display">\[
-  I(\omega_{j}) = \sum_{| k | &lt; n}^{\ }{\widehat{\gamma}( k)}_{\ }e^{- ik\omega_{j}} = {\widehat{\gamma}( 0)}_{\ } + 2\sum_{k = 1}^{n - 1}{\widehat{\gamma}( k)\cos{(k\omega_{j})}}_{\ }
-  \]</span></p>
-=======
 \]</span>, [14] <!---[7.115]      --></p>
 <p>where <span class="math inline">\(a_{n/2}^{2}\)</span> is excluded if <span class="math inline">\(n\)</span> is odd.</p>
 <p>The term <span class="math inline">\(2{r_{j}}^{2}\)</span> in [14] is then the contribution of the <span class="math inline">\(j^{\text{th}}\)</span> harmonic to the variance and [14] shows then how the total variance is partitioned.</p>
@@ -454,7 +408,6 @@ n^{- 1}\sum_{t=1}^{n}{(x_{t}-\overline{x})}^{2}=n^{-1}(\sum_{k=1}^{\lbrack(n - 1
 <p><span class="math display">\[
 I(\omega_{j}) = \sum_{| k | &lt; n}^{\ }{\widehat{\gamma}( k)}_{\ }e^{- ik\omega_{j}} = {\widehat{\gamma}( 0)}_{\ } + 2\sum_{k = 1}^{n - 1}{\widehat{\gamma}( k)\cos{(k\omega_{j})}}_{\ }
 \]</span></p>
->>>>>>> 0c74c19c0b1f58d4eeac510deebcc218927a9cd0
 <p>and for the zero frequency <span class="math inline">\(\ I( 0) = n| \overline{x} |^{2}\)</span>.</p>
 <p>Once comparing [15] with an expression for the spectral density of a stationary process:</p>
 <p><span class="math display">\[
@@ -503,32 +456,19 @@ x_{t} = \mu + (\phi_{1}B + \ldots + \phi_{p}B^{p})x_{t} + \varepsilon_{t}
 <p>JDemetra+ performs this test on the original series. If these two requirements are met, the test results are displayed in green. The statistical significance of each of the seasonal peaks (i.e.&nbsp;frequencies <span class="math inline">\(\frac{\pi}{6},\ \frac{\pi}{3},\ \frac{\pi}{2},\ \frac{2\pi}{3}\)</span> and <span class="math inline">\(\frac{5\pi}{6}\)</span> corresponding to 1, 2, 3, 4 and 5 cycles per year) is also displayed. The seasonal and trading days frequencies depends on the frequency of time series. They are shown in the table below. The symbol <span class="math inline">\(d\)</span> denotes a default frequency and is described below the table.</p>
 </blockquote>
 <p><strong>The seasonal and trading day frequencies by time series frequency</strong></p>
-<<<<<<< HEAD
-<p>{: .table .table-style} |<strong>Number of months per full period</strong> | <strong>Seasonal frequency</strong> | <strong>Trading day frequency (radians)</strong>| |————————————–| ————————————————————————————-| ————————————| |12 | <span class="math inline">\(\frac{\pi}{6},\frac{\pi}{3},\ \frac{\pi}{2},\frac{2\pi}{3},\ \frac{5\pi}{6},\ \pi\)</span> | <span class="math inline">\(d\)</span>, 2.714| |6 | <span class="math inline">\(\frac{\pi}{3},\frac{2\pi}{3}\)</span>, <span class="math inline">\(\pi\)</span> | <span class="math display">\[d\]</span> |4 | <span class="math inline">\(\frac{\pi}{2}\)</span>, <span class="math inline">\(\pi\)</span> | <span class="math inline">\(d\)</span>, 1.292, 1.850, 2.128| |3 | <span class="math display">\[\pi\]</span> | <span class="math display">\[d\]</span>| |2 | <span class="math display">\[\pi\]</span> | <span class="math display">\[d\]</span>|</p>
-<p>The calendar (trading day or working day) effects, related to the variation in the number of different days of the week per period, can induce periodic patterns in the data that can be similar to those resulting from pure seasonal effects. From the theoretical point of view, trading day variability is mainly due to the fact that the average number of days in the months or quarters is not equal to a multiple of 7 (the average number of days of a month in the year of 365.25 days is equal to <span class="math inline">\(\frac{365.25}{12} =\)</span> 30.4375 days). This effect occurs <span class="math inline">\(\frac{365.25}{12} \times \frac{1}{7} =\)</span> 4.3482 times per month: one time for each one of the four complete weeks of each month, and a residual of 0.3482 cycles per month, i.e.&nbsp;<span class="math inline">\(0.3482 \times 2\pi = 2.1878\)</span> radians. This turns out to be a fundamental frequency for the effects associated with monthly data. In JDemetra+ the fundamental frequency corresponding to 0.3482 cycles per month is used in place of the closest frequency <span class="math inline">\(\frac{\text{πk}}{60}\)</span>. Thus, the quantity <span class="math inline">\(\frac{\pi \times 42}{60}\)</span> is replaced by <span class="math inline">\(\omega_{42} = 0.3482 \times 2\pi = 2.1878\)</span>. The frequencies neighbouring <span class="math inline">\(\omega_{42}\)</span>, i.e.&nbsp;<span class="math inline">\(\omega_{41}\)</span> and <span class="math inline">\(\omega_{43}\)</span> are set to, respectively, <span class="math inline">\(2.1865 - \frac{1}{60}\)</span> and <span class="math inline">\(2.1865 + \frac{1}{60}\)</span>.</p>
-<p>The default frequencies ($d)$for calendar effect are: 2.188 (monthly series) and 0.280 (quarterly series). They are computed as:</p>
-<p><span class="math display">\[
-\omega_{\text{ce}} = \frac{2\pi}{7}\left( n - 7 \times \left\lbrack \frac{n}{7} \right\rbrack \right)
-\]</span>, [1] <!---\[7.158\]      --></p>
-=======
 <p>{: .table .table-style} |<strong>Number of months per full period</strong> | <strong>Seasonal frequency</strong> | <strong>Trading day frequency (radians)</strong>| |————————————–| ————————————————————————————-| ————————————| |12 | <span class="math inline">\(\frac{\pi}{6},\frac{\pi}{3},\ \frac{\pi}{2},\frac{2\pi}{3},\ \frac{5\pi}{6},\ \pi\)</span> | <span class="math inline">\(d\)</span>, 2.714| |6 | <span class="math inline">\(\frac{\pi}{3},\frac{2\pi}{3}\)</span>, <span class="math inline">\(\pi\)</span> | <span class="math inline">\(d\)</span> |4 | <span class="math inline">\(\frac{\pi}{2}\)</span>, <span class="math inline">\(\pi\)</span> | <span class="math inline">\(d\)</span>, 1.292, 1.850, 2.128| |3 | <span class="math inline">\(\pi\)</span> | <span class="math inline">\(d\)</span>| |2 | <span class="math inline">\(\pi\)</span> | <span class="math inline">\(d\)</span>|</p>
 <p>The calendar (trading day or working day) effects, related to the variation in the number of different days of the week per period, can induce periodic patterns in the data that can be similar to those resulting from pure seasonal effects. From the theoretical point of view, trading day variability is mainly due to the fact that the average number of days in the months or quarters is not equal to a multiple of 7 (the average number of days of a month in the year of 365.25 days is equal to <span class="math inline">\(\frac{365.25}{12} = 30.4375 days\)</span>). This effect occurs <span class="math inline">\(\frac{365.25}{12} \times \frac{1}{7} = 4.3482 times per month\)</span>: one time for each one of the four complete weeks of each month, and a residual of 0.3482 cycles per month, i.e.&nbsp;<span class="math inline">\(0.3482 \times 2\pi = 2.1878 radians\)</span>. This turns out to be a fundamental frequency for the effects associated with monthly data. In JDemetra+ the fundamental frequency corresponding to 0.3482 cycles per month is used in place of the closest frequency <span class="math inline">\(\frac{\text{πk}}{60}\)</span>. Thus, the quantity <span class="math inline">\(\frac{\pi \times 42}{60}\)</span> is replaced by <span class="math inline">\(\omega_{42} = 0.3482 \times 2\pi = 2.1878\)</span>. The frequencies neighbouring <span class="math inline">\(\omega_{42}\)</span>, i.e.&nbsp;<span class="math inline">\(\omega_{41}\)</span> and <span class="math inline">\(\omega_{43}\)</span> are set to, respectively, <span class="math inline">\(2.1865 - \frac{1}{60}\)</span> and <span class="math inline">\(2.1865 + \frac{1}{60}\)</span>.</p>
 <p>The default frequencies (<span class="math inline">\(d\)</span>) for calendar effect are: 2.188 (monthly series) and 0.280 (quarterly series). They are computed as:</p>
 <p><span class="math display">\[
 \omega_{\text{ce}} = \frac{2\pi}{7}\left( n - 7 \times \left\lbrack \frac{n}{7} \right\rbrack \right)
 \]</span>, [1] <!---[7.158]      --></p>
->>>>>>> 0c74c19c0b1f58d4eeac510deebcc218927a9cd0
 <p>where:</p>
 <p><span class="math inline">\(n = \frac{365.25}{s}\)</span>, <span class="math inline">\(s = 4\)</span> for quarterly series and <span class="math inline">\(s = 12\)</span> for monthly series.</p>
 <p>Other frequencies that correspond to trading day frequencies are: 2.714 (monthly series) and 1.292, 1.850, 2.128 (quarterly series).</p>
 <p>In particular, the calendar frequency in monthly data (marked in red on the figure below) is very close to the seasonal frequency corresponding to 4 cycles per year <span class="math inline">\(\text{ω}_{40} = \frac{2}{3}\pi = 2.0944\)</span>.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<<<<<<< HEAD
-<p><img src="All_imagesUG_A_image19.png" class="img-fluid figure-img"></p>
-=======
 <p><img src="All_images/UG_A_image19.png" class="img-fluid figure-img"></p>
->>>>>>> 0c74c19c0b1f58d4eeac510deebcc218927a9cd0
 <p></p><figcaption class="figure-caption">Text</figcaption><p></p>
 </figure>
 </div>
@@ -541,16 +481,6 @@ x_{t} = \mu + (\phi_{1}B + \ldots + \phi_{p}B^{p})x_{t} + \varepsilon_{t}
 </section>
 <section id="tukey-spectrum-definition" class="level4" data-number="16.4.0.2">
 <h4 data-number="16.4.0.2" class="anchored" data-anchor-id="tukey-spectrum-definition"><span class="header-section-number">16.4.0.2</span> Tukey Spectrum definition</h4>
-<<<<<<< HEAD
-<p>The Tukey spectrum belongs to the class of lag-window estimators. A lag window estimator of the spectral density <span class="math display">\[
-f(\omega)=\frac{1}{2\pi}\sum_{k&lt;-\infty}^{\infty}\gamma(k)e^{i k \omega}
-\]</span> is defined as follows: <span class="math display">\[
-\hat{f}_{L}(\omega)=\frac{1}{2\pi}\sum_{\left| h \right| \leq r } w(h/r)\hat{\gamma}(h)e^{i h \omega}
-\]</span></p>
-<p>where <span class="math display">\[\hat{\gamma}(.) \]</span> is the sample autocovariance function, <span class="math display">\[w(.)\]</span> is the lag window, and <span class="math display">\[r\]</span> is the truncation lag. <span class="math display">\[\left| w(x)\right| \]</span> is always less than or equal to one, <span class="math display">\[w(0)=1\]</span> and <span class="math display">\[w(x)=0\]</span> for <span class="math display">\[\left| x \right| &gt; 1\]</span>. The simple idea behind this formula is to down-weight the autocovariance function for high lags where <span class="math display">\[\hat{\gamma}(h)\]</span> is more unreliable. This estimator requires choosing <span class="math display">\[r\]</span> as a function of the sample size such that <span class="math display">\[r/n \rightarrow 0 \]</span> and <span class="math display">\[r\rightarrow \infty \]</span> when <span class="math display">\[ n \rightarrow \infty \]</span> . These conditions guarantee that the estimator converges to the true density.</p>
-<p>JDemetra+ implements the so-called Blackman-Tukey (or Tukey-Hanning) estimator, which is given by <span class="math display">\[w(h/r)=0.5(1+cos(\pi h/r))\]</span> if <span class="math display">\[\left| h/r \right| \leq 1\]</span> and <span class="math display">\[0\]</span> otherwise.</p>
-<p>The choice of large truncation lags <span class="math display">\[r\]</span> decreases the bias, of course, but it also increases the variance of the spectral estimate and decreases the bandwidth.</p>
-=======
 <p>The Tukey spectrum belongs to the class of lag-window estimators. A lag window estimator of the spectral density <span class="math inline">\(f(\omega)=\frac{1}{2\pi}\sum_{k&lt;-\infty}^{\infty}\gamma(k)e^{i k \omega}\)</span> is defined as follows:</p>
 <p><span class="math display">\[
 \hat{f}_{L}(\omega)=\frac{1}{2\pi}\sum_{\left| h \right| \leq r } w(h/r)\hat{\gamma}(h)e^{i h \omega}
@@ -558,20 +488,10 @@ f(\omega)=\frac{1}{2\pi}\sum_{k&lt;-\infty}^{\infty}\gamma(k)e^{i k \omega}
 <p>where <span class="math inline">\(\hat{\gamma}(.)\)</span> is the sample autocovariance function, <span class="math inline">\(w(.)\)</span> is the lag window, and <span class="math inline">\(r\)</span> is the truncation lag. <span class="math inline">\(\left| w(x)\right|\)</span> is always less than or equal to one, <span class="math inline">\(w(0)=1\)</span> and <span class="math inline">\(w(x)=0\)</span> for <span class="math inline">\(\left| x \right| &gt; 1\)</span>. The simple idea behind this formula is to down-weight the autocovariance function for high lags where <span class="math inline">\(\hat{\gamma}(h)\)</span> is more unreliable. This estimator requires choosing <span class="math inline">\(r\)</span> as a function of the sample size such that <span class="math inline">\(r/n \rightarrow 0\)</span> and <span class="math inline">\(r\rightarrow \infty\)</span> when <span class="math inline">\(n \rightarrow \infty\)</span> . These conditions guarantee that the estimator converges to the true density.</p>
 <p>JDemetra+ implements the so-called Blackman-Tukey (or Tukey-Hanning) estimator, which is given by <span class="math inline">\(w(h/r)=0.5(1+cos(\pi h/r))\)</span> if <span class="math inline">\(\left| h/r \right| \leq 1\)</span> and <span class="math inline">\(0\)</span> otherwise.</p>
 <p>The choice of large truncation lags <span class="math inline">\(r\)</span> decreases the bias, of course, but it also increases the variance of the spectral estimate and decreases the bandwidth.</p>
->>>>>>> 0c74c19c0b1f58d4eeac510deebcc218927a9cd0
 <p>JDemetra+ allows the user to modify all the parameters of this estimator, including the window function.</p>
 </section>
 <section id="graphical-test" class="level4" data-number="16.4.0.3">
 <h4 data-number="16.4.0.3" class="anchored" data-anchor-id="graphical-test"><span class="header-section-number">16.4.0.3</span> Graphical Test</h4>
-<<<<<<< HEAD
-<p>The current JDemetra+ implementation of the seasonality test is based on a <span class="math display">\[F(d_{1},d_{2})\]</span> approximation that has been originally proposed by Maravall (2012) for TRAMO-SEATS. This test is has been designed for a Blackman-Tukey window based on a particular choices of the truncation lag <span class="math display">\[r\]</span> and sample size. Following this approach, we determine visually significant peaks for a frequency <span class="math display">\[\omega_{j}\]</span> when</p>
-<p><span class="math display">\[
-\frac{2 f_{x}(\omega_{j})}{\left[ f_{x}(\omega_{j+1})+ f_{x}(\omega_{j-1}) \right]} \ge CV(\omega_{j})
-\]</span></p>
-<p>where <span class="math display">\[ CV(\omega_{j})\]</span> is the critical value of a <span class="math display">\[F(d_{1},d_{2})\]</span> distribution, where the degrees of freedom are determined using simulations. For <span class="math display">\[\omega_{j}= \pi\]</span>, we have a significant peak when <span class="math display">\[\frac{f_{x}(\omega_{[n/2]})}{\left[ f_{x}(\omega_{[(n-1)/2]})\right]} \ge CV(\omega_{j}) \]</span></p>
-<p>Two significant levels for this test are considered: <span class="math display">\[\alpha=0.05\]</span> (code “t”) and <span class="math display">\[\alpha=0.01\]</span> (code “T”).</p>
-<p>As opposed to the <a href="%7B%7B%20site.baseurl%20%7D%7D/pages/theory/Tests_ARspectrum.html">AR spectrum</a>, which is computed on the basis of the last <span class="math display">\[120\]</span> data points, we will use here all available observations. Those critical values have been calculated given the recommended truncation lag <span class="math display">\[r=79\]</span> for a sample size within the interval <span class="math display">\[n \in [80,119]\]</span> and <span class="math display">\[r=112\]</span> for <span class="math display">\[n \in [120,300]\]</span> . The <span class="math display">\[F\]</span> approximation is less accurate for sample sizes larger than <span class="math display">\[300\]</span>. For quarterly data, <span class="math display">\[r=44 \]</span>, but there are no recommendations regarding the required sample size</p>
-=======
 <p>The current JDemetra+ implementation of the seasonality test is based on a <span class="math inline">\(F(d_{1},d_{2})\)</span> approximation that has been originally proposed by Maravall (2012) for TRAMO-SEATS. This test is has been designed for a Blackman-Tukey window based on a particular choices of the truncation lag <span class="math inline">\(r\)</span> and sample size. Following this approach, we determine visually significant peaks for a frequency <span class="math inline">\(\omega_{j}\)</span> when</p>
 <p><span class="math display">\[
 \frac{2 f_{x}(\omega_{j})}{\left[ f_{x}(\omega_{j+1})+ f_{x}(\omega_{j-1}) \right]} \ge CV(\omega_{j})
@@ -579,7 +499,6 @@ f(\omega)=\frac{1}{2\pi}\sum_{k&lt;-\infty}^{\infty}\gamma(k)e^{i k \omega}
 <p>where <span class="math inline">\(CV(\omega_{j})\)</span> is the critical value of a <span class="math inline">\(F(d_{1},d_{2})\)</span> distribution, where the degrees of freedom are determined using simulations. For <span class="math inline">\(\omega_{j}= \pi\)</span>, we have a significant peak when <span class="math inline">\(\frac{f_{x}(\omega_{[n/2]})}{\left[ f_{x}(\omega_{[(n-1)/2]})\right]} \ge CV(\omega_{j})\)</span></p>
 <p>Two significant levels for this test are considered: <span class="math inline">\(\alpha=0.05\)</span> (code “t”) and <span class="math inline">\(\alpha=0.01\)</span> (code “T”).</p>
 <p>As opposed to the <a href="%7B%7B%20site.baseurl%20%7D%7D/pages/theory/Tests_ARspectrum.html">AR spectrum</a>, which is computed on the basis of the last <span class="math inline">\(120\)</span> data points, we will use here all available observations. Those critical values have been calculated given the recommended truncation lag <span class="math inline">\(r=79\)</span> for a sample size within the interval <span class="math inline">\(\in [80,119]\)</span> and <span class="math inline">\(r=112\)</span> for <span class="math inline">\(n \in [120,300]\)</span> . The <span class="math inline">\(F\)</span> approximation is less accurate for sample sizes larger than <span class="math inline">\(300\)</span>. For quarterly data, <span class="math inline">\(r=44\)</span>, but there are no recommendations regarding the required sample size.</p>
->>>>>>> 0c74c19c0b1f58d4eeac510deebcc218927a9cd0
 </section>
 <section id="use" class="level4" data-number="16.4.0.4">
 <h4 data-number="16.4.0.4" class="anchored" data-anchor-id="use"><span class="header-section-number">16.4.0.4</span> Use</h4>
@@ -644,18 +563,6 @@ f(\omega)=\frac{1}{2\pi}\sum_{k&lt;-\infty}^{\infty}\gamma(k)e^{i k \omega}
 <section id="in-ar-spectrum-definition" class="level4" data-number="16.4.0.6">
 <h4 data-number="16.4.0.6" class="anchored" data-anchor-id="in-ar-spectrum-definition"><span class="header-section-number">16.4.0.6</span> in AR Spectrum definition</h4>
 <p>comes from: “Identification of seasonal peaks in autoregressive spectrum”</p>
-<<<<<<< HEAD
-<p>The estimator of the spectral density at frequency <span class="math display">\[\lambda \in [0,\pi]\]</span> will be given by the assumption that the series will follow an AR(p) process with large <span class="math display">\[p\]</span>. The spectral density of such model, with an innovation variance <span class="math display">\[ var(x_{t})=\sigma^2_x \]</span>, is expressed as follows:</p>
-<p><span class="math display">\[
-10\times log_{10} f_x(\lambda)=10\times log_{10} \frac{\sigma^2_x}{2\pi \left|\phi(e^{i\lambda}) \right|^2 }=10\times log_{10} \frac{\sigma^2_x}{2\pi \left|1-\sum_{k=1}^{p}\phi_k e^{i k \lambda}) \right|^2 }
-\]</span></p>
-<p>where <span class="math display">\[ \phi_k \]</span> denotes the AR(k) coefficient, and <span class="math display">\[ e^{-ik\lambda}=cos⁡(-ik\lambda)+i sin⁡(-ik\lambda)\]</span>.</p>
-<p>Soukup and Findely (1999) suggest the use of p=30, which in practice much larger than the order that would result from the AIC criterion. The minimum number of observations needed to compute the spectrum is set to <em>n=80</em> for monthly data (or <em>n=60</em>) for quarterly series. In turn, the maximum number of observations considered for the estimation is <em>n=121</em>. This choice offers enough resolution, being able to identify a maximum of 30 peaks in a plot of 61 frequencies: by choosing <span class="math display">\[ \lambda_j=\pi j/60 \]</span>,for <span class="math display">\[ j=0,1,…,60 \]</span>, we are able to calculate our density estimates at exact seasonal frequencies (1, 2, 3, 4, 5 and 6 cycles per year). Note that <span class="math display">\[x\]</span> cycles per year can be converted into cycles per month by simply dividing by twelve, <span class="math display">\[x/12\]</span>, and to radians by applying the transformation <span class="math display">\[2\pi(x/12)\]</span>.</p>
-<p>The traditional trading day frequency corresponding to 0.348 cycles per month is used in place of the closest frequency <span class="math display">\[\pi j/60\]</span>. Thus, we replace <span class="math display">\[\pi 42/60\]</span> by <span class="math display">\[\lambda_{42}=0.348\times 2 \pi = 2.1865 \]</span>. The frequencies neighbouring <span class="math display">\[ \lambda_{42}\]</span> are set to <span class="math display">\[ \lambda_{41}= 2.1865-1/60 \]</span> and <span class="math display">\[\lambda_{43}= 2.1865+1/60\]</span>. The periodogram below illustrates the proximity of this trading day frequency <span class="math display">\[\lambda_{42}\]</span> (red shade) and the frequency corresponding to 4 cycles per year <span class="math display">\[\lambda_{40}=2.0944\]</span>. This proximity is precisely what poses the identification problems: the AR spectrum boils down to a smoothed version of the periodogram and the contribution of the of the trading day frequency may be obscured by the leakage resulting from the potential seasonal peak at <span class="math display">\[\lambda_{40}\]</span>, and vice-versa.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="All_imagesUG_A_image19.png" class="img-fluid figure-img"></p>
-=======
 <p>The estimator of the spectral density at frequency <span class="math inline">\(\lambda \in [0,\pi]\)</span> will be given by the assumption that the series will follow an AR(p) process with large <span class="math inline">\(p\)</span>. The spectral density of such model, with an innovation variance <span class="math inline">\(var(x_{t})=\sigma^2_x\)</span>, is expressed as follows:</p>
 <p><span class="math display">\[
 10\times log_{10} f_x(\lambda)=10\times log_{10} \frac{\sigma^2_x}{2\pi \left|\phi(e^{i\lambda}) \right|^2 }=10\times log_{10} \frac{\sigma^2_x}{2\pi \left|1-\sum_{k=1}^{p}\phi_k e^{i k \lambda}) \right|^2 }
@@ -666,7 +573,6 @@ f(\omega)=\frac{1}{2\pi}\sum_{k&lt;-\infty}^{\infty}\gamma(k)e^{i k \omega}
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/UG_A_image19.png" class="img-fluid figure-img"></p>
->>>>>>> 0c74c19c0b1f58d4eeac510deebcc218927a9cd0
 <p></p><figcaption class="figure-caption">Text</figcaption><p></p>
 </figure>
 </div>
@@ -687,11 +593,7 @@ f(\omega)=\frac{1}{2\pi}\sum_{k&lt;-\infty}^{\infty}\gamma(k)e^{i k \omega}
 <p>The test can be applied directly to any series by selecting the option <em>Statistical Methods &gt;&gt; Seasonal Adjustment &gt;&gt; Tools &gt;&gt; Seasonality Tests</em>. This is an example of how results are displayed for the case of a monthly series:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<<<<<<< HEAD
-<p><img src="%7B%7B%20site.baseurl%20%7D%7D/assets/img/theory/spectrum.png" class="img-fluid figure-img"></p>
-=======
 <p><img src="All_images/spectrum.png" class="img-fluid figure-img"></p>
->>>>>>> 0c74c19c0b1f58d4eeac510deebcc218927a9cd0
 <p></p><figcaption class="figure-caption">artest</figcaption><p></p>
 </figure>
 </div>
@@ -709,20 +611,6 @@ f(\omega)=\frac{1}{2\pi}\sum_{k&lt;-\infty}^{\infty}\gamma(k)e^{i k \omega}
 <section id="in-a-periodogram" class="level4" data-number="16.4.0.10">
 <h4 data-number="16.4.0.10" class="anchored" data-anchor-id="in-a-periodogram"><span class="header-section-number">16.4.0.10</span> in a Periodogram</h4>
 <p>comes from: Identification of seasonal peaks in periodogram</p>
-<<<<<<< HEAD
-<p>The periodogram <span class="math display">\[ I(\omega_j)\]</span> of <span class="math display">\[ \mathbf{X} \in \mathbb{C}^n \]</span> is defined as the squared of the Fourier transform</p>
-<p><span class="math display">\[
-I(\omega_{j})=a_{j}^{2}=n^{-1}\left| \sum_{t=1}^{n}\mathbf{X_t} e^{-it\omega_j} \right|^{2},
-\]</span></p>
-<p>where the Fourier frequencies <span class="math display">\[ \omega_{j} \]</span> are given by multiples of the fundamental frequency <span class="math display">\[ \frac{2\pi}{n} \]</span>:</p>
-<p><span class="math display">\[
-\omega_{j}= \frac{2\pi j}{n}, -\pi &lt; \omega_{j} \leq \pi
-\]</span></p>
-<p>An orthonormal basis in <span class="math display">\[ \mathbb{R}^n \]</span>:</p>
-<p><span class="math display">\[
-\left\{ e_0, ~~~~~~c_1, s_1, ~~~~~\ldots~~~~~\ , ~~~~c_{[(n-1)/2]}, s_{[(n-1)/2]}~~~~,~~~~~~ e_{n/2}  \right\},
-\]</span> where <span class="math display">\[ e_{n/2} \]</span> is excluded if <span class="math display">\[ n \]</span> is odd,<br>
-=======
 <p>The periodogram <span class="math inline">\(I(\omega_j)\)</span> of <span class="math inline">\(\mathbf{X} \in \mathbb{C}^n\)</span> is defined as the squared of the Fourier transform</p>
 <p><span class="math display">\[
 I(\omega_{j})=a_{j}^{2}=n^{-1}\left| \sum_{t=1}^{n}\mathbf{X_t} e^{-it\omega_j} \right|^{2},
@@ -735,7 +623,6 @@ I(\omega_{j})=a_{j}^{2}=n^{-1}\left| \sum_{t=1}^{n}\mathbf{X_t} e^{-it\omega_j} 
 <p><span class="math display">\[
 \left\{ e_0, ~~~~~~c_1, s_1, ~~~~~\ldots~~~~~\ , ~~~~c_{[(n-1)/2]}, s_{[(n-1)/2]}~~~~,~~~~~~ e_{n/2}  \right\},
 \]</span> where <span class="math inline">\(e_{n/2}\)</span> is excluded if <span class="math inline">\(n\)</span> is odd,<br>
->>>>>>> 0c74c19c0b1f58d4eeac510deebcc218927a9cd0
 can be used to project the data and obtain the spectral decomposition</p>
 <p>Thus, the periodogram is given by the projection coefficients and represents the contribution of the jth harmonic to the total sum of squares, as illustrated by Brockwell and Davis (1991):</p>
 <table class="table">
@@ -809,11 +696,7 @@ can be used to project the data and obtain the spectral decomposition</p>
 <p>The implementation of JDemetra+ considers simultaneously the whole set of seasonal frequencies (1, 2, 3, 4, 5 and 6 cycles per year). Thus, the resulting test-statistic is:</p>
 <p><span class="math display">\[
 \frac{ 2I(\pi/6)+ 2I(\pi/3)+ 2I(2\pi/3)+ 2I(5\pi/6)+ \delta I(\pi)}{\left\|\mathbf{X}-P_{\bar{sp}_{\left\{ e_0,c_{1},s_{1},c_{2},s_{2},c_{3},s_{3},c_{4},s_{4},c_{5},s_{5}, \delta e_{n/2} \right\}}} \mathbf{X} \right\|^2} \frac{n-12}{11} \sim F(11-\delta,n-12+\delta)
-<<<<<<< HEAD
-\]</span> where <span class="math display">\[ \delta=1 \]</span> if <span class="math display">\[ n \]</span> is even and 0 otherwise.</p>
-=======
 \]</span> where <span class="math inline">\(\delta=1\)</span> if <span class="math inline">\(n\)</span> is even and 0 otherwise.</p>
->>>>>>> 0c74c19c0b1f58d4eeac510deebcc218927a9cd0
 <p>In small samples, the test performs better when the periodogram is evaluated as the exact seasonal frequencies. JDemetra+ modifies the sample size to ensure the seasonal frequencies belong to the set of Fourier frequencies. This strategy provides a very simple and effective way to eliminate the leakage problem.</p>
 <p>Example of how results are displayed:</p>
 <div class="quarto-figure quarto-figure-center">
