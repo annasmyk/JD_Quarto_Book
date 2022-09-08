@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-0.9.492">
+<meta name="generator" content="quarto-1.1.189">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -11,12 +11,36 @@
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-span.underline{text-decoration: underline;}
-div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
 </style>
 
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./M-local-regression-decomposition.html" rel="next">
+<link href="./M-reg-arima-modelling.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -39,24 +63,6 @@ ul.task-list{list-style: none;}
 
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./M-local-regression-decomposition.html" rel="next">
-<link href="./M-reg-arima-modelling.html" rel="prev">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet">
 </head>
 
 <body class="nav-sidebar floating">
@@ -218,18 +224,18 @@ ul.task-list{list-style: none;}
 </nav>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc">
+        <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#chapter-building-process" id="toc-chapter-building-process" class="nav-link active" data-scroll-target="#chapter-building-process"> <span class="header-section-number">18.1</span> Chapter building process</a>
+  <li><a href="#chapter-building-process" id="toc-chapter-building-process" class="nav-link active" data-scroll-target="#chapter-building-process"><span class="toc-section-number">18.1</span>  Chapter building process</a>
   <ul class="collapse">
-  <li><a href="#edit-content" id="toc-edit-content" class="nav-link" data-scroll-target="#edit-content"> <span class="header-section-number">18.1.1</span> Edit content</a></li>
+  <li><a href="#edit-content" id="toc-edit-content" class="nav-link" data-scroll-target="#edit-content"><span class="toc-section-number">18.1.1</span>  Edit content</a></li>
   </ul></li>
-  <li><a href="#x-11-moving-average-based-decomposition" id="toc-x-11-moving-average-based-decomposition" class="nav-link" data-scroll-target="#x-11-moving-average-based-decomposition"> <span class="header-section-number">18.2</span> X-11 moving average based decomposition</a>
+  <li><a href="#x-11-moving-average-based-decomposition" id="toc-x-11-moving-average-based-decomposition" class="nav-link" data-scroll-target="#x-11-moving-average-based-decomposition"><span class="toc-section-number">18.2</span>  X-11 moving average based decomposition</a>
   <ul class="collapse">
-  <li><a href="#m-stats" id="toc-m-stats" class="nav-link" data-scroll-target="#m-stats"> <span class="header-section-number">18.2.1</span> M-stats</a></li>
-  <li><a href="#detailed-tables" id="toc-detailed-tables" class="nav-link" data-scroll-target="#detailed-tables"> <span class="header-section-number">18.2.2</span> Detailed tables</a></li>
+  <li><a href="#m-stats" id="toc-m-stats" class="nav-link" data-scroll-target="#m-stats"><span class="toc-section-number">18.2.1</span>  M-stats</a></li>
+  <li><a href="#detailed-tables" id="toc-detailed-tables" class="nav-link" data-scroll-target="#detailed-tables"><span class="toc-section-number">18.2.2</span>  Detailed tables</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -275,22 +281,19 @@ ul.task-list{list-style: none;}
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/UG_A_image13.png" class="img-fluid figure-img"></p>
-<p></p><figcaption aria-hidden="true" class="figure-caption">Text</figcaption><p></p>
+<p></p><figcaption class="figure-caption">Text</figcaption><p></p>
 </figure>
 </div>
 <p><strong>The flow diagram for seasonal adjustment with X-13ARIMA-SEATS using the X-11 algorithm.</strong></p>
 <section id="moving-averages" class="level4" data-number="18.2.0.1">
 <h4 data-number="18.2.0.1" class="anchored" data-anchor-id="moving-averages"><span class="header-section-number">18.2.0.1</span> Moving averages</h4>
 <p>The moving average of coefficient <span class="math inline">\(\theta_{i}\)</span> is defined as:</p>
-<p><span class="math display">\[M\left( X_{t} \right) = \sum_{k = - p}^{+ f}\theta_{k}X_{t + k}\]</span></p>
-<p><span class="math display">\[1\]</span><!---\[7.61\]--></p>
+<p><span class="math display">\[M\left( X_{t} \right) = \sum_{k = - p}^{+ f}\theta_{k}X_{t + k}\]</span> <span class="math display">\[1\]</span><!---\[7.61\]--></p>
 <p>The value at time <span class="math inline">\(t\)</span> of the series is therefore replaced by a weighted average of <span class="math inline">\(p\)</span> “past” values of the series, the current value, and <span class="math inline">\(f\)</span> “future” values of the series. The quantity $p + f + 1$is called the moving average order. When <span class="math inline">\(p\)</span> is equal to <span class="math inline">\(f\)</span>, that is, when the number of points in the past is the same as the number of points in the future, the moving average is said to be centred. If, in addition, <span class="math inline">\(\theta_{- k} = \theta_{k}\)</span> for any <span class="math inline">\(k\)</span>, the moving average <span class="math inline">\(M\)</span> is said to be symmetric. One of the simplest moving averages is the symmetric moving average of order <span class="math inline">\(P = 2p + 1\)</span> where all the weights are equal to<span class="math inline">\(\ \frac{1}{P}\)</span>.</p>
 <p>This moving average formula works well for all time series observations, except for the first <span class="math inline">\(p\)</span> values and last <span class="math inline">\(f\)</span> values. Generally, with a moving average of order $p + f + 1$calculated for instant <span class="math inline">\(t\)</span>nwith points <span class="math inline">\(p\)</span> in the past and points <span class="math inline">\(f\)</span> in the future, it will be impossible to smooth out the first <span class="math inline">\(p\)</span> values and the last <span class="math inline">\(f\)</span> values of the series because of lack of input to the moving average formula.</p>
 <p>In the X-11 method, symmetric moving averages play an important role as they do not introduce any phase-shift in the smoothed series. But, to avoid losing information at the series ends, they are either supplemented by <em>ad hoc</em> asymmetric moving averages or applied on the series extended by forecasts.</p>
 <p>For the estimation of the seasonal component, X-13ARIMA-SEATS uses <span class="math inline">\(P \times Q\)</span> composite moving averages, obtained by composing a simple moving average of order <span class="math inline">\(P\)</span>, which coefficients are all equal to <span class="math inline">\(\frac{1}{P}\)</span>, and a simple moving average of order <span class="math inline">\(Q\)</span>, which coefficients are all equal to <span class="math inline">\(\frac{1}{Q}\)</span>.</p>
-<p>The composite moving averages are widely used by the X-11 method. For an initial estimation of trend X-11 method uses a <span class="math inline">\(2 \times 4\)</span> moving average in case of a quarterly time series while for a monthly time series a $2 $moving average is applied. The <span class="math inline">\(2 \times 4\)</span> moving average is an average of order 5 with coefficients <span class="math display">\[\frac{1}{8}\left\{1, 2, 2, 2, 1\right\}\]</span>. It eliminates frequency</p>
-<p><span class="math inline">\(\frac{\pi}{2}\)</span> corresponding to period 4 and therefore it is suitable for seasonal adjustment of the quarterly series with a constant seasonality. The <span class="math inline">\(2 \times 12\)</span> moving average, with coefficients</p>
-<p><span class="math display">\[\frac{1}{24}\left\{1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1\right\} \]</span>that retains linear trends, eliminates order-<span class="math inline">\(12\)</span> constant seasonality and minimises the variance of the irregular component. The <span class="math inline">\(2 \times 4\)</span> and <span class="math inline">\(2 \times 12\)</span> moving averages are also used in the X-11 method to normalise the seasonal factors. The composite moving averages are also used to extract the seasonal component. These, which are used in the purely automatic run of the X-11 method (without any intervention from the user) are <span class="math inline">\(3 \times 3\)</span>, <span class="math inline">\(3 \times 5\)</span> and <span class="math inline">\(3 \times 9\)</span>.</p>
+<p>The composite moving averages are widely used by the X-11 method. For an initial estimation of trend X-11 method uses a <span class="math inline">\(2 \times 4\)</span> moving average in case of a quarterly time series while for a monthly time series a $2 $moving average is applied. The <span class="math inline">\(2 \times 4\)</span> moving average is an average of order 5 with coefficients <span class="math display">\[\frac{1}{8}\left\{1, 2, 2, 2, 1\right\}\]</span>. It eliminates frequency <span class="math inline">\(\frac{\pi}{2}\)</span> corresponding to period 4 and therefore it is suitable for seasonal adjustment of the quarterly series with a constant seasonality. The <span class="math inline">\(2 \times 12\)</span> moving average, with coefficients <span class="math display">\[\frac{1}{24}\left\{1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1\right\} \]</span>that retains linear trends, eliminates order-<span class="math inline">\(12\)</span> constant seasonality and minimises the variance of the irregular component. The <span class="math inline">\(2 \times 4\)</span> and <span class="math inline">\(2 \times 12\)</span> moving averages are also used in the X-11 method to normalise the seasonal factors. The composite moving averages are also used to extract the seasonal component. These, which are used in the purely automatic run of the X-11 method (without any intervention from the user) are <span class="math inline">\(3 \times 3\)</span>, <span class="math inline">\(3 \times 5\)</span> and <span class="math inline">\(3 \times 9\)</span>.</p>
 <p>In the estimation of the trend also Henderson moving averages are used. These filters have been chosen for their smoothing properties. The coefficients of a Henderson moving average of order <span class="math inline">\(2p + 1\)</span> may be calculated using the formula:</p>
 <p><span class="math inline">\(\theta_{i} = \frac{315\left\lbrack \left( n - 1 \right)^{2} - i^{2} \right\rbrack\left\lbrack n^{2} - i^{2} \right\rbrack\left\lbrack \left( n + 1 \right)^{2} - i^{2} \right\rbrack\left\lbrack {3n}^{2} - 16 - 11i^{2} \right\rbrack}{8n\left( n^{2} - 1 \right)\left( {4n}^{2} - 1 \right)\left( {4n}^{2} - 9 \right)\left( 4n^{2} - 25 \right)}\)</span>, <span class="math display">\[2\]</span><!---\[7.62\]--></p>
 <p>where: <span class="math inline">\(n = p + 2\)</span><span class="math inline">\(n = p + 2\)</span>.</p>
@@ -303,8 +306,7 @@ ul.task-list{list-style: none;}
 <p><strong><em>Step 1: Estimation of Trend by</em></strong> <span class="math inline">\(\mathbf{2 \times 12}\)</span> <strong><em>moving average:</em></strong></p>
 <p><span class="math inline">\(TC_{t}^{(1)} = M_{2 \times 12}(X_{t})\)</span> <span class="math display">\[3\]</span><!---\[7.63\]--></p>
 <p><strong><em>Step 2: Estimation of the Seasonal-Irregular component:</em></strong></p>
-<p><span class="math inline">\(\left( S_{t} + I_{t} \right)^{(1)} = X_{t} - \text{TC}_{t}^{(1)}\)</span></p>
-<p><span class="math display">\[4\]</span><!---\[7.64\]--></p>
+<p><span class="math inline">\(\left( S_{t} + I_{t} \right)^{(1)} = X_{t} - \text{TC}_{t}^{(1)}\)</span> <span class="math display">\[4\]</span><!---\[7.64\]--></p>
 <p><strong><em>Step 3: Estimation of the Seasonal component by</em></strong> <span class="math inline">\(\mathbf{3 \times 3}\)</span> <strong><em>moving average over each month:</em></strong></p>
 <p><span class="math inline">\(S_{t}^{(1)} - M_{3 \times 3}\left\lbrack \left( S_{t} + I_{t} \right)^{(1)} \right\rbrack\)</span> <span class="math display">\[5\]</span><!---\[7.65\]--></p>
 <p>The moving average used here is a <span class="math inline">\(3 \times 3\)</span> moving average over <span class="math inline">\(5\)</span> terms, with coefficients <span class="math display">\[\frac{1}{9} \left\{1, 2, 3, 2, 1 \right\}\]</span>. The seasonal component is then centred using a <span class="math inline">\(2 \times 12\)</span> moving average.</p>
@@ -312,8 +314,9 @@ ul.task-list{list-style: none;}
    \widetilde{S}_{t}^{(1)} = S_{t}^{(1)} - M_{2 \times 12}\left( S_{t}^{(1)} \right)
   \]</span> <span class="math display">\[6\]</span><!---\[7.66\]--></p>
 <p><strong><em>Step 4: Estimation of the seasonally adjusted series:</em></strong></p>
-<p>$$</p>
-<p>SA_{t}^{( 1 )} = ( <em>{t} + I</em>{t} )^{(1)} = X_{t} - {}_{t}^{(1)} <span class="math display">\[ \]</span>7$$<!---\[7.67\]--></p>
+<p><span class="math display">\[
+  SA_{t}^{\left( 1 \right)} = \left( \text{TC}_{t} + I_{t} \right)^{(1)} = X_{t} - {\widetilde{S}}_{t}^{(1)}
+  \]</span> <span class="math display">\[7\]</span><!---\[7.67\]--></p>
 <p>This first estimation of the seasonally adjusted series must, by construction, contain less seasonality. The X-11 method again executes the algorithm presented above, changing the moving averages to take this property into account.</p>
 <p><strong><em>Step 5: Estimation of Trend by 13-term Henderson moving average:</em></strong></p>
 <p><span class="math display">\[
@@ -321,18 +324,15 @@ ul.task-list{list-style: none;}
   \]</span> <span class="math display">\[8\]</span><!---\[7.68\]--></p>
 <p>Henderson moving averages, while they do not have special properties in terms of eliminating seasonality (limited or none at this stage), have a very good smoothing power and retain a local polynomial trend of degree <span class="math inline">\(2\)</span> and preserve a local polynomial trend of degree <span class="math inline">\(3\)</span>.</p>
 <p><strong><em>Step 6: Estimation of the Seasonal-Irregular component:</em></strong></p>
-<p>$$</p>
-<p>( S_{t} + I_{t} )^{(2)} = X_{t} - _{t}^{(2)} <span class="math display">\[ \]</span>9$$<!---\[7.69\]--></p>
+<p><span class="math display">\[
+  \left( S_{t} + I_{t} \right)^{(2)} = X_{t} - \text{TC}_{t}^{(2)}
+  \]</span> <span class="math display">\[9\]</span><!---\[7.69\]--></p>
 <p><strong><em>Step 7: Estimation of the Seasonal component by</em></strong> <span class="math inline">\(\mathbf{3 \times 5}\)</span> <strong><em>moving average over each month:</em></strong></p>
-<p><span class="math display">\[S_{t}^{(2)} - M_{3 \times 3}\left\lbrack \left( S_{t} + I_{t} \right)^{(2)} \right\rbrack\]</span></p>
-<p><span class="math display">\[10\]</span><!---\[7.70\]--></p>
-<p>The moving average used here is a <span class="math inline">\(3 \times 5\)</span> moving average over <span class="math inline">\(7\)</span> terms, of coefficients <span class="math display">\[\frac{1}{15} \left\{ 1,\ 2,\ 3,\ 3,\ 3,\ 2,\ 1 \right\}\]</span> and retains</p>
-<p>linear trends. The coefficients are then normalised such that their sum over the whole <span class="math inline">\(12\)</span>-month period is approximately cancelled out:</p>
-<p><span class="math display">\[{ \widetilde{S}}_{t}^{(2)} = S_{t}^{(2)} - M_{2 \times 12}\left( S_{t}^{(2)} \right)\]</span></p>
-<p><span class="math display">\[11\]</span><!---\[7.71\]--></p>
+<p><span class="math display">\[S_{t}^{(2)} - M_{3 \times 3}\left\lbrack \left( S_{t} + I_{t} \right)^{(2)} \right\rbrack\]</span> <span class="math display">\[10\]</span><!---\[7.70\]--></p>
+<p>The moving average used here is a <span class="math inline">\(3 \times 5\)</span> moving average over <span class="math inline">\(7\)</span> terms, of coefficients <span class="math display">\[\frac{1}{15} \left\{ 1,\ 2,\ 3,\ 3,\ 3,\ 2,\ 1 \right\}\]</span> and retains linear trends. The coefficients are then normalised such that their sum over the whole <span class="math inline">\(12\)</span>-month period is approximately cancelled out:</p>
+<p><span class="math display">\[{ \widetilde{S}}_{t}^{(2)} = S_{t}^{(2)} - M_{2 \times 12}\left( S_{t}^{(2)} \right)\]</span> <span class="math display">\[11\]</span><!---\[7.71\]--></p>
 <p><strong><em>Step 8: Estimation of the seasonally adjusted series:</em></strong></p>
-<p><span class="math display">\[SA_{t}^{\left( 2 \right)} = \left(TC_{t} + I_{t} \right)^{(2)} = X_{t} - {\widetilde{S}}_{t}^{(2)}\]</span></p>
-<p><span class="math display">\[12\]</span><!---\[7.72\]--></p>
+<p><span class="math display">\[SA_{t}^{\left( 2 \right)} = \left(TC_{t} + I_{t} \right)^{(2)} = X_{t} - {\widetilde{S}}_{t}^{(2)}\]</span> <span class="math display">\[12\]</span><!---\[7.72\]--></p>
 <p>The whole difficulty lies, then, in the choice of the moving averages used for the estimation of the trend in steps <span class="math inline">\(1\)</span> and <span class="math inline">\(5\)</span> on the one hand, and for the estimation of the seasonal component in steps <span class="math inline">\(3\)</span> and <span class="math inline">\(5\)</span>. The course of the algorithm in the form that is implemented in JDemetra+ is presented in the figure below. The adjustment for trading day effects, which is present in the original X-11 program, is omitted here, as since calendar correction is performed by the RegARIMA model, JDemetra+ does not perform further adjustment for these effects in the decomposition step.</p>
 <p><strong>A workflow diagram for the X-11 algorithm based upon training material from the Deutsche Bundesbank</strong></p>
 <section id="the-iterative-principle-of-x-11" class="level5" data-number="18.2.0.2.1">
@@ -417,23 +417,14 @@ ul.task-list{list-style: none;}
 <h5 data-number="18.2.0.2.2" class="anchored" data-anchor-id="choosing-the-composite-moving-averages-when-estimating-the-seasonal-component"><span class="header-section-number">18.2.0.2.2</span> <strong>Choosing the composite moving averages when estimating the seasonal component</strong></h5>
 <p>In iteration D, Table D10 shows an estimate of the seasonal factors implemented on the basis of the modified SI (Seasonal – Irregular) factors estimated in Tables D4 and D9bis. This component will have to be smoothed to estimate the seasonal component; depending on the importance of the irregular in the SI component, we will have to use moving averages of varying length as in the estimate of the Trend/Cycle where the $$ ratio was used to select the length of the Henderson moving average. The estimation includes several steps.</p>
 <p><strong><em>Step 1: Estimating the irregular and seasonal components</em></strong></p>
-<p>An estimate of the seasonal component is obtained by smoothing, month by month and therefore column by column, Table D9bis using a simple 7-term moving average, i.e.&nbsp;of coefficients</p>
-<p><span class="math display">\[\frac{1}{7} \left\{1,\ 1,\ 1,\ 1,\ 1,\ 1,\ 1\right\}\]</span>. In order not to lose three points at the beginning and end of each column, all columns are completed as follows. Let us assume that the column that corresponds to the month is composed of <span class="math inline">\(N\)</span> values <span class="math display">\[
+<p>An estimate of the seasonal component is obtained by smoothing, month by month and therefore column by column, Table D9bis using a simple 7-term moving average, i.e.&nbsp;of coefficients <span class="math display">\[\frac{1}{7} \left\{1,\ 1,\ 1,\ 1,\ 1,\ 1,\ 1\right\}\]</span>. In order not to lose three points at the beginning and end of each column, all columns are completed as follows. Let us assume that the column that corresponds to the month is composed of <span class="math inline">\(N\)</span> values <span class="math display">\[
 \left\{ x_{1},\ x_{2},\ x_{3},\ \ldots x_{N - 1},\ x_{N} \right\}.
-\]</span> It will be transformed into a series</p>
-<p><span class="math display">\[\left\{ {x_{- 2},x_{- 1}{,x}_{0},x}_{1},\ x_{2},\ x_{3},\ \ldots x_{N - 1},\ x_{N},x_{N + 1},\ x_{N + 1},\ x_{N + 2},\ x_{N + 3} \right\}\\]</span></p>
-<p>with <span class="math display">\[x_{- 2} = x_{- 1} = x_{0} = \frac{x_{1} + x_{2} + x_{3}}{3}\]</span> and</p>
-<p><span class="math display">\[x_{N + 1} = x_{N + 2} = x_{N + 3} = \frac{x_{N} + x_{N - 1} + x_{N - 2}}{3}\]</span>. We then have the required estimates: <span class="math inline">\(S = M_{7}(D9bis)\)</span> and <span class="math inline">\(I = D9bis - S\)</span>.</p>
+\]</span> It will be transformed into a series <span class="math display">\[\left\{ {x_{- 2},x_{- 1}{,x}_{0},x}_{1},\ x_{2},\ x_{3},\ \ldots x_{N - 1},\ x_{N},x_{N + 1},\ x_{N + 1},\ x_{N + 2},\ x_{N + 3} \right\}\\]</span> with <span class="math display">\[x_{- 2} = x_{- 1} = x_{0} = \frac{x_{1} + x_{2} + x_{3}}{3}\]</span> and <span class="math display">\[x_{N + 1} = x_{N + 2} = x_{N + 3} = \frac{x_{N} + x_{N - 1} + x_{N - 2}}{3}\]</span>. We then have the required estimates: <span class="math inline">\(S = M_{7}(D9bis)\)</span> and <span class="math inline">\(I = D9bis - S\)</span>.</p>
 <p><strong><em>Step 2: Calculating the Moving Seasonality Ratios</em></strong></p>
-<p>For each <span class="math inline">\(i^{\text{th}}\)</span> month the mean annual changes for each component is obtained by calculating</p>
-<p><span class="math display">\[{\overline{S}}_{i} = \frac{1}{N_{i} - 1}\sum_{t = 2}^{N_{i}}\left| S_{i,t} - S_{i,t - 1} \right|\]</span></p>
-<p>and <span class="math display">\[{\overline{I}}_{i} = \frac{1}{N_{i} - 1}\sum_{t = 2}^{N_{i}}\left| I_{i,t} - I_{i,t - 1} \right|\]</span>,</p>
-<p>where <span class="math inline">\(N_{i}\)</span> refers to the number of months <span class="math inline">\(\text{i}\)</span>in the data, and the moving seasonality ratio of month <span class="math inline">\(i\)</span>:</p>
-<p><span class="math display">\[MSR_{i} = \frac{\ {\overline{I}}_{i}}{ {\overline{S}}_{i}}\]</span>. These ratios are presented in <em>Details</em> of the <em>Quality Measures</em> node under the <em>Decomposition (X11)</em> section. These ratios are used to compare the year-on-year changes in the irregular component with those in the seasonal component. The idea is to obtain, for each month, an indicator capable of selecting the appropriate moving average for the removal of any noise and providing a good estimate of the seasonal factor. The higher the ratio, the more erratic the series, and the greater the order of the moving average should be used. As for the rest, by default the program selects the same moving average for each month, but the user can select different moving averages for each month.</p>
+<p>For each <span class="math inline">\(i^{\text{th}}\)</span> month the mean annual changes for each component is obtained by calculating <span class="math display">\[{\overline{S}}_{i} = \frac{1}{N_{i} - 1}\sum_{t = 2}^{N_{i}}\left| S_{i,t} - S_{i,t - 1} \right|\]</span> and <span class="math display">\[{\overline{I}}_{i} = \frac{1}{N_{i} - 1}\sum_{t = 2}^{N_{i}}\left| I_{i,t} - I_{i,t - 1} \right|\]</span>, where <span class="math inline">\(N_{i}\)</span> refers to the number of months <span class="math inline">\(\text{i}\)</span>in the data, and the moving seasonality ratio of month <span class="math inline">\(i\)</span>: <span class="math display">\[MSR_{i} = \frac{\ {\overline{I}}_{i}}{ {\overline{S}}_{i}}\]</span>. These ratios are presented in <em>Details</em> of the <em>Quality Measures</em> node under the <em>Decomposition (X11)</em> section. These ratios are used to compare the year-on-year changes in the irregular component with those in the seasonal component. The idea is to obtain, for each month, an indicator capable of selecting the appropriate moving average for the removal of any noise and providing a good estimate of the seasonal factor. The higher the ratio, the more erratic the series, and the greater the order of the moving average should be used. As for the rest, by default the program selects the same moving average for each month, but the user can select different moving averages for each month.</p>
 <p><strong><em>Step 3: Calculating the overall Moving Seasonality Ratio</em></strong></p>
 <p>The overall Moving Seasonality Ratio is calculated as follows:</p>
-<p><span class="math display">\[\text{MSR}_{i} = \frac{\sum_{i}^{}{N_{i}\ }\ {\overline{I}}_{i}}{\sum_{i}^{}N_{i}{\overline{S}}_{i}}\]</span></p>
-<p><span class="math display">\[13\]</span><!---\[7.73\]--></p>
+<p><span class="math display">\[\text{MSR}_{i} = \frac{\sum_{i}^{}{N_{i}\ }\ {\overline{I}}_{i}}{\sum_{i}^{}N_{i}{\overline{S}}_{i}}\]</span> <span class="math display">\[13\]</span><!---\[7.73\]--></p>
 <p><strong><em>Step 4: Selecting a moving average and estimating the seasonal component</em></strong></p>
 <p>Depending on the value of the ratio, the program automatically selects a moving average that is applied, column by column (i.e.&nbsp;month by month) to the Seasonal/Irregular component in Table D8 modified, for extreme values, using values in Table D9.</p>
 <p>The default selection procedure of a moving average is based on the Moving Seasonality Ratio in the following way:</p>
@@ -663,9 +654,9 @@ average to that identified by the program. For example, if the SI values do not 
 <li><p><span class="math inline">\(\text{Mod.I}\)</span> – Final irregular component adjusted for extreme values (Table E3).</p></li>
 </ul>
 <p>In the case of an additive decomposition, for each component the average absolute changes over several periods are calculated as<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>:</p>
-<p>$$</p>
-<p><em>{d} = </em>{t = d + 1}^{n}|Table_{t} - Table_{t - d}|</p>
-<p>$$ [4]</p>
+<p><span class="math display">\[
+\text{Component}_{d} = \frac{1}{n - d}\sum_{t = d + 1}^{n}|Table_{t} - Table_{t - d}|
+\]</span> [4]</p>
 <p>where:</p>
 <p><span class="math inline">\(d\)</span> – time lag in periods (from a monthly time series <span class="math inline">\(d\)</span> varies from to 4 or from 1 to 12);</p>
 <p><span class="math inline">\(n\)</span> – total number of observations per period;</p>
@@ -674,7 +665,7 @@ average to that identified by the program. For example, if the SI values do not 
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/RDimage48.png" class="img-fluid figure-img"></p>
-<p></p><figcaption aria-hidden="true" class="figure-caption">Text</figcaption><p></p>
+<p></p><figcaption class="figure-caption">Text</figcaption><p></p>
 </figure>
 </div>
 <p><strong>Table F2A – changes, in the absolute values, of the principal components</strong></p>
@@ -722,7 +713,7 @@ average to that identified by the program. For example, if the SI values do not 
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/RDimage49.png" class="img-fluid figure-img"></p>
-<p></p><figcaption aria-hidden="true" class="figure-caption">Text</figcaption><p></p>
+<p></p><figcaption class="figure-caption">Text</figcaption><p></p>
 </figure>
 </div>
 <p><strong>Table F2B – relative contribution of components to changes in the raw series</strong></p>
@@ -730,7 +721,7 @@ average to that identified by the program. For example, if the SI values do not 
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/RDimage50.png" class="img-fluid figure-img"></p>
-<p></p><figcaption aria-hidden="true" class="figure-caption">Text</figcaption><p></p>
+<p></p><figcaption class="figure-caption">Text</figcaption><p></p>
 </figure>
 </div>
 <p><strong>Table F2C – Averages and standard deviations of changes as a function of the time lag</strong></p>
@@ -738,7 +729,7 @@ average to that identified by the program. For example, if the SI values do not 
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/RDimage51.png" class="img-fluid figure-img"></p>
-<p></p><figcaption aria-hidden="true" class="figure-caption">Text</figcaption><p></p>
+<p></p><figcaption class="figure-caption">Text</figcaption><p></p>
 </figure>
 </div>
 <p><strong>Table F2D – Average duration of run</strong></p>
@@ -746,7 +737,7 @@ average to that identified by the program. For example, if the SI values do not 
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/RDimage52.png" class="img-fluid figure-img"></p>
-<p></p><figcaption aria-hidden="true" class="figure-caption">Text</figcaption><p></p>
+<p></p><figcaption class="figure-caption">Text</figcaption><p></p>
 </figure>
 </div>
 <p><strong>Table F2E –</strong> <span class="math inline">\(\frac{\mathbf{I}}{\mathbf{C}}\mathbf{\ }\)</span>ratio for periods span</p>
@@ -754,7 +745,7 @@ average to that identified by the program. For example, if the SI values do not 
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/RDimage53.png" class="img-fluid figure-img"></p>
-<p></p><figcaption aria-hidden="true" class="figure-caption">Text</figcaption><p></p>
+<p></p><figcaption class="figure-caption">Text</figcaption><p></p>
 </figure>
 </div>
 <p><strong>Table F2F – Relative contribution of components to the variance of the stationary part of the original series</strong></p>
@@ -764,7 +755,7 @@ average to that identified by the program. For example, if the SI values do not 
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/RDimage54.png" class="img-fluid figure-img"></p>
-<p></p><figcaption aria-hidden="true" class="figure-caption">Text</figcaption><p></p>
+<p></p><figcaption class="figure-caption">Text</figcaption><p></p>
 </figure>
 </div>
 <p><strong>Table F2G – Autocorrelation of the irregular component</strong></p>
@@ -772,7 +763,7 @@ average to that identified by the program. For example, if the SI values do not 
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/RDimage55.png" class="img-fluid figure-img"></p>
-<p></p><figcaption aria-hidden="true" class="figure-caption">Text</figcaption><p></p>
+<p></p><figcaption class="figure-caption">Text</figcaption><p></p>
 </figure>
 </div>
 <p><strong>Cochran test</strong></p>
@@ -791,7 +782,7 @@ average to that identified by the program. For example, if the SI values do not 
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/RDimage56.png" class="img-fluid figure-img"></p>
-<p></p><figcaption aria-hidden="true" class="figure-caption">Text</figcaption><p></p>
+<p></p><figcaption class="figure-caption">Text</figcaption><p></p>
 </figure>
 </div>
 <p><strong>Table D9a – Moving seasonality ratios</strong></p>
@@ -799,14 +790,14 @@ average to that identified by the program. For example, if the SI values do not 
 
 </section>
 </section>
-<section class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
 <hr>
 <ol>
-<li id="fn1" role="doc-endnote"><p>When the series are non-stationary differentiation is performed before the seasonality tests.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn2" role="doc-endnote"><p>See section <a href="../theory/Tests_combined.html">Combined seasonality tests</a>.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn3" role="doc-endnote"><p>For the multiplicative decomposition the following formula is used: <span class="math display">\[\text{Component}_{d} = \frac{1}{n - d}\sum_{t = d + 1}^{n}{|\frac{\text{Tabl}e_{t}}{\text{Table}_{t - d}} - 1|}\]</span>.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn4" role="doc-endnote"><p>The component is estimated by extracting a linear trend from the trend component presented in Table D12.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn5" role="doc-endnote"><p>For the additive decomposition the formula is: <span class="math display">\[
+<li id="fn1"><p>When the series are non-stationary differentiation is performed before the seasonality tests.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>See section <a href="../theory/Tests_combined.html">Combined seasonality tests</a>.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>For the multiplicative decomposition the following formula is used: <span class="math display">\[\text{Component}_{d} = \frac{1}{n - d}\sum_{t = d + 1}^{n}{|\frac{\text{Tabl}e_{t}}{\text{Table}_{t - d}} - 1|}\]</span>.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p>The component is estimated by extracting a linear trend from the trend component presented in Table D12.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn5"><p>For the additive decomposition the formula is: <span class="math display">\[
 Corr_{k}I_{t} = \frac{\sum_{t = k + 1}^{N}{(I_{t} \times I_{t - k})}}{\sum_{t = 1}^{N}{(I_{t})}^{2}}
 \]</span><a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
@@ -815,6 +806,24 @@ Corr_{k}I_{t} = \frac{\sum_{t = k + 1}^{N}{(I_{t} \times I_{t - k})}}{\sum_{t = 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
   const icon = "";
   const anchorJS = new window.AnchorJS();
   anchorJS.options = {
@@ -864,7 +873,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   for (var i=0; i<noterefs.length; i++) {
     const ref = noterefs[i];
     tippyHover(ref, function() {
-      let href = ref.getAttribute('href');
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
