@@ -448,11 +448,11 @@
     "text": "goal of the chapter : details on STL which are not in the SA chapter"
   },
   {
-    "objectID": "M-amb-decomposition.html",
-    "href": "M-amb-decomposition.html",
-    "title": "20  Arima Model Based AMB decomposition",
+    "objectID": "M-SEATS-decomposition.html",
+    "href": "M-SEATS-decomposition.html",
+    "title": "20  SEATS decomposition",
     "section": "",
-    "text": "goal of the chapter : details on SEATS which are not in the SA chapter\na lot of information might be recycled from the old online documentation cf file 20-Meth-AMB-decomposition.Rmd where info from the old pages is gathered formulas and tables compatibility with quarto have to be checked before pasting in the book"
+    "text": "In the original software SEATS can be used either with TRAMO, operating on the input received from the latter, or alone, fitting an ARIMA model to the series.↩︎\nGÓMEZ, V., and MARAVALL, A. (1998).↩︎\nGÓMEZ, V., and MARAVALL, A. (1997).↩︎\nGÓMEZ, V., and MARAVALL, A. (2001a).↩︎\nFor description of the spectrum see section Spectral Analysis.↩︎\nMARAVALL, A. (1995).↩︎\nDescription based on KAISER, R., and MARAVALL, A. (2000) and MARAVALL, A. (2008c).↩︎\nFor details see MARAVALL, A., CAPORELLO, G., PÉREZ, D., and LÓPEZ, R. (2014).↩︎\nIn JDemetra+ this argument is called Trend boundary.↩︎\nThe AR roots close to or at the trading day frequency generates a stochastic trading day component. A stochastic trading day component is always modelled as a stationary ARMA(2,2), where the AR part contains the roots close to the TD frequency, and the MA(2) is obtained from the model decomposition (MARAVALL, A., and PÉREZ, D. (2011)). This component, estimated by SEATS, is not implemented by the current version of JDemetra+.↩︎\nThe term pseudo-spectrum is used for a non-stationary time series, while the term spectrum is used for a stationary time series.↩︎\nIf the ARIMA model estimated in TRAMO does not accept an admissible decomposition, SEATS replaces it with a decomposable approximation. The modified model is therefore used to decompose the series. There are also other rare situations when the ARIMA model chosen by TRAMO is changed by SEATS. It happens when, for example, the ARIMA models generate unstable seasonality or produce a senseless decomposition. Such examples are discussed by MARAVALL, A. (2009).↩︎\nHILLMER, S.C., and TIAO, G.C. (1982).↩︎\nGÓMEZ, V., and MARAVALL, A. (2001a).↩︎\nHILLMER, S.C., and TIAO, G.C. (1982).↩︎\nMARAVALL, A. (1986).↩︎\nIbid.↩︎\nKAISER, R., and MARAVALL, A. (2000).↩︎\nThe choice of the estimation method is controlled by the Method parameter, explained in the SEATS specification section.↩︎\nMARAVALL, A. (2008c).↩︎\nMARAVALL, A. (1995).↩︎\nMARAVALL, A., and PLANAS, C. (1999).↩︎\nMARAVALL, A. (1998).↩︎\nGÓMEZ, V., and MARAVALL, A. (2001a).↩︎\nIbid.↩︎\nKAISER, R., and MARAVALL, A. (2000).↩︎\nMARAVALL, A. (1995).↩︎\nMARAVALL, A. (2009).↩︎\nThe section is based on KAISER, R., and MARAVALL, A. (2000).↩︎\nSee section PsiE-weights. For further details see MARAVALL, A. (2008).↩︎"
   },
   {
     "objectID": "M-tests.html#overview",
