@@ -24,13 +24,12 @@ book:
     - T-tool-selection.qmd
     - M-spectral-analysis.qmd
     - M-reg-arima-modelling.qmd
-    - M-moving-average-decomposition.qmd
-    - M-local-regression-decomposition.qmd
+    - M-X11-decomposition.qmd
+    - M-STL-decomposition.qmd
     - M-SEATS-decomposition.qmd
     - M-tests.qmd
     - M-state-space-framework.qmd
     - references.qmd
-    - Buffer.qmd
 
 bibliography: references.bib
 

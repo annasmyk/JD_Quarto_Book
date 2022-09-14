@@ -11,3 +11,5 @@ in or outside a seasonal adjustment process
 ### Specific TERROR tool
 
 ## With structural models
+part of SA process as well 
+cf work for NTTS
