@@ -1,4 +1,4 @@
-# Moving average based decomposition
+# X-11 decomposition
 
 ## Chapter building process
 
@@ -6,7 +6,7 @@
 
 goal of the chapter : details on X-11 which won't be in the SA chapter
 
-## X-11 moving average based decomposition
+## Overview
 
 A complete documentation of the X-11 method is available in LADIRAY, D.,
 and QUENNEVILLE, B. (2001). The X-11 program is the result of a long

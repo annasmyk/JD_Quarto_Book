@@ -9,7 +9,10 @@ generating Calendar regressors and other input variables
 - less dense content, less text more tables, bullet points 
 - check and add documents new v3 features, rjd3 modelling
 
-### Overview of Calendar effects in JDemetra+
+### Overview of Calendar effects in JDemetra
+
+edit : this has a evolved a lot with v3
+definition possibilities via GUI and R have to be re described 
 
 The following description of the calendar effects in JDemetra+ is
 strictly based on PALATE, J. (2014).
