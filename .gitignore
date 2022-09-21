@@ -5,12 +5,6 @@
 nul
 /.quarto/
 
-*.jpg
-*.png
-*.gif
-*.jpeg
-*.mov
-
 *.log
 *.tex
 *.aux
