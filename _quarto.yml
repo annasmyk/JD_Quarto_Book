@@ -26,7 +26,7 @@ book:
     - M-reg-arima-modelling.qmd
     - M-moving-average-decomposition.qmd
     - M-local-regression-decomposition.qmd
-    - M-amb-decomposition.qmd
+    - M-SEATS-decomposition.qmd
     - M-tests.qmd
     - M-state-space-framework.qmd
     - references.qmd
