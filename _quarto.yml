@@ -9,7 +9,6 @@ book:
     - index.qmd
     - G-what-is-jd.qmd
     - G-quick-start.qmd
-    - G-main-features.qmd
     - A-sa.qmd
     - A-outlier-detection.qmd
     - A-calendar-and-input.qmd
@@ -27,6 +26,7 @@ book:
     - M-X11-decomposition.qmd
     - M-STL-decomposition.qmd
     - M-SEATS-decomposition.qmd
+    - M-Trend-Estimation-Local-Polynomials.qmd
     - M-tests.qmd
     - M-state-space-framework.qmd
     - references.qmd

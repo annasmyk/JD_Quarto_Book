@@ -1,6 +1,6 @@
 # Quick start with...
 
-objective: describe key steps + provide useful liks to relevant code 
+objective: describe key steps + provide useful links to relevant code or GUI entry
 
 
 ## Seasonal Adjustment 
