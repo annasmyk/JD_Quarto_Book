@@ -111,7 +111,38 @@ this part should allow to use x-11 via RJDemetra as well as via GUI
 
 ### Output 1: series
 
-### Output 2: diagnostics
+X-11 gives access to a great part of it's intemediate computations
+
+Here we focus on the final components (Table D)
+
+List of series 
+(edit : table with name and meaning)
+
+Retrieve in GUI 
+
+Retrieve in R 
+
+
+
+### Output 2: final parameters 
+
+Relevant if parameters not set manually
+
+List 
+Final trend filter 
+final seasonal filer 
+
+Retrieve via GUI 
+image
+
+Retrieve in R
+
+
+### Output 3: diagnostics
+
+X11 produces the following type diagnostics or quality measures 
+Table with link to detail
+
 
 ### Specifications / parameters
 
@@ -197,7 +228,7 @@ Sets different seasonal filters by period in order to account for seasonal heter
 
 -   **Automatic Henderson filter** our user-defined
 
-    -   default: lentgh 13
+    -   default: length 13
     -   unticked: user defined length choice
 
 -   **Henderson filter** length choice
@@ -213,32 +244,43 @@ here v2, adjust to v3 asap
 
 #### Parameter setting in R packages
 
-extensive help on functions available in package help pages Rcode snippet
+extensive help on functions available in package help pages 
+Rcode snippet
 
 In R, to implement any param change, it is required to retrieve current spec, modify it and apply it again (see T R packages chapter for details). (specific link)
 
 here example changing all the settings (just remove irrelevant changes)
 
 Rjdemetra (v2)
-Edit : here static R code and link to a "worked example" wih dynamic code 
+Edit : here static R code
+link to a "worked example" wih dynamic code 
+ticked box in GUI corresponds to ...? in R 
 
-```{r}
+
+```{r eval=FALSE}
+#Creating a modified specification, customizing all available X11 parameters
+modified_spec<- x13_spec(current_sa_model,
+    #x11.mode="?",
+    #x11.seasonalComp = "?",
+    x11.fcasts = -2,
+    x11.bcasts = -1,
+    x11.lsigma = 1.2,
+    x11.usigma = 2.8,
+    x11.calendarSigma = NA, # EDIT with example
+      x11.sigmaVector = NA,
+    x11.excludeFcasts = NA
+    # filters 
+    x11.trendAuto = NA, # needed inf value ?
+    x11.trendma = 23,
+    x11.seasonalma = "S3X9
+    # details on seasonal filters)
+
+#New SA estimation : apply modified_spec
+modified_sa_model<-x13(raw_series,modified_spec)
+
 ```
 
-
-- customizing decomposition filters
-Henderson moving average (ma) length for trend
-Seasonal moving average (ma) length for seasonal component's extraction
-- starting from spec_1
-spec_6 <- x13_spec(spec_1,x11.trendma = 23,x11.seasonalma = "S3X9")
-- new sa processing
-model_sa_6<-x13(serie_brute,spec_5)
-
-- to access the current parameters 
-s_decomp ?
-
-
-rjd3sa ? 
+EDIT : link to package help page v2 +v3
 
 ## STL
 
