@@ -54,10 +54,10 @@ links
 
 ### Tools
 
-JDemetra+ offers 3 kind of tools
+JDemetra+ offers 3 kinds of tools
 - A Graphical User Interface (GUI) which can be enhanced with plug-ins
 - A set of R packages 
-- A Cruncher for mass prodcution in seasonal adjustment
+- A Cruncher for mass production in seasonal adjustment
 
 
 ### Underlying Statistical Methods

@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.1.189">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>JDemetra+ online documentation - 5&nbsp; Seasonal adjustment of high frequency data</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./A-benchmarking.html" rel="next">
+<link href="./A-calendar-and-input.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Seasonal adjustment of high frequency data</span></h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">JDemetra+ online documentation</a> 
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">Preface</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./G-what-is-jd.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">JDemetra+ Overview</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A-sa.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Seasonal Adjustment</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A-outlier-detection.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Outlier detection</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A-calendar-and-input.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Calendar and user-defined corrections</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A-sa-hf.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Seasonal adjustment of high frequency data</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A-benchmarking.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Benchmarking and temporal disagreggation</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A-trend-cycle-estimation.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Trend-cycle estimation</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A-nowcasting.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Nowcasting</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./T-graphical-user-interface.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Graphical User Interface</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./T-r-packages.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">R packages</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./T-plug-ins.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Plug-ins for JDemetra+</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./T-production.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Production</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./T-tool-selection.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Tool selection issues</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./M-spectral-analysis.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Spectral Analysis Principles and Tools</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./M-reg-arima-modelling.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Reg-Arima models</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./M-X11-decomposition.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">X-11 decomposition</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./M-STL-decomposition.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">STL: Local regression decomposition</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./M-SEATS-decomposition.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">SEATS decomposition</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./M-Trend-Estimation-Local-Polynomials.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">X-11 decomposition</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./M-tests.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Tests</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./M-state-space-framework.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">State Space Framework</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">References</a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#motivation" id="toc-motivation" class="nav-link active" data-scroll-target="#motivation"><span class="toc-section-number">5.1</span>  Motivation</a>
+  <ul class="collapse">
+  <li><a href="#ubiquitous-use" id="toc-ubiquitous-use" class="nav-link" data-scroll-target="#ubiquitous-use"><span class="toc-section-number">5.1.1</span>  Ubiquitous use</a></li>
+  <li><a href="#data-specificities" id="toc-data-specificities" class="nav-link" data-scroll-target="#data-specificities"><span class="toc-section-number">5.1.2</span>  Data specificities</a></li>
+  </ul></li>
+  <li><a href="#tools" id="toc-tools" class="nav-link" data-scroll-target="#tools"><span class="toc-section-number">5.2</span>  Tools</a></li>
+  <li><a href="#unobserved-components" id="toc-unobserved-components" class="nav-link" data-scroll-target="#unobserved-components"><span class="toc-section-number">5.3</span>  Unobserved Components</a></li>
+  <li><a href="#identifying-seasonal-patterns" id="toc-identifying-seasonal-patterns" class="nav-link" data-scroll-target="#identifying-seasonal-patterns"><span class="toc-section-number">5.4</span>  Identifying seasonal patterns</a>
+  <ul class="collapse">
+  <li><a href="#spectral-analysis" id="toc-spectral-analysis" class="nav-link" data-scroll-target="#spectral-analysis"><span class="toc-section-number">5.4.1</span>  Spectral analysis</a></li>
+  <li><a href="#seasonality-tests" id="toc-seasonality-tests" class="nav-link" data-scroll-target="#seasonality-tests"><span class="toc-section-number">5.4.2</span>  Seasonality tests</a></li>
+  </ul></li>
+  <li><a href="#pre-adjustment" id="toc-pre-adjustment" class="nav-link" data-scroll-target="#pre-adjustment"><span class="toc-section-number">5.5</span>  Pre-adjustment</a>
+  <ul class="collapse">
+  <li><a href="#calendar-correction" id="toc-calendar-correction" class="nav-link" data-scroll-target="#calendar-correction"><span class="toc-section-number">5.5.1</span>  Calendar correction</a></li>
+  <li><a href="#outliers-and-intervention-variables" id="toc-outliers-and-intervention-variables" class="nav-link" data-scroll-target="#outliers-and-intervention-variables"><span class="toc-section-number">5.5.2</span>  Outliers and intervention variables</a></li>
+  <li><a href="#linearization" id="toc-linearization" class="nav-link" data-scroll-target="#linearization"><span class="toc-section-number">5.5.3</span>  Linearization</a></li>
+  </ul></li>
+  <li><a href="#decomposition" id="toc-decomposition" class="nav-link" data-scroll-target="#decomposition"><span class="toc-section-number">5.6</span>  Decomposition</a>
+  <ul class="collapse">
+  <li><a href="#extended-x-11" id="toc-extended-x-11" class="nav-link" data-scroll-target="#extended-x-11"><span class="toc-section-number">5.6.1</span>  Extended X-11</a></li>
+  <li><a href="#stl-decomposition" id="toc-stl-decomposition" class="nav-link" data-scroll-target="#stl-decomposition"><span class="toc-section-number">5.6.2</span>  STL decomposition</a></li>
+  <li><a href="#arima-model-based-amb-decomposition" id="toc-arima-model-based-amb-decomposition" class="nav-link" data-scroll-target="#arima-model-based-amb-decomposition"><span class="toc-section-number">5.6.3</span>  Arima Model Based (AMB) Decomposition</a></li>
+  <li><a href="#state-space-framework" id="toc-state-space-framework" class="nav-link" data-scroll-target="#state-space-framework"><span class="toc-section-number">5.6.4</span>  State Space framework</a></li>
+  </ul></li>
+  <li><a href="#quality-assessment" id="toc-quality-assessment" class="nav-link" data-scroll-target="#quality-assessment"><span class="toc-section-number">5.7</span>  Quality assessment</a>
+  <ul class="collapse">
+  <li><a href="#residual-seasonality" id="toc-residual-seasonality" class="nav-link" data-scroll-target="#residual-seasonality"><span class="toc-section-number">5.7.1</span>  Residual seasonality</a></li>
+  <li><a href="#residual-calendar-effects" id="toc-residual-calendar-effects" class="nav-link" data-scroll-target="#residual-calendar-effects"><span class="toc-section-number">5.7.2</span>  Residual Calendar effects</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Seasonal adjustment of high frequency data</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    
+  </div>
+  
+
+</header>
+
+<section id="motivation" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="motivation"><span class="header-section-number">5.1</span> Motivation</h2>
+<section id="ubiquitous-use" class="level3" data-number="5.1.1">
+<h3 data-number="5.1.1" class="anchored" data-anchor-id="ubiquitous-use"><span class="header-section-number">5.1.1</span> Ubiquitous use</h3>
+</section>
+<section id="data-specificities" class="level3" data-number="5.1.2">
+<h3 data-number="5.1.2" class="anchored" data-anchor-id="data-specificities"><span class="header-section-number">5.1.2</span> Data specificities</h3>
+</section>
+</section>
+<section id="tools" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="tools"><span class="header-section-number">5.2</span> Tools</h2>
+<p>code here and/or link to R packages chapter</p>
+</section>
+<section id="unobserved-components" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="unobserved-components"><span class="header-section-number">5.3</span> Unobserved Components</h2>
+</section>
+<section id="identifying-seasonal-patterns" class="level2" data-number="5.4">
+<h2 data-number="5.4" class="anchored" data-anchor-id="identifying-seasonal-patterns"><span class="header-section-number">5.4</span> Identifying seasonal patterns</h2>
+<section id="spectral-analysis" class="level3" data-number="5.4.1">
+<h3 data-number="5.4.1" class="anchored" data-anchor-id="spectral-analysis"><span class="header-section-number">5.4.1</span> Spectral analysis</h3>
+</section>
+<section id="seasonality-tests" class="level3" data-number="5.4.2">
+<h3 data-number="5.4.2" class="anchored" data-anchor-id="seasonality-tests"><span class="header-section-number">5.4.2</span> Seasonality tests</h3>
+</section>
+</section>
+<section id="pre-adjustment" class="level2" data-number="5.5">
+<h2 data-number="5.5" class="anchored" data-anchor-id="pre-adjustment"><span class="header-section-number">5.5</span> Pre-adjustment</h2>
+<section id="calendar-correction" class="level3" data-number="5.5.1">
+<h3 data-number="5.5.1" class="anchored" data-anchor-id="calendar-correction"><span class="header-section-number">5.5.1</span> Calendar correction</h3>
+</section>
+<section id="outliers-and-intervention-variables" class="level3" data-number="5.5.2">
+<h3 data-number="5.5.2" class="anchored" data-anchor-id="outliers-and-intervention-variables"><span class="header-section-number">5.5.2</span> Outliers and intervention variables</h3>
+</section>
+<section id="linearization" class="level3" data-number="5.5.3">
+<h3 data-number="5.5.3" class="anchored" data-anchor-id="linearization"><span class="header-section-number">5.5.3</span> Linearization</h3>
+</section>
+</section>
+<section id="decomposition" class="level2" data-number="5.6">
+<h2 data-number="5.6" class="anchored" data-anchor-id="decomposition"><span class="header-section-number">5.6</span> Decomposition</h2>
+<section id="extended-x-11" class="level3" data-number="5.6.1">
+<h3 data-number="5.6.1" class="anchored" data-anchor-id="extended-x-11"><span class="header-section-number">5.6.1</span> Extended X-11</h3>
+</section>
+<section id="stl-decomposition" class="level3" data-number="5.6.2">
+<h3 data-number="5.6.2" class="anchored" data-anchor-id="stl-decomposition"><span class="header-section-number">5.6.2</span> STL decomposition</h3>
+</section>
+<section id="arima-model-based-amb-decomposition" class="level3" data-number="5.6.3">
+<h3 data-number="5.6.3" class="anchored" data-anchor-id="arima-model-based-amb-decomposition"><span class="header-section-number">5.6.3</span> Arima Model Based (AMB) Decomposition</h3>
+</section>
+<section id="state-space-framework" class="level3" data-number="5.6.4">
+<h3 data-number="5.6.4" class="anchored" data-anchor-id="state-space-framework"><span class="header-section-number">5.6.4</span> State Space framework</h3>
+</section>
+</section>
+<section id="quality-assessment" class="level2" data-number="5.7">
+<h2 data-number="5.7" class="anchored" data-anchor-id="quality-assessment"><span class="header-section-number">5.7</span> Quality assessment</h2>
+<section id="residual-seasonality" class="level3" data-number="5.7.1">
+<h3 data-number="5.7.1" class="anchored" data-anchor-id="residual-seasonality"><span class="header-section-number">5.7.1</span> Residual seasonality</h3>
+</section>
+<section id="residual-calendar-effects" class="level3" data-number="5.7.2">
+<h3 data-number="5.7.2" class="anchored" data-anchor-id="residual-calendar-effects"><span class="header-section-number">5.7.2</span> Residual Calendar effects</h3>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./A-calendar-and-input.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Calendar and user-defined corrections</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./A-benchmarking.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Benchmarking and temporal disagreggation</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>
