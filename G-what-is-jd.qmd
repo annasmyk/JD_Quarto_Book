@@ -1,10 +1,10 @@
 # JDemetra+ Overview
 
-ressources for descrption 
+resources for description 
 - R tools WP
-- desp in esp
+- JD+ esp pdf
 
-JD+ is a library of algorithms for time series related functions ? needs ?
+JD+ is a library of algorithms for seasonal adjustment and time series econometrics.
 You can learn more about the history of the project here (link to below)
 
 
@@ -12,13 +12,11 @@ You can learn more about the history of the project here (link to below)
 
 Replace points below with a TABLE
 
-link to key references \* 2 handbooks \* sets of guidelines
-
-Objective: present JDemetra+ capabilities by category
+link to key references
+- handbooks (3)
+- sets of guidelines (2 or 3 ?)
 
 ## Seasonal adjustment algorithms
-
-*below: pieces of old pages to edit and update*
 
 ### Data frequencies
 
@@ -26,7 +24,7 @@ The seasonal adjustment methods available in JDemetra+ aim to decompose a time s
 
 ### X-13
 
-X-13ARIMA is a seasonal adjustment program developed and supported by the U.S. Census Bureau. It is based on the U.S. Census Bureau's earlier X-11 program, the X-11-ARIMA program developed at Statistics Canada, the X-12-ARIMA program developed by the U.S. Census Bureau, and the SEATS program developed at the Banco de España. The program is now used by the U.S. Census Bureau for a seasonal adjustment of time series.
+X-13ARIMA is a seasonal adjustment program developed and supported by the U.S. Census Bureau. It is based on the U.S. Census Bureau's earlier X-11 program, the X-11-ARIMA program developed at Statistics Canada, the X-12-ARIMA program developed by the U.S. Census Bureau.
 
 ### Tramo-Seats
 
@@ -43,12 +41,12 @@ X-13ARIMA is a seasonal adjustment program developed and supported by the U.S. C
 
 ## Structure of this book
 
-This book is divided in four parts, each being an entry point for the user. 
+This book is divided in four parts, allowing the user to benefit from the resources from a different perspective. 
 
 ### Algorithms
 
 This part provides a step by step description of all the algorithms featured in JD+, grouped by purpose 
-- seasonal adjstement
+- seasonal adjustment
 - benchmarking
 - temporal disaggregation
 - ...
@@ -56,18 +54,25 @@ links
 
 ### Tools
 
-Jdemetra+ offers 3 kind of tools
+JDemetra+ offers 3 kind of tools
+- A Graphical User Interface (GUI) which can be enhanced with plug-ins
+- A set of R packages 
+- A Cruncher for mass prodcution in seasonal adjustment
 
 
 ### Underlying Statistical Methods
 
-This part gives details about the underlying statistical methods to foster a more in-depth understanding of the algorithms.Those methods are described in the light and spirit of their use as buliding blocks of the algorithms presented above, not aiming at all at their comprehensive coverage. 
+This part gives details about the underlying statistical methods to foster a more in-depth understanding of the algorithms.Those methods are described in the light and spirit of their use as building blocks of the algorithms presented above, not aiming at all at their comprehensive coverage. 
 
 ## How to use this book
 
 
-audience: book targets the beginner as well as seasoned (pun 
-moethodlogist.
-The beginner is advised to use the quick start chapter as an etrey point, it's presneted like a decsion tree which will point directly to the the part it's useful to review.
+### Audience 
 
-the seasoned methodologist will benefit from the detailed chapter ad part strucutre to quickly find the needed information. 
+This book targets the beginner as well as seasoned methodologist.
+
+(Here explain why)
+
+The documentation is built in layers allowing to skip details and complexity in the first steps
+
+

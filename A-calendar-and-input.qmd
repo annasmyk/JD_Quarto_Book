@@ -8,6 +8,7 @@ generating Calendar regressors and other input variables
 
 - less dense content, less text more tables, bullet points 
 - check and add documents new v3 features, rjd3 modelling
+- add a M_ chapter on calendar ? too many explanations here ?
 
 ### Overview of Calendar effects in JDemetra
 

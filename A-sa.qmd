@@ -75,8 +75,6 @@ In the next step the linearised series is decomposed into its components. There 
 
 ## Pre-treatment
 
-
-
 ### Calendar correction
 
 details of regressor building in calendar chapter
@@ -111,7 +109,7 @@ this part should allow to use x-11 via RJDemetra as well as via GUI
 
 ### Output 1: series
 
-X-11 gives access to a great part of it's intemediate computations
+X-11 gives access to a great part of it's intermediate computations
 
 Here we focus on the final components (Table D)
 
@@ -233,7 +231,7 @@ Sets different seasonal filters by period in order to account for seasonal heter
 
 -   **Henderson filter** length choice
 
-    -   values: odd number in in $[3,101]$
+    -   values: odd number in $[3,101]$
     -   default value: 13
 
 Check: will user choice be applied to all steps or only to final phase D step
@@ -245,7 +243,7 @@ here v2, adjust to v3 asap
 #### Parameter setting in R packages
 
 extensive help on functions available in package help pages 
-Rcode snippet
+Rcode snippets
 
 In R, to implement any param change, it is required to retrieve current spec, modify it and apply it again (see T R packages chapter for details). (specific link)
 

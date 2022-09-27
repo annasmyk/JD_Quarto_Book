@@ -9,4 +9,8 @@ objective: describe key steps + provide useful links to relevant code or GUI ent
 
 ## Use of JD+ algorithms in R
 
+### Installation
+
+### Available alg
+
 ## Use of JD+ graphical interface

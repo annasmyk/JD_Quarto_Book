@@ -1,6 +1,6 @@
 # Outlier detection
 
-in or outside a seasonal adjustment process
+(in or outside a seasonal adjustment process)
 
 ## Motivation
 
@@ -12,4 +12,4 @@ in or outside a seasonal adjustment process
 
 ## With structural models
 part of SA process as well 
-cf work for NTTS
+(cf work for NTTS)

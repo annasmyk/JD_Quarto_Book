@@ -8,7 +8,6 @@ book:
   chapters:
     - index.qmd
     - G-what-is-jd.qmd
-    - G-quick-start.qmd
     - A-sa.qmd
     - A-outlier-detection.qmd
     - A-calendar-and-input.qmd
