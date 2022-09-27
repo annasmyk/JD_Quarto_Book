@@ -1,10 +1,8 @@
 # Tests
 
-## Chapter building
-
 ## Overview
 
-in this chapter description of tests available vias JD+ algorithms (and some indications on what is also available in R)
+This chapter description of tests available vias JD+ algorithms (and some indications on what is also available in R)
 
 tests are mentioned when relevant in the chapters dedicated to algorithms description, but comprehensive explanations are here
 

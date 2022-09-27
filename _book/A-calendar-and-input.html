@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>JDemetra+ online documentation - 4&nbsp; Calendar and user-defined corrections</title>
+<title>JDemetra+ online documentation - 5&nbsp; Calendar and user-defined corrections</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,7 +30,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./A-sa-hf.html" rel="next">
+<link href="./A-benchmarking.html" rel="next">
 <link href="./A-outlier-detection.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -71,7 +71,7 @@ ul.task-list li input[type="checkbox"] {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Calendar and user-defined corrections</span></h1>
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Calendar and user-defined corrections</span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -111,17 +111,17 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./A-outlier-detection.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Outlier detection</span></a>
+  <a href="./A-sa-hf.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Seasonal adjustment of high frequency data</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./A-calendar-and-input.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Calendar and user-defined corrections</span></a>
+  <a href="./A-outlier-detection.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Outlier detection</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./A-sa-hf.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Seasonal adjustment of high frequency data</span></a>
+  <a href="./A-calendar-and-input.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Calendar and user-defined corrections</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -191,7 +191,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./M-Trend-Estimation-Local-Polynomials.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">X-11 decomposition</span></a>
+  <a href="./M-Trend-Estimation-Local-Polynomials.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Local Polynomials Methods for Trend Estimation</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -218,18 +218,18 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#chapter-building-process" id="toc-chapter-building-process" class="nav-link active" data-scroll-target="#chapter-building-process"><span class="toc-section-number">4.1</span>  Chapter building process</a>
+  <li><a href="#chapter-building-process" id="toc-chapter-building-process" class="nav-link active" data-scroll-target="#chapter-building-process"><span class="toc-section-number">5.1</span>  Chapter building process</a>
   <ul class="collapse">
-  <li><a href="#edit-content" id="toc-edit-content" class="nav-link" data-scroll-target="#edit-content"><span class="toc-section-number">4.1.1</span>  Edit content</a></li>
-  <li><a href="#overview-of-calendar-effects-in-jdemetra" id="toc-overview-of-calendar-effects-in-jdemetra" class="nav-link" data-scroll-target="#overview-of-calendar-effects-in-jdemetra"><span class="toc-section-number">4.1.2</span>  Overview of Calendar effects in JDemetra</a></li>
-  <li><a href="#summary-of-the-method-used-in-jdemetra-to-compute-trading-day-and-working-day-effects" id="toc-summary-of-the-method-used-in-jdemetra-to-compute-trading-day-and-working-day-effects" class="nav-link" data-scroll-target="#summary-of-the-method-used-in-jdemetra-to-compute-trading-day-and-working-day-effects"><span class="toc-section-number">4.1.3</span>  Summary of the method used in JDemetra+ to compute trading day and working day effects</a></li>
-  <li><a href="#mean-and-seasonal-effects-of-calendar-variables" id="toc-mean-and-seasonal-effects-of-calendar-variables" class="nav-link" data-scroll-target="#mean-and-seasonal-effects-of-calendar-variables"><span class="toc-section-number">4.1.4</span>  Mean and seasonal effects of calendar variables</a></li>
-  <li><a href="#impact-of-the-mean-effects-on-the-decomposition" id="toc-impact-of-the-mean-effects-on-the-decomposition" class="nav-link" data-scroll-target="#impact-of-the-mean-effects-on-the-decomposition"><span class="toc-section-number">4.1.5</span>  Impact of the mean effects on the decomposition</a></li>
-  <li><a href="#linear-transformations-of-the-calendar-variables" id="toc-linear-transformations-of-the-calendar-variables" class="nav-link" data-scroll-target="#linear-transformations-of-the-calendar-variables"><span class="toc-section-number">4.1.6</span>  Linear transformations of the calendar variables</a></li>
-  <li><a href="#handling-of-specific-holidays" id="toc-handling-of-specific-holidays" class="nav-link" data-scroll-target="#handling-of-specific-holidays"><span class="toc-section-number">4.1.7</span>  Handling of specific holidays</a></li>
-  <li><a href="#holidays-with-a-validity-period" id="toc-holidays-with-a-validity-period" class="nav-link" data-scroll-target="#holidays-with-a-validity-period"><span class="toc-section-number">4.1.8</span>  Holidays with a validity period</a></li>
-  <li><a href="#different-kinds-of-calendars" id="toc-different-kinds-of-calendars" class="nav-link" data-scroll-target="#different-kinds-of-calendars"><span class="toc-section-number">4.1.9</span>  Different Kinds of calendars</a></li>
-  <li><a href="#tests-for-residual-trading-days" id="toc-tests-for-residual-trading-days" class="nav-link" data-scroll-target="#tests-for-residual-trading-days"><span class="toc-section-number">4.1.10</span>  Tests for residual trading days</a></li>
+  <li><a href="#edit-content" id="toc-edit-content" class="nav-link" data-scroll-target="#edit-content"><span class="toc-section-number">5.1.1</span>  Edit content</a></li>
+  <li><a href="#overview-of-calendar-effects-in-jdemetra" id="toc-overview-of-calendar-effects-in-jdemetra" class="nav-link" data-scroll-target="#overview-of-calendar-effects-in-jdemetra"><span class="toc-section-number">5.1.2</span>  Overview of Calendar effects in JDemetra</a></li>
+  <li><a href="#summary-of-the-method-used-in-jdemetra-to-compute-trading-day-and-working-day-effects" id="toc-summary-of-the-method-used-in-jdemetra-to-compute-trading-day-and-working-day-effects" class="nav-link" data-scroll-target="#summary-of-the-method-used-in-jdemetra-to-compute-trading-day-and-working-day-effects"><span class="toc-section-number">5.1.3</span>  Summary of the method used in JDemetra+ to compute trading day and working day effects</a></li>
+  <li><a href="#mean-and-seasonal-effects-of-calendar-variables" id="toc-mean-and-seasonal-effects-of-calendar-variables" class="nav-link" data-scroll-target="#mean-and-seasonal-effects-of-calendar-variables"><span class="toc-section-number">5.1.4</span>  Mean and seasonal effects of calendar variables</a></li>
+  <li><a href="#impact-of-the-mean-effects-on-the-decomposition" id="toc-impact-of-the-mean-effects-on-the-decomposition" class="nav-link" data-scroll-target="#impact-of-the-mean-effects-on-the-decomposition"><span class="toc-section-number">5.1.5</span>  Impact of the mean effects on the decomposition</a></li>
+  <li><a href="#linear-transformations-of-the-calendar-variables" id="toc-linear-transformations-of-the-calendar-variables" class="nav-link" data-scroll-target="#linear-transformations-of-the-calendar-variables"><span class="toc-section-number">5.1.6</span>  Linear transformations of the calendar variables</a></li>
+  <li><a href="#handling-of-specific-holidays" id="toc-handling-of-specific-holidays" class="nav-link" data-scroll-target="#handling-of-specific-holidays"><span class="toc-section-number">5.1.7</span>  Handling of specific holidays</a></li>
+  <li><a href="#holidays-with-a-validity-period" id="toc-holidays-with-a-validity-period" class="nav-link" data-scroll-target="#holidays-with-a-validity-period"><span class="toc-section-number">5.1.8</span>  Holidays with a validity period</a></li>
+  <li><a href="#different-kinds-of-calendars" id="toc-different-kinds-of-calendars" class="nav-link" data-scroll-target="#different-kinds-of-calendars"><span class="toc-section-number">5.1.9</span>  Different Kinds of calendars</a></li>
+  <li><a href="#tests-for-residual-trading-days" id="toc-tests-for-residual-trading-days" class="nav-link" data-scroll-target="#tests-for-residual-trading-days"><span class="toc-section-number">5.1.10</span>  Tests for residual trading days</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -239,7 +239,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Calendar and user-defined corrections</span></h1>
+<h1 class="title d-none d-lg-block"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Calendar and user-defined corrections</span></h1>
 </div>
 
 
@@ -254,18 +254,18 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 <p>generating Calendar regressors and other input variables</p>
-<section id="chapter-building-process" class="level2" data-number="4.1">
-<h2 data-number="4.1" class="anchored" data-anchor-id="chapter-building-process"><span class="header-section-number">4.1</span> Chapter building process</h2>
-<section id="edit-content" class="level3" data-number="4.1.1">
-<h3 data-number="4.1.1" class="anchored" data-anchor-id="edit-content"><span class="header-section-number">4.1.1</span> Edit content</h3>
+<section id="chapter-building-process" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="chapter-building-process"><span class="header-section-number">5.1</span> Chapter building process</h2>
+<section id="edit-content" class="level3" data-number="5.1.1">
+<h3 data-number="5.1.1" class="anchored" data-anchor-id="edit-content"><span class="header-section-number">5.1.1</span> Edit content</h3>
 <ul>
 <li>less dense content, less text more tables, bullet points</li>
 <li>check and add documents new v3 features, rjd3 modelling</li>
 <li>add a M_ chapter on calendar ? too many explanations here ?</li>
 </ul>
 </section>
-<section id="overview-of-calendar-effects-in-jdemetra" class="level3" data-number="4.1.2">
-<h3 data-number="4.1.2" class="anchored" data-anchor-id="overview-of-calendar-effects-in-jdemetra"><span class="header-section-number">4.1.2</span> Overview of Calendar effects in JDemetra</h3>
+<section id="overview-of-calendar-effects-in-jdemetra" class="level3" data-number="5.1.2">
+<h3 data-number="5.1.2" class="anchored" data-anchor-id="overview-of-calendar-effects-in-jdemetra"><span class="header-section-number">5.1.2</span> Overview of Calendar effects in JDemetra</h3>
 <p>edit : this has a evolved a lot with v3 definition possibilities via GUI and R have to be re described</p>
 <p>The following description of the calendar effects in JDemetra+ is strictly based on PALATE, J. (2014).</p>
 <p>A natural way for modelling calendar effects consists of distributing the days of each period into different groups. The regression variable corresponding to a type of day (a group) is simply defined by the number of days it contains for each period. Usual classifications are:</p>
@@ -281,8 +281,8 @@ ul.task-list li input[type="checkbox"] {
 <li><p>Specific holidays.</p></li>
 </ul>
 </section>
-<section id="summary-of-the-method-used-in-jdemetra-to-compute-trading-day-and-working-day-effects" class="level3" data-number="4.1.3">
-<h3 data-number="4.1.3" class="anchored" data-anchor-id="summary-of-the-method-used-in-jdemetra-to-compute-trading-day-and-working-day-effects"><span class="header-section-number">4.1.3</span> Summary of the method used in JDemetra+ to compute trading day and working day effects</h3>
+<section id="summary-of-the-method-used-in-jdemetra-to-compute-trading-day-and-working-day-effects" class="level3" data-number="5.1.3">
+<h3 data-number="5.1.3" class="anchored" data-anchor-id="summary-of-the-method-used-in-jdemetra-to-compute-trading-day-and-working-day-effects"><span class="header-section-number">5.1.3</span> Summary of the method used in JDemetra+ to compute trading day and working day effects</h3>
 <p>The computation of trading day and working days effects is performed in four steps:</p>
 <ol type="1">
 <li><p>Computation of the number of each weekday performed for all periods.</p></li>
@@ -1383,8 +1383,8 @@ ul.task-list li input[type="checkbox"] {
 </tbody>
 </table>
 </section>
-<section id="mean-and-seasonal-effects-of-calendar-variables" class="level3" data-number="4.1.4">
-<h3 data-number="4.1.4" class="anchored" data-anchor-id="mean-and-seasonal-effects-of-calendar-variables"><span class="header-section-number">4.1.4</span> Mean and seasonal effects of calendar variables</h3>
+<section id="mean-and-seasonal-effects-of-calendar-variables" class="level3" data-number="5.1.4">
+<h3 data-number="5.1.4" class="anchored" data-anchor-id="mean-and-seasonal-effects-of-calendar-variables"><span class="header-section-number">5.1.4</span> Mean and seasonal effects of calendar variables</h3>
 <p>The calendar effects produced by the regression variables that fulfil the definition presented above include a mean effect (i.e.&nbsp;an effect that is independent of the period) and a seasonal effect (i.e.&nbsp;an effect that is dependent of the period and on average it is equal to 0). Such an outcome is inappropriate, as in the usual decomposition of a series the mean effect should be allocated to the trend component and the fixed seasonal effect should be affected to the corresponding component. Therefore, the actual calendar effect should only contain effects that don't belong to the other components.</p>
 <p>In the context of JDemetra+ the mean effect and the seasonal effect are long term theoretical effects rather than the effects computed on the time span of the considered series (which should be continuously revised).</p>
 <p>The mean effect of a calendar variable is the average number of days in its group. Taking into account that one year has on average 365.25 days, the monthly mean effects for a working days are, as shown in the table below, 21.7411 for week days and 8.696 for weekends.</p>
@@ -1597,8 +1597,8 @@ ul.task-list li input[type="checkbox"] {
 </table>
 <p>The distinction between the mean effect and the seasonal effect is usually unnecessary. Those effects can be considered together (simply called mean effects) and be computed by removing from each calendar variable its average number of days by period. These global means effect are considered in the next section.</p>
 </section>
-<section id="impact-of-the-mean-effects-on-the-decomposition" class="level3" data-number="4.1.5">
-<h3 data-number="4.1.5" class="anchored" data-anchor-id="impact-of-the-mean-effects-on-the-decomposition"><span class="header-section-number">4.1.5</span> Impact of the mean effects on the decomposition</h3>
+<section id="impact-of-the-mean-effects-on-the-decomposition" class="level3" data-number="5.1.5">
+<h3 data-number="5.1.5" class="anchored" data-anchor-id="impact-of-the-mean-effects-on-the-decomposition"><span class="header-section-number">5.1.5</span> Impact of the mean effects on the decomposition</h3>
 <p>When the ARIMA model contains a seasonal difference – something that should always happen with calendar variables – the mean effects contained in the calendar variables are automatically eliminated, so that they don't modify the estimation. The model is indeed estimated on the series/regression variables after differencing. However, they lead to a different linearised series (<span class="math inline">\(y_{\text{lin}})\)</span>. The impact of other corrections (mean and/or fixed seasonal) on the decomposition is presented in the next paragraph. Such corrections could be obtained, for instance, by applying other solutions for the long term corrections or by computing them on the time span of the series.</p>
 <p>Now the model with "correct" calendar effects (denoted as <span class="math inline">\(C\)</span>), i.e. effects without mean and fixed seasonal effects, can be considered. To simplify the problem, the model has no other regression effects.</p>
 <p>For such a model the following relations hold:</p>
@@ -1635,8 +1635,8 @@ ul.task-list li input[type="checkbox"] {
 <p>The trend, seasonal and seasonally adjusted series will only differ by a (usually small) constant.</p>
 <p>In summary, the decomposition does not depend on the mean and fixed seasonal effects used for the calendar effects, provided that those effects are integrated in the corresponding final components. If these corrections are not taken into account, the main series of the decomposition will only differ by a constant.</p>
 </section>
-<section id="linear-transformations-of-the-calendar-variables" class="level3" data-number="4.1.6">
-<h3 data-number="4.1.6" class="anchored" data-anchor-id="linear-transformations-of-the-calendar-variables"><span class="header-section-number">4.1.6</span> Linear transformations of the calendar variables</h3>
+<section id="linear-transformations-of-the-calendar-variables" class="level3" data-number="5.1.6">
+<h3 data-number="5.1.6" class="anchored" data-anchor-id="linear-transformations-of-the-calendar-variables"><span class="header-section-number">5.1.6</span> Linear transformations of the calendar variables</h3>
 <p>As far as the RegARIMA and the TRAMO models are considered, any non-degenerated linear transformation of the calendar variables can be used. It will produce the same results (likelihood, residuals, parameters, joint effect of the calendar variables, joint F-test on the coefficients of the calendar variables…). The linearised series that will be further decomposed is invariant to any linear transformation of the calendar variables.</p>
 <p>However, it should be mentioned that choices of calendar corrections based on the tests on the individual t statistics are dependent on the transformation, which is rather arbitrary. This is the case in old versions of TRAMO-SEATS. That is why the joint F-test (as in the version of TRAMO-SEATS implemented in TSW+) should be preferred.</p>
 <p>An example of a linear transformation is the calculation of the contrast variables. In the case of the usual trading day variables, they are defined by the following transformation: the 6 contrast variables (<span class="math inline">\(\text{No.}\left( \text{Mondays} \right) - No.\left( \text{Sundays} \right),\ldots No.\left( \text{Saturdays} \right) - No.(Sundays)\)</span>) used with the length of period.</p>
@@ -1679,8 +1679,8 @@ ul.task-list li input[type="checkbox"] {
 <p>The <span class="math inline">\(\text{Length of period}\)</span> variable is defined as a deviation from the length of the month (in days) and the average month length, which is equal to <span class="math inline">\(30.4375.\)</span> Instead, the leap-year variable can be used here (see Regression sections in <a href="../reference-manual/modelling-spec-arima.html#regression">RegARIMA</a> or <a href="../reference-manual/modelling-spec-tramo.html#regression">Tramo</a>)<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>.</p>
 <p>Such transformations have several advantages. They suppress from the contrast variables the mean and the seasonal effects, which are concentrated in the last variable. So, they lead to fewer correlated variables, which are more appropriate to be included in the regression model. The sum of the effects of each day of the week estimated with the trading (working) day contrast variables cancel out.</p>
 </section>
-<section id="handling-of-specific-holidays" class="level3" data-number="4.1.7">
-<h3 data-number="4.1.7" class="anchored" data-anchor-id="handling-of-specific-holidays"><span class="header-section-number">4.1.7</span> Handling of specific holidays</h3>
+<section id="handling-of-specific-holidays" class="level3" data-number="5.1.7">
+<h3 data-number="5.1.7" class="anchored" data-anchor-id="handling-of-specific-holidays"><span class="header-section-number">5.1.7</span> Handling of specific holidays</h3>
 <p>check vs GUI (v3) and rjd3 modelling</p>
 <p>Three types of holidays are implemented in JDemetra+:</p>
 <ul>
@@ -1690,8 +1690,8 @@ ul.task-list li input[type="checkbox"] {
 </ul>
 <p>From a conceptual point of view, specific holidays are handled in exactly the same way as the other days. It should be decided, however, to which group of days they belong. Usually they are handled as Sundays. This convention is also used in JDemetra+. Therefore, except if the holiday falls on a Sunday, the appearance of a holiday leads to correction in two groups, i.e.&nbsp;in the group that contains the weekday, in which holiday falls, and the group that contains the Sundays.</p>
 <p>Country specific holidays have an impact on the mean and the seasonal effects of calendar effects. Therefore, the appropriate corrections to the number of particular days (which are usually the basis for the definition of other calendar variables) should be applied, following the kind of holidays. These corrections are applied to the period(s) that may contain the holiday. The long term corrections in JDemetra+ don't take into account the fact that some moving holidays could fall on the same day (for instance the May Day and the Ascension). However, those events are exceptional, and their impact on the final result is usually not significant.</p>
-<section id="fixed-day" class="level4" data-number="4.1.7.1">
-<h4 data-number="4.1.7.1" class="anchored" data-anchor-id="fixed-day"><span class="header-section-number">4.1.7.1</span> Fixed day</h4>
+<section id="fixed-day" class="level4" data-number="5.1.7.1">
+<h4 data-number="5.1.7.1" class="anchored" data-anchor-id="fixed-day"><span class="header-section-number">5.1.7.1</span> Fixed day</h4>
 <p>The probability that the holiday falls on a given day of the week is 1/7. Therefore, the probability to have 1 day more that is treated like Sunday is 6/7. The effect on the means for the period that contains the fixed day is presented in the table below (the correction on the calendar effect has the opposite sign).</p>
 <p><strong>The effect of the fixed holiday on the period, in which it occurred</strong></p>
 <table class="table">
@@ -1711,8 +1711,8 @@ ul.task-list li input[type="checkbox"] {
 </tbody>
 </table>
 </section>
-<section id="easter-related-days" class="level4" data-number="4.1.7.2">
-<h4 data-number="4.1.7.2" class="anchored" data-anchor-id="easter-related-days"><span class="header-section-number">4.1.7.2</span> Easter related days</h4>
+<section id="easter-related-days" class="level4" data-number="5.1.7.2">
+<h4 data-number="5.1.7.2" class="anchored" data-anchor-id="easter-related-days"><span class="header-section-number">5.1.7.2</span> Easter related days</h4>
 <p>Easter related days always fall the same week day (denoted as Y in the table below: The effects of the Easter Sunday on the seasonal means). However, they can fall during different periods (months or quarters). Suppose that, taking into account the distribution of the dates for Easter and the fact that this holiday falls in one of two periods, the probability that Easter falls during the period <span class="math inline">\(m\)</span> is <span class="math inline">\(p\)</span>, which implies that the probability that it falls in the period <span class="math inline">\(m + 1\)</span> is <span class="math inline">\(1 - p\)</span>. The effects of Easter on the seasonal means are presented in the table below.</p>
 <p><strong>The effects of the Easter Sunday on the seasonal means</strong></p>
 <p>|<strong>Period</strong> | <strong>Sundays</strong> <strong>Days X</strong> <strong>Others days</strong> <strong>Contrast Y</strong> <strong>Other contrasts</strong> |————| ————- ———— —————– ——————- ——————— |m |+ p - p 0 - 2p - p |m+1 | + (1-p) - (1-p) 0 - 2<span class="math inline">\(\times\)</span>(1-p) - (1-p)</p>
@@ -1799,8 +1799,8 @@ ul.task-list li input[type="checkbox"] {
 </tbody>
 </table>
 </section>
-<section id="fixed-week-days" class="level4" data-number="4.1.7.3">
-<h4 data-number="4.1.7.3" class="anchored" data-anchor-id="fixed-week-days"><span class="header-section-number">4.1.7.3</span> Fixed week days</h4>
+<section id="fixed-week-days" class="level4" data-number="5.1.7.3">
+<h4 data-number="5.1.7.3" class="anchored" data-anchor-id="fixed-week-days"><span class="header-section-number">5.1.7.3</span> Fixed week days</h4>
 <p>Fixed week days always fall on the same week day (denoted as Y in the table below) and in the same period. Their effect on the seasonal means is presented in the table below.</p>
 <p><strong>The effect of the fixed week holiday on the period, in which it occurred</strong></p>
 <table class="table">
@@ -1822,13 +1822,13 @@ ul.task-list li input[type="checkbox"] {
 <p>The impact of fixed week days on the regression variables is zero because the effect itself is compensated by the correction for the mean effect.</p>
 </section>
 </section>
-<section id="holidays-with-a-validity-period" class="level3" data-number="4.1.8">
-<h3 data-number="4.1.8" class="anchored" data-anchor-id="holidays-with-a-validity-period"><span class="header-section-number">4.1.8</span> Holidays with a validity period</h3>
+<section id="holidays-with-a-validity-period" class="level3" data-number="5.1.8">
+<h3 data-number="5.1.8" class="anchored" data-anchor-id="holidays-with-a-validity-period"><span class="header-section-number">5.1.8</span> Holidays with a validity period</h3>
 <p>When a holiday is valid only for a given time span, JDemetra+ applies the long term mean corrections only on the corresponding period. However, those corrections are computed in the same way as in the general case.</p>
 <p>It is important to note that using or not using mean corrections will impact in the estimation of the RegARIMA and TRAMO models. Indeed, the mean corrections do not disappear after differencing. The differences between the SA series computed with or without mean corrections will no longer be constant.</p>
 </section>
-<section id="different-kinds-of-calendars" class="level3" data-number="4.1.9">
-<h3 data-number="4.1.9" class="anchored" data-anchor-id="different-kinds-of-calendars"><span class="header-section-number">4.1.9</span> Different Kinds of calendars</h3>
+<section id="different-kinds-of-calendars" class="level3" data-number="5.1.9">
+<h3 data-number="5.1.9" class="anchored" data-anchor-id="different-kinds-of-calendars"><span class="header-section-number">5.1.9</span> Different Kinds of calendars</h3>
 <p>see link with GUI</p>
 <p>This scenario presents how to define different kinds of calendars. These calendars can be applied to the specifications that take into account country-specific holidays and can be used for detecting and estimating the calendar effects.</p>
 <p>The calendar effects are those parts of the movements in the time series that are caused by different number of weekdays in calendar months (or quarters). They arise as the number of occurrences of each day of the week in a month (or a quarter) differs from year to year. These differences cause regular effects in some series. In particular, such variation is caused by a leap year effect because of an extra day inserted into February every four years. As with seasonal effects, it is desirable to estimate and remove calendar effects from the time series.</p>
@@ -1836,25 +1836,25 @@ ul.task-list li input[type="checkbox"] {
 <p>Both X-12-ARIMA/X-13ARIMA-SEATS and TRAMO/SEATS estimate calendar effects by adding some regressors to the equation estimated in the pre-processing part (RegARIMA or TRAMO, respectively). Regressors mentioned above are generated from the default calendar or the user defined calendar.</p>
 <p>The calendars of JDemetra+ simply correspond to the usual trading days contrast variables based on the Gregorian calendar, modified to take into account some specific holidays. Those holidays are handled as "Sundays" and the variables are properly adjusted to take into account the long term mean effects.</p>
 </section>
-<section id="tests-for-residual-trading-days" class="level3" data-number="4.1.10">
-<h3 data-number="4.1.10" class="anchored" data-anchor-id="tests-for-residual-trading-days"><span class="header-section-number">4.1.10</span> Tests for residual trading days</h3>
+<section id="tests-for-residual-trading-days" class="level3" data-number="5.1.10">
+<h3 data-number="5.1.10" class="anchored" data-anchor-id="tests-for-residual-trading-days"><span class="header-section-number">5.1.10</span> Tests for residual trading days</h3>
 <p>We consider below tests on the seasonally adjusted series (<span class="math inline">\(sa_t\)</span>) or on the irregular component (<span class="math inline">\(irr_t\)</span>). When the reasoning applies on both components, we will use <span class="math inline">\(y_t\)</span>. The functions <span class="math inline">\(stdev\)</span> stands for “standard deviation” and <span class="math inline">\(rms\)</span> for “root mean squares”</p>
 <p>The tests are computed on the log-transformed components in the case of multiplicative decomposition.</p>
 <p>TD are the usual contrasts of trading days, 6 variables (no specific calendar).</p>
-<section id="non-significant-irregular" class="level4" data-number="4.1.10.1">
-<h4 data-number="4.1.10.1" class="anchored" data-anchor-id="non-significant-irregular"><span class="header-section-number">4.1.10.1</span> Non significant irregular</h4>
+<section id="non-significant-irregular" class="level4" data-number="5.1.10.1">
+<h4 data-number="5.1.10.1" class="anchored" data-anchor-id="non-significant-irregular"><span class="header-section-number">5.1.10.1</span> Non significant irregular</h4>
 <p>When <span class="math inline">\(irr_t\)</span> is not significant, we don’t compute the test on it, to avoid irrelevant results. We consider that <span class="math inline">\(irr_t\)</span> is significant if <span class="math inline">\(stdev( irr_t)&gt;0.01\)</span> (multiplicative case) or if <span class="math inline">\(stdev(irr_t)/rms(sa_t) &gt;0.01\)</span> (additive case).</p>
 </section>
-<section id="f-test" class="level4" data-number="4.1.10.2">
-<h4 data-number="4.1.10.2" class="anchored" data-anchor-id="f-test"><span class="header-section-number">4.1.10.2</span> F test</h4>
+<section id="f-test" class="level4" data-number="5.1.10.2">
+<h4 data-number="5.1.10.2" class="anchored" data-anchor-id="f-test"><span class="header-section-number">5.1.10.2</span> F test</h4>
 <p>The test is the usual joint F-test on the TD coefficients, computed on the following models:</p>
-<section id="autoregressive-model-ar-modelling-option" class="level5" data-number="4.1.10.2.1">
-<h5 data-number="4.1.10.2.1" class="anchored" data-anchor-id="autoregressive-model-ar-modelling-option"><span class="header-section-number">4.1.10.2.1</span> Autoregressive model (AR modelling option)</h5>
+<section id="autoregressive-model-ar-modelling-option" class="level5" data-number="5.1.10.2.1">
+<h5 data-number="5.1.10.2.1" class="anchored" data-anchor-id="autoregressive-model-ar-modelling-option"><span class="header-section-number">5.1.10.2.1</span> Autoregressive model (AR modelling option)</h5>
 <p>We compute by OLS:</p>
 <p><span class="math display">\[y_t=\mu + \alpha y_{t-1} + \beta TD_t + \epsilon_t \]</span></p>
 </section>
-<section id="difference-model" class="level5" data-number="4.1.10.2.2">
-<h5 data-number="4.1.10.2.2" class="anchored" data-anchor-id="difference-model"><span class="header-section-number">4.1.10.2.2</span> Difference model</h5>
+<section id="difference-model" class="level5" data-number="5.1.10.2.2">
+<h5 data-number="5.1.10.2.2" class="anchored" data-anchor-id="difference-model"><span class="header-section-number">5.1.10.2.2</span> Difference model</h5>
 <p>We compute by OLS:</p>
 <p><span class="math display">\[\Delta y_t - \overline{\Delta y_t}=\beta TD_t + \epsilon_t \]</span></p>
 <p>So, the latter model is a restriction of the first one (<span class="math inline">\(\alpha =1, \mu =μ=\overline{\Delta y_t}\)</span>)</p>
@@ -1979,12 +1979,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./A-outlier-detection.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Outlier detection</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Outlier detection</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./A-sa-hf.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Seasonal adjustment of high frequency data</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./A-benchmarking.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Benchmarking and temporal disagreggation</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

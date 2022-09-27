@@ -1,9 +1,8 @@
-# X-11 decomposition
+# Local Polynomials Methods for Trend Estimation 
 
 ## Chapter building process
 
-### Edit content
-
+This chapter provides details on the the statistical methods whereas practical estimation steps are described "here" (Chap On trend estimation) and are run with the rjfilters package.
 
 ## Overview
 

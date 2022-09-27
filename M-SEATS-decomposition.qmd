@@ -1,11 +1,5 @@
 # SEATS decomposition
 
-# Chapter building
-
-goal of the chapter : details on SEATS which are not in the SA chapter
-enhance explanation with complementary sources (TS booklets, curso INE...)
-
-
 ## Introduction
 
 SEATS is a program for estimating unobserved components in a time

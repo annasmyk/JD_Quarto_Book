@@ -4,14 +4,14 @@ project:
 book:
   title: "JDemetra+ online documentation"
   author: "Stace documentation group"
-  date: "12/01/2022"
+  date: "23/12/2022"
   chapters:
     - index.qmd
     - G-what-is-jd.qmd
     - A-sa.qmd
+    - A-sa-hf.qmd
     - A-outlier-detection.qmd
     - A-calendar-and-input.qmd
-    - A-sa-hf.qmd
     - A-benchmarking.qmd
     - A-trend-cycle-estimation.qmd
     - A-nowcasting.qmd

@@ -6,10 +6,8 @@
 
 ## With Reg Arima models
 
-### Part of preadjustment
+## Specific TERROR tool
 
-### Specific TERROR tool
-
-## With structural models
+## With structural models (BSM)
 part of SA process as well 
 (cf work for NTTS)
