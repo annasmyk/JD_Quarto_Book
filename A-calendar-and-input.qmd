@@ -1,14 +1,6 @@
 # Calendar and user-defined corrections
 
-generating Calendar regressors and other input variables
-
-## Chapter building process
-
-### Edit content
-
-- less dense content, less text more tables, bullet points 
-- check and add documents new v3 features, rjd3 modelling
-- add a M_ chapter on calendar ? too many explanations here ?
+This chapter describes the generating process of calendar regressors, outliers and other input variables. The use of this variables inside a seasonal adjustment process is described in the relevant chapter on SA or on SA of HF data.
 
 ### Overview of Calendar effects in JDemetra
 
@@ -428,8 +420,6 @@ decomposition will only differ by a constant.
 
 
 ### Linear transformations of the calendar variables
-
-
 
 As far as the RegARIMA and the TRAMO models are considered, any
 non-degenerated linear transformation of the calendar variables can be

@@ -9,5 +9,4 @@
 ## Specific TERROR tool
 
 ## With structural models (BSM)
-part of SA process as well 
-(cf work for NTTS)
+

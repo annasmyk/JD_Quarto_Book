@@ -28,6 +28,7 @@ book:
     - M-Trend-Estimation-Local-Polynomials.qmd
     - M-tests.qmd
     - M-state-space-framework.qmd
+    - M-Temp-Disagg-Bench.qmd
     - references.qmd
 
 bibliography: references.bib

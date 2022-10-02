@@ -101,7 +101,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./G-what-is-jd.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">JDemetra+ Overview</span></a>
+  <a href="./G-what-is-jd.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">JDemetra+</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -126,7 +126,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./A-benchmarking.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Benchmarking and temporal disagreggation</span></a>
+  <a href="./A-benchmarking.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Algorithms for benchmarking and temporal disagreggation</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -156,12 +156,12 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./T-production.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Production</span></a>
+  <a href="./T-production.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Production issues and cruncher use</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./T-tool-selection.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Tool selection issues</span></a>
+  <a href="./T-tool-selection.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Tool selection issues and heuristics</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -201,7 +201,12 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./M-state-space-framework.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">State Space Framework</span></a>
+  <a href="./M-state-space-framework.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">State space modelling</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./M-Temp-Disagg-Bench.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Methods for Temporal disaggregation and benchmarking</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -218,23 +223,18 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#chapter-building-process" id="toc-chapter-building-process" class="nav-link active" data-scroll-target="#chapter-building-process"><span class="toc-section-number">14.1</span>  Chapter building process</a>
+  <li><a href="#spectral-analysis-concepts" id="toc-spectral-analysis-concepts" class="nav-link active" data-scroll-target="#spectral-analysis-concepts"><span class="toc-section-number">14.1</span>  Spectral analysis concepts</a>
   <ul class="collapse">
-  <li><a href="#edit-content" id="toc-edit-content" class="nav-link" data-scroll-target="#edit-content"><span class="toc-section-number">14.1.1</span>  Edit content</a></li>
-  <li><a href="#vocabulary-precision" id="toc-vocabulary-precision" class="nav-link" data-scroll-target="#vocabulary-precision"><span class="toc-section-number">14.1.2</span>  Vocabulary precision</a></li>
+  <li><a href="#theoretical-spectral-density-of-an-arima-model" id="toc-theoretical-spectral-density-of-an-arima-model" class="nav-link" data-scroll-target="#theoretical-spectral-density-of-an-arima-model"><span class="toc-section-number">14.1.1</span>  Theoretical spectral density of an ARIMA model</a></li>
   </ul></li>
-  <li><a href="#spectral-analysis-concepts-and-overview" id="toc-spectral-analysis-concepts-and-overview" class="nav-link" data-scroll-target="#spectral-analysis-concepts-and-overview"><span class="toc-section-number">14.2</span>  Spectral analysis concepts and overview</a>
+  <li><a href="#spectral-density-estimation" id="toc-spectral-density-estimation" class="nav-link" data-scroll-target="#spectral-density-estimation"><span class="toc-section-number">14.2</span>  Spectral density estimation</a>
   <ul class="collapse">
-  <li><a href="#theoretical-spectral-density-of-an-arima-model" id="toc-theoretical-spectral-density-of-an-arima-model" class="nav-link" data-scroll-target="#theoretical-spectral-density-of-an-arima-model"><span class="toc-section-number">14.2.1</span>  Theoretical spectral density of an ARIMA model</a></li>
+  <li><a href="#method-1-the-periodogram" id="toc-method-1-the-periodogram" class="nav-link" data-scroll-target="#method-1-the-periodogram"><span class="toc-section-number">14.2.1</span>  Method 1: The periodogram</a></li>
+  <li><a href="#method-2-autoregressive-spectrum-estimation" id="toc-method-2-autoregressive-spectrum-estimation" class="nav-link" data-scroll-target="#method-2-autoregressive-spectrum-estimation"><span class="toc-section-number">14.2.2</span>  Method 2: Autoregressive spectrum estimation</a></li>
+  <li><a href="#method-3-tukey-spectrum" id="toc-method-3-tukey-spectrum" class="nav-link" data-scroll-target="#method-3-tukey-spectrum"><span class="toc-section-number">14.2.3</span>  Method 3: Tukey spectrum</a></li>
   </ul></li>
-  <li><a href="#spectral-density-estimation" id="toc-spectral-density-estimation" class="nav-link" data-scroll-target="#spectral-density-estimation"><span class="toc-section-number">14.3</span>  Spectral density estimation</a>
-  <ul class="collapse">
-  <li><a href="#method-1-the-periodogram" id="toc-method-1-the-periodogram" class="nav-link" data-scroll-target="#method-1-the-periodogram"><span class="toc-section-number">14.3.1</span>  Method 1: The periodogram</a></li>
-  <li><a href="#method-2-autoregressive-spectrum-estimation" id="toc-method-2-autoregressive-spectrum-estimation" class="nav-link" data-scroll-target="#method-2-autoregressive-spectrum-estimation"><span class="toc-section-number">14.3.2</span>  Method 2: Autoregressive spectrum estimation</a></li>
-  <li><a href="#method-3-tukey-spectrum" id="toc-method-3-tukey-spectrum" class="nav-link" data-scroll-target="#method-3-tukey-spectrum"><span class="toc-section-number">14.3.3</span>  Method 3: Tukey spectrum</a></li>
-  </ul></li>
-  <li><a href="#identification-of-spectral-peaks" id="toc-identification-of-spectral-peaks" class="nav-link" data-scroll-target="#identification-of-spectral-peaks"><span class="toc-section-number">14.4</span>  Identification of spectral peaks</a></li>
-  <li><a href="#spectral-graphs" id="toc-spectral-graphs" class="nav-link" data-scroll-target="#spectral-graphs"><span class="toc-section-number">14.5</span>  Spectral graphs</a></li>
+  <li><a href="#identification-of-spectral-peaks" id="toc-identification-of-spectral-peaks" class="nav-link" data-scroll-target="#identification-of-spectral-peaks"><span class="toc-section-number">14.3</span>  Identification of spectral peaks</a></li>
+  <li><a href="#spectral-graphs" id="toc-spectral-graphs" class="nav-link" data-scroll-target="#spectral-graphs"><span class="toc-section-number">14.4</span>  Spectral graphs</a></li>
   </ul>
 </nav>
     </div>
@@ -257,24 +257,8 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="chapter-building-process" class="level2" data-number="14.1">
-<h2 data-number="14.1" class="anchored" data-anchor-id="chapter-building-process"><span class="header-section-number">14.1</span> Chapter building process</h2>
-<section id="edit-content" class="level3" data-number="14.1.1">
-<h3 data-number="14.1.1" class="anchored" data-anchor-id="edit-content"><span class="header-section-number">14.1.1</span> Edit content</h3>
-<p>add: - R code or refernces to - rjd3sa (?) references to tests - more explanations on spectral analysis rationale</p>
-</section>
-<section id="vocabulary-precision" class="level3" data-number="14.1.2">
-<h3 data-number="14.1.2" class="anchored" data-anchor-id="vocabulary-precision"><span class="header-section-number">14.1.2</span> Vocabulary precision</h3>
-<ul>
-<li>spectral density</li>
-<li>periodgram</li>
-<li>spectral density estimator</li>
-<li>“spectrum” is used too ubiquitously</li>
-</ul>
-</section>
-</section>
-<section id="spectral-analysis-concepts-and-overview" class="level2" data-number="14.2">
-<h2 data-number="14.2" class="anchored" data-anchor-id="spectral-analysis-concepts-and-overview"><span class="header-section-number">14.2</span> Spectral analysis concepts and overview</h2>
+<section id="spectral-analysis-concepts" class="level2" data-number="14.1">
+<h2 data-number="14.1" class="anchored" data-anchor-id="spectral-analysis-concepts"><span class="header-section-number">14.1</span> Spectral analysis concepts</h2>
 <p>A time series <span class="math inline">\(x_{t}\)</span> with stationary covariance, mean <span class="math inline">\(μ\)</span> and <span class="math inline">\(k^{th}\)</span> autocovariance <span class="math inline">\(E(x_{t}-\mu)(x_{t- k}\mu))=\gamma(k)\)</span> can be described as a weighted sum of periodic trigonometric functions: <span class="math inline">\(sin(\omega t)\)</span> and <span class="math inline">\(cos(\omega t)\)</span>, where <span class="math inline">\(\omega=\frac{2*pi}{T}\)</span> denotes frequency. Spectral analysis investigates this frequency domain representation of <span class="math inline">\(x_{t}\)</span> to determine how important cycles of different frequencies are in accounting for the behavior of <span class="math inline">\(x_{t}\)</span>.</p>
 <p>Assuming that the autocovariances <span class="math inline">\(\gamma(k)\)</span> are absolutely summable(<span class="math inline">\(\sum_{k =-\infty}^{\infty}|\gamma(k)|&lt;\infty\)</span>), the autocovariance generating function, which summarizes these autocovariances through a scalar valued function, is given by equation [1]<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>.</p>
 <p><span class="math inline">\(acgf(z)=\sum_{k=-\infty}^{\infty}{z^{k}\gamma(k)}\)</span>,</p>
@@ -298,14 +282,14 @@ f(\omega) = \frac{1}{\pi}\lbrack \ \gamma(0) + 2\sum_{k = 1}^{\infty}{\ \gamma(k
 <p>The aim of spectral analysis is to determine how important cycles of different frequencies are in accounting for the behaviour of a time series<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a>. Since spectral analysis can be used to detect the presence of periodic components, it is a natural diagnostic tool for detecting trading day effects as well as seasonal effects<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a>. Among the tools used for spectral analysis are the autoregressive spectrum and the periodogram.</p>
 <p>The explanations given in the subsections of this node derive mainly from DE ANTONIO, D., and PALATE, J. (2015) and BROCKWELL, P.J., and DAVIS, R.A. (2006).</p>
 <p>comment1: end old intro: ok</p>
-<section id="theoretical-spectral-density-of-an-arima-model" class="level3" data-number="14.2.1">
-<h3 data-number="14.2.1" class="anchored" data-anchor-id="theoretical-spectral-density-of-an-arima-model"><span class="header-section-number">14.2.1</span> Theoretical spectral density of an ARIMA model</h3>
+<section id="theoretical-spectral-density-of-an-arima-model" class="level3" data-number="14.1.1">
+<h3 data-number="14.1.1" class="anchored" data-anchor-id="theoretical-spectral-density-of-an-arima-model"><span class="header-section-number">14.1.1</span> Theoretical spectral density of an ARIMA model</h3>
 </section>
 </section>
-<section id="spectral-density-estimation" class="level2" data-number="14.3">
-<h2 data-number="14.3" class="anchored" data-anchor-id="spectral-density-estimation"><span class="header-section-number">14.3</span> Spectral density estimation</h2>
-<section id="method-1-the-periodogram" class="level3" data-number="14.3.1">
-<h3 data-number="14.3.1" class="anchored" data-anchor-id="method-1-the-periodogram"><span class="header-section-number">14.3.1</span> Method 1: The periodogram</h3>
+<section id="spectral-density-estimation" class="level2" data-number="14.2">
+<h2 data-number="14.2" class="anchored" data-anchor-id="spectral-density-estimation"><span class="header-section-number">14.2</span> Spectral density estimation</h2>
+<section id="method-1-the-periodogram" class="level3" data-number="14.2.1">
+<h3 data-number="14.2.1" class="anchored" data-anchor-id="method-1-the-periodogram"><span class="header-section-number">14.2.1</span> Method 1: The periodogram</h3>
 <p>For any given frequency <span class="math inline">\(\omega\)</span> the sample periodogram is the sample analog of the sample spectrum. In general, the periodogram is used to identify the periodic components of unknown frequency in the time series. X-13ARIMA-SEATS and TRAMO-SEATS use this tool for detecting seasonality in raw time series and seasonally adjusted series. Apart from this it is applied for checking randomness of the residuals from the ARIMA model.</p>
 <p>To define the periodogram, first consider the vector of complex numbers<a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a>:</p>
 <p><span class="math display">\[
@@ -406,8 +390,8 @@ f(\omega_{\ }) = \frac{1}{2\pi}\sum_{k &lt; - \infty}^{\infty}{\gamma( k)}_{\ }e
 <p>It can be noticed that the periodogram is a sample analog of the population spectrum. In fact, it can be shown that the periodogram is asymptotically unbiased but inconsistent estimator of the population spectrum <span class="math inline">\(f(\omega)\)</span>.[^75] Therefore, the periodogram is a wildly fluctuating, with high variance, estimate of the spectrum. However, the consistent estimator can be achieved by applying the different linear smoothing filters to the periodogram, called lag-window estimators. The lag-window estimators implemented in JDemetra+ includes square, Welch, Tukey, Barlett, Hanning and Parzen. They are described in DE ANTONIO, D., and PALATE, J. (2015). Alternatively, the model-based consistent estimation procedure, resulting in autoregressive spectrum estimator, can be applied.</p>
 <p>comment2: end part theory&gt;spectral analysis&gt;periodogram</p>
 </section>
-<section id="method-2-autoregressive-spectrum-estimation" class="level3" data-number="14.3.2">
-<h3 data-number="14.3.2" class="anchored" data-anchor-id="method-2-autoregressive-spectrum-estimation"><span class="header-section-number">14.3.2</span> Method 2: Autoregressive spectrum estimation</h3>
+<section id="method-2-autoregressive-spectrum-estimation" class="level3" data-number="14.2.2">
+<h3 data-number="14.2.2" class="anchored" data-anchor-id="method-2-autoregressive-spectrum-estimation"><span class="header-section-number">14.2.2</span> Method 2: Autoregressive spectrum estimation</h3>
 <p>BROCKWELL, P.J., and DAVIS, R.A. (2006) point out that for any real-valued stationary process <span class="math inline">\((x_{t})\)</span> with continuous spectral density <span class="math inline">\(f(\omega)\)</span> it is possible to find both <span class="math inline">\(AR(p)\)</span> and <span class="math inline">\(MA(q)\)</span> processes which spectral densities are arbitrarily close to <span class="math inline">\(f(\omega)\)</span>. For this reason, in some sense, <span class="math inline">\((x_{t})\)</span> can be approximated by either <span class="math inline">\(AR(p)\)</span> or <span class="math inline">\(MA(q)\)</span> process. This fact is a basis of one of the methods of achieving a consistent estimator of the spectrum, which is called an autoregressive spectrum estimation. It is based on the approximation of the stochastic process <span class="math inline">\((x_{t})\)</span> by an autoregressive process of sufficiently high order <span class="math inline">\(p\)</span>:</p>
 <p><span class="math display">\[
 x_{t} = \mu + (\phi_{1}B + \ldots + \phi_{p}B^{p})x_{t} + \varepsilon_{t}
@@ -428,12 +412,12 @@ x_{t} = \mu + (\phi_{1}B + \ldots + \phi_{p}B^{p})x_{t} + \varepsilon_{t}
 <p>SOUKUP, R.J., and FINDLEY, D.F. (1999) also explain that the periodogram can be used in the <em>visual significance</em> test as it has as good as those of the AR(30) spectrum abilities to detect trading day effect, but also has a greater false alarm rate<a href="#fn11" class="footnote-ref" id="fnref11" role="doc-noteref"><sup>11</sup></a>.</p>
 <p>comment2: end part theory&gt;spectral analysis&gt;auto-regressive spectrum</p>
 </section>
-<section id="method-3-tukey-spectrum" class="level3" data-number="14.3.3">
-<h3 data-number="14.3.3" class="anchored" data-anchor-id="method-3-tukey-spectrum"><span class="header-section-number">14.3.3</span> Method 3: Tukey spectrum</h3>
+<section id="method-3-tukey-spectrum" class="level3" data-number="14.2.3">
+<h3 data-number="14.2.3" class="anchored" data-anchor-id="method-3-tukey-spectrum"><span class="header-section-number">14.2.3</span> Method 3: Tukey spectrum</h3>
 </section>
 </section>
-<section id="identification-of-spectral-peaks" class="level2" data-number="14.4">
-<h2 data-number="14.4" class="anchored" data-anchor-id="identification-of-spectral-peaks"><span class="header-section-number">14.4</span> Identification of spectral peaks</h2>
+<section id="identification-of-spectral-peaks" class="level2" data-number="14.3">
+<h2 data-number="14.3" class="anchored" data-anchor-id="identification-of-spectral-peaks"><span class="header-section-number">14.3</span> Identification of spectral peaks</h2>
 <p>comment3: start part theory&gt;spectral analysis&gt;identification of spectral peaks</p>
 <p>Identification of seasonal peaks in a Tukey periodogram and in an autoregressive spectrum</p>
 <p>In order to decide whether a series has a seasonal component that is predictable (stable) enough, these tests use visual criteria and formal tests for the periodogram. The periodogram is calculated using complete years, so that the set of Fourier frequencies contains exactly all seasonal frequencies<a href="#fn12" class="footnote-ref" id="fnref12" role="doc-noteref"><sup>12</sup></a>.</p>
@@ -465,12 +449,12 @@ x_{t} = \mu + (\phi_{1}B + \ldots + \phi_{p}B^{p})x_{t} + \varepsilon_{t}
 <p><strong>Periodogram with seasonal (grey) and calendar (red) frequencies highlighted</strong></p>
 <p>This implies that it may be hard to disentangle both effects using the frequency domain techniques.</p>
 <p>comment3: end part theory&gt;spectral analysis&gt;identification of spectral peaks</p>
-<section id="in-tukey-spectrum" class="level4" data-number="14.4.0.1">
-<h4 data-number="14.4.0.1" class="anchored" data-anchor-id="in-tukey-spectrum"><span class="header-section-number">14.4.0.1</span> in Tukey spectrum</h4>
+<section id="in-tukey-spectrum" class="level4" data-number="14.3.0.1">
+<h4 data-number="14.3.0.1" class="anchored" data-anchor-id="in-tukey-spectrum"><span class="header-section-number">14.3.0.1</span> in Tukey spectrum</h4>
 <p>comes from Identification of seasonal peaks in a Tukey spectrum</p>
 </section>
-<section id="tukey-spectrum-definition" class="level4" data-number="14.4.0.2">
-<h4 data-number="14.4.0.2" class="anchored" data-anchor-id="tukey-spectrum-definition"><span class="header-section-number">14.4.0.2</span> Tukey Spectrum definition</h4>
+<section id="tukey-spectrum-definition" class="level4" data-number="14.3.0.2">
+<h4 data-number="14.3.0.2" class="anchored" data-anchor-id="tukey-spectrum-definition"><span class="header-section-number">14.3.0.2</span> Tukey Spectrum definition</h4>
 <p>The Tukey spectrum belongs to the class of lag-window estimators. A lag window estimator of the spectral density <span class="math inline">\(f(\omega)=\frac{1}{2\pi}\sum_{k&lt;-\infty}^{\infty}\gamma(k)e^{i k \omega}\)</span> is defined as follows:</p>
 <p><span class="math display">\[
 \hat{f}_{L}(\omega)=\frac{1}{2\pi}\sum_{\left| h \right| \leq r } w(h/r)\hat{\gamma}(h)e^{i h \omega}
@@ -480,8 +464,8 @@ x_{t} = \mu + (\phi_{1}B + \ldots + \phi_{p}B^{p})x_{t} + \varepsilon_{t}
 <p>The choice of large truncation lags <span class="math inline">\(r\)</span> decreases the bias, of course, but it also increases the variance of the spectral estimate and decreases the bandwidth.</p>
 <p>JDemetra+ allows the user to modify all the parameters of this estimator, including the window function.</p>
 </section>
-<section id="graphical-test" class="level4" data-number="14.4.0.3">
-<h4 data-number="14.4.0.3" class="anchored" data-anchor-id="graphical-test"><span class="header-section-number">14.4.0.3</span> Graphical Test</h4>
+<section id="graphical-test" class="level4" data-number="14.3.0.3">
+<h4 data-number="14.3.0.3" class="anchored" data-anchor-id="graphical-test"><span class="header-section-number">14.3.0.3</span> Graphical Test</h4>
 <p>The current JDemetra+ implementation of the seasonality test is based on a <span class="math inline">\(F(d_{1},d_{2})\)</span> approximation that has been originally proposed by Maravall (2012) for TRAMO-SEATS. This test is has been designed for a Blackman-Tukey window based on a particular choices of the truncation lag <span class="math inline">\(r\)</span> and sample size. Following this approach, we determine visually significant peaks for a frequency <span class="math inline">\(\omega_{j}\)</span> when</p>
 <p><span class="math display">\[
 \frac{2 f_{x}(\omega_{j})}{\left[ f_{x}(\omega_{j+1})+ f_{x}(\omega_{j-1}) \right]} \ge CV(\omega_{j})
@@ -490,8 +474,8 @@ x_{t} = \mu + (\phi_{1}B + \ldots + \phi_{p}B^{p})x_{t} + \varepsilon_{t}
 <p>Two significant levels for this test are considered: <span class="math inline">\(\alpha=0.05\)</span> (code “t”) and <span class="math inline">\(\alpha=0.01\)</span> (code “T”).</p>
 <p>As opposed to the <a href="%7B%7B%20site.baseurl%20%7D%7D/pages/theory/Tests_ARspectrum.html">AR spectrum</a>, which is computed on the basis of the last <span class="math inline">\(120\)</span> data points, we will use here all available observations. Those critical values have been calculated given the recommended truncation lag <span class="math inline">\(r=79\)</span> for a sample size within the interval <span class="math inline">\(\in [80,119]\)</span> and <span class="math inline">\(r=112\)</span> for <span class="math inline">\(n \in [120,300]\)</span> . The <span class="math inline">\(F\)</span> approximation is less accurate for sample sizes larger than <span class="math inline">\(300\)</span>. For quarterly data, <span class="math inline">\(r=44\)</span>, but there are no recommendations regarding the required sample size.</p>
 </section>
-<section id="use" class="level4" data-number="14.4.0.4">
-<h4 data-number="14.4.0.4" class="anchored" data-anchor-id="use"><span class="header-section-number">14.4.0.4</span> Use</h4>
+<section id="use" class="level4" data-number="14.3.0.4">
+<h4 data-number="14.3.0.4" class="anchored" data-anchor-id="use"><span class="header-section-number">14.3.0.4</span> Use</h4>
 <p>The test can be applied directly to any series by selecting the option <em>Statistical Methods &gt;&gt; Seasonal Adjustment &gt;&gt; Tools &gt;&gt; Seasonality Tests</em>. This is an example of how results are displayed for the case of a monthly series:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -544,14 +528,14 @@ x_{t} = \mu + (\phi_{1}B + \ldots + \phi_{p}B^{p})x_{t} + \varepsilon_{t}
 </table>
 <p>Currently, only seasonal frequencies are tested, but the program allows you to manually plot the Tukey spectrum and focus your attention on both seasonal and trading day frequencies.</p>
 </section>
-<section id="references" class="level4" data-number="14.4.0.5">
-<h4 data-number="14.4.0.5" class="anchored" data-anchor-id="references"><span class="header-section-number">14.4.0.5</span> References</h4>
+<section id="references" class="level4" data-number="14.3.0.5">
+<h4 data-number="14.3.0.5" class="anchored" data-anchor-id="references"><span class="header-section-number">14.3.0.5</span> References</h4>
 <ul>
 <li>Tukey, J. (1949). The sampling theory of power spectrum estimates., Proceedings Symposium on Applications of Autocorrelation Analysis to Physical Problems, NAVEXOS-P-735, Office of Naval Research, Washington, 47-69</li>
 </ul>
 </section>
-<section id="in-ar-spectrum-definition" class="level4" data-number="14.4.0.6">
-<h4 data-number="14.4.0.6" class="anchored" data-anchor-id="in-ar-spectrum-definition"><span class="header-section-number">14.4.0.6</span> in AR Spectrum definition</h4>
+<section id="in-ar-spectrum-definition" class="level4" data-number="14.3.0.6">
+<h4 data-number="14.3.0.6" class="anchored" data-anchor-id="in-ar-spectrum-definition"><span class="header-section-number">14.3.0.6</span> in AR Spectrum definition</h4>
 <p>comes from: “Identification of seasonal peaks in autoregressive spectrum”</p>
 <p>The estimator of the spectral density at frequency <span class="math inline">\(\lambda \in [0,\pi]\)</span> will be given by the assumption that the series will follow an AR(p) process with large <span class="math inline">\(p\)</span>. The spectral density of such model, with an innovation variance <span class="math inline">\(var(x_{t})=\sigma^2_x\)</span>, is expressed as follows:</p>
 <p><span class="math display">\[
@@ -569,8 +553,8 @@ x_{t} = \mu + (\phi_{1}B + \ldots + \phi_{p}B^{p})x_{t} + \varepsilon_{t}
 <p><strong>Periodogram with seasonal (grey) and calendar (red) frequencies highlighted</strong></p>
 <p>JDemetra+ allows the user to modify the number of lags of this estimator and to change the number of observations used to determine the AR parameters. These two options can improve the resolution of this estimator.</p>
 </section>
-<section id="graphical-test-1" class="level4" data-number="14.4.0.7">
-<h4 data-number="14.4.0.7" class="anchored" data-anchor-id="graphical-test-1"><span class="header-section-number">14.4.0.7</span> Graphical Test</h4>
+<section id="graphical-test-1" class="level4" data-number="14.3.0.7">
+<h4 data-number="14.3.0.7" class="anchored" data-anchor-id="graphical-test-1"><span class="header-section-number">14.3.0.7</span> Graphical Test</h4>
 <p>The statistical significance of the peaks associated to a given frequency can be informally tested using a visual criterion, which has proved to perform well in simulation experiments. Visually significant peaks for a frequency <span class="math inline">\(\lambda_{j}\)</span> satisfy both conditions:</p>
 <ul>
 <li><span class="math inline">\(\frac{f_{x}(\lambda_{j})- \max \left\{f_{x}(\lambda_{j+1}),f_{x}(\lambda_{j-1}) \right\}}{\left[ \max_{k}f_{x}(\lambda_{k})-\min_{i}f_{x}(\lambda_{i}) \right]}\ge CV(\lambda_{j})\)</span>, where <span class="math inline">\(CV(\lambda_{j})\)</span> can be set equal to <span class="math inline">\(6/52\)</span> for all <span class="math inline">\(j\)</span></li>
@@ -578,8 +562,8 @@ x_{t} = \mu + (\phi_{1}B + \ldots + \phi_{p}B^{p})x_{t} + \varepsilon_{t}
 </ul>
 <p>The first condition implies that if we divide the range <span class="math inline">\(\max_{k}f_{x}(\lambda_{k})-\min_{i}f_{x}(\lambda_{i})\)</span> in 52 parts (traditionally represented by stars) the height of each pick should be at least 6 stars.</p>
 </section>
-<section id="use-1" class="level4" data-number="14.4.0.8">
-<h4 data-number="14.4.0.8" class="anchored" data-anchor-id="use-1"><span class="header-section-number">14.4.0.8</span> Use</h4>
+<section id="use-1" class="level4" data-number="14.3.0.8">
+<h4 data-number="14.3.0.8" class="anchored" data-anchor-id="use-1"><span class="header-section-number">14.3.0.8</span> Use</h4>
 <p>The test can be applied directly to any series by selecting the option <em>Statistical Methods &gt;&gt; Seasonal Adjustment &gt;&gt; Tools &gt;&gt; Seasonality Tests</em>. This is an example of how results are displayed for the case of a monthly series:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -592,14 +576,14 @@ x_{t} = \mu + (\phi_{1}B + \ldots + \phi_{p}B^{p})x_{t} + \varepsilon_{t}
 <p>{: .table .table-style} |<strong>Number of months per full period</strong> | <strong>Seasonal frequency</strong> | <strong>Trading day frequency (radians)</strong>| |————————————–| ————————————————————————————-| ————————————| |12 | <span class="math inline">\(\frac{\pi}{6},\frac{\pi}{3},\ \frac{\pi}{2},\frac{2\pi}{3},\ \frac{5\pi}{6},\ \pi\)</span> | <span class="math inline">\(d\)</span>, 2.714| |6 | <span class="math inline">\(\frac{\pi}{3},\frac{2\pi}{3}\)</span>, <span class="math inline">\(\pi\)</span> | <span class="math inline">\(d\)</span> |4 | <span class="math inline">\(\frac{\pi}{2}\)</span>, <span class="math inline">\(\pi\)</span> | <span class="math inline">\(d\)</span>, 1.292, 1.850, 2.128| |3 | <span class="math inline">\(\pi\)</span> | <span class="math inline">\(d\)</span>| |2 | <span class="math inline">\(\pi\)</span> | <span class="math inline">\(d\)</span>|</p>
 <p>Currently, only seasonal frequencies are tested, but the program allows you to manually plot the AR spectrum and focus your attention on both seasonal and trading day frequencies. Agustin Maravall has conducted a simulation experiment to calculate <span class="math inline">\(CV(\lambda_{42})\)</span> (trading day frequency) and proposes to set for all <span class="math inline">\(j\)</span> equal to the critical value associated to the trading frequency, but this is currently not part of the current automatic testing procedure of JDemetra+.</p>
 </section>
-<section id="references-1" class="level4" data-number="14.4.0.9">
-<h4 data-number="14.4.0.9" class="anchored" data-anchor-id="references-1"><span class="header-section-number">14.4.0.9</span> References</h4>
+<section id="references-1" class="level4" data-number="14.3.0.9">
+<h4 data-number="14.3.0.9" class="anchored" data-anchor-id="references-1"><span class="header-section-number">14.3.0.9</span> References</h4>
 <ul>
 <li>Soukup, R.J., and D.F. Findley (1999) On the Spectrum Diagnosis used by X12-ARIMA to Indicate the Presence of Trading Day Effects After Modeling or Adjustment. In Proceedengs of the American Statistical Association. Business and Economic Statistics Section, 144-149, Alexandria, VA.</li>
 </ul>
 </section>
-<section id="in-a-periodogram" class="level4" data-number="14.4.0.10">
-<h4 data-number="14.4.0.10" class="anchored" data-anchor-id="in-a-periodogram"><span class="header-section-number">14.4.0.10</span> in a Periodogram</h4>
+<section id="in-a-periodogram" class="level4" data-number="14.3.0.10">
+<h4 data-number="14.3.0.10" class="anchored" data-anchor-id="in-a-periodogram"><span class="header-section-number">14.3.0.10</span> in a Periodogram</h4>
 <p>comes from: Identification of seasonal peaks in periodogram</p>
 <p>The periodogram <span class="math inline">\(I(\omega_j)\)</span> of <span class="math inline">\(\mathbf{X} \in \mathbb{C}^n\)</span> is defined as the squared of the Fourier transform</p>
 <p><span class="math display">\[
@@ -666,8 +650,8 @@ can be used to project the data and obtain the spectral decomposition</p>
 \]</span></p>
 <p>In JDemetra+, the periodogram of <span class="math inline">\(\mathbf{X} \in \mathbb{R}^n\)</span> is computed for the standardized time series.</p>
 </section>
-<section id="defining-a-f-test" class="level4" data-number="14.4.0.11">
-<h4 data-number="14.4.0.11" class="anchored" data-anchor-id="defining-a-f-test"><span class="header-section-number">14.4.0.11</span> Defining a F-test</h4>
+<section id="defining-a-f-test" class="level4" data-number="14.3.0.11">
+<h4 data-number="14.3.0.11" class="anchored" data-anchor-id="defining-a-f-test"><span class="header-section-number">14.3.0.11</span> Defining a F-test</h4>
 <p>Brockwell and Davis (1991, section 10.2) exploit the fact that the periodogram can be expressed as the projection on the orthonormal basis defined above to derive a test. Thus, under the null hypothesis:</p>
 <ul>
 <li><span class="math inline">\(2I(\omega_{k})= \| P_{\bar{sp}_{\left\{ c_{k},s_{k} \right\}}} \mathbf{X} \|^{2} \sim \sigma^{2} \chi^{2}(2)\)</span>, for Fourier frequencies <span class="math inline">\(0 &lt; \omega_{k}=2\pi k/n &lt; \pi\)</span></li>
@@ -681,8 +665,8 @@ can be used to project the data and obtain the spectral decomposition</p>
 <p>where - <span class="math inline">\(\|\mathbf{X}-P_{\bar{sp}_{\left\{ e_0,c_{k},s_{k} \right\}}} \mathbf{X}\|^2 = \sum_{i=1}^{n}\mathbf{X^2_i}-I(0)-2I(\omega_{k}) \sim \sigma^{2} \chi^{2}(n-3)\)</span> for Fourier frequencies <span class="math inline">\(0 &lt; \omega_{k}=2\pi k/n &lt; \pi\)</span> - <span class="math inline">\(\|\mathbf{X}-P_{\bar{sp}_{\left\{ e_0,e_{n/2} \right\}}} \mathbf{X}\|^2 = \sum_{i=1}^{n}\mathbf{X^2_i}-I(0)-I(\pi) \sim \sigma^{2} \chi^{2}(n-2)\)</span> for <span class="math inline">\(\pi\)</span></p>
 <p>Thus, we reject the null if our F-test statistic computed at a given seasonal frequency (different from <span class="math inline">\(\pi\)</span>) is larger than <span class="math inline">\(F_{1-α}(2,n-3)\)</span>. If we consider <span class="math inline">\(\pi\)</span>, our test statistic follows a <span class="math inline">\(F_{1-α}(1,n-2)\)</span> distribution.</p>
 </section>
-<section id="seasonality-test" class="level4" data-number="14.4.0.12">
-<h4 data-number="14.4.0.12" class="anchored" data-anchor-id="seasonality-test"><span class="header-section-number">14.4.0.12</span> Seasonality test</h4>
+<section id="seasonality-test" class="level4" data-number="14.3.0.12">
+<h4 data-number="14.3.0.12" class="anchored" data-anchor-id="seasonality-test"><span class="header-section-number">14.3.0.12</span> Seasonality test</h4>
 <p>The implementation of JDemetra+ considers simultaneously the whole set of seasonal frequencies (1, 2, 3, 4, 5 and 6 cycles per year). Thus, the resulting test-statistic is:</p>
 <p><span class="math display">\[
 \frac{ 2I(\pi/6)+ 2I(\pi/3)+ 2I(2\pi/3)+ 2I(5\pi/6)+ \delta I(\pi)}{\left\|\mathbf{X}-P_{\bar{sp}_{\left\{ e_0,c_{1},s_{1},c_{2},s_{2},c_{3},s_{3},c_{4},s_{4},c_{5},s_{5}, \delta e_{n/2} \right\}}} \mathbf{X} \right\|^2} \frac{n-12}{11} \sim F(11-\delta,n-12+\delta)
@@ -696,13 +680,13 @@ can be used to project the data and obtain the spectral decomposition</p>
 </figure>
 </div>
 </section>
-<section id="references-2" class="level4" data-number="14.4.0.13">
-<h4 data-number="14.4.0.13" class="anchored" data-anchor-id="references-2"><span class="header-section-number">14.4.0.13</span> References</h4>
+<section id="references-2" class="level4" data-number="14.3.0.13">
+<h4 data-number="14.3.0.13" class="anchored" data-anchor-id="references-2"><span class="header-section-number">14.3.0.13</span> References</h4>
 <p>Brockwell, P.J., and R.A. Davis (1991). Times Series: Theory and Methods. Springer Series in Statistics.</p>
 </section>
 </section>
-<section id="spectral-graphs" class="level2" data-number="14.5">
-<h2 data-number="14.5" class="anchored" data-anchor-id="spectral-graphs"><span class="header-section-number">14.5</span> Spectral graphs</h2>
+<section id="spectral-graphs" class="level2" data-number="14.4">
+<h2 data-number="14.4" class="anchored" data-anchor-id="spectral-graphs"><span class="header-section-number">14.4</span> Spectral graphs</h2>
 <p>probably moove this part to GUI (Tools), just leave a link</p>
 <p>comment3: start part case studies &gt; spectral graphs</p>
 <p>This scenario is designed for advanced users interested in an in-depth analysis of time series in the frequency domain using three spectral graphs. Those graphs can also be used as a complementary analysis for a better understanding of the results obtained with some of the tests described above.</p>
@@ -940,7 +924,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./T-tool-selection.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Tool selection issues</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Tool selection issues and heuristics</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">

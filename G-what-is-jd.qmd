@@ -1,78 +1,71 @@
-# JDemetra+ Overview
+# JDemetra+
 
-resources for description 
-- R tools WP
-- JD+ esp pdf
+## Introduction
 
-JD+ is a library of algorithms for seasonal adjustment and time series econometrics.
-You can learn more about the history of the project here (link to below)
+JD+ is a library of algorithms for seasonal adjustment and time series econometrics. You can learn more about the history of the project here (link to below)
 
+link to key references - handbooks (3) - sets of guidelines (2 or 3 ?)
 
-# Main functions overview
+## Main functions
 
-Replace points below with a TABLE
+### Seasonal adjustment algorithms
 
-link to key references
-- handbooks (3)
-- sets of guidelines (2 or 3 ?)
+All are available for low and high frequency data.
 
-## Seasonal adjustment algorithms
+| Algorithms               | Access | Key features |
+|--------------------------|--------|--------------|
+| X13-Arima                |        |              |
+| Tramo-Seats              |        |              |
+| STL                      |        |              |
+| State Space Models (STS) |        |              |
 
-### Data frequencies
+### Temporal Disaggregation and benchmarking
 
-The seasonal adjustment methods available in JDemetra+ aim to decompose a time series into components and remove seasonal fluctuations from the observed time series. The X-11 method considers monthly and quarterly series while SEATS is able to decompose series with 2, 3, 4, 6 and 12 observations per year.
+| Algorithms | Access | Key features |
+|------------|--------|--------------|
+| Chow-lin   |        |              |
+| Fernandez  |        |              |
+|            |        |              |
+|            |        |              |
 
-### X-13
+### Trend-cycle estimation
 
-X-13ARIMA is a seasonal adjustment program developed and supported by the U.S. Census Bureau. It is based on the U.S. Census Bureau's earlier X-11 program, the X-11-ARIMA program developed at Statistics Canada, the X-12-ARIMA program developed by the U.S. Census Bureau.
-
-### Tramo-Seats
-
-### STL
-
-### Basic Structural Models
-
-## Trend-cycle estimation
-
-
-## Temporal Disaggregation and benchmarking
+| Algorithms | Access | Key features |
+|------------|--------|--------------|
+|            |        |              |
+|            |        |              |
+|            |        |              |
+|            |        |              |
 
 ## Nowcasting
 
+| Algorithms | Access | Key features |
+|------------|--------|--------------|
+|            |        |              |
+|            |        |              |
+|            |        |              |
+|            |        |              |
+
 ## Structure of this book
 
-This book is divided in four parts, allowing the user to benefit from the resources from a different perspective. 
+This book is divided in four parts, allowing the user to access the resources from different perspectives.
 
 ### Algorithms
 
-This part provides a step by step description of all the algorithms featured in JD+, grouped by purpose 
-- seasonal adjustment
-- benchmarking
-- temporal disaggregation
-- ...
-links
+This part provides a step by step description of all the algorithms featured in JD+, grouped by purpose - seasonal adjustment - benchmarking - temporal disaggregation - ... links
 
 ### Tools
 
-JDemetra+ offers 3 kinds of tools
-- A Graphical User Interface (GUI) which can be enhanced with plug-ins
-- A set of R packages 
-- A Cruncher for mass production in seasonal adjustment
-
+JDemetra+ offers 3 kinds of tools - A Graphical User Interface (GUI) which can be enhanced with plug-ins - A set of R packages - A Cruncher for mass production in seasonal adjustment
 
 ### Underlying Statistical Methods
 
-This part gives details about the underlying statistical methods to foster a more in-depth understanding of the algorithms.Those methods are described in the light and spirit of their use as building blocks of the algorithms presented above, not aiming at all at their comprehensive coverage. 
+This part gives details about the underlying statistical methods to foster a more in-depth understanding of the algorithms.Those methods are described in the light and spirit of their use as building blocks of the algorithms presented above, not aiming at all at their comprehensive coverage.
 
 ## How to use this book
 
+### Audience
 
-### Audience 
-
-This book targets the beginner as well as seasoned methodologist.
-
-(Here explain why)
+This book targets the beginner as well as seasoned methodologist interested in using JDemetra+ software for any the purposes listed below.
 
 The documentation is built in layers allowing to skip details and complexity in the first steps
-
-

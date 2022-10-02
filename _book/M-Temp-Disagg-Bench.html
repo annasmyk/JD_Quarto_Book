@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>JDemetra+ online documentation - References</title>
+<title>JDemetra+ online documentation - 22&nbsp; Methods for Temporal disaggregation and benchmarking</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,25 +20,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
 }
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-}
-.hanging div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}
 </style>
 
 
@@ -49,7 +30,8 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./M-Temp-Disagg-Bench.html" rel="prev">
+<link href="./references.html" rel="next">
+<link href="./M-state-space-framework.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -79,6 +61,7 @@ div.csl-indent {
   }
 }</script>
 
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 </head>
 
@@ -88,7 +71,7 @@ div.csl-indent {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">References</h1>
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Methods for Temporal disaggregation and benchmarking</span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -223,12 +206,12 @@ div.csl-indent {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./M-Temp-Disagg-Bench.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Methods for Temporal disaggregation and benchmarking</span></a>
+  <a href="./M-Temp-Disagg-Bench.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Methods for Temporal disaggregation and benchmarking</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./references.html" class="sidebar-item-text sidebar-link active">References</a>
+  <a href="./references.html" class="sidebar-item-text sidebar-link">References</a>
   </div>
 </li>
     </ul>
@@ -236,14 +219,21 @@ div.csl-indent {
 </nav>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#benchmarking-underlying-theory" id="toc-benchmarking-underlying-theory" class="nav-link active" data-scroll-target="#benchmarking-underlying-theory"><span class="toc-section-number">22.1</span>  Benchmarking Underlying Theory</a></li>
+  <li><a href="#temporal-disaggragation-underlying-theory" id="toc-temporal-disaggragation-underlying-theory" class="nav-link" data-scroll-target="#temporal-disaggragation-underlying-theory"><span class="toc-section-number">22.2</span>  Temporal Disaggragation underlying Theory</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">References</h1>
+<h1 class="title d-none d-lg-block"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Methods for Temporal disaggregation and benchmarking</span></h1>
 </div>
 
 
@@ -257,11 +247,36 @@ div.csl-indent {
 
 </header>
 
-<div id="refs" role="doc-bibliography" style="display: none">
+<section id="benchmarking-underlying-theory" class="level2" data-number="22.1">
+<h2 data-number="22.1" class="anchored" data-anchor-id="benchmarking-underlying-theory"><span class="header-section-number">22.1</span> Benchmarking Underlying Theory</h2>
+<p>Benchmarking<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> is a procedure widely used when for the same target variable the two or more sources of data with different frequency are available. Generally, the two sources of data rarely agree, as an aggregate of higher-frequency measurements is not necessarily equal to the less-aggregated measurement. Moreover, the sources of data may have different reliability. Usually it is thought that less frequent data are more trustworthy as they are based on larger samples and compiled more precisely. The more reliable measurement is considered as a benchmark.</p>
+<p>Benchmarking also occurs in the context of seasonal adjustment. Seasonal adjustment causes discrepancies between the annual totals of the seasonally unadjusted (raw) and the corresponding annual totals of the seasonally adjusted series. Therefore, seasonally adjusted series are benchmarked to the annual totals of the raw time series<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>. Therefore, in such a case benchmarking means the procedure that ensures the consistency over the year between adjusted and non-seasonally adjusted data. It should be noted that the ‘<em>ESS Guidelines on Seasonal Adjustment</em>’ (2015) do not recommend benchmarking as it introduces a bias in the seasonally adjusted data. Also the U.S. Census Bureau points out that: <em>Forcing the seasonal adjustment totals to be the same as the original series annual totals can degrade the quality of the seasonal adjustment, especially when the seasonal pattern is undergoing change. It is not natural if trading day adjustment is performed because the aggregate trading day effect over a year is variable and moderately different from zero</em>.<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> Nevertheless, some users may prefer the annual totals for the seasonally adjusted series to match the annual totals for the original, non-seasonally adjusted series<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a>. According to the ‘<em>ESS Guidelines on Seasonal Adjustment</em>’ (2015), the only benefit of this approach is that there is consistency over the year between adjusted and non-seasonally adjusted data; this can be of particular interest when low-frequency (e.g.&nbsp;annual) benchmarking figures officially exist (e.g.&nbsp;National Accounts, Balance of Payments, External Trade, etc.) where user needs for time consistency are stronger.</p>
+<p>The benchmarking procedure in JDemetra+ is available for a single seasonally adjusted series and for an indirect seasonal adjustment of an aggregated series. In the first case, univariate benchmarking ensures consistency between the raw and seasonally adjusted series. In the second case, the multivariate benchmarking aims for consistency between the seasonally adjusted aggregate and its seasonally adjusted components.</p>
+<p>Given a set of initial time series <span class="math display">\[\left\{ z_{i,t} \right\}_{i \in I}\]</span>, the aim of the benchmarking procedure is to find the corresponding <span class="math display">\[\left\{ x_{i,t} \right\}_{i \in I}\]</span> that respect temporal aggregation constraints, represented by <span class="math display">\[X_{i,T} = \sum_{t \in T}^{}x_{i,t}\]</span> and contemporaneous constraints given by <span class="math display">\[q_{k,t} = \sum_{j \in J_{k}}^{}{w_{\text{kj}}x_{j,t}}\]</span> or, in matrix form: <span class="math display">\[q_{k,t} = w_{k}x_{t}\]</span>.</p>
+<p>The underlying benchmarking method implemented in JDemetra+ is an extension of Cholette’s<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a> method, which generalises, amongst others, the additive and the multiplicative Denton procedure as well as simple proportional benchmarking.</p>
+<p>The JDemetra+ solution uses the following routines that are described in DURBIN, J., and KOOPMAN, S.J. (2001):</p>
+<ul>
+<li><p>The multivariate model is handled through its univariate transformation,</p></li>
+<li><p>The smoothed states are computed by means of the disturbance smoother.</p></li>
+</ul>
+<p>The performance of the resulting algorithm is highly dependent on the number of variables involved in the model (<span class="math inline">\(\propto \ n^{3}\)</span>). The other components of the problem (number of constraints, frequency of the series, and length of the series) are much less important (<span class="math inline">\(\propto \ n\)</span>).</p>
+<p>From a theoretical point of view, it should be noted that this approach may handle any set of linear restrictions (equalities), endogenous (between variables) or exogenous (related to external values), provided that they don’t contain incompatible equations. The restrictions can also be relaxed for any period by considering their “observation” as missing. However, in practice, it appears that several kinds of contemporaneous constraints yield unstable results. This is more especially true for constraints that contain differences (which is the case for non-binding constraints). The use of a special square root initializer improves in a significant way the stability of the algorithm.</p>
+</section>
+<section id="temporal-disaggragation-underlying-theory" class="level2" data-number="22.2">
+<h2 data-number="22.2" class="anchored" data-anchor-id="temporal-disaggragation-underlying-theory"><span class="header-section-number">22.2</span> Temporal Disaggragation underlying Theory</h2>
 
-</div>
 
-
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>Description of the idea of benchmarking is based on DAGUM, B.E., and CHOLETTE, P.A. (1994) and QUENNEVILLE, B. et all (2003). Detailed information can be found in: DAGUM, B.E., and CHOLETTE, P.A. (2006).<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>DAGUM, B.E., and CHOLETTE, P.A. (2006).<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>’<em>X-12-ARIMA Reference Manual’</em> (2011).<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p>HOOD, C.C.H. (2005).<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn5"><p>CHOLETTE, P.A. (1979).<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -364,11 +379,14 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./M-Temp-Disagg-Bench.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Methods for Temporal disaggregation and benchmarking</span></span>
+      <a href="./M-state-space-framework.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">State space modelling</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="./references.html" class="pagination-link">
+        <span class="nav-page-text">References</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->

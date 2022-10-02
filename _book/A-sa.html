@@ -164,7 +164,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./G-what-is-jd.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">JDemetra+ Overview</span></a>
+  <a href="./G-what-is-jd.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">JDemetra+</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -189,7 +189,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./A-benchmarking.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Benchmarking and temporal disagreggation</span></a>
+  <a href="./A-benchmarking.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Algorithms for benchmarking and temporal disagreggation</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -219,12 +219,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./T-production.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Production</span></a>
+  <a href="./T-production.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Production issues and cruncher use</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./T-tool-selection.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Tool selection issues</span></a>
+  <a href="./T-tool-selection.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Tool selection issues and heuristics</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -264,7 +264,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./M-state-space-framework.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">State Space Framework</span></a>
+  <a href="./M-state-space-framework.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">State space modelling</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./M-Temp-Disagg-Bench.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Methods for Temporal disaggregation and benchmarking</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -281,11 +286,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#chapter-building-process" id="toc-chapter-building-process" class="nav-link active" data-scroll-target="#chapter-building-process"><span class="toc-section-number">2.1</span>  Chapter building process</a>
-  <ul class="collapse">
-  <li><a href="#edit-content" id="toc-edit-content" class="nav-link" data-scroll-target="#edit-content"><span class="toc-section-number">2.1.1</span>  Edit content</a></li>
-  </ul></li>
-  <li><a href="#motivation" id="toc-motivation" class="nav-link" data-scroll-target="#motivation"><span class="toc-section-number">2.2</span>  Motivation</a></li>
+  <li><a href="#motivation" id="toc-motivation" class="nav-link active" data-scroll-target="#motivation"><span class="toc-section-number">2.1</span>  Motivation</a></li>
+  <li><a href="#data-frequencies" id="toc-data-frequencies" class="nav-link" data-scroll-target="#data-frequencies"><span class="toc-section-number">2.2</span>  Data frequencies</a></li>
   <li><a href="#unobserved-components-uc" id="toc-unobserved-components-uc" class="nav-link" data-scroll-target="#unobserved-components-uc"><span class="toc-section-number">2.3</span>  Unobserved Components (UC)</a></li>
   <li><a href="#detecting-seasonal-patterns" id="toc-detecting-seasonal-patterns" class="nav-link" data-scroll-target="#detecting-seasonal-patterns"><span class="toc-section-number">2.4</span>  Detecting seasonal patterns</a></li>
   <li><a href="#pre-treatment" id="toc-pre-treatment" class="nav-link" data-scroll-target="#pre-treatment"><span class="toc-section-number">2.5</span>  Pre-treatment</a>
@@ -333,21 +335,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 </header>
 
-<section id="chapter-building-process" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="chapter-building-process"><span class="header-section-number">2.1</span> Chapter building process</h2>
-<section id="edit-content" class="level3" data-number="2.1.1">
-<h3 data-number="2.1.1" class="anchored" data-anchor-id="edit-content"><span class="header-section-number">2.1.1</span> Edit content</h3>
-<ul>
-<li>much less text than current doc (too long)</li>
-<li>method details -&gt; to method chapters</li>
-<li>tools details in tools: GUI or R</li>
-</ul>
+<section id="motivation" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="motivation"><span class="header-section-number">2.1</span> Motivation</h2>
+<p>The primary aim of the seasonal adjustment process is to remove seasonal fluctuations from the time series.</p>
+<p>[insert def SA from b_ov]</p>
 </section>
-</section>
-<section id="motivation" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="motivation"><span class="header-section-number">2.2</span> Motivation</h2>
-<p>The primary aim of the seasonal adjustment process is to remove seasonal fluctuations from the time series. To achieve this goal, seasonal adjustment methods decompose the original time series into components that capture specific movements. These components are: trend-cycle, seasonality and irregularity. The trend-cycle component includes long-term and medium-term movements in the data. For seasonal adjustment purposes there is no need to divide this component into two parts. JDemetra+ refers to the trend-cycle as trend and consequently this convention is used here.</p>
-<p>This section presents the options of the seasonal adjustment processes performed by the methods implemented in JDemetra+ (X-12-ARIMA/X-13ARIMA-SEATS and TRAMO/SEATS) and discusses the output displayed by JDemetra+. As these seasonal adjustment methods use different approach to the decomposition, the output produced for both of them has different structure and content. Therefore, the results for both methods are discussed separately. However, in contrast to the original programs, in JDemetra+ some quality indicators have been implemented for both methods, allowing for an easier comparison of the results.</p>
+<section id="data-frequencies" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="data-frequencies"><span class="header-section-number">2.2</span> Data frequencies</h2>
+<p>The seasonal adjustment methods available in JDemetra+ aim to decompose a time series into components and remove seasonal fluctuations from the observed time series. The X-11 method considers monthly and quarterly series while SEATS is able to decompose series with 2, 3, 4, 6 and 12 observations per year.</p>
 </section>
 <section id="unobserved-components-uc" class="level2" data-number="2.3">
 <h2 data-number="2.3" class="anchored" data-anchor-id="unobserved-components-uc"><span class="header-section-number">2.3</span> Unobserved Components (UC)</h2>
@@ -362,7 +357,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p>The long-term evolution of the series;</p></li>
 <li><p>The cycle, that represents the smooth, almost periodic movement around the long-term evolution of the series. It reveals a succession of phases of growth and recession.</p></li>
 </ul>
-<p>For seasonal adjustment purposes both TRAMO-SEATS and X-13ARIMA-SEATS do not separate the long-term trend from the cycle as these two components are usually too short to perform their reliable estimation. Consequently, hereafter TRAMO-SEATS and X-13ARIMA-SEATS estimate the trend component. However, the original TRAMO-SEATS may separate the long-term trend from the cycle through the Hodrick-Precsott filter using the output of the standard decomposition. It should be remembered that JDemetra+ refers to the trend-cycle as trend (<span class="math inline">\(T_{t}\)</span>), and consequently this convention is used in this document.</p>
+<p>To achieve this goal, seasonal adjustment methods decompose the original time series into components that capture specific movements. These components are: trend-cycle, seasonality and irregularity. The trend-cycle component includes long-term and medium-term movements in the data. For seasonal adjustment purposes there is no need to divide this component into two parts. JDemetra+ refers to the trend-cycle as trend and consequently this convention is used here. For seasonal adjustment purposes both TRAMO-SEATS and X-13ARIMA-SEATS do not separate the long-term trend from the cycle as these two components are usually too short to perform their reliable estimation. Consequently, hereafter TRAMO-SEATS and X-13ARIMA-SEATS estimate the trend component. However, the original TRAMO-SEATS may separate the long-term trend from the cycle through the Hodrick-Precsott filter using the output of the standard decomposition. It should be remembered that JDemetra+ refers to the trend-cycle as trend (<span class="math inline">\(T_{t}\)</span>), and consequently this convention is used in this document.</p>
 <p>TRAMO-SEATS considers two decomposition models:</p>
 <ul>
 <li><p>The additive model: <span class="math inline">\(X_{t} = T_{t} + S_{t} + I_{t}\)</span>;</p></li>
@@ -386,6 +381,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   \]</span>, <span class="math display">\[4\]</span></p>
 <p>In general, for the observed time series, the assumptions concerning the nature of the process <span class="math display">\[1\]</span> do not hold for various reasons. Firstly, most observed time series display a mean that cannot be assumed to be constant due to the presence of a trend and the seasonal movements. Secondly, the variance of the time series may vary in time. Finally, the observed time series usually contain outliers, calendar effects and regression effects, which are treated as deterministic. Therefore, in practice a prior transformation and an adjustment need to be applied to the time series. The constant variance is usually achieved through taking a logarithmic transformation and the correction for the deterministic effects, while stationarity of the mean is achieved by applying regular and seasonal differencing. These processes, jointly referred to as preadjustment or linearization, can be performed with the TRAMO or RegARIMA models. Besides the linearisation, forecasts and backcasts of stochastic time series are estimated with the ARIMA model, allowing for later application of linear filters at both ends of time series. The estimation performed with these models delivers the stochastic part of the time series, called the linearised series, which is assumed to be an output of a linear stochastic process.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> The deterministic effects are removed from the time series and used to form the final components.</p>
 <p>In the next step the linearised series is decomposed into its components. There is a fundamental difference in how this process is performed in TRAMO-SEATS and X-13ARIMA-SEATS. In TRAMO-SEATS the decomposition is performed by the SEATS procedure, which follows a so called ARIMA model based approach. In principle, it aims to derive the components with statistical models. More information is given in the <a href="../theory/SA_SEATS.html">SEATS</a> section. X-13ARIMA-SEATS offers two algorithms for decomposition: SEATS and X-11. The X-11 algorithm, which is described in the <a href="../theory/SA_X11.html">X-11 section</a> section, decomposes a series by means of linear filters. Finally, in both methods the final components are derived by the assignment of the deterministic effects to the stochastic components. Consequently, the role of the ARIMA models is different in each method. TRAMO-SEATS applies the ARIMA models both in the preadjustment step and in the decomposition procedure. On the contrary, when the X-11 algorithm is used for decomposition, X-13ARIMA-SEATS uses the ARIMA model only in the preadjustment step. In summary, the decomposition procedure that results in an estimation of the seasonal component requires prior identification of the deterministic effects and their removal from the time series. This is achieved through the linearisation process performed by the TRAMO and the RegARIMA models, shortly discussed in the <a href="../theory/SA_lin.html">Linearisation with the TRAMO and RegARIMA models</a> section.The linearised series is then decomposed into the stochastic components with <a href="../theory/SA_SEATS.html">SEATS</a> or <a href="../theory/SA_X11.html">X-11</a> algorithms.</p>
+<p>X-13</p>
+<p>X-13ARIMA is a seasonal adjustment program developed and supported by the U.S. Census Bureau. It is based on the U.S. Census Bureau’s earlier X-11 program, the X-11-ARIMA program developed at Statistics Canada, the X-12-ARIMA program developed by the U.S. Census Bureau.</p>
 </section>
 <section id="detecting-seasonal-patterns" class="level2" data-number="2.4">
 <h2 data-number="2.4" class="anchored" data-anchor-id="detecting-seasonal-patterns"><span class="header-section-number">2.4</span> Detecting seasonal patterns</h2>
@@ -716,7 +713,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./G-what-is-jd.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">JDemetra+ Overview</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">JDemetra+</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">

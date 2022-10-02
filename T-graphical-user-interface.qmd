@@ -2,8 +2,4 @@
 
 ## Overview
 
-why use the graphical user interface ? what is not directly available in R yet?
 
-objective: describe the general features (independent of algorithms) - general layout - import data - documents - workspaces - specifications - output
-
-old content can be recycled but - very heavy (trim from md or txt files) - check version 3 - see if we stick with pasted screen shots

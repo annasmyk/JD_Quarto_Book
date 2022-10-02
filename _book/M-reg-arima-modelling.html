@@ -100,7 +100,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./G-what-is-jd.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">JDemetra+ Overview</span></a>
+  <a href="./G-what-is-jd.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">JDemetra+</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -125,7 +125,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./A-benchmarking.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Benchmarking and temporal disagreggation</span></a>
+  <a href="./A-benchmarking.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Algorithms for benchmarking and temporal disagreggation</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -155,12 +155,12 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./T-production.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Production</span></a>
+  <a href="./T-production.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Production issues and cruncher use</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./T-tool-selection.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Tool selection issues</span></a>
+  <a href="./T-tool-selection.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Tool selection issues and heuristics</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -200,7 +200,12 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./M-state-space-framework.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">State Space Framework</span></a>
+  <a href="./M-state-space-framework.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">State space modelling</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./M-Temp-Disagg-Bench.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Methods for Temporal disaggregation and benchmarking</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -218,7 +223,6 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview"><span class="toc-section-number">15.1</span>  Overview</a></li>
-  <li><a href="#regarima-model" id="toc-regarima-model" class="nav-link" data-scroll-target="#regarima-model"><span class="toc-section-number">15.2</span>  RegARIMA model</a></li>
   </ul>
 </nav>
     </div>
@@ -243,12 +247,6 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="overview" class="level2" data-number="15.1">
 <h2 data-number="15.1" class="anchored" data-anchor-id="overview"><span class="header-section-number">15.1</span> Overview</h2>
-<p>lot of information might be recycled from the old online documentation cf file 18-Meth-Reg-Arima-Modelling.Rmd where info from the old pages is gathered formulas and tables compatibility with quarto have to be checked before pasting in the book</p>
-<p>In the chapter on SA, in the pre-adjustment section, we tackle: purpose, principles and results of reg-arima models (tramo or reg-arima)</p>
-<p>Objectives of the chapter: * all the technical non SA specific details * differences (none left ?) between Tramo and Reg-Arima (X13)</p>
-</section>
-<section id="regarima-model" class="level2" data-number="15.2">
-<h2 data-number="15.2" class="anchored" data-anchor-id="regarima-model"><span class="header-section-number">15.2</span> RegARIMA model</h2>
 <p>The primary aim of seasonal adjustment is to remove the unobservable seasonal component from the observed series. The decomposition routines implemented in the seasonal adjustment methods make specific assumptions concerning the input series. One of the crucial assumptions is that the input series is stochastic, i.e.&nbsp;it is clean of deterministic effects. Another important limitation derives from the symmetric linear filter used in TRAMO-SEATS and X-13ARIMA-SEATS. A symmetric linear filter cannot be applied to the first and last observations with the same set of weights as for the central observations[^1]. Therefore, for the most recent observations these filters provide estimates that are subject to revisions.</p>
 <p>To overcome these constrains both seasonal adjustment methods discussed here include a modelling step that aims to analyse the time series development and provide a better input for decomposition purposes. The tool that is frequently used for this purpose is the ARIMA model, as discussed by BOX, G.E.P., and JENKINS, G.M. (1970). However, time series are often affected by the outliers, other deterministic effects and missing observations. The presence of these effects is not in line with the ARIMA model assumptions. The presence of outliers and other deterministic effects impede the identification of an optimal ARIMA model due to the important bias in the estimation of parameters of <a href="../theory/ACF_and_PACF.html">sample autocorrelation functions</a> (both global and partial)[^3]. Therefore, the original series need to be corrected for any deterministic effects and missing observations. This process is called linearisation and results in the stochastic series that can be modelled by ARIMA.</p>
 <p>For this purpose both TRAMO and RegARIMA use regression models with ARIMA errors. With these models TRAMO and RegARIMA also produce forecasts.</p>

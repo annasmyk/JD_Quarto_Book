@@ -1,19 +1,6 @@
 # Spectral Analysis Principles and Tools
 
-## Chapter building process
-
-### Edit content
-
-add: - R code or refernces to - rjd3sa (?) references to tests - more explanations on spectral analysis rationale
-
-### Vocabulary precision
-
--   spectral density
--   periodgram
--   spectral density estimator
--   "spectrum" is used too ubiquitously
-
-## Spectral analysis concepts and overview
+## Spectral analysis concepts
 
 A time series $x_{t}$ with stationary covariance, mean $μ$ and $k^{th}$ autocovariance $E(x_{t}-\mu)(x_{t- k}\mu))=\gamma(k)$ can be described as a weighted sum of periodic trigonometric functions: $sin(\omega t)$ and $cos(\omega t)$, where $\omega=\frac{2*pi}{T}$ denotes frequency. Spectral analysis investigates this frequency domain representation of $x_{t}$ to determine how important cycles of different frequencies are in accounting for the behavior of $x_{t}$.
 

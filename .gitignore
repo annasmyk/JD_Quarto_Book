@@ -6,8 +6,8 @@ nul
 /.quarto/
 
 
-
-
 *.log
 *.tex
 *.aux
+
+AUX-Chapter-Building-Companion.qmd

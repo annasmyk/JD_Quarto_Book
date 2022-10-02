@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>JDemetra+ online documentation - 1&nbsp; JDemetra+ Overview</title>
+<title>JDemetra+ online documentation - 1&nbsp; JDemetra+</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -70,7 +70,7 @@ ul.task-list li input[type="checkbox"] {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">JDemetra+ Overview</span></h1>
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">JDemetra+</span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -100,7 +100,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./G-what-is-jd.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">JDemetra+ Overview</span></a>
+  <a href="./G-what-is-jd.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">JDemetra+</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -125,7 +125,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./A-benchmarking.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Benchmarking and temporal disagreggation</span></a>
+  <a href="./A-benchmarking.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Algorithms for benchmarking and temporal disagreggation</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -155,12 +155,12 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./T-production.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Production</span></a>
+  <a href="./T-production.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Production issues and cruncher use</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./T-tool-selection.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Tool selection issues</span></a>
+  <a href="./T-tool-selection.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Tool selection issues and heuristics</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -200,7 +200,12 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./M-state-space-framework.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">State Space Framework</span></a>
+  <a href="./M-state-space-framework.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">State space modelling</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./M-Temp-Disagg-Bench.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Methods for Temporal disaggregation and benchmarking</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -217,29 +222,23 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#main-functions-overview" id="toc-main-functions-overview" class="nav-link active" data-scroll-target="#main-functions-overview"><span class="toc-section-number">2</span>  Main functions overview</a>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="toc-section-number">1.1</span>  Introduction</a></li>
+  <li><a href="#main-functions" id="toc-main-functions" class="nav-link" data-scroll-target="#main-functions"><span class="toc-section-number">1.2</span>  Main functions</a>
   <ul class="collapse">
-  <li><a href="#seasonal-adjustment-algorithms" id="toc-seasonal-adjustment-algorithms" class="nav-link" data-scroll-target="#seasonal-adjustment-algorithms"><span class="toc-section-number">2.1</span>  Seasonal adjustment algorithms</a>
-  <ul class="collapse">
-  <li><a href="#data-frequencies" id="toc-data-frequencies" class="nav-link" data-scroll-target="#data-frequencies"><span class="toc-section-number">2.1.1</span>  Data frequencies</a></li>
-  <li><a href="#x-13" id="toc-x-13" class="nav-link" data-scroll-target="#x-13"><span class="toc-section-number">2.1.2</span>  X-13</a></li>
-  <li><a href="#tramo-seats" id="toc-tramo-seats" class="nav-link" data-scroll-target="#tramo-seats"><span class="toc-section-number">2.1.3</span>  Tramo-Seats</a></li>
-  <li><a href="#stl" id="toc-stl" class="nav-link" data-scroll-target="#stl"><span class="toc-section-number">2.1.4</span>  STL</a></li>
-  <li><a href="#basic-structural-models" id="toc-basic-structural-models" class="nav-link" data-scroll-target="#basic-structural-models"><span class="toc-section-number">2.1.5</span>  Basic Structural Models</a></li>
+  <li><a href="#seasonal-adjustment-algorithms" id="toc-seasonal-adjustment-algorithms" class="nav-link" data-scroll-target="#seasonal-adjustment-algorithms"><span class="toc-section-number">1.2.1</span>  Seasonal adjustment algorithms</a></li>
+  <li><a href="#temporal-disaggregation-and-benchmarking" id="toc-temporal-disaggregation-and-benchmarking" class="nav-link" data-scroll-target="#temporal-disaggregation-and-benchmarking"><span class="toc-section-number">1.2.2</span>  Temporal Disaggregation and benchmarking</a></li>
+  <li><a href="#trend-cycle-estimation" id="toc-trend-cycle-estimation" class="nav-link" data-scroll-target="#trend-cycle-estimation"><span class="toc-section-number">1.2.3</span>  Trend-cycle estimation</a></li>
   </ul></li>
-  <li><a href="#trend-cycle-estimation" id="toc-trend-cycle-estimation" class="nav-link" data-scroll-target="#trend-cycle-estimation"><span class="toc-section-number">2.2</span>  Trend-cycle estimation</a></li>
-  <li><a href="#temporal-disaggregation-and-benchmarking" id="toc-temporal-disaggregation-and-benchmarking" class="nav-link" data-scroll-target="#temporal-disaggregation-and-benchmarking"><span class="toc-section-number">2.3</span>  Temporal Disaggregation and benchmarking</a></li>
-  <li><a href="#nowcasting" id="toc-nowcasting" class="nav-link" data-scroll-target="#nowcasting"><span class="toc-section-number">2.4</span>  Nowcasting</a></li>
-  <li><a href="#structure-of-this-book" id="toc-structure-of-this-book" class="nav-link" data-scroll-target="#structure-of-this-book"><span class="toc-section-number">2.5</span>  Structure of this book</a>
+  <li><a href="#nowcasting" id="toc-nowcasting" class="nav-link" data-scroll-target="#nowcasting"><span class="toc-section-number">1.3</span>  Nowcasting</a></li>
+  <li><a href="#structure-of-this-book" id="toc-structure-of-this-book" class="nav-link" data-scroll-target="#structure-of-this-book"><span class="toc-section-number">1.4</span>  Structure of this book</a>
   <ul class="collapse">
-  <li><a href="#algorithms" id="toc-algorithms" class="nav-link" data-scroll-target="#algorithms"><span class="toc-section-number">2.5.1</span>  Algorithms</a></li>
-  <li><a href="#tools" id="toc-tools" class="nav-link" data-scroll-target="#tools"><span class="toc-section-number">2.5.2</span>  Tools</a></li>
-  <li><a href="#underlying-statistical-methods" id="toc-underlying-statistical-methods" class="nav-link" data-scroll-target="#underlying-statistical-methods"><span class="toc-section-number">2.5.3</span>  Underlying Statistical Methods</a></li>
+  <li><a href="#algorithms" id="toc-algorithms" class="nav-link" data-scroll-target="#algorithms"><span class="toc-section-number">1.4.1</span>  Algorithms</a></li>
+  <li><a href="#tools" id="toc-tools" class="nav-link" data-scroll-target="#tools"><span class="toc-section-number">1.4.2</span>  Tools</a></li>
+  <li><a href="#underlying-statistical-methods" id="toc-underlying-statistical-methods" class="nav-link" data-scroll-target="#underlying-statistical-methods"><span class="toc-section-number">1.4.3</span>  Underlying Statistical Methods</a></li>
   </ul></li>
-  <li><a href="#how-to-use-this-book" id="toc-how-to-use-this-book" class="nav-link" data-scroll-target="#how-to-use-this-book"><span class="toc-section-number">2.6</span>  How to use this book</a>
+  <li><a href="#how-to-use-this-book" id="toc-how-to-use-this-book" class="nav-link" data-scroll-target="#how-to-use-this-book"><span class="toc-section-number">1.5</span>  How to use this book</a>
   <ul class="collapse">
-  <li><a href="#audience" id="toc-audience" class="nav-link" data-scroll-target="#audience"><span class="toc-section-number">2.6.1</span>  Audience</a></li>
-  </ul></li>
+  <li><a href="#audience" id="toc-audience" class="nav-link" data-scroll-target="#audience"><span class="toc-section-number">1.5.1</span>  Audience</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -249,7 +248,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">JDemetra+ Overview</span></h1>
+<h1 class="title d-none d-lg-block"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">JDemetra+</span></h1>
 </div>
 
 
@@ -263,67 +262,175 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>resources for description - R tools WP - JD+ esp pdf</p>
+<section id="introduction" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">1.1</span> Introduction</h2>
 <p>JD+ is a library of algorithms for seasonal adjustment and time series econometrics. You can learn more about the history of the project here (link to below)</p>
-<section id="main-functions-overview" class="level1" data-number="2">
-<h1 data-number="2"><span class="header-section-number">2</span> Main functions overview</h1>
-<p>Replace points below with a TABLE</p>
 <p>link to key references - handbooks (3) - sets of guidelines (2 or 3 ?)</p>
-<section id="seasonal-adjustment-algorithms" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="seasonal-adjustment-algorithms"><span class="header-section-number">2.1</span> Seasonal adjustment algorithms</h2>
-<section id="data-frequencies" class="level3" data-number="2.1.1">
-<h3 data-number="2.1.1" class="anchored" data-anchor-id="data-frequencies"><span class="header-section-number">2.1.1</span> Data frequencies</h3>
-<p>The seasonal adjustment methods available in JDemetra+ aim to decompose a time series into components and remove seasonal fluctuations from the observed time series. The X-11 method considers monthly and quarterly series while SEATS is able to decompose series with 2, 3, 4, 6 and 12 observations per year.</p>
 </section>
-<section id="x-13" class="level3" data-number="2.1.2">
-<h3 data-number="2.1.2" class="anchored" data-anchor-id="x-13"><span class="header-section-number">2.1.2</span> X-13</h3>
-<p>X-13ARIMA is a seasonal adjustment program developed and supported by the U.S. Census Bureau. It is based on the U.S. Census Bureau’s earlier X-11 program, the X-11-ARIMA program developed at Statistics Canada, the X-12-ARIMA program developed by the U.S. Census Bureau.</p>
+<section id="main-functions" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="main-functions"><span class="header-section-number">1.2</span> Main functions</h2>
+<section id="seasonal-adjustment-algorithms" class="level3" data-number="1.2.1">
+<h3 data-number="1.2.1" class="anchored" data-anchor-id="seasonal-adjustment-algorithms"><span class="header-section-number">1.2.1</span> Seasonal adjustment algorithms</h3>
+<p>All are available for low and high frequency data.</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Algorithms</th>
+<th>Access</th>
+<th>Key features</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>X13-Arima</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Tramo-Seats</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>STL</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>State Space Models (STS)</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
 </section>
-<section id="tramo-seats" class="level3" data-number="2.1.3">
-<h3 data-number="2.1.3" class="anchored" data-anchor-id="tramo-seats"><span class="header-section-number">2.1.3</span> Tramo-Seats</h3>
+<section id="temporal-disaggregation-and-benchmarking" class="level3" data-number="1.2.2">
+<h3 data-number="1.2.2" class="anchored" data-anchor-id="temporal-disaggregation-and-benchmarking"><span class="header-section-number">1.2.2</span> Temporal Disaggregation and benchmarking</h3>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Algorithms</th>
+<th>Access</th>
+<th>Key features</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Chow-lin</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Fernandez</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
 </section>
-<section id="stl" class="level3" data-number="2.1.4">
-<h3 data-number="2.1.4" class="anchored" data-anchor-id="stl"><span class="header-section-number">2.1.4</span> STL</h3>
+<section id="trend-cycle-estimation" class="level3" data-number="1.2.3">
+<h3 data-number="1.2.3" class="anchored" data-anchor-id="trend-cycle-estimation"><span class="header-section-number">1.2.3</span> Trend-cycle estimation</h3>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Algorithms</th>
+<th>Access</th>
+<th>Key features</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
 </section>
-<section id="basic-structural-models" class="level3" data-number="2.1.5">
-<h3 data-number="2.1.5" class="anchored" data-anchor-id="basic-structural-models"><span class="header-section-number">2.1.5</span> Basic Structural Models</h3>
 </section>
+<section id="nowcasting" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="nowcasting"><span class="header-section-number">1.3</span> Nowcasting</h2>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Algorithms</th>
+<th>Access</th>
+<th>Key features</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
 </section>
-<section id="trend-cycle-estimation" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="trend-cycle-estimation"><span class="header-section-number">2.2</span> Trend-cycle estimation</h2>
-</section>
-<section id="temporal-disaggregation-and-benchmarking" class="level2" data-number="2.3">
-<h2 data-number="2.3" class="anchored" data-anchor-id="temporal-disaggregation-and-benchmarking"><span class="header-section-number">2.3</span> Temporal Disaggregation and benchmarking</h2>
-</section>
-<section id="nowcasting" class="level2" data-number="2.4">
-<h2 data-number="2.4" class="anchored" data-anchor-id="nowcasting"><span class="header-section-number">2.4</span> Nowcasting</h2>
-</section>
-<section id="structure-of-this-book" class="level2" data-number="2.5">
-<h2 data-number="2.5" class="anchored" data-anchor-id="structure-of-this-book"><span class="header-section-number">2.5</span> Structure of this book</h2>
-<p>This book is divided in four parts, allowing the user to benefit from the resources from a different perspective.</p>
-<section id="algorithms" class="level3" data-number="2.5.1">
-<h3 data-number="2.5.1" class="anchored" data-anchor-id="algorithms"><span class="header-section-number">2.5.1</span> Algorithms</h3>
+<section id="structure-of-this-book" class="level2" data-number="1.4">
+<h2 data-number="1.4" class="anchored" data-anchor-id="structure-of-this-book"><span class="header-section-number">1.4</span> Structure of this book</h2>
+<p>This book is divided in four parts, allowing the user to access the resources from different perspectives.</p>
+<section id="algorithms" class="level3" data-number="1.4.1">
+<h3 data-number="1.4.1" class="anchored" data-anchor-id="algorithms"><span class="header-section-number">1.4.1</span> Algorithms</h3>
 <p>This part provides a step by step description of all the algorithms featured in JD+, grouped by purpose - seasonal adjustment - benchmarking - temporal disaggregation - … links</p>
 </section>
-<section id="tools" class="level3" data-number="2.5.2">
-<h3 data-number="2.5.2" class="anchored" data-anchor-id="tools"><span class="header-section-number">2.5.2</span> Tools</h3>
+<section id="tools" class="level3" data-number="1.4.2">
+<h3 data-number="1.4.2" class="anchored" data-anchor-id="tools"><span class="header-section-number">1.4.2</span> Tools</h3>
 <p>JDemetra+ offers 3 kinds of tools - A Graphical User Interface (GUI) which can be enhanced with plug-ins - A set of R packages - A Cruncher for mass production in seasonal adjustment</p>
 </section>
-<section id="underlying-statistical-methods" class="level3" data-number="2.5.3">
-<h3 data-number="2.5.3" class="anchored" data-anchor-id="underlying-statistical-methods"><span class="header-section-number">2.5.3</span> Underlying Statistical Methods</h3>
+<section id="underlying-statistical-methods" class="level3" data-number="1.4.3">
+<h3 data-number="1.4.3" class="anchored" data-anchor-id="underlying-statistical-methods"><span class="header-section-number">1.4.3</span> Underlying Statistical Methods</h3>
 <p>This part gives details about the underlying statistical methods to foster a more in-depth understanding of the algorithms.Those methods are described in the light and spirit of their use as building blocks of the algorithms presented above, not aiming at all at their comprehensive coverage.</p>
 </section>
 </section>
-<section id="how-to-use-this-book" class="level2" data-number="2.6">
-<h2 data-number="2.6" class="anchored" data-anchor-id="how-to-use-this-book"><span class="header-section-number">2.6</span> How to use this book</h2>
-<section id="audience" class="level3" data-number="2.6.1">
-<h3 data-number="2.6.1" class="anchored" data-anchor-id="audience"><span class="header-section-number">2.6.1</span> Audience</h3>
-<p>This book targets the beginner as well as seasoned methodologist.</p>
-<p>(Here explain why)</p>
+<section id="how-to-use-this-book" class="level2" data-number="1.5">
+<h2 data-number="1.5" class="anchored" data-anchor-id="how-to-use-this-book"><span class="header-section-number">1.5</span> How to use this book</h2>
+<section id="audience" class="level3" data-number="1.5.1">
+<h3 data-number="1.5.1" class="anchored" data-anchor-id="audience"><span class="header-section-number">1.5.1</span> Audience</h3>
+<p>This book targets the beginner as well as seasoned methodologist interested in using JDemetra+ software for any the purposes listed below.</p>
 <p>The documentation is built in layers allowing to skip details and complexity in the first steps</p>
 
 
-</section>
 </section>
 </section>
 
