@@ -3,8 +3,8 @@ project:
 
 book:
   title: "JDemetra+ online documentation"
-  author: "Stace documentation group"
-  date: "23/12/2022"
+  author: "Anna Smyk, Alain Quartier-la-Tente, Tanguy Barthelemy, Karsten Webel"
+  date: "12/23/2022"
   chapters:
     - index.qmd
     - G-what-is-jd.qmd
