@@ -1,4 +1,4 @@
-# Methods for Temporal disaggregation and benchmarking
+# Methods for Temporal disaggregation and benchmarking {.unnumbered}
 
 ## Benchmarking Underlying Theory
 

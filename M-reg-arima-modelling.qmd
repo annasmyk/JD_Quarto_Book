@@ -1,4 +1,4 @@
-# Reg-Arima models
+# Reg-Arima models {.unnumbered}
 
 ## Overview 
 

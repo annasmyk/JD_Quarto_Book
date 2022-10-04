@@ -1,4 +1,4 @@
-# Algorithms for benchmarking and temporal disagreggation
+# Algorithms for benchmarking and temporal disagreggation {.unnumbered}
 
 In this chapter we describe the practical implementation, the underlying theory in a dedicated chapter.(link)
 

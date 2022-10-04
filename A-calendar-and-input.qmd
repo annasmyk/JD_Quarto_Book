@@ -1,4 +1,4 @@
-# Calendar and user-defined corrections
+# Calendar and user-defined corrections {.unnumbered}
 
 This chapter describes the generating process of calendar regressors, outliers and other input variables. The use of this variables inside a seasonal adjustment process is described in the relevant chapter on SA or on SA of HF data.
 

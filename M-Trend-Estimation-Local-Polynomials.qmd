@@ -1,4 +1,4 @@
-# Local Polynomials Methods for Trend Estimation 
+# Local Polynomials Methods for Trend Estimation {.unnumbered}
 
 ## Chapter building process
 

@@ -1,4 +1,4 @@
-# SEATS decomposition
+# SEATS decomposition {.unnumbered}
 
 ## Introduction
 

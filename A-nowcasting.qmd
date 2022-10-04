@@ -1,4 +1,4 @@
-# Nowcasting
+# Nowcasting {.unnumbered}
 
 ## Motivation
 

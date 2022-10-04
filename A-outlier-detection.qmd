@@ -1,4 +1,4 @@
-# Outlier detection
+# Outlier detection {.unnumbered}
 
 (in or outside a seasonal adjustment process)
 

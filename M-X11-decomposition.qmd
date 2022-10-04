@@ -1,4 +1,4 @@
-# X-11 decomposition
+# X-11 decomposition {.unnumbered}
 
 ## Introduction
 

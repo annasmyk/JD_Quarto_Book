@@ -1,4 +1,4 @@
-# STL: Local regression decomposition
+# STL: Local regression decomposition {.unnumbered}
 
 
 

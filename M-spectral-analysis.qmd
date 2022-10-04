@@ -1,4 +1,4 @@
-# Spectral Analysis Principles and Tools
+# Spectral Analysis Principles and Tools {.unnumbered}
 
 ## Spectral analysis concepts
 

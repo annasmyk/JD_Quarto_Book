@@ -1,4 +1,4 @@
-# Plug-ins for JDemetra+
+# Plug-ins for JDemetra+ {.unnumbered}
 
 
 ## Main functions

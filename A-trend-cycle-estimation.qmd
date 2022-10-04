@@ -1,4 +1,4 @@
-# Trend-cycle estimation 
+# Trend-cycle estimation {.unnumbered}
 
 ## Motivation
 

@@ -1,4 +1,4 @@
-# Seasonal adjustment of high frequency data
+# Seasonal adjustment of high frequency data {.unnumbered}
 
 ## Motivation
 
