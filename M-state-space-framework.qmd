@@ -1,4 +1,4 @@
-# State space modelling
+# State space modelling {.unnumbered}
 
 ## Introduction
 State space forms play a central role in JD+. In a first point, we present the model used throughout the library. In a second point, we give an overview of the current implementation. The specificity of the state space framework of JD+ is stressed and the main modules are shortly presented. We finish the document with two examples based on the state space framework of JD+. The first one explains the basic structural models implemented in the "nbdemetra-sa-advanced" plug-in of JD+. The second one shows how the framework can be used to implement time-varying trading days models.
