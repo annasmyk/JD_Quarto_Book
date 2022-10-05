@@ -1,18 +1,15 @@
-# Seasonal Adjustment
+# Seasonal Adjustment {.unnumbered}
 
-## Chapter building process
-
-### Edit content
-
--   much less text than current doc (too long)
--   method details -\> to method chapters
--   tools details in tools: GUI or R
 
 ## Motivation
 
-The primary aim of the seasonal adjustment process is to remove seasonal fluctuations from the time series. To achieve this goal, seasonal adjustment methods decompose the original time series into components that capture specific movements. These components are: trend-cycle, seasonality and irregularity. The trend-cycle component includes long-term and medium-term movements in the data. For seasonal adjustment purposes there is no need to divide this component into two parts. JDemetra+ refers to the trend-cycle as trend and consequently this convention is used here.
+The primary aim of the seasonal adjustment process is to remove seasonal fluctuations from the time series. 
 
-This section presents the options of the seasonal adjustment processes performed by the methods implemented in JDemetra+ (X-12-ARIMA/X-13ARIMA-SEATS and TRAMO/SEATS) and discusses the output displayed by JDemetra+. As these seasonal adjustment methods use different approach to the decomposition, the output produced for both of them has different structure and content. Therefore, the results for both methods are discussed separately. However, in contrast to the original programs, in JDemetra+ some quality indicators have been implemented for both methods, allowing for an easier comparison of the results.
+[insert def SA from b_ov]
+
+## Data frequencies
+
+The seasonal adjustment methods available in JDemetra+ aim to decompose a time series into components and remove seasonal fluctuations from the observed time series. The X-11 method considers monthly and quarterly series while SEATS is able to decompose series with 2, 3, 4, 6 and 12 observations per year.
 
 ## Unobserved Components (UC)
 
@@ -30,6 +27,7 @@ In general, the trend consists of 2 sub-components:
 
 -   The cycle, that represents the smooth, almost periodic movement around the long-term evolution of the series. It reveals a succession of phases of growth and recession.
 
+To achieve this goal, seasonal adjustment methods decompose the original time series into components that capture specific movements. These components are: trend-cycle, seasonality and irregularity. The trend-cycle component includes long-term and medium-term movements in the data. For seasonal adjustment purposes there is no need to divide this component into two parts. JDemetra+ refers to the trend-cycle as trend and consequently this convention is used here.
 For seasonal adjustment purposes both TRAMO-SEATS and X-13ARIMA-SEATS do not separate the long-term trend from the cycle as these two components are usually too short to perform their reliable estimation. Consequently, hereafter TRAMO-SEATS and X-13ARIMA-SEATS estimate the trend component. However, the original TRAMO-SEATS may separate the long-term trend from the cycle through the Hodrick-Precsott filter using the output of the standard decomposition. It should be remembered that JDemetra+ refers to the trend-cycle as trend ($T_{t}$), and consequently this convention is used in this document.
 
 TRAMO-SEATS considers two decomposition models:
@@ -71,11 +69,14 @@ In general, for the observed time series, the assumptions concerning the nature 
 
 In the next step the linearised series is decomposed into its components. There is a fundamental difference in how this process is performed in TRAMO-SEATS and X-13ARIMA-SEATS. In TRAMO-SEATS the decomposition is performed by the SEATS procedure, which follows a so called ARIMA model based approach. In principle, it aims to derive the components with statistical models. More information is given in the [SEATS](../theory/SA_SEATS.html) section. X-13ARIMA-SEATS offers two algorithms for decomposition: SEATS and X-11. The X-11 algorithm, which is described in the [X-11 section](../theory/SA_X11.html) section, decomposes a series by means of linear filters. Finally, in both methods the final components are derived by the assignment of the deterministic effects to the stochastic components. Consequently, the role of the ARIMA models is different in each method. TRAMO-SEATS applies the ARIMA models both in the preadjustment step and in the decomposition procedure. On the contrary, when the X-11 algorithm is used for decomposition, X-13ARIMA-SEATS uses the ARIMA model only in the preadjustment step. In summary, the decomposition procedure that results in an estimation of the seasonal component requires prior identification of the deterministic effects and their removal from the time series. This is achieved through the linearisation process performed by the TRAMO and the RegARIMA models, shortly discussed in the [Linearisation with the TRAMO and RegARIMA models](../theory/SA_lin.html) section.The linearised series is then decomposed into the stochastic components with [SEATS](../theory/SA_SEATS.html) or [X-11](../theory/SA_X11.html) algorithms.
 
+
+X-13
+
+X-13ARIMA is a seasonal adjustment program developed and supported by the U.S. Census Bureau. It is based on the U.S. Census Bureau's earlier X-11 program, the X-11-ARIMA program developed at Statistics Canada, the X-12-ARIMA program developed by the U.S. Census Bureau.
+
 ## Detecting seasonal patterns
 
 ## Pre-treatment
-
-
 
 ### Calendar correction
 
@@ -111,7 +112,38 @@ this part should allow to use x-11 via RJDemetra as well as via GUI
 
 ### Output 1: series
 
-### Output 2: diagnostics
+X-11 gives access to a great part of it's intermediate computations
+
+Here we focus on the final components (Table D)
+
+List of series 
+(edit : table with name and meaning)
+
+Retrieve in GUI 
+
+Retrieve in R 
+
+
+
+### Output 2: final parameters 
+
+Relevant if parameters not set manually
+
+List 
+Final trend filter 
+final seasonal filer 
+
+Retrieve via GUI 
+image
+
+Retrieve in R
+
+
+### Output 3: diagnostics
+
+X11 produces the following type diagnostics or quality measures 
+Table with link to detail
+
 
 ### Specifications / parameters
 
@@ -197,12 +229,12 @@ Sets different seasonal filters by period in order to account for seasonal heter
 
 -   **Automatic Henderson filter** our user-defined
 
-    -   default: lentgh 13
+    -   default: length 13
     -   unticked: user defined length choice
 
 -   **Henderson filter** length choice
 
-    -   values: odd number in in $[3,101]$
+    -   values: odd number in $[3,101]$
     -   default value: 13
 
 Check: will user choice be applied to all steps or only to final phase D step
@@ -213,32 +245,43 @@ here v2, adjust to v3 asap
 
 #### Parameter setting in R packages
 
-extensive help on functions available in package help pages Rcode snippet
+extensive help on functions available in package help pages 
+Rcode snippets
 
 In R, to implement any param change, it is required to retrieve current spec, modify it and apply it again (see T R packages chapter for details). (specific link)
 
 here example changing all the settings (just remove irrelevant changes)
 
 Rjdemetra (v2)
-Edit : here static R code and link to a "worked example" wih dynamic code 
+Edit : here static R code
+link to a "worked example" wih dynamic code 
+ticked box in GUI corresponds to ...? in R 
 
-```{r}
+
+```{r eval=FALSE}
+#Creating a modified specification, customizing all available X11 parameters
+modified_spec<- x13_spec(current_sa_model,
+    #x11.mode="?",
+    #x11.seasonalComp = "?",
+    x11.fcasts = -2,
+    x11.bcasts = -1,
+    x11.lsigma = 1.2,
+    x11.usigma = 2.8,
+    x11.calendarSigma = NA, # EDIT with example
+      x11.sigmaVector = NA,
+    x11.excludeFcasts = NA
+    # filters 
+    x11.trendAuto = NA, # needed inf value ?
+    x11.trendma = 23,
+    x11.seasonalma = "S3X9
+    # details on seasonal filters)
+
+#New SA estimation : apply modified_spec
+modified_sa_model<-x13(raw_series,modified_spec)
+
 ```
 
-
-- customizing decomposition filters
-Henderson moving average (ma) length for trend
-Seasonal moving average (ma) length for seasonal component's extraction
-- starting from spec_1
-spec_6 <- x13_spec(spec_1,x11.trendma = 23,x11.seasonalma = "S3X9")
-- new sa processing
-model_sa_6<-x13(serie_brute,spec_5)
-
-- to access the current parameters 
-s_decomp ?
-
-
-rjd3sa ? 
+EDIT : link to package help page v2 +v3
 
 ## STL
 

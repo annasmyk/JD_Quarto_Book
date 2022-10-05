@@ -1,5 +1,3 @@
-# Tool selection issues
+# Tool selection issues and heuristics {.unnumbered}
 
-might be integrated to another chapter
 
-objective : select wisely between GUI(+ cruncher and plug ins) and R packages

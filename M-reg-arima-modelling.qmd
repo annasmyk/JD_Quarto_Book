@@ -1,14 +1,6 @@
-# Reg-Arima models
+# Reg-Arima models {.unnumbered}
 
-## Overview
-
-lot of information might be recycled from the old online documentation cf file 18-Meth-Reg-Arima-Modelling.Rmd where info from the old pages is gathered formulas and tables compatibility with quarto have to be checked before pasting in the book
-
-In the chapter on SA, in the pre-adjustment section, we tackle: purpose, principles and results of reg-arima models (tramo or reg-arima)
-
-Objectives of the chapter: \* all the technical non SA specific details \* differences (none left ?) between Tramo and Reg-Arima (X13)
-
-## RegARIMA model
+## Overview 
 
 The primary aim of seasonal adjustment is to remove the unobservable seasonal component from the observed series. The decomposition routines implemented in the seasonal adjustment methods make specific assumptions concerning the input series. One of the crucial assumptions is that the input series is stochastic, i.e. it is clean of deterministic effects. Another important limitation derives from the symmetric linear filter used in TRAMO-SEATS and X-13ARIMA-SEATS. A symmetric linear filter cannot be applied to the first and last observations with the same set of weights as for the central observations\[\^1\]. Therefore, for the most recent observations these filters provide estimates that are subject to revisions.
 

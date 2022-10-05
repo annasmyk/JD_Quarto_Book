@@ -1,4 +1,4 @@
-# R packages
+# R packages {.unnumbered}
 
 ## Available algorithms 
 

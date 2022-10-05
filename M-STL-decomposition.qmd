@@ -1,4 +1,4 @@
-# STL: Local regression decomposition
+# STL: Local regression decomposition {.unnumbered}
 
-goal of the chapter : details on STL which are not in the SA chapter
+
 

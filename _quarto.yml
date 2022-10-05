@@ -3,17 +3,15 @@ project:
 
 book:
   title: "JDemetra+ online documentation"
-  author: "Stace documentation group"
-  date: "12/01/2022"
+  author: "Anna Smyk, Alain Quartier-la-Tente, Tanguy Barthelemy, Karsten Webel"
+  date: "12/23/2022"
   chapters:
     - index.qmd
     - G-what-is-jd.qmd
-    - G-quick-start.qmd
-    - G-main-features.qmd
     - A-sa.qmd
+    - A-sa-hf.qmd
     - A-outlier-detection.qmd
     - A-calendar-and-input.qmd
-    - A-sa-hf.qmd
     - A-benchmarking.qmd
     - A-trend-cycle-estimation.qmd
     - A-nowcasting.qmd
@@ -27,8 +25,10 @@ book:
     - M-X11-decomposition.qmd
     - M-STL-decomposition.qmd
     - M-SEATS-decomposition.qmd
+    - M-Trend-Estimation-Local-Polynomials.qmd
     - M-tests.qmd
     - M-state-space-framework.qmd
+    - M-Temp-Disagg-Bench.qmd
     - references.qmd
 
 bibliography: references.bib

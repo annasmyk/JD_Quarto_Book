@@ -5,6 +5,12 @@
 nul
 /.quarto/
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 23212349a65273f6c7ad023478198c310b7d8397
 *.log
 *.tex
 *.aux
+
+AUX-Chapter-Building-Companion.qmd

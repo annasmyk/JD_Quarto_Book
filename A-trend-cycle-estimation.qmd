@@ -1,9 +1,12 @@
-# Trend-cycle estimation 
+# Trend-cycle estimation {.unnumbered}
 
 ## Motivation
 
-## Underlying Theory
+## Estimation Methods
 
 ## Tools
 
+### rjd3 highfeq package 
+
 ### rjdfilters package
+
