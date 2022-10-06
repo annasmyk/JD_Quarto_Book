@@ -256,35 +256,35 @@
     "href": "T-r-packages.html",
     "title": "R packages",
     "section": "",
-    "text": "table"
+    "text": "Main Algorithms accessible via R packages\n\n\n\n\n\n\n\n\n\nDomain\nAlgorithm\nPackage\nComments\n\n\n\n\n\nSeasonal Adjustment\nX13-Arima\n\n\n\n\n\n\nTramo-Seats\n\n\n\n\n\n\n\nrjd3highfreq\n\n\n\n\n\nSTL()\nrjd3stl\n\n\n\n\n\nBasic Structural Models\nrjd3sts\n\n\n\n\nTrend estimation\nMoving Averages, Local Polynomial\nrjdfilters\n\n\n\n\n\nidem\nrjd3highfreq\n\n\n\n\n\n\n\n\n\n\n\nBenchmarking and TD\nrjd3bench"
   },
   {
     "objectID": "T-r-packages.html#organisation-overview",
     "href": "T-r-packages.html#organisation-overview",
     "title": "R packages",
     "section": "Organisation overview",
-    "text": "Organisation overview\na suite (order)\ngeneral output organisation"
+    "text": "Organisation overview\na suite (order)\ndependencies\nutility packages\ngeneral output organisation"
   },
   {
     "objectID": "T-r-packages.html#installation-procedure",
     "href": "T-r-packages.html#installation-procedure",
     "title": "R packages",
     "section": "Installation procedure",
-    "text": "Installation procedure"
+    "text": "Installation procedure\n\n#install.packages(\"remotes\")\nremotes::install_github(\"palatej/rjd3toolkit\")\nremotes::install_github(\"palatej/rjd3modelling\")\nremotes::install_github(\"palatej/rjd3sa\")\nremotes::install_github(\"palatej/rjd3arima\")\nremotes::install_github(\"palatej/rjd3x13\")\nremotes::install_github(\"palatej/rjd3tramoseats\")\nremotes::install_github(\"palatej/rjdemetra3\")\nremotes::install_github(\"palatej/rjdfilters\")\nremotes::install_github(\"palatej/rjd3sts\")\nremotes::install_github(\"palatej/rjd3highfreq\")\nremotes::install_github(\"palatej/rjd3stl\")\nremotes::install_github(\"palatej/rjd3bench\")\nremotes::install_github(\"AQLT/ggdemetra3\")\n\nBelow you will find a comprehensive list and main functions by categories\nfor detailed function, you can refer to each package’s own R documentation"
   },
   {
-    "objectID": "T-r-packages.html#interaction-with-gui",
-    "href": "T-r-packages.html#interaction-with-gui",
+    "objectID": "T-r-packages.html#utility-packages",
+    "href": "T-r-packages.html#utility-packages",
     "title": "R packages",
-    "section": "Interaction with GUI",
-    "text": "Interaction with GUI"
+    "section": "Utility packages",
+    "text": "Utility packages\n\nrjd3toolkit\nContains several utility functions used in other rjd packages and several functions to perform test.\nUtility\nTests - Normality tests: Bowman-Shenton (bowmanshenton()), Doornik-Hansen (doornikhansen()), Jarque-Bera (jarquebera())\n\nRuns tests (randomness of data): mean or the median (testofruns()) or up and down runs test (testofupdownruns())\nautocorrelation functions (usual, inverse, partial)\naggregate() to aggregate a time series to a higher frequency\n\nExample\n\nlibrary(rjd3toolkit)\nset.seed(100)\nx = rnorm(1000);y = rlnorm(1000)\nbowmanshenton(x) # normal distribution\nbowmanshenton(y) # log-normal distribution\ntestofruns(x) # random data\ntestofruns(y) # random data\ntestofruns(1:1000) # non-random data\nautocorrelations(x)\nautocorrelations.inverse(x)\nautocorrelations.partial(x)\n\n\n\nrjd3modelling\nPurpose : creating input variables (regressors) for to be used in Reg-Arima\n\ncreate user-defined calendar and trading-days regressors: calendar.new() (create a new calendar), calendar.holiday() (add a specific holiday, e.g. christmas), calendar.easter() (easter related day) and calendar.fixedday())\noutliers regressors (AO, LS, TC, SO, Ramp, intervention variables), calendar related regressors (stock, leap year, periodic dummies and contrasts, trigonometric variables) -> to be added quadratic ramps\nRange-mean regression test (to choose log transformation), Canova-Hansen (td.ch()) and trading-days f-test (td.f())\nspecification functions for rjd3x13 and rjd3tramoseats\n\nmore explanations and example needed here\n\nExample of calendar specification\n\nlibrary(rjd3modelling)\nfr_cal <- calendar.new()\ncalendar.holiday(fr_cal, \"NEWYEAR\")\ncalendar.holiday(fr_cal, \"EASTERMONDAY\")\ncalendar.holiday(fr_cal, \"MAYDAY\")\ncalendar.fixedday(fr_cal, month = 5, day = 8,\n                  start = \"1953-03-20\")\n# calendar.holiday(fr_cal, \"WHITMONDAY\") # Equivalent to:\ncalendar.easter(fr_cal, offset = 61)\n\ncalendar.fixedday(fr_cal, month = 7, day = 14)\n# calendar.holiday(fr_cal, \"ASSUMPTION\")\ncalendar.easter(fr_cal, offset = 61)\ncalendar.holiday(fr_cal, \"ALLSAINTSDAY\")\ncalendar.holiday(fr_cal, \"ARMISTICE\")\ncalendar.holiday(fr_cal, \"CHRISTMAS\")\n\nUse holidays() to get the days of the holidays and htd() to get the trading days regressors\n\nholidays(fr_cal, \"2020-12-24\", 10,single = T)\n\n           [,1]\n2020-12-24    0\n2020-12-25    1\n2020-12-26    0\n2020-12-27    0\n2020-12-28    0\n2020-12-29    0\n2020-12-30    0\n2020-12-31    0\n2021-01-01    1\n2021-01-02    0\n\ns = ts(0, start = 2020, end = c(2020, 11), frequency = 12)\n# Trading-days regressors (each day has a different effect, sunday as contrasts)\ntd_reg <- htd(fr_cal, s = s, groups = c(1, 2, 3, 4, 5, 6, 0))\n# Working-days regressors (Monday = ... = Friday; Saturday = Sunday = contrasts)\nwd_reg <- htd(fr_cal, s = s, groups = c(1, 1, 1, 1, 1, 0, 0))\n# Monday = ... = Friday; Saturday; Sunday = contrasts\nwd_reg <- htd(fr_cal, s = s, groups = c(1, 1, 1, 1, 1, 2, 0))\nwd_reg\n\n            group-1    group-2\nJan 2020  2.0000000  0.0000000\nFeb 2020  0.0000000  1.0000000\nMar 2020 -1.7809251 -0.7968209\nApr 2020  0.7809251 -0.2031791\nMay 2020 -3.1554920  0.4740847\nJun 2020  5.1554920  0.5259153\nJul 2020  2.0000000  0.0000000\nAug 2020 -4.0000000  0.0000000\nSep 2020  2.0000000  0.0000000\nOct 2020  2.0000000  1.0000000\nNov 2020  0.0000000  0.0000000\n\n\n\n\nExample of outliers\n\ns = ts(0, start = 2000, end = 2005, frequency = 12)\nao = ao.variable(s = s, date = \"2001-03-01\")\nls = ls.variable(s = s, date = \"2001-01-01\")\ntc = tc.variable(s = s, date = \"2001-01-01\", rate = 0.7)\nso = so.variable(s = s, date = \"2003-05-01\")\nramp = ramp.variable(s = s, range = c(\"2001-01-01\",\"2001-12-01\"))\nplot(ts.union(ao, ls, tc, so, ramp), plot.type = \"single\",\n     col = c(\"red\",\"lightgreen\",\"orange\",\"blue\",\"black\"))"
   },
   {
-    "objectID": "T-r-packages.html#full-list",
-    "href": "T-r-packages.html#full-list",
+    "objectID": "T-r-packages.html#interaction-with-workspaces-and-gui",
+    "href": "T-r-packages.html#interaction-with-workspaces-and-gui",
     "title": "R packages",
-    "section": "Full list",
-    "text": "Full list\n\nrjd3modelling\nmain functions: table"
+    "section": "Interaction with workspaces and GUI",
+    "text": "Interaction with workspaces and GUI"
   },
   {
     "objectID": "T-plug-ins.html",
@@ -401,16 +401,16 @@
   {
     "objectID": "M-state-space-framework.html",
     "href": "M-state-space-framework.html",
-    "title": "1  State space modelling",
+    "title": "State space modelling",
     "section": "",
     "text": "State space forms play a central role in JD+. In a first point, we present the model used throughout the library. In a second point, we give an overview of the current implementation. The specificity of the state space framework of JD+ is stressed and the main modules are shortly presented. We finish the document with two examples based on the state space framework of JD+. The first one explains the basic structural models implemented in the “nbdemetra-sa-advanced” plug-in of JD+. The second one shows how the framework can be used to implement time-varying trading days models."
   },
   {
     "objectID": "M-state-space-framework.html#state-space-forms-ssf",
     "href": "M-state-space-framework.html#state-space-forms-ssf",
-    "title": "1  State space modelling",
-    "section": "1.2 State space forms (SSF)",
-    "text": "1.2 State space forms (SSF)\n\n1.2.1 General form\nThe general linear gaussian state-space model can be written in many different ways. The measurement equation and the state equation considered in JD+ 3.0 are presented below.\n\\[\n\\begin{array}{r l}\ny_t&= Z_t\\alpha_t+\\epsilon_t, \\quad \\epsilon_t \\sim\\mathcal{N}(0,\\sigma^2H_t)\\\\\n\\alpha_{t+1}&= T_t\\alpha_t+\\mu_t,\\quad \\mu_t\\sim\\mathcal{N}(0,\\sigma^2V_t)\n\\end{array}\n\\]\n\\(y_t\\) is the observation at period t, \\(\\alpha_t\\) is the state vector. \\(\\epsilon_t, \\mu_t\\) are assumed to be serially independent at all time points and independent between them at all time points.\nThe residuals of the state equation will be modelled as \\(\\mu_t=S_t\\xi_t, \\quad \\xi_t\\sim\\mathcal{N}(0,\\sigma^2I)\\).\nIn other words, \\(V_t=S_tS_t'\\).\nThe initial conditions of the filter are defined as follows:\n\\[\\alpha_{-1}=a_{-1}+A_{-1}\\delta+\\mu_{-1}\\]\n\\[\\delta\\sim\\mathcal{N}(0,\\sigma^2\\kappa I)\\]\n\\[\\mu_{-1}\\sim\\mathcal{N}(0,\\sigma^2P_*)\\]\nwhere \\(\\kappa\\) is arbitrary large.\n\\(P_*\\) is the variance of the stationary part of the initial state vector and models the diffuse part.\nThe model used in JD+ is quasi-identical to the model discussed in Durbin-Koopman."
+    "title": "State space modelling",
+    "section": "State space forms (SSF)",
+    "text": "State space forms (SSF)\n\nGeneral form\nThe general linear gaussian state-space model can be written in many different ways. The measurement equation and the state equation considered in JD+ 3.0 are presented below.\n\\[\n\\begin{array}{r l}\ny_t&= Z_t\\alpha_t+\\epsilon_t, \\quad \\epsilon_t \\sim\\mathcal{N}(0,\\sigma^2H_t)\\\\\n\\alpha_{t+1}&= T_t\\alpha_t+\\mu_t,\\quad \\mu_t\\sim\\mathcal{N}(0,\\sigma^2V_t)\n\\end{array}\n\\]\n\\(y_t\\) is the observation at period t, \\(\\alpha_t\\) is the state vector. \\(\\epsilon_t, \\mu_t\\) are assumed to be serially independent at all time points and independent between them at all time points.\nThe residuals of the state equation will be modelled as \\(\\mu_t=S_t\\xi_t, \\quad \\xi_t\\sim\\mathcal{N}(0,\\sigma^2I)\\).\nIn other words, \\(V_t=S_tS_t'\\).\nThe initial conditions of the filter are defined as follows:\n\\[\\alpha_{-1}=a_{-1}+A_{-1}\\delta+\\mu_{-1}\\]\n\\[\\delta\\sim\\mathcal{N}(0,\\sigma^2\\kappa I)\\]\n\\[\\mu_{-1}\\sim\\mathcal{N}(0,\\sigma^2P_*)\\]\nwhere \\(\\kappa\\) is arbitrary large.\n\\(P_*\\) is the variance of the stationary part of the initial state vector and models the diffuse part.\nThe model used in JD+ is quasi-identical to the model discussed in Durbin-Koopman."
   },
   {
     "objectID": "M-Temp-Disagg-Bench.html",

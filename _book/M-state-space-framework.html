@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>JDemetra+ online documentation - 1&nbsp; State space modelling</title>
+<title>JDemetra+ online documentation - State space modelling</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -71,7 +71,7 @@ ul.task-list li input[type="checkbox"] {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">State space modelling</span></h1>
+      <h1 class="quarto-secondary-nav-title">State space modelling</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -201,7 +201,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./M-state-space-framework.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">State space modelling</span></a>
+  <a href="./M-state-space-framework.html" class="sidebar-item-text sidebar-link active">State space modelling</a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -223,10 +223,10 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="toc-section-number">1.1</span>  Introduction</a></li>
-  <li><a href="#state-space-forms-ssf" id="toc-state-space-forms-ssf" class="nav-link" data-scroll-target="#state-space-forms-ssf"><span class="toc-section-number">1.2</span>  State space forms (SSF)</a>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#state-space-forms-ssf" id="toc-state-space-forms-ssf" class="nav-link" data-scroll-target="#state-space-forms-ssf">State space forms (SSF)</a>
   <ul class="collapse">
-  <li><a href="#general-form" id="toc-general-form" class="nav-link" data-scroll-target="#general-form"><span class="toc-section-number">1.2.1</span>  General form</a></li>
+  <li><a href="#general-form" id="toc-general-form" class="nav-link" data-scroll-target="#general-form">General form</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -236,7 +236,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">State space modelling</span></h1>
+<h1 class="title d-none d-lg-block">State space modelling</h1>
 </div>
 
 
@@ -250,14 +250,14 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="introduction" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="introduction"><span class="header-section-number">1.1</span> Introduction</h2>
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
 <p>State space forms play a central role in JD+. In a first point, we present the model used throughout the library. In a second point, we give an overview of the current implementation. The specificity of the state space framework of JD+ is stressed and the main modules are shortly presented. We finish the document with two examples based on the state space framework of JD+. The first one explains the basic structural models implemented in the “nbdemetra-sa-advanced” plug-in of JD+. The second one shows how the framework can be used to implement time-varying trading days models.</p>
 </section>
-<section id="state-space-forms-ssf" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="state-space-forms-ssf"><span class="header-section-number">1.2</span> State space forms (SSF)</h2>
-<section id="general-form" class="level3" data-number="1.2.1">
-<h3 data-number="1.2.1" class="anchored" data-anchor-id="general-form"><span class="header-section-number">1.2.1</span> General form</h3>
+<section id="state-space-forms-ssf" class="level2">
+<h2 class="anchored" data-anchor-id="state-space-forms-ssf">State space forms (SSF)</h2>
+<section id="general-form" class="level3">
+<h3 class="anchored" data-anchor-id="general-form">General form</h3>
 <p>The general linear gaussian state-space model can be written in many different ways. The measurement equation and the state equation considered in JD+ 3.0 are presented below.</p>
 <p><span class="math display">\[
 \begin{array}{r l}
