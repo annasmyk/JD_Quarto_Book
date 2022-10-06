@@ -228,7 +228,6 @@ Main functions:
 
 -  Refresh policies: `regarima.refresh()` and `x13.refresh()`
 
-## rjd3tramoseats
 ### rjd3tramoseats
 
 Main functions:
@@ -240,7 +239,7 @@ Main functions:
 -  Refresh policies: `tramo.refresh()` and `tramoseats.refresh()`
 
 
-### Exemple
+### Example
 
 ```{r, eval=FALSE}
 # {r tramoseats, out.height="70%"}
@@ -254,8 +253,6 @@ Main functions:
 # m$result
 ```
 
-## rjdemetra3
-
 ### rjdemetra3
 
 Functions to manipulate JDemetra+ workspaces:
@@ -265,9 +262,7 @@ Functions to manipulate JDemetra+ workspaces:
 - Will contain all the functionalities of `rjdworkspace`
 
 
-## rjd3highfreq and rjd3stl
-
-### rjd3highfreq and rjd3stl
+### rjd3highfreq 
 
 Seasonal adjustment of high frequency data:
 
@@ -277,14 +272,22 @@ Seasonal adjustment of high frequency data:
 
 `rjd3stl` : STL, MSTL, ISTL, loess 
 
-
-See Session 3: High Frequency Data and https://github.com/palatej/test_rjd3hf
-
-
-# Other packages
+### rjd3stl
 
 
-## ggdemetra3
+
+
+## Add-in package
+table 
+ggdemetra 
+rjworkspace 
+
+
+attention version 2 and version: adaptation under construction
+version 2, retrieve R tools info here 
+
+### ggdemetra
+
 ### ggdemetra3 
 
 Like `ggdemetra` but compatible with `rjdemetra3`: ggplot2 to add seasonal adjustment statistics to your plot. Also compatible with high-frequency methods (WIP): 
