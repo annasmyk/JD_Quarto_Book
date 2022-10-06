@@ -117,7 +117,7 @@ more explanations and example needed here
 
 #### Example of calendar specification
 
-```{r}
+```{r, eval=FALSE}
 library(rjd3modelling)
 fr_cal <- calendar.new()
 calendar.holiday(fr_cal, "NEWYEAR")
@@ -138,7 +138,7 @@ calendar.holiday(fr_cal, "CHRISTMAS")
 
 Use `holidays()` to get the days of the holidays and `htd()` to get the trading days regressors
 
-```{r}
+```{r, eval=FALSE}
 holidays(fr_cal, "2020-12-24", 10,single = T)
 s = ts(0, start = 2020, end = c(2020, 11), frequency = 12)
 # Trading-days regressors (each day has a different effect, sunday as contrasts)
@@ -155,7 +155,7 @@ links to calendar correction chapters
 
 #### Example of outliers 
 
-```{r outplot}
+```{r, eval=FALSE}
 s = ts(0, start = 2000, end = 2005, frequency = 12)
 ao = ao.variable(s = s, date = "2001-03-01")
 ls = ls.variable(s = s, date = "2001-01-01")
@@ -188,7 +188,7 @@ plot(ts.union(ao, ls, tc, so, ramp), plot.type = "single",
 
 EXP : Always correct the trend and remove the mean before seasonality tests:
 
-```{r}
+```{r, eval=FALSE}
 library(rjd3sa)
 y = diff(rjd3toolkit::ABS$X0.2.09.10.M, 1); y = y - mean(y)
 seasonality.f(y, 12)
@@ -240,19 +240,18 @@ Main functions:
 -  Refresh policies: `tramo.refresh()` and `tramoseats.refresh()`
 
 
-### Exemple {.allowframebreaks}
+### Exemple
 
-\footnotesize
-
-```{r tramoseats, out.height="70%"}
-spec = spec_tramoseats_default("rsafull") |> 
-  set_easter(type = "IncludeEasterMonday") |> 
-  set_tradingdays(test = "Separate_T") |> 
-  set_seats(algorithm = "KalmanSmoother")
-m = rjd3tramoseats::tramoseats(y, spec)
-# More informations:
-names(m)
-m$result
+```{r, eval=FALSE}
+# {r tramoseats, out.height="70%"}
+# spec = spec_tramoseats_default("rsafull") |>
+#   set_easter(type = "IncludeEasterMonday") |>
+#   set_tradingdays(test = "Separate_T") |>
+#   set_seats(algorithm = "KalmanSmoother")
+# m = rjd3tramoseats::tramoseats(y, spec)
+# # More informations:
+# names(m)
+# m$result
 ```
 
 ## rjdemetra3
@@ -286,11 +285,11 @@ See Session 3: High Frequency Data and https://github.com/palatej/test_rjd3hf
 
 
 ## ggdemetra3
-### ggdemetra3 {.allowframebreaks}
+### ggdemetra3 
 
-Like `ggdemetra` but compatible with `rjdemetra3`: ggplot2 to add seasonal adjustment statistics to your plot. Also compatible with high-frequency methods (WIP): \footnotesize
+Like `ggdemetra` but compatible with `rjdemetra3`: ggplot2 to add seasonal adjustment statistics to your plot. Also compatible with high-frequency methods (WIP): 
 
-```{r ggdemetra3, out.height="85%", message = FALSE, warning = FALSE}
+```{r ggdemetra3, out.height="85%", eval=FALSE,message = FALSE, warning = FALSE}
 library(ggdemetra3)
 spec <- spec_x13_default("rsa3") |> set_tradingdays(option = "WorkingDays")
 p_ipi_fr <- ggplot(data = ipi_c_eu_df, mapping = aes(x = date, y = FR)) +
@@ -332,16 +331,14 @@ p_sa +
 -  change the filter used in X-11 for TC extraction
 
 
-```{r, include = FALSE}
+```{r, include = FALSE, eval=FALSE}
 library(rjdfilters)
 ```
 
-### Create moving average `moving_average()` {.allowframebreaks}
-
-\footnotesize
+### Create moving average `moving_average()`
 
 (Recall: $B^iX_t=X_{t-p}$ and $F^iX_t=X_{t+p}$)
-```{r}
+```{r,eval=FALSE}
 library(rjdfilters)
 m1 = moving_average(rep(1,3), lags = 1); m1 # Forward MA
 m2 = moving_average(rep(1,3), lags = -1); m2 # centered MA
@@ -351,7 +348,7 @@ m1 * m2
 ```
 
 Can be used to create all the MA of X-11:
-```{r}
+```{r,eval=FALSE}
 e1 <- moving_average(rep(1,12), lags = -6)
 e1 <- e1/sum(e1)
 e2 <- moving_average(rep(1/12, 12), lags = -5)
@@ -382,7 +379,7 @@ tc_f <- henderson_mm * sa_2
 ```
 
 
-```{r x11Filters,out.height="90%"}
+```{r, eval=FALSE, x11Filters,out.height="90%"}
 par(mai = c(0.3, 0.3, 0.2, 0))
 layout(matrix(c(1,1,2,3), 2, 2, byrow = TRUE))
 
@@ -394,14 +391,13 @@ plot_gain(tc_f);plot_gain(sa_2, col = "orange", add = TRUE)
 plot_phase(tc_f);plot_phase(sa_2, col = "orange", add = TRUE)
 ```
 
-```{r,include = FALSE}
+```{r,include = FALSE,eval=FALSE}
 par(def.par)
 ```
 
 ### Apply a moving average
 
-\footnotesize
-```{r exApply,out.height="70%"}
+```{r, eval=FALSE, exApply,out.height="70%"}
 y <- retailsa$AllOtherGenMerchandiseStores
 trend <- y * tc_1
 sa <- y * sa_1
