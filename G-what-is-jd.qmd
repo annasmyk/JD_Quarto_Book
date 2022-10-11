@@ -6,6 +6,12 @@ JD+ is a library of algorithms for seasonal adjustment and time series econometr
 
 link to key references - handbooks (3) - sets of guidelines (2 or 3 ?)
 
+## Version 2.2.3 and version 3
+approach 
+
+as v2 still widely used ...
+
+
 ## Main functions
 
 ### Seasonal adjustment algorithms
