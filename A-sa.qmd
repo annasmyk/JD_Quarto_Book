@@ -1,11 +1,18 @@
 # Seasonal Adjustment {.unnumbered}
 
 
+using a ws structure 
+stand alone with R packages (TS objects or num vectors)
+
+- approach choice: cf tool selection chapter 
+- explanations below work for both soltions
+- how to read a ws in R also in tool selection
+
 ## Motivation
 
-The primary aim of the seasonal adjustment process is to remove seasonal fluctuations from the time series. 
+The primary aim of the seasonal adjustment process is to remove seasonal fluctuations from the time series.
 
-[insert def SA from b_ov]
+\[insert def SA from b_ov\]
 
 ## Data frequencies
 
@@ -27,8 +34,7 @@ In general, the trend consists of 2 sub-components:
 
 -   The cycle, that represents the smooth, almost periodic movement around the long-term evolution of the series. It reveals a succession of phases of growth and recession.
 
-To achieve this goal, seasonal adjustment methods decompose the original time series into components that capture specific movements. These components are: trend-cycle, seasonality and irregularity. The trend-cycle component includes long-term and medium-term movements in the data. For seasonal adjustment purposes there is no need to divide this component into two parts. JDemetra+ refers to the trend-cycle as trend and consequently this convention is used here.
-For seasonal adjustment purposes both TRAMO-SEATS and X-13ARIMA-SEATS do not separate the long-term trend from the cycle as these two components are usually too short to perform their reliable estimation. Consequently, hereafter TRAMO-SEATS and X-13ARIMA-SEATS estimate the trend component. However, the original TRAMO-SEATS may separate the long-term trend from the cycle through the Hodrick-Precsott filter using the output of the standard decomposition. It should be remembered that JDemetra+ refers to the trend-cycle as trend ($T_{t}$), and consequently this convention is used in this document.
+To achieve this goal, seasonal adjustment methods decompose the original time series into components that capture specific movements. These components are: trend-cycle, seasonality and irregularity. The trend-cycle component includes long-term and medium-term movements in the data. For seasonal adjustment purposes there is no need to divide this component into two parts. JDemetra+ refers to the trend-cycle as trend and consequently this convention is used here. For seasonal adjustment purposes both TRAMO-SEATS and X-13ARIMA-SEATS do not separate the long-term trend from the cycle as these two components are usually too short to perform their reliable estimation. Consequently, hereafter TRAMO-SEATS and X-13ARIMA-SEATS estimate the trend component. However, the original TRAMO-SEATS may separate the long-term trend from the cycle through the Hodrick-Precsott filter using the output of the standard decomposition. It should be remembered that JDemetra+ refers to the trend-cycle as trend ($T_{t}$), and consequently this convention is used in this document.
 
 TRAMO-SEATS considers two decomposition models:
 
@@ -69,83 +75,321 @@ In general, for the observed time series, the assumptions concerning the nature 
 
 In the next step the linearised series is decomposed into its components. There is a fundamental difference in how this process is performed in TRAMO-SEATS and X-13ARIMA-SEATS. In TRAMO-SEATS the decomposition is performed by the SEATS procedure, which follows a so called ARIMA model based approach. In principle, it aims to derive the components with statistical models. More information is given in the [SEATS](../theory/SA_SEATS.html) section. X-13ARIMA-SEATS offers two algorithms for decomposition: SEATS and X-11. The X-11 algorithm, which is described in the [X-11 section](../theory/SA_X11.html) section, decomposes a series by means of linear filters. Finally, in both methods the final components are derived by the assignment of the deterministic effects to the stochastic components. Consequently, the role of the ARIMA models is different in each method. TRAMO-SEATS applies the ARIMA models both in the preadjustment step and in the decomposition procedure. On the contrary, when the X-11 algorithm is used for decomposition, X-13ARIMA-SEATS uses the ARIMA model only in the preadjustment step. In summary, the decomposition procedure that results in an estimation of the seasonal component requires prior identification of the deterministic effects and their removal from the time series. This is achieved through the linearisation process performed by the TRAMO and the RegARIMA models, shortly discussed in the [Linearisation with the TRAMO and RegARIMA models](../theory/SA_lin.html) section.The linearised series is then decomposed into the stochastic components with [SEATS](../theory/SA_SEATS.html) or [X-11](../theory/SA_X11.html) algorithms.
 
-
 X-13
 
 X-13ARIMA is a seasonal adjustment program developed and supported by the U.S. Census Bureau. It is based on the U.S. Census Bureau's earlier X-11 program, the X-11-ARIMA program developed at Statistics Canada, the X-12-ARIMA program developed by the U.S. Census Bureau.
 
 ## Detecting seasonal patterns
 
+## Quick launch (global) with default specifications 
+
+(move table)
+
+
+
 ## Pre-treatment
+
+why ?
+
+globalstructure 
+regression with ARIMA structure for residuals
+
+we'll see it in more details
+- regressors 
+- model
+
+Template for each 
+default params
+(quick launch)
+INPUT (?)
+Output1: series
+Output2: Final Params
+Output3: Diagnostics
+User-defined parameters
 
 ### Calendar correction
 
+Rationale : why correct
+
+Guidelines ..it has to make sense ex-ante
+
+Method
+regresion as deterministic effects
+
 details of regressor building in calendar chapter
 
+default params : cf defalut spec tab 
+- working days 
+- trading days 
+- easter
+- national calmendars not taken into accout
+
+set this option 
+GUI specif detail 
+R
+
+How to correct this ?
+solution 1: if working with GUI
+build a new calendar in GUI (chap C)
+set this option
+import it : here
+
+solution 2: 
+import external regressors 
+can be built with rjd3modelling (link)
+
+set this option
+
+Output2: Final Params
+TEST of presence or not
+GUI 
+
+
+Output3: Diagnostics
+- results of regression
+student, F test
+- td spectral peaks 
+- residual effect in $SA$ or $I$ series 
+
+### Outliers and intervention variables
+
 #### rationale
+improve decomposition 
+(cf guidelines)
 
 #### method
+regression
 
-#### tools
+#### Outlier types
 
-### Outliers
+#### Automatic detction
 
-#### rationale
+for BSM cf below
+modifing specifs 
+- type
+- critiacal value 
+- span
 
-#### method
+(link to revision policies)
 
-#### tools
+#### Pre-specified Outliers 
+
+#### User-defined input : building regressors 
+rjd3modelling
+
+#### Outliers vs intervention variables 
+
+assigning to componenets
+
+#### Allocation of effects
+
+##### output
 
 ### Reg-Arima Model
 
-Tramo and Reg-Arima are very similar...details in M chapter
+Tramo and Reg-Arima are very similar...details in M chapter, parameters and output are the same, treated as one here
 
-### Model evaluation
+Output1: series (if relevant)
+Retrieve regressors 
+GUI (cruncher) 
+R
 
-goodness-of-fit
+Retrieve Pre-adjustment series 
+Table 
+
+in GUI (cruncher)
+
+in R 
+
+
+Output2: Final Params
+what is selected and estimated by the software (not in the specifs above)
+
+arima orders (if relevant) and coefficients 
+
+GUI 
+
+R
+
+
+Output3: Diagnostics Goodness of fit
+(principle : first diagnostics then what can be fine tuned)
+
+User defined parameters
+
+Modifiying specifications 
+GUI
+R
+
+
+## Modelling 
+
+the reg arima part can be run without decompostion 
+slight differences in parameters
+
 
 ## X-11 Decompostion
 
-this part should allow to use x-11 via RJDemetra as well as via GUI
+this part should allow to use x-11 via R as well as via GUI
 
-### Quick launch with default specifications
+### Default specifications
+
+| Spec identifier | Log/level detection | Outliers detection | Calendar effects | ARIMA          |
+|---------------|---------------|---------------|---------------|---------------|
+| RSA0            | *NA*                | *NA*               | *NA*             | Airline(+mean) |
+| RSA1            | automatic           | AO/LS/TC           | *NA*             | Airline(+mean) |
+| RSA2c           | automatic           | AO/LS/TC           | 2 TD vars+Easter | Airline(+mean) |
+| RSA3            | automatic           | AO/LS/TC           | *NA*             | automatic      |
+| RSA4c           | automatic           | AO/LS/TC           | 2 TD vars+Easter | automatic      |
+| RSA4c           | automatic           | AO/LS/TC           | 6 TD vars+Easter | automatic      |
+| X-11            | *NA*                | *NA*               | *NA*             | *NA*           |
+
+if identifiers slightly different in GUI, make it clear + pb of names in V3
+
+in calendar effects : what is tested, link to calendar chapter
+
+typos : RJDemetra doc (pull req)
+
+-   7 TD vars
+
+### Quick Launch
+
+(linked from intro JDemetra+ intro chapter )
 
 ### Output 1: series
 
-X-11 gives access to a great part of it's intermediate computations
+| Series                    | Final X11 name | Final Results | Reallocation of pre-adjustment effects |
+|----------------|---------------|---------------|--------------------------|
+| Raw series (forecasts)    |                | y (y_f)       |                                        |
+| Final seasonal component  | D16            | s (s_f)       |                                        |
+| Final trend               | D12            | t (t_f)       |                                        |
+| Final irregular           | D13            | i (i_f)       |                                        |
+| Calendar component        |                |               |                                        |
+| Seasonal without calendar | D10            |               |                                        |
 
-Here we focus on the final components (Table D)
+make clear reallocation of outliers effects (frequent questions)
 
-List of series 
-(edit : table with name and meaning)
+reallocation of intervention variables effects
 
-Retrieve in GUI 
+att : diff D10 and D16 ?
 
-Retrieve in R 
+X-11 gives access to a great part of it's intermediate computations (link to M chapter)
 
+Here we focus on the final components main series (= 2nd part of D tables, outliers effects added)
 
+List of series (edit : table with name and meaning)
 
-### Output 2: final parameters 
+Retrieve in GUI (forecasts glued)
 
-Relevant if parameters not set manually
+link to chap GUI : generate output in GUI (generic) link to chap cruncher : generate output with cruncher
 
-List 
-Final trend filter 
-final seasonal filer 
+Retrieve in R (forecast in a specific variable)
 
-Retrieve via GUI 
-image
+Link to appendix: final output overview
 
-Retrieve in R
+### Output 2: final parameters
 
+Relevant if parameters not set manually, or any parameters automatically selected by the software without having a fixed default value. (The rest of the parameters is set in the spec) To manually set hose parameters and see all the fixed default values see Specifications / parameters section
+
+Final trend filter : length of Henderson filter applied for final estimation (in the second part of the D step).
+
+Final seasonal filer: length of Henderson filter applied for final estimation (in the second part of the D step).
+
+Retrieve via GUI image ? Node Decomposition(X11) \> Final Filters (make node clickable, link to GUI chapter, handling of nodes)
+
+Retrieve in R From the model_sa object (link to R package chap global explanation)
+
+```{r, eval=FALSE}
+
+model_sa$decomposition$s_filter
+model_sa$decomposition$t_filter
+
+# add version 3 equivalent
+```
 
 ### Output 3: diagnostics
 
-X11 produces the following type diagnostics or quality measures 
-Table with link to detail
+X11 produces the following type diagnostics or quality measures Table with link to detail - SI ratios
 
+#### SI-ratios
 
-### Specifications / parameters
+It is a plot (paste example)
+
+Description, and computation details
+
+Retrieve in GUI NODE Main Results \> SI-Ratios
+
+in GUI values cannot be retrieved Retrieve in R
+
+```{r, eval=FALSE}
+# data frame with values 
+model_sa$decomposition$si_ratio
+# customizable plot
+plot(model_sa, type= "cal-seas-irr",first_date = c(2015, 1))
+
+# add version 3 equivalent
+```
+
+#### M-statistics
+
+At the end of the decomposition, X-11 algorithm provides quality mesures of the decomposition called "M statistics": 11 statistics (M1 to M11) and 2 summary indicators (Q et Q-M2). By design (clickable) $0<M_x<3$ and acceptance region is $M_x \leq 1$ Formula for $Q$ (They are based on F-tables)
+
+-   **M1** The relative contribution of the irregular over three months span
+-   **M2** The relative contribution of the irregular component to the stationary portion of the variance
+-   **M3** The amount of month to month change in the irregular component as compared to the amount of month to month change in the trend-cycle (I/C-ratio)
+-   **M5** MCD (Months for Cyclical Dominance): The number of months it takes the change in the trend-cycle to surpass the amount of change in the irregular
+-   **M6** The amount of year to year change in the irregular as compared to the amount of year to year change in the seasonal (only valid for 3x5 seasonal filter)
+-   **M7** The amount of moving seasonality present relative to the amount of stable seasonality
+-   **M8** The size of the fluctuations in the seasonal component throughout the whole series
+-   **M9** The average linear movement in the seasonal component throughout the whole series
+-   **M10** Same as 8, calculated for recent years only (4 years, N-2 to N-5)
+-   **M11** Same as 9, calculated for recent years only
+
+For futher details link to Lothian-Mory (quid in M_meth X11)
+
+Retrieve in GUI NODE Decompostion(X-11) \> Quality Measures \> Summary
+
+Retrieve in R
+
+```{r, eval=FALSE}
+
+model_sa$decomposition$mstats
+# add version 3 equivalent
+```
+
+#### Detailed Quality measures
+
+List (+ link to chap M: add descp from Lothian Mory/ current doc) make clear: on whic x11 series is the measure based
+
+in GUI all the diagnostics below can be retrieved in NODE Decomposition(X-11) \> Quality Measures \> Details
+
+If a stat can be retrievedin R, the code example is in the corresponding paragraph, otherwise it is not possible
+
+##### Average differences without regard to sign over the indicated span
+
+##### Relative contribution to the variance of the differences in the components of the original series
+
+##### Average differences with regard to sign and standard deviation over indicated span
+
+##### Average duration of run
+
+##### I/C ratio over indicated span
+
+##### I/C ratio (global)
+
+##### Relative contribution to the stationnary part of the variance in the original series
+
+##### Autocorrelations in the irregular
+
+##### Heteroskedasticity
+
+Cochran test on equal variances within each period
+
+##### Moving seasonality ratios (MSR)
+
+### User-defined parameters
+
+Here is described how to change default values or automatic choices.
 
 #### List
 
@@ -193,31 +437,21 @@ Length of the backcasts generated by the RegARIMA model - in months (positive va
     -   ticked : forecasts and backcasts from the RegARIMA model not used in Irregular Correction
     -   unticked (default): forecasts and backcasts used
 
-##### Seasonality extraction filters
+##### Seasonality extraction filters choice
 
--   **Seasonal filter** choice
+Specifies which be used to estimate the seasonal factors for the entire series (link to relevant part in M chapter):
 
-Specifies which be used to estimate the seasonal factors for the entire series (link to relevant part in M chapter)
+-   **Seasonal filter**
 
--   <em>S</em>3 × 1 -- [3 × 1]{.math .inline} moving average.
+-   default value: *MSR* (Moving seasonality ratio), automatic choice of final seasonal filter (cf msr defintion and decison table: link ), initial filters are computed with $3\times 3$
 
--   <em>S</em>3 × 3 -- [3 × 3]{.math .inline} moving average.
+-   choices : $3\times 1$, $3\times 3$, $3\times 5$, $3\times 9$, $3\times 15$ or Stable
 
--   <em>S</em>3 × 5 -- [3 × 5]{.math .inline} moving average.
+-   "Stable" : constat factor for each calendar period (simple moving average of all $S+I$ values for each period)
 
--   <em>S</em>3 × 9 -- [3 × 9 ]{.math .inline}moving average.
+User choices will be applied to all steps or only to final phase D step.
 
--   <em>S</em>3 × 15 -- [3 × 15]{.math .inline} moving average.
-
--   <em>Stable</em> -- a single seasonal factor for each calendar period is generated by calculating a simple average over all values for each period (taken after detrending and outlier correction).
-
--   <em>X11Default</em> -- [3 × 3]{.math .inline} moving average is used to calculate the initial seasonal factors and a [3 × 5]{.math .inline} moving average to calculate the final seasonal factors.
-
--   <em>Msr</em> -- automatic choice of a seasonal filter. The seasonal filters can be selected for the entire series, or for a particular month or quarter.
-
--   default value: <em>Msr</em>
-
-Check: will user choice be applied to all steps or only to final phase D step
+The seasonal filters can be selected for the entire series, or for a particular month or quarter.
 
 -   **Details on seasonal filters**
 
@@ -241,22 +475,19 @@ Check: will user choice be applied to all steps or only to final phase D step
 
 #### Parameter setting in GUI
 
-here v2, adjust to v3 asap
+Specification (general or particular to one series) image
+
+All the parameters above can be set with the specification (link to general explanations) box
 
 #### Parameter setting in R packages
 
-extensive help on functions available in package help pages 
-Rcode snippets
+extensive help on functions available in package help pages Rcode snippets
 
 In R, to implement any param change, it is required to retrieve current spec, modify it and apply it again (see T R packages chapter for details). (specific link)
 
 here example changing all the settings (just remove irrelevant changes)
 
-Rjdemetra (v2)
-Edit : here static R code
-link to a "worked example" wih dynamic code 
-ticked box in GUI corresponds to ...? in R 
-
+Rjdemetra (v2) Edit : here static R code link to a "worked example" wih dynamic code ticked box in GUI corresponds to ...? in R
 
 ```{r eval=FALSE}
 #Creating a modified specification, customizing all available X11 parameters
@@ -274,7 +505,7 @@ modified_spec<- x13_spec(current_sa_model,
     x11.trendAuto = NA, # needed inf value ?
     x11.trendma = 23,
     x11.seasonalma = "S3X9
-    # details on seasonal filters)
+    # details on seasonal filters ?)
 
 #New SA estimation : apply modified_spec
 modified_sa_model<-x13(raw_series,modified_spec)
@@ -283,9 +514,41 @@ modified_sa_model<-x13(raw_series,modified_spec)
 
 EDIT : link to package help page v2 +v3
 
+## SEATS Decomposition
+
+policy: what is readable in GUI should be explained (even if shortly with link to details here) intermediate series ?
+
+decomp of lineraized series in level or log
+
+#### Default specifications
+
+modif table 
+
+#### Quick Launch
+
+#### Output1: series
+Table 
+
+GUI 
+
+R
+
+
+#### Output2: Final Params
+
+what is chosen automatically or default 
+(cf estp)
+
+#### Output3: Diagnostics
+
+non decompo model and consquences 
+
+#### Fine-tuning : user defined parameters
+
+
 ## STL
 
-## SEATS
+use on pre-treated data
 
 ## SSF
 

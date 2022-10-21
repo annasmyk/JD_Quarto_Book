@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>JDemetra+ online documentation - State space modelling</title>
+<title>JDemetra+ online documentation - Methods</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./M-Temp-Disagg-Bench.html" rel="next">
-<link href="./M-tests.html" rel="prev">
+<link href="./M-spectral-analysis.html" rel="next">
+<link href="./T-tool-selection.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -61,7 +61,6 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 </head>
 
@@ -71,7 +70,7 @@ ul.task-list li input[type="checkbox"] {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">State space modelling</h1>
+      <h1 class="quarto-secondary-nav-title">Methods</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -186,7 +185,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./P_Methods.html" class="sidebar-item-text sidebar-link">Methods</a>
+            <a href="./P_Methods.html" class="sidebar-item-text sidebar-link active">Methods</a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -229,7 +228,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./M-state-space-framework.html" class="sidebar-item-text sidebar-link active">State space modelling</a>
+  <a href="./M-state-space-framework.html" class="sidebar-item-text sidebar-link">State space modelling</a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -249,24 +248,14 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
-   
-  <ul>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
-  <li><a href="#state-space-forms-ssf" id="toc-state-space-forms-ssf" class="nav-link" data-scroll-target="#state-space-forms-ssf">State space forms (SSF)</a>
-  <ul class="collapse">
-  <li><a href="#general-form" id="toc-general-form" class="nav-link" data-scroll-target="#general-form">General form</a></li>
-  </ul></li>
-  </ul>
-</nav>
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">State space modelling</h1>
+<h1 class="title d-none d-lg-block">Methods</h1>
 </div>
 
 
@@ -280,35 +269,8 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="introduction" class="level2">
-<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
-<p>State space forms play a central role in JD+. In a first point, we present the model used throughout the library. In a second point, we give an overview of the current implementation. The specificity of the state space framework of JD+ is stressed and the main modules are shortly presented. We finish the document with two examples based on the state space framework of JD+. The first one explains the basic structural models implemented in the “nbdemetra-sa-advanced” plug-in of JD+. The second one shows how the framework can be used to implement time-varying trading days models.</p>
-</section>
-<section id="state-space-forms-ssf" class="level2">
-<h2 class="anchored" data-anchor-id="state-space-forms-ssf">State space forms (SSF)</h2>
-<section id="general-form" class="level3">
-<h3 class="anchored" data-anchor-id="general-form">General form</h3>
-<p>The general linear gaussian state-space model can be written in many different ways. The measurement equation and the state equation considered in JD+ 3.0 are presented below.</p>
-<p><span class="math display">\[
-\begin{array}{r l}
-y_t&amp;= Z_t\alpha_t+\epsilon_t, \quad \epsilon_t \sim\mathcal{N}(0,\sigma^2H_t)\\
-\alpha_{t+1}&amp;= T_t\alpha_t+\mu_t,\quad \mu_t\sim\mathcal{N}(0,\sigma^2V_t)
-\end{array}
-\]</span></p>
-<p><span class="math inline">\(y_t\)</span> is the observation at period t, <span class="math inline">\(\alpha_t\)</span> is the state vector. <span class="math inline">\(\epsilon_t, \mu_t\)</span> are assumed to be serially independent at all time points and independent between them at all time points.</p>
-<p>The residuals of the state equation will be modelled as <span class="math inline">\(\mu_t=S_t\xi_t, \quad \xi_t\sim\mathcal{N}(0,\sigma^2I)\)</span>.</p>
-<p>In other words, <span class="math inline">\(V_t=S_tS_t'\)</span>.</p>
-<p>The initial conditions of the filter are defined as follows:</p>
-<p><span class="math display">\[\alpha_{-1}=a_{-1}+A_{-1}\delta+\mu_{-1}\]</span></p>
-<p><span class="math display">\[\delta\sim\mathcal{N}(0,\sigma^2\kappa I)\]</span></p>
-<p><span class="math display">\[\mu_{-1}\sim\mathcal{N}(0,\sigma^2P_*)\]</span></p>
-<p>where <span class="math inline">\(\kappa\)</span> is arbitrary large.</p>
-<p><span class="math inline">\(P_*\)</span> is the variance of the stationary part of the initial state vector and models the diffuse part.</p>
-<p>The model used in JD+ is quasi-identical to the model discussed in Durbin-Koopman.</p>
 
 
-</section>
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -411,13 +373,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./M-tests.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Tests</span>
+      <a href="./T-tool-selection.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Tool selection issues and heuristics</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./M-Temp-Disagg-Bench.html" class="pagination-link">
-        <span class="nav-page-text">Methods for Temporal disaggregation and benchmarking</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./M-spectral-analysis.html" class="pagination-link">
+        <span class="nav-page-text">Spectral Analysis Principles and Tools</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
