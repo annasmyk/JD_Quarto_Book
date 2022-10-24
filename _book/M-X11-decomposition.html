@@ -1,0 +1,946 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.1.251">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>JDemetra+ online documentation - X-11 decomposition</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./M-STL-decomposition.html" rel="next">
+<link href="./M-reg-arima-modelling.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title">X-11 decomposition</h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">JDemetra+ online documentation</a> 
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">Preface</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./G-what-is-jd.html" class="sidebar-item-text sidebar-link">JDemetra+</a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./P_Algorithms.html" class="sidebar-item-text sidebar-link">Algorithms</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A-sa.html" class="sidebar-item-text sidebar-link">Seasonal Adjustment</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A-sa-hf.html" class="sidebar-item-text sidebar-link">Seasonal adjustment of high-requency data</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A-outlier-detection.html" class="sidebar-item-text sidebar-link">Outlier detection</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A-calendar-and-input.html" class="sidebar-item-text sidebar-link">Calendar and user-defined corrections</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A-benchmarking.html" class="sidebar-item-text sidebar-link">Benchmarking and temporal disagreggation</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A-trend-cycle-estimation.html" class="sidebar-item-text sidebar-link">Trend-cycle estimation</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A-nowcasting.html" class="sidebar-item-text sidebar-link">Nowcasting</a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./P_Tools.html" class="sidebar-item-text sidebar-link">Tools</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./T-graphical-user-interface.html" class="sidebar-item-text sidebar-link">Graphical User Interface</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./T-r-packages.html" class="sidebar-item-text sidebar-link">R packages</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./T-plug-ins.html" class="sidebar-item-text sidebar-link">Plug-ins for JDemetra+</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./T-production.html" class="sidebar-item-text sidebar-link">Production issues and cruncher</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./T-tool-selection.html" class="sidebar-item-text sidebar-link">Tool selection issues and heuristics</a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./P_Methods.html" class="sidebar-item-text sidebar-link">Methods</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./M-spectral-analysis.html" class="sidebar-item-text sidebar-link">Spectral Analysis Principles and Tools</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./M-reg-arima-modelling.html" class="sidebar-item-text sidebar-link">Reg-Arima models</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./M-X11-decomposition.html" class="sidebar-item-text sidebar-link active">X-11 decomposition</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./M-STL-decomposition.html" class="sidebar-item-text sidebar-link">STL: Local regression decomposition</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./M-SEATS-decomposition.html" class="sidebar-item-text sidebar-link">SEATS decomposition</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./M-Trend-Estimation-Local-Polynomials.html" class="sidebar-item-text sidebar-link">Local Polynomials Methods for Trend Estimation</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./M-tests.html" class="sidebar-item-text sidebar-link">Tests</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./M-state-space-framework.html" class="sidebar-item-text sidebar-link">State space modelling</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./M-Temp-Disagg-Bench.html" class="sidebar-item-text sidebar-link">Temporal disaggregation and benchmarking</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">References</a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a>
+  <ul class="collapse">
+  <li><a href="#m-stats" id="toc-m-stats" class="nav-link" data-scroll-target="#m-stats">M-stats</a></li>
+  <li><a href="#detailed-tables" id="toc-detailed-tables" class="nav-link" data-scroll-target="#detailed-tables">Detailed tables</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block">X-11 decomposition</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    
+  </div>
+  
+
+</header>
+
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p>A complete documentation of the X-11 method is available in LADIRAY, D., and QUENNEVILLE, B. (2001). The X-11 program is the result of a long tradition of non-parametric smoothing based on moving averages, which are weighted averages of a moving span of a time series (see hereafter). Moving averages have two important drawbacks:</p>
+<ul>
+<li><p>They are not resistant and might be deeply impacted by outliers;</p></li>
+<li><p>The smoothing of the ends of the series cannot be done except with asymmetric moving averages which introduce phase-shifts and delays in the detection of turning points.</p></li>
+</ul>
+<p>These drawbacks adversely affect the X-11 output and stimulate the development of this method. To overcome these flaws first the series are modelled with a RegARIMA model that calculates forecasts and estimates the regression effects. Therefore, the seasonal adjustment process is divided into two parts.</p>
+<ul>
+<li><p>In a first step, the RegARIMA model is used to clean the series from non-linearities, mainly outliers and calendar effects. A global ARIMA model is adjusted to the series in order to compute the forecasts.</p></li>
+<li><p>In a second step, an enhanced version of the X-11 algorithm is used to compute the trend, the seasonal component and the irregular component.</p></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/UG_A_image13.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Text</figcaption><p></p>
+</figure>
+</div>
+<p><strong>The flow diagram for seasonal adjustment with X-13ARIMA-SEATS using the X-11 algorithm.</strong></p>
+<section id="moving-averages" class="level4">
+<h4 class="anchored" data-anchor-id="moving-averages">Moving averages</h4>
+<p>The moving average of coefficient <span class="math inline">\(\theta_{i}\)</span> is defined as:</p>
+<p><span class="math display">\[
+M\left( X_{t} \right) = \sum_{k = - p}^{+ f}\theta_{k}X_{t + k}
+\]</span></p>
+<p><span class="math display">\[
+1
+\]</span><!---\[7.61\]--></p>
+<p>The value at time <span class="math inline">\(t\)</span> of the series is therefore replaced by a weighted average of <span class="math inline">\(p\)</span> “past” values of the series, the current value, and <span class="math inline">\(f\)</span> “future” values of the series. The quantity <span class="math inline">\(p + f + 1\)</span> is called the moving average order. When <span class="math inline">\(p\)</span> is equal to <span class="math inline">\(f\)</span>, that is, when the number of points in the past is the same as the number of points in the future, the moving average is said to be centred. If, in addition, <span class="math inline">\(\theta_{- k} = \theta_{k}\)</span> for any <span class="math inline">\(k\)</span>, the moving average <span class="math inline">\(M\)</span> is said to be symmetric. One of the simplest moving averages is the symmetric moving average of order <span class="math inline">\(P = 2p + 1\)</span> where all the weights are equal to <span class="math inline">\(\frac{1}{P}\)</span>.</p>
+<p>This moving average formula works well for all time series observations, except for the first <span class="math inline">\(p\)</span> values and last <span class="math inline">\(f\)</span> values. Generally, with a moving average of order <span class="math inline">\(p + f + 1\)</span> calculated for instant <span class="math inline">\(t\)</span> nwith points <span class="math inline">\(p\)</span> in the past and points <span class="math inline">\(f\)</span> in the future, it will be impossible to smooth out the first <span class="math inline">\(p\)</span> values and the last <span class="math inline">\(f\)</span> values of the series because of lack of input to the moving average formula.</p>
+<p>In the X-11 method, symmetric moving averages play an important role as they do not introduce any phase-shift in the smoothed series. But, to avoid losing information at the series ends, they are either supplemented by <em>ad hoc</em> asymmetric moving averages or applied on the series extended by forecasts.</p>
+<p>For the estimation of the seasonal component, X-13ARIMA-SEATS uses <span class="math inline">\(P \times Q\)</span> composite moving averages, obtained by composing a simple moving average of order <span class="math inline">\(P\)</span>, which coefficients are all equal to <span class="math inline">\(\frac{1}{P}\)</span>, and a simple moving average of order <span class="math inline">\(Q\)</span>, which coefficients are all equal to <span class="math inline">\(\frac{1}{Q}\)</span>.</p>
+<p>The composite moving averages are widely used by the X-11 method. For an initial estimation of trend X-11 method uses a <span class="math inline">\(2 \times 4\)</span> moving average in case of a quarterly time series while for a monthly time series a <span class="math inline">\(2 \times 12\)</span> moving average is applied. The <span class="math inline">\(2 \times 4\)</span> moving average is an average of order 5 with coefficients <span class="math inline">\(\frac{1}{8}\left\{1, 2, 2, 2, 1\right\}\)</span>. It eliminates frequency <span class="math inline">\(\frac{\pi}{2}\)</span> corresponding to period 4 and therefore it is suitable for seasonal adjustment of the quarterly series with a constant seasonality. The <span class="math inline">\(2 \times 12\)</span> moving average, with coefficients <span class="math inline">\(\frac{1}{24}\left\{1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1\right\}\)</span> that retains linear trends, eliminates order-<span class="math inline">\(12\)</span> constant seasonality and minimises the variance of the irregular component. The <span class="math inline">\(2 \times 4\)</span> and <span class="math inline">\(2 \times 12\)</span> moving averages are also used in the X-11 method to normalise the seasonal factors. The composite moving averages are also used to extract the seasonal component. These, which are used in the purely automatic run of the X-11 method (without any intervention from the user) are <span class="math inline">\(3 \times 3\)</span>, <span class="math inline">\(3 \times 5\)</span> and <span class="math inline">\(3 \times 9\)</span>.</p>
+<p>In the estimation of the trend also Henderson moving averages are used. These filters have been chosen for their smoothing properties. The coefficients of a Henderson moving average of order <span class="math inline">\(2p + 1\)</span> may be calculated using the formula:</p>
+<p><span class="math display">\[
+\theta_{i} = \frac{315\left\lbrack \left( n - 1 \right)^{2} - i^{2} \right\rbrack\left\lbrack n^{2} - i^{2} \right\rbrack\left\lbrack \left( n + 1 \right)^{2} - i^{2} \right\rbrack\left\lbrack {3n}^{2} - 16 - 11i^{2} \right\rbrack}{8n\left( n^{2} - 1 \right)\left( {4n}^{2} - 1 \right)\left( {4n}^{2} - 9 \right)\left( 4n^{2} - 25 \right)}
+\]</span>,</p>
+<p><span class="math display">\[
+2
+\]</span><!---\[7.62\]--></p>
+<p>where: <span class="math inline">\(n = p + 2\)</span><span class="math inline">\(n = p + 2\)</span>.</p>
+</section>
+<section id="the-basic-algorithm-of-the-x-11-method" class="level4">
+<h4 class="anchored" data-anchor-id="the-basic-algorithm-of-the-x-11-method">The basic algorithm of the X-11 method</h4>
+<p>The X-11 method is based on an iterative principle of estimation of the different components using appropriate moving averages at each step of the algorithm. The successive results are saved in tables. The list of the X-11 tables displayed in JDemetra+ is included at the end of this section.</p>
+<p>The basic algorithm of the X-11 method will be presented for a monthly time series <span class="math inline">\(X_{t}\)</span> that is assumed to be decomposable into trend, seasonality and irregular component according to an additive model <span class="math inline">\(X_{t} = TC_{t} + S_{t} + I_{t}\)</span>.</p>
+<p>A simple seasonal adjustment algorithm can be thought of in eight steps. The steps presented below are designed for the monthly time series. In the algorithm that is run for the quarterly time series the <span class="math inline">\(2 \times 4\)</span> moving average instead of the <span class="math inline">\(2 \times 12\)</span> moving average is used.</p>
+<p><strong><em>Step 1: Estimation of Trend by</em></strong> <span class="math inline">\(\mathbf{2 \times 12}\)</span> <strong><em>moving average:</em></strong></p>
+<p><span class="math display">\[
+TC_{t}^{(1)} = M_{2 \times 12}(X_{t})
+\]</span></p>
+<p><span class="math display">\[
+3
+\]</span><!---\[7.63\]--></p>
+<p><strong><em>Step 2: Estimation of the Seasonal-Irregular component:</em></strong></p>
+<p><span class="math display">\[
+\left( S_{t} + I_{t} \right)^{(1)} = X_{t} - \text{TC}_{t}^{(1)}
+\]</span></p>
+<p><span class="math display">\[
+4
+\]</span><!---\[7.64\]--></p>
+<p><strong><em>Step 3: Estimation of the Seasonal component by</em></strong> <span class="math display">\[
+\mathbf{3 \times 3}
+\]</span> <strong><em>moving average over each month:</em></strong></p>
+<p><span class="math display">\[
+S_{t}^{(1)} - M_{3 \times 3}\left\lbrack \left( S_{t} + I_{t} \right)^{(1)} \right\rbrack
+\]</span></p>
+<p><span class="math display">\[
+5
+\]</span><!---\[7.65\]--></p>
+<p>The moving average used here is a <span class="math inline">\(3 \times 3\)</span> moving average over <span class="math inline">\(5\)</span> terms, with coefficients <span class="math inline">\(\frac{1}{9} \left\{1, 2, 3, 2, 1 \right\}\)</span>. The seasonal component is then centred using a <span class="math inline">\(2 \times 12\)</span> moving average.</p>
+<p><span class="math display">\[
+\widetilde{S}_{t}^{(1)} = S_{t}^{(1)} - M_{2 \times 12}\left( S_{t}^{(1)} \right)
+\]</span></p>
+<p><span class="math display">\[
+6
+\]</span><!---\[7.66\]--></p>
+<p><strong><em>Step 4: Estimation of the seasonally adjusted series:</em></strong></p>
+<p><span class="math display">\[
+SA_{t}^{\left( 1 \right)} = \left( \text{TC}_{t} + I_{t} \right)^{(1)} = X_{t} - {\widetilde{S}}_{t}^{(1)}
+\]</span></p>
+<p><span class="math display">\[
+7
+\]</span><!---\[7.67\]--></p>
+<p>This first estimation of the seasonally adjusted series must, by construction, contain less seasonality. The X-11 method again executes the algorithm presented above, changing the moving averages to take this property into account.</p>
+<p><strong><em>Step 5: Estimation of Trend by 13-term Henderson moving average:</em></strong></p>
+<p><span class="math display">\[
+TC_{t}^{(2)} = H_{13}\left( \text{SA}_{t}^{\left( 1 \right)} \right)
+\]</span></p>
+<p><span class="math display">\[
+8
+\]</span><!---\[7.68\]--></p>
+<p>Henderson moving averages, while they do not have special properties in terms of eliminating seasonality (limited or none at this stage), have a very good smoothing power and retain a local polynomial trend of degree <span class="math inline">\(2\)</span> and preserve a local polynomial trend of degree <span class="math inline">\(3\)</span>.</p>
+<p><strong><em>Step 6: Estimation of the Seasonal-Irregular component:</em></strong></p>
+<p><span class="math display">\[
+\left( S_{t} + I_{t} \right)^{(2)} = X_{t} - \text{TC}_{t}^{(2)}
+\]</span></p>
+<p><span class="math display">\[
+9
+\]</span><!---\[7.69\]--></p>
+<p><strong><em>Step 7: Estimation of the Seasonal component by</em></strong> <span class="math inline">\(\mathbf{3 \times 5}\)</span> <strong><em>moving average over each month:</em></strong></p>
+<p><span class="math display">\[
+S_{t}^{(2)} - M_{3 \times 3}\left\lbrack \left( S_{t} + I_{t} \right)^{(2)} \right\rbrack
+\]</span></p>
+<p><span class="math display">\[
+10
+\]</span><!---\[7.70\]--></p>
+<p>The moving average used here is a <span class="math inline">\(3 \times 5\)</span> moving average over <span class="math inline">\(7\)</span> terms, of coefficients <span class="math display">\[
+\frac{1}{15} \left\{ 1,\ 2,\ 3,\ 3,\ 3,\ 2,\ 1 \right\}
+\]</span> and retains linear trends. The coefficients are then normalised such that their sum over the whole <span class="math inline">\(12\)</span>-month period is approximately cancelled out:</p>
+<p><span class="math display">\[
+{ \widetilde{S}}_{t}^{(2)} = S_{t}^{(2)} - M_{2 \times 12}\left( S_{t}^{(2)} \right)
+\]</span></p>
+<p><span class="math display">\[
+11
+\]</span><!---\[7.71\]--></p>
+<p><strong><em>Step 8: Estimation of the seasonally adjusted series:</em></strong></p>
+<p><span class="math display">\[
+SA_{t}^{\left( 2 \right)} = \left(TC_{t} + I_{t} \right)^{(2)} = X_{t} - {\widetilde{S}}_{t}^{(2)}
+\]</span></p>
+<p><span class="math display">\[
+12
+\]</span><!---\[7.72\]--></p>
+<p>The whole difficulty lies, then, in the choice of the moving averages used for the estimation of the trend in steps <span class="math inline">\(1\)</span> and <span class="math inline">\(5\)</span> on the one hand, and for the estimation of the seasonal component in steps <span class="math inline">\(3\)</span> and <span class="math inline">\(5\)</span>. The course of the algorithm in the form that is implemented in JDemetra+ is presented in the figure below. The adjustment for trading day effects, which is present in the original X-11 program, is omitted here, as since calendar correction is performed by the RegARIMA model, JDemetra+ does not perform further adjustment for these effects in the decomposition step.</p>
+<p><strong>A workflow diagram for the X-11 algorithm based upon training material from the Deutsche Bundesbank</strong></p>
+<section id="the-iterative-principle-of-x-11" class="level5">
+<h5 class="anchored" data-anchor-id="the-iterative-principle-of-x-11"><strong>The iterative principle of X-11</strong></h5>
+<p>To evaluate the different components of a series, while taking into account the possible presence of extreme observations, X-11 will proceed iteratively: estimation of components, search for disruptive effects in the irregular component, estimation of components over a corrected series, search for disruptive effects in the irregular component, and so on.</p>
+<p>The Census X-11 program presents four processing stages (A, B, C, and D), plus 3 stages, E, F, and G, that propose statistics and charts and are not part of the decomposition per se. In stages B, C and D the basic algorithm is used as is indicated in the figure below.</p>
+<p><strong>A workflow diagram for the X-11 algorithm implemented in JDemetra+. Source: Based upon training material from the Deutsche Bundesbank</strong></p>
+<ul>
+<li><strong>Part A: Pre-adjustments</strong></li>
+</ul>
+<p>This part, which is not obligatory, corresponds in X-13ARIMA-SEATS to the first cleaning of the series done using the RegARIMA facilities: detection and estimation of outliers and calendar effects (trading day and Easter), forecasts and backcasts[^61] of the series. Based on these results, the program calculates prior adjustment factors that are applied to the raw series. The series thus corrected, Table B1 of the printouts, then proceeds to part B.</p>
+<ul>
+<li><strong>Part B: First automatic correction of the series</strong></li>
+</ul>
+<p>This stage consists of a first estimation and down-weighting of the extreme observations and, if requested, a first estimation of the calendar effects. This stage is performed by applying the basic algorithm detailed earlier. These operations lead to Table B20, adjustment values for extreme observations, used to correct the unadjusted series and result in the series from Table C1.</p>
+<ul>
+<li><strong>Part C: Second automatic correction of the series</strong></li>
+</ul>
+<p>Applying the basic algorithm once again, this part leads to a more precise estimation of replacement values of the extreme observations (Table C20). The series, finally “cleaned up”, is shown in Table D1 of the printouts.</p>
+<ul>
+<li><strong>Part D: Seasonal adjustment</strong></li>
+</ul>
+<p>This part, at which our basic algorithm is applied for the last time, is that of the seasonal adjustment, as it leads to final estimates:</p>
+<ul>
+<li><p>of the seasonal component (Table D10);</p></li>
+<li><p>of the seasonally adjusted series (Table D11);</p></li>
+<li><p>of the trend component (Table D12);</p></li>
+<li><p>of the irregular component (Table D13).</p></li>
+</ul>
+<!-- -->
+<ul>
+<li><strong>Part E: Components modified for large extreme values</strong></li>
+</ul>
+<p>Parts E includes:</p>
+<ul>
+<li><p>Components modified for large extreme values;</p></li>
+<li><p>Comparison the annual totals of the raw time series and seasonally adjusted time series;</p></li>
+<li><p>Changes in the final seasonally adjusted series;</p></li>
+<li><p>Changes in the final trend;</p></li>
+<li><p>Robust estimation of the final seasonally adjusted series.</p></li>
+</ul>
+<p>The results from part E are used in part F to calculate the quality measures.</p>
+<ul>
+<li><strong>Part F: Seasonal adjustment quality measures</strong></li>
+</ul>
+<p>Part F contains statistics for judging the quality of the seasonal adjustment. JDemetra+ presents selected output for part F, i.e.:</p>
+<ul>
+<li><p>M and Q statistics;</p></li>
+<li><p>Tables.</p></li>
+</ul>
+<!-- -->
+<ul>
+<li><strong>Part G: Graphics</strong></li>
+</ul>
+<p>Part G presents spectra estimated for:</p>
+<ul>
+<li><p>Raw time series adjusted a priori (Table B1);</p></li>
+<li><p>Seasonally adjusted time series modified for large extreme values (Table E2);</p></li>
+<li><p>Final irregular component adjusted for large extreme values (Table E3).</p></li>
+</ul>
+<p>Originally, graphics were displayed in character mode. In JDemetra+, these graphics are replaced favourably by the usual graphics software.</p>
+<p><strong>The Henderson moving average and the trend estimation</strong></p>
+<p>In iteration B (Table B7), iteration C (Table C7) and iteration D (Table D7 and Table D12) the trend component is extracted from an estimate of the seasonally adjusted series using Henderson moving averages. The length of the Henderson filter is chosen automatically by X-13ARIMA-SEATS in a two-step procedure.</p>
+<p>It is possible to specify the length of the Henderson moving average to be used. X-13ARIMA-SEATS provides an automatic choice between a 9-term, a 13-term or a 23-term moving average. The automatic choice of the order of the moving average is based on the value of an indicator called <span class="math inline">\(\frac{\overline{I}}{\overline{C}}\)</span> ratio which compares the magnitude of period-on-period movements in the irregular component with those in the trend. The larger the ratio, the higher the order of the moving average selected. Moreover, X-13ARIMA-SEATS allows the user to choose manually any odd‑numbered Henderson moving average. The procedure used in each part is very similar; the only differences are the number of options available and the treatment of the observations in the both ends of the series. The procedure below is applied for a monthly time series.</p>
+<p>In order to calculate <span class="math inline">\(\frac{\overline{I}}{\overline{C}}\)</span> ratio a first decomposition of the SA series (seasonally adjusted) is computed using a 13-term Henderson moving average.</p>
+<p>For both the trend (<span class="math inline">\(C\)</span>) and irregular (<span class="math inline">\(I\)</span>) components, the average of the absolute values for monthly growth rates (multiplicative model) or for monthly growth (additive model) are computed. They are denoted as <span class="math inline">\(\overline{C}\)</span> and <span class="math inline">\(\overline{I}\)</span>, receptively, where <span class="math inline">\(\overline{C} = \frac{1}{n - 1}\sum_{t = 2}^{n}\left| C_{t} - C_{t - 1} \right|\)</span> and <span class="math inline">\(\overline{I} = \frac{1}{n - 1}\sum_{t = 2}^{n}\left| I_{t} - I_{t - 1} \right|\)</span>.</p>
+<p>Then the value of <span class="math inline">\(\frac{\overline{I}}{\overline{C}}\)</span> ratio is checked and in iteration B:</p>
+<ul>
+<li><p>If the ratio is smaller than 1, a 9-term Henderson moving average is selected;</p></li>
+<li><p>Otherwise, a 13-term Henderson moving average is selected.</p></li>
+</ul>
+<p>Then the trend is computed by applying the selected Henderson filter to the seasonally adjusted series from Table B6. The observations at the beginning and at the end of the time series that cannot be computed by means of symmetric Henderson filters are estimated by ad hoc asymmetric moving averages.</p>
+<p>In iterations C and D:</p>
+<ul>
+<li><p>If the ratio is smaller than 1, a 9-term Henderson moving average is selected;</p></li>
+<li><p>If the ratio is greater than 3.5, a 23-term Henderson moving average is selected.</p></li>
+<li><p>Otherwise, a 13-term Henderson moving average is selected.</p></li>
+</ul>
+<p>The trend is computed by applying selected Henderson filter to the seasonally adjusted series from Table C6, Table D7 or Table D12, accordingly. At the both ends of the series, where a central Henderson filter cannot be applied, the asymmetric ends weights for the 7 term Henderson filter are used.</p>
+</section>
+<section id="choosing-the-composite-moving-averages-when-estimating-the-seasonal-component" class="level5">
+<h5 class="anchored" data-anchor-id="choosing-the-composite-moving-averages-when-estimating-the-seasonal-component"><strong>Choosing the composite moving averages when estimating the seasonal component</strong></h5>
+<p>In iteration D, Table D10 shows an estimate of the seasonal factors implemented on the basis of the modified SI (Seasonal – Irregular) factors estimated in Tables D4 and D9bis. This component will have to be smoothed to estimate the seasonal component; depending on the importance of the irregular in the SI component, we will have to use moving averages of varying length as in the estimate of the Trend/Cycle where the <span class="math inline">\(\frac{\overline{I}}{\overline{C}}\)</span> ratio was used to select the length of the Henderson moving average. The estimation includes several steps.</p>
+<p><strong><em>Step 1: Estimating the irregular and seasonal components</em></strong></p>
+<p>An estimate of the seasonal component is obtained by smoothing, month by month and therefore column by column, Table D9bis using a simple 7-term moving average, i.e.&nbsp;of coefficients <span class="math inline">\(\frac{1}{7} \left\{1,\ 1,\ 1,\ 1,\ 1,\ 1,\ 1\right\}\)</span>. In order not to lose three points at the beginning and end of each column, all columns are completed as follows. Let us assume that the column that corresponds to the month is composed of <span class="math inline">\(N\)</span> values <span class="math inline">\(\left\{ x_{1},\ x_{2},\ x_{3},\ \ldots x_{N - 1},\ x_{N} \right\}\)</span>. It will be transformed into a series <span class="math inline">\(\left\{ {x_{- 2},x_{- 1}{,x}_{0},x}_{1},\ x_{2},\ x_{3},\ \ldots x_{N - 1},\ x_{N},x_{N + 1},\ x_{N + 1},\ x_{N + 2},\ x_{N + 3} \right\}\)</span> with <span class="math inline">\(x_{- 2} = x_{- 1} = x_{0} = \frac{x_{1} + x_{2} + x_{3}}{3}\)</span> and <span class="math inline">\(x_{N + 1} = x_{N + 2} = x_{N + 3} = \frac{x_{N} + x_{N - 1} + x_{N - 2}}{3}\)</span>. We then have the required estimates: <span class="math inline">\(S = M_{7}(D9bis)\)</span> and <span class="math inline">\(I = D9bis - S\)</span>.</p>
+<p><strong><em>Step 2: Calculating the Moving Seasonality Ratios</em></strong></p>
+<p>For each <span class="math inline">\(i^{\text{th}}\)</span> month the mean annual changes for each component is obtained by calculating <span class="math display">\[
+{\overline{S}}_{i} = \frac{1}{N_{i} - 1}\sum_{t = 2}^{N_{i}}\left| S_{i,t} - S_{i,t - 1} \right|
+\]</span> and <span class="math display">\[
+{\overline{I}}_{i} = \frac{1}{N_{i} - 1}\sum_{t = 2}^{N_{i}}\left| I_{i,t} - I_{i,t - 1} \right|
+\]</span>, where <span class="math inline">\(N_{i}\)</span> refers to the number of months <span class="math inline">\(\text{i}\)</span>in the data, and the moving seasonality ratio of month <span class="math inline">\(i\)</span>: <span class="math display">\[
+MSR_{i} = \frac{\ {\overline{I}}_{i}}{ {\overline{S}}_{i}}
+\]</span>. These ratios are presented in <em>Details</em> of the <em>Quality Measures</em> node under the <em>Decomposition (X11)</em> section. These ratios are used to compare the year-on-year changes in the irregular component with those in the seasonal component. The idea is to obtain, for each month, an indicator capable of selecting the appropriate moving average for the removal of any noise and providing a good estimate of the seasonal factor. The higher the ratio, the more erratic the series, and the greater the order of the moving average should be used. As for the rest, by default the program selects the same moving average for each month, but the user can select different moving averages for each month.</p>
+<p><strong><em>Step 3: Calculating the overall Moving Seasonality Ratio</em></strong></p>
+<p>The overall Moving Seasonality Ratio is calculated as follows:</p>
+<p><span class="math display">\[
+\text{MSR}_{i} = \frac{\sum_{i}^{}{N_{i}\ }\ {\overline{I}}_{i}}{\sum_{i}^{}N_{i}{\overline{S}}_{i}}
+\]</span></p>
+<p><span class="math display">\[
+13
+\]</span><!---\[7.73\]--></p>
+<p><strong><em>Step 4: Selecting a moving average and estimating the seasonal component</em></strong></p>
+<p>Depending on the value of the ratio, the program automatically selects a moving average that is applied, column by column (i.e.&nbsp;month by month) to the Seasonal/Irregular component in Table D8 modified, for extreme values, using values in Table D9.</p>
+<p>The default selection procedure of a moving average is based on the Moving Seasonality Ratio in the following way:</p>
+<ul>
+<li><p>If this ratio occurs within zone A (MSR &lt; 2.5), a <span class="math inline">\(3 \times 3\)</span> moving average is used; if it occurs within zone C (3.5 &lt; MSR &lt; 5.5), a <span class="math inline">\(3 \times 5\)</span> moving average is selected; if it occurs within zone E (MSR&nbsp;&nbsp;6.5), a <span class="math inline">\(3 \times 9\)</span> moving average is used;</p></li>
+<li><p>If the MSR occurs within zone B or D, one year of observations is removed from the end of the series, and the MSR is recalculated. If the ratio again occurs within zones B or D, we start over again, removing a maximum of five years of observations. If this does not work, i.e.&nbsp;if we are again within zones B or D, a <span class="math inline">\(3 \times 5\)</span> moving average is selected.</p></li>
+</ul>
+<p>The chosen symmetric moving average corresponds, as the case may be 5 (<span class="math inline">\(3 \times 3\)</span>), 7 (<span class="math inline">\(3 \times 5\)</span>) or 11 (<span class="math inline">\(3 \times 9\)</span> <span class="math inline">\(3 \times 9\)</span>) terms, and therefore does not provide an estimate for the values of seasonal factors in the first 2 (or 3 or 5) and the last 2 (or 3 or 5) years. These are then calculated using associated asymmetric moving averages.</p>
+<p><strong>Moving average selection procedure, source: DAGUM, E. B.(1999)</strong></p>
+</section>
+<section id="identification-and-replacement-of-extreme-values" class="level5">
+<h5 class="anchored" data-anchor-id="identification-and-replacement-of-extreme-values"><strong>Identification and replacement of extreme values</strong></h5>
+<p>X-13ARIMA-SEATS detects and removes outliers in the RegARIMA part. However, if there is a seasonal heteroscedasticity in a time series i.e. the variance of the irregular component is different in different calendar months. Examples for this effect could be the weather and snow-dependent output of the construction sector in Germany during winter, or changes in Christmas allowances in Germany and resulting from this a transformation in retail trade turnover before Christmas. The ARIMA model is not on its own able to cope with this characteristic. The practical consequence is given by the detection of additional extreme values by X-11. This may not be appropriate if the seasonal heteroscedasticity is produced by political interventions or other influences. The ARIMA models assume a constant variance and are therefore not by themselves able to cope with this problem. Choosing longer (in the case of diverging weather conditions in the winter time for the construction sector) or shorter filters (in the case of a changing pattern of retail trade turnover in the Christmas time) may be reasonable in such cases. It may even be sensible to take into account the possibility of period-specific (e.g.&nbsp;month-specific) standard deviations, which can be done by changing the default settings of the <strong>calendarsigma</strong> parameter (see <a href="../reference-manual/sa-spec-X13.html">Specifications-X13</a> section). The value of the <strong>calendarsigma</strong> parameter will have an impact on the method of calculation of the moving standard deviation in the procedure for extreme values detection presented below.</p>
+<p><strong><em>Step 1: Estimating the seasonal component</em></strong></p>
+<p>The seasonal component is estimated by smoothing the SI component separately for each period using a <span class="math inline">\(3 \times 3\)</span> moving average, i.e.:</p>
+<p><span class="math display">\[
+  \frac{1}{9} \times \begin{Bmatrix}
+  1,0,0,0,0,0,0,0,0,0,0,0, \\
+  2,0,0,0,0,0,0,0,0,0,0,0, \\
+  3,0,0,0,0,0,0,0,0,0,0,0, \\
+  2,0,0,0,0,0,0,0,0,0,0,0, \\
+  1,0,0,0,0,0,0,0,0,0,0,0, \\
+  \end{Bmatrix}
+\]</span></p>
+<p><span class="math display">\[
+14
+\]</span><!---\[7.74\]--></p>
+<p><strong><em>Step 2: Normalizing the seasonal factors</em></strong></p>
+<p>The preliminary seasonal factors are normalized in such a way that for one year their average is equal to zero (additive model) or to unity (multiplicative model).</p>
+<p><strong><em>Step 3: Estimating the irregular component</em></strong></p>
+<p>The initial normalized seasonal factors are removed from the Seasonal-Irregular component to provide an estimate of the irregular component.</p>
+<p><strong><em>Step 4: Calculating a moving standard deviation</em></strong></p>
+<p>By default, a moving standard deviation of the irregular component is calculated at five-year intervals. Each standard deviation is associated with the central year used to calculate it. The values in the central year, which in the absolute terms deviate from average by more than the <strong>Usigma</strong> parameter are marked as extreme values and assigned a zero weight. After excluding the extreme values the moving standard deviation is calculated once again.</p>
+<p><strong><em>Step 5: Detecting extreme values and weighting the irregular</em></strong></p>
+<p>The default settings for assigning a weight to each value of irregular component are:</p>
+<ul>
+<li><p>Values which are more than <strong>Usigma</strong> (2.5, by default) standard deviations away (in the absolute terms) from the 0 (additive) or 1 (multiplicative) are assigned a zero weight;</p></li>
+<li><p>Values which are less than 1.5 standard deviations away (in the absolute terms) from the 0 (additive) or 1 (multiplicative) are assigned a full weight (equal to one);</p></li>
+<li><p>Values which lie between 1.5 and 2.5 standard deviations away (in the absolute terms) from the 0 (additive) or 1 (multiplicative) are assigned a weight that varies linearly between 0 and 1 depending on their position.</p></li>
+</ul>
+<p>The default boundaries for the detection of the extreme values can be changed with <strong>LSigma</strong> and <strong>USigma</strong> parameters</p>
+<p><strong><em>Step 6: Adjusting extreme values of the seasonal-irregular component</em></strong></p>
+<p>Values of the SI component are considered extreme when a weight less than 1 is assigned to their irregular. Those values are replaced by a weighted average of five values:</p>
+<ul>
+<li><p>The value itself with its weight;</p></li>
+<li><p>The two preceding values, for the same period, having a full weight(if available);</p></li>
+<li><p>The next two values, for the same period, having full a weight (if available).</p></li>
+</ul>
+<p>When the four full-weight values are not available, then a simple average of all the values available for the given period is taken.</p>
+<p>This general algorithm is used with some modification in parts B and C for detection and replacement of extreme values.</p>
+</section>
+<section id="x-11-tables" class="level5">
+<h5 class="anchored" data-anchor-id="x-11-tables"><strong>X-11 tables</strong></h5>
+<p>The list of tables produced by JDemetra+ is presented below. It is not identical to the output produced by the original X-11 program.</p>
+<p><strong>Part A – Preliminary Estimation of Outliers and Calendar Effects.</strong></p>
+<p>This part includes prior modifications to the original data made in the RegARIMA part:</p>
+<ul>
+<li><p>Table A1 – Original series;</p></li>
+<li><p>Table A1a – Forecast of Original Series;</p></li>
+<li><p>Table A2 – Leap year effect;</p></li>
+<li><p>Table A6 – Trading Day effect (1 or 6 variables);</p></li>
+<li><p>Table A7 – The Easter effect;</p></li>
+<li><p>Table A8 – Total Outlier Effect;</p></li>
+<li><p>Table A8i – Additive outlier effect;</p></li>
+<li><p>Table A8t – Level shift effect;</p></li>
+<li><p>Table A8s – Transitory effect;</p></li>
+<li><p>Table A9 – Effect of user-defined regression variables assigned to the seasonally adjusted series or for which the component has not been defined;</p></li>
+<li><p>Table 9sa – Effect of user-defined regression variables assigned to the seasonally adjusted series;</p></li>
+<li><p>Table9u – Effect of user-defined regression variables for which the component has not been defined.</p></li>
+</ul>
+<p><strong>Part B – Preliminary Estimation of the Time Series Components:</strong></p>
+<ul>
+<li><p>Table B1 – Original series after adjustment by the RegARIMA model;</p></li>
+<li><p>Table B2 – Unmodified Trend (preliminary estimation using composite moving average);</p></li>
+<li><p>Table B3 – Unmodified Seasonal – Irregular Component (preliminary estimation);</p></li>
+<li><p>Table B4 – Replacement Values for Extreme SI Values;</p></li>
+<li><p>Table B5 – Seasonal Component;</p></li>
+<li><p>Table B6 – Seasonally Adjusted Series;</p></li>
+<li><p>Table B7 – Trend (estimation using Henderson moving average);</p></li>
+<li><p>Table B8 – Unmodified Seasonal – Irregular Component;</p></li>
+<li><p>Table B9 – Replacement Values for Extreme SI Values;</p></li>
+<li><p>Table B10 – Seasonal Component;</p></li>
+<li><p>Table B11 – Seasonally Adjusted Series;</p></li>
+<li><p>Table B13 – Irregular Component;</p></li>
+<li><p>Table B17 – Preliminary Weights for the Irregular;</p></li>
+<li><p>Table B20 – Adjustment Values for Extreme Irregulars.</p></li>
+</ul>
+<p><strong>Part C – Final Estimation of Extreme Values and Calendar Effects:</strong></p>
+<ul>
+<li><p>Table C1 – Modified Raw Series;</p></li>
+<li><p>Table C2 – Trend (preliminary estimation using composite moving average);</p></li>
+<li><p>Table C4 – Modified Seasonal – Irregular Component;</p></li>
+<li><p>Table C5 – Seasonal Component;</p></li>
+<li><p>Table C6 – Seasonally Adjusted Series;</p></li>
+<li><p>Table C7 – Trend (estimation using Henderson moving average);</p></li>
+<li><p>Table C9 – Seasonal – Irregular Component;</p></li>
+<li><p>Table C10 – Seasonal Component;</p></li>
+<li><p>Table C11 – Seasonally Adjusted Series;</p></li>
+<li><p>Table C13 – Irregular Component;</p></li>
+<li><p>Table C20 – Adjustment Values for Extreme Irregulars.</p></li>
+</ul>
+<p><strong>Part D – Final Estimation of the Different Components:</strong></p>
+<ul>
+<li><p>Table D1 – Modified Raw Series;</p></li>
+<li><p>Table D2 – Trend (preliminary estimation using composite moving average);</p></li>
+<li><p>Table D4 – Modified Seasonal – Irregular Component;</p></li>
+<li><p>Table D5 – Seasonal Component;</p></li>
+<li><p>Table D6 – Seasonally Adjusted Series;</p></li>
+<li><p>Table D7 – Trend (estimation using Henderson moving average);</p></li>
+<li><p>Table D8 – Unmodified Seasonal – Irregular Component;</p></li>
+<li><p>Table D9 – Replacement Values for Extreme SI Values;</p></li>
+<li><p>Table D10 – Final Seasonal Factors;</p></li>
+<li><p>Table D10A – Forecast of Final Seasonal Factors;</p></li>
+<li><p>Table D11 – Final Seasonally Adjusted Series;</p></li>
+<li><p>Table D11A – Forecast of Final Seasonally Adjusted Series;</p></li>
+<li><p>Table D12 – Final Trend (estimation using Henderson moving average);</p></li>
+<li><p>Table D12A – Forecast of Final Trend Component;</p></li>
+</ul>
+<!-- -->
+<ul>
+<li><p>Table D13 – Final Irregular Component;</p></li>
+<li><p>Table D16 – Seasonal and Calendar Effects;</p></li>
+<li><p>Table D16A – Forecast of Seasonal and Calendar Component;</p></li>
+<li><p>Table D18 – Combined Calendar Effects Factors.</p></li>
+</ul>
+<p><strong>Part E – Components Modified for Large Extreme Values:</strong></p>
+<ul>
+<li><p>Table E1 – Raw Series Modified for Large Extreme Values;</p></li>
+<li><p>Table E2 – SA Series Modified for Large Extreme Values;</p></li>
+<li><p>Table E3 – Final Irregular Component Adjusted for Large Extreme Values;</p></li>
+<li><p>Table E11 – Robust Estimation of the Final SA Series.</p></li>
+</ul>
+<p><strong>Part F – Quality indicators:</strong></p>
+<ul>
+<li><p>Table F2A – Changes, in the absolute values, of the principal components;</p></li>
+<li><p>Table F2B – Relative contribution of components to changes in the raw series;</p></li>
+<li><p>Table F2C – Averages and standard deviations of changes as a function of the time lag;</p></li>
+<li><p>Table F2D – Average duration of run;</p></li>
+<li><p>Table F2E – I/C ratio for periods span;</p></li>
+<li><p>Table F2F – Relative contribution of components to the variance of the stationary part of the original series;</p></li>
+<li><p>Table F2G – Autocorrelogram of the irregular component.</p></li>
+</ul>
+</section>
+</section>
+<section id="filter-length-choice" class="level4">
+<h4 class="anchored" data-anchor-id="filter-length-choice">Filter length choice</h4>
+<p>A seasonal filter is a weighted average of a moving span of fixed length within a time series that can be used to remove a fixed seasonal pattern. X-13ARIMA-SEATS uses several of these filters, according to the needs of the different stages of the program. As only X-13ARIMA-SEATS allows the user to manually select seasonal filters, this case study can be applied only to the X-13ARIMA-SEATS specifications.</p>
+<p>The automatic seasonal adjustment procedure uses the default options to select the most appropriate moving average. However there are occasions when the user will need to specify a different seasonal moving<br>
+average to that identified by the program. For example, if the SI values do not closely follow the seasonal component, it may be appropriate to use a shorter moving average. Also the presence of sudden breaks in the seasonal pattern – e.g.&nbsp;due to changes in the methodology – can negatively impact on the automatic selection of the most appropriate seasonal filter. In such cases the usage of short seasonal filters in the selected months or quarters can be considered. Usually, a shorter seasonal filter <span class="math inline">\((3 \times 1)\)</span> allows seasonality to change very rapidly over time. However, a very short seasonal filter should not normally be used, as it might often lead to large revisions as new data becomes available. If a short filter is to be used it will usually be limited to one month/quarter with a known reason for wanting to capture a rapidly changing seasonality.</p>
+<p>In the standard situation one seasonal filter is applied to all individual months/quarters. The estimation of seasonal movements is therefore based on the sample windows of equal lengths for each individual month/quarter (i.e.&nbsp;for each month/quarter the seasonal filter length or the number of years representing the major part of the seasonal filter weights is identical). This approach relies on the assumption that the number of past periods in which the conditions causing seasonal behaviour are sufficiently homogenous is the same in all months/quarters. However, this assumption does not always hold. Seasonal causes may change in one month, while staying the same in others<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. For instance, seasonal heteroskedasticity might require different filter lengths in different months or quarters.</p>
+<p>Another interesting example is industrial production in Germany. It can be influenced by school holidays, since many employees have school-age children, which interrupt their working pattern during these school holidays. Consequently, businesses may temporarily suspend or lower production during these periods. Since school holidays do not occur at the same time throughout Germany and their timing varies from year to year in the individual federal states, the effect is not completely captured by seasonal adjustment. And since school holidays are treated as usual working days, these effects are not captured by calendar adjustment either. The majority of school holidays in Germany can take place either in July or in August. This yields higher variances in the irregular component for these months compared to the rest of the year. Therefore, in this case a longer seasonal filter is used for these months to account for this.</p>
+<p>Another example might be given by German retail trade. Due to changes in the consumers’ behaviour around Christmas – possibly more gifts of money – the seasonal peak in December has become steadily less pronounced. To account for this moving seasonality, shorter seasonal filters in December than during the rest of the year need to be applied.</p>
+<p>JDemetra+ offers the options to assign a different seasonal filter length to each period (month or quarter). The program offers these options in the <em>single spec</em> mode as well as in the <em>multispec</em> mode, albeit they are available only in the <em>Specifications</em> window, after a document is created.</p>
+</section>
+<section id="m-stats" class="level3">
+<h3 class="anchored" data-anchor-id="m-stats">M-stats</h3>
+<p>The details about the measures are given below.</p>
+<ul>
+<li><p><span class="math inline">\(M1\)</span> measures the contribution of the irregular component to the total variance. When it is above 1 some changes in outlier correction should be considered.</p></li>
+<li><p><span class="math inline">\(M2\)</span>, which is a very similar to <span class="math inline">\(M1\)</span>, is calculated on the basis of the contribution of the irregular component to the stationary portion of the variance. When it is above 1, some changes in an outlier correction should be considered.</p></li>
+<li><p><span class="math inline">\(M3\)</span> compares the irregular to the trend taken from a preliminary estimate of the seasonally adjusted series. If this ratio is too large, it is difficult to separate the two components from each other. When it is above 1 some changes in outlier correction should be considered.</p></li>
+<li><p><span class="math inline">\(M4\)</span> tests the randomness of the irregular component. A value above 1 denotes a correlation in the irregular component. In such case a shorter seasonal moving average filter should be considered.</p></li>
+<li><p><span class="math inline">\(M5\)</span> is used to compare the significance of changes in the trend with that in the irregular. When it is above 1 some changes in outlier correction should be considered.</p></li>
+<li><p><span class="math inline">\(M6\)</span> checks the <span class="math inline">\(\text{SI}\)</span> (seasonal – irregular components ratio). If annual changes in the irregular component are too small in relation to the annual changes in the seasonal component, the <span class="math inline">\(3 \times 5\)</span> seasonal filter used for the estimation of the seasonal component is not flexible enough to follow the seasonal movement. In such case a longer seasonal moving average filter should be considered. It should be stressed that <span class="math inline">\(M6\)</span> is calculated only if the <span class="math inline">\(3 \times 5\)</span> filter has been applied in the model.</p></li>
+<li><p><span class="math inline">\(M7\)</span> is the combined test for the presence of an identifiable seasonality. The test compares the relative contribution of stable and moving seasonality<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>.</p></li>
+<li><p><span class="math inline">\(M8\)</span> to <span class="math inline">\(M11\)</span> measure if the movements due to the short-term quasi-random variations and movements due to the long-term changes are not changing too much over the years. If the changes are too strong then the seasonal factors could be erroneous. In such case a correction for a seasonal break or the change of the seasonal filter should be considered.</p></li>
+</ul>
+<p>The <span class="math inline">\(Q\)</span> statistic is a composite indicator calculated from the <span class="math inline">\(M\)</span> statistics.</p>
+<p>Edit : problem with tables display</p>
+<p><span class="math display">\[Q = \frac{10M1 + 11M2 + 10M3 + 8M4 + 11M5 + 10M6 + 18M7 + 7M8 + 7M9 + 4M10 + 4M11}{100}\]</span> [1]<!---\[5.25\]--></p>
+<p><span class="math inline">\(Q = Q - M2\)</span> (also called <span class="math inline">\(Q2\)</span>) is the <span class="math inline">\(Q\)</span> statistic for which the <span class="math inline">\(M2\)</span> statistics was excluded from the formula, i.e.:</p>
+<p><span class="math display">\[Q - M2 = \frac{10M1 + 10M3 + 8M4 + 11M5 + 10M6 + 18M7 + 7M8 + 7M9 + 4M10 + 4M11}{89}\]</span> [2]<!---\[5.26\]--></p>
+<p>If a time series does not cover at least 6 years, the <span class="math inline">\(M8\)</span>, <span class="math inline">\(M9\)</span>, <span class="math inline">\(M10\)</span> and <span class="math inline">\(M11\)</span> statistics cannot be calculated. In this case the <span class="math inline">\(Q\)</span> statistic is computed as:</p>
+<p><span class="math display">\[Q = \frac{14M1 + 15M2 + 10M3 + 8M4 + 11M5 + 10M6 + 32M7}{100}\]</span></p>
+<p>The model has a satisfactory quality if the <span class="math inline">\(Q\)</span> statistic is lower than 1.</p>
+<p>The tables displayed in the <em>Quality measures <strong>→</strong> Details</em> node correspond to the F-set of tables produced by the original X-11 algorithm. To facilitate the analysis of the results, the numbers and the names of the tables are given under each table following the convention used in LADIRAY, D., and QUENNEVILLE, B. (1999).</p>
+</section>
+<section id="detailed-tables" class="level3">
+<h3 class="anchored" data-anchor-id="detailed-tables">Detailed tables</h3>
+<p>The first table presents the average percent change without regard to sign of the percent changes (multiplicative model) or average differences (additive model) over several periods (from 1 to 12 for a monthly series, from 1 to 4 for a quarterly series) for the following series:</p>
+<ul>
+<li><p><span class="math inline">\(O\)</span> – Original series (Table A1);</p></li>
+<li><p><span class="math inline">\(\text{CI}\)</span> – Final seasonally adjusted series (Table D11);</p></li>
+<li><p><span class="math inline">\(I\)</span> – Final irregular component (Table D13);</p></li>
+<li><p><span class="math inline">\(C\)</span> – Final trend (Table D12);</p></li>
+<li><p><span class="math inline">\(S\)</span> – Final seasonal factors (Table D10);</p></li>
+<li><p><span class="math inline">\(P\)</span> – Preliminary adjustment coefficients, i.e.&nbsp;regressors estimated by the RegARIMA model (Table A2);</p></li>
+<li><p><span class="math inline">\(TD\&amp; H\)</span> – Final calendar component (Tables A6 and A7);</p></li>
+<li><p><span class="math inline">\(\text{Mod.O}\)</span> – Original series adjusted for extreme values (Table E1);</p></li>
+<li><p><span class="math inline">\(\text{Mod.CI}\)</span> – Final seasonally adjusted series corrected for extreme values (Table E2);</p></li>
+<li><p><span class="math inline">\(\text{Mod.I}\)</span> – Final irregular component adjusted for extreme values (Table E3).</p></li>
+</ul>
+<p>In the case of an additive decomposition, for each component the average absolute changes over several periods are calculated as<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>:</p>
+<p><span class="math display">\[
+\text{Component}_{d} = \frac{1}{n - d}\sum_{t = d + 1}^{n}|Table_{t} - Table_{t - d}|
+\]</span> [4]</p>
+<p>where:</p>
+<p><span class="math inline">\(d\)</span> – time lag in periods (from a monthly time series <span class="math inline">\(d\)</span> varies from to 4 or from 1 to 12);</p>
+<p><span class="math inline">\(n\)</span> – total number of observations per period;</p>
+<p><span class="math inline">\(\text{Component}\)</span> – the name of the component;</p>
+<p><span class="math inline">\(\text{Table}\)</span> – the name of the table that corresponds to the component.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/RDimage48.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Text</figcaption><p></p>
+</figure>
+</div>
+<p><strong>Table F2A – changes, in the absolute values, of the principal components</strong></p>
+<p>Next, Table F2B of relative contributions of the different components to the differences (additive model) or percent changes (multiplicative model) in the original series is displayed. They express the relative importance of the changes in each component. Assuming that the components are independent, the following relation is valid:</p>
+<p><span class="math display">\[O_{d}^{2} \approx C_{d}^{2} + S_{d}^{2} + I_{d}^{2} + P_{d}^{2} + {TD\&amp; H}_{d}^{2}\]</span>. [5]<!---\[5.29\]--></p>
+<p>In order to simplify the analysis, the approximation can be replaced by the following equation:</p>
+<p><span class="math display">\[O_{d}^{*2} = C_{d}^{2} + S_{d}^{2} + I_{d}^{2} + P_{d}^{2} + {TD\&amp; H}_{d}^{2}\]</span>. [6]<!---\[5.30\]--></p>
+<p>The notation is the same as for Table F2A. The column <span class="math inline">\(\text{Total}\)</span> denotes total changes in the raw time series.</p>
+<p>Data presented in Table F2B indicate the relative contribution of each component to the percent changes (differences) in the original series over each span, and are calculated as:</p>
+<p><span class="math inline">\(\frac{I_{d}^{2}}{O_{d}^{*2}}\)</span>,</p>
+<p><span class="math inline">\(\frac{C_{d}^{2}}{O_{d}^{*2}}\)</span>,</p>
+<p><span class="math inline">\(\frac{S_{d}^{2}}{O_{d}^{*2}}\)</span>,</p>
+<p><span class="math inline">\(\frac{P_{d}^{2}}{O_{d}^{*2}}\)</span></p>
+<p>and <span class="math inline">\(\frac{TD\&amp; H_{d}^{2}}{O_{d}^{*2}}\)</span></p>
+<p>where: <span class="math inline">\(O_{d}^{*2} = I_{d}^{2} + C_{d}^{2} + S_{d}^{2} + P_{d}^{2}{+ TD\&amp; H}_{d}^{2}\)</span>.</p>
+<p>The last column presents the <em>Ratio</em> calculated as:</p>
+<p><span class="math inline">\(100 \times \frac{O_{d}^{*2}}{O_{d}^{2}}\)</span>,</p>
+<p>which is an indicator of how well the approximation</p>
+<p><span class="math inline">\({(O_{d}^{*})}^{2} \approx O_{d}^{2}\)</span></p>
+<p>holds.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/RDimage49.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Text</figcaption><p></p>
+</figure>
+</div>
+<p><strong>Table F2B – relative contribution of components to changes in the raw series</strong></p>
+<p>When an additive decomposition is used, Table F2C presents the average and standard deviation of changes calculated for each time lag <span class="math inline">\(d\)</span>, taking into consideration the sign of the changes of the raw series and its components. In case of a multiplicative decomposition the respective table shows the average percent differences and related standard deviations.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/RDimage50.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Text</figcaption><p></p>
+</figure>
+</div>
+<p><strong>Table F2C – Averages and standard deviations of changes as a function of the time lag</strong></p>
+<p>Average duration of run is an average number of consecutive monthly (or quarterly) changes in the same direction (no change is counted as a change in the same direction as the preceding change). JDemetra+ displays this indicator for the seasonally adjusted series, for the trend and for the irregular component.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/RDimage51.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Text</figcaption><p></p>
+</figure>
+</div>
+<p><strong>Table F2D – Average duration of run</strong></p>
+<p>The <span class="math inline">\(\frac{I}{C}\)</span> ratios for each value of time lag <span class="math inline">\(d\)</span>, presented in Table F2E, are computed on a basis of the data in Table F2A.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/RDimage52.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Text</figcaption><p></p>
+</figure>
+</div>
+<p><strong>Table F2E –</strong> <span class="math inline">\(\frac{\mathbf{I}}{\mathbf{C}}\mathbf{\ }\)</span>ratio for periods span</p>
+<p>The relative contribution of components to the variance of the stationary part of the original series is calculated for the irregular component (<span class="math inline">\(I\)</span>), trend made stationary<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a> (<span class="math inline">\(C\)</span>), seasonal component (<span class="math inline">\(S\)</span>) and calendar effects (TD&amp;H). The short description of the calculation method is given in LADIRAY, D., and QUENNEVILLE, B. (1999).</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/RDimage53.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Text</figcaption><p></p>
+</figure>
+</div>
+<p><strong>Table F2F – Relative contribution of components to the variance of the stationary part of the original series</strong></p>
+<p>The last table shows the autocorrelogram of the irregular component from Table D13. In the case of multiplicative decomposition it is calculated for time lags between 1 and the number of periods per year +2 using the formula<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a>:</p>
+<p><span class="math display">\[
+\text{Corr}_{k}I = \frac{\sum_{t = k + 1}^{N}{(I_{t} - 1)(I_{t - k} - 1)}}{\sum_{t = 1}^{N}{(I_{t} - 1)}^{2}}]
+\]</span> [7]<!---\[5.31\]--></p>
+<p>where <span class="math inline">\(N\)</span> is number of observations in the time series and <span class="math inline">\(\text{k}\)</span> the lag.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/RDimage54.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Text</figcaption><p></p>
+</figure>
+</div>
+<p><strong>Table F2G – Autocorrelation of the irregular component</strong></p>
+<p>The Cochran test is design to identify the heterogeneity of a series of variances. X-13-ARIMA-SEATS uses this test in the extreme value detection procedure to check if the irregular component is heteroskedastic. In this procedure the standard errors of the irregular component are used for an identification of extreme values. If the null hypothesis that for all the periods (months, quarters) the variances of the irregular component are identical is rejected, the standard errors will be computed separately for each period (in case the option <em>Calendarsigma</em>=<strong>signif</strong> has been selected).</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/RDimage55.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Text</figcaption><p></p>
+</figure>
+</div>
+<p><strong>Cochran test</strong></p>
+<p>For each <span class="math inline">\(i^{\text{th}}\)</span> month we will be looking at the mean annual changes for each component by calculating:</p>
+<p><span class="math display">\[
+{\overline{S}}_{i} = \frac{1}{N_{i} - 1}\sum_{t = 2}^{N_{i}}|S_{i,t} - S_{i,t - 1}|
+\]</span></p>
+<p>and</p>
+<p><span class="math display">\[
+{\overline{I}}_{i} = \frac{1}{N_{i} - 1}\sum_{t = 2}^{N_{i}}| I_{i,t} - I_{i,t - 1}|
+\]</span>,</p>
+<p>where <span class="math inline">\(N_{i}\)</span> refers to the number of months <span class="math inline">\(\text{i}\)</span> in the data, and the moving seasonality ratio of month <span class="math inline">\(i\)</span>:</p>
+<p><span class="math display">\[
+MSR_{i} = \frac{\overline{I}_{i}}{\overline{S}_{i}}
+\]</span></p>
+<p>These ratios are published in Table D9A in X13ARIMA-SEATS software. In JDemetra+ they are presented in the details of the quality measures.</p>
+<p>The <a href="../theory/SA_X11.html#choosing-the-composite-moving-averages-when-estimating-the-seasonal-component">Moving Seasonality Ratio (MSR)</a> is used to measure the amount of noise in the Seasonal-Irregular component. By studying these values, the user can <a href="../reference-manual/sa-spec-X13.html#seasonal-filter-x11-seasonalma">select for each period the seasonal filter</a> that is the most suitable given the noisiness of the series.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/RDimage56.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Text</figcaption><p></p>
+</figure>
+</div>
+<p><strong>Table D9a – Moving seasonality ratios</strong></p>
+
+
+</section>
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>When the series are non-stationary differentiation is performed before the seasonality tests.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>See section <a href="../theory/Tests_combined.html">Combined seasonality tests</a>.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>For the multiplicative decomposition the following formula is used: <span class="math display">\[
+\text{Component}_{d} = \frac{1}{n - d}\sum_{t = d + 1}^{n}{|\frac{\text{Tabl}e_{t}}{\text{Table}_{t - d}} - 1|}
+\]</span>.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p>The component is estimated by extracting a linear trend from the trend component presented in Table D12.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn5"><p>For the additive decomposition the formula is: <span class="math display">\[
+Corr_{k}I_{t} = \frac{\sum_{t = k + 1}^{N}{(I_{t} \times I_{t - k})}}{\sum_{t = 1}^{N}{(I_{t})}^{2}}
+\]</span><a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./M-reg-arima-modelling.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Reg-Arima models</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./M-STL-decomposition.html" class="pagination-link">
+        <span class="nav-page-text">STL: Local regression decomposition</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>
