@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>JDemetra+ online documentation - Seasonal adjustment of high frequency data</title>
+<title>JDemetra+ online documentation - Seasonal adjustment of high-requency data</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -70,7 +70,7 @@ ul.task-list li input[type="checkbox"] {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">Seasonal adjustment of high frequency data</h1>
+      <h1 class="quarto-secondary-nav-title">Seasonal adjustment of high-requency data</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -118,7 +118,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./A-sa-hf.html" class="sidebar-item-text sidebar-link active">Seasonal adjustment of high frequency data</a>
+  <a href="./A-sa-hf.html" class="sidebar-item-text sidebar-link active">Seasonal adjustment of high-requency data</a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -133,7 +133,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./A-benchmarking.html" class="sidebar-item-text sidebar-link">Algorithms for benchmarking and temporal disagreggation</a>
+  <a href="./A-benchmarking.html" class="sidebar-item-text sidebar-link">Benchmarking and temporal disagreggation</a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -233,7 +233,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./M-Temp-Disagg-Bench.html" class="sidebar-item-text sidebar-link">Methods for Temporal disaggregation and benchmarking</a>
+  <a href="./M-Temp-Disagg-Bench.html" class="sidebar-item-text sidebar-link">Temporal disaggregation and benchmarking</a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -252,12 +252,8 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#motivation" id="toc-motivation" class="nav-link active" data-scroll-target="#motivation">Motivation</a>
-  <ul class="collapse">
-  <li><a href="#ubiquitous-use" id="toc-ubiquitous-use" class="nav-link" data-scroll-target="#ubiquitous-use">Ubiquitous use</a></li>
-  <li><a href="#data-specificities" id="toc-data-specificities" class="nav-link" data-scroll-target="#data-specificities">Data specificities</a></li>
-  </ul></li>
-  <li><a href="#tools" id="toc-tools" class="nav-link" data-scroll-target="#tools">Tools</a></li>
+  <li><a href="#motivation-data-specificities" id="toc-motivation-data-specificities" class="nav-link active" data-scroll-target="#motivation-data-specificities">Motivation: data specificities</a></li>
+  <li><a href="#available-algorithms" id="toc-available-algorithms" class="nav-link" data-scroll-target="#available-algorithms">Available algorithms</a></li>
   <li><a href="#unobserved-components" id="toc-unobserved-components" class="nav-link" data-scroll-target="#unobserved-components">Unobserved Components</a></li>
   <li><a href="#identifying-seasonal-patterns" id="toc-identifying-seasonal-patterns" class="nav-link" data-scroll-target="#identifying-seasonal-patterns">Identifying seasonal patterns</a>
   <ul class="collapse">
@@ -273,10 +269,10 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#decomposition" id="toc-decomposition" class="nav-link" data-scroll-target="#decomposition">Decomposition</a>
   <ul class="collapse">
   <li><a href="#extended-x-11" id="toc-extended-x-11" class="nav-link" data-scroll-target="#extended-x-11">Extended X-11</a></li>
-  <li><a href="#stl-decomposition" id="toc-stl-decomposition" class="nav-link" data-scroll-target="#stl-decomposition">STL decomposition</a></li>
   <li><a href="#arima-model-based-amb-decomposition" id="toc-arima-model-based-amb-decomposition" class="nav-link" data-scroll-target="#arima-model-based-amb-decomposition">Arima Model Based (AMB) Decomposition</a></li>
-  <li><a href="#state-space-framework" id="toc-state-space-framework" class="nav-link" data-scroll-target="#state-space-framework">State Space framework</a></li>
+  <li><a href="#stl-decomposition" id="toc-stl-decomposition" class="nav-link" data-scroll-target="#stl-decomposition">STL decomposition</a></li>
   </ul></li>
+  <li><a href="#state-space-framework" id="toc-state-space-framework" class="nav-link" data-scroll-target="#state-space-framework">State Space framework</a></li>
   <li><a href="#quality-assessment" id="toc-quality-assessment" class="nav-link" data-scroll-target="#quality-assessment">Quality assessment</a>
   <ul class="collapse">
   <li><a href="#residual-seasonality" id="toc-residual-seasonality" class="nav-link" data-scroll-target="#residual-seasonality">Residual seasonality</a></li>
@@ -290,7 +286,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">Seasonal adjustment of high frequency data</h1>
+<h1 class="title d-none d-lg-block">Seasonal adjustment of high-requency data</h1>
 </div>
 
 
@@ -304,18 +300,62 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="motivation" class="level2">
-<h2 class="anchored" data-anchor-id="motivation">Motivation</h2>
-<section id="ubiquitous-use" class="level3">
-<h3 class="anchored" data-anchor-id="ubiquitous-use">Ubiquitous use</h3>
+<section id="motivation-data-specificities" class="level2">
+<h2 class="anchored" data-anchor-id="motivation-data-specificities">Motivation: data specificities</h2>
+<p>Infra monthly data displays multiple and non integer periodicities which cannot be dealt with classical versions of SA algorithlms. JD+ provides tailored versions of these algorithms.</p>
+<p>Link to worked example (Daily French births)</p>
 </section>
-<section id="data-specificities" class="level3">
-<h3 class="anchored" data-anchor-id="data-specificities">Data specificities</h3>
-</section>
-</section>
-<section id="tools" class="level2">
-<h2 class="anchored" data-anchor-id="tools">Tools</h2>
+<section id="available-algorithms" class="level2">
+<h2 class="anchored" data-anchor-id="available-algorithms">Available algorithms</h2>
 <p>code here and/or link to R packages chapter</p>
+<table class="table">
+<colgroup>
+<col style="width: 19%">
+<col style="width: 40%">
+<col style="width: 19%">
+<col style="width: 19%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Col1</th>
+<th>Algorithm</th>
+<th>GUI v 3.0</th>
+<th>R package / function</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Pre-treatment</td>
+<td>Fractionnal Airline Model</td>
+<td>yes</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Decompsition</td>
+<td>Extended SEATS Fractionnal Airline Model</td>
+<td>yes</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>Extended X-11</td>
+<td>yes</td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td>Extended STL</td>
+<td>no</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>One-Step</td>
+<td>SSF Framework</td>
+<td>no</td>
+<td></td>
+</tr>
+</tbody>
+</table>
 </section>
 <section id="unobserved-components" class="level2">
 <h2 class="anchored" data-anchor-id="unobserved-components">Unobserved Components</h2>
@@ -333,9 +373,11 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="pre-adjustment">Pre-adjustment</h2>
 <section id="calendar-correction" class="level3">
 <h3 class="anchored" data-anchor-id="calendar-correction">Calendar correction</h3>
+<p>generate</p>
 </section>
 <section id="outliers-and-intervention-variables" class="level3">
 <h3 class="anchored" data-anchor-id="outliers-and-intervention-variables">Outliers and intervention variables</h3>
+<p>add</p>
 </section>
 <section id="linearization" class="level3">
 <h3 class="anchored" data-anchor-id="linearization">Linearization</h3>
@@ -346,15 +388,16 @@ ul.task-list li input[type="checkbox"] {
 <section id="extended-x-11" class="level3">
 <h3 class="anchored" data-anchor-id="extended-x-11">Extended X-11</h3>
 </section>
-<section id="stl-decomposition" class="level3">
-<h3 class="anchored" data-anchor-id="stl-decomposition">STL decomposition</h3>
-</section>
 <section id="arima-model-based-amb-decomposition" class="level3">
 <h3 class="anchored" data-anchor-id="arima-model-based-amb-decomposition">Arima Model Based (AMB) Decomposition</h3>
 </section>
-<section id="state-space-framework" class="level3">
-<h3 class="anchored" data-anchor-id="state-space-framework">State Space framework</h3>
+<section id="stl-decomposition" class="level3">
+<h3 class="anchored" data-anchor-id="stl-decomposition">STL decomposition</h3>
 </section>
+</section>
+<section id="state-space-framework" class="level2">
+<h2 class="anchored" data-anchor-id="state-space-framework">State Space framework</h2>
+<p>one step for pre-treatment and decomp</p>
 </section>
 <section id="quality-assessment" class="level2">
 <h2 class="anchored" data-anchor-id="quality-assessment">Quality assessment</h2>
