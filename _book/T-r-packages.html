@@ -124,7 +124,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   }
 }</script>
 
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 </head>
 
@@ -182,7 +181,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./A-sa-hf.html" class="sidebar-item-text sidebar-link">Seasonal adjustment of high frequency data</a>
+  <a href="./A-sa-hf.html" class="sidebar-item-text sidebar-link">Seasonal adjustment of high-requency data</a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -197,7 +196,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./A-benchmarking.html" class="sidebar-item-text sidebar-link">Algorithms for benchmarking and temporal disagreggation</a>
+  <a href="./A-benchmarking.html" class="sidebar-item-text sidebar-link">Benchmarking and temporal disagreggation</a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -297,7 +296,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./M-Temp-Disagg-Bench.html" class="sidebar-item-text sidebar-link">Methods for Temporal disaggregation and benchmarking</a>
+  <a href="./M-Temp-Disagg-Bench.html" class="sidebar-item-text sidebar-link">Temporal disaggregation and benchmarking</a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -554,7 +553,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p>Range-mean regression test (to choose log transformation), Canova-Hansen (<code>td.ch()</code>) and trading-days f-test (<code>td.f()</code>)</p></li>
 <li><p>specification functions for <code>rjd3x13</code> and <code>rjd3tramoseats</code></p></li>
 </ul>
-<p>more explanations and example needed here</p>
+<p>more explanations and examples needed here</p>
 <section id="example-of-calendar-specification" class="level4">
 <h4 class="anchored" data-anchor-id="example-of-calendar-specification">Example of calendar specification</h4>
 <div class="cell">
@@ -643,7 +642,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>In <code>RJDemetra</code> you have one function to set the specification (<code>regarima_spec_x13()</code>, <code>regarima_spec_tramo()</code>, <code>x13_spec()</code> and <code>tramoseats_spec()</code>) now one function for each part of the specification</p>
 <p>Common functions (defined in <code>rjd3modelling</code>) to set the specification of the preprocessing:</p>
 <p><code>set_arima()</code>, <code>set_automodel()</code>, <code>set_basic()</code>, <code>set_easter()</code>, <code>set_estimate()</code>, <code>set_outlier()</code>, <code>set_tradingdays()</code>, <code>set_transform()</code>, <code>add_outlier()</code> and <code>remove_outlier()</code>, <code>add_ramp()</code> and <code>remove</code>_ramp()`</p>
-<p><code>add_usrdefvar()</code> not yet available</p>
+<ul>
+<li>warning <code>add_usrdefvar()</code> not yet available</li>
+</ul>
 </section>
 <section id="rjd3x13" class="level3">
 <h3 class="anchored" data-anchor-id="rjd3x13">rjd3x13</h3>
@@ -736,10 +737,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="rjdfilters-1" class="level3">
 <h3 class="anchored" data-anchor-id="rjdfilters-1"><code>rjdfilters</code> (1)</h3>
 <ul>
-<li>easily create/combine/apply moving averages <code>moving_average()</code> (much more general than <code>stats::filter()</code>) and study their properties: plot coefficients (<code>plot_coef()</code>), gain (<code>plot_gain()</code>), phase-shift (<code>plot_phase()</code>) and different statics (<code>diagnostic_matrix()</code>)</li>
-</ul>
-<div class="incremental">
-<ul>
+<li><p>easily create/combine/apply moving averages <code>moving_average()</code> (much more general than <code>stats::filter()</code>) and study their properties: plot coefficients (<code>plot_coef()</code>), gain (<code>plot_gain()</code>), phase-shift (<code>plot_phase()</code>) and different statics (<code>diagnostic_matrix()</code>)</p></li>
 <li><p>trend-cycle extraction with different methods to treat endpoints:</p></li>
 <li><p><code>lp_filter()</code> local polynomial filters of Proietti and Luati (2008) (including Musgrave): Henderson, Uniform, biweight, Trapezoidal, Triweight, Tricube, “Gaussian”, Triangular, Parabolic (= Epanechnikov)<br>
 </p></li>
@@ -748,17 +746,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><p><code>fst_filter()</code> FST approach of Grun-Rehomme, Guggemos, and Ladiray (2018)<br>
 </p></li>
 <li><p><code>dfa_filter()</code> derivation of AST approach of Wildi and McElroy (2019)</p></li>
+<li><p>change the filter used in X-11 for TC extraction</p></li>
 </ul>
-</div>
-<div class="incremental">
-<ul>
-<li>change the filter used in X-11 for TC extraction</li>
-</ul>
-</div>
 </section>
 <section id="create-moving-average-moving_average" class="level3">
 <h3 class="anchored" data-anchor-id="create-moving-average-moving_average">Create moving average <code>moving_average()</code></h3>
-<p>(Recall: <span class="math inline">\(B^iX_t=X_{t-p}\)</span> and <span class="math inline">\(F^iX_t=X_{t+p}\)</span>)</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rjdfilters)</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>m1 <span class="ot">=</span> <span class="fu">moving_average</span>(<span class="fu">rep</span>(<span class="dv">1</span>,<span class="dv">3</span>), <span class="at">lags =</span> <span class="dv">1</span>); m1 <span class="co"># Forward MA</span></span>

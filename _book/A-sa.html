@@ -182,7 +182,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./A-sa-hf.html" class="sidebar-item-text sidebar-link">Seasonal adjustment of high frequency data</a>
+  <a href="./A-sa-hf.html" class="sidebar-item-text sidebar-link">Seasonal adjustment of high-requency data</a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -197,7 +197,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./A-benchmarking.html" class="sidebar-item-text sidebar-link">Algorithms for benchmarking and temporal disagreggation</a>
+  <a href="./A-benchmarking.html" class="sidebar-item-text sidebar-link">Benchmarking and temporal disagreggation</a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -297,7 +297,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./M-Temp-Disagg-Bench.html" class="sidebar-item-text sidebar-link">Methods for Temporal disaggregation and benchmarking</a>
+  <a href="./M-Temp-Disagg-Bench.html" class="sidebar-item-text sidebar-link">Temporal disaggregation and benchmarking</a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -317,17 +317,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
    
   <ul>
   <li><a href="#motivation" id="toc-motivation" class="nav-link active" data-scroll-target="#motivation">Motivation</a></li>
-  <li><a href="#data-frequencies" id="toc-data-frequencies" class="nav-link" data-scroll-target="#data-frequencies">Data frequencies</a></li>
+  <li><a href="#data-frequencies-high-and-low" id="toc-data-frequencies-high-and-low" class="nav-link" data-scroll-target="#data-frequencies-high-and-low">Data frequencies : high and low</a></li>
   <li><a href="#unobserved-components-uc" id="toc-unobserved-components-uc" class="nav-link" data-scroll-target="#unobserved-components-uc">Unobserved Components (UC)</a></li>
   <li><a href="#detecting-seasonal-patterns" id="toc-detecting-seasonal-patterns" class="nav-link" data-scroll-target="#detecting-seasonal-patterns">Detecting seasonal patterns</a></li>
-  <li><a href="#quick-launch-global-with-default-specifications" id="toc-quick-launch-global-with-default-specifications" class="nav-link" data-scroll-target="#quick-launch-global-with-default-specifications">Quick launch (global) with default specifications</a></li>
-  <li><a href="#pre-treatment" id="toc-pre-treatment" class="nav-link" data-scroll-target="#pre-treatment">Pre-treatment</a>
+  <li><a href="#available-algoritms" id="toc-available-algoritms" class="nav-link" data-scroll-target="#available-algoritms">Available algoritms</a></li>
+  <li><a href="#pre-treatment-reg-arima-or-tramo" id="toc-pre-treatment-reg-arima-or-tramo" class="nav-link" data-scroll-target="#pre-treatment-reg-arima-or-tramo">Pre-treatment : Reg-ARIMA (or TRAMO°)</a>
   <ul class="collapse">
   <li><a href="#calendar-correction" id="toc-calendar-correction" class="nav-link" data-scroll-target="#calendar-correction">Calendar correction</a></li>
   <li><a href="#outliers-and-intervention-variables" id="toc-outliers-and-intervention-variables" class="nav-link" data-scroll-target="#outliers-and-intervention-variables">Outliers and intervention variables</a></li>
   <li><a href="#reg-arima-model" id="toc-reg-arima-model" class="nav-link" data-scroll-target="#reg-arima-model">Reg-Arima Model</a></li>
-  </ul></li>
   <li><a href="#modelling" id="toc-modelling" class="nav-link" data-scroll-target="#modelling">Modelling</a></li>
+  </ul></li>
   <li><a href="#x-11-decompostion" id="toc-x-11-decompostion" class="nav-link" data-scroll-target="#x-11-decompostion">X-11 Decompostion</a>
   <ul class="collapse">
   <li><a href="#default-specifications" id="toc-default-specifications" class="nav-link" data-scroll-target="#default-specifications">Default specifications</a></li>
@@ -373,14 +373,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>explanations below work for both soltions</li>
 <li>how to read a ws in R also in tool selection</li>
 </ul>
+<p>In this chapter frequancies lower than monthly and integer periodocities In the HF chpater higher frequencies and non integer periodicities.</p>
 <section id="motivation" class="level2">
 <h2 class="anchored" data-anchor-id="motivation">Motivation</h2>
-<p>The primary aim of the seasonal adjustment process is to remove seasonal fluctuations from the time series.</p>
+<p>The primary aim of the seasonal adjustment process is to remove seasonal fluctuations from the time series. Seasonal fluctuations are quasi-periodic infra-annual movements. They can mask…</p>
 <p>[insert def SA from b_ov]</p>
+<ul>
+<li>infra annual peridodic numbers</li>
+<li>no unamigous definititon</li>
+<li>depends on its practial estimation</li>
+</ul>
 </section>
-<section id="data-frequencies" class="level2">
-<h2 class="anchored" data-anchor-id="data-frequencies">Data frequencies</h2>
-<p>The seasonal adjustment methods available in JDemetra+ aim to decompose a time series into components and remove seasonal fluctuations from the observed time series. The X-11 method considers monthly and quarterly series while SEATS is able to decompose series with 2, 3, 4, 6 and 12 observations per year.</p>
+<section id="data-frequencies-high-and-low" class="level2">
+<h2 class="anchored" data-anchor-id="data-frequencies-high-and-low">Data frequencies : high and low</h2>
+<p>Until recently seasonal where designed to tackly monthly frequencies or lower in JD+, X13- Seats Arima : 2,4,12 Seats : 2,3,4,6,12</p>
+<p>For infra monthly data</p>
 </section>
 <section id="unobserved-components-uc" class="level2">
 <h2 class="anchored" data-anchor-id="unobserved-components-uc">Unobserved Components (UC)</h2>
@@ -393,44 +400,35 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>In general, the trend consists of 2 sub-components:</p>
 <ul>
 <li><p>The long-term evolution of the series;</p></li>
-<li><p>The cycle, that represents the smooth, almost periodic movement around the long-term evolution of the series. It reveals a succession of phases of growth and recession.</p></li>
+<li><p>The cycle, that represents the smooth, almost periodic movement around the long-term evolution of the series. It reveals a succession of phases of growth and recession. Trend and cycle are not separated in SA alogrithms.</p></li>
 </ul>
-<p>To achieve this goal, seasonal adjustment methods decompose the original time series into components that capture specific movements. These components are: trend-cycle, seasonality and irregularity. The trend-cycle component includes long-term and medium-term movements in the data. For seasonal adjustment purposes there is no need to divide this component into two parts. JDemetra+ refers to the trend-cycle as trend and consequently this convention is used here. For seasonal adjustment purposes both TRAMO-SEATS and X-13ARIMA-SEATS do not separate the long-term trend from the cycle as these two components are usually too short to perform their reliable estimation. Consequently, hereafter TRAMO-SEATS and X-13ARIMA-SEATS estimate the trend component. However, the original TRAMO-SEATS may separate the long-term trend from the cycle through the Hodrick-Precsott filter using the output of the standard decomposition. It should be remembered that JDemetra+ refers to the trend-cycle as trend (<span class="math inline">\(T_{t}\)</span>), and consequently this convention is used in this document.</p>
-<p>TRAMO-SEATS considers two decomposition models:</p>
+<p>Two decomposition models:</p>
 <ul>
 <li><p>The additive model: <span class="math inline">\(X_{t} = T_{t} + S_{t} + I_{t}\)</span>;</p></li>
-<li><p>The log additive model: <span class="math inline">\(log(X_{t}) = log(T_{t}) + log(S_{t}) + log(I_{t})\)</span>.</p></li>
+<li><p>The multiplicatve model: <span class="math inline">\(X_{t} = T_{t} \times S_{t} \times I_{t}\)</span>.</p></li>
 </ul>
-<p>Apart from these two decomposition types X-13ARIMA-SEATS allows the user to apply also the multiplicative model: <span class="math inline">\(X_{t} = T_{t} \times S_{t} \times I_{t}\)</span>.</p>
-<p>A time series <span class="math inline">\(x_{t}\)</span>, which is a subject to a decomposition, is assumed to be a realisation of a discrete-time stochastic, covariance-stationary linear process, which is a collection of random variables <span class="math inline">\(x_{t}\)</span>, where <span class="math inline">\(t\)</span> denotes time. It can be shown that any stochastic, covariance-stationary process can be presented in the form:</p>
-<p><span class="math inline">\(x_{t} = \mu_{t} + {\widetilde{x}}_{t}\)</span>, <span class="math display">\[1\]</span></p>
-<p>where <span class="math inline">\(\mu_{t}\)</span> is a linearly deterministic component and <span class="math inline">\({\widetilde{x}}_{t}\)</span> is a linearly interderministic component, such as:</p>
-<p><span class="math display">\[{\widetilde{x}}_{t} = {\sum_{j = 0}^{\infty}\psi_{j}a}_{t - j}
-  \]</span>, <span class="math display">\[2\]</span></p>
-<p>where <span class="math inline">\(\sum_{j = 0}^{\infty}\psi_{i}^{2} &lt; \infty\)</span> (coefficients <span class="math inline">\(\psi_{j}\)</span> are absolutely summable), <span class="math inline">\(\psi_{0} = 1\)</span> and <span class="math inline">\(a_{t}\)</span> is the white noise error with zero mean and constant variance <span class="math inline">\(V_{a}\)</span>. The error term <span class="math inline">\(a_{t}\)</span> represents the one-period ahead forecast error of <span class="math inline">\(x_{t}\)</span>, that is:</p>
-<p><span class="math display">\[
-  a_{t} = {\widetilde{x}}_{t} - {\widehat{x}}_{t|t - 1}
-  \]</span>, <span class="math display">\[3\]</span></p>
-<p>where <span class="math display">\[{\widehat{x}}_{t|t - 1}\]</span> is the forecast of <span class="math display">\[{\widetilde{x}}_{t}\]</span> made at period <span class="math inline">\(t - 1\)</span>. As <span class="math inline">\(a_{t}\)</span> represents what is new in <span class="math display">\[{\widetilde{x}}_{t}\]</span> in point <span class="math inline">\(t\)</span>, i.e., not contained in the past values of <span class="math display">\[{\widetilde{x}}_{t}\]</span>, it is also called innovation of the process. From <span class="math display">\[3\]</span> <span class="math display">\[{\widetilde{x}}_{t}\]</span> can be viewed as a linear filter applied to the innovations.</p>
-<p>The equation 7.1 is called a Wold representation. It presents a process as a sum of linearly deterministic component <span class="math inline">\(\mu_{t}\)</span> and linearly interderministic component <span class="math inline">\(\sum_{j = 0}^{\infty}\psi_{j}a_{t - j}\)</span>, the first one is perfectly predictable once the history of the process <span class="math inline">\(x_{t - 1}\)</span> is known and the second one is impossible to predict perfectly. This explains why the stochastic process cannot be perfectly predicted.</p>
-<p>Under suitable conditions <span class="math display">\[{\widetilde{x}}_{t}\]</span> can be presented as a weighted sum of its past values and <span class="math inline">\(a_{t}\)</span>, i.e.:</p>
-<p><span class="math display">\[
-  { {\widetilde{x}}_{t} = \sum_{j = 0}^{\infty}\pi_{j}{\widetilde{x}}_{t - j} + a}_{t}
-  \]</span>, <span class="math display">\[4\]</span></p>
-<p>In general, for the observed time series, the assumptions concerning the nature of the process <span class="math display">\[1\]</span> do not hold for various reasons. Firstly, most observed time series display a mean that cannot be assumed to be constant due to the presence of a trend and the seasonal movements. Secondly, the variance of the time series may vary in time. Finally, the observed time series usually contain outliers, calendar effects and regression effects, which are treated as deterministic. Therefore, in practice a prior transformation and an adjustment need to be applied to the time series. The constant variance is usually achieved through taking a logarithmic transformation and the correction for the deterministic effects, while stationarity of the mean is achieved by applying regular and seasonal differencing. These processes, jointly referred to as preadjustment or linearization, can be performed with the TRAMO or RegARIMA models. Besides the linearisation, forecasts and backcasts of stochastic time series are estimated with the ARIMA model, allowing for later application of linear filters at both ends of time series. The estimation performed with these models delivers the stochastic part of the time series, called the linearised series, which is assumed to be an output of a linear stochastic process.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> The deterministic effects are removed from the time series and used to form the final components.</p>
-<p>In the next step the linearised series is decomposed into its components. There is a fundamental difference in how this process is performed in TRAMO-SEATS and X-13ARIMA-SEATS. In TRAMO-SEATS the decomposition is performed by the SEATS procedure, which follows a so called ARIMA model based approach. In principle, it aims to derive the components with statistical models. More information is given in the <a href="../theory/SA_SEATS.html">SEATS</a> section. X-13ARIMA-SEATS offers two algorithms for decomposition: SEATS and X-11. The X-11 algorithm, which is described in the <a href="../theory/SA_X11.html">X-11 section</a> section, decomposes a series by means of linear filters. Finally, in both methods the final components are derived by the assignment of the deterministic effects to the stochastic components. Consequently, the role of the ARIMA models is different in each method. TRAMO-SEATS applies the ARIMA models both in the preadjustment step and in the decomposition procedure. On the contrary, when the X-11 algorithm is used for decomposition, X-13ARIMA-SEATS uses the ARIMA model only in the preadjustment step. In summary, the decomposition procedure that results in an estimation of the seasonal component requires prior identification of the deterministic effects and their removal from the time series. This is achieved through the linearisation process performed by the TRAMO and the RegARIMA models, shortly discussed in the <a href="../theory/SA_lin.html">Linearisation with the TRAMO and RegARIMA models</a> section.The linearised series is then decomposed into the stochastic components with <a href="../theory/SA_SEATS.html">SEATS</a> or <a href="../theory/SA_X11.html">X-11</a> algorithms.</p>
-<p>X-13</p>
-<p>X-13ARIMA is a seasonal adjustment program developed and supported by the U.S. Census Bureau. It is based on the U.S. Census Bureau’s earlier X-11 program, the X-11-ARIMA program developed at Statistics Canada, the X-12-ARIMA program developed by the U.S. Census Bureau.</p>
+<p>In the Reg-Arima (link) or Tramo(link) modelling the the multplicative model is estimated in logs; <span class="math inline">\(log(X_{t}) = log(T_{t}) + log(S_{t}) + log(I_{t})\)</span>; Seats decompostion also relies on logs wheres X-11 decomp operates…</p>
 </section>
 <section id="detecting-seasonal-patterns" class="level2">
 <h2 class="anchored" data-anchor-id="detecting-seasonal-patterns">Detecting seasonal patterns</h2>
 </section>
-<section id="quick-launch-global-with-default-specifications" class="level2">
-<h2 class="anchored" data-anchor-id="quick-launch-global-with-default-specifications">Quick launch (global) with default specifications</h2>
-<p>(move table)</p>
+<section id="available-algoritms" class="level2">
+<h2 class="anchored" data-anchor-id="available-algoritms">Available algoritms</h2>
+<p>(link to table)</p>
+<p>The two most popular are..</p>
+<p>X-13ARIMA is a seasonal adjustment program developed and supported by the U.S. Census Bureau. It is based on the U.S. Census Bureau’s earlier X-11 program, the X-11-ARIMA program developed at Statistics Canada, the X-12-ARIMA program developed by the U.S. Census Bureau.</p>
+<p>Tramo-Seats</p>
+<p>Those will be the most detailed in this doc, but there alternative solutions.</p>
+<p>STL</p>
+<p>BSM</p>
+<p>X13 and TS are two step algos, pretreatment +dcomp (no pre ptreatment in STL + all at once in BSM)</p>
+<ul>
+<li><p>pre-treatment objectives and methods</p></li>
+<li><p>decomposition objective and methods</p></li>
+</ul>
 </section>
-<section id="pre-treatment" class="level2">
-<h2 class="anchored" data-anchor-id="pre-treatment">Pre-treatment</h2>
+<section id="pre-treatment-reg-arima-or-tramo" class="level2">
+<h2 class="anchored" data-anchor-id="pre-treatment-reg-arima-or-tramo">Pre-treatment : Reg-ARIMA (or TRAMO°)</h2>
 <p>why ?</p>
 <p>globalstructure regression with ARIMA structure for residuals</p>
 <p>we’ll see it in more details - regressors - model</p>
@@ -500,10 +498,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>User defined parameters</p>
 <p>Modifiying specifications GUI R</p>
 </section>
-</section>
-<section id="modelling" class="level2">
-<h2 class="anchored" data-anchor-id="modelling">Modelling</h2>
+<section id="modelling" class="level3">
+<h3 class="anchored" data-anchor-id="modelling">Modelling</h3>
 <p>the reg arima part can be run without decompostion slight differences in parameters</p>
+</section>
 </section>
 <section id="x-11-decompostion" class="level2">
 <h2 class="anchored" data-anchor-id="x-11-decompostion">X-11 Decompostion</h2>
@@ -928,12 +926,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 </section>
 </section>
-<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
-<hr>
-<ol>
-<li id="fn1"><p>When the series are non-stationary differentiation is performed before the seasonality tests.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-</ol>
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -1042,7 +1034,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
   <div class="nav-page nav-page-next">
       <a href="./A-sa-hf.html" class="pagination-link">
-        <span class="nav-page-text">Seasonal adjustment of high frequency data</span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text">Seasonal adjustment of high-requency data</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

@@ -1,14 +1,22 @@
-# Seasonal adjustment of high frequency data {.unnumbered}
+# Seasonal adjustment of high-requency data {.unnumbered}
 
-## Motivation
+## Motivation: data specificities
 
-### Ubiquitous use
+Infra monthly data displays multiple and non integer periodicities which cannot be dealt with classical versions of SA algorithlms. JD+ provides tailored versions of these algorithms.
 
-### Data specificities
+Link to worked example (Daily French births)
 
-## Tools
+## Available algorithms
 
 code here and/or link to R packages chapter
+
+| Col1          | Algorithm                                | GUI v 3.0 | R package / function |
+|--------------|-----------------------------|--------------|--------------|
+| Pre-treatment | Fractionnal Airline Model                | yes       |                      |
+| Decompsition  | Extended SEATS Fractionnal Airline Model | yes       |                      |
+|               | Extended X-11                            | yes       |                      |
+|               | Extended STL                             | no        |                      |
+| One-Step      | SSF Framework                            | no        |                      |
 
 ## Unobserved Components
 
@@ -22,7 +30,11 @@ code here and/or link to R packages chapter
 
 ### Calendar correction
 
+generate
+
 ### Outliers and intervention variables
+
+add
 
 ### Linearization
 
@@ -30,16 +42,16 @@ code here and/or link to R packages chapter
 
 ### Extended X-11
 
-### STL decomposition
-
 ### Arima Model Based (AMB) Decomposition
 
-### State Space framework
+### STL decomposition
+
+## State Space framework
+
+one step for pre-treatment and decomp
 
 ## Quality assessment
 
 ### Residual seasonality
 
 ### Residual Calendar effects
-
-
