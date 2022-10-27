@@ -174,23 +174,15 @@ this part should allow to use x-11 via R as well as via GUI
 
 ### Default specifications
 
-+-----------------+---------------------+--------------------+------------------+----------------+
 | Spec identifier | Log/level detection | Outliers detection | Calendar effects | ARIMA          |
-+=================+=====================+====================+==================+================+
+|---------------|---------------|---------------|---------------|---------------|
 | RSA0            | *NA*                | *NA*               | *NA*             | Airline(+mean) |
-+-----------------+---------------------+--------------------+------------------+----------------+
 | RSA1            | automatic           | AO/LS/TC           | *NA*             | Airline(+mean) |
-+-----------------+---------------------+--------------------+------------------+----------------+
 | RSA2c           | automatic           | AO/LS/TC           | 2 TD vars+Easter | Airline(+mean) |
-+-----------------+---------------------+--------------------+------------------+----------------+
 | RSA3            | automatic           | AO/LS/TC           | *NA*             | automatic      |
-+-----------------+---------------------+--------------------+------------------+----------------+
 | RSA4c           | automatic           | AO/LS/TC           | 2 TD vars+Easter | automatic      |
-+-----------------+---------------------+--------------------+------------------+----------------+
 | RSA5            | automatic           | AO/LS/TC           | 6 TD vars+Easter | automatic      |
-+-----------------+---------------------+--------------------+------------------+----------------+
 | X-11            | *NA*                | *NA*               | *NA*             | *NA*           |
-+-----------------+---------------------+--------------------+------------------+----------------+
 
 if identifiers slightly different in GUI, make it clear + pb of names in V3
 
@@ -206,21 +198,14 @@ typos : RJDemetra doc (pull req)
 
 ### Output 1: series
 
-+---------------------------+----------------+---------------+----------------------------------------+
 | Series                    | Final X11 name | Final Results | Reallocation of pre-adjustment effects |
-+===========================+================+===============+========================================+
+|-----------------|-----------------|-----------------|-----------------------|
 | Raw series (forecasts)    |                | y (y_f)       |                                        |
-+---------------------------+----------------+---------------+----------------------------------------+
 | Final seasonal component  | D16            | s (s_f)       |                                        |
-+---------------------------+----------------+---------------+----------------------------------------+
 | Final trend               | D12            | t (t_f)       |                                        |
-+---------------------------+----------------+---------------+----------------------------------------+
 | Final irregular           | D13            | i (i_f)       |                                        |
-+---------------------------+----------------+---------------+----------------------------------------+
 | Calendar component        |                |               |                                        |
-+---------------------------+----------------+---------------+----------------------------------------+
 | Seasonal without calendar | D10            |               |                                        |
-+---------------------------+----------------+---------------+----------------------------------------+
 
 make clear reallocation of outliers effects (frequent questions)
 
@@ -475,21 +460,14 @@ decomp of lineraized series in level or log
 
 ### Default specifications
 
-+-----------------+---------------------+--------------------+------------------+----------------+
 | Spec identifier | Log/level detection | Outliers detection | Calendar effects | ARIMA          |
-+=================+=====================+====================+==================+================+
+|---------------|---------------|---------------|---------------|---------------|
 | RSA0            | *NA*                | *NA*               | *NA*             | Airline(+mean) |
-+-----------------+---------------------+--------------------+------------------+----------------+
 | RSA1            | automatic           | AO/LS/TC           | *NA*             | Airline(+mean) |
-+-----------------+---------------------+--------------------+------------------+----------------+
 | RSA2            | automatic           | AO/LS/TC           | 2 TD vars+Easter | Airline(+mean) |
-+-----------------+---------------------+--------------------+------------------+----------------+
 | RSA3            | automatic           | AO/LS/TC           | *NA*             | automatic      |
-+-----------------+---------------------+--------------------+------------------+----------------+
 | RSA5            | automatic           | AO/LS/TC           | 6 TD vars+Easter | automatic      |
-+-----------------+---------------------+--------------------+------------------+----------------+
 | RSAfull         | automatic           | AO/LS/TC           | automatic        | automatic      |
-+-----------------+---------------------+--------------------+------------------+----------------+
 
 if identifiers slightly different in GUI, make it clear + pb of names in V3
 
@@ -511,7 +489,7 @@ in R
 
 global indications: \_f: forecasts - \_e - -ef
 
-### Stochastic series
+#### Stochastic series
 
 decompostion of the linearisezed series or of its log if multiplicative model
 
@@ -519,47 +497,27 @@ components: t_lin, s_lin, i_lin
 
 if log, everything is dispalayed in log
 
-+-------------------------+---------+
 | Series Name             | Meaning |
-+=========================+=========+
+|-------------------------|---------|
 | decomposition.y_lin     |         |
-+-------------------------+---------+
 | decomposition.y_lin_f   |         |
-+-------------------------+---------+
 | decomposition.y_lin_ef  |         |
-+-------------------------+---------+
 | decomposition.t_lin     |         |
-+-------------------------+---------+
 | decomposition.t_lin_f   |         |
-+-------------------------+---------+
 | decomposition.t_lin_e   |         |
-+-------------------------+---------+
 | decomposition.t_lin_f   |         |
-+-------------------------+---------+
 | decomposition.sa_lin    |         |
-+-------------------------+---------+
 | decomposition.sa_lin_f  |         |
-+-------------------------+---------+
 | decomposition.sa_lin_e  |         |
-+-------------------------+---------+
 | decomposition.sa_lin_ef |         |
-+-------------------------+---------+
 | decomposition.s_lin     |         |
-+-------------------------+---------+
 | decomposition.s_lin_f   |         |
-+-------------------------+---------+
 | decomposition.s_lin_e   |         |
-+-------------------------+---------+
 | decomposition.s_lin_ef  |         |
-+-------------------------+---------+
 | decomposition.i_lin     |         |
-+-------------------------+---------+
 | decomposition.i_lin_f   |         |
-+-------------------------+---------+
 | decomposition.i_lin_e   |         |
-+-------------------------+---------+
 | decomposition.i_lin_ef  |         |
-+-------------------------+---------+
 
 Retrieve in GUI
 
@@ -581,7 +539,7 @@ IMAGE1 GUI
 
 Retrieve in R
 
-### Components (Level)
+#### Components (Level)
 
 if additive model : same as
 
@@ -591,47 +549,27 @@ components: t_lin, s_lin, i_lin
 
 if log, everything is dispalayed in log
 
-+-------------------------+---------+
 | Series Name             | Meaning |
-+=========================+=========+
+|-------------------------|---------|
 | decomposition.y_lin     |         |
-+-------------------------+---------+
 | decomposition.y_lin_f   |         |
-+-------------------------+---------+
 | decomposition.y_lin_ef  |         |
-+-------------------------+---------+
 | decomposition.t_lin     |         |
-+-------------------------+---------+
 | decomposition.t_lin_f   |         |
-+-------------------------+---------+
 | decomposition.t_lin_e   |         |
-+-------------------------+---------+
 | decomposition.t_lin_f   |         |
-+-------------------------+---------+
 | decomposition.sa_lin    |         |
-+-------------------------+---------+
 | decomposition.sa_lin_f  |         |
-+-------------------------+---------+
 | decomposition.sa_lin_e  |         |
-+-------------------------+---------+
 | decomposition.sa_lin_ef |         |
-+-------------------------+---------+
 | decomposition.s_lin     |         |
-+-------------------------+---------+
 | decomposition.s_lin_f   |         |
-+-------------------------+---------+
 | decomposition.s_lin_e   |         |
-+-------------------------+---------+
 | decomposition.s_lin_ef  |         |
-+-------------------------+---------+
 | decomposition.i_lin     |         |
-+-------------------------+---------+
 | decomposition.i_lin_f   |         |
-+-------------------------+---------+
 | decomposition.i_lin_e   |         |
-+-------------------------+---------+
 | decomposition.i_lin_ef  |         |
-+-------------------------+---------+
 
 Retrieve in GUI
 
@@ -653,7 +591,9 @@ IMAGE1 GUI
 
 Retrieve in R
 
-### Final series
+Biais correction voir JP (done between lin and and comp ?)
+
+#### Final series
 
 decompostion of the linearisezed series or of its log if multiplicative model
 
@@ -661,47 +601,27 @@ components: t_lin, s_lin, i_lin
 
 if log, everything is dispalayed in log
 
-+-------------------------+---------+
 | Series Name             | Meaning |
-+=========================+=========+
+|-------------------------|---------|
 | decomposition.y_lin     |         |
-+-------------------------+---------+
 | decomposition.y_lin_f   |         |
-+-------------------------+---------+
 | decomposition.y_lin_ef  |         |
-+-------------------------+---------+
 | decomposition.t_lin     |         |
-+-------------------------+---------+
 | decomposition.t_lin_f   |         |
-+-------------------------+---------+
 | decomposition.t_lin_e   |         |
-+-------------------------+---------+
 | decomposition.t_lin_f   |         |
-+-------------------------+---------+
 | decomposition.sa_lin    |         |
-+-------------------------+---------+
 | decomposition.sa_lin_f  |         |
-+-------------------------+---------+
 | decomposition.sa_lin_e  |         |
-+-------------------------+---------+
 | decomposition.sa_lin_ef |         |
-+-------------------------+---------+
 | decomposition.s_lin     |         |
-+-------------------------+---------+
 | decomposition.s_lin_f   |         |
-+-------------------------+---------+
 | decomposition.s_lin_e   |         |
-+-------------------------+---------+
 | decomposition.s_lin_ef  |         |
-+-------------------------+---------+
 | decomposition.i_lin     |         |
-+-------------------------+---------+
 | decomposition.i_lin_f   |         |
-+-------------------------+---------+
 | decomposition.i_lin_e   |         |
-+-------------------------+---------+
 | decomposition.i_lin_ef  |         |
-+-------------------------+---------+
 
 Retrieve in GUI
 
@@ -731,19 +651,105 @@ GUI
 
 R
 
-#### Output2: Final Params
+### Output2: Final Params
 
-what is chosen automatically or default (cf estp)
+what is chosen automatically or default (cf estp) Relevant if parameters not set manually, or any parameters automatically selected by the software without having a fixed default value. (The rest of the parameters is set in the spec) To manually set hose parameters and see all the fixed default values see Specifications / parameters section
 
-#### Output3: Diagnostics
+here all have a default value, nothing to be automatically selected
 
-non decompo model and consquences
+### Output3: Diagnostics
 
-#### Fine-tuning : user defined parameters
+SEATS (model based) specific diagnostics
+check GUI (more plots, values) vs R
+links to methods chapter, here just be able to "read" (knowledge assumed)
+(here direct base on gui plots, and the add what can be retrieved in R)
+
+- WK analysis
+
+components 
+final estimators
+
+- 
+
+### Fine-tuning : user defined parameters
+
+-   Prediction length
+
+Forecast span used in the decomposition
+default: one year (-1)
+(years are set in negative values, positive values indicate nimber of periods)
+
+-   Approximation Mode
+
+Modification type for inadmissible models
+None (default)
+Legacy 
+Noisy
+
+-   MA unit root boundary
+
+Modulus threshold for resetteing MA "near-unit" roots [0,1] default (0.95)
+
+-   Trend Boundary
+Modulus thershold for assingning positive real AR Roots
+[0,1] default (0.5)
+
+-   Seasonal Tolerance
+Degree threshold for assigning complex AR roots 
+[0,10] default (2)
+
+-   Seasonal Boundary (unique)
+Modulus threshold for assigning negative real AR roots
+[0,1] default (0.8)
+
+
+-   Seasonal Boundary (unique)
+Same modulus threshold unique seasonal AR roots 
+[0,1] default (0.8)
+
+-   Method
+
+Algorithm used for estimation of unobserved componements
+
+Burman (default)
+
+KalmanSmoother
+
+McEllroyMatrix
+
+Further explanation (cf slides JP)
+
+link to M chapter for details on root allocation
+
+##### Set in GUI
+In specification window (link to GUI global exp)
+
+IMAGE 
+
+##### Set in R
+version 2 (RJDemetra)
+```{r, eval=FALSE}
+tramoseats_spec(
+ spec = c("RSAfull", "RSA0", "RSA1", "RSA2", "RSA3", "RSA4", "RSA5"),
+  fcst.horizon = NA_integer_,
+  seats.predictionLength = NA_integer_,
+  seats.approx = c(NA, "None", "Legacy", "Noisy"),
+  seats.trendBoundary = NA_integer_,
+  seats.seasdBoundary = NA_integer_,
+  seats.seasdBoundary1 = NA_integer_,
+  seats.seasTol = NA_integer_,
+  seats.maBoundary = NA_integer_,
+  seats.method = c(NA, "Burman", "KalmanSmoother", "McElroyMatrix")
+)
+
+```
+
+in version 3 with {rjd3tramoseats}
+
 
 ## STL
 
-use on pre-treated data
+use on linearized data data, no pre-adjustment
 
 ## SSF
 

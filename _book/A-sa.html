@@ -337,7 +337,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#output-3-diagnostics" id="toc-output-3-diagnostics" class="nav-link" data-scroll-target="#output-3-diagnostics">Output 3: diagnostics</a></li>
   <li><a href="#user-defined-parameters" id="toc-user-defined-parameters" class="nav-link" data-scroll-target="#user-defined-parameters">User-defined parameters</a></li>
   </ul></li>
-  <li><a href="#seats-decomposition" id="toc-seats-decomposition" class="nav-link" data-scroll-target="#seats-decomposition">SEATS Decomposition</a></li>
+  <li><a href="#seats-decomposition" id="toc-seats-decomposition" class="nav-link" data-scroll-target="#seats-decomposition">SEATS Decomposition</a>
+  <ul class="collapse">
+  <li><a href="#default-specifications-1" id="toc-default-specifications-1" class="nav-link" data-scroll-target="#default-specifications-1">Default specifications</a></li>
+  <li><a href="#quick-launch-1" id="toc-quick-launch-1" class="nav-link" data-scroll-target="#quick-launch-1">Quick Launch</a></li>
+  <li><a href="#output-1-series-1" id="toc-output-1-series-1" class="nav-link" data-scroll-target="#output-1-series-1">Output 1: series</a></li>
+  <li><a href="#stochastic-series" id="toc-stochastic-series" class="nav-link" data-scroll-target="#stochastic-series">Stochastic series</a></li>
+  <li><a href="#components-level" id="toc-components-level" class="nav-link" data-scroll-target="#components-level">Components (Level)</a></li>
+  <li><a href="#final-series" id="toc-final-series" class="nav-link" data-scroll-target="#final-series">Final series</a></li>
+  </ul></li>
   <li><a href="#stl" id="toc-stl" class="nav-link" data-scroll-target="#stl">STL</a></li>
   <li><a href="#ssf" id="toc-ssf" class="nav-link" data-scroll-target="#ssf">SSF</a></li>
   <li><a href="#quality-assessment" id="toc-quality-assessment" class="nav-link" data-scroll-target="#quality-assessment">Quality assessment</a>
@@ -510,11 +518,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3 class="anchored" data-anchor-id="default-specifications">Default specifications</h3>
 <table class="table">
 <colgroup>
-<col style="width: 20%">
-<col style="width: 20%">
-<col style="width: 20%">
-<col style="width: 20%">
-<col style="width: 20%">
+<col style="width: 18%">
+<col style="width: 22%">
+<col style="width: 21%">
+<col style="width: 19%">
+<col style="width: 17%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -562,7 +570,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <td>automatic</td>
 </tr>
 <tr class="even">
-<td>RSA4c</td>
+<td>RSA5</td>
 <td>automatic</td>
 <td>AO/LS/TC</td>
 <td>6 TD vars+Easter</td>
@@ -592,10 +600,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3 class="anchored" data-anchor-id="output-1-series">Output 1: series</h3>
 <table class="table">
 <colgroup>
-<col style="width: 22%">
-<col style="width: 20%">
-<col style="width: 20%">
-<col style="width: 36%">
+<col style="width: 26%">
+<col style="width: 16%">
+<col style="width: 15%">
+<col style="width: 39%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -751,8 +759,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="user-defined-parameters" class="level3">
 <h3 class="anchored" data-anchor-id="user-defined-parameters">User-defined parameters</h3>
 <p>Here is described how to change default values or automatic choices.</p>
-<section id="list" class="level4">
-<h4 class="anchored" data-anchor-id="list">List</h4>
 <section id="general-settings" class="level5">
 <h5 class="anchored" data-anchor-id="general-settings">General settings</h5>
 <ul>
@@ -842,7 +848,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <p>Check: will user choice be applied to all steps or only to final phase D step</p>
 </section>
-</section>
 <section id="parameter-setting-in-gui" class="level4">
 <h4 class="anchored" data-anchor-id="parameter-setting-in-gui">Parameter setting in GUI</h4>
 <p>Specification (general or particular to one series) image</p>
@@ -883,19 +888,421 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2 class="anchored" data-anchor-id="seats-decomposition">SEATS Decomposition</h2>
 <p>policy: what is readable in GUI should be explained (even if shortly with link to details here) intermediate series ?</p>
 <p>decomp of lineraized series in level or log</p>
-<section id="default-specifications-1" class="level4">
-<h4 class="anchored" data-anchor-id="default-specifications-1">Default specifications</h4>
-<p>modif table</p>
+<section id="default-specifications-1" class="level3">
+<h3 class="anchored" data-anchor-id="default-specifications-1">Default specifications</h3>
+<table class="table">
+<colgroup>
+<col style="width: 18%">
+<col style="width: 22%">
+<col style="width: 21%">
+<col style="width: 19%">
+<col style="width: 17%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Spec identifier</th>
+<th>Log/level detection</th>
+<th>Outliers detection</th>
+<th>Calendar effects</th>
+<th>ARIMA</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>RSA0</td>
+<td><em>NA</em></td>
+<td><em>NA</em></td>
+<td><em>NA</em></td>
+<td>Airline(+mean)</td>
+</tr>
+<tr class="even">
+<td>RSA1</td>
+<td>automatic</td>
+<td>AO/LS/TC</td>
+<td><em>NA</em></td>
+<td>Airline(+mean)</td>
+</tr>
+<tr class="odd">
+<td>RSA2</td>
+<td>automatic</td>
+<td>AO/LS/TC</td>
+<td>2 TD vars+Easter</td>
+<td>Airline(+mean)</td>
+</tr>
+<tr class="even">
+<td>RSA3</td>
+<td>automatic</td>
+<td>AO/LS/TC</td>
+<td><em>NA</em></td>
+<td>automatic</td>
+</tr>
+<tr class="odd">
+<td>RSA5</td>
+<td>automatic</td>
+<td>AO/LS/TC</td>
+<td>6 TD vars+Easter</td>
+<td>automatic</td>
+</tr>
+<tr class="even">
+<td>RSAfull</td>
+<td>automatic</td>
+<td>AO/LS/TC</td>
+<td>automatic</td>
+<td>automatic</td>
+</tr>
+</tbody>
+</table>
+<p>if identifiers slightly different in GUI, make it clear + pb of names in V3</p>
+<p>in calendar effects : what is tested, link to calendar chapter</p>
+<p>typos : RJDemetra doc (pull req)</p>
+<ul>
+<li>7 TD vars</li>
+</ul>
 </section>
-<section id="quick-launch-1" class="level4">
-<h4 class="anchored" data-anchor-id="quick-launch-1">Quick Launch</h4>
+<section id="quick-launch-1" class="level3">
+<h3 class="anchored" data-anchor-id="quick-launch-1">Quick Launch</h3>
+<p>overall procedure</p>
+<p>in GUI</p>
+<p>in R</p>
 </section>
-<section id="output1-series" class="level4">
-<h4 class="anchored" data-anchor-id="output1-series">Output1: series</h4>
+<section id="output-1-series-1" class="level3">
+<h3 class="anchored" data-anchor-id="output-1-series-1">Output 1: series</h3>
+<p>global indications: _f: forecasts - _e - -ef</p>
+</section>
+<section id="stochastic-series" class="level3">
+<h3 class="anchored" data-anchor-id="stochastic-series">Stochastic series</h3>
+<p>decompostion of the linearisezed series or of its log if multiplicative model</p>
+<p>components: t_lin, s_lin, i_lin</p>
+<p>if log, everything is dispalayed in log</p>
+<table class="table">
+<colgroup>
+<col style="width: 36%">
+<col style="width: 13%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Series Name</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>decomposition.y_lin</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>decomposition.y_lin_f</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>decomposition.y_lin_ef</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>decomposition.t_lin</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>decomposition.t_lin_f</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>decomposition.t_lin_e</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>decomposition.t_lin_f</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>decomposition.sa_lin</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>decomposition.sa_lin_f</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>decomposition.sa_lin_e</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>decomposition.sa_lin_ef</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>decomposition.s_lin</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>decomposition.s_lin_f</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>decomposition.s_lin_e</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>decomposition.s_lin_ef</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>decomposition.i_lin</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>decomposition.i_lin_f</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>decomposition.i_lin_e</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>decomposition.i_lin_ef</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Retrieve in GUI</p>
+<p>NODE : Decompostion &gt; Stocastic series</p>
+<p>forecast f series are pasted at the end of the correspoding series</p>
+<ul>
+<li>_e series are labelled with (stde)</li>
+</ul>
+<p>_ef appear in graphs (but values cannot be retrieved)</p>
+<p>IMAGE1 GUI</p>
+<ul>
+<li><p>image 1 : decompostion node and series</p></li>
+<li><p>image 2 trend graph</p></li>
+<li><p>image 3 seasonal graph</p></li>
+</ul>
+<p>Retrieve in R</p>
+</section>
+<section id="components-level" class="level3">
+<h3 class="anchored" data-anchor-id="components-level">Components (Level)</h3>
+<p>if additive model : same as</p>
+<p>decompostion of the linearisezed series or of its log if multiplicative model</p>
+<p>components: t_lin, s_lin, i_lin</p>
+<p>if log, everything is dispalayed in log</p>
+<table class="table">
+<colgroup>
+<col style="width: 36%">
+<col style="width: 13%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Series Name</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>decomposition.y_lin</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>decomposition.y_lin_f</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>decomposition.y_lin_ef</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>decomposition.t_lin</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>decomposition.t_lin_f</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>decomposition.t_lin_e</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>decomposition.t_lin_f</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>decomposition.sa_lin</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>decomposition.sa_lin_f</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>decomposition.sa_lin_e</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>decomposition.sa_lin_ef</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>decomposition.s_lin</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>decomposition.s_lin_f</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>decomposition.s_lin_e</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>decomposition.s_lin_ef</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>decomposition.i_lin</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>decomposition.i_lin_f</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>decomposition.i_lin_e</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>decomposition.i_lin_ef</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Retrieve in GUI</p>
+<p>NODE : Decompostion &gt; Stocastic series</p>
+<p>forecast f series are pasted at the end of the correspoding series</p>
+<ul>
+<li>_e series are labelled with (stde)</li>
+</ul>
+<p>_ef appear in graphs (but values cannot be retrieved)</p>
+<p>IMAGE1 GUI</p>
+<ul>
+<li><p>image 1 : decompostion node and series</p></li>
+<li><p>image 2 trend graph</p></li>
+<li><p>image 3 seasonal graph</p></li>
+</ul>
+<p>Retrieve in R</p>
+</section>
+<section id="final-series" class="level3">
+<h3 class="anchored" data-anchor-id="final-series">Final series</h3>
+<p>decompostion of the linearisezed series or of its log if multiplicative model</p>
+<p>components: t_lin, s_lin, i_lin</p>
+<p>if log, everything is dispalayed in log</p>
+<table class="table">
+<colgroup>
+<col style="width: 36%">
+<col style="width: 13%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Series Name</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>decomposition.y_lin</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>decomposition.y_lin_f</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>decomposition.y_lin_ef</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>decomposition.t_lin</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>decomposition.t_lin_f</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>decomposition.t_lin_e</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>decomposition.t_lin_f</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>decomposition.sa_lin</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>decomposition.sa_lin_f</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>decomposition.sa_lin_e</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>decomposition.sa_lin_ef</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>decomposition.s_lin</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>decomposition.s_lin_f</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>decomposition.s_lin_e</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>decomposition.s_lin_ef</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>decomposition.i_lin</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>decomposition.i_lin_f</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>decomposition.i_lin_e</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>decomposition.i_lin_ef</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Retrieve in GUI</p>
+<p>NODE : Decompostion &gt; Stocastic series</p>
+<p>forecast f series are pasted at the end of the correspoding series</p>
+<ul>
+<li>_e series are labelled with (stde)</li>
+</ul>
+<p>_ef appear in graphs (but values cannot be retrieved)</p>
+<p>IMAGE1 GUI</p>
+<ul>
+<li><p>image 1 : decompostion node and series</p></li>
+<li><p>image 2 trend graph</p></li>
+<li><p>image 3 seasonal graph</p></li>
+</ul>
+<p>Retrieve in R</p>
+<p>make clear reallocation of outliers effects (frequent questions)</p>
 <p>Table</p>
 <p>GUI</p>
 <p>R</p>
-</section>
 <section id="output2-final-params" class="level4">
 <h4 class="anchored" data-anchor-id="output2-final-params">Output2: Final Params</h4>
 <p>what is chosen automatically or default (cf estp)</p>
@@ -906,6 +1313,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 <section id="fine-tuning-user-defined-parameters" class="level4">
 <h4 class="anchored" data-anchor-id="fine-tuning-user-defined-parameters">Fine-tuning : user defined parameters</h4>
+</section>
 </section>
 </section>
 <section id="stl" class="level2">
