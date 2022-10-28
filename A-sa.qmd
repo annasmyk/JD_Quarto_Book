@@ -50,7 +50,9 @@ In the Reg-Arima (link) or Tramo(link) modelling the the multplicative model is 
 
 ## Detecting seasonal patterns
 
-## Available algoritms
+Seasonality tests (chap M_Tests)
+
+## Available algorithms
 
 (link to table)
 
@@ -72,29 +74,57 @@ X13 and TS are two step algos, pretreatment +dcomp (no pre ptreatment in STL + a
 
 -   decomposition objective and methods
 
-## Pre-treatment : Reg-ARIMA (or TRAMO°)
+## Pre-treatment : Reg-ARIMA (or TRAMO)
 
-why ?
+### why ?
+let's call it regArima modelling (and tramo only when TRamo differences are outlined)
 
-globalstructure regression with ARIMA structure for residuals
+### global outline
 
-we'll see it in more details - regressors - model
+global structure regression with ARIMA structure for residuals
 
-Template for each default params (quick launch) INPUT (?) Output1: series Output2: Final Params Output3: Diagnostics User-defined parameters
+we'll see it in more details 
+
+- regressors
+- calendar (auto and user)
+- outliers (auto and user)
+- adding intervention variables 
+(here: just how to feed the model, details on regressor and calendar specif chapter)
+- model
+
+RegArima modelling  part can be of an SA process
+or run on its own 
+- GUI 
+- R
+(sligthly different specs,...)
+
+Template for each sub part
+- Default params: (quick launch) INPUT (?) 
+- Setting User-defined parameters (and not at the end post diagnostics ?)
+- Output1: series 
+- Output2: Final Params 
+- Output3: Diagnostics 
+
 
 ### Calendar correction
 
-Rationale : why correct
+Rationale : why correct (in a sentence)
 
 Guidelines ..it has to make sense ex-ante
 
-Method regresion as deterministic effects
+Method regression as deterministic effects
 
 details of regressor building in calendar chapter
 
-default params : cf defalut spec tab - working days - trading days - easter - national calmendars not taken into accout
+
+#### Default specifications
+cf defalut spec tab 
+
+- working days - trading days - easter - national calmendars not taken into accout
 
 set this option GUI specif detail R
+
+#### Customizing calendars
 
 How to correct this ? solution 1: if working with GUI build a new calendar in GUI (chap C) set this option import it : here
 
@@ -102,9 +132,12 @@ solution 2: import external regressors can be built with rjd3modelling (link)
 
 set this option
 
-Output2: Final Params TEST of presence or not GUI
+Output2: Final Params TEST of presence or 
+not GUI
 
 Output3: Diagnostics - results of regression student, F test - td spectral peaks - residual effect in $SA$ or $I$ series
+
+(worked example: french calendar in R)
 
 ### Outliers and intervention variables
 
@@ -120,7 +153,7 @@ regression
 
 #### Automatic detction
 
-for BSM cf below modifing specifs - type - critiacal value - span
+for BSM cf below modifing specifs - type - critical value - span
 
 (link to revision policies)
 
@@ -142,7 +175,8 @@ assigning to componenets
 
 Tramo and Reg-Arima are very similar...details in M chapter, parameters and output are the same, treated as one here
 
-Output1: series (if relevant) Retrieve regressors GUI (cruncher) R
+Output1: series (if relevant) 
+Retrieve regressors GUI (cruncher) R
 
 Retrieve Pre-adjustment series Table
 
@@ -161,11 +195,16 @@ R
 Output3: Diagnostics Goodness of fit (principle : first diagnostics then what can be fine tuned)
 
 User defined parameters
+ARIMA model parameters
 
-Modifiying specifications GUI R
+
+Modifiying specifications 
+GUI 
+
+R
 
 ### Modelling
-
+(small addendum)
 the reg arima part can be run without decompostion slight differences in parameters
 
 ## X-11 Decompostion
@@ -627,7 +666,7 @@ Retrieve in GUI
 
 NODE : Decompostion \> Stocastic series
 
-forecast f series are pasted at the end of the correspoding series
+forecast f series are pasted at the end of the corresponding series
 
 -   \_e series are labelled with (stde)
 
@@ -662,14 +701,26 @@ here all have a default value, nothing to be automatically selected
 SEATS (model based) specific diagnostics
 check GUI (more plots, values) vs R
 links to methods chapter, here just be able to "read" (knowledge assumed)
-(here direct base on gui plots, and the add what can be retrieved in R)
+(here direct base on gui plots, and the add what can be retrieved in R, if cannot be retrieved in R : could it be rebuild from available elements)
+Obj : simple description
+res : current doc, jpslides, doc esp, Q JP 
 
 - WK analysis
 
 components 
 final estimators
 
-- 
+- Error analysis
+autocorrelation of the errors (sa, trend)
+revisons of the errors 
+
+- Growth rates
+
+- Model based tests
+
+- Significant seasonality 
+
+- Stationnary variance decompostion
 
 ### Fine-tuning : user defined parameters
 
@@ -750,8 +801,10 @@ in version 3 with {rjd3tramoseats}
 ## STL
 
 use on linearized data data, no pre-adjustment
+(2nd layer)
 
 ## SSF
+(2nd layer)
 
 ## Quality assessment
 
