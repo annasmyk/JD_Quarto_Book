@@ -172,7 +172,10 @@ for BSM cf below modifing specifs - type - critical value - span
 
 #### Pre-specified Outliers
 
-#### User-defined input : building regressors
+#### Other User-defined input : building regressors
+
+out of calendars and outliers 
+warning : calendars won't be allocated to calendars, if not...
 
 rjd3modelling
 
@@ -182,11 +185,19 @@ assigning to componenets
 
 #### Allocation of effects
 
+(in teh decomp part for x11 and seats, table with allocation post decomp)
+
 ##### output
 
 ### Reg-Arima Model
 
 Tramo and Reg-Arima are very similar...details in M chapter, parameters and output are the same, treated as one here
+
+Context : here in put is spcified (auto or user)
+focus on global model estimation
+
+Quick launch (= automatic run)
+
 
 Output1: series (if relevant) 
 Retrieve regressors GUI (cruncher) R
@@ -209,9 +220,10 @@ Output3: Diagnostics Goodness of fit (principle : first diagnostics then what ca
 
 User defined parameters
 ARIMA model parameters
+what can be modified
 
 
-Modifiying specifications 
+Modifiying specifications for Arima model 
 GUI 
 
 R
