@@ -1,12 +1,11 @@
 # Seasonal Adjustment {.unnumbered}
 
-using a ws structure stand alone with R packages (TS objects or num vectors)
+Hint at GUI chap for global principles
+- ws structure (new SAP)
+- global specification handling 
+- file structure explanation
 
--   approach choice: cf tool selection chapter
--   explanations below work for both soltions
--   how to read a ws in R also in tool selection
-
-In this chapter frequancies lower than monthly and integer periodocities In the HF chpater higher frequencies and non integer periodicities.
+Hint at tool selection (link to chapter)
 
 ## Motivation
 
@@ -118,17 +117,31 @@ details of regressor building in calendar chapter
 
 
 #### Default specifications
-cf defalut spec tab 
+cf defalut spec tab (repeat ?)
 
-- working days - trading days - easter - national calmendars not taken into accout
+- working days
+quick desp 
+- trading days:
 
-set this option GUI specif detail R
+- easter
+
+here national calendars not taken into accout
+
+set this option GUI specif detail 
+
+- R
 
 #### Customizing calendars
 
-How to correct this ? solution 1: if working with GUI build a new calendar in GUI (chap C) set this option import it : here
+How to correct this ? 
+solution 1: if working with GUI build a new calendar in GUI (building details in chap C) set this option import it : here
+
+GUI : how to use it
+or customize HTML file
+structure explanation
 
 solution 2: import external regressors can be built with rjd3modelling (link)
+which can then be used in via are or imported via GUI
 
 set this option
 
@@ -151,7 +164,7 @@ regression
 
 #### Outlier types
 
-#### Automatic detction
+#### Automatic detection
 
 for BSM cf below modifing specifs - type - critical value - span
 
@@ -811,3 +824,8 @@ use on linearized data data, no pre-adjustment
 ### Residual seasonality
 
 ### Residual calendar effects
+
+(all GUI based analysis)
+NODES below bechamrking
+
+### Matrix
