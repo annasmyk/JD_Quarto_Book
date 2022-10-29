@@ -1,34 +1,25 @@
 # Seasonal Adjustment {.unnumbered}
 
+Hint at GUI chap for global principles
+- ws structure (new SAP)
+- global specification handling 
+- file structure explanation
 
-using a ws structure 
-stand alone with R packages (TS objects or num vectors)
-
-- approach choice: cf tool selection chapter 
-- explanations below work for both soltions
-- how to read a ws in R also in tool selection
-
-In this chapter frequancies lower than monthly and integer periodocities 
-In the HF chpater higher frequencies and non integer periodicities.
+Hint at tool selection (link to chapter)
 
 ## Motivation
 
-The primary aim of the seasonal adjustment process is to remove seasonal fluctuations from the time series.
-Seasonal fluctuations are quasi-periodic infra-annual movements. 
-They can mask...
+The primary aim of the seasonal adjustment process is to remove seasonal fluctuations from the time series. Seasonal fluctuations are quasi-periodic infra-annual movements. They can mask...
 
 \[insert def SA from b_ov\]
 
-- infra annual peridodic numbers 
-- no unamigous definititon 
-- depends on its practial estimation
+-   infra annual peridodic numbers
+-   no unamigous definititon
+-   depends on its practial estimation
 
 ## Data frequencies : high and low
 
-Until recently seasonal where designed to tackly monthly frequencies or lower 
-in JD+, 
-X13- Seats Arima : 2,4,12
-Seats : 2,3,4,6,12
+Until recently seasonal where designed to tackly monthly frequencies or lower in JD+, X13- Seats Arima : 2,4,12 Seats : 2,3,4,6,12
 
 For infra monthly data
 
@@ -46,141 +37,155 @@ In general, the trend consists of 2 sub-components:
 
 -   The long-term evolution of the series;
 
--   The cycle, that represents the smooth, almost periodic movement around the long-term evolution of the series. It reveals a succession of phases of growth and recession. 
-Trend and cycle are not separated in SA alogrithms.
+-   The cycle, that represents the smooth, almost periodic movement around the long-term evolution of the series. It reveals a succession of phases of growth and recession. Trend and cycle are not separated in SA alogrithms.
 
 Two decomposition models:
 
 -   The additive model: $X_{t} = T_{t} + S_{t} + I_{t}$;
 
--   The multiplicatve model:  $X_{t} = T_{t} \times S_{t} \times I_{t}$.
+-   The multiplicatve model: $X_{t} = T_{t} \times S_{t} \times I_{t}$.
 
 In the Reg-Arima (link) or Tramo(link) modelling the the multplicative model is estimated in logs; $log(X_{t}) = log(T_{t}) + log(S_{t}) + log(I_{t})$; Seats decompostion also relies on logs wheres X-11 decomp operates...
 
-
 ## Detecting seasonal patterns
 
-## Available algoritms 
+Seasonality tests (chap M_Tests)
+
+## Available algorithms
 
 (link to table)
 
 The two most popular are..
 
-
 X-13ARIMA is a seasonal adjustment program developed and supported by the U.S. Census Bureau. It is based on the U.S. Census Bureau's earlier X-11 program, the X-11-ARIMA program developed at Statistics Canada, the X-12-ARIMA program developed by the U.S. Census Bureau.
 
 Tramo-Seats
 
-Those will be the most detailed in this doc, but there alternative solutions. 
-
+Those will be the most detailed in this doc, but there alternative solutions.
 
 STL
 
 BSM
 
-X13 and TS are two step algos, pretreatment +dcomp 
-(no pre ptreatment in STL + all at once in BSM)
+X13 and TS are two step algos, pretreatment +dcomp (no pre ptreatment in STL + all at once in BSM)
 
-- pre-treatment 
-objectives and methods 
+-   pre-treatment objectives and methods
 
-- decomposition objective and methods
+-   decomposition objective and methods
 
-## Pre-treatment : Reg-ARIMA (or TRAMO°)
+## Pre-treatment : Reg-ARIMA (or TRAMO)
 
-why ?
+### why ?
+let's call it regArima modelling (and tramo only when TRamo differences are outlined)
 
-globalstructure 
-regression with ARIMA structure for residuals
+### global outline
 
-we'll see it in more details
-- regressors 
+global structure regression with ARIMA structure for residuals
+
+we'll see it in more details 
+
+- regressors
+- calendar (auto and user)
+- outliers (auto and user)
+- adding intervention variables 
+(here: just how to feed the model, details on regressor and calendar specif chapter)
 - model
 
-Template for each 
-default params
-(quick launch)
-INPUT (?)
-Output1: series
-Output2: Final Params
-Output3: Diagnostics
-User-defined parameters
+RegArima modelling  part can be of an SA process
+or run on its own 
+- GUI 
+- R
+(sligthly different specs,...)
+
+Template for each sub part
+- Default params: (quick launch) INPUT (?) 
+- Setting User-defined parameters (and not at the end post diagnostics ?)
+- Output1: series 
+- Output2: Final Params 
+- Output3: Diagnostics 
+
 
 ### Calendar correction
 
-Rationale : why correct
+Rationale : why correct (in a sentence)
 
 Guidelines ..it has to make sense ex-ante
 
-Method
-regresion as deterministic effects
+Method regression as deterministic effects
 
 details of regressor building in calendar chapter
 
-default params : cf defalut spec tab 
-- working days 
-- trading days 
+
+#### Default specifications
+cf defalut spec tab (repeat ?)
+
+- working days
+quick desp 
+- trading days:
+
 - easter
-- national calmendars not taken into accout
 
-set this option 
-GUI specif detail 
-R
+here national calendars not taken into accout
 
-How to correct this ?
-solution 1: if working with GUI
-build a new calendar in GUI (chap C)
+set this option GUI specif detail 
+
+- R
+
+#### Customizing calendars
+
+How to correct this ? 
+solution 1: if working with GUI build a new calendar in GUI (building details in chap C) set this option import it : here
+
+GUI : how to use it
+or customize HTML file
+structure explanation
+
+solution 2: import external regressors can be built with rjd3modelling (link)
+which can then be used in via are or imported via GUI
+
 set this option
-import it : here
 
-solution 2: 
-import external regressors 
-can be built with rjd3modelling (link)
+Output2: Final Params TEST of presence or 
+not GUI
 
-set this option
+Output3: Diagnostics - results of regression student, F test - td spectral peaks - residual effect in $SA$ or $I$ series
 
-Output2: Final Params
-TEST of presence or not
-GUI 
-
-
-Output3: Diagnostics
-- results of regression
-student, F test
-- td spectral peaks 
-- residual effect in $SA$ or $I$ series 
+(worked example: french calendar in R)
 
 ### Outliers and intervention variables
 
 #### rationale
-improve decomposition 
-(cf guidelines)
+
+improve decomposition (cf guidelines)
 
 #### method
+
 regression
 
 #### Outlier types
 
-#### Automatic detction
+#### Automatic detection
 
-for BSM cf below
-modifing specifs 
-- type
-- critiacal value 
-- span
+for BSM cf below modifing specifs - type - critical value - span
 
 (link to revision policies)
 
-#### Pre-specified Outliers 
+#### Pre-specified Outliers
 
-#### User-defined input : building regressors 
+#### Other User-defined input : building regressors
+
+out of calendars and outliers 
+warning : calendars won't be allocated to calendars, if not...
+
 rjd3modelling
 
-#### Outliers vs intervention variables 
+#### Outliers vs intervention variables
 
 assigning to componenets
 
 #### Allocation of effects
+
+(in teh decomp part for x11 and seats, table with allocation post decomp)
 
 ##### output
 
@@ -188,44 +193,44 @@ assigning to componenets
 
 Tramo and Reg-Arima are very similar...details in M chapter, parameters and output are the same, treated as one here
 
-Output1: series (if relevant)
-Retrieve regressors 
-GUI (cruncher) 
-R
+Context : here in put is spcified (auto or user)
+focus on global model estimation
 
-Retrieve Pre-adjustment series 
-Table 
+Quick launch (= automatic run)
+
+
+Output1: series (if relevant) 
+Retrieve regressors GUI (cruncher) R
+
+Retrieve Pre-adjustment series Table
 
 in GUI (cruncher)
 
-in R 
+in R
+
+Output2: Final Params what is selected and estimated by the software (not in the specifs above)
+
+arima orders (if relevant) and coefficients
+
+GUI
+
+R
+
+Output3: Diagnostics Goodness of fit (principle : first diagnostics then what can be fine tuned)
+
+User defined parameters
+ARIMA model parameters
+what can be modified
 
 
-Output2: Final Params
-what is selected and estimated by the software (not in the specifs above)
-
-arima orders (if relevant) and coefficients 
-
+Modifiying specifications for Arima model 
 GUI 
 
 R
 
-
-Output3: Diagnostics Goodness of fit
-(principle : first diagnostics then what can be fine tuned)
-
-User defined parameters
-
-Modifiying specifications 
-GUI
-R
-
-
-### Modelling 
-
-the reg arima part can be run without decompostion 
-slight differences in parameters
-
+### Modelling
+(small addendum)
+the reg arima part can be run without decompostion slight differences in parameters
 
 ## X-11 Decompostion
 
@@ -240,7 +245,7 @@ this part should allow to use x-11 via R as well as via GUI
 | RSA2c           | automatic           | AO/LS/TC           | 2 TD vars+Easter | Airline(+mean) |
 | RSA3            | automatic           | AO/LS/TC           | *NA*             | automatic      |
 | RSA4c           | automatic           | AO/LS/TC           | 2 TD vars+Easter | automatic      |
-| RSA4c           | automatic           | AO/LS/TC           | 6 TD vars+Easter | automatic      |
+| RSA5            | automatic           | AO/LS/TC           | 6 TD vars+Easter | automatic      |
 | X-11            | *NA*                | *NA*               | *NA*             | *NA*           |
 
 if identifiers slightly different in GUI, make it clear + pb of names in V3
@@ -258,7 +263,7 @@ typos : RJDemetra doc (pull req)
 ### Output 1: series
 
 | Series                    | Final X11 name | Final Results | Reallocation of pre-adjustment effects |
-|----------------|---------------|---------------|--------------------------|
+|-----------------|-----------------|-----------------|-----------------------|
 | Raw series (forecasts)    |                | y (y_f)       |                                        |
 | Final seasonal component  | D16            | s (s_f)       |                                        |
 | Final trend               | D12            | t (t_f)       |                                        |
@@ -390,8 +395,6 @@ Cochran test on equal variances within each period
 
 Here is described how to change default values or automatic choices.
 
-#### List
-
 ##### General settings
 
 -   **Mode**
@@ -519,40 +522,322 @@ policy: what is readable in GUI should be explained (even if shortly with link t
 
 decomp of lineraized series in level or log
 
-#### Default specifications
+### Default specifications
 
-modif table 
+| Spec identifier | Log/level detection | Outliers detection | Calendar effects | ARIMA          |
+|---------------|---------------|---------------|---------------|---------------|
+| RSA0            | *NA*                | *NA*               | *NA*             | Airline(+mean) |
+| RSA1            | automatic           | AO/LS/TC           | *NA*             | Airline(+mean) |
+| RSA2            | automatic           | AO/LS/TC           | 2 TD vars+Easter | Airline(+mean) |
+| RSA3            | automatic           | AO/LS/TC           | *NA*             | automatic      |
+| RSA5            | automatic           | AO/LS/TC           | 6 TD vars+Easter | automatic      |
+| RSAfull         | automatic           | AO/LS/TC           | automatic        | automatic      |
 
-#### Quick Launch
+if identifiers slightly different in GUI, make it clear + pb of names in V3
 
-#### Output1: series
-Table 
+in calendar effects : what is tested, link to calendar chapter
 
-GUI 
+typos : RJDemetra doc (pull req)
+
+-   7 TD vars
+
+### Quick Launch
+
+overall procedure
+
+in GUI
+
+in R
+
+### Output 1: series
+
+global indications: \_f: forecasts - \_e - -ef
+
+#### Stochastic series
+
+decompostion of the linearisezed series or of its log if multiplicative model
+
+components: t_lin, s_lin, i_lin
+
+if log, everything is dispalayed in log
+
+| Series Name             | Meaning |
+|-------------------------|---------|
+| decomposition.y_lin     |         |
+| decomposition.y_lin_f   |         |
+| decomposition.y_lin_ef  |         |
+| decomposition.t_lin     |         |
+| decomposition.t_lin_f   |         |
+| decomposition.t_lin_e   |         |
+| decomposition.t_lin_f   |         |
+| decomposition.sa_lin    |         |
+| decomposition.sa_lin_f  |         |
+| decomposition.sa_lin_e  |         |
+| decomposition.sa_lin_ef |         |
+| decomposition.s_lin     |         |
+| decomposition.s_lin_f   |         |
+| decomposition.s_lin_e   |         |
+| decomposition.s_lin_ef  |         |
+| decomposition.i_lin     |         |
+| decomposition.i_lin_f   |         |
+| decomposition.i_lin_e   |         |
+| decomposition.i_lin_ef  |         |
+
+Retrieve in GUI
+
+NODE : Decompostion \> Stocastic series
+
+forecast f series are pasted at the end of the correspoding series
+
+-   \_e series are labelled with (stde)
+
+\_ef appear in graphs (but values cannot be retrieved)
+
+IMAGE1 GUI
+
+-   image 1 : decompostion node and series
+
+-   image 2 trend graph
+
+-   image 3 seasonal graph
+
+Retrieve in R
+
+#### Components (Level)
+
+if additive model : same as
+
+decompostion of the linearisezed series or of its log if multiplicative model
+
+components: t_lin, s_lin, i_lin
+
+if log, everything is dispalayed in log
+
+| Series Name             | Meaning |
+|-------------------------|---------|
+| decomposition.y_lin     |         |
+| decomposition.y_lin_f   |         |
+| decomposition.y_lin_ef  |         |
+| decomposition.t_lin     |         |
+| decomposition.t_lin_f   |         |
+| decomposition.t_lin_e   |         |
+| decomposition.t_lin_f   |         |
+| decomposition.sa_lin    |         |
+| decomposition.sa_lin_f  |         |
+| decomposition.sa_lin_e  |         |
+| decomposition.sa_lin_ef |         |
+| decomposition.s_lin     |         |
+| decomposition.s_lin_f   |         |
+| decomposition.s_lin_e   |         |
+| decomposition.s_lin_ef  |         |
+| decomposition.i_lin     |         |
+| decomposition.i_lin_f   |         |
+| decomposition.i_lin_e   |         |
+| decomposition.i_lin_ef  |         |
+
+Retrieve in GUI
+
+NODE : Decompostion \> Stocastic series
+
+forecast f series are pasted at the end of the correspoding series
+
+-   \_e series are labelled with (stde)
+
+\_ef appear in graphs (but values cannot be retrieved)
+
+IMAGE1 GUI
+
+-   image 1 : decompostion node and series
+
+-   image 2 trend graph
+
+-   image 3 seasonal graph
+
+Retrieve in R
+
+Biais correction voir JP (done between lin and and comp ?)
+
+#### Final series
+
+decompostion of the linearisezed series or of its log if multiplicative model
+
+components: t_lin, s_lin, i_lin
+
+if log, everything is dispalayed in log
+
+| Series Name             | Meaning |
+|-------------------------|---------|
+| decomposition.y_lin     |         |
+| decomposition.y_lin_f   |         |
+| decomposition.y_lin_ef  |         |
+| decomposition.t_lin     |         |
+| decomposition.t_lin_f   |         |
+| decomposition.t_lin_e   |         |
+| decomposition.t_lin_f   |         |
+| decomposition.sa_lin    |         |
+| decomposition.sa_lin_f  |         |
+| decomposition.sa_lin_e  |         |
+| decomposition.sa_lin_ef |         |
+| decomposition.s_lin     |         |
+| decomposition.s_lin_f   |         |
+| decomposition.s_lin_e   |         |
+| decomposition.s_lin_ef  |         |
+| decomposition.i_lin     |         |
+| decomposition.i_lin_f   |         |
+| decomposition.i_lin_e   |         |
+| decomposition.i_lin_ef  |         |
+
+Retrieve in GUI
+
+NODE : Decompostion \> Stocastic series
+
+forecast f series are pasted at the end of the corresponding series
+
+-   \_e series are labelled with (stde)
+
+\_ef appear in graphs (but values cannot be retrieved)
+
+IMAGE1 GUI
+
+-   image 1 : decompostion node and series
+
+-   image 2 trend graph
+
+-   image 3 seasonal graph
+
+Retrieve in R
+
+make clear reallocation of outliers effects (frequent questions)
+
+Table
+
+GUI
 
 R
 
+### Output2: Final Params
 
-#### Output2: Final Params
+what is chosen automatically or default (cf estp) Relevant if parameters not set manually, or any parameters automatically selected by the software without having a fixed default value. (The rest of the parameters is set in the spec) To manually set hose parameters and see all the fixed default values see Specifications / parameters section
 
-what is chosen automatically or default 
-(cf estp)
+here all have a default value, nothing to be automatically selected
 
-#### Output3: Diagnostics
+### Output3: Diagnostics
 
-non decompo model and consquences 
+SEATS (model based) specific diagnostics
+check GUI (more plots, values) vs R
+links to methods chapter, here just be able to "read" (knowledge assumed)
+(here direct base on gui plots, and the add what can be retrieved in R, if cannot be retrieved in R : could it be rebuild from available elements)
+Obj : simple description
+res : current doc, jpslides, doc esp, Q JP 
 
-#### Fine-tuning : user defined parameters
+- WK analysis
+
+components 
+final estimators
+
+- Error analysis
+autocorrelation of the errors (sa, trend)
+revisons of the errors 
+
+- Growth rates
+
+- Model based tests
+
+- Significant seasonality 
+
+- Stationnary variance decompostion
+
+### Fine-tuning : user defined parameters
+
+-   Prediction length
+
+Forecast span used in the decomposition
+default: one year (-1)
+(years are set in negative values, positive values indicate nimber of periods)
+
+-   Approximation Mode
+
+Modification type for inadmissible models
+None (default)
+Legacy 
+Noisy
+
+-   MA unit root boundary
+
+Modulus threshold for resetteing MA "near-unit" roots [0,1] default (0.95)
+
+-   Trend Boundary
+Modulus thershold for assingning positive real AR Roots
+[0,1] default (0.5)
+
+-   Seasonal Tolerance
+Degree threshold for assigning complex AR roots 
+[0,10] default (2)
+
+-   Seasonal Boundary (unique)
+Modulus threshold for assigning negative real AR roots
+[0,1] default (0.8)
+
+
+-   Seasonal Boundary (unique)
+Same modulus threshold unique seasonal AR roots 
+[0,1] default (0.8)
+
+-   Method
+
+Algorithm used for estimation of unobserved componements
+
+Burman (default)
+
+KalmanSmoother
+
+McEllroyMatrix
+
+Further explanation (cf slides JP)
+
+link to M chapter for details on root allocation
+
+##### Set in GUI
+In specification window (link to GUI global exp)
+
+IMAGE 
+
+##### Set in R
+version 2 (RJDemetra)
+```{r, eval=FALSE}
+tramoseats_spec(
+ spec = c("RSAfull", "RSA0", "RSA1", "RSA2", "RSA3", "RSA4", "RSA5"),
+  fcst.horizon = NA_integer_,
+  seats.predictionLength = NA_integer_,
+  seats.approx = c(NA, "None", "Legacy", "Noisy"),
+  seats.trendBoundary = NA_integer_,
+  seats.seasdBoundary = NA_integer_,
+  seats.seasdBoundary1 = NA_integer_,
+  seats.seasTol = NA_integer_,
+  seats.maBoundary = NA_integer_,
+  seats.method = c(NA, "Burman", "KalmanSmoother", "McElroyMatrix")
+)
+
+```
+
+in version 3 with {rjd3tramoseats}
 
 
 ## STL
 
-use on pre-treated data
+use on linearized data data, no pre-adjustment
+(2nd layer)
 
 ## SSF
+(2nd layer)
 
 ## Quality assessment
 
 ### Residual seasonality
 
 ### Residual calendar effects
+
+(all GUI based analysis)
+NODES below bechamrking
+
+### Matrix

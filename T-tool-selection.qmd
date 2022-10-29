@@ -1,3 +1,7 @@
 # Tool selection issues and heuristics {.unnumbered}
 
 
+- ws structure 
+
+- stand alone 
+

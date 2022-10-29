@@ -320,9 +320,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#data-frequencies-high-and-low" id="toc-data-frequencies-high-and-low" class="nav-link" data-scroll-target="#data-frequencies-high-and-low">Data frequencies : high and low</a></li>
   <li><a href="#unobserved-components-uc" id="toc-unobserved-components-uc" class="nav-link" data-scroll-target="#unobserved-components-uc">Unobserved Components (UC)</a></li>
   <li><a href="#detecting-seasonal-patterns" id="toc-detecting-seasonal-patterns" class="nav-link" data-scroll-target="#detecting-seasonal-patterns">Detecting seasonal patterns</a></li>
-  <li><a href="#available-algoritms" id="toc-available-algoritms" class="nav-link" data-scroll-target="#available-algoritms">Available algoritms</a></li>
-  <li><a href="#pre-treatment-reg-arima-or-tramo" id="toc-pre-treatment-reg-arima-or-tramo" class="nav-link" data-scroll-target="#pre-treatment-reg-arima-or-tramo">Pre-treatment : Reg-ARIMA (or TRAMO°)</a>
+  <li><a href="#available-algorithms" id="toc-available-algorithms" class="nav-link" data-scroll-target="#available-algorithms">Available algorithms</a></li>
+  <li><a href="#pre-treatment-reg-arima-or-tramo" id="toc-pre-treatment-reg-arima-or-tramo" class="nav-link" data-scroll-target="#pre-treatment-reg-arima-or-tramo">Pre-treatment : Reg-ARIMA (or TRAMO)</a>
   <ul class="collapse">
+  <li><a href="#why" id="toc-why" class="nav-link" data-scroll-target="#why">why ?</a></li>
+  <li><a href="#global-outline" id="toc-global-outline" class="nav-link" data-scroll-target="#global-outline">global outline</a></li>
   <li><a href="#calendar-correction" id="toc-calendar-correction" class="nav-link" data-scroll-target="#calendar-correction">Calendar correction</a></li>
   <li><a href="#outliers-and-intervention-variables" id="toc-outliers-and-intervention-variables" class="nav-link" data-scroll-target="#outliers-and-intervention-variables">Outliers and intervention variables</a></li>
   <li><a href="#reg-arima-model" id="toc-reg-arima-model" class="nav-link" data-scroll-target="#reg-arima-model">Reg-Arima Model</a></li>
@@ -330,20 +332,29 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </ul></li>
   <li><a href="#x-11-decompostion" id="toc-x-11-decompostion" class="nav-link" data-scroll-target="#x-11-decompostion">X-11 Decompostion</a>
   <ul class="collapse">
-  <li><a href="#default-specifications" id="toc-default-specifications" class="nav-link" data-scroll-target="#default-specifications">Default specifications</a></li>
+  <li><a href="#default-specifications-1" id="toc-default-specifications-1" class="nav-link" data-scroll-target="#default-specifications-1">Default specifications</a></li>
   <li><a href="#quick-launch" id="toc-quick-launch" class="nav-link" data-scroll-target="#quick-launch">Quick Launch</a></li>
   <li><a href="#output-1-series" id="toc-output-1-series" class="nav-link" data-scroll-target="#output-1-series">Output 1: series</a></li>
   <li><a href="#output-2-final-parameters" id="toc-output-2-final-parameters" class="nav-link" data-scroll-target="#output-2-final-parameters">Output 2: final parameters</a></li>
   <li><a href="#output-3-diagnostics" id="toc-output-3-diagnostics" class="nav-link" data-scroll-target="#output-3-diagnostics">Output 3: diagnostics</a></li>
   <li><a href="#user-defined-parameters" id="toc-user-defined-parameters" class="nav-link" data-scroll-target="#user-defined-parameters">User-defined parameters</a></li>
   </ul></li>
-  <li><a href="#seats-decomposition" id="toc-seats-decomposition" class="nav-link" data-scroll-target="#seats-decomposition">SEATS Decomposition</a></li>
+  <li><a href="#seats-decomposition" id="toc-seats-decomposition" class="nav-link" data-scroll-target="#seats-decomposition">SEATS Decomposition</a>
+  <ul class="collapse">
+  <li><a href="#default-specifications-2" id="toc-default-specifications-2" class="nav-link" data-scroll-target="#default-specifications-2">Default specifications</a></li>
+  <li><a href="#quick-launch-1" id="toc-quick-launch-1" class="nav-link" data-scroll-target="#quick-launch-1">Quick Launch</a></li>
+  <li><a href="#output-1-series-1" id="toc-output-1-series-1" class="nav-link" data-scroll-target="#output-1-series-1">Output 1: series</a></li>
+  <li><a href="#output2-final-params" id="toc-output2-final-params" class="nav-link" data-scroll-target="#output2-final-params">Output2: Final Params</a></li>
+  <li><a href="#output3-diagnostics" id="toc-output3-diagnostics" class="nav-link" data-scroll-target="#output3-diagnostics">Output3: Diagnostics</a></li>
+  <li><a href="#fine-tuning-user-defined-parameters" id="toc-fine-tuning-user-defined-parameters" class="nav-link" data-scroll-target="#fine-tuning-user-defined-parameters">Fine-tuning : user defined parameters</a></li>
+  </ul></li>
   <li><a href="#stl" id="toc-stl" class="nav-link" data-scroll-target="#stl">STL</a></li>
   <li><a href="#ssf" id="toc-ssf" class="nav-link" data-scroll-target="#ssf">SSF</a></li>
   <li><a href="#quality-assessment" id="toc-quality-assessment" class="nav-link" data-scroll-target="#quality-assessment">Quality assessment</a>
   <ul class="collapse">
   <li><a href="#residual-seasonality" id="toc-residual-seasonality" class="nav-link" data-scroll-target="#residual-seasonality">Residual seasonality</a></li>
   <li><a href="#residual-calendar-effects" id="toc-residual-calendar-effects" class="nav-link" data-scroll-target="#residual-calendar-effects">Residual calendar effects</a></li>
+  <li><a href="#matrix" id="toc-matrix" class="nav-link" data-scroll-target="#matrix">Matrix</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -367,13 +378,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 </header>
 
-<p>using a ws structure stand alone with R packages (TS objects or num vectors)</p>
-<ul>
-<li>approach choice: cf tool selection chapter</li>
-<li>explanations below work for both soltions</li>
-<li>how to read a ws in R also in tool selection</li>
-</ul>
-<p>In this chapter frequancies lower than monthly and integer periodocities In the HF chpater higher frequencies and non integer periodicities.</p>
+<p>Hint at GUI chap for global principles - ws structure (new SAP) - global specification handling - file structure explanation</p>
+<p>Hint at tool selection (link to chapter)</p>
 <section id="motivation" class="level2">
 <h2 class="anchored" data-anchor-id="motivation">Motivation</h2>
 <p>The primary aim of the seasonal adjustment process is to remove seasonal fluctuations from the time series. Seasonal fluctuations are quasi-periodic infra-annual movements. They can mask…</p>
@@ -411,9 +417,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 <section id="detecting-seasonal-patterns" class="level2">
 <h2 class="anchored" data-anchor-id="detecting-seasonal-patterns">Detecting seasonal patterns</h2>
+<p>Seasonality tests (chap M_Tests)</p>
 </section>
-<section id="available-algoritms" class="level2">
-<h2 class="anchored" data-anchor-id="available-algoritms">Available algoritms</h2>
+<section id="available-algorithms" class="level2">
+<h2 class="anchored" data-anchor-id="available-algorithms">Available algorithms</h2>
 <p>(link to table)</p>
 <p>The two most popular are..</p>
 <p>X-13ARIMA is a seasonal adjustment program developed and supported by the U.S. Census Bureau. It is based on the U.S. Census Bureau’s earlier X-11 program, the X-11-ARIMA program developed at Statistics Canada, the X-12-ARIMA program developed by the U.S. Census Bureau.</p>
@@ -428,24 +435,55 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 </section>
 <section id="pre-treatment-reg-arima-or-tramo" class="level2">
-<h2 class="anchored" data-anchor-id="pre-treatment-reg-arima-or-tramo">Pre-treatment : Reg-ARIMA (or TRAMO°)</h2>
-<p>why ?</p>
-<p>globalstructure regression with ARIMA structure for residuals</p>
-<p>we’ll see it in more details - regressors - model</p>
-<p>Template for each default params (quick launch) INPUT (?) Output1: series Output2: Final Params Output3: Diagnostics User-defined parameters</p>
+<h2 class="anchored" data-anchor-id="pre-treatment-reg-arima-or-tramo">Pre-treatment : Reg-ARIMA (or TRAMO)</h2>
+<section id="why" class="level3">
+<h3 class="anchored" data-anchor-id="why">why ?</h3>
+<p>let’s call it regArima modelling (and tramo only when TRamo differences are outlined)</p>
+</section>
+<section id="global-outline" class="level3">
+<h3 class="anchored" data-anchor-id="global-outline">global outline</h3>
+<p>global structure regression with ARIMA structure for residuals</p>
+<p>we’ll see it in more details</p>
+<ul>
+<li>regressors</li>
+<li>calendar (auto and user)</li>
+<li>outliers (auto and user)</li>
+<li>adding intervention variables (here: just how to feed the model, details on regressor and calendar specif chapter)</li>
+<li>model</li>
+</ul>
+<p>RegArima modelling part can be of an SA process or run on its own - GUI - R (sligthly different specs,…)</p>
+<p>Template for each sub part - Default params: (quick launch) INPUT (?) - Setting User-defined parameters (and not at the end post diagnostics ?) - Output1: series - Output2: Final Params - Output3: Diagnostics</p>
+</section>
 <section id="calendar-correction" class="level3">
 <h3 class="anchored" data-anchor-id="calendar-correction">Calendar correction</h3>
-<p>Rationale : why correct</p>
+<p>Rationale : why correct (in a sentence)</p>
 <p>Guidelines ..it has to make sense ex-ante</p>
-<p>Method regresion as deterministic effects</p>
+<p>Method regression as deterministic effects</p>
 <p>details of regressor building in calendar chapter</p>
-<p>default params : cf defalut spec tab - working days - trading days - easter - national calmendars not taken into accout</p>
-<p>set this option GUI specif detail R</p>
-<p>How to correct this ? solution 1: if working with GUI build a new calendar in GUI (chap C) set this option import it : here</p>
-<p>solution 2: import external regressors can be built with rjd3modelling (link)</p>
+<section id="default-specifications" class="level4">
+<h4 class="anchored" data-anchor-id="default-specifications">Default specifications</h4>
+<p>cf defalut spec tab (repeat ?)</p>
+<ul>
+<li><p>working days quick desp</p></li>
+<li><p>trading days:</p></li>
+<li><p>easter</p></li>
+</ul>
+<p>here national calendars not taken into accout</p>
+<p>set this option GUI specif detail</p>
+<ul>
+<li>R</li>
+</ul>
+</section>
+<section id="customizing-calendars" class="level4">
+<h4 class="anchored" data-anchor-id="customizing-calendars">Customizing calendars</h4>
+<p>How to correct this ? solution 1: if working with GUI build a new calendar in GUI (building details in chap C) set this option import it : here</p>
+<p>GUI : how to use it or customize HTML file structure explanation</p>
+<p>solution 2: import external regressors can be built with rjd3modelling (link) which can then be used in via are or imported via GUI</p>
 <p>set this option</p>
 <p>Output2: Final Params TEST of presence or not GUI</p>
 <p>Output3: Diagnostics - results of regression student, F test - td spectral peaks - residual effect in <span class="math inline">\(SA\)</span> or <span class="math inline">\(I\)</span> series</p>
+<p>(worked example: french calendar in R)</p>
+</section>
 </section>
 <section id="outliers-and-intervention-variables" class="level3">
 <h3 class="anchored" data-anchor-id="outliers-and-intervention-variables">Outliers and intervention variables</h3>
@@ -460,16 +498,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="outlier-types" class="level4">
 <h4 class="anchored" data-anchor-id="outlier-types">Outlier types</h4>
 </section>
-<section id="automatic-detction" class="level4">
-<h4 class="anchored" data-anchor-id="automatic-detction">Automatic detction</h4>
-<p>for BSM cf below modifing specifs - type - critiacal value - span</p>
+<section id="automatic-detection" class="level4">
+<h4 class="anchored" data-anchor-id="automatic-detection">Automatic detection</h4>
+<p>for BSM cf below modifing specifs - type - critical value - span</p>
 <p>(link to revision policies)</p>
 </section>
 <section id="pre-specified-outliers" class="level4">
 <h4 class="anchored" data-anchor-id="pre-specified-outliers">Pre-specified Outliers</h4>
 </section>
-<section id="user-defined-input-building-regressors" class="level4">
-<h4 class="anchored" data-anchor-id="user-defined-input-building-regressors">User-defined input : building regressors</h4>
+<section id="other-user-defined-input-building-regressors" class="level4">
+<h4 class="anchored" data-anchor-id="other-user-defined-input-building-regressors">Other User-defined input : building regressors</h4>
+<p>out of calendars and outliers warning : calendars won’t be allocated to calendars, if not…</p>
 <p>rjd3modelling</p>
 </section>
 <section id="outliers-vs-intervention-variables" class="level4">
@@ -478,6 +517,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 <section id="allocation-of-effects" class="level4">
 <h4 class="anchored" data-anchor-id="allocation-of-effects">Allocation of effects</h4>
+<p>(in teh decomp part for x11 and seats, table with allocation post decomp)</p>
 <section id="output" class="level5">
 <h5 class="anchored" data-anchor-id="output">output</h5>
 </section>
@@ -486,6 +526,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="reg-arima-model" class="level3">
 <h3 class="anchored" data-anchor-id="reg-arima-model">Reg-Arima Model</h3>
 <p>Tramo and Reg-Arima are very similar…details in M chapter, parameters and output are the same, treated as one here</p>
+<p>Context : here in put is spcified (auto or user) focus on global model estimation</p>
+<p>Quick launch (= automatic run)</p>
 <p>Output1: series (if relevant) Retrieve regressors GUI (cruncher) R</p>
 <p>Retrieve Pre-adjustment series Table</p>
 <p>in GUI (cruncher)</p>
@@ -495,19 +537,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>GUI</p>
 <p>R</p>
 <p>Output3: Diagnostics Goodness of fit (principle : first diagnostics then what can be fine tuned)</p>
-<p>User defined parameters</p>
-<p>Modifiying specifications GUI R</p>
+<p>User defined parameters ARIMA model parameters what can be modified</p>
+<p>Modifiying specifications for Arima model GUI</p>
+<p>R</p>
 </section>
 <section id="modelling" class="level3">
 <h3 class="anchored" data-anchor-id="modelling">Modelling</h3>
-<p>the reg arima part can be run without decompostion slight differences in parameters</p>
+<p>(small addendum) the reg arima part can be run without decompostion slight differences in parameters</p>
 </section>
 </section>
 <section id="x-11-decompostion" class="level2">
 <h2 class="anchored" data-anchor-id="x-11-decompostion">X-11 Decompostion</h2>
 <p>this part should allow to use x-11 via R as well as via GUI</p>
-<section id="default-specifications" class="level3">
-<h3 class="anchored" data-anchor-id="default-specifications">Default specifications</h3>
+<section id="default-specifications-1" class="level3">
+<h3 class="anchored" data-anchor-id="default-specifications-1">Default specifications</h3>
 <table class="table">
 <colgroup>
 <col style="width: 20%">
@@ -562,7 +605,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <td>automatic</td>
 </tr>
 <tr class="even">
-<td>RSA4c</td>
+<td>RSA5</td>
 <td>automatic</td>
 <td>AO/LS/TC</td>
 <td>6 TD vars+Easter</td>
@@ -593,9 +636,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <table class="table">
 <colgroup>
 <col style="width: 22%">
-<col style="width: 20%">
-<col style="width: 20%">
-<col style="width: 36%">
+<col style="width: 22%">
+<col style="width: 22%">
+<col style="width: 31%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -751,8 +794,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="user-defined-parameters" class="level3">
 <h3 class="anchored" data-anchor-id="user-defined-parameters">User-defined parameters</h3>
 <p>Here is described how to change default values or automatic choices.</p>
-<section id="list" class="level4">
-<h4 class="anchored" data-anchor-id="list">List</h4>
 <section id="general-settings" class="level5">
 <h5 class="anchored" data-anchor-id="general-settings">General settings</h5>
 <ul>
@@ -842,7 +883,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <p>Check: will user choice be applied to all steps or only to final phase D step</p>
 </section>
-</section>
 <section id="parameter-setting-in-gui" class="level4">
 <h4 class="anchored" data-anchor-id="parameter-setting-in-gui">Parameter setting in GUI</h4>
 <p>Specification (general or particular to one series) image</p>
@@ -883,37 +923,491 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2 class="anchored" data-anchor-id="seats-decomposition">SEATS Decomposition</h2>
 <p>policy: what is readable in GUI should be explained (even if shortly with link to details here) intermediate series ?</p>
 <p>decomp of lineraized series in level or log</p>
-<section id="default-specifications-1" class="level4">
-<h4 class="anchored" data-anchor-id="default-specifications-1">Default specifications</h4>
-<p>modif table</p>
+<section id="default-specifications-2" class="level3">
+<h3 class="anchored" data-anchor-id="default-specifications-2">Default specifications</h3>
+<table class="table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Spec identifier</th>
+<th>Log/level detection</th>
+<th>Outliers detection</th>
+<th>Calendar effects</th>
+<th>ARIMA</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>RSA0</td>
+<td><em>NA</em></td>
+<td><em>NA</em></td>
+<td><em>NA</em></td>
+<td>Airline(+mean)</td>
+</tr>
+<tr class="even">
+<td>RSA1</td>
+<td>automatic</td>
+<td>AO/LS/TC</td>
+<td><em>NA</em></td>
+<td>Airline(+mean)</td>
+</tr>
+<tr class="odd">
+<td>RSA2</td>
+<td>automatic</td>
+<td>AO/LS/TC</td>
+<td>2 TD vars+Easter</td>
+<td>Airline(+mean)</td>
+</tr>
+<tr class="even">
+<td>RSA3</td>
+<td>automatic</td>
+<td>AO/LS/TC</td>
+<td><em>NA</em></td>
+<td>automatic</td>
+</tr>
+<tr class="odd">
+<td>RSA5</td>
+<td>automatic</td>
+<td>AO/LS/TC</td>
+<td>6 TD vars+Easter</td>
+<td>automatic</td>
+</tr>
+<tr class="even">
+<td>RSAfull</td>
+<td>automatic</td>
+<td>AO/LS/TC</td>
+<td>automatic</td>
+<td>automatic</td>
+</tr>
+</tbody>
+</table>
+<p>if identifiers slightly different in GUI, make it clear + pb of names in V3</p>
+<p>in calendar effects : what is tested, link to calendar chapter</p>
+<p>typos : RJDemetra doc (pull req)</p>
+<ul>
+<li>7 TD vars</li>
+</ul>
 </section>
-<section id="quick-launch-1" class="level4">
-<h4 class="anchored" data-anchor-id="quick-launch-1">Quick Launch</h4>
+<section id="quick-launch-1" class="level3">
+<h3 class="anchored" data-anchor-id="quick-launch-1">Quick Launch</h3>
+<p>overall procedure</p>
+<p>in GUI</p>
+<p>in R</p>
 </section>
-<section id="output1-series" class="level4">
-<h4 class="anchored" data-anchor-id="output1-series">Output1: series</h4>
+<section id="output-1-series-1" class="level3">
+<h3 class="anchored" data-anchor-id="output-1-series-1">Output 1: series</h3>
+<p>global indications: _f: forecasts - _e - -ef</p>
+<section id="stochastic-series" class="level4">
+<h4 class="anchored" data-anchor-id="stochastic-series">Stochastic series</h4>
+<p>decompostion of the linearisezed series or of its log if multiplicative model</p>
+<p>components: t_lin, s_lin, i_lin</p>
+<p>if log, everything is dispalayed in log</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Series Name</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>decomposition.y_lin</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>decomposition.y_lin_f</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>decomposition.y_lin_ef</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>decomposition.t_lin</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>decomposition.t_lin_f</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>decomposition.t_lin_e</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>decomposition.t_lin_f</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>decomposition.sa_lin</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>decomposition.sa_lin_f</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>decomposition.sa_lin_e</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>decomposition.sa_lin_ef</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>decomposition.s_lin</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>decomposition.s_lin_f</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>decomposition.s_lin_e</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>decomposition.s_lin_ef</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>decomposition.i_lin</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>decomposition.i_lin_f</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>decomposition.i_lin_e</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>decomposition.i_lin_ef</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Retrieve in GUI</p>
+<p>NODE : Decompostion &gt; Stocastic series</p>
+<p>forecast f series are pasted at the end of the correspoding series</p>
+<ul>
+<li>_e series are labelled with (stde)</li>
+</ul>
+<p>_ef appear in graphs (but values cannot be retrieved)</p>
+<p>IMAGE1 GUI</p>
+<ul>
+<li><p>image 1 : decompostion node and series</p></li>
+<li><p>image 2 trend graph</p></li>
+<li><p>image 3 seasonal graph</p></li>
+</ul>
+<p>Retrieve in R</p>
+</section>
+<section id="components-level" class="level4">
+<h4 class="anchored" data-anchor-id="components-level">Components (Level)</h4>
+<p>if additive model : same as</p>
+<p>decompostion of the linearisezed series or of its log if multiplicative model</p>
+<p>components: t_lin, s_lin, i_lin</p>
+<p>if log, everything is dispalayed in log</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Series Name</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>decomposition.y_lin</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>decomposition.y_lin_f</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>decomposition.y_lin_ef</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>decomposition.t_lin</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>decomposition.t_lin_f</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>decomposition.t_lin_e</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>decomposition.t_lin_f</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>decomposition.sa_lin</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>decomposition.sa_lin_f</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>decomposition.sa_lin_e</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>decomposition.sa_lin_ef</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>decomposition.s_lin</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>decomposition.s_lin_f</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>decomposition.s_lin_e</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>decomposition.s_lin_ef</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>decomposition.i_lin</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>decomposition.i_lin_f</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>decomposition.i_lin_e</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>decomposition.i_lin_ef</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Retrieve in GUI</p>
+<p>NODE : Decompostion &gt; Stocastic series</p>
+<p>forecast f series are pasted at the end of the correspoding series</p>
+<ul>
+<li>_e series are labelled with (stde)</li>
+</ul>
+<p>_ef appear in graphs (but values cannot be retrieved)</p>
+<p>IMAGE1 GUI</p>
+<ul>
+<li><p>image 1 : decompostion node and series</p></li>
+<li><p>image 2 trend graph</p></li>
+<li><p>image 3 seasonal graph</p></li>
+</ul>
+<p>Retrieve in R</p>
+<p>Biais correction voir JP (done between lin and and comp ?)</p>
+</section>
+<section id="final-series" class="level4">
+<h4 class="anchored" data-anchor-id="final-series">Final series</h4>
+<p>decompostion of the linearisezed series or of its log if multiplicative model</p>
+<p>components: t_lin, s_lin, i_lin</p>
+<p>if log, everything is dispalayed in log</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Series Name</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>decomposition.y_lin</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>decomposition.y_lin_f</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>decomposition.y_lin_ef</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>decomposition.t_lin</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>decomposition.t_lin_f</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>decomposition.t_lin_e</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>decomposition.t_lin_f</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>decomposition.sa_lin</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>decomposition.sa_lin_f</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>decomposition.sa_lin_e</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>decomposition.sa_lin_ef</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>decomposition.s_lin</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>decomposition.s_lin_f</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>decomposition.s_lin_e</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>decomposition.s_lin_ef</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>decomposition.i_lin</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>decomposition.i_lin_f</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>decomposition.i_lin_e</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>decomposition.i_lin_ef</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Retrieve in GUI</p>
+<p>NODE : Decompostion &gt; Stocastic series</p>
+<p>forecast f series are pasted at the end of the corresponding series</p>
+<ul>
+<li>_e series are labelled with (stde)</li>
+</ul>
+<p>_ef appear in graphs (but values cannot be retrieved)</p>
+<p>IMAGE1 GUI</p>
+<ul>
+<li><p>image 1 : decompostion node and series</p></li>
+<li><p>image 2 trend graph</p></li>
+<li><p>image 3 seasonal graph</p></li>
+</ul>
+<p>Retrieve in R</p>
+<p>make clear reallocation of outliers effects (frequent questions)</p>
 <p>Table</p>
 <p>GUI</p>
 <p>R</p>
 </section>
-<section id="output2-final-params" class="level4">
-<h4 class="anchored" data-anchor-id="output2-final-params">Output2: Final Params</h4>
-<p>what is chosen automatically or default (cf estp)</p>
 </section>
-<section id="output3-diagnostics" class="level4">
-<h4 class="anchored" data-anchor-id="output3-diagnostics">Output3: Diagnostics</h4>
-<p>non decompo model and consquences</p>
+<section id="output2-final-params" class="level3">
+<h3 class="anchored" data-anchor-id="output2-final-params">Output2: Final Params</h3>
+<p>what is chosen automatically or default (cf estp) Relevant if parameters not set manually, or any parameters automatically selected by the software without having a fixed default value. (The rest of the parameters is set in the spec) To manually set hose parameters and see all the fixed default values see Specifications / parameters section</p>
+<p>here all have a default value, nothing to be automatically selected</p>
 </section>
-<section id="fine-tuning-user-defined-parameters" class="level4">
-<h4 class="anchored" data-anchor-id="fine-tuning-user-defined-parameters">Fine-tuning : user defined parameters</h4>
+<section id="output3-diagnostics" class="level3">
+<h3 class="anchored" data-anchor-id="output3-diagnostics">Output3: Diagnostics</h3>
+<p>SEATS (model based) specific diagnostics check GUI (more plots, values) vs R links to methods chapter, here just be able to “read” (knowledge assumed) (here direct base on gui plots, and the add what can be retrieved in R, if cannot be retrieved in R : could it be rebuild from available elements) Obj : simple description res : current doc, jpslides, doc esp, Q JP</p>
+<ul>
+<li>WK analysis</li>
+</ul>
+<p>components final estimators</p>
+<ul>
+<li><p>Error analysis autocorrelation of the errors (sa, trend) revisons of the errors</p></li>
+<li><p>Growth rates</p></li>
+<li><p>Model based tests</p></li>
+<li><p>Significant seasonality</p></li>
+<li><p>Stationnary variance decompostion</p></li>
+</ul>
+</section>
+<section id="fine-tuning-user-defined-parameters" class="level3">
+<h3 class="anchored" data-anchor-id="fine-tuning-user-defined-parameters">Fine-tuning : user defined parameters</h3>
+<ul>
+<li>Prediction length</li>
+</ul>
+<p>Forecast span used in the decomposition default: one year (-1) (years are set in negative values, positive values indicate nimber of periods)</p>
+<ul>
+<li>Approximation Mode</li>
+</ul>
+<p>Modification type for inadmissible models None (default) Legacy Noisy</p>
+<ul>
+<li>MA unit root boundary</li>
+</ul>
+<p>Modulus threshold for resetteing MA “near-unit” roots [0,1] default (0.95)</p>
+<ul>
+<li><p>Trend Boundary Modulus thershold for assingning positive real AR Roots [0,1] default (0.5)</p></li>
+<li><p>Seasonal Tolerance Degree threshold for assigning complex AR roots [0,10] default (2)</p></li>
+<li><p>Seasonal Boundary (unique) Modulus threshold for assigning negative real AR roots [0,1] default (0.8)</p></li>
+<li><p>Seasonal Boundary (unique) Same modulus threshold unique seasonal AR roots [0,1] default (0.8)</p></li>
+<li><p>Method</p></li>
+</ul>
+<p>Algorithm used for estimation of unobserved componements</p>
+<p>Burman (default)</p>
+<p>KalmanSmoother</p>
+<p>McEllroyMatrix</p>
+<p>Further explanation (cf slides JP)</p>
+<p>link to M chapter for details on root allocation</p>
+<section id="set-in-gui" class="level5">
+<h5 class="anchored" data-anchor-id="set-in-gui">Set in GUI</h5>
+<p>In specification window (link to GUI global exp)</p>
+<p>IMAGE</p>
+</section>
+<section id="set-in-r" class="level5">
+<h5 class="anchored" data-anchor-id="set-in-r">Set in R</h5>
+<p>version 2 (RJDemetra)</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tramoseats_spec</span>(</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a> <span class="at">spec =</span> <span class="fu">c</span>(<span class="st">"RSAfull"</span>, <span class="st">"RSA0"</span>, <span class="st">"RSA1"</span>, <span class="st">"RSA2"</span>, <span class="st">"RSA3"</span>, <span class="st">"RSA4"</span>, <span class="st">"RSA5"</span>),</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">fcst.horizon =</span> <span class="cn">NA_integer_</span>,</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">seats.predictionLength =</span> <span class="cn">NA_integer_</span>,</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">seats.approx =</span> <span class="fu">c</span>(<span class="cn">NA</span>, <span class="st">"None"</span>, <span class="st">"Legacy"</span>, <span class="st">"Noisy"</span>),</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">seats.trendBoundary =</span> <span class="cn">NA_integer_</span>,</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">seats.seasdBoundary =</span> <span class="cn">NA_integer_</span>,</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">seats.seasdBoundary1 =</span> <span class="cn">NA_integer_</span>,</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">seats.seasTol =</span> <span class="cn">NA_integer_</span>,</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">seats.maBoundary =</span> <span class="cn">NA_integer_</span>,</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">seats.method =</span> <span class="fu">c</span>(<span class="cn">NA</span>, <span class="st">"Burman"</span>, <span class="st">"KalmanSmoother"</span>, <span class="st">"McElroyMatrix"</span>)</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>in version 3 with {rjd3tramoseats}</p>
+</section>
 </section>
 </section>
 <section id="stl" class="level2">
 <h2 class="anchored" data-anchor-id="stl">STL</h2>
-<p>use on pre-treated data</p>
+<p>use on linearized data data, no pre-adjustment (2nd layer)</p>
 </section>
 <section id="ssf" class="level2">
 <h2 class="anchored" data-anchor-id="ssf">SSF</h2>
+<p>(2nd layer)</p>
 </section>
 <section id="quality-assessment" class="level2">
 <h2 class="anchored" data-anchor-id="quality-assessment">Quality assessment</h2>
@@ -922,6 +1416,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 <section id="residual-calendar-effects" class="level3">
 <h3 class="anchored" data-anchor-id="residual-calendar-effects">Residual calendar effects</h3>
+<p>(all GUI based analysis) NODES below bechamrking</p>
+</section>
+<section id="matrix" class="level3">
+<h3 class="anchored" data-anchor-id="matrix">Matrix</h3>
 
 
 </section>
