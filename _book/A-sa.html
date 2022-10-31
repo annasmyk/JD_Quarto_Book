@@ -324,7 +324,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#pre-treatment-reg-arima-or-tramo" id="toc-pre-treatment-reg-arima-or-tramo" class="nav-link" data-scroll-target="#pre-treatment-reg-arima-or-tramo">Pre-treatment : Reg-ARIMA (or TRAMO)</a>
   <ul class="collapse">
   <li><a href="#why" id="toc-why" class="nav-link" data-scroll-target="#why">why ?</a></li>
-  <li><a href="#global-outline" id="toc-global-outline" class="nav-link" data-scroll-target="#global-outline">global outline</a></li>
+  <li><a href="#global-outline" id="toc-global-outline" class="nav-link" data-scroll-target="#global-outline">Global outline</a></li>
+  <li><a href="#deafult-specifications" id="toc-deafult-specifications" class="nav-link" data-scroll-target="#deafult-specifications">Deafult Specifications</a></li>
+  <li><a href="#spans" id="toc-spans" class="nav-link" data-scroll-target="#spans">Spans</a></li>
+  <li><a href="#decomposition-scheme" id="toc-decomposition-scheme" class="nav-link" data-scroll-target="#decomposition-scheme">Decomposition Scheme</a></li>
   <li><a href="#calendar-correction" id="toc-calendar-correction" class="nav-link" data-scroll-target="#calendar-correction">Calendar correction</a></li>
   <li><a href="#outliers-and-intervention-variables" id="toc-outliers-and-intervention-variables" class="nav-link" data-scroll-target="#outliers-and-intervention-variables">Outliers and intervention variables</a></li>
   <li><a href="#reg-arima-model" id="toc-reg-arima-model" class="nav-link" data-scroll-target="#reg-arima-model">Reg-Arima Model</a></li>
@@ -332,7 +335,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </ul></li>
   <li><a href="#x-11-decompostion" id="toc-x-11-decompostion" class="nav-link" data-scroll-target="#x-11-decompostion">X-11 Decompostion</a>
   <ul class="collapse">
-  <li><a href="#default-specifications-1" id="toc-default-specifications-1" class="nav-link" data-scroll-target="#default-specifications-1">Default specifications</a></li>
+  <li><a href="#default-specifications" id="toc-default-specifications" class="nav-link" data-scroll-target="#default-specifications">Default specifications</a></li>
   <li><a href="#quick-launch" id="toc-quick-launch" class="nav-link" data-scroll-target="#quick-launch">Quick Launch</a></li>
   <li><a href="#output-1-series" id="toc-output-1-series" class="nav-link" data-scroll-target="#output-1-series">Output 1: series</a></li>
   <li><a href="#output-2-final-parameters" id="toc-output-2-final-parameters" class="nav-link" data-scroll-target="#output-2-final-parameters">Output 2: final parameters</a></li>
@@ -341,7 +344,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </ul></li>
   <li><a href="#seats-decomposition" id="toc-seats-decomposition" class="nav-link" data-scroll-target="#seats-decomposition">SEATS Decomposition</a>
   <ul class="collapse">
-  <li><a href="#default-specifications-2" id="toc-default-specifications-2" class="nav-link" data-scroll-target="#default-specifications-2">Default specifications</a></li>
+  <li><a href="#default-specifications-1" id="toc-default-specifications-1" class="nav-link" data-scroll-target="#default-specifications-1">Default specifications</a></li>
   <li><a href="#quick-launch-1" id="toc-quick-launch-1" class="nav-link" data-scroll-target="#quick-launch-1">Quick Launch</a></li>
   <li><a href="#output-1-series-1" id="toc-output-1-series-1" class="nav-link" data-scroll-target="#output-1-series-1">Output 1: series</a></li>
   <li><a href="#output2-final-params" id="toc-output2-final-params" class="nav-link" data-scroll-target="#output2-final-params">Output2: Final Params</a></li>
@@ -355,6 +358,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#residual-seasonality" id="toc-residual-seasonality" class="nav-link" data-scroll-target="#residual-seasonality">Residual seasonality</a></li>
   <li><a href="#residual-calendar-effects" id="toc-residual-calendar-effects" class="nav-link" data-scroll-target="#residual-calendar-effects">Residual calendar effects</a></li>
   <li><a href="#matrix" id="toc-matrix" class="nav-link" data-scroll-target="#matrix">Matrix</a></li>
+  <li><a href="#add-other-diagnostics-node" id="toc-add-other-diagnostics-node" class="nav-link" data-scroll-target="#add-other-diagnostics-node">Add other diagnostics node</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -438,119 +442,30 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2 class="anchored" data-anchor-id="pre-treatment-reg-arima-or-tramo">Pre-treatment : Reg-ARIMA (or TRAMO)</h2>
 <section id="why" class="level3">
 <h3 class="anchored" data-anchor-id="why">why ?</h3>
-<p>let’s call it regArima modelling (and tramo only when TRamo differences are outlined)</p>
 </section>
 <section id="global-outline" class="level3">
-<h3 class="anchored" data-anchor-id="global-outline">global outline</h3>
-<p>global structure regression with ARIMA structure for residuals</p>
-<p>we’ll see it in more details</p>
+<h3 class="anchored" data-anchor-id="global-outline">Global outline</h3>
+<p>let’s call it regArima modelling (and tramo only when TRamo differences are outlined)</p>
+<p>GOAL : remove deterministic effects to improve decompostion (details on modelling: link)</p>
+<p>global structure regression with ARIMA structure for residuals <span class="math display">\[
+Y_t = \sum {\alpha}_i O_{it} + \sum\beta_j C_{jt} + \sum {\gamma}_i U_{it} + Y_{lin,t}
+\]</span> where - <span class="math inline">\(O_{it}\)</span> are the <span class="math inline">\(i\)</span> final outliers (Ao, LS, TC) from an automatic detection pocedure (link to outliers chap)</p>
 <ul>
-<li>regressors</li>
-<li>calendar (auto and user)</li>
-<li>outliers (auto and user)</li>
-<li>adding intervention variables (here: just how to feed the model, details on regressor and calendar specif chapter)</li>
-<li>model</li>
+<li><p><span class="math inline">\(C_{it}\)</span> are the calendar regressors (automatic or user-defined) (link to calendar chap)</p></li>
+<li><p><span class="math inline">\(U_{it}\)</span> are all the other user-defined regressors (link to outliers and regressors chap)</p></li>
+<li><p><span class="math inline">\(Y_{lin,t} \sim ARIMA(p,d,q)(P,D,Q)\)</span></p></li>
 </ul>
+<p>In the following sections we cover in more details: not the tight structure - Default params: (quick launch) INPUT (?) - Setting User-defined parameters (and not at the end post diagnostics ?) - Output1: series - Output2: Final Params - Output3: Diagnostics for each of these steps - calendar (auto and user) - outliers (auto and user) - adding intervention variables (here: just how to feed the model, details on regressor and calendar specif chapter) - aima models parameters annd diagno</p>
 <p>RegArima modelling part can be of an SA process or run on its own - GUI - R (sligthly different specs,…)</p>
-<p>Template for each sub part - Default params: (quick launch) INPUT (?) - Setting User-defined parameters (and not at the end post diagnostics ?) - Output1: series - Output2: Final Params - Output3: Diagnostics</p>
 </section>
-<section id="calendar-correction" class="level3">
-<h3 class="anchored" data-anchor-id="calendar-correction">Calendar correction</h3>
-<p>Rationale : why correct (in a sentence)</p>
-<p>Guidelines ..it has to make sense ex-ante</p>
-<p>Method regression as deterministic effects</p>
-<p>details of regressor building in calendar chapter</p>
-<section id="default-specifications" class="level4">
-<h4 class="anchored" data-anchor-id="default-specifications">Default specifications</h4>
-<p>cf defalut spec tab (repeat ?)</p>
-<ul>
-<li><p>working days quick desp</p></li>
-<li><p>trading days:</p></li>
-<li><p>easter</p></li>
-</ul>
-<p>here national calendars not taken into accout</p>
-<p>set this option GUI specif detail</p>
-<ul>
-<li>R</li>
-</ul>
-</section>
-<section id="customizing-calendars" class="level4">
-<h4 class="anchored" data-anchor-id="customizing-calendars">Customizing calendars</h4>
-<p>How to correct this ? solution 1: if working with GUI build a new calendar in GUI (building details in chap C) set this option import it : here</p>
-<p>GUI : how to use it or customize HTML file structure explanation</p>
-<p>solution 2: import external regressors can be built with rjd3modelling (link) which can then be used in via are or imported via GUI</p>
-<p>set this option</p>
-<p>Output2: Final Params TEST of presence or not GUI</p>
-<p>Output3: Diagnostics - results of regression student, F test - td spectral peaks - residual effect in <span class="math inline">\(SA\)</span> or <span class="math inline">\(I\)</span> series</p>
-<p>(worked example: french calendar in R)</p>
-</section>
-</section>
-<section id="outliers-and-intervention-variables" class="level3">
-<h3 class="anchored" data-anchor-id="outliers-and-intervention-variables">Outliers and intervention variables</h3>
-<section id="rationale" class="level4">
-<h4 class="anchored" data-anchor-id="rationale">rationale</h4>
-<p>improve decomposition (cf guidelines)</p>
-</section>
-<section id="method" class="level4">
-<h4 class="anchored" data-anchor-id="method">method</h4>
-<p>regression</p>
-</section>
-<section id="outlier-types" class="level4">
-<h4 class="anchored" data-anchor-id="outlier-types">Outlier types</h4>
-</section>
-<section id="automatic-detection" class="level4">
-<h4 class="anchored" data-anchor-id="automatic-detection">Automatic detection</h4>
-<p>for BSM cf below modifing specifs - type - critical value - span</p>
-<p>(link to revision policies)</p>
-</section>
-<section id="pre-specified-outliers" class="level4">
-<h4 class="anchored" data-anchor-id="pre-specified-outliers">Pre-specified Outliers</h4>
-</section>
-<section id="other-user-defined-input-building-regressors" class="level4">
-<h4 class="anchored" data-anchor-id="other-user-defined-input-building-regressors">Other User-defined input : building regressors</h4>
-<p>out of calendars and outliers warning : calendars won’t be allocated to calendars, if not…</p>
-<p>rjd3modelling</p>
-</section>
-<section id="outliers-vs-intervention-variables" class="level4">
-<h4 class="anchored" data-anchor-id="outliers-vs-intervention-variables">Outliers vs intervention variables</h4>
-<p>assigning to componenets</p>
-</section>
-<section id="allocation-of-effects" class="level4">
-<h4 class="anchored" data-anchor-id="allocation-of-effects">Allocation of effects</h4>
-<p>(in teh decomp part for x11 and seats, table with allocation post decomp)</p>
-<section id="output" class="level5">
-<h5 class="anchored" data-anchor-id="output">output</h5>
-</section>
-</section>
-</section>
-<section id="reg-arima-model" class="level3">
-<h3 class="anchored" data-anchor-id="reg-arima-model">Reg-Arima Model</h3>
-<p>Tramo and Reg-Arima are very similar…details in M chapter, parameters and output are the same, treated as one here</p>
-<p>Context : here in put is spcified (auto or user) focus on global model estimation</p>
-<p>Quick launch (= automatic run)</p>
-<p>Output1: series (if relevant) Retrieve regressors GUI (cruncher) R</p>
-<p>Retrieve Pre-adjustment series Table</p>
-<p>in GUI (cruncher)</p>
-<p>in R</p>
-<p>Output2: Final Params what is selected and estimated by the software (not in the specifs above)</p>
-<p>arima orders (if relevant) and coefficients</p>
-<p>GUI</p>
-<p>R</p>
-<p>Output3: Diagnostics Goodness of fit (principle : first diagnostics then what can be fine tuned)</p>
-<p>User defined parameters ARIMA model parameters what can be modified</p>
-<p>Modifiying specifications for Arima model GUI</p>
-<p>R</p>
-</section>
-<section id="modelling" class="level3">
-<h3 class="anchored" data-anchor-id="modelling">Modelling</h3>
-<p>(small addendum) the reg arima part can be run without decompostion slight differences in parameters</p>
-</section>
-</section>
-<section id="x-11-decompostion" class="level2">
-<h2 class="anchored" data-anchor-id="x-11-decompostion">X-11 Decompostion</h2>
-<p>this part should allow to use x-11 via R as well as via GUI</p>
-<section id="default-specifications-1" class="level3">
-<h3 class="anchored" data-anchor-id="default-specifications-1">Default specifications</h3>
+<section id="deafult-specifications" class="level3">
+<h3 class="anchored" data-anchor-id="deafult-specifications">Deafult Specifications</h3>
+<p>here general explanations</p>
+<p>default specification are set for the whole sa procedure: pre-treatment end decomposition</p>
+<p>they are slightly different for X13-ARIMA and tramo seats</p>
+<p>the user chooses the algo + one default spec</p>
+<p>this default spec can be modified with user defined params for most of its parts, this is tackeled in details dor every sub part of the reg arima (tramo) modelling and corresponding decompostion (x11 and seats)</p>
+<p>Strating point for X13-ARIMA</p>
 <table class="table">
 <colgroup>
 <col style="width: 20%">
@@ -620,6 +535,276 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </tr>
 </tbody>
 </table>
+<p>Strating point for Tramo-Seats</p>
+<table class="table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Spec identifier</th>
+<th>Log/level detection</th>
+<th>Outliers detection</th>
+<th>Calendar effects</th>
+<th>ARIMA</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>RSA0</td>
+<td><em>NA</em></td>
+<td><em>NA</em></td>
+<td><em>NA</em></td>
+<td>Airline(+mean)</td>
+</tr>
+<tr class="even">
+<td>RSA1</td>
+<td>automatic</td>
+<td>AO/LS/TC</td>
+<td><em>NA</em></td>
+<td>Airline(+mean)</td>
+</tr>
+<tr class="odd">
+<td>RSA2</td>
+<td>automatic</td>
+<td>AO/LS/TC</td>
+<td>2 TD vars+Easter</td>
+<td>Airline(+mean)</td>
+</tr>
+<tr class="even">
+<td>RSA3</td>
+<td>automatic</td>
+<td>AO/LS/TC</td>
+<td><em>NA</em></td>
+<td>automatic</td>
+</tr>
+<tr class="odd">
+<td>RSA5</td>
+<td>automatic</td>
+<td>AO/LS/TC</td>
+<td>6 TD vars+Easter</td>
+<td>automatic</td>
+</tr>
+<tr class="even">
+<td>RSAfull</td>
+<td>automatic</td>
+<td>AO/LS/TC</td>
+<td>automatic</td>
+<td>automatic</td>
+</tr>
+</tbody>
+</table>
+<p>Principle of user setting parameters: can be done from one of the default specs or any spec in “save” as mode very similar inGUI and R</p>
+</section>
+<section id="spans" class="level3">
+<h3 class="anchored" data-anchor-id="spans">Spans</h3>
+<section id="estimation-span" class="level4">
+<h4 class="anchored" data-anchor-id="estimation-span">Estimation span</h4>
+<p>principle + some differences between tramo and reg-arima</p>
+<p>Specifies the span (data interval) of the time series to be used in the seasonal adjustment process (no computations outside) The user can restrcit the span</p>
+<p>Table Common settings</p>
+<table class="table">
+<colgroup>
+<col style="width: 26%">
+<col style="width: 73%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Option</th>
+<th>Description (expected format)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>All</td>
+<td>default</td>
+</tr>
+<tr class="even">
+<td>From</td>
+<td>first observation included (yyyy-mm-dd)</td>
+</tr>
+<tr class="odd">
+<td>To</td>
+<td>last observation included (yyyy-mm-dd)</td>
+</tr>
+<tr class="even">
+<td>Between</td>
+<td>interval [from ; to] inculded (yyyy-mm-dd to yyyy-mm-dd)</td>
+</tr>
+<tr class="odd">
+<td>First</td>
+<td>number of obs from the begining of the series included (dynamic) (integer)</td>
+</tr>
+<tr class="even">
+<td>Last</td>
+<td>number of obs from the end of the series (dynamic)(integer)</td>
+</tr>
+<tr class="odd">
+<td>Excluding</td>
+<td>excluding N first obs and P last obs from the computation,dynamic) (integer)</td>
+</tr>
+<tr class="even">
+<td>Preliminary check</td>
+<td>chek to exclude highly problematic series e.g.&nbsp;the series with a number of identical observations and/or missing values above pre-specified threshold values. (True/False)</td>
+</tr>
+</tbody>
+</table>
+<p>Setting in GUI image1:</p>
+<p>image: specification window</p>
+<p>setting in R, part of modifying a specification (link)</p>
+<p>(JD+ version 2) With RJDemetra, example in X13:</p>
+<div class="cell" data-eval="false">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(RJDemetra)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># estimation interval: option with static dates</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>user_spec_1<span class="ot">&lt;-</span><span class="fu">x13_spec</span>(<span class="at">spec =</span> <span class="fu">c</span>(<span class="st">"RSA5c"</span>, <span class="st">"RSA0"</span>, <span class="st">"RSA1"</span>, <span class="st">"RSA2c"</span>, <span class="st">"RSA3"</span>, <span class="st">"RSA4c"</span>, <span class="st">"X11"</span>), </span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="at">preliminary.check =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="at">estimate.from =</span> <span class="st">"2012-06-01"</span>, </span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="at">estimate.to =</span> <span class="st">"2012-06-01"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: estimate.to &lt;= estimate.from. Provided values will be ignored.</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># estimation interval: option with dynamic numbers of observations</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># sepec can be applied on different series and therefore exclude different dates</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>user_spec_2<span class="ot">&lt;-</span><span class="fu">x13_spec</span>(<span class="at">spec =</span> <span class="fu">c</span>(<span class="st">"RSA5c"</span>, <span class="st">"RSA0"</span>, <span class="st">"RSA1"</span>, <span class="st">"RSA2c"</span>, <span class="st">"RSA3"</span>, <span class="st">"RSA4c"</span>, <span class="st">"X11"</span>), </span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="at">estimate.first =</span> <span class="dv">12</span>) </span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co"># eestimation on the last 120 obs</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>user_spec_3<span class="ot">&lt;-</span><span class="fu">x13_spec</span>(<span class="at">spec =</span> <span class="fu">c</span>(<span class="st">"RSA5c"</span>, <span class="st">"RSA0"</span>, <span class="st">"RSA1"</span>, <span class="st">"RSA2c"</span>, <span class="st">"RSA3"</span>, <span class="st">"RSA4c"</span>, <span class="st">"X11"</span>), </span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="at">estimate.last =</span> <span class="dv">120</span>)</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="co">#excluding first 24 and last 36 observations</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>user_spec_4<span class="ot">&lt;-</span><span class="fu">x13_spec</span>(<span class="at">spec =</span> <span class="fu">c</span>(<span class="st">"RSA5c"</span>, <span class="st">"RSA0"</span>, <span class="st">"RSA1"</span>, <span class="st">"RSA2c"</span>, <span class="st">"RSA3"</span>, <span class="st">"RSA4c"</span>, <span class="st">"X11"</span>), </span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="at">estimate.exclFirst =</span> <span class="dv">24</span>, </span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="at">estimate.exclLast =</span> <span class="dv">36</span>, </span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="at">estimate.tol =</span> <span class="dv">1</span>) <span class="co"># ??</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>For comprehensive details about x13_spec function see {RJDemetra} documentation for tramo seats : the same ..one example outlining differences</p>
+<p>[(JDemetra+ V3) Example in X13]</p>
+<p>Tramo-seats</p>
+<p>(JD+ version 2) With RJDemetra, example in Tramo-Seats:</p>
+<p>V2 tramoseats_spec( spec = c(“RSAfull”, “RSA0”, “RSA1”, “RSA2”, “RSA3”, “RSA4”, “RSA5”), preliminary.check = NA, estimate.from = NA_character_, estimate.to = NA_character_ , estimate.first = NA_integer_, estimate.last = NA_integer_, estimate.exclFirst = NA_integer_, estimate.exclLast = NA_integer_, estimate.tol = NA_integer_, estimate.eml = NA, estimate.urfinal = NA_integer_,</p>
+<p>(JDemetra+ V3) Example in Tramo-Seats</p>
+<p>Model span</p>
+<p>Principle: same as estimation span (link) above</p>
+<p>Additionnal parameters</p>
+<p>Retrieve in GUI</p>
+<p>Retrieve in R: not possible (to confirm), estimation span and model span must be equal</p>
+</section>
+</section>
+<section id="decomposition-scheme" class="level3">
+<h3 class="anchored" data-anchor-id="decomposition-scheme">Decomposition Scheme</h3>
+<p>principle retrieve in GUI retrieve in R</p>
+<p>X13</p>
+<p>x13_spec( spec = c(“RSA5c”, “RSA0”, “RSA1”, “RSA2c”, “RSA3”, “RSA4c”, “X11”), transform.function = c(NA, “Auto”, “None”, “Log”),</p>
+<p>tramo seats tramoseats_spec( spec = c(“RSAfull”, “RSA0”, “RSA1”, “RSA2”, “RSA3”, “RSA4”, “RSA5”), transform.function = c(NA, “Auto”, “None”, “Log”), transform.fct = NA_integer_,</p>
+<p>consequences on X11 decomp and seats decomp</p>
+</section>
+<section id="calendar-correction" class="level3">
+<h3 class="anchored" data-anchor-id="calendar-correction">Calendar correction</h3>
+<p>Rationale : why correct (in a nutshell)</p>
+<p>Guidelines ..it has to make sense ex-ante</p>
+<p>Method regression as deterministic effects</p>
+<p>details of regressor building in calendar chapter</p>
+<section id="default-specifications-for-calendar-correction" class="level4">
+<h4 class="anchored" data-anchor-id="default-specifications-for-calendar-correction">Default specifications for calendar correction</h4>
+<p>cf defaut spec tab (repeat ?)</p>
+<ul>
+<li><p>working days quick desp</p></li>
+<li><p>trading days:</p></li>
+<li><p>easter</p></li>
+</ul>
+<p>here national calendars not taken into accout</p>
+<p>set this option GUI specif detail</p>
+<ul>
+<li>R</li>
+</ul>
+</section>
+<section id="customizing-calendars" class="level4">
+<h4 class="anchored" data-anchor-id="customizing-calendars">Customizing calendars</h4>
+<p>How to correct this ?</p>
+<p>solution 1: if working with GUI build a new calendar in GUI (building details in chap C) set this option import it : here</p>
+<p>GUI : how to use it or customize HTML file structure explanation</p>
+<p>solution 2: import external regressors can be built with rjd3modelling (link) which can then be used in via are or imported via GUI</p>
+<p>set this option</p>
+<p>Output2: Final Params TEST of presence or not GUI</p>
+<p>Output3: Diagnostics - results of regression student, F test - td spectral peaks - residual effect in <span class="math inline">\(SA\)</span> or <span class="math inline">\(I\)</span> series</p>
+<p>(worked example: french calendar in R)</p>
+</section>
+</section>
+<section id="outliers-and-intervention-variables" class="level3">
+<h3 class="anchored" data-anchor-id="outliers-and-intervention-variables">Outliers and intervention variables</h3>
+<section id="rationale" class="level4">
+<h4 class="anchored" data-anchor-id="rationale">rationale</h4>
+<p>improve decomposition (cf guidelines)</p>
+</section>
+<section id="method" class="level4">
+<h4 class="anchored" data-anchor-id="method">method</h4>
+<p>regression</p>
+</section>
+<section id="outlier-types" class="level4">
+<h4 class="anchored" data-anchor-id="outlier-types">Outlier types</h4>
+</section>
+<section id="automatic-detection" class="level4">
+<h4 class="anchored" data-anchor-id="automatic-detection">Automatic detection</h4>
+<p>for BSM cf below modifing specifs - type - critical value - span</p>
+<p>(link to revision policies)</p>
+</section>
+<section id="pre-specified-outliers" class="level4">
+<h4 class="anchored" data-anchor-id="pre-specified-outliers">Pre-specified Outliers</h4>
+</section>
+<section id="other-user-defined-input-building-regressors" class="level4">
+<h4 class="anchored" data-anchor-id="other-user-defined-input-building-regressors">Other User-defined input : building regressors</h4>
+<p>out of calendars and outliers warning : calendars won’t be allocated to calendars, if not…</p>
+<p>rjd3modelling</p>
+</section>
+<section id="outliers-vs-intervention-variables" class="level4">
+<h4 class="anchored" data-anchor-id="outliers-vs-intervention-variables">Outliers vs intervention variables</h4>
+<p>assigning to componenets</p>
+</section>
+<section id="allocation-of-effects" class="level4">
+<h4 class="anchored" data-anchor-id="allocation-of-effects">Allocation of effects</h4>
+<p>(in teh decomp part for x11 and seats, table with allocation post decomp)</p>
+<section id="output" class="level5">
+<h5 class="anchored" data-anchor-id="output">output</h5>
+</section>
+</section>
+</section>
+<section id="reg-arima-model" class="level3">
+<h3 class="anchored" data-anchor-id="reg-arima-model">Reg-Arima Model</h3>
+<p>Tramo and Reg-Arima are very similar…details in M chapter, parameters and output are the same, treated as one here</p>
+<p>Context : here in put is spcified (auto or user) focus on global model estimation</p>
+<p>Quick launch (= automatic run)</p>
+<p>Output1: series (if relevant) Retrieve regressors GUI (cruncher) R</p>
+<p>Retrieve Pre-adjustment series Table</p>
+<p>in GUI (cruncher)</p>
+<p>in R</p>
+<p>Output2: Final Params what is selected and estimated by the software (not in the specifs above)</p>
+<p>arima orders (if relevant) and coefficients</p>
+<p>GUI</p>
+<p>R</p>
+<p>Output3: Diagnostics Goodness of fit (principle : first diagnostics then what can be fine tuned)</p>
+<p>User defined parameters ARIMA model parameters what can be modified</p>
+<p>Modifiying specifications for Arima model GUI</p>
+<p>R</p>
+</section>
+<section id="modelling" class="level3">
+<h3 class="anchored" data-anchor-id="modelling">Modelling</h3>
+<p>(small addendum) the reg arima part can be run without decompostion slight differences in parameters</p>
+<p>ref to additionnal chapter ?</p>
+</section>
+</section>
+<section id="x-11-decompostion" class="level2">
+<h2 class="anchored" data-anchor-id="x-11-decompostion">X-11 Decompostion</h2>
+<p>this part should allow to use x-11 via R as well as via GUI</p>
+<section id="default-specifications" class="level3">
+<h3 class="anchored" data-anchor-id="default-specifications">Default specifications</h3>
+<p>link to table from reg-arima model</p>
 <p>if identifiers slightly different in GUI, make it clear + pb of names in V3</p>
 <p>in calendar effects : what is tested, link to calendar chapter</p>
 <p>typos : RJDemetra doc (pull req)</p>
@@ -635,10 +820,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3 class="anchored" data-anchor-id="output-1-series">Output 1: series</h3>
 <table class="table">
 <colgroup>
-<col style="width: 22%">
-<col style="width: 22%">
-<col style="width: 22%">
-<col style="width: 31%">
+<col style="width: 24%">
+<col style="width: 24%">
+<col style="width: 24%">
+<col style="width: 26%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -706,10 +891,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Retrieve via GUI image ? Node Decomposition(X11) &gt; Final Filters (make node clickable, link to GUI chapter, handling of nodes)</p>
 <p>Retrieve in R From the model_sa object (link to R package chap global explanation)</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>model_sa<span class="sc">$</span>decomposition<span class="sc">$</span>s_filter</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>model_sa<span class="sc">$</span>decomposition<span class="sc">$</span>t_filter</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># add version 3 equivalent</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>model_sa<span class="sc">$</span>decomposition<span class="sc">$</span>s_filter</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>model_sa<span class="sc">$</span>decomposition<span class="sc">$</span>t_filter</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># add version 3 equivalent</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="output-3-diagnostics" class="level3">
@@ -722,12 +907,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Retrieve in GUI NODE Main Results &gt; SI-Ratios</p>
 <p>in GUI values cannot be retrieved Retrieve in R</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># data frame with values </span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>model_sa<span class="sc">$</span>decomposition<span class="sc">$</span>si_ratio</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># customizable plot</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(model_sa, <span class="at">type=</span> <span class="st">"cal-seas-irr"</span>,<span class="at">first_date =</span> <span class="fu">c</span>(<span class="dv">2015</span>, <span class="dv">1</span>))</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co"># add version 3 equivalent</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># data frame with values </span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>model_sa<span class="sc">$</span>decomposition<span class="sc">$</span>si_ratio</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># customizable plot</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(model_sa, <span class="at">type=</span> <span class="st">"cal-seas-irr"</span>,<span class="at">first_date =</span> <span class="fu">c</span>(<span class="dv">2015</span>, <span class="dv">1</span>))</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co"># add version 3 equivalent</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="m-statistics" class="level4">
@@ -749,8 +934,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Retrieve in GUI NODE Decompostion(X-11) &gt; Quality Measures &gt; Summary</p>
 <p>Retrieve in R</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>model_sa<span class="sc">$</span>decomposition<span class="sc">$</span>mstats</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># add version 3 equivalent</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>model_sa<span class="sc">$</span>decomposition<span class="sc">$</span>mstats</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co"># add version 3 equivalent</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="detailed-quality-measures" class="level4">
@@ -895,25 +1080,25 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>here example changing all the settings (just remove irrelevant changes)</p>
 <p>Rjdemetra (v2) Edit : here static R code link to a “worked example” wih dynamic code ticked box in GUI corresponds to …? in R</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Creating a modified specification, customizing all available X11 parameters</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>modified_spec<span class="ot">&lt;-</span> <span class="fu">x13_spec</span>(current_sa_model,</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">#x11.mode="?",</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="co">#x11.seasonalComp = "?",</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">x11.fcasts =</span> <span class="sc">-</span><span class="dv">2</span>,</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">x11.bcasts =</span> <span class="sc">-</span><span class="dv">1</span>,</span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">x11.lsigma =</span> <span class="fl">1.2</span>,</span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">x11.usigma =</span> <span class="fl">2.8</span>,</span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">x11.calendarSigma =</span> <span class="cn">NA</span>, <span class="co"># EDIT with example</span></span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>      <span class="at">x11.sigmaVector =</span> <span class="cn">NA</span>,</span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">x11.excludeFcasts =</span> <span class="cn">NA</span></span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>    <span class="co"># filters </span></span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">x11.trendAuto =</span> <span class="cn">NA</span>, <span class="co"># needed inf value ?</span></span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">x11.trendma =</span> <span class="dv">23</span>,</span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">x11.seasonalma =</span> <span class="st">"S3X9</span></span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="st">    # details on seasonal filters ?)</span></span>
-<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a><span class="st">#New SA estimation : apply modified_spec</span></span>
-<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a><span class="st">modified_sa_model&lt;-x13(raw_series,modified_spec)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Creating a modified specification, customizing all available X11 parameters</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>modified_spec<span class="ot">&lt;-</span> <span class="fu">x13_spec</span>(current_sa_model,</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">#x11.mode="?",</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    <span class="co">#x11.seasonalComp = "?",</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">x11.fcasts =</span> <span class="sc">-</span><span class="dv">2</span>,</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">x11.bcasts =</span> <span class="sc">-</span><span class="dv">1</span>,</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">x11.lsigma =</span> <span class="fl">1.2</span>,</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">x11.usigma =</span> <span class="fl">2.8</span>,</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">x11.calendarSigma =</span> <span class="cn">NA</span>, <span class="co"># EDIT with example</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>      <span class="at">x11.sigmaVector =</span> <span class="cn">NA</span>,</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">x11.excludeFcasts =</span> <span class="cn">NA</span></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>    <span class="co"># filters </span></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">x11.trendAuto =</span> <span class="cn">NA</span>, <span class="co"># needed inf value ?</span></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">x11.trendma =</span> <span class="dv">23</span>,</span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">x11.seasonalma =</span> <span class="st">"S3X9</span></span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a><span class="st">    # details on seasonal filters ?)</span></span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a><span class="st">#New SA estimation : apply modified_spec</span></span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a><span class="st">modified_sa_model&lt;-x13(raw_series,modified_spec)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>EDIT : link to package help page v2 +v3</p>
 </section>
@@ -923,70 +1108,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2 class="anchored" data-anchor-id="seats-decomposition">SEATS Decomposition</h2>
 <p>policy: what is readable in GUI should be explained (even if shortly with link to details here) intermediate series ?</p>
 <p>decomp of lineraized series in level or log</p>
-<section id="default-specifications-2" class="level3">
-<h3 class="anchored" data-anchor-id="default-specifications-2">Default specifications</h3>
-<table class="table">
-<colgroup>
-<col style="width: 20%">
-<col style="width: 20%">
-<col style="width: 20%">
-<col style="width: 20%">
-<col style="width: 20%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Spec identifier</th>
-<th>Log/level detection</th>
-<th>Outliers detection</th>
-<th>Calendar effects</th>
-<th>ARIMA</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>RSA0</td>
-<td><em>NA</em></td>
-<td><em>NA</em></td>
-<td><em>NA</em></td>
-<td>Airline(+mean)</td>
-</tr>
-<tr class="even">
-<td>RSA1</td>
-<td>automatic</td>
-<td>AO/LS/TC</td>
-<td><em>NA</em></td>
-<td>Airline(+mean)</td>
-</tr>
-<tr class="odd">
-<td>RSA2</td>
-<td>automatic</td>
-<td>AO/LS/TC</td>
-<td>2 TD vars+Easter</td>
-<td>Airline(+mean)</td>
-</tr>
-<tr class="even">
-<td>RSA3</td>
-<td>automatic</td>
-<td>AO/LS/TC</td>
-<td><em>NA</em></td>
-<td>automatic</td>
-</tr>
-<tr class="odd">
-<td>RSA5</td>
-<td>automatic</td>
-<td>AO/LS/TC</td>
-<td>6 TD vars+Easter</td>
-<td>automatic</td>
-</tr>
-<tr class="even">
-<td>RSAfull</td>
-<td>automatic</td>
-<td>AO/LS/TC</td>
-<td>automatic</td>
-<td>automatic</td>
-</tr>
-</tbody>
-</table>
+<section id="default-specifications-1" class="level3">
+<h3 class="anchored" data-anchor-id="default-specifications-1">Default specifications</h3>
+<p>link to Tramo-Seats part</p>
 <p>if identifiers slightly different in GUI, make it clear + pb of names in V3</p>
 <p>in calendar effects : what is tested, link to calendar chapter</p>
 <p>typos : RJDemetra doc (pull req)</p>
@@ -1384,18 +1508,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h5 class="anchored" data-anchor-id="set-in-r">Set in R</h5>
 <p>version 2 (RJDemetra)</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tramoseats_spec</span>(</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a> <span class="at">spec =</span> <span class="fu">c</span>(<span class="st">"RSAfull"</span>, <span class="st">"RSA0"</span>, <span class="st">"RSA1"</span>, <span class="st">"RSA2"</span>, <span class="st">"RSA3"</span>, <span class="st">"RSA4"</span>, <span class="st">"RSA5"</span>),</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">fcst.horizon =</span> <span class="cn">NA_integer_</span>,</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">seats.predictionLength =</span> <span class="cn">NA_integer_</span>,</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">seats.approx =</span> <span class="fu">c</span>(<span class="cn">NA</span>, <span class="st">"None"</span>, <span class="st">"Legacy"</span>, <span class="st">"Noisy"</span>),</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">seats.trendBoundary =</span> <span class="cn">NA_integer_</span>,</span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">seats.seasdBoundary =</span> <span class="cn">NA_integer_</span>,</span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">seats.seasdBoundary1 =</span> <span class="cn">NA_integer_</span>,</span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">seats.seasTol =</span> <span class="cn">NA_integer_</span>,</span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">seats.maBoundary =</span> <span class="cn">NA_integer_</span>,</span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">seats.method =</span> <span class="fu">c</span>(<span class="cn">NA</span>, <span class="st">"Burman"</span>, <span class="st">"KalmanSmoother"</span>, <span class="st">"McElroyMatrix"</span>)</span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tramoseats_spec</span>(</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a> <span class="at">spec =</span> <span class="fu">c</span>(<span class="st">"RSAfull"</span>, <span class="st">"RSA0"</span>, <span class="st">"RSA1"</span>, <span class="st">"RSA2"</span>, <span class="st">"RSA3"</span>, <span class="st">"RSA4"</span>, <span class="st">"RSA5"</span>),</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">fcst.horizon =</span> <span class="cn">NA_integer_</span>,</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">seats.predictionLength =</span> <span class="cn">NA_integer_</span>,</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">seats.approx =</span> <span class="fu">c</span>(<span class="cn">NA</span>, <span class="st">"None"</span>, <span class="st">"Legacy"</span>, <span class="st">"Noisy"</span>),</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">seats.trendBoundary =</span> <span class="cn">NA_integer_</span>,</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">seats.seasdBoundary =</span> <span class="cn">NA_integer_</span>,</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">seats.seasdBoundary1 =</span> <span class="cn">NA_integer_</span>,</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">seats.seasTol =</span> <span class="cn">NA_integer_</span>,</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">seats.maBoundary =</span> <span class="cn">NA_integer_</span>,</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">seats.method =</span> <span class="fu">c</span>(<span class="cn">NA</span>, <span class="st">"Burman"</span>, <span class="st">"KalmanSmoother"</span>, <span class="st">"McElroyMatrix"</span>)</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>in version 3 with {rjd3tramoseats}</p>
 </section>
@@ -1420,6 +1544,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 <section id="matrix" class="level3">
 <h3 class="anchored" data-anchor-id="matrix">Matrix</h3>
+</section>
+<section id="add-other-diagnostics-node" class="level3">
+<h3 class="anchored" data-anchor-id="add-other-diagnostics-node">Add other diagnostics node</h3>
 
 
 </section>

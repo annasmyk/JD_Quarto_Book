@@ -1,9 +1,6 @@
 # Seasonal Adjustment {.unnumbered}
 
-Hint at GUI chap for global principles
-- ws structure (new SAP)
-- global specification handling 
-- file structure explanation
+Hint at GUI chap for global principles - ws structure (new SAP) - global specification handling - file structure explanation
 
 Hint at tool selection (link to chapter)
 
@@ -76,38 +73,328 @@ X13 and TS are two step algos, pretreatment +dcomp (no pre ptreatment in STL + a
 ## Pre-treatment : Reg-ARIMA (or TRAMO)
 
 ### why ?
+
+### Global outline
+
 let's call it regArima modelling (and tramo only when TRamo differences are outlined)
 
-### global outline
+GOAL : remove deterministic effects to improve decompostion (details on modelling: link)
 
-global structure regression with ARIMA structure for residuals
+global structure regression with ARIMA structure for residuals $$
+Y_t = \sum {\alpha}_i O_{it} + \sum\beta_j C_{jt} + \sum {\gamma}_i U_{it} + Y_{lin,t}
+$$ where - $O_{it}$ are the $i$ final outliers (Ao, LS, TC) from an automatic detection pocedure (link to outliers chap)
 
-we'll see it in more details 
+-   $C_{it}$ are the calendar regressors (automatic or user-defined) (link to calendar chap)
 
-- regressors
-- calendar (auto and user)
-- outliers (auto and user)
-- adding intervention variables 
-(here: just how to feed the model, details on regressor and calendar specif chapter)
-- model
+-   $U_{it}$ are all the other user-defined regressors (link to outliers and regressors chap)
 
-RegArima modelling  part can be of an SA process
-or run on its own 
-- GUI 
-- R
-(sligthly different specs,...)
+-   $Y_{lin,t} \sim ARIMA(p,d,q)(P,D,Q)$
 
-Template for each sub part
-- Default params: (quick launch) INPUT (?) 
-- Setting User-defined parameters (and not at the end post diagnostics ?)
-- Output1: series 
-- Output2: Final Params 
-- Output3: Diagnostics 
+In the following sections we cover in more details: not the tight structure - Default params: (quick launch) INPUT (?) - Setting User-defined parameters (and not at the end post diagnostics ?) - Output1: series - Output2: Final Params - Output3: Diagnostics for each of these steps - calendar (auto and user) - outliers (auto and user) - adding intervention variables (here: just how to feed the model, details on regressor and calendar specif chapter) - aima models parameters annd diagno
 
+RegArima modelling part can be of an SA process or run on its own - GUI - R (sligthly different specs,...)
+
+WARNING : set params + retrieve their values: global principles
+
+in GUI
+
+Retrieve: in the specification window and panels for main (to detail ?)
+
+in R
+
+### Default Specifications
+
+here general explanations
+
+default specification are set for the whole sa procedure: pre-treatment end decomposition
+
+they are slightly different for X13-ARIMA and tramo seats
+
+the user chooses the algo + one default spec
+
+this default spec can be modified with user defined params for most of its parts, this is tackeled in details dor every sub part of the reg arima (tramo) modelling and corresponding decompostion (x11 and seats)
+
+Strating point for X13-ARIMA
+
++-----------------+---------------------+--------------------+------------------+----------------+
+| Spec identifier | Log/level detection | Outliers detection | Calendar effects | ARIMA          |
++=================+=====================+====================+==================+================+
+| RSA0            | *NA*                | *NA*               | *NA*             | Airline(+mean) |
++-----------------+---------------------+--------------------+------------------+----------------+
+| RSA1            | automatic           | AO/LS/TC           | *NA*             | Airline(+mean) |
++-----------------+---------------------+--------------------+------------------+----------------+
+| RSA2c           | automatic           | AO/LS/TC           | 2 TD vars+Easter | Airline(+mean) |
++-----------------+---------------------+--------------------+------------------+----------------+
+| RSA3            | automatic           | AO/LS/TC           | *NA*             | automatic      |
++-----------------+---------------------+--------------------+------------------+----------------+
+| RSA4c           | automatic           | AO/LS/TC           | 2 TD vars+Easter | automatic      |
++-----------------+---------------------+--------------------+------------------+----------------+
+| RSA5            | automatic           | AO/LS/TC           | 6 TD vars+Easter | automatic      |
++-----------------+---------------------+--------------------+------------------+----------------+
+| X-11            | *NA*                | *NA*               | *NA*             | *NA*           |
++-----------------+---------------------+--------------------+------------------+----------------+
+
+Strating point for Tramo-Seats
+
++-----------------+---------------------+--------------------+------------------+----------------+
+| Spec identifier | Log/level detection | Outliers detection | Calendar effects | ARIMA          |
++=================+=====================+====================+==================+================+
+| RSA0            | *NA*                | *NA*               | *NA*             | Airline(+mean) |
++-----------------+---------------------+--------------------+------------------+----------------+
+| RSA1            | automatic           | AO/LS/TC           | *NA*             | Airline(+mean) |
++-----------------+---------------------+--------------------+------------------+----------------+
+| RSA2            | automatic           | AO/LS/TC           | 2 TD vars+Easter | Airline(+mean) |
++-----------------+---------------------+--------------------+------------------+----------------+
+| RSA3            | automatic           | AO/LS/TC           | *NA*             | automatic      |
++-----------------+---------------------+--------------------+------------------+----------------+
+| RSA5            | automatic           | AO/LS/TC           | 6 TD vars+Easter | automatic      |
++-----------------+---------------------+--------------------+------------------+----------------+
+| RSAfull         | automatic           | AO/LS/TC           | automatic        | automatic      |
++-----------------+---------------------+--------------------+------------------+----------------+
+
+Principle of user setting parameters: can be done from one of the default specs or any spec in "save" as mode very similar inGUI and R
+
+### Spans
+
+#### Estimation span
+
+principle + some differences between tramo and reg-arima
+
+Specifies the span (data interval) of the time series to be used in the seasonal adjustment process (no computations outside) The user can restrcit the span
+
+Table Common settings
+
++-------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Option            | Description (expected format)                                                                                                                                              |
++===================+============================================================================================================================================================================+
+| All               | default                                                                                                                                                                    |
++-------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| From              | first observation included (yyyy-mm-dd)                                                                                                                                    |
++-------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| To                | last observation included (yyyy-mm-dd)                                                                                                                                     |
++-------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Between           | interval \[from ; to\] inculded (yyyy-mm-dd to yyyy-mm-dd)                                                                                                                 |
++-------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| First             | number of obs from the begining of the series included (dynamic) (integer)                                                                                                 |
++-------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Last              | number of obs from the end of the series (dynamic)(integer)                                                                                                                |
++-------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Excluding         | excluding N first obs and P last obs from the computation,dynamic) (integer)                                                                                               |
++-------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| Preliminary check | chek to exclude highly problematic series e.g. the series with a number of identical observations and/or missing values above pre-specified threshold values. (True/False) |
++-------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|                   |                                                                                                                                                                            |
++-------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|                   |                                                                                                                                                                            |
++-------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|                   |                                                                                                                                                                            |
++-------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|                   |                                                                                                                                                                            |
++-------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+Setting in GUI image1: specification window and expanded nodes
+
+Setting in R, part of modifying a specification (link)
+
+```{r, EVAL=FALSE}
+library(RJDemetra)
+# estimation interval: option with static dates
+user_spec_1<-x13_spec(spec = c("RSA5c", "RSA0", "RSA1", "RSA2c", "RSA3", "RSA4c", "X11"), 
+preliminary.check = TRUE, 
+estimate.from = "2012-06-01", 
+estimate.to = "2019-12-01") 
+
+# estimation interval: option with dynamic numbers of observations
+
+# 
+# spec can be applied on different series and therefore exclude different dates
+user_spec_2<-x13_spec(spec = c("RSA5c", "RSA0", "RSA1", "RSA2c", "RSA3", "RSA4c", "X11"), 
+estimate.first = 12) 
+
+# eestimation on the last 120 obs
+user_spec_3<-x13_spec(spec = c("RSA5c", "RSA0", "RSA1", "RSA2c", "RSA3", "RSA4c", "X11"), 
+estimate.last = 120)
+
+#excluding first 24 and last 36 observations
+user_spec_4<-x13_spec(spec = c("RSA5c", "RSA0", "RSA1", "RSA2c", "RSA3", "RSA4c", "X11"), 
+estimate.exclFirst = 24, 
+estimate.exclLast = 36)
+
+# Retrieve settings
+
+```
+
+For comprehensive details about x13_spec function see {RJDemetra} documentation for tramo seats : the same ..one example outlining differences
+
+\[V3(JDemetra+ V3) Example in X13\]
+
+Tramo-seats
+
+(JD+ version 2) With RJDemetra, example in Tramo-Seats:
+
+```{r, eval=FALSE}
+
+#excluding first 24 and last 36 observations
+user_spec_1<-tramoseats_spec( spec = c("RSAfull", "RSA0", "RSA1", "RSA2", "RSA3", "RSA4", "RSA5"),  
+estimate.exclFirst = 24, 
+estimate.exclLast = 36)
+
+```
+
+#### Model span
+
+Principle: same as estimation span (link) above
+
+Specifies the span (data interval) of the time series to be used for the estimation of the RegARIMA model coefficients. The RegARIMA model is then applied to the whole series. With this argument the data early in the series can be prevented from affecting the forecasts, or, alternatively, data later in the series are excluded from the modelling span, so that they do not influence the regression estimates. The available parameter values are
+
+Additionnal parameters
+
+Model span specific parameters
+
++--------------------------+------------------------------------------------------------------------------------------------------------------------------+
+| Tolerance                | Convergence tolerance for the nonlinear estimation.                                                                          |
+|                          |                                                                                                                              |
+|                          | The absolute changes in the log-likelihood are compared to Tolerance to check the convergence of the estimation iterations.  |
+|                          |                                                                                                                              |
+|                          | The default setting is 0.0000001.                                                                                            |
++--------------------------+------------------------------------------------------------------------------------------------------------------------------+
+| Tramo specifc parameters |                                                                                                                              |
++--------------------------+------------------------------------------------------------------------------------------------------------------------------+
+| Exact ML                 | When this option is marked, an exact maximum likelihood estimation is performed.                                             |
+|                          |                                                                                                                              |
+|                          | Alternatively, the Unconditional Least Squares method is used.                                                               |
+|                          |                                                                                                                              |
+|                          | However, in the current version of JDemetra+ it is not recommended to change this parameter's value                          |
++--------------------------+------------------------------------------------------------------------------------------------------------------------------+
+| Unit Root Limit          | Limit for the autoregressive roots. If the inverse of a real root of the autoregressive polynomial of the                    |
+|                          |                                                                                                                              |
+|                          | ARIMA model is higher than this limit, the root is set equal to 1. The default parameter value is 0.96.                      |
++--------------------------+------------------------------------------------------------------------------------------------------------------------------+
+
+Retrieve in GUI:
+
+image specification window and nodes
+
+Retrieve in R: not possible (to confirm), estimation span and model span must be equal
+
+so additional parameters for model span are set on the estimation span
+
+Tramo seats exemple
+
+```{r, eval=FALSE}
+
+#excluding first 24 and last 36 observations
+user_spec_1<-tramoseats_spec( spec = c("RSAfull", "RSA0", "RSA1", "RSA2", "RSA3", "RSA4", "RSA5"),  
+estimate.tol = 0.0000001, 
+estimate.eml = FALSE, 
+estimate.urfinal = 0.98)
+
+```
+
+\[V3 model span specif parameters\]
+
+### Decomposition Scheme
+
+Principle
+
+ecriture add
+
+ecriture multi
+
+if multi : log
+
+ecriture log
+
+consequences on X11 decomp and seats decomp
+
+Transformation test -- a test is performed to choose between an additive decomposition (no transformation) (link to reg A chap to detail this)
+
+Settings
+
+Function
+
+transform {function=}
+
+Transformation of data. 2 The user can choose between:
+
+None -- no transformation of the data;
+
+Log -- takes logs of the data;
+
+Auto -- the program tests for the log-level specification. This option is recommended for automatic modelling of many series.
+
+The default setting is Auto.
+
+Reg-Arima specific settings
+
+AIC difference
+
+transform {aicdiff=}
+
+Defines the difference in AICC needed to accept no transformation over a log transformation when the automatic transformation
+
+	selection option is invoked. The option is disabled when Function is not set to Auto. The default AIC difference value is -2.
+
+Adjust
+
+transform {adjust=}
+
+Options for proportional adjustment for the leap year effect. The option is available when Function is set to Log. Adjust can be set to:
+
+LeapYear -- performs a leap year adjustment of monthly or quarterly data;
+
+LengthofPeriod -- performs a length-of-month adjustment on monthly data or length-of-quarter adjustment on quarterly data;
+
+None -- does not include a correction for the length of the period.
+
+The default setting is None
+
+Tramo specific settings
+
+**Fct**\
+*Transformation; fct*
+
+Controls the bias in the log/level pre-test (the function is active when **Function** is set to *Auto*); **Fct** \> 1 favours levels, **Fct** \< 1 favours logs. The default setting is 0.95.
+
+Set and Retrieve in GUI
+
+Image specification window + expanded nodes : RegA+ Tramo
+
+Retrieve: in the specification window and panels for main (to detail ?)
+
+Set and in R
+
+X13
+
+```{r, eval=FALSE}
+
+#excluding first 24 and last 36 observations
+user_spec <-x13_spec(spec = c("RSA5c", "RSA0", "RSA1", "RSA2c", "RSA3", "RSA4c", "X11"), 
+  transform.function = c(NA, "Auto", "None", "Log"),
+  transform.adjust = c(NA, "None", "LeapYear", "LengthOfPeriod"),
+  transform.aicdiff = NA_integer_,
+
+
+
+```
+
+Tramo seats settings
+
+```{r, eval=FALSE}
+
+#transfo
+user_spec_1<-tramoseats_spec( spec = c("RSAfull", "RSA0", "RSA1", "RSA2", "RSA3", "RSA4", "RSA5"),  
+transform.function = c(NA, "Auto", "None", "Log"), transform.fct = NA_integer_,)
+ transform.function = c(NA, "Auto", "None", "Log"),
+  transform.fct = NA_integer_,
+ 
+# Retrieve settings  
+
+```
 
 ### Calendar correction
 
-Rationale : why correct (in a sentence)
+Rationale : why correct (in a nutshell)
 
 Guidelines ..it has to make sense ex-ante
 
@@ -115,38 +402,35 @@ Method regression as deterministic effects
 
 details of regressor building in calendar chapter
 
+#### Default specifications for calendar correction
 
-#### Default specifications
-cf defalut spec tab (repeat ?)
+cf defaut spec tab (repeat ?)
 
-- working days
-quick desp 
-- trading days:
+-   working days quick desp
 
-- easter
+-   trading days:
+
+-   easter
 
 here national calendars not taken into accout
 
-set this option GUI specif detail 
+set this option GUI specif detail
 
-- R
+-   R
 
 #### Customizing calendars
 
-How to correct this ? 
+How to correct this ?
+
 solution 1: if working with GUI build a new calendar in GUI (building details in chap C) set this option import it : here
 
-GUI : how to use it
-or customize HTML file
-structure explanation
+GUI : how to use it or customize HTML file structure explanation
 
-solution 2: import external regressors can be built with rjd3modelling (link)
-which can then be used in via are or imported via GUI
+solution 2: import external regressors can be built with rjd3modelling (link) which can then be used in via are or imported via GUI
 
 set this option
 
-Output2: Final Params TEST of presence or 
-not GUI
+Output2: Final Params TEST of presence or not GUI
 
 Output3: Diagnostics - results of regression student, F test - td spectral peaks - residual effect in $SA$ or $I$ series
 
@@ -174,8 +458,7 @@ for BSM cf below modifing specifs - type - critical value - span
 
 #### Other User-defined input : building regressors
 
-out of calendars and outliers 
-warning : calendars won't be allocated to calendars, if not...
+out of calendars and outliers warning : calendars won't be allocated to calendars, if not...
 
 rjd3modelling
 
@@ -193,14 +476,11 @@ assigning to componenets
 
 Tramo and Reg-Arima are very similar...details in M chapter, parameters and output are the same, treated as one here
 
-Context : here in put is spcified (auto or user)
-focus on global model estimation
+Context : here in put is spcified (auto or user) focus on global model estimation
 
 Quick launch (= automatic run)
 
-
-Output1: series (if relevant) 
-Retrieve regressors GUI (cruncher) R
+Output1: series (if relevant) Retrieve regressors GUI (cruncher) R
 
 Retrieve Pre-adjustment series Table
 
@@ -218,19 +498,17 @@ R
 
 Output3: Diagnostics Goodness of fit (principle : first diagnostics then what can be fine tuned)
 
-User defined parameters
-ARIMA model parameters
-what can be modified
+User defined parameters ARIMA model parameters what can be modified
 
-
-Modifiying specifications for Arima model 
-GUI 
+Modifiying specifications for Arima model GUI
 
 R
 
 ### Modelling
-(small addendum)
-the reg arima part can be run without decompostion slight differences in parameters
+
+(small addendum) the reg arima part can be run without decompostion slight differences in parameters
+
+ref to additionnal chapter ?
 
 ## X-11 Decompostion
 
@@ -238,15 +516,7 @@ this part should allow to use x-11 via R as well as via GUI
 
 ### Default specifications
 
-| Spec identifier | Log/level detection | Outliers detection | Calendar effects | ARIMA          |
-|---------------|---------------|---------------|---------------|---------------|
-| RSA0            | *NA*                | *NA*               | *NA*             | Airline(+mean) |
-| RSA1            | automatic           | AO/LS/TC           | *NA*             | Airline(+mean) |
-| RSA2c           | automatic           | AO/LS/TC           | 2 TD vars+Easter | Airline(+mean) |
-| RSA3            | automatic           | AO/LS/TC           | *NA*             | automatic      |
-| RSA4c           | automatic           | AO/LS/TC           | 2 TD vars+Easter | automatic      |
-| RSA5            | automatic           | AO/LS/TC           | 6 TD vars+Easter | automatic      |
-| X-11            | *NA*                | *NA*               | *NA*             | *NA*           |
+link to table from reg-arima model
 
 if identifiers slightly different in GUI, make it clear + pb of names in V3
 
@@ -262,14 +532,21 @@ typos : RJDemetra doc (pull req)
 
 ### Output 1: series
 
-| Series                    | Final X11 name | Final Results | Reallocation of pre-adjustment effects |
-|-----------------|-----------------|-----------------|-----------------------|
-| Raw series (forecasts)    |                | y (y_f)       |                                        |
-| Final seasonal component  | D16            | s (s_f)       |                                        |
-| Final trend               | D12            | t (t_f)       |                                        |
-| Final irregular           | D13            | i (i_f)       |                                        |
-| Calendar component        |                |               |                                        |
-| Seasonal without calendar | D10            |               |                                        |
++---------------------------+----------------+----------------+----------------------------------------+
+| Series                    | Final X11 name | Final Results  | Reallocation of pre-adjustment effects |
++===========================+================+================+========================================+
+| Raw series (forecasts)    |                | y (y_f)        |                                        |
++---------------------------+----------------+----------------+----------------------------------------+
+| Final seasonal component  | D16            | s (s_f)        |                                        |
++---------------------------+----------------+----------------+----------------------------------------+
+| Final trend               | D12            | t (t_f)        |                                        |
++---------------------------+----------------+----------------+----------------------------------------+
+| Final irregular           | D13            | i (i_f)        |                                        |
++---------------------------+----------------+----------------+----------------------------------------+
+| Calendar component        |                |                |                                        |
++---------------------------+----------------+----------------+----------------------------------------+
+| Seasonal without calendar | D10            |                |                                        |
++---------------------------+----------------+----------------+----------------------------------------+
 
 make clear reallocation of outliers effects (frequent questions)
 
@@ -524,14 +801,7 @@ decomp of lineraized series in level or log
 
 ### Default specifications
 
-| Spec identifier | Log/level detection | Outliers detection | Calendar effects | ARIMA          |
-|---------------|---------------|---------------|---------------|---------------|
-| RSA0            | *NA*                | *NA*               | *NA*             | Airline(+mean) |
-| RSA1            | automatic           | AO/LS/TC           | *NA*             | Airline(+mean) |
-| RSA2            | automatic           | AO/LS/TC           | 2 TD vars+Easter | Airline(+mean) |
-| RSA3            | automatic           | AO/LS/TC           | *NA*             | automatic      |
-| RSA5            | automatic           | AO/LS/TC           | 6 TD vars+Easter | automatic      |
-| RSAfull         | automatic           | AO/LS/TC           | automatic        | automatic      |
+link to Tramo-Seats part
 
 if identifiers slightly different in GUI, make it clear + pb of names in V3
 
@@ -723,65 +993,43 @@ here all have a default value, nothing to be automatically selected
 
 ### Output3: Diagnostics
 
-SEATS (model based) specific diagnostics
-check GUI (more plots, values) vs R
-links to methods chapter, here just be able to "read" (knowledge assumed)
-(here direct base on gui plots, and the add what can be retrieved in R, if cannot be retrieved in R : could it be rebuild from available elements)
-Obj : simple description
-res : current doc, jpslides, doc esp, Q JP 
+SEATS (model based) specific diagnostics check GUI (more plots, values) vs R links to methods chapter, here just be able to "read" (knowledge assumed) (here direct base on gui plots, and the add what can be retrieved in R, if cannot be retrieved in R : could it be rebuild from available elements) Obj : simple description res : current doc, jpslides, doc esp, Q JP
 
-- WK analysis
+-   WK analysis
 
-components 
-final estimators
+components final estimators
 
-- Error analysis
-autocorrelation of the errors (sa, trend)
-revisons of the errors 
+-   Error analysis autocorrelation of the errors (sa, trend) revisons of the errors
 
-- Growth rates
+-   Growth rates
 
-- Model based tests
+-   Model based tests
 
-- Significant seasonality 
+-   Significant seasonality
 
-- Stationnary variance decompostion
+-   Stationnary variance decompostion
 
 ### Fine-tuning : user defined parameters
 
 -   Prediction length
 
-Forecast span used in the decomposition
-default: one year (-1)
-(years are set in negative values, positive values indicate nimber of periods)
+Forecast span used in the decomposition default: one year (-1) (years are set in negative values, positive values indicate nimber of periods)
 
 -   Approximation Mode
 
-Modification type for inadmissible models
-None (default)
-Legacy 
-Noisy
+Modification type for inadmissible models None (default) Legacy Noisy
 
 -   MA unit root boundary
 
-Modulus threshold for resetteing MA "near-unit" roots [0,1] default (0.95)
+Modulus threshold for resetteing MA "near-unit" roots \[0,1\] default (0.95)
 
--   Trend Boundary
-Modulus thershold for assingning positive real AR Roots
-[0,1] default (0.5)
+-   Trend Boundary Modulus thershold for assingning positive real AR Roots \[0,1\] default (0.5)
 
--   Seasonal Tolerance
-Degree threshold for assigning complex AR roots 
-[0,10] default (2)
+-   Seasonal Tolerance Degree threshold for assigning complex AR roots \[0,10\] default (2)
 
--   Seasonal Boundary (unique)
-Modulus threshold for assigning negative real AR roots
-[0,1] default (0.8)
+-   Seasonal Boundary (unique) Modulus threshold for assigning negative real AR roots \[0,1\] default (0.8)
 
-
--   Seasonal Boundary (unique)
-Same modulus threshold unique seasonal AR roots 
-[0,1] default (0.8)
+-   Seasonal Boundary (unique) Same modulus threshold unique seasonal AR roots \[0,1\] default (0.8)
 
 -   Method
 
@@ -798,12 +1046,15 @@ Further explanation (cf slides JP)
 link to M chapter for details on root allocation
 
 ##### Set in GUI
+
 In specification window (link to GUI global exp)
 
-IMAGE 
+IMAGE
 
 ##### Set in R
+
 version 2 (RJDemetra)
+
 ```{r, eval=FALSE}
 tramoseats_spec(
  spec = c("RSAfull", "RSA0", "RSA1", "RSA2", "RSA3", "RSA4", "RSA5"),
@@ -822,13 +1073,12 @@ tramoseats_spec(
 
 in version 3 with {rjd3tramoseats}
 
-
 ## STL
 
-use on linearized data data, no pre-adjustment
-(2nd layer)
+use on linearized data data, no pre-adjustment (2nd layer)
 
 ## SSF
+
 (2nd layer)
 
 ## Quality assessment
@@ -837,7 +1087,8 @@ use on linearized data data, no pre-adjustment
 
 ### Residual calendar effects
 
-(all GUI based analysis)
-NODES below bechamrking
+(all GUI based analysis) NODES below bechamrking
 
 ### Matrix
+
+### Add other diagnostics node
