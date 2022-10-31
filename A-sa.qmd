@@ -116,23 +116,15 @@ this default spec can be modified with user defined params for most of its parts
 
 Strating point for X13-ARIMA
 
-+-----------------+---------------------+--------------------+------------------+----------------+
 | Spec identifier | Log/level detection | Outliers detection | Calendar effects | ARIMA          |
-+=================+=====================+====================+==================+================+
+|-----------------|---------------------|--------------------|------------------|----------------|
 | RSA0            | *NA*                | *NA*               | *NA*             | Airline(+mean) |
-+-----------------+---------------------+--------------------+------------------+----------------+
 | RSA1            | automatic           | AO/LS/TC           | *NA*             | Airline(+mean) |
-+-----------------+---------------------+--------------------+------------------+----------------+
 | RSA2c           | automatic           | AO/LS/TC           | 2 TD vars+Easter | Airline(+mean) |
-+-----------------+---------------------+--------------------+------------------+----------------+
 | RSA3            | automatic           | AO/LS/TC           | *NA*             | automatic      |
-+-----------------+---------------------+--------------------+------------------+----------------+
 | RSA4c           | automatic           | AO/LS/TC           | 2 TD vars+Easter | automatic      |
-+-----------------+---------------------+--------------------+------------------+----------------+
 | RSA5            | automatic           | AO/LS/TC           | 7 TD vars+Easter | automatic      |
-+-----------------+---------------------+--------------------+------------------+----------------+
 | X-11            | *NA*                | *NA*               | *NA*             | *NA*           |
-+-----------------+---------------------+--------------------+------------------+----------------+
 
 explanations :
 
@@ -166,21 +158,14 @@ TD vars include LY (link to calendar)
 
 Strating point for Tramo-Seats
 
-+-----------------+---------------------+--------------------+------------------+----------------+
 | Spec identifier | Log/level detection | Outliers detection | Calendar effects | ARIMA          |
-+=================+=====================+====================+==================+================+
+|-----------------|---------------------|--------------------|------------------|----------------|
 | RSA0            | *NA*                | *NA*               | *NA*             | Airline(+mean) |
-+-----------------+---------------------+--------------------+------------------+----------------+
 | RSA1            | automatic           | AO/LS/TC           | *NA*             | Airline(+mean) |
-+-----------------+---------------------+--------------------+------------------+----------------+
 | RSA2            | automatic           | AO/LS/TC           | 2 TD vars+Easter | Airline(+mean) |
-+-----------------+---------------------+--------------------+------------------+----------------+
 | RSA3            | automatic           | AO/LS/TC           | *NA*             | automatic      |
-+-----------------+---------------------+--------------------+------------------+----------------+
 | RSA5            | automatic           | AO/LS/TC           | 6 TD vars+Easter | automatic      |
-+-----------------+---------------------+--------------------+------------------+----------------+
 | RSAfull         | automatic           | AO/LS/TC           | automatic        | automatic      |
-+-----------------+---------------------+--------------------+------------------+----------------+
 
 Principle of user setting parameters: can be done from one of the default specs or any spec in "save" as mode very similar inGUI and R
 
@@ -194,33 +179,20 @@ Specifies the span (data interval) of the time series to be used in the seasonal
 
 Table Common settings
 
-+-------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | Option            | Description (expected format)                                                                                                                                              |
-+===================+============================================================================================================================================================================+
+|-------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | All               | default                                                                                                                                                                    |
-+-------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | From              | first observation included (yyyy-mm-dd)                                                                                                                                    |
-+-------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | To                | last observation included (yyyy-mm-dd)                                                                                                                                     |
-+-------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | Between           | interval \[from ; to\] inculded (yyyy-mm-dd to yyyy-mm-dd)                                                                                                                 |
-+-------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | First             | number of obs from the begining of the series included (dynamic) (integer)                                                                                                 |
-+-------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | Last              | number of obs from the end of the series (dynamic)(integer)                                                                                                                |
-+-------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | Excluding         | excluding N first obs and P last obs from the computation,dynamic) (integer)                                                                                               |
-+-------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | Preliminary check | chek to exclude highly problematic series e.g. the series with a number of identical observations and/or missing values above pre-specified threshold values. (True/False) |
-+-------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 |                   |                                                                                                                                                                            |
-+-------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 |                   |                                                                                                                                                                            |
-+-------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 |                   |                                                                                                                                                                            |
-+-------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 |                   |                                                                                                                                                                            |
-+-------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 Setting in GUI image1: specification window and expanded nodes
 
@@ -281,25 +253,25 @@ Additionnal parameters
 
 Model span specific parameters
 
-+--------------------------+------------------------------------------------------------------------------------------------------------------------------+
-| Tolerance                | Convergence tolerance for the nonlinear estimation.                                                                          |
-|                          |                                                                                                                              |
-|                          | The absolute changes in the log-likelihood are compared to Tolerance to check the convergence of the estimation iterations.  |
-|                          |                                                                                                                              |
-|                          | The default setting is 0.0000001.                                                                                            |
-+--------------------------+------------------------------------------------------------------------------------------------------------------------------+
-| Tramo specifc parameters |                                                                                                                              |
-+--------------------------+------------------------------------------------------------------------------------------------------------------------------+
-| Exact ML                 | When this option is marked, an exact maximum likelihood estimation is performed.                                             |
-|                          |                                                                                                                              |
-|                          | Alternatively, the Unconditional Least Squares method is used.                                                               |
-|                          |                                                                                                                              |
-|                          | However, in the current version of JDemetra+ it is not recommended to change this parameter's value                          |
-+--------------------------+------------------------------------------------------------------------------------------------------------------------------+
-| Unit Root Limit          | Limit for the autoregressive roots. If the inverse of a real root of the autoregressive polynomial of the                    |
-|                          |                                                                                                                              |
-|                          | ARIMA model is higher than this limit, the root is set equal to 1. The default parameter value is 0.96.                      |
-+--------------------------+------------------------------------------------------------------------------------------------------------------------------+
++--------------------------+-----------------------------------------------------------------------------------------------------------------------------+
+| Tolerance                | Convergence tolerance for the nonlinear estimation.                                                                         |
+|                          |                                                                                                                             |
+|                          | The absolute changes in the log-likelihood are compared to Tolerance to check the convergence of the estimation iterations. |
+|                          |                                                                                                                             |
+|                          | The default setting is 0.0000001.                                                                                           |
++--------------------------+-----------------------------------------------------------------------------------------------------------------------------+
+| Tramo specifc parameters |                                                                                                                             |
++--------------------------+-----------------------------------------------------------------------------------------------------------------------------+
+| Exact ML                 | When this option is marked, an exact maximum likelihood estimation is performed.                                            |
+|                          |                                                                                                                             |
+|                          | Alternatively, the Unconditional Least Squares method is used.                                                              |
+|                          |                                                                                                                             |
+|                          | However, in the current version of JDemetra+ it is not recommended to change this parameter's value                         |
++--------------------------+-----------------------------------------------------------------------------------------------------------------------------+
+| Unit Root Limit          | Limit for the autoregressive roots. If the inverse of a real root of the autoregressive polynomial of the                   |
+|                          |                                                                                                                             |
+|                          | ARIMA model is higher than this limit, the root is set equal to 1. The default parameter value is 0.96.                     |
++--------------------------+-----------------------------------------------------------------------------------------------------------------------------+
 
 Retrieve in GUI:
 
@@ -363,7 +335,7 @@ transform {aicdiff=}
 
 Defines the difference in AICC needed to accept no transformation over a log transformation when the automatic transformation
 
-	selection option is invoked. The option is disabled when Function is not set to Auto. The default AIC difference value is -2.
+    selection option is invoked. The option is disabled when Function is not set to Auto. The default AIC difference value is -2.
 
 Adjust
 
@@ -477,9 +449,7 @@ set this option in GUI
 
 set this option in R
 
-(generic sentence to quasi repeat at the end of each part)
-Once regressors set, the reg arima (tramo) model will be estimated gloablly with all the other regression variable and taking into account arima model specificities as well.
-That is why diagnostics are all jointly displayed at the end of the process. (link) 
+(generic sentence to quasi repeat at the end of each part) Once regressors set, the reg arima (tramo) model will be estimated gloablly with all the other regression variable and taking into account arima model specificities as well. That is why diagnostics are all jointly displayed at the end of the process. (link)
 
 link to: worked example: french calendar in R
 
@@ -543,24 +513,15 @@ GUI
 
 R
 
-#### Output3: Diagnostics 
+#### Output3: Diagnostics
 
-Regression Results 
-- tables with results for all variables (auto and user-defined)
- student, F test
-- tests
+Regression Results - tables with results for all variables (auto and user-defined) student, F test - tests
 
-Arima model results 
+Arima model results
 
-Goodness of fit
-Test on Arima model residuals
-list
-retrieve in GUI 
-retireve in R
+Goodness of fit Test on Arima model residuals list retrieve in GUI retireve in R
 
-Residual calendar effects
-what kinf of test is performed ?
-td spectral peaks - residual effect in $SA$ or $I$ series
+Residual calendar effects what kinf of test is performed ? td spectral peaks - residual effect in $SA$ or $I$ series
 
 Goodness of fit (principle : first diagnostics then what can be fine tuned)
 
@@ -598,21 +559,14 @@ typos : RJDemetra doc (pull req)
 
 ### Output 1: series
 
-+---------------------------+----------------+----------------+----------------------------------------+
-| Series                    | Final X11 name | Final Results  | Reallocation of pre-adjustment effects |
-+===========================+================+================+========================================+
-| Raw series (forecasts)    |                | y (y_f)        |                                        |
-+---------------------------+----------------+----------------+----------------------------------------+
-| Final seasonal component  | D16            | s (s_f)        |                                        |
-+---------------------------+----------------+----------------+----------------------------------------+
-| Final trend               | D12            | t (t_f)        |                                        |
-+---------------------------+----------------+----------------+----------------------------------------+
-| Final irregular           | D13            | i (i_f)        |                                        |
-+---------------------------+----------------+----------------+----------------------------------------+
-| Calendar component        |                |                |                                        |
-+---------------------------+----------------+----------------+----------------------------------------+
-| Seasonal without calendar | D10            |                |                                        |
-+---------------------------+----------------+----------------+----------------------------------------+
+| Series                    | Final X11 name | Final Results | Reallocation of pre-adjustment effects |
+|---------------------------|----------------|---------------|----------------------------------------|
+| Raw series (forecasts)    |                | y (y_f)       |                                        |
+| Final seasonal component  | D16            | s (s_f)       |                                        |
+| Final trend               | D12            | t (t_f)       |                                        |
+| Final irregular           | D13            | i (i_f)       |                                        |
+| Calendar component        |                |               |                                        |
+| Seasonal without calendar | D10            |               |                                        |
 
 make clear reallocation of outliers effects (frequent questions)
 

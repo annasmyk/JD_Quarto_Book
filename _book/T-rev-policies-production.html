@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>JDemetra+ online documentation - Reg-Arima models</title>
+<title>JDemetra+ online documentation - Revision Policies and Production</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./M-X11-decomposition.html" rel="next">
-<link href="./M-spectral-analysis.html" rel="prev">
+<link href="./T-plug-ins.html" rel="next">
+<link href="./T-cruncher.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -70,7 +70,7 @@ ul.task-list li input[type="checkbox"] {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">Reg-Arima models</h1>
+      <h1 class="quarto-secondary-nav-title">Revision Policies and Production</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -173,7 +173,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./T-rev-policies-production.html" class="sidebar-item-text sidebar-link">Revision Policies and Production</a>
+  <a href="./T-rev-policies-production.html" class="sidebar-item-text sidebar-link active">Revision Policies and Production</a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -203,7 +203,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./M-reg-arima-modelling.html" class="sidebar-item-text sidebar-link active">Reg-Arima models</a>
+  <a href="./M-reg-arima-modelling.html" class="sidebar-item-text sidebar-link">Reg-Arima models</a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -257,7 +257,7 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
+  <li><a href="#revision-policies" id="toc-revision-policies" class="nav-link active" data-scroll-target="#revision-policies">Revision Policies</a></li>
   </ul>
 </nav>
     </div>
@@ -266,7 +266,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">Reg-Arima models</h1>
+<h1 class="title d-none d-lg-block">Revision Policies and Production</h1>
 </div>
 
 
@@ -280,11 +280,8 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="overview" class="level2">
-<h2 class="anchored" data-anchor-id="overview">Overview</h2>
-<p>The primary aim of seasonal adjustment is to remove the unobservable seasonal component from the observed series. The decomposition routines implemented in the seasonal adjustment methods make specific assumptions concerning the input series. One of the crucial assumptions is that the input series is stochastic, i.e.&nbsp;it is clean of deterministic effects. Another important limitation derives from the symmetric linear filter used in TRAMO-SEATS and X-13ARIMA-SEATS. A symmetric linear filter cannot be applied to the first and last observations with the same set of weights as for the central observations[^1]. Therefore, for the most recent observations these filters provide estimates that are subject to revisions.</p>
-<p>To overcome these constrains both seasonal adjustment methods discussed here include a modelling step that aims to analyse the time series development and provide a better input for decomposition purposes. The tool that is frequently used for this purpose is the ARIMA model, as discussed by BOX, G.E.P., and JENKINS, G.M. (1970). However, time series are often affected by the outliers, other deterministic effects and missing observations. The presence of these effects is not in line with the ARIMA model assumptions. The presence of outliers and other deterministic effects impede the identification of an optimal ARIMA model due to the important bias in the estimation of parameters of <a href="../theory/ACF_and_PACF.html">sample autocorrelation functions</a> (both global and partial)[^3]. Therefore, the original series need to be corrected for any deterministic effects and missing observations. This process is called linearisation and results in the stochastic series that can be modelled by ARIMA.</p>
-<p>For this purpose both TRAMO and RegARIMA use regression models with ARIMA errors. With these models TRAMO and RegARIMA also produce forecasts.</p>
+<section id="revision-policies" class="level2">
+<h2 class="anchored" data-anchor-id="revision-policies">Revision Policies</h2>
 
 
 </section>
@@ -390,13 +387,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./M-spectral-analysis.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Spectral Analysis Principles and Tools</span>
+      <a href="./T-cruncher.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Cruncher</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./M-X11-decomposition.html" class="pagination-link">
-        <span class="nav-page-text">X-11 decomposition</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./T-plug-ins.html" class="pagination-link">
+        <span class="nav-page-text">Plug-ins for JDemetra+</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
