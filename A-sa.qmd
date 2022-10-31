@@ -129,10 +129,40 @@ Strating point for X13-ARIMA
 +-----------------+---------------------+--------------------+------------------+----------------+
 | RSA4c           | automatic           | AO/LS/TC           | 2 TD vars+Easter | automatic      |
 +-----------------+---------------------+--------------------+------------------+----------------+
-| RSA5            | automatic           | AO/LS/TC           | 6 TD vars+Easter | automatic      |
+| RSA5            | automatic           | AO/LS/TC           | 7 TD vars+Easter | automatic      |
 +-----------------+---------------------+--------------------+------------------+----------------+
 | X-11            | *NA*                | *NA*               | *NA*             | *NA*           |
 +-----------------+---------------------+--------------------+------------------+----------------+
+
+explanations :
+
+*NA :* non applied
+
+X11
+
+RSA0
+
+RSA3: no calendar effect correction
+
+automatic: test is performed,
+
+outliers : AO/LS/TC type of outliers automatically detected under a critical T-Stat value (defautl value=4)
+
+calendar
+
+-   2 regresssors: weekdays vs week-ends + LY
+
+-   7 regressors: each week day vs sunadys + LY
+
+-   always tested
+
+-   easter tested (length = 6 days in tramo, 8 days in X13 arima)
+
+arima model automatic detection
+
+TEST : RSA0 : mult or add
+
+TD vars include LY (link to calendar)
 
 Strating point for Tramo-Seats
 
@@ -370,10 +400,11 @@ X13
 
 #excluding first 24 and last 36 observations
 user_spec <-x13_spec(spec = c("RSA5c", "RSA0", "RSA1", "RSA2c", "RSA3", "RSA4c", "X11"), 
-  transform.function = c(NA, "Auto", "None", "Log"),
-  transform.adjust = c(NA, "None", "LeapYear", "LengthOfPeriod"),
-  transform.aicdiff = NA_integer_,
+transform.function ="Log", # c(NA, "Auto", "None", "Log"),
+transform.adjust = "LeapYear", #c(NA, "None", "LeapYear", "LengthOfPeriod"),
+transform.aicdiff = -3)
 
+#Retrieve settings
 
 
 ```
@@ -384,9 +415,9 @@ Tramo seats settings
 
 #transfo
 user_spec_1<-tramoseats_spec( spec = c("RSAfull", "RSA0", "RSA1", "RSA2", "RSA3", "RSA4", "RSA5"),  
-transform.function = c(NA, "Auto", "None", "Log"), transform.fct = NA_integer_,)
- transform.function = c(NA, "Auto", "None", "Log"),
-  transform.fct = NA_integer_,
+transform.function = "Auto", #c(NA, "Auto", "None", "Log"), 
+transform.fct = 0.5)
+
  
 # Retrieve settings  
 
@@ -396,27 +427,35 @@ transform.function = c(NA, "Auto", "None", "Log"), transform.fct = NA_integer_,)
 
 Rationale : why correct (in a nutshell)
 
-Guidelines ..it has to make sense ex-ante
-
-Method regression as deterministic effects
-
-details of regressor building in calendar chapter
+Method regression as deterministic effects, details of regressor building in calendar chapter
 
 #### Default specifications for calendar correction
 
-cf defaut spec tab (repeat ?)
+Options related to calendar regressors choice are embedded into default specifications (link)
 
--   working days quick desp
+National calendars not taken into accout.
 
--   trading days:
+-   working days
 
--   easter
+-   trading days
 
-here national calendars not taken into accout
+-   Leap year regressor
 
-set this option GUI specif detail
+-   Test: Remove/ Add / None
 
--   R
+-   Easter
+
+-   Test add / remove / non
+
+-   duration (enabled when testing removed)
+
+-   Julian
+
+-   pre-test
+
+##### GUI: Setting this options and retrieveing parameters which are in use
+
+##### R: Setting this options and retrieveing parameters which are in use
 
 #### Customizing calendars
 
@@ -426,15 +465,23 @@ solution 1: if working with GUI build a new calendar in GUI (building details in
 
 GUI : how to use it or customize HTML file structure explanation
 
+Question: can rjd3modelling generate an HTML calendar for GUI
+
+set this option in GUI
+
+set this option in R
+
 solution 2: import external regressors can be built with rjd3modelling (link) which can then be used in via are or imported via GUI
 
-set this option
+set this option in GUI
 
-Output2: Final Params TEST of presence or not GUI
+set this option in R
 
-Output3: Diagnostics - results of regression student, F test - td spectral peaks - residual effect in $SA$ or $I$ series
+(generic sentence to quasi repeat at the end of each part)
+Once regressors set, the reg arima (tramo) model will be estimated gloablly with all the other regression variable and taking into account arima model specificities as well.
+That is why diagnostics are all jointly displayed at the end of the process. (link) 
 
-(worked example: french calendar in R)
+link to: worked example: french calendar in R
 
 ### Outliers and intervention variables
 
@@ -496,7 +543,26 @@ GUI
 
 R
 
-Output3: Diagnostics Goodness of fit (principle : first diagnostics then what can be fine tuned)
+#### Output3: Diagnostics 
+
+Regression Results 
+- tables with results for all variables (auto and user-defined)
+ student, F test
+- tests
+
+Arima model results 
+
+Goodness of fit
+Test on Arima model residuals
+list
+retrieve in GUI 
+retireve in R
+
+Residual calendar effects
+what kinf of test is performed ?
+td spectral peaks - residual effect in $SA$ or $I$ series
+
+Goodness of fit (principle : first diagnostics then what can be fine tuned)
 
 User defined parameters ARIMA model parameters what can be modified
 
