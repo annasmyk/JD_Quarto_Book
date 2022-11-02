@@ -72,7 +72,15 @@ X13 and TS are two step algos, pretreatment +dcomp (no pre ptreatment in STL + a
 
 ## Pre-treatment : Reg-ARIMA (or TRAMO)
 
-### why ?
+rationale 
+
+NOTE: Modelling
+
+this should just be a "note" not a part
+
+(small addendum) the reg arima part can be run without decompostion slight differences in parameters
+
+ref to additionnal chapter ?
 
 ### Global outline
 
@@ -433,7 +441,8 @@ National calendars not taken into accout.
 
 How to correct this ?
 
-solution 1: if working with GUI build a new calendar in GUI (building details in chap C) set this option import it : here
+solution 1: if working with GUI build a new calendar in GUI 
+(building details in chap C) set this option import it : here
 
 GUI : how to use it or customize HTML file structure explanation
 
@@ -441,55 +450,297 @@ Question: can rjd3modelling generate an HTML calendar for GUI
 
 set this option in GUI
 
-set this option in R
+image: spec window calendar / holdays / choics of calendar 
+
+set this option in R ?
+
+version 2: 
+
+version 3:
 
 solution 2: import external regressors can be built with rjd3modelling (link) which can then be used in via are or imported via GUI
 
 set this option in GUI
+how to import vaiables into JD+ / set utility (in interface chapter)
+calssical user defined 
 
 set this option in R
+version 2: 
+```{r, eval=FALSE}
+spec_4 <- x13_spec(spec = spec_1, 
+                   tradingdays.option = "UserDefined", 
+                   tradingdays.test = "None", 
+                   usrdef.varEnabled = TRUE, 
+                   usrdef.varType = "Calendar", 
+                   usrdef.var = reg3) # set of regressors in TS format
+```
 
-(generic sentence to quasi repeat at the end of each part) Once regressors set, the reg arima (tramo) model will be estimated gloablly with all the other regression variable and taking into account arima model specificities as well. That is why diagnostics are all jointly displayed at the end of the process. (link)
+version 3
+
+
+(generic sentence to quasi repeat at the end of each part) 
+Once regressors set, the RegArima (tramo) model will be estimated gloablly with all the other regression variables and taking into account arima model specificities as well. That is why diagnostics are all jointly displayed at the end of the process. (link)
 
 link to: worked example: french calendar in R
 
 ### Outliers and intervention variables
 
-#### rationale
+quick intro: rational = improve decomposition (cf guidelines)
+(determinsitic= effects estimated by regression 
+2 ways 
+- (customizable) automatic detection 
+- user prespecifified outliers 
 
-improve decomposition (cf guidelines)
-
-#### method
-
-regression
-
-#### Outlier types
 
 #### Automatic detection
 
-for BSM cf below modifing specifs - type - critical value - span
+overview: one sentence
 
-(link to revision policies)
+##### what can be set (list)
+
+(what do we look for) : AO, LS, TC (detailed in outliers chapter link), 
+how cf. RegArima method chapter
+types can be set and TC rate specified 
+SO can be added to detection
+detection
+- detection enabled
+- detection span
+- types of outliers (+ rate for TC)
+- critical value 
+("method" = is an incative parameter, always add one)
+
+all is identic for TRamo
+
+###### how to set this in GUI 
+
+image specification window, outliers box commented
+
+##### how ro set this in R
+version 2: RJDEemetra
+
+```{r, eval=FALSE}
+# idem for x13 or tramo
+# spec_4 <- x13_spec(spec = spec_1, 
+# outlier.enabled = NA,
+#   outlier.from = NA_character_,
+#   outlier.to = NA_character_,
+#   outlier.first = NA_integer_,
+#   outlier.last = NA_integer_,
+#   outlier.exclFirst = NA_integer_,
+#   outlier.exclLast = NA_integer_,
+#   outlier.ao = NA,
+#   outlier.tc = NA,
+#   outlier.ls = NA,
+#   outlier.so = NA,
+#   outlier.usedefcv = NA,
+#   outlier.cv = NA_integer_,
+#   outlier.method = c(NA, "AddOne", "AddAll"),
+#   outlier.tcrate = NA_integer_,
+
+```
+
+
+(how to retrieve these settings? in regression results cf end) )
+
 
 #### Pre-specified Outliers
 
-#### Other User-defined input : building regressors
+the user can set outliers (in the past)
+will be complemented by automatic detection (unless disabled)
 
-out of calendars and outliers warning : calendars won't be allocated to calendars, if not...
+##### in GUI
+
+image specif window open the calendar
+image of calendar
+
+##### how to set this in R
+version 2: RJDemetra
+
+```{r, eval=FALSE}
+# idem for x13 or tramo
+# spec_4 <- x13_spec(spec = spec_1, 
+
+
+```
+
+#### Other User-defined regressors 
+
 
 rjd3modelling
 
-#### Outliers vs intervention variables
+some principles 
+- allocate to a component
+- out of calendars and outliers warning: calendars won't be allocated to calendars, if not...
 
-assigning to componenets
 
-#### Allocation of effects
+##### Import regressors in GUI
 
-(in teh decomp part for x11 and seats, table with allocation post decomp)
+- import 
+- additionnal operations
 
-##### output
+##### Import regressors R
+```{r,eval=FALSE}
 
-### Reg-Arima Model
+spec_5 <- x13_spec(spec = spec_1, 
+                   usrdef.varEnabled = TRUE, 
+                   # On choisit d'attribuer l'outlier à la composante tendance
+                   usrdef.varType = "Trend", 
+                   # Les régresseurs doivent être au format ts
+                   usrdef.var = reg_externe_ts)
+
+```
+
+### Arima Model
+
+Once regressors have been defined, the software looks for a structure of the autocorrelations of the lneariezd series 
+
+The arima model will be evaluated lookng at its residuals supposed to be a whiet noise
+
+
+
+#### Default specifications
+
+Key specifications on arima model are embedded in default specifications: airline (daufault model) or full automatic reserach.
+
+automdl.enabled	
+a logical. If TRUE, the automatic modelling of the ARIMA model is enabled. If FALSE, the parameters of the ARIMA model can be specified.
+
+A word on restrictions; can some setting be mixed, ex user model and different
+u roots limits 
+
+Forecast horizon is in X-11..
+
+#### Modifing automatic detection 
+
+Control variables for the automatic modelling of the ARIMA model (when automdl.enabled is set to TRUE):
+
+automdl.acceptdefault	
+a logical. If TRUE, the default model (ARIMA(0,1,1)(0,1,1)) may be chosen in the first step of the automatic model identification. If the Ljung-Box Q statistics for the residuals is acceptable, the default model is accepted and no further attempt will be made to identify another model.
+
+automdl.cancel	
+the cancelation limit (numeric). If the difference in moduli of an AR and an MA roots (when estimating ARIMA(1,0,1)(1,0,1) models in the second step of the automatic identification of the differencing orders) is smaller than the cancelation limit, the two roots are assumed equal and cancel out.
+
+automdl.ub1	
+the first unit root limit (numeric). It is the threshold value for the initial unit root test in the automatic differencing procedure. When one of the roots in the estimation of the ARIMA(2,0,0)(1,0,0) plus mean model, performed in the first step of the automatic model identification procedure, is larger than the first unit root limit in modulus, it is set equal to unity.
+
+automdl.ub2	
+the second unit root limit (numeric). When one of the roots in the estimation of the ARIMA(1,0,1)(1,0,1) plus mean model, which is performed in the second step of the automatic model identification procedure, is larger than second unit root limit in modulus, it is checked if there is a common factor in the corresponding AR and MA polynomials of the ARMA model that can be cancelled (see automdl.cancel). If there is no cancellation, the AR root is set equal to unity (i.e. the differencing order changes).
+
+automdl.mixed	
+a logical. This variable controls whether ARIMA models with non-seasonal AR and MA terms or seasonal AR and MA terms will be considered in the automatic model identification procedure. If FALSE, a model with AR and MA terms in both the seasonal and non-seasonal parts of the model can be acceptable, provided there are no AR or MA terms in either the seasonal or non-seasonal terms.
+
+automdl.balanced	
+a logical. If TRUE, the automatic model identification procedure will have a preference for balanced models (i.e. models for which the order of the combined AR and differencing operator is equal to the order of the combined MA operator).
+
+automdl.armalimit	
+the ARMA limit (numeric). It is the threshold value for t-statistics of ARMA coefficients and constant term used for the final test of model parsimony. If the highest order ARMA coefficient has a t-value smaller than this value in magnitude, the order of the model is reduced. If the constant term t-value is smaller than the ARMA limit in magnitude, it is removed from the set of regressors.
+
+automdl.reducecv	
+numeric, ReduceCV. The percentage by which the outlier's critical value will be reduced when an identified model is found to have a Ljung-Box statistic with an unacceptable confidence coefficient. The parameter should be between 0 and 1, and will only be active when automatic outlier identification is enabled. The reduced critical value will be set to (1-ReduceCV)*CV, where CV is the original critical value.
+
+automdl.ljungboxlimit	
+the Ljung Box limit (numeric). Acceptance criterion for the confidence intervals of the Ljung-Box Q statistic. If the LjungBox Q statistics for the residuals of a final model is greater than the Ljung Box limit, then the model is rejected, the outlier critical value is reduced and model and outlier identification (if specified) is redone with a reduced value.
+
+automdl.ubfinal	
+numeric, final unit root limit. The threshold value for the final unit root test. If the magnitude of an AR root for the final model is smaller than the final unit root limit, then a unit root is assumed, the order of the AR polynomial is reduced by one and the appropriate order of the differencing (non-seasonal, seasonal) is increased. The parameter value should be greater than one.
+
+
+setting in GUI 
+
+image specification window, arima with auto box ticked 
+
+
+setting in R (see if Tramo specificities)
+```{r,eval=FALSE}
+
+# spec_5 <- x13_spec(spec = spec_1, 
+# automdl.enabled = NA,
+#   automdl.acceptdefault = NA,
+#   automdl.cancel = NA_integer_,
+#   automdl.ub1 = NA_integer_,
+#   automdl.ub2 = NA_integer_,
+#   automdl.mixed = NA,
+#   automdl.balanced = NA,
+#   automdl.armalimit = NA_integer_,
+#   automdl.reducecv = NA_integer_,
+#   automdl.ljungboxlimit = NA_integer_,
+#   automdl.ubfinal = NA_integer_,
+
+
+```
+
+
+#### User-defined Arima model
+
+Control variables for the non-automatic modelling of the ARIMA model (when automdl.enabled is set to FALSE):
+
+arima.mu	
+logical. If TRUE, the mean is considered as part of the ARIMA model.
+
+arima.p	
+numeric. The order of the non-seasonal autoregressive (AR) polynomial.
+
+arima.d	
+numeric. The regular differencing order.
+
+arima.q	
+numeric. The order of the non-seasonal moving average (MA) polynomial.
+
+arima.bp	
+numeric. The order of the seasonal autoregressive (AR) polynomial.
+
+arima.bd	
+numeric. The seasonal differencing order.
+
+arima.bq	
+numeric. The order of the seasonal moving average (MA) polynomial.
+
+Control variables for the user-defined ARMA coefficients. Coefficients can be defined for the regular and seasonal autoregressive (AR) polynomials and moving average (MA) polynomials. The model considers the coefficients only if the procedure for their estimation (arima.coefType) is provided, and the number of provided coefficients matches the sum of (regular and seasonal) AR and MA orders (p,q,bp,bq).
+
+arima.coefEnabled	
+logical. If TRUE, the program uses the user-defined ARMA coefficients.
+
+arima.coef	
+a vector providing the coefficients for the regular and seasonal AR and MA polynominals. The vector length must be equal to the sum of the regular and seasonal AR and MA orders. The coefficients shall be provided in the following order: regular AR (Phi; p elements), regular MA (Theta; q elements), seasonal AR (BPhi; bp elements) and seasonal MA (BTheta; bq elements). E.g.: arima.coef=c(0.6,0.7) with arima.p=1, arima.q=0,arima.bp=1 and arima.bq=0.
+
+arima.coefType	
+a vector defining the ARMA coefficients estimation procedure. Possible procedures are: "Undefined" = no use of any user-defined input (i.e. coefficients are estimated), "Fixed" = the coefficients are fixed at the value provided by the user, "Initial" = the value defined by the user is used as the initial condition. For orders for which the coefficients shall not be defined, the arima.coef can be set to NA or 0, or the arima.coefType can be set to "Undefined". E.g.: arima.coef = c(-0.8,-0.6,NA), arima.coefType = c("Fixed","Fixed","Undefined").
+
+(for both options)
+fcst.horizon	
+the forecasting horizon (numeric). The forecast length generated by the RegARIMA model in periods (positive values) or years (negative values). By default, the program generates a two-year forecast (fcst.horizon set to -2).
+
+
+
+setting in GUI 
+
+image specification window, arima with auto box not tickec
+
+
+setting in R (see if Tramo specificities)
+```{r,eval=FALSE}
+
+spec_5 <- x13_spec(spec = spec_1, 
+automdl.enabled = FALSE,
+
+  arima.mu = NA,
+  arima.p = NA_integer_,
+  arima.d = NA_integer_,
+  arima.q = NA_integer_,
+  arima.bp = NA_integer_,
+  arima.bd = NA_integer_,
+  arima.bq = NA_integer_,
+  arima.coefEnabled = NA,
+  arima.coef = NA,
+  arima.coefType = NA,
+  fcst.horizon = NA_integer_,
+
+```
+
+
+
+
+
 
 Tramo and Reg-Arima are very similar...details in M chapter, parameters and output are the same, treated as one here
 
@@ -513,29 +764,65 @@ GUI
 
 R
 
-#### Output3: Diagnostics
+### RegArima model Results and Diagnostics
 
-Regression Results - tables with results for all variables (auto and user-defined) student, F test - tests
+#### Regression Results and diagnostics 
 
-Arima model results
+tables with results for all variables (auto and user-defined) student, F test - tests
 
-Goodness of fit Test on Arima model residuals list retrieve in GUI retireve in R
+#### Arima model results
 
-Residual calendar effects what kinf of test is performed ? td spectral peaks - residual effect in $SA$ or $I$ series
+##### Final parameters 
 
-Goodness of fit (principle : first diagnostics then what can be fine tuned)
+table with coefficients, student, correlation 
 
-User defined parameters ARIMA model parameters what can be modified
+in GUI 
+additonnal graphs 
 
-Modifiying specifications for Arima model GUI
+in R
+```{r, eval=FALSE}
 
-R
+```
 
-### Modelling
 
-(small addendum) the reg arima part can be run without decompostion slight differences in parameters
+##### Goodness of fit Test on Arima model residuals 
 
-ref to additionnal chapter ?
+list 
+
+retrieve in GUI 
+- main 
+- prep proc
+main node
+datails 
+peut etre pas de capture pour tout: pb de volume
+la lacture des chapitres doit rester fluide 
+appndix, gui chapter ?
+- diagnostics node
+here just residuals and full residuals (what is the difference)
+
+
+(global post decomp results explained in QA part)
+
+
+retireve in R
+v2 rjdemetra
+(comprehensive inR )
+
+
+#### Residual Calendar effects
+
+Residual calendar effects what kinf of test is performed ? 
+td spectral peaks 
+residual effect in $SA$ or $I$ serie
+
+retrieve in GUI 
+
+retrieve in R (v2 and v3)
+
+
+### Allocation of pre-treatment effects
+
+(in the decomp part for x11 and seats, table with allocation post decomp)
 
 ## X-11 Decompostion
 
@@ -1093,6 +1380,31 @@ tramoseats_spec(
 
 in version 3 with {rjd3tramoseats}
 
+## Quality assessment for X13-Arima and Tramo-Seats
+
+(add at begininng of chapter ? X13 an d TS as historical and more popular, ghave more built-in available features, like predifined quality assessment)
+
+(all GUI based analysis) NODES below bechmarking
+
+### Matrix
+comparaing all predefined specs 
+available only in a formatted state in GUI 
+(in R has to be generated by the user
+
+### Residual seasonality
+
+list (chat is available)
+
+visu in GUI (can be larger than what is pre-defined in R)
+
+### Residual calendar effects
+
+
+
+
+### Add other diagnostics node
+
+
 ## STL
 
 use on linearized data data, no pre-adjustment (2nd layer)
@@ -1100,15 +1412,3 @@ use on linearized data data, no pre-adjustment (2nd layer)
 ## SSF
 
 (2nd layer)
-
-## Quality assessment
-
-### Residual seasonality
-
-### Residual calendar effects
-
-(all GUI based analysis) NODES below bechamrking
-
-### Matrix
-
-### Add other diagnostics node

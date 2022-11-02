@@ -1,4 +1,4 @@
-# Seasonal adjustment of high-requency data {.unnumbered}
+# Seasonal adjustment of high-frequency data {.unnumbered}
 
 ## Motivation: data specificities
 
@@ -50,7 +50,7 @@ add
 
 one step for pre-treatment and decomp
 
-## Quality assessment
+## Quality assessment 
 
 ### Residual seasonality
 
