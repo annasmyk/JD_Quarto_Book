@@ -112,6 +112,13 @@
     "text": "SEATS Decomposition\npolicy: what is readable in GUI should be explained (even if shortly with link to details here) intermediate series ?\ndecomp of lineraized series in level or log\n\nDefault specifications\nlink to Tramo-Seats part\nif identifiers slightly different in GUI, make it clear + pb of names in V3\nin calendar effects : what is tested, link to calendar chapter\ntypos : RJDemetra doc (pull req)\n\n7 TD vars\n\n\n\nQuick Launch\noverall procedure\nin GUI\nin R\n\n\nOutput 1: series\nglobal indications: _f: forecasts - _e - -ef\n\nStochastic series\ndecompostion of the linearisezed series or of its log if multiplicative model\ncomponents: t_lin, s_lin, i_lin\nif log, everything is dispalayed in log\n\n\n\nSeries Name\nMeaning\n\n\n\n\ndecomposition.y_lin\n\n\n\ndecomposition.y_lin_f\n\n\n\ndecomposition.y_lin_ef\n\n\n\ndecomposition.t_lin\n\n\n\ndecomposition.t_lin_f\n\n\n\ndecomposition.t_lin_e\n\n\n\ndecomposition.t_lin_f\n\n\n\ndecomposition.sa_lin\n\n\n\ndecomposition.sa_lin_f\n\n\n\ndecomposition.sa_lin_e\n\n\n\ndecomposition.sa_lin_ef\n\n\n\ndecomposition.s_lin\n\n\n\ndecomposition.s_lin_f\n\n\n\ndecomposition.s_lin_e\n\n\n\ndecomposition.s_lin_ef\n\n\n\ndecomposition.i_lin\n\n\n\ndecomposition.i_lin_f\n\n\n\ndecomposition.i_lin_e\n\n\n\ndecomposition.i_lin_ef\n\n\n\n\nRetrieve in GUI\nNODE : Decompostion > Stocastic series\nforecast f series are pasted at the end of the correspoding series\n\n_e series are labelled with (stde)\n\n_ef appear in graphs (but values cannot be retrieved)\nIMAGE1 GUI\n\nimage 1 : decompostion node and series\nimage 2 trend graph\nimage 3 seasonal graph\n\nRetrieve in R\n\n\nComponents (Level)\nif additive model : same as\ndecompostion of the linearisezed series or of its log if multiplicative model\ncomponents: t_lin, s_lin, i_lin\nif log, everything is dispalayed in log\n\n\n\nSeries Name\nMeaning\n\n\n\n\ndecomposition.y_lin\n\n\n\ndecomposition.y_lin_f\n\n\n\ndecomposition.y_lin_ef\n\n\n\ndecomposition.t_lin\n\n\n\ndecomposition.t_lin_f\n\n\n\ndecomposition.t_lin_e\n\n\n\ndecomposition.t_lin_f\n\n\n\ndecomposition.sa_lin\n\n\n\ndecomposition.sa_lin_f\n\n\n\ndecomposition.sa_lin_e\n\n\n\ndecomposition.sa_lin_ef\n\n\n\ndecomposition.s_lin\n\n\n\ndecomposition.s_lin_f\n\n\n\ndecomposition.s_lin_e\n\n\n\ndecomposition.s_lin_ef\n\n\n\ndecomposition.i_lin\n\n\n\ndecomposition.i_lin_f\n\n\n\ndecomposition.i_lin_e\n\n\n\ndecomposition.i_lin_ef\n\n\n\n\nRetrieve in GUI\nNODE : Decompostion > Stocastic series\nforecast f series are pasted at the end of the correspoding series\n\n_e series are labelled with (stde)\n\n_ef appear in graphs (but values cannot be retrieved)\nIMAGE1 GUI\n\nimage 1 : decompostion node and series\nimage 2 trend graph\nimage 3 seasonal graph\n\nRetrieve in R\nBiais correction voir JP (done between lin and and comp ?)\n\n\nFinal series\ndecompostion of the linearisezed series or of its log if multiplicative model\ncomponents: t_lin, s_lin, i_lin\nif log, everything is dispalayed in log\n\n\n\nSeries Name\nMeaning\n\n\n\n\ndecomposition.y_lin\n\n\n\ndecomposition.y_lin_f\n\n\n\ndecomposition.y_lin_ef\n\n\n\ndecomposition.t_lin\n\n\n\ndecomposition.t_lin_f\n\n\n\ndecomposition.t_lin_e\n\n\n\ndecomposition.t_lin_f\n\n\n\ndecomposition.sa_lin\n\n\n\ndecomposition.sa_lin_f\n\n\n\ndecomposition.sa_lin_e\n\n\n\ndecomposition.sa_lin_ef\n\n\n\ndecomposition.s_lin\n\n\n\ndecomposition.s_lin_f\n\n\n\ndecomposition.s_lin_e\n\n\n\ndecomposition.s_lin_ef\n\n\n\ndecomposition.i_lin\n\n\n\ndecomposition.i_lin_f\n\n\n\ndecomposition.i_lin_e\n\n\n\ndecomposition.i_lin_ef\n\n\n\n\nRetrieve in GUI\nNODE : Decompostion > Stocastic series\nforecast f series are pasted at the end of the corresponding series\n\n_e series are labelled with (stde)\n\n_ef appear in graphs (but values cannot be retrieved)\nIMAGE1 GUI\n\nimage 1 : decompostion node and series\nimage 2 trend graph\nimage 3 seasonal graph\n\nRetrieve in R\nmake clear reallocation of outliers effects (frequent questions)\nTable\nGUI\nR\n\n\n\nOutput2: Final Params\nwhat is chosen automatically or default (cf estp) Relevant if parameters not set manually, or any parameters automatically selected by the software without having a fixed default value. (The rest of the parameters is set in the spec) To manually set hose parameters and see all the fixed default values see Specifications / parameters section\nhere all have a default value, nothing to be automatically selected\n\n\nOutput3: Diagnostics\nSEATS (model based) specific diagnostics check GUI (more plots, values) vs R links to methods chapter, here just be able to “read” (knowledge assumed) (here direct base on gui plots, and the add what can be retrieved in R, if cannot be retrieved in R : could it be rebuild from available elements) Obj : simple description res : current doc, jpslides, doc esp, Q JP\n\nWK analysis\n\ncomponents final estimators\n\nError analysis autocorrelation of the errors (sa, trend) revisons of the errors\nGrowth rates\nModel based tests\nSignificant seasonality\nStationnary variance decompostion\n\n\n\nFine-tuning : user defined parameters\n\nPrediction length\n\nForecast span used in the decomposition default: one year (-1) (years are set in negative values, positive values indicate nimber of periods)\n\nApproximation Mode\n\nModification type for inadmissible models None (default) Legacy Noisy\n\nMA unit root boundary\n\nModulus threshold for resetteing MA “near-unit” roots [0,1] default (0.95)\n\nTrend Boundary Modulus thershold for assingning positive real AR Roots [0,1] default (0.5)\nSeasonal Tolerance Degree threshold for assigning complex AR roots [0,10] default (2)\nSeasonal Boundary (unique) Modulus threshold for assigning negative real AR roots [0,1] default (0.8)\nSeasonal Boundary (unique) Same modulus threshold unique seasonal AR roots [0,1] default (0.8)\nMethod\n\nAlgorithm used for estimation of unobserved componements\nBurman (default)\nKalmanSmoother\nMcEllroyMatrix\nFurther explanation (cf slides JP)\nlink to M chapter for details on root allocation\n\nSet in GUI\nIn specification window (link to GUI global exp)\nIMAGE\n\n\nSet in R\nversion 2 (RJDemetra)\n\ntramoseats_spec(\n spec = c(\"RSAfull\", \"RSA0\", \"RSA1\", \"RSA2\", \"RSA3\", \"RSA4\", \"RSA5\"),\n  fcst.horizon = NA_integer_,\n  seats.predictionLength = NA_integer_,\n  seats.approx = c(NA, \"None\", \"Legacy\", \"Noisy\"),\n  seats.trendBoundary = NA_integer_,\n  seats.seasdBoundary = NA_integer_,\n  seats.seasdBoundary1 = NA_integer_,\n  seats.seasTol = NA_integer_,\n  seats.maBoundary = NA_integer_,\n  seats.method = c(NA, \"Burman\", \"KalmanSmoother\", \"McElroyMatrix\")\n)\n\nin version 3 with {rjd3tramoseats}"
   },
   {
+    "objectID": "A-sa.html#quality-assessment-for-x13-arima-and-tramo-seats",
+    "href": "A-sa.html#quality-assessment-for-x13-arima-and-tramo-seats",
+    "title": "Seasonal Adjustment",
+    "section": "Quality assessment for X13-Arima and Tramo-Seats",
+    "text": "Quality assessment for X13-Arima and Tramo-Seats\n(add at begininng of chapter ? X13 an d TS as historical and more popular, ghave more built-in available features, like predifined quality assessment)\n(all GUI based analysis) NODES below bechmarking\n\nMatrix\ncomparaing all predefined specs available only in a formatted state in GUI (in R has to be generated by the user\n\n\nResidual seasonality\nlist (chat is available)\nvisu in GUI (can be larger than what is pre-defined in R)\n\n\nResidual calendar effects\n\n\nAdd other diagnostics node"
+  },
+  {
     "objectID": "A-sa.html#stl",
     "href": "A-sa.html#stl",
     "title": "Seasonal Adjustment",
@@ -126,65 +133,58 @@
     "text": "SSF\n(2nd layer)"
   },
   {
-    "objectID": "A-sa.html#quality-assessment",
-    "href": "A-sa.html#quality-assessment",
-    "title": "Seasonal Adjustment",
-    "section": "Quality assessment",
-    "text": "Quality assessment\n\nResidual seasonality\n\n\nResidual calendar effects\n(all GUI based analysis) NODES below bechamrking\n\n\nMatrix\n\n\nAdd other diagnostics node"
-  },
-  {
     "objectID": "A-sa-hf.html",
     "href": "A-sa-hf.html",
-    "title": "Seasonal adjustment of high-requency data",
+    "title": "Seasonal adjustment of high-frequency data",
     "section": "",
     "text": "Infra monthly data displays multiple and non integer periodicities which cannot be dealt with classical versions of SA algorithlms. JD+ provides tailored versions of these algorithms.\nLink to worked example (Daily French births)"
   },
   {
     "objectID": "A-sa-hf.html#available-algorithms",
     "href": "A-sa-hf.html#available-algorithms",
-    "title": "Seasonal adjustment of high-requency data",
+    "title": "Seasonal adjustment of high-frequency data",
     "section": "Available algorithms",
     "text": "Available algorithms\ncode here and/or link to R packages chapter\n\n\n\n\n\n\n\n\n\nCol1\nAlgorithm\nGUI v 3.0\nR package / function\n\n\n\n\nPre-treatment\nFractionnal Airline Model\nyes\n\n\n\nDecompsition\nExtended SEATS Fractionnal Airline Model\nyes\n\n\n\n\nExtended X-11\nyes\n\n\n\n\nExtended STL\nno\n\n\n\nOne-Step\nSSF Framework\nno"
   },
   {
     "objectID": "A-sa-hf.html#unobserved-components",
     "href": "A-sa-hf.html#unobserved-components",
-    "title": "Seasonal adjustment of high-requency data",
+    "title": "Seasonal adjustment of high-frequency data",
     "section": "Unobserved Components",
     "text": "Unobserved Components"
   },
   {
     "objectID": "A-sa-hf.html#identifying-seasonal-patterns",
     "href": "A-sa-hf.html#identifying-seasonal-patterns",
-    "title": "Seasonal adjustment of high-requency data",
+    "title": "Seasonal adjustment of high-frequency data",
     "section": "Identifying seasonal patterns",
     "text": "Identifying seasonal patterns\n\nSpectral analysis\n\n\nSeasonality tests"
   },
   {
     "objectID": "A-sa-hf.html#pre-adjustment",
     "href": "A-sa-hf.html#pre-adjustment",
-    "title": "Seasonal adjustment of high-requency data",
+    "title": "Seasonal adjustment of high-frequency data",
     "section": "Pre-adjustment",
     "text": "Pre-adjustment\n\nCalendar correction\ngenerate\n\n\nOutliers and intervention variables\nadd\n\n\nLinearization"
   },
   {
     "objectID": "A-sa-hf.html#decomposition",
     "href": "A-sa-hf.html#decomposition",
-    "title": "Seasonal adjustment of high-requency data",
+    "title": "Seasonal adjustment of high-frequency data",
     "section": "Decomposition",
     "text": "Decomposition\n\nExtended X-11\n\n\nArima Model Based (AMB) Decomposition\n\n\nSTL decomposition"
   },
   {
     "objectID": "A-sa-hf.html#state-space-framework",
     "href": "A-sa-hf.html#state-space-framework",
-    "title": "Seasonal adjustment of high-requency data",
+    "title": "Seasonal adjustment of high-frequency data",
     "section": "State Space framework",
     "text": "State Space framework\none step for pre-treatment and decomp"
   },
   {
     "objectID": "A-sa-hf.html#quality-assessment",
     "href": "A-sa-hf.html#quality-assessment",
-    "title": "Seasonal adjustment of high-requency data",
+    "title": "Seasonal adjustment of high-frequency data",
     "section": "Quality assessment",
     "text": "Quality assessment\n\nResidual seasonality\n\n\nResidual Calendar effects"
   },
@@ -403,7 +403,28 @@
     "href": "T-plug-ins.html",
     "title": "Plug-ins for JDemetra+",
     "section": "",
-    "text": "table"
+    "text": "(edit) JDemetra+ is an application that supports plug-ins. A plugin is a software component that adds a specific feature to the existing software application and is independent from the software version. It allows an application to be enhanced without changing the original code. Plugins can be shared between the users and installed individually. In this way new functionalities can be easily distributed among seasonal adjustment community members."
+  },
+  {
+    "objectID": "T-plug-ins.html#main-functions",
+    "href": "T-plug-ins.html#main-functions",
+    "title": "Plug-ins for JDemetra+",
+    "section": "Main functions",
+    "text": "Main functions\n\nDefault Plugins\n\n\n\n\n\n\n\n\nName\nCategory\nDescription\n\n\n\n\nNbDemetra – Anomaly detection\nSA core algorithms\nIdentification of outliers\n\n\nNbDemetra – Spreadsheet\nIO (Input/output)\nTime series providers for spreadsheet (Excel, OpenOffice)\n\n\nNbDemetra – Common\nIO (Input/output)\nCommon time series providers, like XML and TXT\n\n\nNbDemetra – JDBC\nIO (Input/output)\nTime series provider for the JDBC sources\n\n\nNbDemetra – ODBC\nIO (Input/output)\nTime series provider for the ODBC sources\n\n\nNbDemetra – SDMX\nIO (Input/output)\nTime series provider for SDMX files\n\n\nNbDemetra – Core\nSA core algorithms\nEncapsulation of the core algorithms\n\n\nNbDemetra – UI\nSA core algorithms\nBasic graphical components\n\n\nNbDemetra – Branding\nSA core algorithms\n\n\n\nNbDemetra – SA\nSA core algorithms\nDefault SA framework, including TRAMO-SEATS and X-13ARIMA-SEATS. This implementation can lead to small differences in comparison with the original programs.\n\n\n\nThis list is displayed in the Installed panel. This panel is available from the Plugin functionality and it is activated from the Tools menu (Figure Activation of the Plugin functionality from the Tools menu in Plugins section).\n\n\n\nText"
+  },
+  {
+    "objectID": "T-plug-ins.html#plugins-list",
+    "href": "T-plug-ins.html#plugins-list",
+    "title": "Plug-ins for JDemetra+",
+    "section": "Plugins-list",
+    "text": "Plugins-list\n\nBundesbank plug-ins\n\nConCur: The plug-in ConCur supports the controlled current adjustment approach. It supports the storage of the current components and offers graphical tools to compare forecasted and re-estimated figures. Furthermore, a pre-defined summary of the output containing the most important quality measures can be exported to HTML files.\nKIX: The plug-in KIX (German for chain-linked index) has been designed to facilitate the handling of this index type. It offers addition and subtraction of two or more chain-linked time series as well as the computation of contributions of growth.\n\nKIX2.0: KIX 2.0 offers addition and subtraction of two or more chain-linked time series as well as the computation of contributions of growth following the concept of annual overlap. Contributions to growth are calculated with the partial contribution to growth approach.\nKIXE: KIX_E offers addition and subtraction of two or more chain-linked time series as well as the computation of contributions of growth following the concept of one-period overlap. Contributions to growth are calculated with the aid of the Ribe (1999) contribution to growth approach.\nKIX: The program KIX-CC offers for continuously chain-linked indices the aggregation or disaggregation of two or more indices, or the calculation of contributions to growth.\n\nTransReg: The plug-in TransReg allows the user to carry out grouping and centring of user-defined regression variables in JD+.\nXlsx2Ws: The plug-in Xlsx2Ws allows the converting of specific workspace information to a xlsx file and vice versa.\n\n\n\nNational Bank of Belgium plug-ins\n\nAccessThis JDemetra+ extension is a pure java library for reading time series from MS Access databases. It currently supports versions 2000-2016 read/write and 97 read-only.Being a pure Java library, you don’t need MS Access installed in order to read Access files. (edit versions info here)\nSDMX: This plugin provides time series from SDMX to JDemetra+ by querying web services or parsing files.\nSA Advanced: This module provides some experimental seasonal adjustment methods (with RegArima preprocessing), basic structural models, generalized airline models and airline + seasonal noise models (called mixed airline).\n\ngairline: generalized airline model\nmairline: mixed airline model\nmixedfreq: mixed frequencies seasonal adjustment\nsssts: Seasonal specific structural time series\nsts: Structural time series\n\nBenchmarking: This module provides some experimental methods for temporal disaggregation and multi-variate benchmarking:Chow-Lin, Fernandez, Litterman, Cholette, Calendarization.\nNowcasting: Nowcasting is often defined as the prediction of the present, the very near future and the very recent past. The plug-in developed at the National Bank of Belgium helps to operationalize the process of nowcasting. It can be used to specify and estimate dynamic factor models and visualize how the real-time dataflow updates expectations, as for instance in Banbura and Modugno (2010). The software can also be used to perform pseudo out-of-sample forecasting evaluations that consider the calendar of data releases, contributing to the formalization of the nowcasting problem originally proposed by Giannone, et al. (2008) or Evans (2005)."
+  },
+  {
+    "objectID": "T-plug-ins.html#installation-procedure",
+    "href": "T-plug-ins.html#installation-procedure",
+    "title": "Plug-ins for JDemetra+",
+    "section": "Installation procedure",
+    "text": "Installation procedure\nInstallation from GUI\nmenu>tools> plug-ins\nThe Plugins window includes five panels: Updates, Available plugins, Downloaded, Installed and Settings, some of them however are not operational in the current version of the software.\n\nThe Updates panel offers the user the option to manually check if some updates of the already installed plugins are available. This functionality, however, is currently not operational for the JDemetra+ plugins.\nThe Available plugins panel allows the downloading of all plugins that are related to JDemetra+. This functionality, however, is currently not operational for the JDemetra+ plugins.\nThe Downloaded panel is designed for the installation of new plugins from a local machine. This process in explained in more detail below.\nThe Settings panel is designated for adding update centres, which are the locations that hold plugins. For each centre the user can specify proxy settings and a time interval to automatically check for any updates. At the moment this functionality is not operational for the JDemetra+ plugins.\n\nInstallation of the new plugins from the local machine can be done from the Plugin functionality activated from the Tools menu.\nInstallation of the new plugins from the local machine can be done from the Plugin functionality activated from the Tools menu.\n{: .text-center.image-wrapper}\n\n\n\nText\n\n\nActivation of the Plugin functionality from the Tools menu\nTo start the process, go to the Downloaded panel and click on the Add Plugins… option. Next the user should select the plugins from the folder in which the plugins have been saved and click the OK button.\n{: .text-center.image-wrapper}\n\n\n\nText\n\n\nThe Downloaded panel – the choice of available plugins\nThe new plugin is now visible in the panel.\n{: .text-center.image-wrapper}\n\n\n\nText\n\n\nA downloaded plugin\nClick on it and choose the Install button.\n{: .text-center.image-wrapper}\n\n\n\nText\n\n\nStarting an installation procedure\nThere is a wizard that allows the user to install the marked plugin(s). In the first step choose Next to continue or Cancel to terminate the process.\n{: .text-center.image-wrapper}\n\n\n\nText\n\n\nInstallation wizard window\nNext, mark the terms of agreements and choose Install.\n{: .text-center.image-wrapper}\n\n\n\nText\n\n\nInitiating installation process\nThen the process is started.\n{: .text-center.image-wrapper}\n\n\n\nText\n\n\nInstallation in progress\nAfter a while JDemetra+ will provide an update in the installation process. Click Finish to close the window.\n{: .text-center.image-wrapper}\n\n\n\nText\n\n\nInstallation completed\nOnce the process is finished, the newly installed plugin is automatically integrated within the software. The picture below compares the view of the Workspace window before (on the left) and after (on the right) the installation of the NbDemetra-ODBC plugin.\n{: .text-center.image-wrapper}\n\n\n\nText\n\n\nThe impact of the plugin on the interface\nThe list of all installed plugins is displayed in the fourth panel. To modify the current settings mark the plugin (by clicking the checkbox in the Select column) and chose an action.\nThe following options are available:\n\nActivate – activates the marked plugin if it is currently inactive. The option is available for inactive plugins (see the picture below);\nDeactivate – deactivates the marked plugin if it is currently active. The option is available for active plugins (see the picture below);\nUninstall – uninstalls the marked plugin.\n\nInactive plugins can be activated or uninstalled.\n{: .text-center.image-wrapper}\n\n\n\nText\n\n\nActive plugins can be deactivated or uninstalled\n{: .text-center.image-wrapper}\n\n\n\nText\n\n\nList of plugins – deactivation\nThere is a wizard that allows the user to activate/deactivate/uninstall the marked plugin(s). The example below illustrates the deactivation process. In the first step the user is expected to confirm or cancel the deactivation.\n{: .text-center.image-wrapper}\n\n\n\nText\n\n\nPlugin’s deactivation process\nIn the second step the user should decide if the software will be restarted immediately after the uninstallation is completed or not.\n{: .text-center.image-wrapper}\n\n\n\nText\n\n\nThe final step of the installation procedure\nIt is possible to delay the restart of the application, although the restart is necessary to complete the process.\n{: .text-center.image-wrapper}\n\n\n\nText"
   },
   {
     "objectID": "T-tool-selection.html",

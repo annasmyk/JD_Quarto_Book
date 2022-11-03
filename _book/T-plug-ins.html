@@ -118,7 +118,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./A-sa-hf.html" class="sidebar-item-text sidebar-link">Seasonal adjustment of high-requency data</a>
+  <a href="./A-sa-hf.html" class="sidebar-item-text sidebar-link">Seasonal adjustment of high-frequency data</a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -257,7 +257,16 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#main-functions" id="toc-main-functions" class="nav-link active" data-scroll-target="#main-functions">Main functions</a></li>
+  <li><a href="#main-functions" id="toc-main-functions" class="nav-link active" data-scroll-target="#main-functions">Main functions</a>
+  <ul class="collapse">
+  <li><a href="#default-plugins" id="toc-default-plugins" class="nav-link" data-scroll-target="#default-plugins">Default Plugins</a></li>
+  </ul></li>
+  <li><a href="#plugins-list" id="toc-plugins-list" class="nav-link" data-scroll-target="#plugins-list">Plugins-list</a>
+  <ul class="collapse">
+  <li><a href="#bundesbank-plug-ins" id="toc-bundesbank-plug-ins" class="nav-link" data-scroll-target="#bundesbank-plug-ins">Bundesbank plug-ins</a></li>
+  <li><a href="#national-bank-of-belgium-plug-ins" id="toc-national-bank-of-belgium-plug-ins" class="nav-link" data-scroll-target="#national-bank-of-belgium-plug-ins">National Bank of Belgium plug-ins</a></li>
+  </ul></li>
+  <li><a href="#installation-procedure" id="toc-installation-procedure" class="nav-link" data-scroll-target="#installation-procedure">Installation procedure</a></li>
   </ul>
 </nav>
     </div>
@@ -280,9 +289,263 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
+<p>(edit) JDemetra+ is an application that supports plug-ins. A plugin is a software component that adds a specific feature to the existing software application and is independent from the software version. It allows an application to be enhanced without changing the original code. Plugins can be shared between the users and installed individually. In this way new functionalities can be easily distributed among seasonal adjustment community members.</p>
 <section id="main-functions" class="level2">
 <h2 class="anchored" data-anchor-id="main-functions">Main functions</h2>
-<p>table</p>
+<section id="default-plugins" class="level3">
+<h3 class="anchored" data-anchor-id="default-plugins">Default Plugins</h3>
+<table class="table">
+<colgroup>
+<col style="width: 30%">
+<col style="width: 36%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><strong>Name</strong></th>
+<th><strong>Category</strong></th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>NbDemetra – Anomaly detection</td>
+<td>SA core algorithms</td>
+<td>Identification of outliers</td>
+</tr>
+<tr class="even">
+<td>NbDemetra – Spreadsheet</td>
+<td>IO (Input/output)</td>
+<td>Time series providers for spreadsheet (Excel, OpenOffice)</td>
+</tr>
+<tr class="odd">
+<td>NbDemetra – Common</td>
+<td>IO (Input/output)</td>
+<td>Common time series providers, like XML and TXT</td>
+</tr>
+<tr class="even">
+<td>NbDemetra – JDBC</td>
+<td>IO (Input/output)</td>
+<td>Time series provider for the JDBC sources</td>
+</tr>
+<tr class="odd">
+<td>NbDemetra – ODBC</td>
+<td>IO (Input/output)</td>
+<td>Time series provider for the ODBC sources</td>
+</tr>
+<tr class="even">
+<td>NbDemetra – SDMX</td>
+<td>IO (Input/output)</td>
+<td>Time series provider for SDMX files</td>
+</tr>
+<tr class="odd">
+<td>NbDemetra – Core</td>
+<td>SA core algorithms</td>
+<td>Encapsulation of the core algorithms</td>
+</tr>
+<tr class="even">
+<td>NbDemetra – UI</td>
+<td>SA core algorithms</td>
+<td>Basic graphical components</td>
+</tr>
+<tr class="odd">
+<td>NbDemetra – Branding</td>
+<td>SA core algorithms</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>NbDemetra – SA</td>
+<td>SA core algorithms</td>
+<td>Default SA framework, including TRAMO-SEATS and X-13ARIMA-SEATS. This implementation can lead to small differences in comparison with the original programs.</td>
+</tr>
+</tbody>
+</table>
+<p>This list is displayed in the <em>Installed</em> panel. This panel is available from the <em>Plugin</em> functionality and it is activated from the <em>Tools</em> menu (Figure <em>Activation of the Plugin functionality from the Tools menu</em> in <a href="#plugins">Plugins</a> section).</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/UG_A_image36.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Text</figcaption><p></p>
+</figure>
+</div>
+</section>
+</section>
+<section id="plugins-list" class="level2">
+<h2 class="anchored" data-anchor-id="plugins-list">Plugins-list</h2>
+<section id="bundesbank-plug-ins" class="level3">
+<h3 class="anchored" data-anchor-id="bundesbank-plug-ins">Bundesbank plug-ins</h3>
+<ul>
+<li><p><a href="https://bbkrd.github.io/pages/concur">ConCur</a>: The plug-in ConCur supports the controlled current adjustment approach. It supports the storage of the current components and offers graphical tools to compare forecasted and re-estimated figures. Furthermore, a pre-defined summary of the output containing the most important quality measures can be exported to HTML files.</p></li>
+<li><p><a href="https://bbkrd.github.io/pages/kix">KIX</a>: The plug-in KIX (German for chain-linked index) has been designed to facilitate the handling of this index type. It offers addition and subtraction of two or more chain-linked time series as well as the computation of contributions of growth.</p>
+<ul>
+<li><p><a href="https://bbkrd.github.io/pages/kix/kix2">KIX2.0</a>: KIX 2.0 offers addition and subtraction of two or more chain-linked time series as well as the computation of contributions of growth following the concept of annual overlap. Contributions to growth are calculated with the partial contribution to growth approach.</p></li>
+<li><p><a href="https://bbkrd.github.io/pages/kix/kixe">KIXE</a>: KIX_E offers addition and subtraction of two or more chain-linked time series as well as the computation of contributions of growth following the concept of one-period overlap. Contributions to growth are calculated with the aid of the Ribe (1999) contribution to growth approach.</p></li>
+<li><p><a href="https://bbkrd.github.io/pages/kix/kixcc">KIX</a>: The program KIX-CC offers for continuously chain-linked indices the aggregation or disaggregation of two or more indices, or the calculation of contributions to growth.</p></li>
+</ul></li>
+<li><p><a href="https://bbkrd.github.io/pages/transreg">TransReg</a>: The plug-in TransReg allows the user to carry out grouping and centring of user-defined regression variables in JD+.</p></li>
+<li><p><a href="https://bbkrd.github.io/pages/xlsx2ws">Xlsx2Ws</a>: The plug-in Xlsx2Ws allows the converting of specific workspace information to a xlsx file and vice versa.</p></li>
+</ul>
+</section>
+<section id="national-bank-of-belgium-plug-ins" class="level3">
+<h3 class="anchored" data-anchor-id="national-bank-of-belgium-plug-ins">National Bank of Belgium plug-ins</h3>
+<ul>
+<li><p><a href="https://github.com/nbbrd/jdemetra-access">Access</a>This JDemetra+ extension is a pure java library for reading time series from <a href="https://en.wikipedia.org/wiki/Microsoft_Access">MS Access databases</a>. It currently supports versions 2000-2016 read/write and 97 read-only.Being a pure Java library, you don’t need MS Access installed in order to read Access files. (edit versions info here)</p></li>
+<li><p><a href="https://github.com/nbbrd/jdemetra-dotstat">SDMX</a>: This plugin provides time series from <a href="https://sdmx.org">SDMX</a> to JDemetra+ by querying <a href="https://github.com/nbbrd/jdemetra-dotstat/wiki/Supported-web-services%22">web services</a> or parsing <a href="https://github.com/nbbrd/jdemetra-dotstat/wiki/Supported-file-formats%22">files</a>.</p></li>
+<li><p><a href="https://github.com/nbbrd/jdemetra-sa-advanced%22">SA Advanced</a>: This module provides some experimental seasonal adjustment methods (with RegArima preprocessing), basic structural models, generalized airline models and airline + seasonal noise models (called mixed airline).</p>
+<ul>
+<li>gairline: generalized airline model</li>
+<li>mairline: mixed airline model</li>
+<li>mixedfreq: mixed frequencies seasonal adjustment</li>
+<li>sssts: Seasonal specific structural time series</li>
+<li>sts: Structural time series</li>
+</ul></li>
+<li><p><a href="https://github.com/nbbrd/jdemetra-benchmarking%22">Benchmarking</a>: This module provides some experimental methods for temporal disaggregation and multi-variate benchmarking:<br>Chow-Lin, Fernandez, Litterman, Cholette, Calendarization.</p></li>
+<li><p><a href="https://github.com/nbbrd/jdemetra-nowcasting">Nowcasting</a>: Nowcasting is often defined as the prediction of the present, the very near future and the very recent past. The plug-in developed at the National Bank of Belgium helps to operationalize the process of nowcasting. It can be used to specify and estimate dynamic factor models and visualize how the real-time dataflow updates expectations, as for instance in Banbura and Modugno (2010). The software can also be used to perform pseudo out-of-sample forecasting evaluations that consider the calendar of data releases, contributing to the formalization of the nowcasting problem originally proposed by Giannone, et al.&nbsp;(2008) or Evans (2005).</p></li>
+</ul>
+</section>
+</section>
+<section id="installation-procedure" class="level2">
+<h2 class="anchored" data-anchor-id="installation-procedure">Installation procedure</h2>
+<p>Installation from GUI</p>
+<p>menu&gt;tools&gt; plug-ins</p>
+<p>The <em>Plugins</em> window includes five panels: <em>Updates</em>, <em>Available plugins</em>, <em>Downloaded</em>, <em>Installed</em> and <em>Settings</em>, some of them however are not operational in the current version of the software.</p>
+<ul>
+<li>The <em>Updates</em> panel offers the user the option to manually check if some updates of the already installed plugins are available. This functionality, however, is currently not operational for the JDemetra+ plugins.</li>
+<li>The <em>Available plugins</em> panel allows the downloading of all plugins that are related to JDemetra+. This functionality, however, is currently not operational for the JDemetra+ plugins.</li>
+<li>The <em>Downloaded</em> panel is designed for the installation of new plugins from a local machine. This process in explained in more detail below.</li>
+<li>The <em>Settings</em> panel is designated for adding update centres, which are the locations that hold plugins. For each centre the user can specify proxy settings and a time interval to automatically check for any updates. At the moment this functionality is not operational for the JDemetra+ plugins.</li>
+</ul>
+<p>Installation of the new plugins from the local machine can be done from the <em>Plugin</em> functionality activated from the <em>Tools</em> menu.</p>
+<p>Installation of the new plugins from the local machine can be done from the <em>Plugin</em> functionality activated from the <em>Tools</em> menu.</p>
+<p>{: .text-center.image-wrapper}</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/UG_A_image22.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Text</figcaption><p></p>
+</figure>
+</div>
+<p><strong>Activation of the <em>Plugin</em> functionality from the <em>Tools</em> menu</strong></p>
+<p>To start the process, go to the <em>Downloaded</em> panel and click on the <strong>Add Plugins…</strong> option. Next the user should select the plugins from the folder in which the plugins have been saved and click the <strong>OK</strong> button.</p>
+<p>{: .text-center.image-wrapper}</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/UG_A_image23.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Text</figcaption><p></p>
+</figure>
+</div>
+<p><strong>The <em>Downloaded</em> panel – the choice of available plugins</strong></p>
+<p>The new plugin is now visible in the panel.</p>
+<p>{: .text-center.image-wrapper}</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/UG_A_image24.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Text</figcaption><p></p>
+</figure>
+</div>
+<p><strong>A downloaded plugin</strong></p>
+<p>Click on it and choose the <strong>Install</strong> button.</p>
+<p>{: .text-center.image-wrapper}</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/UG_A_image25.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Text</figcaption><p></p>
+</figure>
+</div>
+<p><strong>Starting an installation procedure</strong></p>
+<p>There is a wizard that allows the user to install the marked plugin(s). In the first step choose <strong>Next</strong> to continue or <strong>Cancel</strong> to terminate the process.</p>
+<p>{: .text-center.image-wrapper}</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/UG_A_image26.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Text</figcaption><p></p>
+</figure>
+</div>
+<p><strong>Installation wizard window</strong></p>
+<p>Next, mark the terms of agreements and choose <strong>Install</strong>.</p>
+<p>{: .text-center.image-wrapper}</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/UG_A_image27.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Text</figcaption><p></p>
+</figure>
+</div>
+<p><strong>Initiating installation process</strong></p>
+<p>Then the process is started.</p>
+<p>{: .text-center.image-wrapper}</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/UG_A_image28.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Text</figcaption><p></p>
+</figure>
+</div>
+<p><strong>Installation in progress</strong></p>
+<p>After a while JDemetra+ will provide an update in the installation process. Click <strong>Finish</strong> to close the window.</p>
+<p>{: .text-center.image-wrapper}</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/UG_A_image29.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Text</figcaption><p></p>
+</figure>
+</div>
+<p><strong>Installation completed</strong></p>
+<p>Once the process is finished, the newly installed plugin is automatically integrated within the software. The picture below compares the view of the <em>Workspace</em> window before (on the left) and after (on the right) the installation of the NbDemetra-ODBC plugin.</p>
+<p>{: .text-center.image-wrapper}</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/UG_A_image30.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Text</figcaption><p></p>
+</figure>
+</div>
+<p><strong>The impact of the plugin on the interface</strong></p>
+<p>The list of all installed plugins is displayed in the fourth panel. To modify the current settings mark the plugin (by clicking the checkbox in the <em>Select</em> column) and chose an action.</p>
+<p>The following options are available:</p>
+<ul>
+<li><p><strong>Activate</strong> – activates the marked plugin if it is currently inactive. The option is available for inactive plugins (see the picture below);</p></li>
+<li><p><strong>Deactivate</strong> – deactivates the marked plugin if it is currently active. The option is available for active plugins (see the picture below);</p></li>
+<li><p><strong>Uninstall</strong> – uninstalls the marked plugin.</p></li>
+</ul>
+<p>Inactive plugins can be activated or uninstalled.</p>
+<p>{: .text-center.image-wrapper}</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/UG_A_image31.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Text</figcaption><p></p>
+</figure>
+</div>
+<p><strong>Active plugins can be deactivated or uninstalled</strong></p>
+<p>{: .text-center.image-wrapper}</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/UG_A_image32.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Text</figcaption><p></p>
+</figure>
+</div>
+<p><strong>List of plugins – deactivation</strong></p>
+<p>There is a wizard that allows the user to activate/deactivate/uninstall the marked plugin(s). The example below illustrates the deactivation process. In the first step the user is expected to confirm or cancel the deactivation.</p>
+<p>{: .text-center.image-wrapper}</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/UG_A_image33.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Text</figcaption><p></p>
+</figure>
+</div>
+<p><strong>Plugin’s deactivation process</strong></p>
+<p>In the second step the user should decide if the software will be restarted immediately after the uninstallation is completed or not.</p>
+<p>{: .text-center.image-wrapper}</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/UG_A_image34.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Text</figcaption><p></p>
+</figure>
+</div>
+<p><strong>The final step of the installation procedure</strong></p>
+<p>It is possible to delay the restart of the application, although the restart is necessary to complete the process.</p>
+<p>{: .text-center.image-wrapper}</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/UG_A_image35.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Text</figcaption><p></p>
+</figure>
+</div>
 
 
 </section>
