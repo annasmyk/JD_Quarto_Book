@@ -408,6 +408,7 @@ transform.fct = 0.5)
 Rationale : why correct (in a nutshell)
 
 Method regression as deterministic effects, details of regressor building in calendar chapter
+[building](A-calendar-and-input.qmd#Overview of Calendar effects in JDemetra)
 
 #### Default specifications for calendar correction
 

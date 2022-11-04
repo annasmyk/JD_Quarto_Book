@@ -2,36 +2,42 @@
 
 ## Overview
 
+General info about using the interface, specific info related to an algorithm (X13-Arima, Tramo-seats, bechmarking) is displayed in the relevant chapters.
+
+Warning: info from v2 family, will be progressively switched to v3 Internal links might not all be active
+
+Missing:
+
+- NEXT : Tools menu (galbal descp + disptach to specific parts by function)
+
+- workspace window details
+
+- output items
+
+Add: 
+- all generic operations (like in data v, single time series, context menus)
+
+- more gifs ? pdf pb. something conditionnal ?
+
+Quick links (in appendicies)
+
+- import data
+
+- run automatic sa (cf current doc)
+
 ## Installation Procedure
 
-JDemetra+ is a stand-alone application packed in a zip package. To run
-JDemetra+ the Java RE 8 or higher is needed. Java RE can be downloaded
-from [Oracle
-website](https://www.oracle.com/technetwork/java/javase/downloads/index.html).
+JDemetra+ is a stand-alone application packed in a zip package. To run JDemetra+ the Java RE 8 or higher is needed. Java RE can be downloaded from [Oracle website](https://www.oracle.com/technetwork/java/javase/downloads/index.html).
 
-The official release of JDemetra+ is accessible at [a dedicated Github
-page](https://github.com/jdemetra/jdemetra-app/releases). The site
-presents all available releases - both official releases (labelled in
-green as latest releases) and pre-releases (labelled in red) - packed in
-zip packages. From the *Latest release* section either choose the
-installer appropriate for your operating system (Windows, Linux, Mac OS,
-Solaris) or take the portable zip-file. The installation process is
-straightforward and intuitive. For example, when the zip-file is chosen
-and downloaded, then under Windows OS the application can be found in
-the "bin"-folder of the installation/unpacked zip. To open an
-application, double click on nbdemetra.exe or nbdemetra64.exe depending
-on the system version (nbdemetra.exe for the 32-bit system version and
-nbdemetra64.exe for the 64-bit system version).
+The official release of JDemetra+ is accessible at [a dedicated Github page](https://github.com/jdemetra/jdemetra-app/releases). The site presents all available releases - both official releases (labelled in green as latest releases) and pre-releases (labelled in red) - packed in zip packages. From the *Latest release* section either choose the installer appropriate for your operating system (Windows, Linux, Mac OS, Solaris) or take the portable zip-file. The installation process is straightforward and intuitive. For example, when the zip-file is chosen and downloaded, then under Windows OS the application can be found in the "bin"-folder of the installation/unpacked zip. To open an application, double click on nbdemetra.exe or nbdemetra64.exe depending on the system version (nbdemetra.exe for the 32-bit system version and nbdemetra64.exe for the 64-bit system version).
 
 ![Text](All_images/RunningJDemetra.jpg)
 
 **Launching JDemetra+**
 
-If the launching of JDemetra+ fails, you can try the following
-operations:
+If the launching of JDemetra+ fails, you can try the following operations:
 
--   Check if Java SE Runtime Environment (JRE) is properly installed by
-    typing in the following command in a terminal: *java --version*
+-   Check if Java SE Runtime Environment (JRE) is properly installed by typing in the following command in a terminal: *java --version*
 
 -   Check the logs in your home directory:
 
@@ -39,18 +45,13 @@ operations:
 
     -   \~/.nbdemetra/dev/var/log/ for Linux and Solaris;
 
-    -   \~/Library/Application Support/.nbdemetra/dev/var/log/ for Mac
-        OS X.
+    -   \~/Library/Application Support/.nbdemetra/dev/var/log/ for Mac OS X.
 
-In order to remove a previously installed JDemetra+ version, the user
-should delete an appropriate JDemetra+ folder.
+In order to remove a previously installed JDemetra+ version, the user should delete an appropriate JDemetra+ folder.
 
 ## Running JDemetra+ {#running-jdemetra}
 
-To open an application, navigate to the destination folder and double
-click on *nbdemetra.exe* or *nbdemetra64.exe* depending on the system
-version (*nbdemetra.exe* for the 32-bit system version and
-*nbdemetra64.exe* for the 64-bit system version).
+To open an application, navigate to the destination folder and double click on *nbdemetra.exe* or *nbdemetra64.exe* depending on the system version (*nbdemetra.exe* for the 32-bit system version and *nbdemetra64.exe* for the 64-bit system version).
 
 ![Text](All_images/A_Ref1.jpg)
 
@@ -58,21 +59,361 @@ version (*nbdemetra.exe* for the 32-bit system version and
 
 ## Closing JDemetra+ {#closing-jdemetra}
 
-To close the application, select *File → Exit* from the [File
-menu](http://localhost:4000/pages/reference-manual/file.html).
+To close the application, select *File → Exit* from the [File menu](http://localhost:4000/pages/reference-manual/file.html).
 
 ![Text](All_images/A_Ref2.jpg)
 
 **Closing JDemetra+**
 
-The other way is to click on the close box in the upper right-hand
-corner of the JDemetra+ window. If there is any unsaved work, JDemetra+
-will display a warning and provide the user with the opportunity to save
-it. The message box is shown below.
+The other way is to click on the close box in the upper right-hand corner of the JDemetra+ window. If there is any unsaved work, JDemetra+ will display a warning and provide the user with the opportunity to save it. The message box is shown below.
 
 ![Text](All_images/A_Ref3.jpg)
 
 **The warning from leaving JDemetra+ without saving the workspace**
 
+BELOW: menus and functions common to all the algos
 
+## Interface Starting Winwow
 
+The default view of the JDemetra+ window, which is displayed after launching the program, is shown below.
+
+![Text](All_images/Jd+mainwindow.jpg)
+
+**JDemetra+ default window**
+
+By default, on the left hand side of the window two panels are visible: the [*Workspace* panel](../reference-manual/workspace.html) and the [*Providers* panel](../reference-manual/data-providers.html). The *Workspace* panel stores the work performed by the user in a coherent and structured way. The *Providers* panel presents the list of the [data sources](../quick-start/datasources.html) and organizes the imported series within each data provider. By default, JDemetra+ supports the following data sources: \* JDBC; \* ODBC; \* SDMX; \* Excel spreadsheets; \* TSW (input files for the [Tramo-Seats-Windows application](https://www.bde.es/bde/en/secciones/servicios/Profesionales/Programas_estadi/Programas.html) by the Bank of Spain); \* TXT; \* USCB (input files for the [X-13-ARIMA-SEATS application](https://www.census.gov/srd/www/winx13/) by the U.S. Census Bureau); \* XML.
+
+All standard databases (Oracle, SQLServer, DB2, MySQL) are supported by JDemetra+ via JDBC, which is a generic interface to many relational databases. Other providers can be added by users by creating plugins. We will now focus on the Spreadsheets data source, which corresponds to the series prepared in an Excel file. The file should have dates in Excel date format. Dates should be placed in the first column (or in the first row) and titles of the series in the corresponding cell of the first row (or in the first column). The top-left cell \[A1\] can include text or it can be left empty. The empty cells are interpreted by JDemetra+ as missing values and they can appear at the beginning, in the middle and at the end of the time series. The example is shown below.
+
+![Text](All_images/Spreadsheet.jpg)
+
+**Example of an Excel spreadsheet that can be imported to JDemetra+**
+
+Once the spreadsheet is prepared and saved, it can be imported to JDemetra+ as it is shown by the tutorial below.
+
+![Alt](All_images/Import_spreadsheet.gif)
+
+**An example of importing process for the Excel file**
+
+The default JDemetra+ window, which is displayed after launching the program, is clearly divided into several panels.
+
+![Text](All_images/A_Ref_d28.jpg)
+
+**JDemetra+ default view**
+
+The key parts of the user interface are: \* The [application menu](#application-menu). \* The [Providers](data-providers.html) window, which organises time series; \* The [Workspace](workspace.html) window, which stores results generated by the software as well as settings used to create them; \* A central empty zone for presenting the actual analyses further called the [Results](#results-panel) panel.
+
+## Application menus {#application-menus}
+
+(Application menu: all that is available from the top bar)
+
+The majority of functionalities are available from the main application menu, which is situated at the very top of the main window. If the user moves the cursor to an entry in the main menu and clicks on the left mouse button, a drop-down menu will appear. Clicking on an entry in the drop-down menu selects the highlighted item.
+
+![Text](All_images/A_Ref10.jpg)
+
+**The main menu with selected drop-down menu**
+
+The functions available in the main application menu are: \* [File](file.html) \* [Statistical methods](Statistical-methods.html) \* [X-13Doc](x-13doc.html) \* [RegArimaDoc](regarimadoc.html) \* [TramoDoc](tramodoc.html) \* [TramoSeatsDoc](tramoseatsdoc.html) \* [View](view.html) \* [Tools](tools.html) \* [Window](window.html) \* [Help](help.html)
+
+### File
+
+The *File* menu is intended for working with [workspaces](workspace.html) and [data sources](../reference-manual/data-providers.html). It offers the following functions:\
+\* **New Workspace** -- creates a new workspace and displays it in the *Workspace* window with a default name (*Workspace\_#number*); \* **Open Workspace** -- opens a dialog window, which enables the user to select and open an existing workspace; \* **Open Recent Workspace** -- presents a list of workspaces recently created by the user and enables the user to open one of them; \* **Save Workspace** -- saves the project file named by the system under the default name (*Workspace\_#number*) and in a default location. The workspace can be re-opened at a later time; \* **Save Workspace As...** -- saves the current workspace under the name chosen by the user in the chosen location. The workspace can be re-opened at a later time; \* **Open Recent** -- presents a list of datasets recently used and enables the user to open one of them; \* **Exit** -- closes an application.
+
+![Text](All_images/File%20menu.jpg)
+
+**The content of the *File* menu**
+
+### Statistical Methods
+
+(here gui overview: contents of methods to dispatch preferably in A parts)
+
+The Statistical methods menu includes functionalities for modelling, analysis and the seasonal adjustment of a time series. They are divided into three groups: \* [Anomaly Detection](#anomaly-detection) -- allows for a purely automatic identification of regression effects; \* [Modelling](#modelling) -- enables time series modelling using the TRAMO and RegARIMA models; \* [Seasonal adjustment](#seasonal-adjustment) -- intended for the seasonal adjustment of a time series with the TRAMO-SEATS and X-13ARIMA-SEATS methods.
+
+![Text](All_images/Statistical%20methods%20menu.jpg)
+
+**The *Statistical methods* menu.**
+
+### View
+
+The View menu contains functionalities that enable the user to modify how JDemetra+ is viewed. It offers the following items: \* **Split** -- the function is not operational in the current version of the software. \* **Toolbars** -- displays selected toolbars under the main menu. The *File* toolbar contains the *Save all* icon. The *Performance* toolbar includes two icons: one to show the performance of the application, the other to stop the application profiling and taking a snapshot. The *Other* toolbar determines the default behaviour of the program when the user double clicks on the data. It may be useful to plot the data, visualise it on a grid, or to perform any pre-specified action, e.g. execute a seasonal adjustment procedure. \* **Show Only Editor** -- displays only the *Results* panel and hides other windows (e.g. *Workspace* and *Providers*). \* **Full Screen** -- displays the current JDemetra+ view in full screen.
+
+![Text](All_images/View%20menu.jpg)
+
+**The *View* menu**
+
+### Window menu
+
+The *Window* menu offers several functions that facilitate the analysis of data and enables the user to adjust the interface view to the user's needs.
+
+![Text](All_images/A_Ref51.jpg)
+
+**The *Window* menu**
+
+-   **Preview Time Series** -- opens a window that plots any of the series the user selects from *Providers*.
+
+-   **Debug** -- opens a *Preview Time Series* window that enables a fast display of the graphs for time series from a large dataset. To display the graph click on the series in the *Providers* window.
+
+-   [**Providers**](../reference-manual/data-providers.html) -- opens (if closed) and activates the *Providers* window.
+
+-   [**Variables**](../reference-manual/user-defined-variables.html) -- opens (if closed) and activates the *Variable* window.
+
+-   [**Workspace**](../reference-manual/workspace.html) -- opens (if closed) and activates the *Workspace* window.
+
+-   **Output** -- a generic window to display outputs in the form of text; useful with certain plug-ins (e.g. tutorial descriptive statistics).
+
+-   **Editor** -- activates the editor panel (and update the main menu consequently).
+
+-   **Configure Window** -- enables the user to change the way that the window is displayed (maximise, float, float group, minimise, minimise group). This option is active when some window is displayed in the JD+ interface.
+
+-   **Properties** -- opens the *Properties* window and displays the properties of the marked item (e.g. time series, data source).
+
+-   **Reset Windows** -- restores the default JDemetra+ view.
+
+-   **Close Window** -- closes all windows that are open.
+
+-   **Close All Documents** -- closes all documents that are open.
+
+-   **Close Other Documents** -- closes all documents that are open except for the one that is active (which is the last activated one).
+
+-   **Document Groups** -- enables the user to create and manage the document groups.
+
+-   **Documents** -- lists all documents that are active.
+
+## Providers window
+
+The *Providers* window presents the list of the data sources and organises the imported series within each data provider.
+
+![Text](All_images/A_Ref5.jpg)
+
+**The *Providers* window**
+
+The allowed data sources include: \* JDBC; \* ODBC; \* SDMX; \* Spreadsheets; \* TSW; \* TXT; \* USCB; \* XML.
+
+All standard databases (Oracle, SQLServer, DB2, MySQL) are supported by JDemetra+ via JDBC, which is a generic interface to many relational databases. Other providers can be added by users by creating plugins (see *Plugins* section in the [Tools](tools.html) menu). To import data, right-click on the appropriate provider from the *Providers* panel and specify the required parameters. For all providers the procedure follows the same logic. An example is provided [here](#import-data).
+
+The *Providers* window organises data in a tree structure reflecting the manner in which data are presented in the original source. The picture below presents how JDemetra+ visualises the imported spreadsheet file. If the user expands all the pluses under the spreadsheet all the series within each sheet that has been loaded are visible. Here two time series are visible: *Japan* (under the *Asia* branch) and *United States* (under the *North America* branch) while the *Europe* branch is still folded. The names of the time series have been taken from the column headings of the spreadsheet while the names of the branches come from sheets' names.
+
+![Text](All_images/A_Ref6.jpg)
+
+**A structure of a dataset**
+
+Series uploaded to the *Providers* window can be [displayed](../reference-manual/data-visualization.html), modified and [tested for seasonality](../case-studies/seasonalitytests.html) and used in estimation routines (see [Modelling](modelling.html) and [Seasonal adjustment](sa.html)). The data sources can be restored after re-starting the application so that there is no need to get them again. This functionality can be set in the *Behaviour* tab available at the [*Option*](../reference-manual/tools.html#options) item from the [*Tools*](../reference-manual/tools.html) menu.
+
+### Spreadsheets {#spreadsheets}
+
+The Spreadsheets data source corresponds to the series prepared in the Excel file. The file should have true dates in the first column (or in the first row) and titles of the series in the corresponding cell of the first row (or in the first column). The top-left cell $$A1$$ can include a text or it can be left empty. The empty cells are interpreted by JDemetra+ as missing values and they can appear in the beginning, in the middle and in the end of time series.
+
+An example is presented below:
+
+![Text](All_images/Aimage5.jpg)
+
+**Example of an Excel spreadsheet that can be imported to JDemetra+**
+
+Time series are identified by their names. JDemetra+ derives some information (like data periodicity, starting and ending period) directly from the first column (or from the first row, depending on the chosen data orientation (vertical or horizontal)).
+
+### Import data {#import-data}
+
+To import data from a given data source, click on this data source in the *Providers* window shown below, choose *Open* option and specify the import details, such as a path to a data file. These details vary according to data providers. The example below show how to import the data from an Excel file.
+
+1.  From the *Providers* window right-click on the *Spreadsheets* branch and choose *Open* option.
+
+    ![Text](All_images/Aimage6.jpeg)
+
+    **Data provider available by default**
+
+2.  The *Open data source* window contains the following options:
+
+    -   **Spreadsheet file** -- a path to access the Excel file.
+
+    -   **Data format** -- the data format used to read dates and values. It includes three fields: *locale* (country), *date pattern* (data format, e.g. *yyyy-mm-dd*), *number pattern* (a metaformat of numeric value, e.g. 0.## represents two digit number).
+
+    -   **Frequency** -- time series frequency. This can be undefined, yearly, half-yearly, four-monthly, quarterly, bi-monthly, or monthly. When the frequency is set to undefined, JDemetra+ determines the time series frequency by analysing the sequence of dates in the file.
+
+    -   **Aggregation type** -- the type of aggregation (over time for each time series in the dataset) for the imported time series. This can be *None*, *Sum*, *Average*, *First*, *Last*, *Min* or *Max*. The aggregation can be performed only if the *frequency* parameter is specified. For example, when frequency is set to *Quarterly* and aggregation type is set to *Average*, a monthly time series is transformed to quarterly one with values that are equal to the one third of the sum of the monthly values that belong to the corresponding calendar quarter.
+
+    -   **Clean missing** -- erases the missing values of the series.
+
+    Next, in the *Source* section click the grey "...." button (see below) to open the file.
+
+    ![Text](All_images/Aimage7.jpeg)
+
+    **Data source window**
+
+3.  Choose a file and click *OK*.
+
+    ![Text](All_images/Aimage8.jpeg)
+
+    **Choice of an Excel spreadsheet**
+
+4.  The user may specify *Data format*, *Frequency* and *Aggregation type*, however this step is not compulsory. When these options are specified JDemetra+ is able to convert the time series frequency. Otherwise, the functionality that enables the time series frequency to be converted will not be available.
+
+    ![Text](All_images/Aimage9.jpeg)
+
+    **Options for importing data**
+
+5.  The data are organized in a tree structure.
+
+    ![Text](All_images/Aimage10.jpeg)
+
+    **Dataset structure**
+
+    Once the data has been successfully imported, it is available to the user for various analyses (e.g. visualization, modelling, seasonal adjustment, etc.)
+
+The data are organized in a tree structure. If you expand all the plus-signs under the spreadsheet you will see all the series within each sheet that has been loaded. Here all time series are visible under the Production in construction branch. The names of time series have been taken from the columns' headings of the spreadsheet while the names of the branches come from sheets' names.
+
+## Workspace window
+
+Restructure: present all the nodes
+
+Workspace is a JDemetra+ functionality that stores the work performed by the user in a coherent and structured way. By default, each workspace contains the pre-defined modelling and seasonal adjustment specifications and a basic calendar. A specification is a set of modelling and/or seasonal adjustment parameters. Within the workspace the following items can be saved: \* [User-defined modelling specifications](../reference-manual/modelling-specifications.html#user-definedSpec) and [seasonal adjustment specifications](../reference-manual/sa-specifications.html); \* Documents that contain [results from time series modelling](../reference-manual/output-modelling.html) and [output from the seasonal adjustment process](../reference-manual/output.html); \* [User-defined calendars](../reference-manual/calendars.html); \* [User-defined regression variables](../reference-manual/user-defined-variables.html).
+
+Together with the results from modelling and seasonal adjustment, the original data, paths to the input files and parameters of processes are all saved. These results can then be re-opened, updated, investigated and modified in further JDemetra+ sessions.
+
+The workspace saved by JDemetra+ includes: \* Main folder containing several folders that correspond to the different types of items created by the user and; \* The xml file that enables the user to import the workspace to the application and to display its content.
+
+An example of the workspace is shown in the figure below.
+
+![Text](All_images/A_Ref7.jpg)
+
+**A workspace saved on PC**
+
+The workspace can be shared with other users, which eases the burden of work with defining specifications, modelling and seasonal adjustment processes.
+
+The content of the workspace is presented in the *Workspace* window. It is divided into three sections: \* [Modelling](../reference-manual/modelling.html) (contains the default and user-defined specifications for modelling; and the output from the modelling process) \* [Seasonal adjustment](../reference-manual/sa.html) (contains the default and user-defined specifications for seasonal adjustment and the output from the seasonal adjustment process), \* Utilities ([calendars](calendars.html) and [user defined variables](user-defined-variables.html)).
+
+![Text](All_images/A_Ref8.jpg)
+
+**The *Workspace* window**
+
+## Results panel {#results-panel}
+
+The blank zone in the figure above (on the right of the view) is the location where JDemetra+ displays various windows. More than one window can be displayed at the same time. Windows can overlap with each other with the foremost window being the one in focus or active. The active window has a darkened title bar. [The windows in the results panel can be arranged in many different ways](../reference-manual/window.html), depending on the user's needs. The example below shows one of the possible views of this panel. The results of the user's analysis are displayed in an accompanying window. The picture below shows two panels -- a window containing seasonal adjustment results (upper panel) and another one containing an autoregressive spectrum (lower panel).
+
+![Text](All_images/A_Ref9.jpg)
+
+**The *Results* panel filled with two windows**
+
+## Data Visualisation
+
+## Generating Output
+
+add : some explanations + link to cruncher (production chapter)
+
+### Steps
+
+1.  Once a seasonal adjustment process for the dataset is performed Go to the TOP menu bar and follow the path: *SAProcessing* → *Output...*
+
+2.  In the *Batch output* window the user can specify which output items will be saved and the folder in which JDemetra+ saves the results. It is possible to save the results in the *TXT*, *XLS*, *CSV*, and *CSV matrix* formats. In the first step the user should choose the output format from the list.
+
+    ![Text](All_images/UDimage6.jpg)
+
+    **Default output formats**
+
+3.  The user may choose more than one format as the output can be generated in different formats at the same time.
+
+    ![Text](All_images/UDimage7.jpg)
+
+    **Adding an output format to the list**
+
+4.  To display and modify the settings click on the given output format on the list. The available options depend on the output format.
+
+5.  For *Csv* format the following options are available: *folder* (location of the file), *file prefix* (name of the file), *presentation* (controls how the output is divided into separate files) and *series* (series included in the file). These options are presented in the next points of this case study.
+
+    ![Text](All_images/UDimage8.jpg)
+
+    **Options for a *Csv* format**
+
+6.  The user can define the folder in which the selected results and components will be saved (click the *folder* item and choose the final destination).
+
+    ![Text](All_images/UDimage9.jpg)
+
+    **Specifying a destination folder**
+
+7.  With the option *File Prefix* the user can modify the default name of the output saved in the CSV file.
+
+    ![Text](All_images/UDimage10.jpg)
+
+    **Setting a *File Prefix* option**
+
+8.  *Layout* controls how the output is divided into separate files. Expand the list to display available options:
+
+    -   *HTable* -- the output series will be presented in the form of horizontal tables (time series in rows).
+
+    -   *VTable* -- the output series will be presented in the form of vertical tables (time series in columns).
+
+    -   *List* -- the output series will be presented in the form of vertical tables (time series in rows). Apart from that, for each time series each file contains in separate columns: the data frequency, the first year and of estimation span, the first period (month or quarter) of observation span and the number of observations. The files do not include dates.
+
+    ![Text](All_images/UDimage11.jpg)
+
+    **Layout options for a *Csv* format**
+
+9.  The *Content* section presents [a list of series that will be included into a set of output files](../theory/output.html). To modify the initial settings click on the grey button in the *Content* section. The *CVS-series* window presents two panels: the panel on the left includes a list of all valuable output items. The panel on the right presents the selected output items. Mark the series and use the arrows to change the settings. Confirm your choice with the *OK* button.
+
+    ![Text](All_images/UDimage12.jpg)
+
+    **Specifying a content of the output file**
+
+10. Options available for the *XLS* format are the same as for the *TXT* format with an exception of the *Layout* section. The list of available codes in the *Content* section is given [here](../theory/output.html).
+
+    -   *BySeries* -- all results for a given time series are placed in one sheet;
+
+    -   *ByComponent* -- results are grouped by components. Each component type is saved in a separate sheet.
+
+    -   *OneSheet* -- all results are saved in one sheet.
+
+    ![Text](All_images/UDimage13.jpg)
+
+    **Layout options for an *Excel* format**
+
+11. If the user sets the option layout to *ByComponent*, the output will be generated as follows:
+
+    ![Text](All_images/UDimage14.jpg)
+
+    **An Excel file view for the *ByComponent* option**
+
+12. The option *OneSheet* will produce the following *XLS* file:
+
+    ![Text](All_images/UDimage15.jpg)
+
+    **An Excel file view for the *OneSheet* option**
+
+13. By default, the series in the Excel output files are organised vertically. When the user unmarks the check box the horizontal orientation is used.
+
+    ![Text](All_images/UDimage16.jpg)
+
+    **The *VerticalOrientatio*n option**
+
+14. In the case of the *TXT* format the only available options are *folder* (location of the file) and *series* (results included in the output file). The list of available codes in the *Content* section is given [here](../theory/output.html).
+
+    ![Text](All_images/UDimage17.jpg)
+
+    **Options for the *Txt* output**
+
+15. The *CSV matrix* produces the CSV file containing information about the model and quality diagnostics of the seasonal adjustment. The user may generate the list of default items or create their own quality report. By default, all the available items are included in the output. The list of the items is given [here](../theory/output.html).
+
+    ![Text](All_images/UDimage18.jpg)
+
+    **List of items available for the *Csv matrix* output type**
+
+16. Once the output settings are selected, click the *OK* button.
+
+    ![Text](All_images/UDimage19.jpg)
+
+    **Options for the *Csv matrix* output**
+
+17. For each output JDemetra+ provides information on the status of the operation. An example is presented below.
+
+    ![Text](All_images/UDimage20.jpg)
+
+    **Generating output - status information**
+
+### Output items
+
+intro add : outputs common with R packages
+
+The CSV, TXT and XLS outputs of JDemetra+ may contain the items shown in table below.
+
+A list of output items of JDemetra+ CSV, TXT and XLS formats.
+
+TABLES to be inserted - one for series - one for diagnostics and parameters

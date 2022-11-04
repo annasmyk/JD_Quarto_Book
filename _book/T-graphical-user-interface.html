@@ -61,6 +61,7 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 </head>
 
@@ -261,6 +262,27 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#installation-procedure" id="toc-installation-procedure" class="nav-link" data-scroll-target="#installation-procedure">Installation Procedure</a></li>
   <li><a href="#running-jdemetra" id="toc-running-jdemetra" class="nav-link" data-scroll-target="#running-jdemetra">Running JDemetra+</a></li>
   <li><a href="#closing-jdemetra" id="toc-closing-jdemetra" class="nav-link" data-scroll-target="#closing-jdemetra">Closing JDemetra+</a></li>
+  <li><a href="#interface-starting-winwow" id="toc-interface-starting-winwow" class="nav-link" data-scroll-target="#interface-starting-winwow">Interface Starting Winwow</a></li>
+  <li><a href="#application-menus" id="toc-application-menus" class="nav-link" data-scroll-target="#application-menus">Application menus</a>
+  <ul class="collapse">
+  <li><a href="#file" id="toc-file" class="nav-link" data-scroll-target="#file">File</a></li>
+  <li><a href="#statistical-methods" id="toc-statistical-methods" class="nav-link" data-scroll-target="#statistical-methods">Statistical Methods</a></li>
+  <li><a href="#view" id="toc-view" class="nav-link" data-scroll-target="#view">View</a></li>
+  <li><a href="#window-menu" id="toc-window-menu" class="nav-link" data-scroll-target="#window-menu">Window menu</a></li>
+  </ul></li>
+  <li><a href="#providers-window" id="toc-providers-window" class="nav-link" data-scroll-target="#providers-window">Providers window</a>
+  <ul class="collapse">
+  <li><a href="#spreadsheets" id="toc-spreadsheets" class="nav-link" data-scroll-target="#spreadsheets">Spreadsheets</a></li>
+  <li><a href="#import-data" id="toc-import-data" class="nav-link" data-scroll-target="#import-data">Import data</a></li>
+  </ul></li>
+  <li><a href="#workspace-window" id="toc-workspace-window" class="nav-link" data-scroll-target="#workspace-window">Workspace window</a></li>
+  <li><a href="#results-panel" id="toc-results-panel" class="nav-link" data-scroll-target="#results-panel">Results panel</a></li>
+  <li><a href="#data-visualisation" id="toc-data-visualisation" class="nav-link" data-scroll-target="#data-visualisation">Data Visualisation</a></li>
+  <li><a href="#generating-output" id="toc-generating-output" class="nav-link" data-scroll-target="#generating-output">Generating Output</a>
+  <ul class="collapse">
+  <li><a href="#steps" id="toc-steps" class="nav-link" data-scroll-target="#steps">Steps</a></li>
+  <li><a href="#output-items" id="toc-output-items" class="nav-link" data-scroll-target="#output-items">Output items</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -285,6 +307,20 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="overview" class="level2">
 <h2 class="anchored" data-anchor-id="overview">Overview</h2>
+<p>General info about using the interface, specific info related to an algorithm (X13-Arima, Tramo-seats, bechmarking) is displayed in the relevant chapters.</p>
+<p>Warning: info from v2 family, will be progressively switched to v3 Internal links might not all be active</p>
+<p>Missing:</p>
+<ul>
+<li><p>NEXT : Tools menu (galbal descp + disptach to specific parts by function)</p></li>
+<li><p>workspace window details</p></li>
+<li><p>output items</p></li>
+</ul>
+<p>Add: all generic operations (like in data v, single time series, context menus)</p>
+<p>Quick links (in appendicies)</p>
+<ul>
+<li><p>import data</p></li>
+<li><p>run automatic sa (cf current doc)</p></li>
+</ul>
 </section>
 <section id="installation-procedure" class="level2">
 <h2 class="anchored" data-anchor-id="installation-procedure">Installation Procedure</h2>
@@ -338,8 +374,399 @@ ul.task-list li input[type="checkbox"] {
 </figure>
 </div>
 <p><strong>The warning from leaving JDemetra+ without saving the workspace</strong></p>
+<p>BELOW: menus and functions common to all the algos</p>
+</section>
+<section id="interface-starting-winwow" class="level2">
+<h2 class="anchored" data-anchor-id="interface-starting-winwow">Interface Starting Winwow</h2>
+<p>The default view of the JDemetra+ window, which is displayed after launching the program, is shown below.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/Jd+mainwindow.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Text</figcaption><p></p>
+</figure>
+</div>
+<p><strong>JDemetra+ default window</strong></p>
+<p>By default, on the left hand side of the window two panels are visible: the <a href="../reference-manual/workspace.html"><em>Workspace</em> panel</a> and the <a href="../reference-manual/data-providers.html"><em>Providers</em> panel</a>. The <em>Workspace</em> panel stores the work performed by the user in a coherent and structured way. The <em>Providers</em> panel presents the list of the <a href="../quick-start/datasources.html">data sources</a> and organizes the imported series within each data provider. By default, JDemetra+ supports the following data sources: * JDBC; * ODBC; * SDMX; * Excel spreadsheets; * TSW (input files for the <a href="https://www.bde.es/bde/en/secciones/servicios/Profesionales/Programas_estadi/Programas.html">Tramo-Seats-Windows application</a> by the Bank of Spain); * TXT; * USCB (input files for the <a href="https://www.census.gov/srd/www/winx13/">X-13-ARIMA-SEATS application</a> by the U.S. Census Bureau); * XML.</p>
+<p>All standard databases (Oracle, SQLServer, DB2, MySQL) are supported by JDemetra+ via JDBC, which is a generic interface to many relational databases. Other providers can be added by users by creating plugins. We will now focus on the Spreadsheets data source, which corresponds to the series prepared in an Excel file. The file should have dates in Excel date format. Dates should be placed in the first column (or in the first row) and titles of the series in the corresponding cell of the first row (or in the first column). The top-left cell [A1] can include text or it can be left empty. The empty cells are interpreted by JDemetra+ as missing values and they can appear at the beginning, in the middle and at the end of the time series. The example is shown below.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/Spreadsheet.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Text</figcaption><p></p>
+</figure>
+</div>
+<p><strong>Example of an Excel spreadsheet that can be imported to JDemetra+</strong></p>
+<p>Once the spreadsheet is prepared and saved, it can be imported to JDemetra+ as it is shown by the tutorial below.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/Import_spreadsheet.gif" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Alt</figcaption><p></p>
+</figure>
+</div>
+<p><strong>An example of importing process for the Excel file</strong></p>
+<p>The default JDemetra+ window, which is displayed after launching the program, is clearly divided into several panels.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/A_Ref_d28.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Text</figcaption><p></p>
+</figure>
+</div>
+<p><strong>JDemetra+ default view</strong></p>
+<p>The key parts of the user interface are: * The <a href="#application-menu">application menu</a>. * The <a href="data-providers.html">Providers</a> window, which organises time series; * The <a href="workspace.html">Workspace</a> window, which stores results generated by the software as well as settings used to create them; * A central empty zone for presenting the actual analyses further called the <a href="#results-panel">Results</a> panel.</p>
+</section>
+<section id="application-menus" class="level2">
+<h2 class="anchored" data-anchor-id="application-menus">Application menus</h2>
+<p>(Application menu: all that is available from the top bar)</p>
+<p>The majority of functionalities are available from the main application menu, which is situated at the very top of the main window. If the user moves the cursor to an entry in the main menu and clicks on the left mouse button, a drop-down menu will appear. Clicking on an entry in the drop-down menu selects the highlighted item.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/A_Ref10.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Text</figcaption><p></p>
+</figure>
+</div>
+<p><strong>The main menu with selected drop-down menu</strong></p>
+<p>The functions available in the main application menu are: * <a href="file.html">File</a> * <a href="Statistical-methods.html">Statistical methods</a> * <a href="x-13doc.html">X-13Doc</a> * <a href="regarimadoc.html">RegArimaDoc</a> * <a href="tramodoc.html">TramoDoc</a> * <a href="tramoseatsdoc.html">TramoSeatsDoc</a> * <a href="view.html">View</a> * <a href="tools.html">Tools</a> * <a href="window.html">Window</a> * <a href="help.html">Help</a></p>
+<section id="file" class="level3">
+<h3 class="anchored" data-anchor-id="file">File</h3>
+<p>The <em>File</em> menu is intended for working with <a href="workspace.html">workspaces</a> and <a href="../reference-manual/data-providers.html">data sources</a>. It offers the following functions:<br>
+* <strong>New Workspace</strong> – creates a new workspace and displays it in the <em>Workspace</em> window with a default name (<em>Workspace_#number</em>); * <strong>Open Workspace</strong> – opens a dialog window, which enables the user to select and open an existing workspace; * <strong>Open Recent Workspace</strong> – presents a list of workspaces recently created by the user and enables the user to open one of them; * <strong>Save Workspace</strong> – saves the project file named by the system under the default name (<em>Workspace_#number</em>) and in a default location. The workspace can be re-opened at a later time; * <strong>Save Workspace As…</strong> – saves the current workspace under the name chosen by the user in the chosen location. The workspace can be re-opened at a later time; * <strong>Open Recent</strong> – presents a list of datasets recently used and enables the user to open one of them; * <strong>Exit</strong> – closes an application.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/File%20menu.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Text</figcaption><p></p>
+</figure>
+</div>
+<p><strong>The content of the <em>File</em> menu</strong></p>
+</section>
+<section id="statistical-methods" class="level3">
+<h3 class="anchored" data-anchor-id="statistical-methods">Statistical Methods</h3>
+<p>(here gui overview: contents of methods to dispatch preferably in A parts)</p>
+<p>The Statistical methods menu includes functionalities for modelling, analysis and the seasonal adjustment of a time series. They are divided into three groups: * <a href="#anomaly-detection">Anomaly Detection</a> – allows for a purely automatic identification of regression effects; * <a href="#modelling">Modelling</a> – enables time series modelling using the TRAMO and RegARIMA models; * <a href="#seasonal-adjustment">Seasonal adjustment</a> – intended for the seasonal adjustment of a time series with the TRAMO-SEATS and X-13ARIMA-SEATS methods.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/Statistical%20methods%20menu.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Text</figcaption><p></p>
+</figure>
+</div>
+<p><strong>The <em>Statistical methods</em> menu.</strong></p>
+</section>
+<section id="view" class="level3">
+<h3 class="anchored" data-anchor-id="view">View</h3>
+<p>The View menu contains functionalities that enable the user to modify how JDemetra+ is viewed. It offers the following items: * <strong>Split</strong> – the function is not operational in the current version of the software. * <strong>Toolbars</strong> – displays selected toolbars under the main menu. The <em>File</em> toolbar contains the <em>Save all</em> icon. The <em>Performance</em> toolbar includes two icons: one to show the performance of the application, the other to stop the application profiling and taking a snapshot. The <em>Other</em> toolbar determines the default behaviour of the program when the user double clicks on the data. It may be useful to plot the data, visualise it on a grid, or to perform any pre-specified action, e.g.&nbsp;execute a seasonal adjustment procedure. * <strong>Show Only Editor</strong> – displays only the <em>Results</em> panel and hides other windows (e.g.&nbsp;<em>Workspace</em> and <em>Providers</em>). * <strong>Full Screen</strong> – displays the current JDemetra+ view in full screen.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/View%20menu.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Text</figcaption><p></p>
+</figure>
+</div>
+<p><strong>The <em>View</em> menu</strong></p>
+</section>
+<section id="window-menu" class="level3">
+<h3 class="anchored" data-anchor-id="window-menu">Window menu</h3>
+<p>The <em>Window</em> menu offers several functions that facilitate the analysis of data and enables the user to adjust the interface view to the user’s needs.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/A_Ref51.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Text</figcaption><p></p>
+</figure>
+</div>
+<p><strong>The <em>Window</em> menu</strong></p>
+<ul>
+<li><p><strong>Preview Time Series</strong> – opens a window that plots any of the series the user selects from <em>Providers</em>.</p></li>
+<li><p><strong>Debug</strong> – opens a <em>Preview Time Series</em> window that enables a fast display of the graphs for time series from a large dataset. To display the graph click on the series in the <em>Providers</em> window.</p></li>
+<li><p><a href="../reference-manual/data-providers.html"><strong>Providers</strong></a> – opens (if closed) and activates the <em>Providers</em> window.</p></li>
+<li><p><a href="../reference-manual/user-defined-variables.html"><strong>Variables</strong></a> – opens (if closed) and activates the <em>Variable</em> window.</p></li>
+<li><p><a href="../reference-manual/workspace.html"><strong>Workspace</strong></a> – opens (if closed) and activates the <em>Workspace</em> window.</p></li>
+<li><p><strong>Output</strong> – a generic window to display outputs in the form of text; useful with certain plug-ins (e.g.&nbsp;tutorial descriptive statistics).</p></li>
+<li><p><strong>Editor</strong> – activates the editor panel (and update the main menu consequently).</p></li>
+<li><p><strong>Configure Window</strong> – enables the user to change the way that the window is displayed (maximise, float, float group, minimise, minimise group). This option is active when some window is displayed in the JD+ interface.</p></li>
+<li><p><strong>Properties</strong> – opens the <em>Properties</em> window and displays the properties of the marked item (e.g.&nbsp;time series, data source).</p></li>
+<li><p><strong>Reset Windows</strong> – restores the default JDemetra+ view.</p></li>
+<li><p><strong>Close Window</strong> – closes all windows that are open.</p></li>
+<li><p><strong>Close All Documents</strong> – closes all documents that are open.</p></li>
+<li><p><strong>Close Other Documents</strong> – closes all documents that are open except for the one that is active (which is the last activated one).</p></li>
+<li><p><strong>Document Groups</strong> – enables the user to create and manage the document groups.</p></li>
+<li><p><strong>Documents</strong> – lists all documents that are active.</p></li>
+</ul>
+</section>
+</section>
+<section id="providers-window" class="level2">
+<h2 class="anchored" data-anchor-id="providers-window">Providers window</h2>
+<p>The <em>Providers</em> window presents the list of the data sources and organises the imported series within each data provider.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/A_Ref5.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Text</figcaption><p></p>
+</figure>
+</div>
+<p><strong>The <em>Providers</em> window</strong></p>
+<p>The allowed data sources include: * JDBC; * ODBC; * SDMX; * Spreadsheets; * TSW; * TXT; * USCB; * XML.</p>
+<p>All standard databases (Oracle, SQLServer, DB2, MySQL) are supported by JDemetra+ via JDBC, which is a generic interface to many relational databases. Other providers can be added by users by creating plugins (see <em>Plugins</em> section in the <a href="tools.html">Tools</a> menu). To import data, right-click on the appropriate provider from the <em>Providers</em> panel and specify the required parameters. For all providers the procedure follows the same logic. An example is provided <a href="#import-data">here</a>.</p>
+<p>The <em>Providers</em> window organises data in a tree structure reflecting the manner in which data are presented in the original source. The picture below presents how JDemetra+ visualises the imported spreadsheet file. If the user expands all the pluses under the spreadsheet all the series within each sheet that has been loaded are visible. Here two time series are visible: <em>Japan</em> (under the <em>Asia</em> branch) and <em>United States</em> (under the <em>North America</em> branch) while the <em>Europe</em> branch is still folded. The names of the time series have been taken from the column headings of the spreadsheet while the names of the branches come from sheets’ names.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/A_Ref6.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Text</figcaption><p></p>
+</figure>
+</div>
+<p><strong>A structure of a dataset</strong></p>
+<p>Series uploaded to the <em>Providers</em> window can be <a href="../reference-manual/data-visualization.html">displayed</a>, modified and <a href="../case-studies/seasonalitytests.html">tested for seasonality</a> and used in estimation routines (see <a href="modelling.html">Modelling</a> and <a href="sa.html">Seasonal adjustment</a>). The data sources can be restored after re-starting the application so that there is no need to get them again. This functionality can be set in the <em>Behaviour</em> tab available at the <a href="../reference-manual/tools.html#options"><em>Option</em></a> item from the <a href="../reference-manual/tools.html"><em>Tools</em></a> menu.</p>
+<section id="spreadsheets" class="level3">
+<h3 class="anchored" data-anchor-id="spreadsheets">Spreadsheets</h3>
+<p>The Spreadsheets data source corresponds to the series prepared in the Excel file. The file should have true dates in the first column (or in the first row) and titles of the series in the corresponding cell of the first row (or in the first column). The top-left cell <span class="math display">\[A1\]</span> can include a text or it can be left empty. The empty cells are interpreted by JDemetra+ as missing values and they can appear in the beginning, in the middle and in the end of time series.</p>
+<p>An example is presented below:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/Aimage5.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Text</figcaption><p></p>
+</figure>
+</div>
+<p><strong>Example of an Excel spreadsheet that can be imported to JDemetra+</strong></p>
+<p>Time series are identified by their names. JDemetra+ derives some information (like data periodicity, starting and ending period) directly from the first column (or from the first row, depending on the chosen data orientation (vertical or horizontal)).</p>
+</section>
+<section id="import-data" class="level3">
+<h3 class="anchored" data-anchor-id="import-data">Import data</h3>
+<p>To import data from a given data source, click on this data source in the <em>Providers</em> window shown below, choose <em>Open</em> option and specify the import details, such as a path to a data file. These details vary according to data providers. The example below show how to import the data from an Excel file.</p>
+<ol type="1">
+<li><p>From the <em>Providers</em> window right-click on the <em>Spreadsheets</em> branch and choose <em>Open</em> option.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/Aimage6.jpeg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Text</figcaption><p></p>
+</figure>
+</div>
+<p><strong>Data provider available by default</strong></p></li>
+<li><p>The <em>Open data source</em> window contains the following options:</p>
+<ul>
+<li><p><strong>Spreadsheet file</strong> – a path to access the Excel file.</p></li>
+<li><p><strong>Data format</strong> – the data format used to read dates and values. It includes three fields: <em>locale</em> (country), <em>date pattern</em> (data format, e.g.&nbsp;<em>yyyy-mm-dd</em>), <em>number pattern</em> (a metaformat of numeric value, e.g.&nbsp;0.## represents two digit number).</p></li>
+<li><p><strong>Frequency</strong> – time series frequency. This can be undefined, yearly, half-yearly, four-monthly, quarterly, bi-monthly, or monthly. When the frequency is set to undefined, JDemetra+ determines the time series frequency by analysing the sequence of dates in the file.</p></li>
+<li><p><strong>Aggregation type</strong> – the type of aggregation (over time for each time series in the dataset) for the imported time series. This can be <em>None</em>, <em>Sum</em>, <em>Average</em>, <em>First</em>, <em>Last</em>, <em>Min</em> or <em>Max</em>. The aggregation can be performed only if the <em>frequency</em> parameter is specified. For example, when frequency is set to <em>Quarterly</em> and aggregation type is set to <em>Average</em>, a monthly time series is transformed to quarterly one with values that are equal to the one third of the sum of the monthly values that belong to the corresponding calendar quarter.</p></li>
+<li><p><strong>Clean missing</strong> – erases the missing values of the series.</p></li>
+</ul>
+<p>Next, in the <em>Source</em> section click the grey “….” button (see below) to open the file.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/Aimage7.jpeg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Text</figcaption><p></p>
+</figure>
+</div>
+<p><strong>Data source window</strong></p></li>
+<li><p>Choose a file and click <em>OK</em>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/Aimage8.jpeg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Text</figcaption><p></p>
+</figure>
+</div>
+<p><strong>Choice of an Excel spreadsheet</strong></p></li>
+<li><p>The user may specify <em>Data format</em>, <em>Frequency</em> and <em>Aggregation type</em>, however this step is not compulsory. When these options are specified JDemetra+ is able to convert the time series frequency. Otherwise, the functionality that enables the time series frequency to be converted will not be available.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/Aimage9.jpeg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Text</figcaption><p></p>
+</figure>
+</div>
+<p><strong>Options for importing data</strong></p></li>
+<li><p>The data are organized in a tree structure.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/Aimage10.jpeg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Text</figcaption><p></p>
+</figure>
+</div>
+<p><strong>Dataset structure</strong></p>
+<p>Once the data has been successfully imported, it is available to the user for various analyses (e.g.&nbsp;visualization, modelling, seasonal adjustment, etc.)</p></li>
+</ol>
+<p>The data are organized in a tree structure. If you expand all the plus-signs under the spreadsheet you will see all the series within each sheet that has been loaded. Here all time series are visible under the Production in construction branch. The names of time series have been taken from the columns’ headings of the spreadsheet while the names of the branches come from sheets’ names.</p>
+</section>
+</section>
+<section id="workspace-window" class="level2">
+<h2 class="anchored" data-anchor-id="workspace-window">Workspace window</h2>
+<p>Restructure: present all the nodes</p>
+<p>Workspace is a JDemetra+ functionality that stores the work performed by the user in a coherent and structured way. By default, each workspace contains the pre-defined modelling and seasonal adjustment specifications and a basic calendar. A specification is a set of modelling and/or seasonal adjustment parameters. Within the workspace the following items can be saved: * <a href="../reference-manual/modelling-specifications.html#user-definedSpec">User-defined modelling specifications</a> and <a href="../reference-manual/sa-specifications.html">seasonal adjustment specifications</a>; * Documents that contain <a href="../reference-manual/output-modelling.html">results from time series modelling</a> and <a href="../reference-manual/output.html">output from the seasonal adjustment process</a>; * <a href="../reference-manual/calendars.html">User-defined calendars</a>; * <a href="../reference-manual/user-defined-variables.html">User-defined regression variables</a>.</p>
+<p>Together with the results from modelling and seasonal adjustment, the original data, paths to the input files and parameters of processes are all saved. These results can then be re-opened, updated, investigated and modified in further JDemetra+ sessions.</p>
+<p>The workspace saved by JDemetra+ includes: * Main folder containing several folders that correspond to the different types of items created by the user and; * The xml file that enables the user to import the workspace to the application and to display its content.</p>
+<p>An example of the workspace is shown in the figure below.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/A_Ref7.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Text</figcaption><p></p>
+</figure>
+</div>
+<p><strong>A workspace saved on PC</strong></p>
+<p>The workspace can be shared with other users, which eases the burden of work with defining specifications, modelling and seasonal adjustment processes.</p>
+<p>The content of the workspace is presented in the <em>Workspace</em> window. It is divided into three sections: * <a href="../reference-manual/modelling.html">Modelling</a> (contains the default and user-defined specifications for modelling; and the output from the modelling process) * <a href="../reference-manual/sa.html">Seasonal adjustment</a> (contains the default and user-defined specifications for seasonal adjustment and the output from the seasonal adjustment process), * Utilities (<a href="calendars.html">calendars</a> and <a href="user-defined-variables.html">user defined variables</a>).</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/A_Ref8.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Text</figcaption><p></p>
+</figure>
+</div>
+<p><strong>The <em>Workspace</em> window</strong></p>
+</section>
+<section id="results-panel" class="level2">
+<h2 class="anchored" data-anchor-id="results-panel">Results panel</h2>
+<p>The blank zone in the figure above (on the right of the view) is the location where JDemetra+ displays various windows. More than one window can be displayed at the same time. Windows can overlap with each other with the foremost window being the one in focus or active. The active window has a darkened title bar. <a href="../reference-manual/window.html">The windows in the results panel can be arranged in many different ways</a>, depending on the user’s needs. The example below shows one of the possible views of this panel. The results of the user’s analysis are displayed in an accompanying window. The picture below shows two panels – a window containing seasonal adjustment results (upper panel) and another one containing an autoregressive spectrum (lower panel).</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/A_Ref9.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Text</figcaption><p></p>
+</figure>
+</div>
+<p><strong>The <em>Results</em> panel filled with two windows</strong></p>
+</section>
+<section id="data-visualisation" class="level2">
+<h2 class="anchored" data-anchor-id="data-visualisation">Data Visualisation</h2>
+</section>
+<section id="generating-output" class="level2">
+<h2 class="anchored" data-anchor-id="generating-output">Generating Output</h2>
+<p>add : some explanations + link to cruncher (production chapter)</p>
+<section id="steps" class="level3">
+<h3 class="anchored" data-anchor-id="steps">Steps</h3>
+<ol type="1">
+<li><p>Once a seasonal adjustment process for the dataset is performed Go to the TOP menu bar and follow the path: <em>SAProcessing</em> → <em>Output…</em></p></li>
+<li><p>In the <em>Batch output</em> window the user can specify which output items will be saved and the folder in which JDemetra+ saves the results. It is possible to save the results in the <em>TXT</em>, <em>XLS</em>, <em>CSV</em>, and <em>CSV matrix</em> formats. In the first step the user should choose the output format from the list.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/UDimage6.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Text</figcaption><p></p>
+</figure>
+</div>
+<p><strong>Default output formats</strong></p></li>
+<li><p>The user may choose more than one format as the output can be generated in different formats at the same time.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/UDimage7.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Text</figcaption><p></p>
+</figure>
+</div>
+<p><strong>Adding an output format to the list</strong></p></li>
+<li><p>To display and modify the settings click on the given output format on the list. The available options depend on the output format.</p></li>
+<li><p>For <em>Csv</em> format the following options are available: <em>folder</em> (location of the file), <em>file prefix</em> (name of the file), <em>presentation</em> (controls how the output is divided into separate files) and <em>series</em> (series included in the file). These options are presented in the next points of this case study.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/UDimage8.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Text</figcaption><p></p>
+</figure>
+</div>
+<p><strong>Options for a <em>Csv</em> format</strong></p></li>
+<li><p>The user can define the folder in which the selected results and components will be saved (click the <em>folder</em> item and choose the final destination).</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/UDimage9.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Text</figcaption><p></p>
+</figure>
+</div>
+<p><strong>Specifying a destination folder</strong></p></li>
+<li><p>With the option <em>File Prefix</em> the user can modify the default name of the output saved in the CSV file.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/UDimage10.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Text</figcaption><p></p>
+</figure>
+</div>
+<p><strong>Setting a <em>File Prefix</em> option</strong></p></li>
+<li><p><em>Layout</em> controls how the output is divided into separate files. Expand the list to display available options:</p>
+<ul>
+<li><p><em>HTable</em> – the output series will be presented in the form of horizontal tables (time series in rows).</p></li>
+<li><p><em>VTable</em> – the output series will be presented in the form of vertical tables (time series in columns).</p></li>
+<li><p><em>List</em> – the output series will be presented in the form of vertical tables (time series in rows). Apart from that, for each time series each file contains in separate columns: the data frequency, the first year and of estimation span, the first period (month or quarter) of observation span and the number of observations. The files do not include dates.</p></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/UDimage11.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Text</figcaption><p></p>
+</figure>
+</div>
+<p><strong>Layout options for a <em>Csv</em> format</strong></p></li>
+<li><p>The <em>Content</em> section presents <a href="../theory/output.html">a list of series that will be included into a set of output files</a>. To modify the initial settings click on the grey button in the <em>Content</em> section. The <em>CVS-series</em> window presents two panels: the panel on the left includes a list of all valuable output items. The panel on the right presents the selected output items. Mark the series and use the arrows to change the settings. Confirm your choice with the <em>OK</em> button.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/UDimage12.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Text</figcaption><p></p>
+</figure>
+</div>
+<p><strong>Specifying a content of the output file</strong></p></li>
+<li><p>Options available for the <em>XLS</em> format are the same as for the <em>TXT</em> format with an exception of the <em>Layout</em> section. The list of available codes in the <em>Content</em> section is given <a href="../theory/output.html">here</a>.</p>
+<ul>
+<li><p><em>BySeries</em> – all results for a given time series are placed in one sheet;</p></li>
+<li><p><em>ByComponent</em> – results are grouped by components. Each component type is saved in a separate sheet.</p></li>
+<li><p><em>OneSheet</em> – all results are saved in one sheet.</p></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/UDimage13.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Text</figcaption><p></p>
+</figure>
+</div>
+<p><strong>Layout options for an <em>Excel</em> format</strong></p></li>
+<li><p>If the user sets the option layout to <em>ByComponent</em>, the output will be generated as follows:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/UDimage14.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Text</figcaption><p></p>
+</figure>
+</div>
+<p><strong>An Excel file view for the <em>ByComponent</em> option</strong></p></li>
+<li><p>The option <em>OneSheet</em> will produce the following <em>XLS</em> file:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/UDimage15.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Text</figcaption><p></p>
+</figure>
+</div>
+<p><strong>An Excel file view for the <em>OneSheet</em> option</strong></p></li>
+<li><p>By default, the series in the Excel output files are organised vertically. When the user unmarks the check box the horizontal orientation is used.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/UDimage16.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Text</figcaption><p></p>
+</figure>
+</div>
+<p><strong>The <em>VerticalOrientatio</em>n option</strong></p></li>
+<li><p>In the case of the <em>TXT</em> format the only available options are <em>folder</em> (location of the file) and <em>series</em> (results included in the output file). The list of available codes in the <em>Content</em> section is given <a href="../theory/output.html">here</a>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/UDimage17.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Text</figcaption><p></p>
+</figure>
+</div>
+<p><strong>Options for the <em>Txt</em> output</strong></p></li>
+<li><p>The <em>CSV matrix</em> produces the CSV file containing information about the model and quality diagnostics of the seasonal adjustment. The user may generate the list of default items or create their own quality report. By default, all the available items are included in the output. The list of the items is given <a href="../theory/output.html">here</a>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/UDimage18.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Text</figcaption><p></p>
+</figure>
+</div>
+<p><strong>List of items available for the <em>Csv matrix</em> output type</strong></p></li>
+<li><p>Once the output settings are selected, click the <em>OK</em> button.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/UDimage19.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Text</figcaption><p></p>
+</figure>
+</div>
+<p><strong>Options for the <em>Csv matrix</em> output</strong></p></li>
+<li><p>For each output JDemetra+ provides information on the status of the operation. An example is presented below.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/UDimage20.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Text</figcaption><p></p>
+</figure>
+</div>
+<p><strong>Generating output - status information</strong></p></li>
+</ol>
+</section>
+<section id="output-items" class="level3">
+<h3 class="anchored" data-anchor-id="output-items">Output items</h3>
+<p>intro add : outputs common with R packages</p>
+<p>The CSV, TXT and XLS outputs of JDemetra+ may contain the items shown in table below.</p>
+<p>A list of output items of JDemetra+ CSV, TXT and XLS formats.</p>
+<p>TABLES to be inserted - one for series - one for diagnostics and parameters</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
