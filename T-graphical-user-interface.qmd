@@ -172,7 +172,7 @@ The following functionalities are available from the *Tools* menu:
 
 **The *Tools* menu**
 
-### Container {#container}
+#### Container {#container}
 
 *Container* includes basic tools to display the data. The following items are available: *Chart*, *Grid*, *Growth Chart* and *List*.
 
@@ -306,7 +306,7 @@ For a selected series a local menu offers an extended list of options. The expla
 
 **Options available for a selected series from the list**
 
-### Spectral analysis {#spectral-analysis}
+#### Spectral analysis {#spectral-analysis}
 
 The *Spectral analysis* section provides three spectral graphs that allows an in-depth analysis of a time series in the frequency domain. These graphs are the *Auto-regressive Spectrum*, the *Periodogram* and the *Tukey Spectrum*. For more information the user may study [a basic desription of spectral analysis](../theory/spectral.html) and [a detailed presentation of the abovementioned tools](../case-studies/spectralgraphs.html).
 
@@ -314,7 +314,7 @@ The *Spectral analysis* section provides three spectral graphs that allows an in
 
 **Tools for spectral analysis**
 
-### Aggregation {#aggregation}
+#### Aggregation {#aggregation}
 
 *Aggregation* calculates the sum of the selected series and provides basic information about the selected time series, including the start and end date, the number of observations and a sketch of the data graph, in the same way as in the *List* functionality. *Aggregation* opens an empty window. To sum the selected series, drag and drop them from the *Providers* window into the *Aggregation* window. Right click displays the local menu with the available options. The content of the local menu depends on the panel chosen (the panel on the left that contains the list of the series and the panel on the right that presents the graph of an aggregate). The local menu for the list of series offers the option *Select by frequency*, which marks all the series on the list that are yearly, half-yearly, quarterly or monthly (depending on the user's choice). The explanation of the other options can be found below in the '*Local menu options for chart*' figure in the [*Container*](#container) section. The local menu for the panel on the left offers functionalities that are analogous to the ones that are available for the *List* functionalities, while the options available for the local menu in the panel on the left are the same as the ones available in *Chart* (see [*Container*](#container)).
 
@@ -322,7 +322,7 @@ The *Spectral analysis* section provides three spectral graphs that allows an in
 
 **The *Aggregation* tool**
 
-### Differencing {#differencing}
+#### Differencing {#differencing}
 
 The *Differencing* window displays the first regular differences for the selected time series together with the corresponding periodogram and the PACF function. By default, the window presents the results for non-seasonally and seasonally differenced series \\(\left( d = 1,D = 1 \right)\\). These settings can be changed through the *Properties* window (*Tools* *→ Properties*). A description of a periodogram and the PACF function can be found [here](../theory/spectral_periodogram.html).
 
@@ -338,7 +338,7 @@ The typical results are shown below. The bottom left graph presents the partial 
 
 For the *Partial autocorrelation* and the *Periodogram* panels the right-button menu offers "a copy series" option that allows data to be exported to another application and a graph to be printed and saved to a clipboard or as a jpg file. Information about the partial autocorrelation function is given [here](../theory/ACF_and_PACF.html). The description of a periodogram is presented in [the Spectral graphs scenario](../case-studies/spectralgraphs.html).
 
-### Spreadsheet profiler {#spreadsheet-profiler}
+#### Spreadsheet profiler {#spreadsheet-profiler}
 
 The *Spreadsheet profiler* offers an Excel-type view of the XLS file imported to JDemetra+. To use this functionality drag the file name from the *Providers* window and drop it to the empty *Spreadsheet profiler* window.
 
@@ -346,11 +346,11 @@ The *Spreadsheet profiler* offers an Excel-type view of the XLS file imported to
 
 **The *Spreadsheet Profiler* window**
 
-### Plugins {#plugins}
+#### Plugins {#plugins}
 
 Installation an fuctionnalities of plugins are described in the related [chapter](T-plug-ins.qmd)
 
-### Options {#options}
+#### Options {#options}
 
 The *Options* window includes five main panels: *Demetra*, *General*, *Keymap*, *Appearance* and *Miscellaneous*. They are visible in the very top of the *Options* window.
 
