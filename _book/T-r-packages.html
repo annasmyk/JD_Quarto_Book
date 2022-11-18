@@ -320,12 +320,28 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#available-algorithms" id="toc-available-algorithms" class="nav-link active" data-scroll-target="#available-algorithms">Available algorithms</a></li>
-  <li><a href="#organisation-overview" id="toc-organisation-overview" class="nav-link" data-scroll-target="#organisation-overview">Organisation overview</a>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#available-functions-and-algorithms" id="toc-available-functions-and-algorithms" class="nav-link" data-scroll-target="#available-functions-and-algorithms">Available functions and algorithms</a>
+  <ul class="collapse">
+  <li><a href="#seasonal-adjustment" id="toc-seasonal-adjustment" class="nav-link" data-scroll-target="#seasonal-adjustment">Seasonal adjustment</a></li>
+  <li><a href="#filtering-and-trend-estimation" id="toc-filtering-and-trend-estimation" class="nav-link" data-scroll-target="#filtering-and-trend-estimation">Filtering and Trend estimation</a></li>
+  <li><a href="#benchmarking-and-temporal-disaggregation" id="toc-benchmarking-and-temporal-disaggregation" class="nav-link" data-scroll-target="#benchmarking-and-temporal-disaggregation">Benchmarking and Temporal disaggregation</a></li>
+  <li><a href="#state-space-framework" id="toc-state-space-framework" class="nav-link" data-scroll-target="#state-space-framework">State space framework</a></li>
+  <li><a href="#running-the-cruncher-and-generating-quality-report" id="toc-running-the-cruncher-and-generating-quality-report" class="nav-link" data-scroll-target="#running-the-cruncher-and-generating-quality-report">Running the cruncher and generating quality report</a></li>
+  <li><a href="#wrangling-jd-workspaces" id="toc-wrangling-jd-workspaces" class="nav-link" data-scroll-target="#wrangling-jd-workspaces">Wrangling JD+ workspaces</a></li>
+  <li><a href="#generating-additionnal-output" id="toc-generating-additionnal-output" class="nav-link" data-scroll-target="#generating-additionnal-output">Generating additionnal output</a></li>
+  </ul></li>
+  <li><a href="#structure-of-the-packages" id="toc-structure-of-the-packages" class="nav-link" data-scroll-target="#structure-of-the-packages">Structure of the packages</a>
   <ul class="collapse">
   <li><a href="#rjdemetra-and-jd-version-2.2.3" id="toc-rjdemetra-and-jd-version-2.2.3" class="nav-link" data-scroll-target="#rjdemetra-and-jd-version-2.2.3">RJDemetra and JD+ version 2.2.3</a></li>
+  <li><a href="#version-3" id="toc-version-3" class="nav-link" data-scroll-target="#version-3">version 3</a></li>
+  <li><a href="#mixing-v2-and-v3" id="toc-mixing-v2-and-v3" class="nav-link" data-scroll-target="#mixing-v2-and-v3">Mixing v2 and V3</a></li>
   </ul></li>
-  <li><a href="#installation-procedure" id="toc-installation-procedure" class="nav-link" data-scroll-target="#installation-procedure">Installation procedure</a></li>
+  <li><a href="#installation-procedure" id="toc-installation-procedure" class="nav-link" data-scroll-target="#installation-procedure">Installation procedure</a>
+  <ul class="collapse">
+  <li><a href="#version-2" id="toc-version-2" class="nav-link" data-scroll-target="#version-2">version 2</a></li>
+  <li><a href="#version-3-1" id="toc-version-3-1" class="nav-link" data-scroll-target="#version-3-1">version 3</a></li>
+  </ul></li>
   <li><a href="#utility-packages" id="toc-utility-packages" class="nav-link" data-scroll-target="#utility-packages">Utility packages</a>
   <ul class="collapse">
   <li><a href="#rjd3toolkit" id="toc-rjd3toolkit" class="nav-link" data-scroll-target="#rjd3toolkit">rjd3toolkit</a></li>
@@ -345,7 +361,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#rjd3highfreq" id="toc-rjd3highfreq" class="nav-link" data-scroll-target="#rjd3highfreq">rjd3highfreq</a></li>
   <li><a href="#rjd3stl" id="toc-rjd3stl" class="nav-link" data-scroll-target="#rjd3stl">rjd3stl</a></li>
   </ul></li>
-  <li><a href="#add-in-package" id="toc-add-in-package" class="nav-link" data-scroll-target="#add-in-package">Add-in package</a>
+  <li><a href="#add-in-packages" id="toc-add-in-packages" class="nav-link" data-scroll-target="#add-in-packages">Add-in packages</a>
   <ul class="collapse">
   <li><a href="#ggdemetra" id="toc-ggdemetra" class="nav-link" data-scroll-target="#ggdemetra">ggdemetra</a></li>
   <li><a href="#ggdemetra3" id="toc-ggdemetra3" class="nav-link" data-scroll-target="#ggdemetra3">ggdemetra3</a></li>
@@ -388,16 +404,29 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 </header>
 
-<section id="available-algorithms" class="level2">
-<h2 class="anchored" data-anchor-id="available-algorithms">Available algorithms</h2>
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p>Core JDemetra (java) algorithms can be accessied via several tools: - Graphical User Interface <a href="T-graphical-user_interface.qmd">GUI</a> - …enhanced with additionnal <a href="./T-plug-ins.html">plug-ins</a> - <code>R</code> packages</p>
+<ul>
+<li>core packages</li>
+<li>addtionnal ones</li>
+</ul>
+<p>version 2 vs version 3</p>
+<p>here over view + general structure for more details on functions - setp 1 relevant algorithms chapters (SA,…), outlines context - Set 2 R help pages (how to link this ?)</p>
+</section>
+<section id="available-functions-and-algorithms" class="level2">
+<h2 class="anchored" data-anchor-id="available-functions-and-algorithms">Available functions and algorithms</h2>
+<p>What JD+ core algorithms can be accessed ? V2 and V3 ?</p>
+<section id="seasonal-adjustment" class="level3">
+<h3 class="anchored" data-anchor-id="seasonal-adjustment">Seasonal adjustment</h3>
 <table class="table">
 <caption>Main Algorithms accessible via R packages</caption>
 <colgroup>
-<col style="width: 24%">
-<col style="width: 41%">
-<col style="width: 16%">
-<col style="width: 11%">
-<col style="width: 5%">
+<col style="width: 17%">
+<col style="width: 30%">
+<col style="width: 17%">
+<col style="width: 17%">
+<col style="width: 17%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -488,9 +517,117 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </tr>
 </tbody>
 </table>
+<p>when package mentionned in table, add link to the relavant detailed part</p>
 </section>
-<section id="organisation-overview" class="level2">
-<h2 class="anchored" data-anchor-id="organisation-overview">Organisation overview</h2>
+<section id="filtering-and-trend-estimation" class="level3">
+<h3 class="anchored" data-anchor-id="filtering-and-trend-estimation">Filtering and Trend estimation</h3>
+</section>
+<section id="benchmarking-and-temporal-disaggregation" class="level3">
+<h3 class="anchored" data-anchor-id="benchmarking-and-temporal-disaggregation">Benchmarking and Temporal disaggregation</h3>
+</section>
+<section id="state-space-framework" class="level3">
+<h3 class="anchored" data-anchor-id="state-space-framework">State space framework</h3>
+</section>
+<section id="running-the-cruncher-and-generating-quality-report" class="level3">
+<h3 class="anchored" data-anchor-id="running-the-cruncher-and-generating-quality-report">Running the cruncher and generating quality report</h3>
+<p><a href="T_cruncher.qmd">the cruncher</a> nb</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Package</th>
+<th>JD+ version</th>
+<th>Comments</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>rjwsacruncher</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>JDcruncher</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="wrangling-jd-workspaces" class="level3">
+<h3 class="anchored" data-anchor-id="wrangling-jd-workspaces">Wrangling JD+ workspaces</h3>
+<p>A workspace (link) is..here…</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Package</th>
+<th>JD+ version</th>
+<th>Comments</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>rjdworkspace</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>rjd</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="generating-additionnal-output" class="level3">
+<h3 class="anchored" data-anchor-id="generating-additionnal-output">Generating additionnal output</h3>
+<p>enhancing plots, prints</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Package</th>
+<th>JD+ version</th>
+<th>Comments</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>rjdmarkdown</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>ggdemetra</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>ggdemetra3</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>rjdqa</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="structure-of-the-packages" class="level2">
+<h2 class="anchored" data-anchor-id="structure-of-the-packages">Structure of the packages</h2>
+<p>see if relevant part</p>
+<p>form of output type of functions how v3 differs from v2</p>
 <section id="rjdemetra-and-jd-version-2.2.3" class="level3">
 <h3 class="anchored" data-anchor-id="rjdemetra-and-jd-version-2.2.3">RJDemetra and JD+ version 2.2.3</h3>
 <p>Note on RJDemetra</p>
@@ -500,34 +637,50 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>utility packages</p>
 <p>general output organisation</p>
 </section>
+<section id="version-3" class="level3">
+<h3 class="anchored" data-anchor-id="version-3">version 3</h3>
+</section>
+<section id="mixing-v2-and-v3" class="level3">
+<h3 class="anchored" data-anchor-id="mixing-v2-and-v3">Mixing v2 and V3</h3>
+<p>what is doable ?</p>
+</section>
 </section>
 <section id="installation-procedure" class="level2">
 <h2 class="anchored" data-anchor-id="installation-procedure">Installation procedure</h2>
+<section id="version-2" class="level3">
+<h3 class="anchored" data-anchor-id="version-2">version 2</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages("remotes")</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"palatej/rjd3toolkit"</span>)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"palatej/rjd3modelling"</span>)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"palatej/rjd3sa"</span>)</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"palatej/rjd3arima"</span>)</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"palatej/rjd3x13"</span>)</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"palatej/rjd3tramoseats"</span>)</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"palatej/rjdemetra3"</span>)</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"palatej/rjdfilters"</span>)</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"palatej/rjd3sts"</span>)</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"palatej/rjd3highfreq"</span>)</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"palatej/rjd3stl"</span>)</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"palatej/rjd3bench"</span>)</span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"AQLT/ggdemetra3"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"RJDemetra"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="version-3-1" class="level3">
+<h3 class="anchored" data-anchor-id="version-3-1">version 3</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">#install.packages("remotes")</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"palatej/rjd3toolkit"</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"palatej/rjd3modelling"</span>)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"palatej/rjd3sa"</span>)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"palatej/rjd3arima"</span>)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"palatej/rjd3x13"</span>)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"palatej/rjd3tramoseats"</span>)</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"palatej/rjdemetra3"</span>)</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"palatej/rjdfilters"</span>)</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"palatej/rjd3sts"</span>)</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"palatej/rjd3highfreq"</span>)</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"palatej/rjd3stl"</span>)</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"palatej/rjd3bench"</span>)</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"AQLT/ggdemetra3"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Below you will find a comprehensive list and main functions by categories</p>
 <p>for detailed function, you can refer to each package’s own R documentation</p>
 </section>
+</section>
 <section id="utility-packages" class="level2">
 <h2 class="anchored" data-anchor-id="utility-packages">Utility packages</h2>
+<p>might not be the right title relevant for V3 only ? cf estp adv, arima aux functions</p>
 <section id="rjd3toolkit" class="level3">
 <h3 class="anchored" data-anchor-id="rjd3toolkit">rjd3toolkit</h3>
-<p>Contains several utility functions used in other <code>rjd</code> packages and several functions to perform test.</p>
-<p>Utility</p>
+<p>Contains utility functions used in other <code>rjd</code> packages and several functions to perform tests.</p>
 <p>Tests - Normality tests: Bowman-Shenton (<code>bowmanshenton()</code>), Doornik-Hansen (<code>doornikhansen()</code>), Jarque-Bera (<code>jarquebera()</code>)</p>
 <ul>
 <li><p>Runs tests (randomness of data): mean or the median (<code>testofruns()</code>) or up and down runs test (<code>testofupdownruns()</code>)</p></li>
@@ -536,24 +689,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <p>Example</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rjd3toolkit)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">100</span>)</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>x <span class="ot">=</span> <span class="fu">rnorm</span>(<span class="dv">1000</span>);y <span class="ot">=</span> <span class="fu">rlnorm</span>(<span class="dv">1000</span>)</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">bowmanshenton</span>(x) <span class="co"># normal distribution</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">bowmanshenton</span>(y) <span class="co"># log-normal distribution</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="fu">testofruns</span>(x) <span class="co"># random data</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="fu">testofruns</span>(y) <span class="co"># random data</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="fu">testofruns</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">1000</span>) <span class="co"># non-random data</span></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="fu">autocorrelations</span>(x)</span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="fu">autocorrelations.inverse</span>(x)</span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="fu">autocorrelations.partial</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rjd3toolkit)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">100</span>)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>x <span class="ot">=</span> <span class="fu">rnorm</span>(<span class="dv">1000</span>);y <span class="ot">=</span> <span class="fu">rlnorm</span>(<span class="dv">1000</span>)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">bowmanshenton</span>(x) <span class="co"># normal distribution</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="fu">bowmanshenton</span>(y) <span class="co"># log-normal distribution</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="fu">testofruns</span>(x) <span class="co"># random data</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="fu">testofruns</span>(y) <span class="co"># random data</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="fu">testofruns</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">1000</span>) <span class="co"># non-random data</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="fu">autocorrelations</span>(x)</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="fu">autocorrelations.inverse</span>(x)</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="fu">autocorrelations.partial</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="rjd3modelling" class="level3">
 <h3 class="anchored" data-anchor-id="rjd3modelling">rjd3modelling</h3>
-<p>Purpose : creating input variables (regressors) for to be used in Reg-Arima</p>
+<p>Purpose : creating input variables (regressors) for to be used in Reg-Arima modelling</p>
 <ul>
-<li><p>create user-defined calendar and trading-days regressors: <code>calendar.new()</code> (create a new calendar), <code>calendar.holiday()</code> (add a specific holiday, e.g.&nbsp;christmas), <code>calendar.easter()</code> (easter related day) and <code>calendar.fixedday()</code>)</p></li>
+<li><p>create user-defined calendar and trading-days regressors: <code>calendar.new()</code> (create a new calendar), <code>calendar.holiday()</code> (add a specific holiday, e.g.&nbsp;christmas), <code>calendar.easter()</code> (easter related day) and <code>calendar.fixedday()</code>) (for tecnical details on building those regressors link to calendar chapter)</p></li>
 <li><p>outliers regressors (AO, LS, TC, SO, Ramp, intervention variables), calendar related regressors (stock, leap year, periodic dummies and contrasts, trigonometric variables) -&gt; to be added quadratic ramps</p></li>
 <li><p>Range-mean regression test (to choose log transformation), Canova-Hansen (<code>td.ch()</code>) and trading-days f-test (<code>td.f()</code>)</p></li>
 <li><p>specification functions for <code>rjd3x13</code> and <code>rjd3tramoseats</code></p></li>
@@ -561,56 +714,58 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>more explanations and examples needed here</p>
 <section id="example-of-calendar-specification" class="level4">
 <h4 class="anchored" data-anchor-id="example-of-calendar-specification">Example of calendar specification</h4>
+<p>move to calendar chapter</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rjd3modelling)</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>fr_cal <span class="ot">&lt;-</span> <span class="fu">calendar.new</span>()</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">calendar.holiday</span>(fr_cal, <span class="st">"NEWYEAR"</span>)</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">calendar.holiday</span>(fr_cal, <span class="st">"EASTERMONDAY"</span>)</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="fu">calendar.holiday</span>(fr_cal, <span class="st">"MAYDAY"</span>)</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="fu">calendar.fixedday</span>(fr_cal, <span class="at">month =</span> <span class="dv">5</span>, <span class="at">day =</span> <span class="dv">8</span>,</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>                  <span class="at">start =</span> <span class="st">"1953-03-20"</span>)</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co"># calendar.holiday(fr_cal, "WHITMONDAY") # Equivalent to:</span></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="fu">calendar.easter</span>(fr_cal, <span class="at">offset =</span> <span class="dv">61</span>)</span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="fu">calendar.fixedday</span>(fr_cal, <span class="at">month =</span> <span class="dv">7</span>, <span class="at">day =</span> <span class="dv">14</span>)</span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="co"># calendar.holiday(fr_cal, "ASSUMPTION")</span></span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="fu">calendar.easter</span>(fr_cal, <span class="at">offset =</span> <span class="dv">61</span>)</span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="fu">calendar.holiday</span>(fr_cal, <span class="st">"ALLSAINTSDAY"</span>)</span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="fu">calendar.holiday</span>(fr_cal, <span class="st">"ARMISTICE"</span>)</span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="fu">calendar.holiday</span>(fr_cal, <span class="st">"CHRISTMAS"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rjd3modelling)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>fr_cal <span class="ot">&lt;-</span> <span class="fu">calendar.new</span>()</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">calendar.holiday</span>(fr_cal, <span class="st">"NEWYEAR"</span>)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="fu">calendar.holiday</span>(fr_cal, <span class="st">"EASTERMONDAY"</span>)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="fu">calendar.holiday</span>(fr_cal, <span class="st">"MAYDAY"</span>)</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="fu">calendar.fixedday</span>(fr_cal, <span class="at">month =</span> <span class="dv">5</span>, <span class="at">day =</span> <span class="dv">8</span>,</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>                  <span class="at">start =</span> <span class="st">"1953-03-20"</span>)</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co"># calendar.holiday(fr_cal, "WHITMONDAY") # Equivalent to:</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="fu">calendar.easter</span>(fr_cal, <span class="at">offset =</span> <span class="dv">61</span>)</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="fu">calendar.fixedday</span>(fr_cal, <span class="at">month =</span> <span class="dv">7</span>, <span class="at">day =</span> <span class="dv">14</span>)</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="co"># calendar.holiday(fr_cal, "ASSUMPTION")</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="fu">calendar.easter</span>(fr_cal, <span class="at">offset =</span> <span class="dv">61</span>)</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="fu">calendar.holiday</span>(fr_cal, <span class="st">"ALLSAINTSDAY"</span>)</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="fu">calendar.holiday</span>(fr_cal, <span class="st">"ARMISTICE"</span>)</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="fu">calendar.holiday</span>(fr_cal, <span class="st">"CHRISTMAS"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Use <code>holidays()</code> to get the days of the holidays and <code>htd()</code> to get the trading days regressors</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">holidays</span>(fr_cal, <span class="st">"2020-12-24"</span>, <span class="dv">10</span>,<span class="at">single =</span> T)</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>s <span class="ot">=</span> <span class="fu">ts</span>(<span class="dv">0</span>, <span class="at">start =</span> <span class="dv">2020</span>, <span class="at">end =</span> <span class="fu">c</span>(<span class="dv">2020</span>, <span class="dv">11</span>), <span class="at">frequency =</span> <span class="dv">12</span>)</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Trading-days regressors (each day has a different effect, sunday as contrasts)</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>td_reg <span class="ot">&lt;-</span> <span class="fu">htd</span>(fr_cal, <span class="at">s =</span> s, <span class="at">groups =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">0</span>))</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Working-days regressors (Monday = ... = Friday; Saturday = Sunday = contrasts)</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>wd_reg <span class="ot">&lt;-</span> <span class="fu">htd</span>(fr_cal, <span class="at">s =</span> s, <span class="at">groups =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>))</span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Monday = ... = Friday; Saturday; Sunday = contrasts</span></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>wd_reg <span class="ot">&lt;-</span> <span class="fu">htd</span>(fr_cal, <span class="at">s =</span> s, <span class="at">groups =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">0</span>))</span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>wd_reg</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">holidays</span>(fr_cal, <span class="st">"2020-12-24"</span>, <span class="dv">10</span>,<span class="at">single =</span> T)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>s <span class="ot">=</span> <span class="fu">ts</span>(<span class="dv">0</span>, <span class="at">start =</span> <span class="dv">2020</span>, <span class="at">end =</span> <span class="fu">c</span>(<span class="dv">2020</span>, <span class="dv">11</span>), <span class="at">frequency =</span> <span class="dv">12</span>)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Trading-days regressors (each day has a different effect, sunday as contrasts)</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>td_reg <span class="ot">&lt;-</span> <span class="fu">htd</span>(fr_cal, <span class="at">s =</span> s, <span class="at">groups =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">0</span>))</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Working-days regressors (Monday = ... = Friday; Saturday = Sunday = contrasts)</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>wd_reg <span class="ot">&lt;-</span> <span class="fu">htd</span>(fr_cal, <span class="at">s =</span> s, <span class="at">groups =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>))</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Monday = ... = Friday; Saturday; Sunday = contrasts</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>wd_reg <span class="ot">&lt;-</span> <span class="fu">htd</span>(fr_cal, <span class="at">s =</span> s, <span class="at">groups =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">0</span>))</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>wd_reg</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>more explanations on contrasts and references links to calendar correction chapters</p>
 </section>
 <section id="example-of-outliers" class="level4">
 <h4 class="anchored" data-anchor-id="example-of-outliers">Example of outliers</h4>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>s <span class="ot">=</span> <span class="fu">ts</span>(<span class="dv">0</span>, <span class="at">start =</span> <span class="dv">2000</span>, <span class="at">end =</span> <span class="dv">2005</span>, <span class="at">frequency =</span> <span class="dv">12</span>)</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>ao <span class="ot">=</span> <span class="fu">ao.variable</span>(<span class="at">s =</span> s, <span class="at">date =</span> <span class="st">"2001-03-01"</span>)</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>ls <span class="ot">=</span> <span class="fu">ls.variable</span>(<span class="at">s =</span> s, <span class="at">date =</span> <span class="st">"2001-01-01"</span>)</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>tc <span class="ot">=</span> <span class="fu">tc.variable</span>(<span class="at">s =</span> s, <span class="at">date =</span> <span class="st">"2001-01-01"</span>, <span class="at">rate =</span> <span class="fl">0.7</span>)</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>so <span class="ot">=</span> <span class="fu">so.variable</span>(<span class="at">s =</span> s, <span class="at">date =</span> <span class="st">"2003-05-01"</span>)</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>ramp <span class="ot">=</span> <span class="fu">ramp.variable</span>(<span class="at">s =</span> s, <span class="at">range =</span> <span class="fu">c</span>(<span class="st">"2001-01-01"</span>,<span class="st">"2001-12-01"</span>))</span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">ts.union</span>(ao, ls, tc, so, ramp), <span class="at">plot.type =</span> <span class="st">"single"</span>,</span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>     <span class="at">col =</span> <span class="fu">c</span>(<span class="st">"red"</span>,<span class="st">"lightgreen"</span>,<span class="st">"orange"</span>,<span class="st">"blue"</span>,<span class="st">"black"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>s <span class="ot">=</span> <span class="fu">ts</span>(<span class="dv">0</span>, <span class="at">start =</span> <span class="dv">2000</span>, <span class="at">end =</span> <span class="dv">2005</span>, <span class="at">frequency =</span> <span class="dv">12</span>)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>ao <span class="ot">=</span> <span class="fu">ao.variable</span>(<span class="at">s =</span> s, <span class="at">date =</span> <span class="st">"2001-03-01"</span>)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>ls <span class="ot">=</span> <span class="fu">ls.variable</span>(<span class="at">s =</span> s, <span class="at">date =</span> <span class="st">"2001-01-01"</span>)</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>tc <span class="ot">=</span> <span class="fu">tc.variable</span>(<span class="at">s =</span> s, <span class="at">date =</span> <span class="st">"2001-01-01"</span>, <span class="at">rate =</span> <span class="fl">0.7</span>)</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>so <span class="ot">=</span> <span class="fu">so.variable</span>(<span class="at">s =</span> s, <span class="at">date =</span> <span class="st">"2003-05-01"</span>)</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>ramp <span class="ot">=</span> <span class="fu">ramp.variable</span>(<span class="at">s =</span> s, <span class="at">range =</span> <span class="fu">c</span>(<span class="st">"2001-01-01"</span>,<span class="st">"2001-12-01"</span>))</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">ts.union</span>(ao, ls, tc, so, ramp), <span class="at">plot.type =</span> <span class="st">"single"</span>,</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>     <span class="at">col =</span> <span class="fu">c</span>(<span class="st">"red"</span>,<span class="st">"lightgreen"</span>,<span class="st">"orange"</span>,<span class="st">"blue"</span>,<span class="st">"black"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 </section>
 <section id="rjd3sa-package" class="level3">
 <h3 class="anchored" data-anchor-id="rjd3sa-package">rjd3sa package</h3>
+<p>scope of up-garde vs V2</p>
 <section id="seasonality-tests" class="level4">
-<h4 class="anchored" data-anchor-id="seasonality-tests">Seasonality tests:</h4>
+<h4 class="anchored" data-anchor-id="seasonality-tests">Seasonality tests</h4>
 <p>(for each code snippet example and link to M_Test chapter)</p>
 <ul>
 <li><p>Canova-Hansen (<code>seasonality.canovahansen()</code>)</p></li>
@@ -623,12 +778,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <p>EXP : Always correct the trend and remove the mean before seasonality tests:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rjd3sa)</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>y <span class="ot">=</span> <span class="fu">diff</span>(rjd3toolkit<span class="sc">::</span>ABS<span class="sc">$</span>X0.<span class="dv">2</span>.<span class="dv">09</span>.<span class="fl">10.</span>M, <span class="dv">1</span>); y <span class="ot">=</span> y <span class="sc">-</span> <span class="fu">mean</span>(y)</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">seasonality.f</span>(y, <span class="dv">12</span>)</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="fu">seasonality.friedman</span>(y, <span class="dv">12</span>)</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="fu">seasonality.kruskalwallis</span>(y, <span class="dv">12</span>)</span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="fu">seasonality.combined</span>(y, <span class="dv">12</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rjd3sa)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>y <span class="ot">=</span> <span class="fu">diff</span>(rjd3toolkit<span class="sc">::</span>ABS<span class="sc">$</span>X0.<span class="dv">2</span>.<span class="dv">09</span>.<span class="fl">10.</span>M, <span class="dv">1</span>); y <span class="ot">=</span> y <span class="sc">-</span> <span class="fu">mean</span>(y)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">seasonality.f</span>(y, <span class="dv">12</span>)</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="fu">seasonality.friedman</span>(y, <span class="dv">12</span>)</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="fu">seasonality.kruskalwallis</span>(y, <span class="dv">12</span>)</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="fu">seasonality.combined</span>(y, <span class="dv">12</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 </section>
@@ -672,15 +827,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="example" class="level3">
 <h3 class="anchored" data-anchor-id="example">Example</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># {r tramoseats, out.height="70%"}</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co"># spec = spec_tramoseats_default("rsafull") |&gt;</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co">#   set_easter(type = "IncludeEasterMonday") |&gt;</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co">#   set_tradingdays(test = "Separate_T") |&gt;</span></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="co">#   set_seats(algorithm = "KalmanSmoother")</span></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="co"># m = rjd3tramoseats::tramoseats(y, spec)</span></span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="co"># # More informations:</span></span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="co"># names(m)</span></span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="co"># m$result</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># {r tramoseats, out.height="70%"}</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co"># spec = spec_tramoseats_default("rsafull") |&gt;</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co">#   set_easter(type = "IncludeEasterMonday") |&gt;</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co">#   set_tradingdays(test = "Separate_T") |&gt;</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="co">#   set_seats(algorithm = "KalmanSmoother")</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="co"># m = rjd3tramoseats::tramoseats(y, spec)</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="co"># # More informations:</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="co"># names(m)</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="co"># m$result</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="rjdemetra3" class="level3">
@@ -704,8 +859,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3 class="anchored" data-anchor-id="rjd3stl">rjd3stl</h3>
 </section>
 </section>
-<section id="add-in-package" class="level2">
-<h2 class="anchored" data-anchor-id="add-in-package">Add-in package</h2>
+<section id="add-in-packages" class="level2">
+<h2 class="anchored" data-anchor-id="add-in-packages">Add-in packages</h2>
 <p>table ggdemetra rjworkspace</p>
 <p>attention version 2 and version: adaptation under construction version 2, retrieve R tools info here</p>
 <section id="ggdemetra" class="level3">
@@ -715,25 +870,25 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h3 class="anchored" data-anchor-id="ggdemetra3">ggdemetra3</h3>
 <p>Like <code>ggdemetra</code> but compatible with <code>rjdemetra3</code>: ggplot2 to add seasonal adjustment statistics to your plot. Also compatible with high-frequency methods (WIP):</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggdemetra3)</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>spec <span class="ot">&lt;-</span> <span class="fu">spec_x13_default</span>(<span class="st">"rsa3"</span>) <span class="sc">|&gt;</span> <span class="fu">set_tradingdays</span>(<span class="at">option =</span> <span class="st">"WorkingDays"</span>)</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>p_ipi_fr <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> ipi_c_eu_df, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> date, <span class="at">y =</span> FR)) <span class="sc">+</span></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_line</span>() <span class="sc">+</span></span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"SA - IPI-FR"</span>,</span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>         <span class="at">x =</span> <span class="cn">NULL</span>, <span class="at">y =</span> <span class="cn">NULL</span>)</span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>p_sa <span class="ot">&lt;-</span> p_ipi_fr <span class="sc">+</span></span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_sa</span>(<span class="at">component =</span> <span class="st">"y_f(12)"</span>, <span class="at">linetype =</span> <span class="dv">2</span>,</span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>            <span class="at">spec =</span> spec) <span class="sc">+</span> </span>
-<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_sa</span>(<span class="at">component =</span> <span class="st">"sa"</span>, <span class="at">color =</span> <span class="st">"red"</span>) <span class="sc">+</span></span>
-<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_sa</span>(<span class="at">component =</span> <span class="st">"sa_f"</span>, <span class="at">color =</span> <span class="st">"red"</span>, <span class="at">linetype =</span> <span class="dv">2</span>)</span>
-<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>p_sa</span>
-<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>p_sa <span class="sc">+</span> </span>
-<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_outlier</span>(<span class="at">geom =</span> <span class="st">"label_repel"</span>,</span>
-<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>                 <span class="at">coefficients =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>                 <span class="at">ylim =</span> <span class="fu">c</span>(<span class="cn">NA</span>, <span class="dv">65</span>), <span class="at">force =</span> <span class="dv">10</span>,</span>
-<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>                 <span class="at">arrow =</span> <span class="fu">arrow</span>(<span class="at">length =</span> <span class="fu">unit</span>(<span class="fl">0.03</span>, <span class="st">"npc"</span>),</span>
-<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>                               <span class="at">type =</span> <span class="st">"closed"</span>, <span class="at">ends =</span> <span class="st">"last"</span>),</span>
-<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>                 <span class="at">digits =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggdemetra3)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>spec <span class="ot">&lt;-</span> <span class="fu">spec_x13_default</span>(<span class="st">"rsa3"</span>) <span class="sc">|&gt;</span> <span class="fu">set_tradingdays</span>(<span class="at">option =</span> <span class="st">"WorkingDays"</span>)</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>p_ipi_fr <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> ipi_c_eu_df, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> date, <span class="at">y =</span> FR)) <span class="sc">+</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"SA - IPI-FR"</span>,</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>         <span class="at">x =</span> <span class="cn">NULL</span>, <span class="at">y =</span> <span class="cn">NULL</span>)</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>p_sa <span class="ot">&lt;-</span> p_ipi_fr <span class="sc">+</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_sa</span>(<span class="at">component =</span> <span class="st">"y_f(12)"</span>, <span class="at">linetype =</span> <span class="dv">2</span>,</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>            <span class="at">spec =</span> spec) <span class="sc">+</span> </span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_sa</span>(<span class="at">component =</span> <span class="st">"sa"</span>, <span class="at">color =</span> <span class="st">"red"</span>) <span class="sc">+</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_sa</span>(<span class="at">component =</span> <span class="st">"sa_f"</span>, <span class="at">color =</span> <span class="st">"red"</span>, <span class="at">linetype =</span> <span class="dv">2</span>)</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>p_sa</span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>p_sa <span class="sc">+</span> </span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_outlier</span>(<span class="at">geom =</span> <span class="st">"label_repel"</span>,</span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>                 <span class="at">coefficients =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>                 <span class="at">ylim =</span> <span class="fu">c</span>(<span class="cn">NA</span>, <span class="dv">65</span>), <span class="at">force =</span> <span class="dv">10</span>,</span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>                 <span class="at">arrow =</span> <span class="fu">arrow</span>(<span class="at">length =</span> <span class="fu">unit</span>(<span class="fl">0.03</span>, <span class="st">"npc"</span>),</span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>                               <span class="at">type =</span> <span class="st">"closed"</span>, <span class="at">ends =</span> <span class="st">"last"</span>),</span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>                 <span class="at">digits =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 </section>
@@ -757,64 +912,64 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="create-moving-average-moving_average" class="level3">
 <h3 class="anchored" data-anchor-id="create-moving-average-moving_average">Create moving average <code>moving_average()</code></h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rjdfilters)</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>m1 <span class="ot">=</span> <span class="fu">moving_average</span>(<span class="fu">rep</span>(<span class="dv">1</span>,<span class="dv">3</span>), <span class="at">lags =</span> <span class="dv">1</span>); m1 <span class="co"># Forward MA</span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>m2 <span class="ot">=</span> <span class="fu">moving_average</span>(<span class="fu">rep</span>(<span class="dv">1</span>,<span class="dv">3</span>), <span class="at">lags =</span> <span class="sc">-</span><span class="dv">1</span>); m2 <span class="co"># centered MA</span></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>m1 <span class="sc">+</span> m2</span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>m1 <span class="sc">-</span> m2</span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>m1 <span class="sc">*</span> m2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rjdfilters)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>m1 <span class="ot">=</span> <span class="fu">moving_average</span>(<span class="fu">rep</span>(<span class="dv">1</span>,<span class="dv">3</span>), <span class="at">lags =</span> <span class="dv">1</span>); m1 <span class="co"># Forward MA</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>m2 <span class="ot">=</span> <span class="fu">moving_average</span>(<span class="fu">rep</span>(<span class="dv">1</span>,<span class="dv">3</span>), <span class="at">lags =</span> <span class="sc">-</span><span class="dv">1</span>); m2 <span class="co"># centered MA</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>m1 <span class="sc">+</span> m2</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>m1 <span class="sc">-</span> m2</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>m1 <span class="sc">*</span> m2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Can be used to create all the MA of X-11:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>e1 <span class="ot">&lt;-</span> <span class="fu">moving_average</span>(<span class="fu">rep</span>(<span class="dv">1</span>,<span class="dv">12</span>), <span class="at">lags =</span> <span class="sc">-</span><span class="dv">6</span>)</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>e1 <span class="ot">&lt;-</span> e1<span class="sc">/</span><span class="fu">sum</span>(e1)</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>e2 <span class="ot">&lt;-</span> <span class="fu">moving_average</span>(<span class="fu">rep</span>(<span class="dv">1</span><span class="sc">/</span><span class="dv">12</span>, <span class="dv">12</span>), <span class="at">lags =</span> <span class="sc">-</span><span class="dv">5</span>)</span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="co"># used to have the 1rst estimate of the trend</span></span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>tc_1 <span class="ot">&lt;-</span> M2X12 <span class="ot">&lt;-</span> (e1 <span class="sc">+</span> e2)<span class="sc">/</span><span class="dv">2</span></span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(M2X12) <span class="sc">|&gt;</span> <span class="fu">round</span>(<span class="dv">3</span>)</span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>si_1 <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">-</span> tc_1</span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>M3 <span class="ot">&lt;-</span> <span class="fu">moving_average</span>(<span class="fu">rep</span>(<span class="dv">1</span><span class="sc">/</span><span class="dv">3</span>, <span class="dv">3</span>), <span class="at">lags =</span> <span class="sc">-</span><span class="dv">1</span>)</span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>M3X3 <span class="ot">&lt;-</span> M3 <span class="sc">*</span> M3</span>
-<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a><span class="co"># M3X3 moving average applied to each month</span></span>
-<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(M3X3) <span class="sc">|&gt;</span> <span class="fu">round</span>(<span class="dv">3</span>)</span>
-<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>M3X3_seasonal <span class="ot">&lt;-</span> <span class="fu">to_seasonal</span>(M3X3, <span class="dv">12</span>)</span>
-<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(M3X3_seasonal) <span class="sc">|&gt;</span> <span class="fu">round</span>(<span class="dv">3</span>)</span>
-<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>s_1 <span class="ot">=</span> M3X3_seasonal <span class="sc">*</span> si_1</span>
-<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>s_1_norm <span class="ot">=</span> (<span class="dv">1</span> <span class="sc">-</span> M2X12) <span class="sc">*</span> s_1</span>
-<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>sa_1 <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">-</span> s_1_norm</span>
-<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>henderson_mm <span class="ot">=</span> <span class="fu">moving_average</span>(<span class="fu">lp_filter</span>(<span class="at">horizon =</span> <span class="dv">6</span>)<span class="sc">$</span></span>
-<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>                                  filters.coef[, <span class="st">"q=6"</span>],</span>
-<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>                              <span class="at">lags =</span> <span class="sc">-</span><span class="dv">6</span>)</span>
-<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>tc_2 <span class="ot">&lt;-</span> henderson_mm <span class="sc">*</span> sa_1</span>
-<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a>si_2 <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">-</span> tc_2</span>
-<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a>M5 <span class="ot">&lt;-</span> <span class="fu">moving_average</span>(<span class="fu">rep</span>(<span class="dv">1</span><span class="sc">/</span><span class="dv">5</span>, <span class="dv">5</span>), <span class="at">lags =</span> <span class="sc">-</span><span class="dv">2</span>)</span>
-<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a>M5X5_seasonal <span class="ot">&lt;-</span> <span class="fu">to_seasonal</span>(M5 <span class="sc">*</span> M5, <span class="dv">12</span>)</span>
-<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a>s_2 <span class="ot">=</span> M5X5_seasonal <span class="sc">*</span> si_2</span>
-<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a>s_2_norm <span class="ot">=</span> (<span class="dv">1</span> <span class="sc">-</span> M2X12) <span class="sc">*</span> s_2</span>
-<span id="cb10-26"><a href="#cb10-26" aria-hidden="true" tabindex="-1"></a>sa_2 <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">-</span> s_2_norm</span>
-<span id="cb10-27"><a href="#cb10-27" aria-hidden="true" tabindex="-1"></a>tc_f <span class="ot">&lt;-</span> henderson_mm <span class="sc">*</span> sa_2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>e1 <span class="ot">&lt;-</span> <span class="fu">moving_average</span>(<span class="fu">rep</span>(<span class="dv">1</span>,<span class="dv">12</span>), <span class="at">lags =</span> <span class="sc">-</span><span class="dv">6</span>)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>e1 <span class="ot">&lt;-</span> e1<span class="sc">/</span><span class="fu">sum</span>(e1)</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>e2 <span class="ot">&lt;-</span> <span class="fu">moving_average</span>(<span class="fu">rep</span>(<span class="dv">1</span><span class="sc">/</span><span class="dv">12</span>, <span class="dv">12</span>), <span class="at">lags =</span> <span class="sc">-</span><span class="dv">5</span>)</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="co"># used to have the 1rst estimate of the trend</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>tc_1 <span class="ot">&lt;-</span> M2X12 <span class="ot">&lt;-</span> (e1 <span class="sc">+</span> e2)<span class="sc">/</span><span class="dv">2</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(M2X12) <span class="sc">|&gt;</span> <span class="fu">round</span>(<span class="dv">3</span>)</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>si_1 <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">-</span> tc_1</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>M3 <span class="ot">&lt;-</span> <span class="fu">moving_average</span>(<span class="fu">rep</span>(<span class="dv">1</span><span class="sc">/</span><span class="dv">3</span>, <span class="dv">3</span>), <span class="at">lags =</span> <span class="sc">-</span><span class="dv">1</span>)</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>M3X3 <span class="ot">&lt;-</span> M3 <span class="sc">*</span> M3</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="co"># M3X3 moving average applied to each month</span></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(M3X3) <span class="sc">|&gt;</span> <span class="fu">round</span>(<span class="dv">3</span>)</span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>M3X3_seasonal <span class="ot">&lt;-</span> <span class="fu">to_seasonal</span>(M3X3, <span class="dv">12</span>)</span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(M3X3_seasonal) <span class="sc">|&gt;</span> <span class="fu">round</span>(<span class="dv">3</span>)</span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>s_1 <span class="ot">=</span> M3X3_seasonal <span class="sc">*</span> si_1</span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>s_1_norm <span class="ot">=</span> (<span class="dv">1</span> <span class="sc">-</span> M2X12) <span class="sc">*</span> s_1</span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>sa_1 <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">-</span> s_1_norm</span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a>henderson_mm <span class="ot">=</span> <span class="fu">moving_average</span>(<span class="fu">lp_filter</span>(<span class="at">horizon =</span> <span class="dv">6</span>)<span class="sc">$</span></span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a>                                  filters.coef[, <span class="st">"q=6"</span>],</span>
+<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a>                              <span class="at">lags =</span> <span class="sc">-</span><span class="dv">6</span>)</span>
+<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a>tc_2 <span class="ot">&lt;-</span> henderson_mm <span class="sc">*</span> sa_1</span>
+<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a>si_2 <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">-</span> tc_2</span>
+<span id="cb11-22"><a href="#cb11-22" aria-hidden="true" tabindex="-1"></a>M5 <span class="ot">&lt;-</span> <span class="fu">moving_average</span>(<span class="fu">rep</span>(<span class="dv">1</span><span class="sc">/</span><span class="dv">5</span>, <span class="dv">5</span>), <span class="at">lags =</span> <span class="sc">-</span><span class="dv">2</span>)</span>
+<span id="cb11-23"><a href="#cb11-23" aria-hidden="true" tabindex="-1"></a>M5X5_seasonal <span class="ot">&lt;-</span> <span class="fu">to_seasonal</span>(M5 <span class="sc">*</span> M5, <span class="dv">12</span>)</span>
+<span id="cb11-24"><a href="#cb11-24" aria-hidden="true" tabindex="-1"></a>s_2 <span class="ot">=</span> M5X5_seasonal <span class="sc">*</span> si_2</span>
+<span id="cb11-25"><a href="#cb11-25" aria-hidden="true" tabindex="-1"></a>s_2_norm <span class="ot">=</span> (<span class="dv">1</span> <span class="sc">-</span> M2X12) <span class="sc">*</span> s_2</span>
+<span id="cb11-26"><a href="#cb11-26" aria-hidden="true" tabindex="-1"></a>sa_2 <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">-</span> s_2_norm</span>
+<span id="cb11-27"><a href="#cb11-27" aria-hidden="true" tabindex="-1"></a>tc_f <span class="ot">&lt;-</span> henderson_mm <span class="sc">*</span> sa_2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mai =</span> <span class="fu">c</span>(<span class="fl">0.3</span>, <span class="fl">0.3</span>, <span class="fl">0.2</span>, <span class="dv">0</span>))</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">layout</span>(<span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>), <span class="dv">2</span>, <span class="dv">2</span>, <span class="at">byrow =</span> <span class="cn">TRUE</span>))</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_coef</span>(tc_f);<span class="fu">plot_coef</span>(sa_2, <span class="at">col =</span> <span class="st">"orange"</span>, <span class="at">add =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">"topleft"</span>, </span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">legend =</span> <span class="fu">c</span>(<span class="st">"Final TC filter"</span>, <span class="st">"Final SA filter"</span>),</span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">col=</span> <span class="fu">c</span>(<span class="st">"black"</span>, <span class="st">"orange"</span>), <span class="at">lty =</span> <span class="dv">1</span>)</span>
-<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_gain</span>(tc_f);<span class="fu">plot_gain</span>(sa_2, <span class="at">col =</span> <span class="st">"orange"</span>, <span class="at">add =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_phase</span>(tc_f);<span class="fu">plot_phase</span>(sa_2, <span class="at">col =</span> <span class="st">"orange"</span>, <span class="at">add =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mai =</span> <span class="fu">c</span>(<span class="fl">0.3</span>, <span class="fl">0.3</span>, <span class="fl">0.2</span>, <span class="dv">0</span>))</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">layout</span>(<span class="fu">matrix</span>(<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>), <span class="dv">2</span>, <span class="dv">2</span>, <span class="at">byrow =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_coef</span>(tc_f);<span class="fu">plot_coef</span>(sa_2, <span class="at">col =</span> <span class="st">"orange"</span>, <span class="at">add =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">"topleft"</span>, </span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">legend =</span> <span class="fu">c</span>(<span class="st">"Final TC filter"</span>, <span class="st">"Final SA filter"</span>),</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">col=</span> <span class="fu">c</span>(<span class="st">"black"</span>, <span class="st">"orange"</span>), <span class="at">lty =</span> <span class="dv">1</span>)</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_gain</span>(tc_f);<span class="fu">plot_gain</span>(sa_2, <span class="at">col =</span> <span class="st">"orange"</span>, <span class="at">add =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_phase</span>(tc_f);<span class="fu">plot_phase</span>(sa_2, <span class="at">col =</span> <span class="st">"orange"</span>, <span class="at">add =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="apply-a-moving-average" class="level3">
 <h3 class="anchored" data-anchor-id="apply-a-moving-average">Apply a moving average</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> retailsa<span class="sc">$</span>AllOtherGenMerchandiseStores</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>trend <span class="ot">&lt;-</span> y <span class="sc">*</span> tc_1</span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>sa <span class="ot">&lt;-</span> y <span class="sc">*</span> sa_1</span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">window</span>(<span class="fu">ts.union</span>(y, trend, sa), <span class="at">start =</span> <span class="dv">2000</span>),</span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">plot.type =</span> <span class="st">"single"</span>,</span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>      <span class="at">col =</span> <span class="fu">c</span>(<span class="st">"black"</span>,<span class="st">"orange"</span>, <span class="st">"lightblue"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> retailsa<span class="sc">$</span>AllOtherGenMerchandiseStores</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>trend <span class="ot">&lt;-</span> y <span class="sc">*</span> tc_1</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>sa <span class="ot">&lt;-</span> y <span class="sc">*</span> sa_1</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">window</span>(<span class="fu">ts.union</span>(y, trend, sa), <span class="at">start =</span> <span class="dv">2000</span>),</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">plot.type =</span> <span class="st">"single"</span>,</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>      <span class="at">col =</span> <span class="fu">c</span>(<span class="st">"black"</span>,<span class="st">"orange"</span>, <span class="st">"lightblue"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 </section>

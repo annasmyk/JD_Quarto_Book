@@ -451,7 +451,7 @@ Question: can rjd3modelling generate an HTML calendar for GUI
 
 set this option in GUI
 
-image: spec window calendar / holdays / choics of calendar 
+image: spec window calendar / holidays / choics of calendar 
 
 set this option in R ?
 

@@ -1,9 +1,30 @@
 # R packages {.unnumbered}
 
-## Available algorithms
+## Introduction
+Core JDemetra (java) algorithms can be accessied via several tools:
+- Graphical User Interface [GUI](T-graphical-user_interface.qmd)
+- ...enhanced with additionnal [plug-ins](T-plug-ins.qmd)
+- `R` packages 
+
+- core packages 
+- addtionnal ones 
+
+version 2 vs version 3
+
+here over view + general structure 
+for more details on functions 
+- setp 1 relevant algorithms chapters (SA,...), outlines context
+- Set 2 R help pages (how to link this ?)
+
+
+## Available functions and algorithms
+
+What JD+ core algorithms can be accessed ? V2 and V3 ?
+
+### Seasonal adjustment
 
 | Domain              | Algorithm                         | Package      | Comments |     |
-|---------------------|-----------------------------------|--------------|----------|-----|
+|-------------|-----------------------|-------------|-------------|-------------|
 | Seasonal Adjustment | X13-Arima                         |              |          |     |
 |                     | Tramo-Seats                       |              |          |     |
 |                     |                                   | rjd3highfreq |          |     |
@@ -18,7 +39,52 @@
 
 : Main Algorithms accessible via R packages
 
-## Organisation overview
+when package mentionned in table, add link to the relavant detailed part
+
+### Filtering and Trend estimation
+
+### Benchmarking and Temporal disaggregation
+
+### State space framework 
+
+### Running the cruncher and generating quality report
+
+[the cruncher](T_cruncher.qmd) nb
+
+| Package       | JD+ version | Comments |
+|---------------|-------------|----------|
+| rjwsacruncher |             |          |
+| JDcruncher    |             |          |
+|               |             |          |
+
+### Wrangling JD+ workspaces
+
+A workspace (link) is..here...
+
+| Package      | JD+ version | Comments |
+|--------------|-------------|----------|
+| rjdworkspace |             |          |
+| rjd          |             |          |
+|              |             |          |
+
+### Generating additionnal output
+
+enhancing plots, prints
+
+| Package     | JD+ version | Comments |
+|-------------|-------------|----------|
+| rjdmarkdown |             |          |
+| ggdemetra   |             |          |
+| ggdemetra3  |             |          |
+| rjdqa       |             |          |
+
+## Structure of the packages
+
+see if relevant part
+
+form of output 
+type of functions 
+how v3 differs from v2
 
 ### RJDemetra and JD+ version 2.2.3
 
@@ -34,7 +100,23 @@ utility packages
 
 general output organisation
 
+### version 3
+
+### Mixing v2 and V3
+
+what is doable ?
+
 ## Installation procedure
+
+### version 2
+```{r, eval=FALSE}
+
+install.packages("RJDemetra")
+
+
+```
+
+### version 3
 
 ```{r, eval=FALSE}
 
@@ -60,11 +142,14 @@ for detailed function, you can refer to each package's own R documentation
 
 ## Utility packages
 
+might not be the right title
+relevant for V3 only ? 
+cf estp adv, arima aux functions
+
 ### rjd3toolkit
 
-Contains several utility functions used in other `rjd` packages and several functions to perform test.
+Contains utility functions used in other `rjd` packages and several functions to perform tests.
 
-Utility
 
 Tests - Normality tests: Bowman-Shenton (`bowmanshenton()`), Doornik-Hansen (`doornikhansen()`), Jarque-Bera (`jarquebera()`)
 
@@ -92,9 +177,10 @@ autocorrelations.partial(x)
 
 ### rjd3modelling
 
-Purpose : creating input variables (regressors) for to be used in Reg-Arima
+Purpose : creating input variables (regressors) for to be used in Reg-Arima modelling
 
 -   create user-defined calendar and trading-days regressors: `calendar.new()` (create a new calendar), `calendar.holiday()` (add a specific holiday, e.g. christmas), `calendar.easter()` (easter related day) and `calendar.fixedday()`)
+(for tecnical details on building those regressors link to calendar chapter)
 
 -   outliers regressors (AO, LS, TC, SO, Ramp, intervention variables), calendar related regressors (stock, leap year, periodic dummies and contrasts, trigonometric variables) -\> to be added quadratic ramps
 
@@ -105,6 +191,8 @@ Purpose : creating input variables (regressors) for to be used in Reg-Arima
 more explanations and examples needed here
 
 #### Example of calendar specification
+
+move to calendar chapter
 
 ```{r, eval=FALSE}
 library(rjd3modelling)
@@ -156,7 +244,9 @@ plot(ts.union(ao, ls, tc, so, ramp), plot.type = "single",
 
 ### rjd3sa package
 
-#### Seasonality tests:
+scope of up-garde vs V2
+
+#### Seasonality tests
 
 (for each code snippet example and link to M_Test chapter)
 
@@ -259,7 +349,7 @@ Seasonal adjustment of high frequency data:
 
 ### rjd3stl
 
-## Add-in package
+## Add-in packages
 
 table ggdemetra rjworkspace
 
