@@ -17,7 +17,7 @@ Warning: info from v2 family, will be progressively switched to v3 Internal link
 
 Missing:
 
--   NEXT : Tools menu (galbal descp + disptach to specific parts by function)
+-   NEXT : Tools menu (global descp + disptach to specific parts by function)
 
 -   workspace window details
 
@@ -32,6 +32,10 @@ Quick links (in appendicies)
 -   import data
 
 -   run automatic sa (cf current doc)
+
+Contextual menus 
+(described once then referenced)
+- One series
 
 ## Installation Procedure
 
@@ -613,7 +617,9 @@ The blank zone in the figure above (on the right of the view) is the location wh
 
 ## Data Visualisation
 
-everything is in Tools > conatiner
+everything is in Tools > container 
+
+
 
 ## Generating Outpt
 
