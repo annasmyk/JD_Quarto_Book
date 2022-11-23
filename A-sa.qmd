@@ -122,7 +122,7 @@ the user chooses the algo + one default spec
 
 this default spec can be modified with user defined params for most of its parts, this is tackeled in details dor every sub part of the reg arima (tramo) modelling and corresponding decompostion (x11 and seats)
 
-Strating point for X13-ARIMA
+#### Starting point for X13-ARIMA
 
 +-----------------+---------------------+--------------------+------------------+----------------+
 | Spec identifier | Log/level detection | Outliers detection | Calendar effects | ARIMA          |
@@ -172,7 +172,7 @@ TEST : RSA0 : mult or add
 
 TD vars include LY (link to calendar)
 
-Strating point for Tramo-Seats
+#### Starting point for Tramo-Seats
 
 +-----------------+---------------------+--------------------+------------------+----------------+
 | Spec identifier | Log/level detection | Outliers detection | Calendar effects | ARIMA          |
@@ -798,7 +798,7 @@ In a nutshell, X-11 will de deompose the **linearized series** using iteratively
 
 ### Default specifications
 
-The default specifications for X-11 must be chosen at the starting of the SA processing. They are detailed in the [RegArima part](A-sa.qmd#Pre-treatment:%20Reg-ARIMA%20(or%20TRAMO))
+The default specifications for X-11 must be chosen at the starting of the SA processing. They are detailed in the [RegArima part](A-sa.qmd#Pre-treatment:%20Reg-ARIMA%20(or%20TRAMO)) Note: X-11 can be run without pre-treatment
 
 ### Quick Launch
 
@@ -816,8 +816,8 @@ library(RJDemetra)
 model_sa<-x13(serie_brute, spec ="RSA5c")
 
 ```
-The model_sa object contains all results and will be progressively detai below. Its global structure is outlined here.
 
+The model_sa object contains all results and will be progressively detai below. Its global structure is outlined here.
 
 in version 3
 
@@ -827,23 +827,7 @@ in version 3
 
 ### Output 1: series
 
-+---------------------------+----------------+---------------+----------------------------------------+
-| Series                    | Final X11 name | Final Results | Reallocation of pre-adjustment effects |
-+===========================+================+===============+========================================+
-| Raw series (forecasts)    |                | y (y_f)       |                                        |
-+---------------------------+----------------+---------------+----------------------------------------+
-| Linearized series         | B1             |               | none                                   |
-+---------------------------+----------------+---------------+----------------------------------------+
-| Final seasonal component  | D16            | s (s_f)       |                                        |
-+---------------------------+----------------+---------------+----------------------------------------+
-| Final trend               | D12            | t (t_f)       |                                        |
-+---------------------------+----------------+---------------+----------------------------------------+
-| Final irregular           | D13            | i (i_f)       |                                        |
-+---------------------------+----------------+---------------+----------------------------------------+
-| Calendar component        |                |               |                                        |
-+---------------------------+----------------+---------------+----------------------------------------+
-| Seasonal without calendar | D10            |               |                                        |
-+---------------------------+----------------+---------------+----------------------------------------+
+(X11 just final series or intermediate as well ? homogenise with seats ?) +---------------------------+----------------+---------------+----------------------------------------+ \| Series \| Final X11 name \| Final Results \| Reallocation of pre-adjustment effects \| +===========================+================+===============+========================================+ \| Raw series (forecasts) \| \| y (y_f) \| \| +---------------------------+----------------+---------------+----------------------------------------+ \| Linearized series \| B1 \| \| none \| +---------------------------+----------------+---------------+----------------------------------------+ \| Final seasonal component \| D16 \| s (s_f) \| \| +---------------------------+----------------+---------------+----------------------------------------+ \| Final trend \| D12 \| t (t_f) \| \| +---------------------------+----------------+---------------+----------------------------------------+ \| Final irregular \| D13 \| i (i_f) \| \| +---------------------------+----------------+---------------+----------------------------------------+ \| Calendar component \| \| \| \| +---------------------------+----------------+---------------+----------------------------------------+ \| Seasonal without calendar \| D10 \| \| \| +---------------------------+----------------+---------------+----------------------------------------+
 
 make clear - reallocation of outliers effects (frequent questions) - reallocation of intervention variables effects
 
@@ -855,24 +839,26 @@ Here we focus on the final components main series (= 2nd part of D tables, outli
 
 List of series (edit : table with name and meaning)
 
-#### Retrieve in GUI 
-Main results 
-![Text](All_images/SA_MainResults_Series.png)
+#### Display in GUI
 
+homogeneiser avec seats
+
+#### Retrieve in GUI
+
+Main results ![Text](All_images/SA_MainResults_Series.png)
 
 (forecasts glued, values in *italic*)
 
-X-11 Tables 
+X-11 Tables
 
 ![Text](All_images/RDimage41.png)
 
-Output series can be exported out if GUI by two means:
-- generating output files from GUI as explained here 
-- running the cruncher to genereate those files as described here 
+Output series can be exported out if GUI by two means: - generating output files from GUI as explained here - running the cruncher to genereate those files as described here
 
-#### Retrieve in R 
+#### Retrieve in R
 
 in version 2
+
 ```{r,eval=FALSE}
 
 # final components
@@ -884,10 +870,9 @@ model_sa$final$forecasts
 
 in version 3
 
-
 ### Output 2: diagnostics
 
-X11 produces the following type diagnostics or quality measures 
+X11 produces the following type diagnostics or quality measures
 
 #### SI-ratios
 
@@ -895,17 +880,18 @@ It is a plot, see below
 
 Description, and computation details
 
-##### Retrieve in GUI 
-NODE Main Results \> SI-Ratios
-SA_MainResults_SI_ratios.png
+##### Retrieve in GUI
+
+NODE Main Results \> SI-Ratios SA_MainResults_SI_ratios.png
 
 ![Text](All_images/SA_MainResults_SI_ratios.png)
 
-In GUI all values cannot be retrieved 
+In GUI all values cannot be retrieved
 
 ##### Retrieve in R
 
 in version 2
+
 ```{r, eval=FALSE}
 # data frame with values 
 model_sa$decomposition$si_ratio
@@ -915,10 +901,10 @@ plot(model_sa, type= "cal-seas-irr",first_date = c(2015, 1))
 ```
 
 in version 3
+
 ```{r,eval=FALSE}
 
 ```
-
 
 #### M-statistics
 
@@ -937,208 +923,151 @@ At the end of the decomposition, X-11 algorithm provides quality mesures of the 
 
 add composite indicators \\(Q\\) and \\(Q - M2.\\)
 
-The $Q$ statistic is a composite indicator calculated from the
-$M$ statistics.
+The $Q$ statistic is a composite indicator calculated from the $M$ statistics.
 
 $$Q = \frac{10M1 + 11M2 + 10M3 + 8M4 + 11M5 + 10M6 + 18M7 + 7M8 + 7M9 + 4M10 + 4M11}{100}$$
 
-$Q = Q - M2$ (also called $Q2$) is the $Q$ statistic for
-which the $M2$ statistics was excluded from the formula, i.e.:
+$Q = Q - M2$ (also called $Q2$) is the $Q$ statistic for which the $M2$ statistics was excluded from the formula, i.e.:
 
 $$Q - M2 = \frac{10M1 + 10M3 + 8M4 + 11M5 + 10M6 + 18M7 + 7M8 + 7M9 + 4M10 + 4M11}{89}$$
 
-If a time series does not cover at least 6 years, the $M8$,
-$M9$, $M10$ and $M11$ statistics cannot be calculated. In
-this case the $Q$ statistic is computed as:
+If a time series does not cover at least 6 years, the $M8$, $M9$, $M10$ and $M11$ statistics cannot be calculated. In this case the $Q$ statistic is computed as:
 
 $$Q = \frac{14M1 + 15M2 + 10M3 + 8M4 + 11M5 + 10M6 + 32M7}{100}$$
 
-The model has a satisfactory quality if the $Q$ statistic is lower
-than 1.
+The model has a satisfactory quality if the $Q$ statistic is lower than 1.
 
 For futher details link to Lothian-Mory (quid in M_meth X11)
 
-##### Retrieve in GUI 
+##### Retrieve in GUI
 
-To display results in GUI, expande NODE 
-Decompostion(X-11) \> Quality Measures \> Summary
+To display results in GUI, expande NODE Decompostion(X-11) \> Quality Measures \> Summary
 
 Results displayed in red indicate that the test failed.
 
-
 ![Text](All_images/RDimage46.png)
 
-
 ##### Retrieve in R
+
 in version 2
+
 ```{r, eval=FALSE}
 # this code snippet is not self-sufficient 
 # shpould it be 
 model_sa$decomposition$mstats
 ```
+
 in version 3
 
 #### Detailed Quality measures
 
 List (+ link to chap M: add descp from Lothian Mory/ current doc) make clear: on which x11 series is the measure based
 
-in GUI all the diagnostics below can be retrieved expandin the NODE 
-Decomposition(X-11) \> Quality Measures \> Details
+in GUI all the diagnostics below can be retrieved expandin the NODE Decomposition(X-11) \> Quality Measures \> Details
 
 If a stat can be retrieved in R, the code example is in the corresponding paragraph, otherwise it means that these stats are not directly available and must be computed by the user if needed.
 
-#####  Average percent change (or Average differences) without regard to sign over the indicated span
+##### Average percent change (or Average differences) without regard to sign over the indicated span
 
-(here clarify notations)
-(link to tables details in meth chapter or appendix)
-(here A, D, E are needed)
-(link to Ladiray-Quenneville)
+(here clarify notations) (link to tables details in meth chapter or appendix) (here A, D, E are needed) (link to Ladiray-Quenneville)
 
-The first table presents the average percent change without regard to
-sign of the percent changes (multiplicative model) or average
-differences (additive model) over several periods (from 1 to 12 for a
-monthly series, from 1 to 4 for a quarterly series) for the following
-series:
+The first table presents the average percent change without regard to sign of the percent changes (multiplicative model) or average differences (additive model) over several periods (from 1 to 12 for a monthly series, from 1 to 4 for a quarterly series) for the following series:
 
--   $O$ – Original series (Table A1);
+-   $O$ -- Original series (Table A1);
 
--   $\text{CI}$ – Final seasonally adjusted series (Table D11);
+-   $\text{CI}$ -- Final seasonally adjusted series (Table D11);
 
--   $I$ – Final irregular component (Table D13);
+-   $I$ -- Final irregular component (Table D13);
 
--   $C$ – Final trend (Table D12);
+-   $C$ -- Final trend (Table D12);
 
--   $S$ – Final seasonal factors (Table D10);
+-   $S$ -- Final seasonal factors (Table D10);
 
--   $P$ – Preliminary adjustment coefficients, i.e. regressors
-    estimated by the RegARIMA model (Table A2);
+-   $P$ -- Preliminary adjustment coefficients, i.e. regressors estimated by the RegARIMA model (Table A2);
 
--   $TD\& H$ – Final calendar component (Tables A6 and A7);
+-   $TD\& H$ -- Final calendar component (Tables A6 and A7);
 
--   $\text{Mod.O}$ – Original series adjusted for extreme values
-    (Table E1);
+-   $\text{Mod.O}$ -- Original series adjusted for extreme values (Table E1);
 
--   $\text{Mod.CI}$ – Final seasonally adjusted series corrected for
-    extreme values (Table E2);
+-   $\text{Mod.CI}$ -- Final seasonally adjusted series corrected for extreme values (Table E2);
 
--   $\text{Mod.I}$ – Final irregular component adjusted for extreme
-    values (Table E3).
+-   $\text{Mod.I}$ -- Final irregular component adjusted for extreme values (Table E3).
 
-In the case of an additive decomposition, for each component the average
-absolute changes over several periods are calculated as:
+In the case of an additive decomposition, for each component the average absolute changes over several periods are calculated as:
 
 $$\text{Component}_{d} = \frac{1}{n - d}\sum_{t = d + 1}^{n}|Table_{t} - Table_{t - d}|$$
- 
+
 where:
 
-$d$ – time lag in periods (from a monthly time series $d$ varies
-from to 4 or from 1 to 12);
+$d$ -- time lag in periods (from a monthly time series $d$ varies from to 4 or from 1 to 12);
 
-$n$ – total number of observations per period;
+$n$ -- total number of observations per period;
 
-$\text{Component}$ – the name of the component;
+$\text{Component}$ -- the name of the component;
 
-$\text{Table}$ – the name of the table that corresponds to the
-component.
-
+$\text{Table}$ -- the name of the table that corresponds to the component.
 
 ![Text](All_images/RDimage48.png)
 
-
-For the multiplicative decomposition the following formula is
-    used: 
-$$\text{Component}_{d} = \frac{1}{n - d}\sum_{t = d+1}^{n}{|\frac{\text{Tabl}e_{t}}{\text{Table}_{t - d}} - 1|}$$.
+For the multiplicative decomposition the following formula is used: $$\text{Component}_{d} = \frac{1}{n - d}\sum_{t = d+1}^{n}{|\frac{\text{Tabl}e_{t}}{\text{Table}_{t - d}} - 1|}$$.
 
 (add image of result table for multiplictive model)
 
 ##### Relative contribution to the variance of the differences in the components of the original series
 
-(homogenize titles: "variance")
-(one formula is enough)
+(homogenize titles: "variance") (one formula is enough)
 
-Next, Table F2B of relative contributions of the different components to
-the differences (additive model) or percent changes (multiplicative
-model) in the original series is displayed. They express the relative
-importance of the changes in each component. Assuming that the
-components are independent, the following relation is valid:
+Next, Table F2B of relative contributions of the different components to the differences (additive model) or percent changes (multiplicative model) in the original series is displayed. They express the relative importance of the changes in each component. Assuming that the components are independent, the following relation is valid:
 
 $$O_{d}^{2} \approx C_{d}^{2} + S_{d}^{2} + I_{d}^{2} + P_{d}^{2} + {TD\& H}_{d}^{2}$$
 
-In order to simplify the analysis, the approximation can be replaced by
-the following equation:
+In order to simplify the analysis, the approximation can be replaced by the following equation:
 
 $$O_{d}^{*2} = C_{d}^{2} + S_{d}^{2} + I_{d}^{2} + P_{d}^{2} + {TD\& H}_{d}^{2}$$
 
-The notation is the same as for Table F2A. The column $\text{Total}$
-denotes total changes in the raw time series.
+The notation is the same as for Table F2A. The column $\text{Total}$ denotes total changes in the raw time series.
 
-Data presented in Table F2B indicate the relative contribution of each
-component to the percent changes (differences) in the original series
-over each span, and are calculated as:
+Data presented in Table F2B indicate the relative contribution of each component to the percent changes (differences) in the original series over each span, and are calculated as:
 
 $\frac{I_{d}^{2}}{O_{d}^{*2}}$, $\frac{C_{d}^{2}}{O_{d}^{*2}}$, $\frac{S_{d}^{2}}{O_{d}^{*2}}$, $\frac{P_{d}^{2}}{O_{d}^{*2}}$ and $\frac{TD\& H_{d}^{2}}{O_{d}^{*2}}$ where: $O_{d}^{*2} = I_{d}^{2} + C_{d}^{2} + S_{d}^{2} + P_{d}^{2}{+ TD\& H}_{d}^{2}$.
 
 The last column presents the *Ratio* calculated as: $100 \times\frac{O_{d}^{*2}}{O_{d}^{2}}$, which is an indicator of how well the approximation ${(O_{d}^{*})}^{2} \approx O_{d}^{2}$ holds.
 
-
 ![Text](All_images/RDimage49.png)
 
 ##### Average differences with regard to sign and standard deviation over indicated span
 
-When an additive decomposition is used, Table F2C presents the average
-and standard deviation of changes calculated for each time lag $d$,
-taking into consideration the sign of the changes of the raw series and
-its components. In case of a multiplicative decomposition the respective
-table shows the average percent differences and related standard
-deviations.
-
+When an additive decomposition is used, Table F2C presents the average and standard deviation of changes calculated for each time lag $d$, taking into consideration the sign of the changes of the raw series and its components. In case of a multiplicative decomposition the respective table shows the average percent differences and related standard deviations.
 
 ![Text](All_images/RDimage50.png)
 
 ##### Average duration of run
 
-Average duration of run is an average number of consecutive monthly (or
-quarterly) changes in the same direction (no change is counted as a
-change in the same direction as the preceding change). JDemetra+
-displays this indicator for the seasonally adjusted series, for the
-trend and for the irregular component.
-
+Average duration of run is an average number of consecutive monthly (or quarterly) changes in the same direction (no change is counted as a change in the same direction as the preceding change). JDemetra+ displays this indicator for the seasonally adjusted series, for the trend and for the irregular component.
 
 ![Text](All_images/RDimage51.png)
 
 ##### I/C ratio over indicated span and global
-The $\frac{I}{C}\ $ratios for each value of time lag $d$,
-presented in Table F2E, are computed on a basis of the data in Table F2A.
-Global IC is displayed below the table
 
+The \$\frac{I}{C}\$ratios for each value of time lag $d$, presented in Table F2E, are computed on a basis of the data in Table F2A. Global IC is displayed below the table
 
 ![Text](All_images/RDimage52.png)
 
 ##### Relative contribution to the stationnary part of the variance in the original series
-The relative contribution of components to the variance of the
-stationary part of the original series is calculated for the irregular
-component ($I$), trend made stationary ($C$), seasonal
-component ($S$) and calendar effects (TD&H). 
+
+The relative contribution of components to the variance of the stationary part of the original series is calculated for the irregular component ($I$), trend made stationary ($C$), seasonal component ($S$) and calendar effects (TD&H).
 
 The trend is made staionnary by by extracting a linear trend from the trend component presented in Table D12.
 
-
 ![Text](All_images/RDimage53.png)
-
 
 ##### Autocorrelations in the irregular
 
-The last table shows the autocorrelogram of the irregular component from
-Table D13. In the case of multiplicative decomposition it is calculated
-for time lags between 1 and the number of periods per year +2 using the
-formula:
+The last table shows the autocorrelogram of the irregular component from Table D13. In the case of multiplicative decomposition it is calculated for time lags between 1 and the number of periods per year +2 using the formula:
 
-$$\text{Corr}_{k}I = \frac{\sum_{t = k + 1}^{N}{(I_{t} - 1)(I_{t - k} - 1)}}{\sum_{t = 1}^{N}{(I_{t} - 1)}^{2}}$$
-where $N$ is number of observations in the time series and $k$ the lag.
+$$\text{Corr}_{k}I = \frac{\sum_{t = k + 1}^{N}{(I_{t} - 1)(I_{t - k} - 1)}}{\sum_{t = 1}^{N}{(I_{t} - 1)}^{2}}$$ where $N$ is number of observations in the time series and $k$ the lag.
 
-For the additive decomposition the formula is:
-	$$Corr_{k}I_{t} = \frac{\sum_{t = k + 1}^{N}{(I_{t} \times I_{t - k})}}{\sum_{t = 1}^{N}{(I_{t})}^{2}}$$
-
+For the additive decomposition the formula is: $$Corr_{k}I_{t} = \frac{\sum_{t = k + 1}^{N}{(I_{t} \times I_{t - k})}}{\sum_{t = 1}^{N}{(I_{t})}^{2}}$$
 
 ![Text](All_images/RDimage54.png)
 
@@ -1146,23 +1075,13 @@ For the additive decomposition the formula is:
 
 Cochran test on equal variances within each period
 
-The Cochran test is design to identify the heterogeneity of a series of
-variances. X-13-ARIMA-SEATS uses this test in the extreme value
-detection procedure to check if the irregular component is
-heteroskedastic. In this procedure the standard errors of the irregular
-component are used for an identification of extreme values. If the null
-hypothesis that for all the periods (months, quarters) the variances of
-the irregular component are identical is rejected, the standard errors
-will be computed separately for each period (in case the option
-*Calendarsigma*=**signif** has been selected).
-
+The Cochran test is design to identify the heterogeneity of a series of variances. X-13-ARIMA-SEATS uses this test in the extreme value detection procedure to check if the irregular component is heteroskedastic. In this procedure the standard errors of the irregular component are used for an identification of extreme values. If the null hypothesis that for all the periods (months, quarters) the variances of the irregular component are identical is rejected, the standard errors will be computed separately for each period (in case the option *Calendarsigma*=**signif** has been selected).
 
 ![Text](All_images/RDimage55.png)
 
 ##### Moving seasonality ratios (MSR)
 
-For each $i^{\text{th}}$ month we will be looking at the mean annual
-changes for each component by calculating:
+For each $i^{\text{th}}$ month we will be looking at the mean annual changes for each component by calculating:
 
 $${\overline{S}}_{i} = \frac{1}{N_{i} - 1}\sum_{t = 2}^{N_{i}}|S_{i,t} - S_{i,t - 1}|$$
 
@@ -1170,18 +1089,13 @@ and
 
 $${\overline{I}}_{i} = \frac{1}{N_{i} - 1}\sum_{t = 2}^{N_{i}}| I_{i,t} - I_{i,t - 1}|$$,
 
-
-where $N_{i}$ refers to the number of months $\text{i}$ in the
-data, and the moving seasonality ratio of month $i$:
+where $N_{i}$ refers to the number of months $\text{i}$ in the data, and the moving seasonality ratio of month $i$:
 
 $$MSR_{i} = \frac{\overline{I}_{i}}{\overline{S}_{i}}$$
 
-
-The [Moving Seasonality Ratio (MSR)](M-X11-decomposition.qmd) is used to measure the amount of noise in the Seasonal-Irregular component. By studying these values, the
-user can [select for each period the seasonal filter](../reference-manual/sa-spec-X13.html#seasonal-filter-x11-seasonalma) that is the most suitable given the noisiness of the series.
+The [Moving Seasonality Ratio (MSR)](M-X11-decomposition.qmd) is used to measure the amount of noise in the Seasonal-Irregular component. By studying these values, the user can [select for each period the seasonal filter](../reference-manual/sa-spec-X13.html#seasonal-filter-x11-seasonalma) that is the most suitable given the noisiness of the series.
 
 ![Text](All_images/RDimage56.png)
-
 
 ### Output 3: final parameters
 
@@ -1191,21 +1105,22 @@ Final trend filter : length of Henderson filter applied for final estimation (in
 
 Final seasonal filer: length of Henderson filter applied for final estimation (in the second part of the D step).
 
-#### Retrieve in GUI 
+#### Retrieve in GUI
 
 Node Decomposition(X11) \> Final Filters (make node clickable, link to GUI chapter, handling of nodes)
 
-#### Retrieve in R 
+#### Retrieve in R
 
 in version 2
+
 ```{r, eval=FALSE}
 
 model_sa$decomposition$s_filter
 model_sa$decomposition$t_filter
 
 ```
-in version 3
 
+in version 3
 
 ### User-defined parameters
 
@@ -1334,41 +1249,56 @@ EDIT : link to package help page v2 +v3
 
 ## SEATS Decomposition
 
-policy: what is readable in GUI should be explained (even if shortly with link to details here) intermediate series ?
+(policy: what is readable in GUI should be explained, even if shortly, adding links to relevant method chapter)
 
-decomp of lineraized series in level or log
+SEATS (Signal Extraction for Arima Time Series) algorithm will decompose the linearized series, in level or in logarithm, using the Arima model fitted in the pre-treatment phase (link). The sections below describe - the specifications needed to run SEATS - the generated output - series - diagnostics - final parameters - the available user-defined parameters
 
 ### Default specifications
 
-link to Tramo-Seats part
-
-if identifiers slightly different in GUI, make it clear + pb of names in V3
-
-in calendar effects : what is tested, link to calendar chapter
-
-typos : RJDemetra doc (pull req)
-
--   7 TD vars
+The default specifications for SEATS must be chosen at the starting of the SA processing. They are detailed in the [RegArima part](A-sa.qmd#Pre-treatment:%20Reg-ARIMA%20(or%20TRAMO)) Starting point for Tramo-Seats
 
 ### Quick Launch
 
-overall procedure
+link from introduction 3 steps - import data - chose spec - retrieve results (GUi, R , cruncher) overall procedure
 
 in GUI
 
-in R
+in R in version 2 in version 3
+
+### Global outline in GUI
+
+2 places for each series - decomp node for output, diagnostics and (some) final parameters
+
+![Text](All_images/SEATS_GUI_global_outline.png)
+
+This node will be detailed in the sections below.
+
+-   specification window for customizable finl parameters access
+
+### Global outline in R
+
+??
 
 ### Output 1: series
 
-global indications: \_f: forecasts - \_e - -ef
-
 #### Stochastic series
 
-decompostion of the linearisezed series or of its log if multiplicative model
+Decompostion of the linearized series or of its logarithm in case of a multiplicative model, in this case the series are displayed in log.
 
-components: t_lin, s_lin, i_lin
+y_lin is split into components: t_lin, s_lin, i_lin
 
-if log, everything is dispalayed in log
+suffixes: - \_f stands for forecast - \_e stands for - \_ef stands for
+
+##### Display in GUI
+
+NODE Decompostion\>Stochastic series - Table with series and its standard error image
+
+-   Plot of Trend with confidence interval image
+-   Plot of Seasonal component with confidence interval image
+
+##### Retrieve from GUI
+
+Generating outout from GUI (link) or from Cruncher (link), stochastic series, their standard errors, forecasts and forecasts errors can be acessed with the following names
 
 | Series Name             | Meaning |
 |-------------------------|---------|
@@ -1392,143 +1322,139 @@ if log, everything is dispalayed in log
 | decomposition.i_lin_e   |         |
 | decomposition.i_lin_ef  |         |
 
-Retrieve in GUI
+##### Retrieve in R
 
-NODE : Decompostion \> Stocastic series
-
-forecast f series are pasted at the end of the correspoding series
-
--   \_e series are labelled with (stde)
-
-\_ef appear in graphs (but values cannot be retrieved)
-
-IMAGE1 GUI
-
--   image 1 : decompostion node and series
-
--   image 2 trend graph
-
--   image 3 seasonal graph
-
-Retrieve in R
+version 2 version 3
 
 #### Components (Level)
 
-if additive model : same as
+Decompostion of the linearized series, back to level in case of a multiplicative model.
 
-decompostion of the linearisezed series or of its log if multiplicative model
+y_lin is split into components: t_lin, s_lin, i_lin
 
-components: t_lin, s_lin, i_lin
+suffixes: - \_f stands for forecast - \_e stands for - \_ef stands for
 
-if log, everything is dispalayed in log
+##### Displayed in GUI
+
+NODE Decompostion\>Components - Table with series and its standard error image
+
+##### Retrieve from GUI
+
+Generating outout from GUI (link) or from Cruncher (link), component series, their standard errors, forecasts and forecasts errors can be acessed with the following names
 
 | Series Name             | Meaning |
 |-------------------------|---------|
-| decomposition.y_lin     |         |
-| decomposition.y_lin_f   |         |
-| decomposition.y_lin_ef  |         |
-| decomposition.t_lin     |         |
-| decomposition.t_lin_f   |         |
-| decomposition.t_lin_e   |         |
-| decomposition.t_lin_f   |         |
-| decomposition.sa_lin    |         |
-| decomposition.sa_lin_f  |         |
-| decomposition.sa_lin_e  |         |
-| decomposition.sa_lin_ef |         |
-| decomposition.s_lin     |         |
-| decomposition.s_lin_f   |         |
-| decomposition.s_lin_e   |         |
-| decomposition.s_lin_ef  |         |
-| decomposition.i_lin     |         |
-| decomposition.i_lin_f   |         |
-| decomposition.i_lin_e   |         |
-| decomposition.i_lin_ef  |         |
+| decomposition.y_cmp     |         |
+| decomposition.y_cmp_f   |         |
+| decomposition.y_cmp_ef  |         |
+| decomposition.t_cmp     |         |
+| decomposition.t_cmp_f   |         |
+| decomposition.t_cmp_e   |         |
+| decomposition.t_cmp_f   |         |
+| decomposition.sa_cmp    |         |
+| decomposition.sa_cmp_f  |         |
+| decomposition.sa_cmp_e  |         |
+| decomposition.sa_cmp_ef |         |
+| decomposition.s_cmp     |         |
+| decomposition.s_cmp_f   |         |
+| decomposition.s_cmp_e   |         |
+| decomposition.s_cmp_ef  |         |
+| decomposition.i_cmp     |         |
+| decomposition.i_cmp_f   |         |
+| decomposition.i_cmp_e   |         |
+| decomposition.i_cmp_ef  |         |
 
-Retrieve in GUI
+##### Retrieve in R
 
-NODE : Decompostion \> Stocastic series
+version 2 version 3
 
-forecast f series are pasted at the end of the correspoding series
-
--   \_e series are labelled with (stde)
-
-\_ef appear in graphs (but values cannot be retrieved)
-
-IMAGE1 GUI
-
--   image 1 : decompostion node and series
-
--   image 2 trend graph
-
--   image 3 seasonal graph
-
-Retrieve in R
-
-Biais correction voir JP (done between lin and and comp ?)
+##### Bias correction
 
 #### Final series
 
-decompostion of the linearisezed series or of its log if multiplicative model
+pb : qu'est ce que la sa de de cmp vs la SA finale ?
 
-components: t_lin, s_lin, i_lin
++---------------------------+------------------------+---------------+----------------------------------------+
+| Series                    | Final SEATS components | Final Results | Reallocation of pre-adjustment effects |
++===========================+========================+===============+========================================+
+| Raw series (forecasts)    |                        | y (y_f)       |                                        |
++---------------------------+------------------------+---------------+----------------------------------------+
+| Linearized series         | B1                     |               | none                                   |
++---------------------------+------------------------+---------------+----------------------------------------+
+| Final seasonal component  | D16                    | s (s_f)       |                                        |
++---------------------------+------------------------+---------------+----------------------------------------+
+| Final trend               | D12                    | t (t_f)       |                                        |
++---------------------------+------------------------+---------------+----------------------------------------+
+| Final irregular           | D13                    | i (i_f)       |                                        |
++---------------------------+------------------------+---------------+----------------------------------------+
+| Calendar component        |                        |               |                                        |
++---------------------------+------------------------+---------------+----------------------------------------+
+| Seasonal without calendar | D10                    |               |                                        |
++---------------------------+------------------------+---------------+----------------------------------------+
 
-if log, everything is dispalayed in log
+make clear - reallocation of outliers effects (frequent questions)
 
-| Series Name             | Meaning |
-|-------------------------|---------|
-| decomposition.y_lin     |         |
-| decomposition.y_lin_f   |         |
-| decomposition.y_lin_ef  |         |
-| decomposition.t_lin     |         |
-| decomposition.t_lin_f   |         |
-| decomposition.t_lin_e   |         |
-| decomposition.t_lin_f   |         |
-| decomposition.sa_lin    |         |
-| decomposition.sa_lin_f  |         |
-| decomposition.sa_lin_e  |         |
-| decomposition.sa_lin_ef |         |
-| decomposition.s_lin     |         |
-| decomposition.s_lin_f   |         |
-| decomposition.s_lin_e   |         |
-| decomposition.s_lin_ef  |         |
-| decomposition.i_lin     |         |
-| decomposition.i_lin_f   |         |
-| decomposition.i_lin_e   |         |
-| decomposition.i_lin_ef  |         |
+##### Display in GUI
 
-Retrieve in GUI
+Final results are displayed for each series in the NODE MAIN\>Table
 
-NODE : Decompostion \> Stocastic series
+![Text](All_images/SEATS_GUI_final_series.png)
 
-forecast f series are pasted at the end of the corresponding series
+Forecasts are glued at the end it *italic*
 
--   \_e series are labelled with (stde)
+What can be done with this table (exapandable note ?) - charts container (link) - single series contextual menu (link)
 
-\_ef appear in graphs (but values cannot be retrieved)
+##### Retrieve from GUI
+Generating outout from GUI (link) or from Cruncher (link), component series, their standard errors, forecasts and forecasts errors can be acessed with the following names
 
-IMAGE1 GUI
+| Series Name | Meaning |
+|-------------|---------|
+| y           |         |
+| y_f         |         |
+| t           |         |
+| t_f         |         |
+| sa          |         |
+| sa_f        |         |
+| s           |         |
+| s_f         |         |
+| i           |         |
+| i_f         |         |
 
--   image 1 : decompostion node and series
 
--   image 2 trend graph
+##### Retrieve in R
 
--   image 3 seasonal graph
+version 2
+the names are the same as for retrieving from GUI
 
-Retrieve in R
-
-make clear reallocation of outliers effects (frequent questions)
-
-Table
-
-GUI
-
-R
+version 3
 
 ### Output2: Final Params
 
-what is chosen automatically or default (cf estp) Relevant if parameters not set manually, or any parameters automatically selected by the software without having a fixed default value. (The rest of the parameters is set in the spec) To manually set hose parameters and see all the fixed default values see Specifications / parameters section
+This section describes what is chosen automatically or default (cf estp) Relevant if parameters not set manually, or any parameters automatically selected by the software without having a fixed default value. (The rest of the parameters is set in the spec) To manually set hose parameters and see all the fixed default values see Specifications / parameters section
 
-here all have a default value, nothing to be automatically selected
+here all have a default value, nothing to be automatically selected ?
+
+#### Arima Models for components
+
+brief description
+
+##### Display in GUI
+
+Click on the decomposition NODE
+
+![Text](All_images/SEATS_GUI_components_models.png)
+
+
+##### Retrieve from GUI 
+?
+
+##### Retrieve in R
+
+version 2 version 3
+
+#### Other final parameters
+
+Final parameters which can be fine tuned be the user are described in User-defined specifications section below
 
 ### Output3: Diagnostics
 
@@ -1548,7 +1474,9 @@ components final estimators
 
 -   Stationnary variance decompostion
 
-### Fine-tuning : user defined parameters
+### Setting user-defined parameters
+
+The section below explains how the user can fine-tune some seats parameters, which are put in context in [the corresponding method chapter](M-SEATS-decomposition.qmd).the default value is indicated ().
 
 -   Prediction length
 
@@ -1580,15 +1508,12 @@ KalmanSmoother
 
 McEllroyMatrix
 
-Further explanation (cf slides JP)
 
-link to M chapter for details on root allocation
+##### Seting parameters in GUI
 
-##### Set in GUI
+In specification window (link) corresponding to a given series:
 
-In specification window (link to GUI global exp)
-
-IMAGE
+![Text](All_images\SEATS_GUI_user_def_params.png)
 
 ##### Set in R
 
@@ -1614,9 +1539,13 @@ in version 3 with {rjd3tramoseats}
 
 ## Quality assessment for X13-Arima and Tramo-Seats
 
-(add at begininng of chapter ? X13 an d TS as historical and more popular, ghave more built-in available features, like predifined quality assessment)
+(add at begininng of chapter ? X13 an d TS as historical and more popular, have more built-in available features, like pre-defined quality assessment)
 
-(all GUI based analysis) NODES below bechmarking
+- display in GUI 
+- retrieve from GUI (or cruncher)
+- retrieve from R
+
+(see excel table)
 
 ### Matrix
 
@@ -1624,7 +1553,7 @@ comparaing all predefined specs available only in a formatted state in GUI (in R
 
 ### Residual seasonality
 
-list (chat is available)
+list (what is available)
 
 visu in GUI (can be larger than what is pre-defined in R)
 
