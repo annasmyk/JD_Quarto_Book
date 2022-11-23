@@ -1120,7 +1120,7 @@ stationary part of the original series is calculated for the irregular
 component ($I$), trend made stationary ($C$), seasonal
 component ($S$) and calendar effects (TD&H). 
 
-the trend is made staionnary by by extracting a linear trend from the trend component presented in Table D12.
+The trend is made staionnary by by extracting a linear trend from the trend component presented in Table D12.
 
 
 ![Text](All_images/RDimage53.png)
