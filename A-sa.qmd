@@ -4,13 +4,15 @@ Hint at GUI chap for global principles - ws structure (new SAP) - global specifi
 
 Hint at tool selection (link to chapter)
 
+add 1 or 2 chpters of quick launch
+
 ## Motivation
 
 The primary aim of the seasonal adjustment process is to remove seasonal fluctuations from the time series. Seasonal fluctuations are quasi-periodic infra-annual movements. They can mask...
 
 \[insert def SA from b_ov\]
 
--   infra annual peridodic numbers
+-   infra annual periodic numbers
 -   no unamigous definititon
 -   depends on its practial estimation
 
@@ -230,14 +232,23 @@ Table Common settings
 |                   |                                                                                                                                                                            |
 +-------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
-Setting in GUI image1: specification window and expanded nodes
+Setting span in GUI 
 
-Setting in R, part of modifying a specification (link)
+Use the specification window for a given series (link to details) and expand the nodes
+(add access of specification window)
+
+
+![Setting series span](All_images/SA_REGA_Spans.png)
+
+
+Setting span in R
+(part of modifying a specification (link))
 
 ```{r, EVAL=FALSE}
 library(RJDemetra)
 # estimation interval: option with static dates
-user_spec_1<-x13_spec(spec = c("RSA5c", "RSA0", "RSA1", "RSA2c", "RSA3", "RSA4c", "X11"), 
+user_spec_1<-x13_spec(spec = c("RSA5c", "RSA0", "RSA1", "RSA2c", 
+                               "RSA3", "RSA4c", "X11"), 
 preliminary.check = TRUE, 
 estimate.from = "2012-06-01", 
 estimate.to = "2019-12-01") 
@@ -279,15 +290,11 @@ estimate.exclLast = 36)
 
 ```
 
-#### Model span
+#### Setting the model span
 
-Principle: same as estimation span (link) above
+Setting works the same way as settinf series (estimation) span described above. But here, the user can specify the span (data interval) of the time series to be used for the estimation of the RegARIMA model coefficients. It allows to impede a chosen part of the data from influencing the regression estimates. 
 
-Specifies the span (data interval) of the time series to be used for the estimation of the RegARIMA model coefficients. The RegARIMA model is then applied to the whole series. With this argument the data early in the series can be prevented from affecting the forecasts, or, alternatively, data later in the series are excluded from the modelling span, so that they do not influence the regression estimates. The available parameter values are
-
-Additionnal parameters
-
-Model span specific parameters
+Additionnal (vs series span setting) parameters are described below:
 
 +--------------------------+-----------------------------------------------------------------------------------------------------------------------------+
 | Tolerance                | Convergence tolerance for the nonlinear estimation.                                                                         |
@@ -309,15 +316,18 @@ Model span specific parameters
 |                          | ARIMA model is higher than this limit, the root is set equal to 1. The default parameter value is 0.96.                     |
 +--------------------------+-----------------------------------------------------------------------------------------------------------------------------+
 
-Retrieve in GUI:
+Setting in GUI:
 
-image specification window and nodes
+Use the specification window
 
-Retrieve in R: not possible (to confirm), estimation span and model span must be equal
+![Model span setting](All_images/SA_REGA_model_spans.png)
 
-so additional parameters for model span are set on the estimation span
+Setting in R
 
-Tramo seats exemple
+Specific settingcnot possible (to confirm), estimation span and model span must be equal. So additional Tramo parameters for model span are set on the estimation span.
+
+Tramo example:
+version 2
 
 ```{r, eval=FALSE}
 
@@ -329,7 +339,7 @@ estimate.urfinal = 0.98)
 
 ```
 
-\[V3 model span specif parameters\]
+version 3
 
 ### Decomposition Scheme
 
@@ -394,11 +404,9 @@ Tramo specific settings
 
 Controls the bias in the log/level pre-test (the function is active when **Function** is set to *Auto*); **Fct** \> 1 favours levels, **Fct** \< 1 favours logs. The default setting is 0.95.
 
-Set and Retrieve in GUI
+Set in GUI
 
-Image specification window + expanded nodes : RegA+ Tramo
-
-Retrieve: in the specification window and panels for main (to detail ?)
+![Model span setting](All_images/SA_REGA_transfo.png)
 
 Set and in R
 
@@ -408,7 +416,7 @@ X13
 
 #excluding first 24 and last 36 observations
 user_spec <-x13_spec(spec = c("RSA5c", "RSA0", "RSA1", "RSA2c", "RSA3", "RSA4c", "X11"), 
-transform.function ="Log", # c(NA, "Auto", "None", "Log"),
+transform.function ="Log", # choose from: c(NA, "Auto", "None", "Log"),
 transform.adjust = "LeapYear", #c(NA, "None", "LeapYear", "LengthOfPeriod"),
 transform.aicdiff = -3)
 
@@ -439,7 +447,7 @@ Method regression as deterministic effects, details of regressor building in cal
 
 #### Default specifications for calendar correction
 
-Options related to calendar regressors choice are embedded into default specifications (link)
+Options related to calendar regressors choice are embedded into default specifications described above (link)
 
 National calendars not taken into accout.
 
@@ -461,7 +469,21 @@ National calendars not taken into accout.
 
 -   pre-test
 
-##### GUI: Setting this options and retrieveing parameters which are in use
+##### GUI Retrieving parameters which are in use
+
+Automatically chosen or user-defined calendar options (as well as other pre-adjustment options) are 
+displayed at th top of the MAIN Results NODE
+
+![Text](All_images/SA_REGA_retrieve_cal_options_MAIN.png)
+
+Details of regression results are displayed in the pre processing panel 
+
+![Text](All_images/SA_REGA_retrieve_calendar_options_details.png)
+
+
+##### GUI Setting options
+
+
 
 ##### R: Setting this options and retrieveing parameters which are in use
 
@@ -1269,7 +1291,7 @@ in R in version 2 in version 3
 
 2 places for each series - decomp node for output, diagnostics and (some) final parameters
 
-![Text](All_images/SEATS_GUI_global_outline.png)
+![Text](All_images/SA_SEATS_GUI_global_outline.png)
 
 This node will be detailed in the sections below.
 
@@ -1398,7 +1420,7 @@ make clear - reallocation of outliers effects (frequent questions)
 
 Final results are displayed for each series in the NODE MAIN\>Table
 
-![Text](All_images/SEATS_GUI_final_series.png)
+![Text](All_images/SA_SEATS_GUI_final_series.png)
 
 Forecasts are glued at the end it *italic*
 
@@ -1442,7 +1464,7 @@ brief description
 
 Click on the decomposition NODE
 
-![Text](All_images/SEATS_GUI_components_models.png)
+![Text](All_images/SA_SEATS_GUI_components_models.png)
 
 
 ##### Retrieve from GUI 
@@ -1513,7 +1535,7 @@ McEllroyMatrix
 
 In specification window (link) corresponding to a given series:
 
-![Text](All_images\SEATS_GUI_user_def_params.png)
+![Text](All_images\SA_SEATS_GUI_user_def_params.png)
 
 ##### Set in R
 

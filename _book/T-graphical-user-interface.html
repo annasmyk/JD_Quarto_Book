@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.1.251">
+<meta name="generator" content="quarto-1.2.269">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -174,7 +174,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./T-rev-policies-production.html" class="sidebar-item-text sidebar-link">Production and revision plocies</a>
+  <a href="./T-rev-policies-production.html" class="sidebar-item-text sidebar-link">Production and revision policies</a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -306,6 +306,7 @@ ul.task-list li input[type="checkbox"] {
 <div class="quarto-title-meta">
 
     
+  
     
   </div>
   
@@ -458,7 +459,7 @@ ul.task-list li input[type="checkbox"] {
 * <strong>New Workspace</strong> – creates a new workspace and displays it in the <em>Workspace</em> window with a default name (<em>Workspace_#number</em>); * <strong>Open Workspace</strong> – opens a dialog window, which enables the user to select and open an existing workspace; * <strong>Open Recent Workspace</strong> – presents a list of workspaces recently created by the user and enables the user to open one of them; * <strong>Save Workspace</strong> – saves the project file named by the system under the default name (<em>Workspace_#number</em>) and in a default location. The workspace can be re-opened at a later time; * <strong>Save Workspace As…</strong> – saves the current workspace under the name chosen by the user in the chosen location. The workspace can be re-opened at a later time; * <strong>Open Recent</strong> – presents a list of datasets recently used and enables the user to open one of them; * <strong>Exit</strong> – closes an application.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="All_images/File%20menu.jpg" class="img-fluid figure-img"></p>
+<p><img src="All_images/File menu.jpg" class="img-fluid figure-img"></p>
 <p></p><figcaption class="figure-caption">Text</figcaption><p></p>
 </figure>
 </div>
@@ -470,7 +471,7 @@ ul.task-list li input[type="checkbox"] {
 <p>The Statistical methods menu includes functionalities for modelling, analysis and the seasonal adjustment of a time series. They are divided into three groups: * <a href="#anomaly-detection">Anomaly Detection</a> – allows for a purely automatic identification of regression effects; * <a href="#modelling">Modelling</a> – enables time series modelling using the TRAMO and RegARIMA models; * <a href="T-r-packages.html#seasonal-adjustment">Seasonal adjustment</a> – intended for the seasonal adjustment of a time series with the TRAMO-SEATS and X-13ARIMA-SEATS methods.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="All_images/Statistical%20methods%20menu.jpg" class="img-fluid figure-img"></p>
+<p><img src="All_images/Statistical methods menu.jpg" class="img-fluid figure-img"></p>
 <p></p><figcaption class="figure-caption">Text</figcaption><p></p>
 </figure>
 </div>
@@ -481,7 +482,7 @@ ul.task-list li input[type="checkbox"] {
 <p>The View menu contains functionalities that enable the user to modify how JDemetra+ is viewed. It offers the following items: * <strong>Split</strong> – the function is not operational in the current version of the software. * <strong>Toolbars</strong> – displays selected toolbars under the main menu. The <em>File</em> toolbar contains the <em>Save all</em> icon. The <em>Performance</em> toolbar includes two icons: one to show the performance of the application, the other to stop the application profiling and taking a snapshot. The <em>Other</em> toolbar determines the default behaviour of the program when the user double clicks on the data. It may be useful to plot the data, visualise it on a grid, or to perform any pre-specified action, e.g.&nbsp;execute a seasonal adjustment procedure. * <strong>Show Only Editor</strong> – displays only the <em>Results</em> panel and hides other windows (e.g.&nbsp;<em>Workspace</em> and <em>Providers</em>). * <strong>Full Screen</strong> – displays the current JDemetra+ view in full screen.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="All_images/View%20menu.jpg" class="img-fluid figure-img"></p>
+<p><img src="All_images/View menu.jpg" class="img-fluid figure-img"></p>
 <p></p><figcaption class="figure-caption">Text</figcaption><p></p>
 </figure>
 </div>
@@ -501,7 +502,7 @@ ul.task-list li input[type="checkbox"] {
 </ul>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="All_images/Tools%20menu.jpg" class="img-fluid figure-img"></p>
+<p><img src="All_images/Tools menu.jpg" class="img-fluid figure-img"></p>
 <p></p><figcaption class="figure-caption">Text</figcaption><p></p>
 </figure>
 </div>
@@ -511,7 +512,7 @@ ul.task-list li input[type="checkbox"] {
 <p><em>Container</em> includes basic tools to display the data. The following items are available: <em>Chart</em>, <em>Grid</em>, <em>Growth Chart</em> and <em>List</em>.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="All_images/Container%20tools.jpg" class="img-fluid figure-img"></p>
+<p><img src="All_images/Container tools.jpg" class="img-fluid figure-img"></p>
 <p></p><figcaption class="figure-caption">Text</figcaption><p></p>
 </figure>
 </div>
@@ -1165,7 +1166,24 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     button.classList.add('code-copy-button-checked');
     var currentTitle = button.getAttribute("title");
     button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
     setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
       button.setAttribute("title", currentTitle);
       button.classList.remove('code-copy-button-checked');
     }, 1000);
@@ -1201,24 +1219,42 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
   var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
   for (var i=0; i<bibliorefs.length; i++) {
     const ref = bibliorefs[i];
-    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
-    tippyHover(ref, function() {
-      var popup = window.document.createElement('div');
-      cites.forEach(function(cite) {
-        var citeDiv = window.document.createElement('div');
-        citeDiv.classList.add('hanging-indent');
-        citeDiv.classList.add('csl-entry');
-        var biblioDiv = window.document.getElementById('ref-' + cite);
-        if (biblioDiv) {
-          citeDiv.innerHTML = biblioDiv.innerHTML;
-        }
-        popup.appendChild(citeDiv);
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
       });
-      return popup.innerHTML;
-    });
+    }
   }
 });
 </script>

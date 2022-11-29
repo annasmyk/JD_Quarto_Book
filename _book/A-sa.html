@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.1.251">
+<meta name="generator" content="quarto-1.2.269">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -237,7 +237,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./T-rev-policies-production.html" class="sidebar-item-text sidebar-link">Production and revision plocies</a>
+  <a href="./T-rev-policies-production.html" class="sidebar-item-text sidebar-link">Production and revision policies</a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -383,6 +383,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="quarto-title-meta">
 
     
+  
     
   </div>
   
@@ -391,12 +392,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <p>Hint at GUI chap for global principles - ws structure (new SAP) - global specification handling - file structure explanation</p>
 <p>Hint at tool selection (link to chapter)</p>
+<p>add 1 or 2 chpters of quick launch</p>
 <section id="motivation" class="level2">
 <h2 class="anchored" data-anchor-id="motivation">Motivation</h2>
 <p>The primary aim of the seasonal adjustment process is to remove seasonal fluctuations from the time series. Seasonal fluctuations are quasi-periodic infra-annual movements. They can mask…</p>
 <p>[insert def SA from b_ov]</p>
 <ul>
-<li>infra annual peridodic numbers</li>
+<li>infra annual periodic numbers</li>
 <li>no unamigous definititon</li>
 <li>depends on its practial estimation</li>
 </ul>
@@ -703,33 +705,41 @@ Y_t = \sum {\alpha}_i O_{it} + \sum\beta_j C_{jt} + \sum {\gamma}_i U_{it} + Y_{
 </tr>
 </tbody>
 </table>
-<p>Setting in GUI image1: specification window and expanded nodes</p>
-<p>Setting in R, part of modifying a specification (link)</p>
+<p>Setting span in GUI</p>
+<p>Use the specification window for a given series (link to details) and expand the nodes (add access of specification window)</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/SA_REGA_Spans.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Setting series span</figcaption><p></p>
+</figure>
+</div>
+<p>Setting span in R (part of modifying a specification (link))</p>
 <div class="cell" data-eval="false">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(RJDemetra)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># estimation interval: option with static dates</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>user_spec_1<span class="ot">&lt;-</span><span class="fu">x13_spec</span>(<span class="at">spec =</span> <span class="fu">c</span>(<span class="st">"RSA5c"</span>, <span class="st">"RSA0"</span>, <span class="st">"RSA1"</span>, <span class="st">"RSA2c"</span>, <span class="st">"RSA3"</span>, <span class="st">"RSA4c"</span>, <span class="st">"X11"</span>), </span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="at">preliminary.check =</span> <span class="cn">TRUE</span>, </span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="at">estimate.from =</span> <span class="st">"2012-06-01"</span>, </span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="at">estimate.to =</span> <span class="st">"2019-12-01"</span>) </span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># estimation interval: option with dynamic numbers of observations</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co"># spec can be applied on different series and therefore exclude different dates</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>user_spec_2<span class="ot">&lt;-</span><span class="fu">x13_spec</span>(<span class="at">spec =</span> <span class="fu">c</span>(<span class="st">"RSA5c"</span>, <span class="st">"RSA0"</span>, <span class="st">"RSA1"</span>, <span class="st">"RSA2c"</span>, <span class="st">"RSA3"</span>, <span class="st">"RSA4c"</span>, <span class="st">"X11"</span>), </span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="at">estimate.first =</span> <span class="dv">12</span>) </span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="co"># eestimation on the last 120 obs</span></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>user_spec_3<span class="ot">&lt;-</span><span class="fu">x13_spec</span>(<span class="at">spec =</span> <span class="fu">c</span>(<span class="st">"RSA5c"</span>, <span class="st">"RSA0"</span>, <span class="st">"RSA1"</span>, <span class="st">"RSA2c"</span>, <span class="st">"RSA3"</span>, <span class="st">"RSA4c"</span>, <span class="st">"X11"</span>), </span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="at">estimate.last =</span> <span class="dv">120</span>)</span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="co">#excluding first 24 and last 36 observations</span></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>user_spec_4<span class="ot">&lt;-</span><span class="fu">x13_spec</span>(<span class="at">spec =</span> <span class="fu">c</span>(<span class="st">"RSA5c"</span>, <span class="st">"RSA0"</span>, <span class="st">"RSA1"</span>, <span class="st">"RSA2c"</span>, <span class="st">"RSA3"</span>, <span class="st">"RSA4c"</span>, <span class="st">"X11"</span>), </span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="at">estimate.exclFirst =</span> <span class="dv">24</span>, </span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="at">estimate.exclLast =</span> <span class="dv">36</span>)</span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="co"># Retrieve settings</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>user_spec_1<span class="ot">&lt;-</span><span class="fu">x13_spec</span>(<span class="at">spec =</span> <span class="fu">c</span>(<span class="st">"RSA5c"</span>, <span class="st">"RSA0"</span>, <span class="st">"RSA1"</span>, <span class="st">"RSA2c"</span>, </span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>                               <span class="st">"RSA3"</span>, <span class="st">"RSA4c"</span>, <span class="st">"X11"</span>), </span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="at">preliminary.check =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="at">estimate.from =</span> <span class="st">"2012-06-01"</span>, </span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="at">estimate.to =</span> <span class="st">"2019-12-01"</span>) </span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># estimation interval: option with dynamic numbers of observations</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co"># spec can be applied on different series and therefore exclude different dates</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>user_spec_2<span class="ot">&lt;-</span><span class="fu">x13_spec</span>(<span class="at">spec =</span> <span class="fu">c</span>(<span class="st">"RSA5c"</span>, <span class="st">"RSA0"</span>, <span class="st">"RSA1"</span>, <span class="st">"RSA2c"</span>, <span class="st">"RSA3"</span>, <span class="st">"RSA4c"</span>, <span class="st">"X11"</span>), </span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="at">estimate.first =</span> <span class="dv">12</span>) </span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="co"># eestimation on the last 120 obs</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>user_spec_3<span class="ot">&lt;-</span><span class="fu">x13_spec</span>(<span class="at">spec =</span> <span class="fu">c</span>(<span class="st">"RSA5c"</span>, <span class="st">"RSA0"</span>, <span class="st">"RSA1"</span>, <span class="st">"RSA2c"</span>, <span class="st">"RSA3"</span>, <span class="st">"RSA4c"</span>, <span class="st">"X11"</span>), </span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="at">estimate.last =</span> <span class="dv">120</span>)</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="co">#excluding first 24 and last 36 observations</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>user_spec_4<span class="ot">&lt;-</span><span class="fu">x13_spec</span>(<span class="at">spec =</span> <span class="fu">c</span>(<span class="st">"RSA5c"</span>, <span class="st">"RSA0"</span>, <span class="st">"RSA1"</span>, <span class="st">"RSA2c"</span>, <span class="st">"RSA3"</span>, <span class="st">"RSA4c"</span>, <span class="st">"X11"</span>), </span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="at">estimate.exclFirst =</span> <span class="dv">24</span>, </span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="at">estimate.exclLast =</span> <span class="dv">36</span>)</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="co"># Retrieve settings</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>For comprehensive details about x13_spec function see {RJDemetra} documentation for tramo seats : the same ..one example outlining differences</p>
 <p>[V3(JDemetra+ V3) Example in X13]</p>
@@ -742,12 +752,10 @@ Y_t = \sum {\alpha}_i O_{it} + \sum\beta_j C_{jt} + \sum {\gamma}_i U_{it} + Y_{
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="at">estimate.exclLast =</span> <span class="dv">36</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="model-span" class="level4">
-<h4 class="anchored" data-anchor-id="model-span">Model span</h4>
-<p>Principle: same as estimation span (link) above</p>
-<p>Specifies the span (data interval) of the time series to be used for the estimation of the RegARIMA model coefficients. The RegARIMA model is then applied to the whole series. With this argument the data early in the series can be prevented from affecting the forecasts, or, alternatively, data later in the series are excluded from the modelling span, so that they do not influence the regression estimates. The available parameter values are</p>
-<p>Additionnal parameters</p>
-<p>Model span specific parameters</p>
+<section id="setting-the-model-span" class="level4">
+<h4 class="anchored" data-anchor-id="setting-the-model-span">Setting the model span</h4>
+<p>Setting works the same way as settinf series (estimation) span described above. But here, the user can specify the span (data interval) of the time series to be used for the estimation of the RegARIMA model coefficients. It allows to impede a chosen part of the data from influencing the regression estimates.</p>
+<p>Additionnal (vs series span setting) parameters are described below:</p>
 <table class="table">
 <colgroup>
 <col style="width: 17%">
@@ -777,11 +785,17 @@ Y_t = \sum {\alpha}_i O_{it} + \sum\beta_j C_{jt} + \sum {\gamma}_i U_{it} + Y_{
 </tr>
 </tbody>
 </table>
-<p>Retrieve in GUI:</p>
-<p>image specification window and nodes</p>
-<p>Retrieve in R: not possible (to confirm), estimation span and model span must be equal</p>
-<p>so additional parameters for model span are set on the estimation span</p>
-<p>Tramo seats exemple</p>
+<p>Setting in GUI:</p>
+<p>Use the specification window</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/SA_REGA_model_spans.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Model span setting</figcaption><p></p>
+</figure>
+</div>
+<p>Setting in R</p>
+<p>Specific settingcnot possible (to confirm), estimation span and model span must be equal. So additional Tramo parameters for model span are set on the estimation span.</p>
+<p>Tramo example: version 2</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">#excluding first 24 and last 36 observations</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>user_spec_1<span class="ot">&lt;-</span><span class="fu">tramoseats_spec</span>( <span class="at">spec =</span> <span class="fu">c</span>(<span class="st">"RSAfull"</span>, <span class="st">"RSA0"</span>, <span class="st">"RSA1"</span>, <span class="st">"RSA2"</span>, <span class="st">"RSA3"</span>, <span class="st">"RSA4"</span>, <span class="st">"RSA5"</span>),  </span>
@@ -789,7 +803,7 @@ Y_t = \sum {\alpha}_i O_{it} + \sum\beta_j C_{jt} + \sum {\gamma}_i U_{it} + Y_{
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="at">estimate.eml =</span> <span class="cn">FALSE</span>, </span>
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="at">estimate.urfinal =</span> <span class="fl">0.98</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>[V3 model span specif parameters]</p>
+<p>version 3</p>
 </section>
 </section>
 <section id="decomposition-scheme" class="level3">
@@ -825,15 +839,19 @@ Y_t = \sum {\alpha}_i O_{it} + \sum\beta_j C_{jt} + \sum {\gamma}_i U_{it} + Y_{
 <p><strong>Fct</strong><br>
 <em>Transformation; fct</em></p>
 <p>Controls the bias in the log/level pre-test (the function is active when <strong>Function</strong> is set to <em>Auto</em>); <strong>Fct</strong> &gt; 1 favours levels, <strong>Fct</strong> &lt; 1 favours logs. The default setting is 0.95.</p>
-<p>Set and Retrieve in GUI</p>
-<p>Image specification window + expanded nodes : RegA+ Tramo</p>
-<p>Retrieve: in the specification window and panels for main (to detail ?)</p>
+<p>Set in GUI</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/SA_REGA_transfo.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Model span setting</figcaption><p></p>
+</figure>
+</div>
 <p>Set and in R</p>
 <p>X13</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">#excluding first 24 and last 36 observations</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>user_spec <span class="ot">&lt;-</span><span class="fu">x13_spec</span>(<span class="at">spec =</span> <span class="fu">c</span>(<span class="st">"RSA5c"</span>, <span class="st">"RSA0"</span>, <span class="st">"RSA1"</span>, <span class="st">"RSA2c"</span>, <span class="st">"RSA3"</span>, <span class="st">"RSA4c"</span>, <span class="st">"X11"</span>), </span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="at">transform.function =</span><span class="st">"Log"</span>, <span class="co"># c(NA, "Auto", "None", "Log"),</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="at">transform.function =</span><span class="st">"Log"</span>, <span class="co"># choose from: c(NA, "Auto", "None", "Log"),</span></span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="at">transform.adjust =</span> <span class="st">"LeapYear"</span>, <span class="co">#c(NA, "None", "LeapYear", "LengthOfPeriod"),</span></span>
 <span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="at">transform.aicdiff =</span> <span class="sc">-</span><span class="dv">3</span>)</span>
 <span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
@@ -856,7 +874,7 @@ Y_t = \sum {\alpha}_i O_{it} + \sum\beta_j C_{jt} + \sum {\gamma}_i U_{it} + Y_{
 <p>Method regression as deterministic effects, details of regressor building in calendar chapter <a href="./A-calendar-and-input.html#Overview of Calendar effects in JDemetra">building</a></p>
 <section id="default-specifications-for-calendar-correction" class="level4">
 <h4 class="anchored" data-anchor-id="default-specifications-for-calendar-correction">Default specifications for calendar correction</h4>
-<p>Options related to calendar regressors choice are embedded into default specifications (link)</p>
+<p>Options related to calendar regressors choice are embedded into default specifications described above (link)</p>
 <p>National calendars not taken into accout.</p>
 <ul>
 <li><p>working days</p></li>
@@ -869,8 +887,25 @@ Y_t = \sum {\alpha}_i O_{it} + \sum\beta_j C_{jt} + \sum {\gamma}_i U_{it} + Y_{
 <li><p>Julian</p></li>
 <li><p>pre-test</p></li>
 </ul>
-<section id="gui-setting-this-options-and-retrieveing-parameters-which-are-in-use" class="level5">
-<h5 class="anchored" data-anchor-id="gui-setting-this-options-and-retrieveing-parameters-which-are-in-use">GUI: Setting this options and retrieveing parameters which are in use</h5>
+<section id="gui-retrieving-parameters-which-are-in-use" class="level5">
+<h5 class="anchored" data-anchor-id="gui-retrieving-parameters-which-are-in-use">GUI Retrieving parameters which are in use</h5>
+<p>Automatically chosen or user-defined calendar options (as well as other pre-adjustment options) are displayed at th top of the MAIN Results NODE</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/SA_REGA_retrieve_cal_options_MAIN.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Text</figcaption><p></p>
+</figure>
+</div>
+<p>Details of regression results are displayed in the pre processing panel</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/SA_REGA_retrieve_calendar_options_details.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Text</figcaption><p></p>
+</figure>
+</div>
+</section>
+<section id="gui-setting-options" class="level5">
+<h5 class="anchored" data-anchor-id="gui-setting-options">GUI Setting options</h5>
 </section>
 <section id="r-setting-this-options-and-retrieveing-parameters-which-are-in-use" class="level5">
 <h5 class="anchored" data-anchor-id="r-setting-this-options-and-retrieveing-parameters-which-are-in-use">R: Setting this options and retrieveing parameters which are in use</h5>
@@ -1572,7 +1607,7 @@ the forecasting horizon (numeric). The forecast length generated by the RegARIMA
 <p>2 places for each series - decomp node for output, diagnostics and (some) final parameters</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="All_images/SEATS_GUI_global_outline.png" class="img-fluid figure-img"></p>
+<p><img src="All_images/SA_SEATS_GUI_global_outline.png" class="img-fluid figure-img"></p>
 <p></p><figcaption class="figure-caption">Text</figcaption><p></p>
 </figure>
 </div>
@@ -1871,7 +1906,7 @@ the forecasting horizon (numeric). The forecast length generated by the RegARIMA
 <p>Final results are displayed for each series in the NODE MAIN&gt;Table</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="All_images/SEATS_GUI_final_series.png" class="img-fluid figure-img"></p>
+<p><img src="All_images/SA_SEATS_GUI_final_series.png" class="img-fluid figure-img"></p>
 <p></p><figcaption class="figure-caption">Text</figcaption><p></p>
 </figure>
 </div>
@@ -1951,7 +1986,7 @@ the forecasting horizon (numeric). The forecast length generated by the RegARIMA
 <p>Click on the decomposition NODE</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="All_images/SEATS_GUI_components_models.png" class="img-fluid figure-img"></p>
+<p><img src="All_images/SA_SEATS_GUI_components_models.png" class="img-fluid figure-img"></p>
 <p></p><figcaption class="figure-caption">Text</figcaption><p></p>
 </figure>
 </div>
@@ -2016,7 +2051,7 @@ the forecasting horizon (numeric). The forecast length generated by the RegARIMA
 <p>In specification window (link) corresponding to a given series:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="All_images\SEATS_GUI_user_def_params.png" class="img-fluid figure-img"></p>
+<p><img src="All_images\SA_SEATS_GUI_user_def_params.png" class="img-fluid figure-img"></p>
 <p></p><figcaption class="figure-caption">Text</figcaption><p></p>
 </figure>
 </div>
@@ -2120,7 +2155,24 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     button.classList.add('code-copy-button-checked');
     var currentTitle = button.getAttribute("title");
     button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
     setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
       button.setAttribute("title", currentTitle);
       button.classList.remove('code-copy-button-checked');
     }, 1000);
@@ -2156,24 +2208,42 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
   var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
   for (var i=0; i<bibliorefs.length; i++) {
     const ref = bibliorefs[i];
-    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
-    tippyHover(ref, function() {
-      var popup = window.document.createElement('div');
-      cites.forEach(function(cite) {
-        var citeDiv = window.document.createElement('div');
-        citeDiv.classList.add('hanging-indent');
-        citeDiv.classList.add('csl-entry');
-        var biblioDiv = window.document.getElementById('ref-' + cite);
-        if (biblioDiv) {
-          citeDiv.innerHTML = biblioDiv.innerHTML;
-        }
-        popup.appendChild(citeDiv);
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
       });
-      return popup.innerHTML;
-    });
+    }
   }
 });
 </script>

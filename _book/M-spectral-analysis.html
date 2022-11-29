@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.1.251">
+<meta name="generator" content="quarto-1.2.269">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -174,7 +174,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./T-rev-policies-production.html" class="sidebar-item-text sidebar-link">Production and revision plocies</a>
+  <a href="./T-rev-policies-production.html" class="sidebar-item-text sidebar-link">Production and revision policies</a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -286,6 +286,7 @@ ul.task-list li input[type="checkbox"] {
 <div class="quarto-title-meta">
 
     
+  
     
   </div>
   
@@ -507,7 +508,7 @@ x_{t} = \mu + (\phi_{1}B + \ldots + \phi_{p}B^{p})x_{t} + \varepsilon_{t}
 \]</span></p>
 <p>where <span class="math inline">\(CV(\omega_{j})\)</span> is the critical value of a <span class="math inline">\(F(d_{1},d_{2})\)</span> distribution, where the degrees of freedom are determined using simulations. For <span class="math inline">\(\omega_{j}= \pi\)</span>, we have a significant peak when <span class="math inline">\(\frac{f_{x}(\omega_{[n/2]})}{\left[ f_{x}(\omega_{[(n-1)/2]})\right]} \ge CV(\omega_{j})\)</span></p>
 <p>Two significant levels for this test are considered: <span class="math inline">\(\alpha=0.05\)</span> (code “t”) and <span class="math inline">\(\alpha=0.01\)</span> (code “T”).</p>
-<p>As opposed to the <a href="%7B%7B%20site.baseurl%20%7D%7D/pages/theory/Tests_ARspectrum.html">AR spectrum</a>, which is computed on the basis of the last <span class="math inline">\(120\)</span> data points, we will use here all available observations. Those critical values have been calculated given the recommended truncation lag <span class="math inline">\(r=79\)</span> for a sample size within the interval <span class="math inline">\(\in [80,119]\)</span> and <span class="math inline">\(r=112\)</span> for <span class="math inline">\(n \in [120,300]\)</span> . The <span class="math inline">\(F\)</span> approximation is less accurate for sample sizes larger than <span class="math inline">\(300\)</span>. For quarterly data, <span class="math inline">\(r=44\)</span>, but there are no recommendations regarding the required sample size.</p>
+<p>As opposed to the <a href="{{ site.baseurl }}/pages/theory/Tests_ARspectrum.html">AR spectrum</a>, which is computed on the basis of the last <span class="math inline">\(120\)</span> data points, we will use here all available observations. Those critical values have been calculated given the recommended truncation lag <span class="math inline">\(r=79\)</span> for a sample size within the interval <span class="math inline">\(\in [80,119]\)</span> and <span class="math inline">\(r=112\)</span> for <span class="math inline">\(n \in [120,300]\)</span> . The <span class="math inline">\(F\)</span> approximation is less accurate for sample sizes larger than <span class="math inline">\(300\)</span>. For quarterly data, <span class="math inline">\(r=44\)</span>, but there are no recommendations regarding the required sample size.</p>
 </section>
 <section id="use" class="level4">
 <h4 class="anchored" data-anchor-id="use">Use</h4>
@@ -518,7 +519,7 @@ x_{t} = \mu + (\phi_{1}B + \ldots + \phi_{p}B^{p})x_{t} + \varepsilon_{t}
 <p></p><figcaption class="figure-caption">tktest</figcaption><p></p>
 </figure>
 </div>
-<p>JDemetra+ considers critical values for <span class="math inline">\(\alpha=1\%\)</span> (code “T”) and <span class="math inline">\(\alpha=5\%\)</span> (code “t”) at each one of the seasonal frequencies represented in the table below, e.g.&nbsp;frequencies <span class="math inline">\(\frac{\pi}{6},&nbsp;\frac{\pi}{3},&nbsp;\frac{\pi}{2},&nbsp;\frac{2\pi}{3}\text{ and } \frac{5\pi}{6}\)</span> corresponding to 1, 2, 3, 4, 5 and 6 cycles per year in this example, since we are dealing with monthly data. The codes “a” and “A” correpond to the so-called <a href="%7B%7B%20site.baseurl%20%7D%7D/pages/theory/Tests_ARspectrum.html">AR spectrum</a>, so ignore them for the moment.</p>
+<p>JDemetra+ considers critical values for <span class="math inline">\(\alpha=1\%\)</span> (code “T”) and <span class="math inline">\(\alpha=5\%\)</span> (code “t”) at each one of the seasonal frequencies represented in the table below, e.g.&nbsp;frequencies <span class="math inline">\(\frac{\pi}{6},&nbsp;\frac{\pi}{3},&nbsp;\frac{\pi}{2},&nbsp;\frac{2\pi}{3}\text{ and } \frac{5\pi}{6}\)</span> corresponding to 1, 2, 3, 4, 5 and 6 cycles per year in this example, since we are dealing with monthly data. The codes “a” and “A” correpond to the so-called <a href="{{ site.baseurl }}/pages/theory/Tests_ARspectrum.html">AR spectrum</a>, so ignore them for the moment.</p>
 <p><strong>The seasonal and trading day frequencies by time series frequency</strong></p>
 <table class="table">
 <colgroup>
@@ -606,7 +607,7 @@ x_{t} = \mu + (\phi_{1}B + \ldots + \phi_{p}B^{p})x_{t} + \varepsilon_{t}
 <p></p><figcaption class="figure-caption">artest</figcaption><p></p>
 </figure>
 </div>
-<p>JDemetra+ considers critical values for <span class="math inline">\(\alpha=1\%\)</span> (code “A”) and <span class="math inline">\(\alpha=5\%\)</span> (code “a”) at each one of the seasonal frequencies represented in the table below, e.g.&nbsp;frequencies <span class="math inline">\(\frac{\pi}{6},&nbsp;\frac{\pi}{3},&nbsp;\frac{\pi}{2},&nbsp;\frac{2\pi}{3}\text{ and } \frac{5\pi}{6}\)</span> corresponding to 1, 2, 3, 4, 5 and 6 cycles per year in this example, since we are dealing with monthly data. The codes “t” and “T” correpond to the so-called <a href="%7B%7B%20site.baseurl%20%7D%7D/pages/theory/Tests_TKspectrum.html">Tukey spectrum</a>, so ignore them for the moment.</p>
+<p>JDemetra+ considers critical values for <span class="math inline">\(\alpha=1\%\)</span> (code “A”) and <span class="math inline">\(\alpha=5\%\)</span> (code “a”) at each one of the seasonal frequencies represented in the table below, e.g.&nbsp;frequencies <span class="math inline">\(\frac{\pi}{6},&nbsp;\frac{\pi}{3},&nbsp;\frac{\pi}{2},&nbsp;\frac{2\pi}{3}\text{ and } \frac{5\pi}{6}\)</span> corresponding to 1, 2, 3, 4, 5 and 6 cycles per year in this example, since we are dealing with monthly data. The codes “t” and “T” correpond to the so-called <a href="{{ site.baseurl }}/pages/theory/Tests_TKspectrum.html">Tukey spectrum</a>, so ignore them for the moment.</p>
 <p><strong>The seasonal and trading day frequencies by time series frequency</strong></p>
 <p>{: .table .table-style} |<strong>Number of months per full period</strong> | <strong>Seasonal frequency</strong> | <strong>Trading day frequency (radians)</strong>| |————————————–| ————————————————————————————-| ————————————| |12 | <span class="math inline">\(\frac{\pi}{6},\frac{\pi}{3},\ \frac{\pi}{2},\frac{2\pi}{3},\ \frac{5\pi}{6},\ \pi\)</span> | <span class="math inline">\(d\)</span>, 2.714| |6 | <span class="math inline">\(\frac{\pi}{3},\frac{2\pi}{3}\)</span>, <span class="math inline">\(\pi\)</span> | <span class="math inline">\(d\)</span> |4 | <span class="math inline">\(\frac{\pi}{2}\)</span>, <span class="math inline">\(\pi\)</span> | <span class="math inline">\(d\)</span>, 1.292, 1.850, 2.128| |3 | <span class="math inline">\(\pi\)</span> | <span class="math inline">\(d\)</span>| |2 | <span class="math inline">\(\pi\)</span> | <span class="math inline">\(d\)</span>|</p>
 <p>Currently, only seasonal frequencies are tested, but the program allows you to manually plot the AR spectrum and focus your attention on both seasonal and trading day frequencies. Agustin Maravall has conducted a simulation experiment to calculate <span class="math inline">\(CV(\lambda_{42})\)</span> (trading day frequency) and proposes to set for all <span class="math inline">\(j\)</span> equal to the critical value associated to the trading frequency, but this is currently not part of the current automatic testing procedure of JDemetra+.</p>
@@ -899,7 +900,24 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     button.classList.add('code-copy-button-checked');
     var currentTitle = button.getAttribute("title");
     button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
     setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
       button.setAttribute("title", currentTitle);
       button.classList.remove('code-copy-button-checked');
     }, 1000);
@@ -935,24 +953,42 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
   var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
   for (var i=0; i<bibliorefs.length; i++) {
     const ref = bibliorefs[i];
-    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
-    tippyHover(ref, function() {
-      var popup = window.document.createElement('div');
-      cites.forEach(function(cite) {
-        var citeDiv = window.document.createElement('div');
-        citeDiv.classList.add('hanging-indent');
-        citeDiv.classList.add('csl-entry');
-        var biblioDiv = window.document.getElementById('ref-' + cite);
-        if (biblioDiv) {
-          citeDiv.innerHTML = biblioDiv.innerHTML;
-        }
-        popup.appendChild(citeDiv);
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
       });
-      return popup.innerHTML;
-    });
+    }
   }
 });
 </script>
