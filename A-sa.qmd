@@ -530,7 +530,7 @@ link to: worked example: french calendar in R
 
 ### Outliers and intervention variables
 
-quick intro: rational = improve decomposition (cf guidelines) (determinsitic= effects estimated by regression 2 ways - (customizable) automatic detection - user prespecifified outliers
+quick intro: rationale = improve decomposition (cf guidelines) (determinsitic= effects estimated by regression 2 ways - (customizable) automatic detection - user prespecifified outliers
 
 #### Automatic detection
 
