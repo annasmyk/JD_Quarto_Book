@@ -483,7 +483,11 @@ Details of regression results are displayed in the pre processing panel
 
 ##### GUI Setting options
 
+Use the specification window 
 
+![Text](All_images/SA_REGA_calendar_setting.png)
+Detils on options; default an user defined 
+importing user defined regressors 
 
 ##### R: Setting this options and retrieveing parameters which are in use
 
@@ -530,7 +534,7 @@ link to: worked example: french calendar in R
 
 ### Outliers and intervention variables
 
-quick intro: rationale = improve decomposition (cf guidelines) (determinsitic= effects estimated by regression 2 ways - (customizable) automatic detection - user prespecifified outliers
+quick intro: rational = improve decomposition (cf guidelines) (determinsitic= effects estimated by regression 2 ways - (customizable) automatic detection - user prespecifified outliers
 
 #### Automatic detection
 
