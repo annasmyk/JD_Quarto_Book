@@ -1,13 +1,6 @@
 # Plug-ins for JDemetra+ {.unnumbered}
 
-(edit)
-JDemetra+ is an application that supports plug-ins. A plugin is a
-software component that adds a specific feature to the existing software
-application and is independent from the software version. It allows an
-application to be enhanced without changing the original code. Plugins
-can be shared between the users and installed individually. In this way
-new functionalities can be easily distributed among seasonal adjustment
-community members.
+JDemetra+ is an application that supports plug-ins, which are components adding specific feature to the existing software.
 
 ## Main functions
 
