@@ -552,7 +552,7 @@ image specification window, outliers box commented
 
 ##### how ro set this in R
 
-version 2: RJDEemetra
+version 2: RJDemetra
 
 ```{r, eval=FALSE}
 # idem for x13 or tramo
