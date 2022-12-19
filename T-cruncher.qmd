@@ -217,23 +217,7 @@ BQ <- compute_score(BQ, n_contrib_score = 5,
 
 #### Example of score composition
 
-```{=tex}
-\begin{table}[htbp]
-  \centering
-    \begin{tabular}{|m{2cm}|l|>{\centering\arraybackslash}m{2cm}|}
-    \hline
-    \multicolumn{2}{|c|}{Diagnostics} & Weights (out of 100) \\
-    \hline
-    \multirow{2}{2cm}{Pre-adjustment} & ARIMA Model Residuals & 30 \\
-\cline{2-3}          & Residual Calendar Effects  & 20 \\
-    \hline
-    \multirow{2}{2cm}{Decomposition} & Residual seasonality & 45 \\
-\cline{2-3}          & Decomposition Quality (stats M if X11) & 5 \\
-    \hline
-    \end{tabular}
 
-\end{table}
-```
 #### Customize the score computation
 
 Practical steps if you want to customize the score computation (see package documentation in R)
@@ -252,7 +236,7 @@ Practical steps if you want to customize the score computation (see package docu
 
 ## List of exportable diagnostics and parameters
 
-Detailed descrpition here
+Detailed descripition here
 
 ```{r, eval=FALSE}
 

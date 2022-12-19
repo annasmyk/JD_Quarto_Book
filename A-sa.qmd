@@ -1075,7 +1075,7 @@ Average duration of run is an average number of consecutive monthly (or quarterl
 
 ##### I/C ratio over indicated span and global
 
-The \$\frac{I}{C}\$ratios for each value of time lag $d$, presented in Table F2E, are computed on a basis of the data in Table F2A. Global IC is displayed below the table
+The $\frac{I}{C}$ ratios for each value of time lag $d$, presented in Table F2E, are computed on a basis of the data in Table F2A. Global IC is displayed below the table
 
 ![Text](All_images/RDimage52.png)
 

@@ -103,7 +103,8 @@ All standard databases (Oracle, SQLServer, DB2, MySQL) are supported by JDemetra
 
 Once the spreadsheet is prepared and saved, it can be imported to JDemetra+ as it is shown by the tutorial below.
 
-![Alt](All_images/Import_spreadsheet.gif)
+
+<!--- ![Alt](All_images/Import_spreadsheet.gif) --->
 
 **An example of importing process for the Excel file**
 
@@ -328,7 +329,7 @@ The *Spectral analysis* section provides three spectral graphs that allows an in
 
 #### Differencing {#differencing}
 
-The *Differencing* window displays the first regular differences for the selected time series together with the corresponding periodogram and the PACF function. By default, the window presents the results for non-seasonally and seasonally differenced series \\(\left( d = 1,D = 1 \right)\\). These settings can be changed through the *Properties* window (*Tools* *→ Properties*). A description of a periodogram and the PACF function can be found [here](../theory/spectral_periodogram.html).
+The *Differencing* window displays the first regular differences for the selected time series together with the corresponding periodogram and the PACF function. By default, the window presents the results for non-seasonally and seasonally differenced series (( $d = 1,D = 1$)). These settings can be changed through the *Properties* window (*Tools* *→ Properties*). A description of a periodogram and the PACF function can be found [here](../theory/spectral_periodogram.html).
 
 ![Text](All_images/A_Ref38.jpg)
 
