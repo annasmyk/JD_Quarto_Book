@@ -1,6 +1,6 @@
 # Plug-ins for JDemetra+ {.unnumbered}
 
-JDemetra+ is an application that supports plug-ins, which are components adding specific feature to the existing software.
+JDemetra+ is an application that supports plug-ins, which are components adding specific features to the existing software.
 
 ## Main functions
 
