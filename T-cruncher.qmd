@@ -311,4 +311,4 @@ options(default_matrix_item = c("period", "span.start", "span.end", "span.n", "s
 
 ```
 
-## List of exportable series
+

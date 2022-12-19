@@ -2,7 +2,7 @@
 
 ## Motivation: data specificities
 
-Infra monthly data displays multiple and non integer periodicities which cannot be dealt with classical versions of SA algorithlms. JD+ provides tailored versions of these algorithms.
+Infra monthly data displays multiple and non integer periodicities which cannot be dealt with classical versions of SA algorithms. JD+ provides tailored versions of these algorithms.
 
 Link to worked example (Daily French births)
 

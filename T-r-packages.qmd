@@ -9,6 +9,8 @@ Core JDemetra (java) algorithms can be accessied via several tools:
 - core packages 
 - addtionnal ones 
 
+The first package allowing to use JDemetra+ core algorithms {\\tt \\{RJDemetra\\}} {\\sf R} was created in 2018 \\cite{RJD} and since then the software has been rapidly expanding: algorithms have been extended and tools upgraded. In version 3.0 {\\tt \\{RJDemetra\\}} {\\sf R} will be replaced with a family of packages covering each a very specific perimeter. This modular structure makes the functions more readable, fosters evolution and encourages the user to enhance the functions according to its own needs
+
 version 2 vs version 3
 
 here over view + general structure 
