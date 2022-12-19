@@ -344,7 +344,7 @@ The *Spreadsheet profiler* offers an Excel-type view of the XLS file imported to
 
 #### Plugins {#plugins}
 
-Installation an fuctionnalities of plugins are described in the related [chapter](T-plug-ins.qmd)
+Installation an functionalities of plugins are described in the related [chapter](T-plug-ins.qmd)
 
 #### Options {#options}
 
@@ -723,12 +723,6 @@ add : some explanations + link to cruncher (production chapter)
 
     **Generating output - status information**
 
-### Output items
 
-intro add : outputs common with R packages
 
-The CSV, TXT and XLS outputs of JDemetra+ may contain the items shown in table below.
 
-A list of output items of JDemetra+ CSV, TXT and XLS formats.
-
-TABLES to be inserted - one for series - one for diagnostics and parameters
