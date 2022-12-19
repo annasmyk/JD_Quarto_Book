@@ -4,13 +4,13 @@
 
 The cruncher is an additional "executable" module, not an R package. It can be launched via R, SAS.
 
-Objective of the cruncher: - update a JDemetra+ workspace (with a given [revision policy](T-rev-policies-production.qmd))
+Objective of the cruncher: 
 
--   export the results (series and diagnostics),
+- update a JDemetra+ workspace (with a given [revision policy](T-rev-policies-production.qmd))
+
+- export the results (series and diagnostics),
 
 without having to open the graphical interface and operate manually. Suitable for a production process.
-
-The cruncher operated on a ws and applies a give policies on the whole ws.
 
 ## Installation procedure
 
@@ -22,30 +22,28 @@ Click on the zip code line of the latest release
 
 -   Unzip locally (or on server)
 
-(Insert screen shots)
-
 ## Help pages
 
-available here or click on the wiki icon on the Github page <https://github.com/jdemetra/jwsacruncher/wiki>
-
-will detail technical requirementsincluding Java version
+Documentation is available here or click on the wiki icon on the Github page <https://github.com/jdemetra/jwsacruncher/wiki>
 
 ## Running the cruncher in R
 
 Two R packages are currently available
 
--   rjwsacruncher (link) on CRAN: updates of the workspace and output production
+-   rjwsacruncher on CRAN: workspace update and output production
 
--   JDCruncheR (link): same function as rjwsacruncher but adds a quality report
-
-(genaral installation info in R packages chapter ?)
+-   Cruncher (https://github.com/InseeFr/JDCruncheR): same functions as rjwsacruncher      but adds a quality report
 
 ### Installation
 
--   rwsjacruncher
+-   rjwsacruncher 
+```{r, eval = FALSE}
+install.packages(rjwsacruncher)
+```
+
 -   JDCruncheR package: download the **.zip** or **.tar.gz** file from <https://github.com/InseeFr/JDCruncheR/releases>.
 
-additionnal packages needed
+Additional packages needed
 
 ```{r, eval = FALSE}
 install.packages(c("XLConnect", "XML"))
@@ -60,12 +58,12 @@ library(JDCruncheR)
 or
 
 ```{r, eval = FALSE}
-library(rwsacruncher)
+library(rjwsacruncher)
 ```
 
 ### Connecting the cruncher module
 
-To connect the cruncher to the R package, the path to the bin directory contaning the cruncher.bat file must be specified. This directory is avaibalbe onece the zip file hase been unzipped.
+To connect the cruncher to the R package, the path to the bin directory containing the **cruncher.bat** file must be specified. This directory is available once the zip file has been unzipped.
 
 ```{r, eval = FALSE}
 options(cruncher_bin_directory =
@@ -80,21 +78,22 @@ getOption("cruncher_bin_directory")
 
 ## Updating a workspace
 
-The functions described in this section are identical for both pacakges.
+The functions described in this section are identical for both packages.
 
 ### Running estimations
 
-The general context - first estimation - Applying a revision policy Details about revisions policies
+The general context 
+- First estimation 
+
+- Applying a [revision policy](T-rev-policies-production.qmd) to updated raw series
 
 The function `cruncher_and_param()` allows to do that
 
 ```{r, eval = FALSE}
-cruncher_and_param() #calculation using the default parameters
 
 cruncher_and_param(workspace = "D:/my_folder/my_ws.xml",
-# If you don't want to change the exported files' name
                    rename_multi_documents = FALSE,
-                   policy = "lastoutliers"
+                   policy = "lastoutliers" #name of the revision policy
                    log= my_log_file.txt)
 ```
 
@@ -105,15 +104,17 @@ To use the documentation, compute `help()` or `?function`:
 help(cruncher_and_param)
 ```
 
-Before running sa estimations you might want to set the export options.
+Before running SA estimations, set the export options.
 
 ### Configuring output options
 
-After updating the workspace with the selected revision policies, th ecruncher generates output (described in detail [here](T-graphical-user-interface.qmd###%20Output%20items): - series (csv files) - diagnostcics and parameters (demetra_m.csv file)
+After updating the workspace with the selected revision policies, the cruncher generates output 
+- series (csv files) 
+- diagnostics and parameters (demetra_m.csv file)
 
-These files will be created in the workspace's repository, sub repo output sub repo SAProcessing name
+These files will be created in the workspace's repository
+path="My_Workspace\Output\SAProcessing"
 
-Insert secreen shot
 
 #### Selecting time series to export
 
@@ -138,14 +139,14 @@ options(default_matrix_item = c("likelihood.aic",
                                 "likelihood.bicc"))
 
 ```
-
-All exportable parameters and diagnostics are listed \[here\]
+=
 
 ## Quality report with JDCruncheR
 
 The JDCruncheR package also:
 
 -   computes a quality score
+
 -   creates a quality report from the diagnostics produced by JDemetra+
 
 ### Main steps
@@ -213,12 +214,7 @@ BQ <- compute_score(BQ, n_contrib_score = 5,
                     na.rm = TRUE)
 ```
 
-### Details of score computation
-
-#### Example of score composition
-
-
-#### Customize the score computation
+### Customize the score computation
 
 Practical steps if you want to customize the score computation (see package documentation in R)
 
@@ -232,11 +228,8 @@ Practical steps if you want to customize the score computation (see package docu
 
 -   rebuild your package
 
-*Warning* : here only diagnostics are taken into account, revisions and numerical effects of potential parameter tuning have to be analysed with a complementary tool
 
 ## List of exportable diagnostics and parameters
-
-Detailed descripition here
 
 ```{r, eval=FALSE}
 
