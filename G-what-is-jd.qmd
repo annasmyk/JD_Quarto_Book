@@ -2,7 +2,7 @@
 
 ## Introduction
 
-JD+ is a library of algorithms for seasonal adjustment and time series econometrics. You can learn more about the history of the project here (link to below)
+JDem+ is a library of algorithms for seasonal adjustment and time series econometrics. You can learn more about the history of the project here (link to below)
 
 link to key references - handbooks (3) - sets of guidelines (2 or 3 ?)
 

@@ -4,7 +4,7 @@ project:
 book:
   title: "JDemetra+ online documentation"
   author: "Anna Smyk, Alain Quartier-la-Tente, Tanguy Barthelemy, Karsten Webel"
-  date: "12/23/2022"
+  date: "12/22/2022"
   page-navigation: true
   chapters:
     - index.qmd
