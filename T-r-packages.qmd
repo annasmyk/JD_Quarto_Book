@@ -1,23 +1,10 @@
 # R packages {.unnumbered}
 
-## Introduction
-Core JDemetra (java) algorithms can be accessied via several tools:
-- Graphical User Interface [GUI](T-graphical-user_interface.qmd)
-- ...enhanced with additionnal [plug-ins](T-plug-ins.qmd)
-- `R` packages 
+## JDemetra+ algorithms in R
 
-- core packages 
-- addtionnal ones 
+Core JDemetra Java algorithms can be accessed via several tools: - Graphical User Interface [GUI](T-graphical-user_interface.qmd) - ...enhanced with additional [plug-ins](T-plug-ins.qmd) - `R` packages
 
-The first package allowing to use JDemetra+ core algorithms {\\tt \\{RJDemetra\\}} {\\sf R} was created in 2018 \\cite{RJD} and since then the software has been rapidly expanding: algorithms have been extended and tools upgraded. In version 3.0 {\\tt \\{RJDemetra\\}} {\\sf R} will be replaced with a family of packages covering each a very specific perimeter. This modular structure makes the functions more readable, fosters evolution and encourages the user to enhance the functions according to its own needs
-
-version 2 vs version 3
-
-here over view + general structure 
-for more details on functions 
-- setp 1 relevant algorithms chapters (SA,...), outlines context
-- Set 2 R help pages (how to link this ?)
-
+This chapter provides an overview of the packages in version 2 and 3 (under construction). More details on specific functions are available in the relevant chapters in the Algorithm part of this documentation. Help pages in R are also very helpful.
 
 ## Available functions and algorithms
 
@@ -26,7 +13,7 @@ What JD+ core algorithms can be accessed ? V2 and V3 ?
 ### Seasonal adjustment
 
 | Domain              | Algorithm                         | Package      | Comments |     |
-|-------------|-----------------------|-------------|-------------|-------------|
+|---------------------|-----------------------------------|--------------|----------|-----|
 | Seasonal Adjustment | X13-Arima                         |              |          |     |
 |                     | Tramo-Seats                       |              |          |     |
 |                     |                                   | rjd3highfreq |          |     |
@@ -47,7 +34,7 @@ when package mentionned in table, add link to the relavant detailed part
 
 ### Benchmarking and Temporal disaggregation
 
-### State space framework 
+### State space framework
 
 ### Running the cruncher and generating quality report
 
@@ -84,9 +71,7 @@ enhancing plots, prints
 
 see if relevant part
 
-form of output 
-type of functions 
-how v3 differs from v2
+form of output type of functions how v3 differs from v2
 
 ### RJDemetra and JD+ version 2.2.3
 
@@ -111,6 +96,7 @@ what is doable ?
 ## Installation procedure
 
 ### version 2
+
 ```{r, eval=FALSE}
 
 install.packages("RJDemetra")
@@ -144,14 +130,11 @@ for detailed function, you can refer to each package's own R documentation
 
 ## Utility packages
 
-might not be the right title
-relevant for V3 only ? 
-cf estp adv, arima aux functions
+might not be the right title relevant for V3 only ? cf estp adv, arima aux functions
 
 ### rjd3toolkit
 
 Contains utility functions used in other `rjd` packages and several functions to perform tests.
-
 
 Tests - Normality tests: Bowman-Shenton (`bowmanshenton()`), Doornik-Hansen (`doornikhansen()`), Jarque-Bera (`jarquebera()`)
 
@@ -181,8 +164,7 @@ autocorrelations.partial(x)
 
 Purpose : creating input variables (regressors) for to be used in Reg-Arima modelling
 
--   create user-defined calendar and trading-days regressors: `calendar.new()` (create a new calendar), `calendar.holiday()` (add a specific holiday, e.g. christmas), `calendar.easter()` (easter related day) and `calendar.fixedday()`)
-(for tecnical details on building those regressors link to calendar chapter)
+-   create user-defined calendar and trading-days regressors: `calendar.new()` (create a new calendar), `calendar.holiday()` (add a specific holiday, e.g. christmas), `calendar.easter()` (easter related day) and `calendar.fixedday()`) (for tecnical details on building those regressors link to calendar chapter)
 
 -   outliers regressors (AO, LS, TC, SO, Ramp, intervention variables), calendar related regressors (stock, leap year, periodic dummies and contrasts, trigonometric variables) -\> to be added quadratic ramps
 

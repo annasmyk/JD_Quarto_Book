@@ -22,10 +22,9 @@ book:
       chapters: 
         - T-graphical-user-interface.qmd
         - T-r-packages.qmd
-        - T-cruncher.qmd
+        - T-Production-tools-cruncher-QR.qmd
         - T-rev-policies-production.qmd
         - T-plug-ins.qmd
-        - T-tool-selection.qmd
     - part: P_Methods.qmd
       chapters: 
         - M-spectral-analysis.qmd
