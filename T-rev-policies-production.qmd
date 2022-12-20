@@ -1,25 +1,13 @@
 # Production and revision policies {.unnumbered}
 
-## Introduction 
+## Context of use
 
-context of use 
+After a first estimation, raw data has been modified (extended and/or revised) and the user wants to update SA estimation keeping fixed. The set of constraints on the parameters is called "revision policy" or "refresh policy".
 
-## Revision Policies
 
-general concepts
-- identified vs estimated 
-- linearization phase 
-- X11
-- seats 
+## Revision policies in GUI
 
-here concepts of domain spec, point spec 
-
-concurrent = first estimation 
-or redo everutything (never overrides user defined parameters)
-
-## Implementing revision policies in GUI
-
-The saved results from a seasonal adjustment multi-process can be
+The saved results from a seasonal adjustment processing can be
 refreshed when new or modified observations are available.
 
 1.  To refresh the results open a previously saved workspace using the
@@ -196,9 +184,6 @@ outlier has been identified in the last year of the data span.
 **The *Partial concurrent adjustment* → *Estimate regression
 coefficient + Last outliers* revision policy results**
 
-## Implemententing revision policies in R
 
-built in function only in v3
-(cf estp adv + alain's bug)
 
 

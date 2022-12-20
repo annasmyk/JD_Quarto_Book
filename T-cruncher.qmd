@@ -112,8 +112,11 @@ After updating the workspace with the selected revision policies, the cruncher g
 - series (csv files) 
 - diagnostics and parameters (demetra_m.csv file)
 
-These files will be created in the workspace's repository
-path="My_Workspace\Output\SAProcessing"
+These files will be created in the workspace's repository, sub-repository 'Output"
+
+```{r,eval=FALSE}
+path="My_Workspace/Output/SAProcessing"
+```
 
 
 #### Selecting time series to export
