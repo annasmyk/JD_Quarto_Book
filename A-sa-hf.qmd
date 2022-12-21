@@ -10,7 +10,9 @@ Currently available topics:
 
 -   R functions for pre-treatment, extended X11 and extended Seats
 
-Topics under construction - graphical user interface 3.0 functionalities for high-frequency data
+Topics under construction 
+
+- graphical user interface 3.0 functionalities for high-frequency data
 
 -   STL functions
 

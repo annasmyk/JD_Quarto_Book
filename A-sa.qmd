@@ -1,28 +1,50 @@
 # Seasonal Adjustment {.unnumbered}
 
-Hint at GUI chap for global principles - ws structure (new SAP) - global specification handling - file structure explanation
+## Overview
 
-Hint at tool selection (link to chapter)
+The goal of the seasonal adjustment process is to remove seasonal fluctuations a time series. Seasonal fluctuations are quasi-periodic infra-annual movements. They can mask evolution of greater interest for the user such as short term evolutions or long time trends.
 
-add 1 or 2 chpters of quick launch
+This chapter focuses on the **practical step by step use** of JDemetra+ algorithms, restricted to monthly and quarterly series. For intra-monthly data see the [following chapter](A-sa-hf.qmd). The use of [graphical user interface](T-grahical-user-interface.qmd) and [R packages](T-r-pacakages.qmd) are described simultaneously whenever relevant.
 
-## Motivation
+In-depth methodological explanations of the algorithms are covered in separated chapters, in the [Methods](P_Methods.qmd) part.
 
-The primary aim of the seasonal adjustment process is to remove seasonal fluctuations from the time series. Seasonal fluctuations are quasi-periodic infra-annual movements. They can mask...
+This chapter is under construction, missing parts will be updated in the coming months.
 
-\[insert def SA from b_ov\]
+More information on the steps and best practices of a seasonal adjustment process can be found in the [Eurostat guidelines on seasonal adjustment](https://ec.europa.eu/eurostat/documents/3859598/6830795/KS-GQ-15-001-EN-N.pdf)
 
--   infra annual periodic numbers
--   no unamigous definititon
--   depends on its practial estimation
+For an overview on the algorithms and methodological issues, please refer to the [Handbook on Seasonal Adjustment](https://ec.europa.eu/eurostat/documents/3859598/8939616/KS-GQ-18-001-EN-N.pdf)
 
-## Data frequencies : high and low
+## Seasonal Adjustment (SA) algorithms available in JDemetra+
 
-Until recently seasonal where designed to tackly monthly frequencies or lower in JD+, X13- Seats Arima : 2,4,12 Seats : 2,3,4,6,12
+| Algorithm              | Access in GUI | Access in R (v2) | Access in R v3 |
+|------------------------|---------------|------------------|----------------|
+| X-13 Arima             | yes           | RJDemetra::x13   | rjdx13::x13    |
+| Reg-Arima only         |               |                  |                |
+| X11 decomposition only |               |                  |                |
+|                        |               |                  |                |
+|                        |               |                  |                |
+|                        |               |                  |                |
 
-For infra monthly data
+: SA algorithms
+
+-   X13-Arima (GUI and R)
+-   Tramo-Seats (GUI and R)
+-   STL (R only)
+-   Structural Time Series (SSF framework) (R only)
+
+X13 and TS are two step algos, pretreatment +dcomp (no pre ptreatment in STL + all at once in BSM)
+
+-   pre-treatment objectives and methods
+
+-   decomposition objective and methods
 
 ## Unobserved Components (UC)
+
+To seasonally adjust a series, seasonal factors $S_{t}$ will be estimated and removed from the original raw series: $Y_{sa}=Y_{t}/S_{t}$$ or $Y_{sa}=Y_{t}-S_{t}$. To do so the series is first decomposed into unobservable components. Two decomposition models:
+
+-   The additive model: $X_{t} = T_{t} + S_{t} + I_{t}$;
+
+-   The multiplicative model: $X_{t} = T_{t} \times S_{t} \times I_{t}$.
 
 The main components, each representing the impact of certain types of phenomena on the time series ($X_{t}$), are:
 
@@ -36,63 +58,38 @@ In general, the trend consists of 2 sub-components:
 
 -   The long-term evolution of the series;
 
--   The cycle, that represents the smooth, almost periodic movement around the long-term evolution of the series. It reveals a succession of phases of growth and recession. Trend and cycle are not separated in SA alogrithms.
-
-Two decomposition models:
-
--   The additive model: $X_{t} = T_{t} + S_{t} + I_{t}$;
-
--   The multiplicatve model: $X_{t} = T_{t} \times S_{t} \times I_{t}$.
-
-In the Reg-Arima (link) or Tramo(link) modelling the the multplicative model is estimated in logs; $log(X_{t}) = log(T_{t}) + log(S_{t}) + log(I_{t})$; Seats decompostion also relies on logs wheres X-11 decomp operates...
+-   The cycle, that represents the smooth, almost periodic movement around the long-term evolution of the series. It reveals a succession of phases of growth and recession. Trend and cycle are not separated in SA algorithms.
 
 ## Detecting seasonal patterns
 
-Seasonality tests (chap M_Tests)
+A large number of [seasonality tests](M-tests.qmd) are available in JDemetra+. They can be accessed in the graphical user interface or via R.
 
-## Available algorithms
+In rjd3modelling package:
 
-(link to table)
+-   Canova-Hansen (`seasonality.canovahansen()`)
 
-The two most popular are..
+In rjd3sa package:
 
-X-13ARIMA is a seasonal adjustment program developed and supported by the U.S. Census Bureau. It is based on the U.S. Census Bureau's earlier X-11 program, the X-11-ARIMA program developed at Statistics Canada, the X-12-ARIMA program developed by the U.S. Census Bureau.
+-   X-12 combined test (`seasonality.combined()`)
 
-Tramo-Seats
+-   F-test on seasonal dummies (`seasonality.f()`)
 
-Those will be the most detailed in this doc, but there alternative solutions.
+-   Friedman Seasonality Test (`seasonality.friedman()`)
 
-STL
+-   Kruskall-Wallis Seasonality Test (`seasonality.kruskalwallis()`)
 
-BSM
+-   Periodogram Seasonality Test (`seasonality.periodogram()`)
 
-X13 and TS are two step algos, pretreatment +dcomp (no pre ptreatment in STL + all at once in BSM)
+-   QS Seasonality Test (`seasonality.qs()`)
 
--   pre-treatment objectives and methods
+## Pre-treatment with Reg-ARIMA (or TRAMO)
 
--   decomposition objective and methods
-
-## Pre-treatment : Reg-ARIMA (or TRAMO)
-
-rationale
-
-NOTE: Modelling
-
-this should just be a "note" not a part
-
-(small addendum) the reg arima part can be run without decompostion slight differences in parameters
-
-ref to additionnal chapter ?
-
-### Global outline
-
-let's call it regArima modelling (and tramo only when TRamo differences are outlined)
-
-GOAL : remove deterministic effects to improve decompostion (details on modelling: link)
-
-global structure regression with ARIMA structure for residuals $$
+The goal of this step is to remove deterministic effects (calendar and outliers) in order to improve the decomposition.
+$$
 Y_t = \sum {\alpha}_i O_{it} + \sum\beta_j C_{jt} + \sum {\gamma}_i U_{it} + Y_{lin,t}
-$$ where - $O_{it}$ are the $i$ final outliers (Ao, LS, TC) from an automatic detection pocedure (link to outliers chap)
+$$ 
+
+-   $O_{it}$ are the $i$ final outliers (AO, LS, TC)
 
 -   $C_{it}$ are the calendar regressors (automatic or user-defined) (link to calendar chap)
 
@@ -100,17 +97,11 @@ $$ where - $O_{it}$ are the $i$ final outliers (Ao, LS, TC) from an automatic de
 
 -   $Y_{lin,t} \sim ARIMA(p,d,q)(P,D,Q)$
 
-In the following sections we cover in more details: not the tight structure - Default params: (quick launch) INPUT (?) - Setting User-defined parameters (and not at the end post diagnostics ?) - Output1: series - Output2: Final Params - Output3: Diagnostics for each of these steps - calendar (auto and user) - outliers (auto and user) - adding intervention variables (here: just how to feed the model, details on regressor and calendar specif chapter) - aima models parameters annd diagno
+In the following sections will cover in more details: not the tight structure 
 
-RegArima modelling part can be of an SA process or run on its own - GUI - R (sligthly different specs,...)
+- Default params: (quick launch) INPUT (?) - Setting User-defined parameters (and not at the end post diagnostics ?) - Output1: series - Output2: Final Params - Output3: Diagnostics for each of these steps - calendar (auto and user) - outliers (auto and user) - adding intervention variables (here: just how to feed the model, details on regressor and calendar specif chapter) - aima models parameters annd diagno
 
-WARNING : set params + retrieve their values: global principles
-
-in GUI
-
-Retrieve: in the specification window and panels for main (to detail ?)
-
-in R
+Reg-Arima modelling part can be of an SA process or run on its own. 
 
 ### Default Specifications
 
@@ -204,45 +195,41 @@ Specifies the span (data interval) of the time series to be used in the seasonal
 
 Table Common settings
 
-+-------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Option            | Description (expected format)                                                                                                                                              |
-+===================+============================================================================================================================================================================+
-| All               | default                                                                                                                                                                    |
-+-------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| From              | first observation included (yyyy-mm-dd)                                                                                                                                    |
-+-------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| To                | last observation included (yyyy-mm-dd)                                                                                                                                     |
-+-------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Between           | interval \[from ; to\] inculded (yyyy-mm-dd to yyyy-mm-dd)                                                                                                                 |
-+-------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| First             | number of obs from the begining of the series included (dynamic) (integer)                                                                                                 |
-+-------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Last              | number of obs from the end of the series (dynamic)(integer)                                                                                                                |
-+-------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Excluding         | excluding N first obs and P last obs from the computation,dynamic) (integer)                                                                                               |
-+-------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Preliminary check | chek to exclude highly problematic series e.g. the series with a number of identical observations and/or missing values above pre-specified threshold values. (True/False) |
-+-------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-|                   |                                                                                                                                                                            |
-+-------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-|                   |                                                                                                                                                                            |
-+-------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-|                   |                                                                                                                                                                            |
-+-------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-|                   |                                                                                                                                                                            |
-+-------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
++-------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------+
+| Option            | Description (expected format)                                                                                                                                               |        |
++===================+=============================================================================================================================================================================+========+
+| All               | default                                                                                                                                                                     |        |
++-------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------+
+| From              | first observation included (yyyy-mm-dd)                                                                                                                                     |        |
++-------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------+
+| To                | last observation included (yyyy-mm-dd)                                                                                                                                      |        |
++-------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------+
+| Between           | interval \[from ; to\] inculded (yyyy-mm-dd to yyyy-mm-dd)                                                                                                                  |        |
++-------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------+
+| First             | number of obs from the begining of the series included (dynamic) (integer)                                                                                                  |        |
++-------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------+
+| Last              | number of obs from the end of the series (dynamic)(integer)                                                                                                                 |        |
++-------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------+
+| Excluding         | excluding N first obs and P last obs from the computation,dynamic) (integer)                                                                                                |        |
++-------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------+
+| Preliminary check | check to exclude highly problematic series e.g. the series with a number of identical observations and/or missing values above pre-specified threshold values. (True/False) |        |
++-------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------+
+|                   |                                                                                                                                                                             |        |
++-------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------+
+|                   |                                                                                                                                                                             |        |
++-------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------+
+|                   |                                                                                                                                                                             |        |
++-------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------+
+|                   |                                                                                                                                                                             |        |
++-------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------+
 
-Setting span in GUI 
+Setting span in GUI
 
-Use the specification window for a given series (link to details) and expand the nodes
-(add access of specification window)
-
+Use the specification window for a given series (link to details) and expand the nodes (add access of specification window)
 
 ![Setting series span](All_images/SA_REGA_Spans.png)
 
-
-Setting span in R
-(part of modifying a specification (link))
+Setting span in R (part of modifying a specification (link))
 
 ```{r, EVAL=FALSE}
 library(RJDemetra)
@@ -292,7 +279,7 @@ estimate.exclLast = 36)
 
 #### Setting the model span
 
-Setting works the same way as settinf series (estimation) span described above. But here, the user can specify the span (data interval) of the time series to be used for the estimation of the RegARIMA model coefficients. It allows to impede a chosen part of the data from influencing the regression estimates. 
+Setting works the same way as settinf series (estimation) span described above. But here, the user can specify the span (data interval) of the time series to be used for the estimation of the RegARIMA model coefficients. It allows to impede a chosen part of the data from influencing the regression estimates.
 
 Additionnal (vs series span setting) parameters are described below:
 
@@ -326,8 +313,7 @@ Setting in R
 
 Specific settingcnot possible (to confirm), estimation span and model span must be equal. So additional Tramo parameters for model span are set on the estimation span.
 
-Tramo example:
-version 2
+Tramo example: version 2
 
 ```{r, eval=FALSE}
 
@@ -471,23 +457,19 @@ National calendars not taken into accout.
 
 ##### GUI Retrieving parameters which are in use
 
-Automatically chosen or user-defined calendar options (as well as other pre-adjustment options) are 
-displayed at th top of the MAIN Results NODE
+Automatically chosen or user-defined calendar options (as well as other pre-adjustment options) are displayed at th top of the MAIN Results NODE
 
 ![Text](All_images/SA_REGA_retrieve_cal_options_MAIN.png)
 
-Details of regression results are displayed in the pre processing panel 
+Details of regression results are displayed in the pre processing panel
 
 ![Text](All_images/SA_REGA_retrieve_calendar_options_details.png)
 
-
 ##### GUI Setting options
 
-Use the specification window 
+Use the specification window
 
-![Text](All_images/SA_REGA_calendar_setting.png)
-Detils on options; default an user defined 
-importing user defined regressors 
+![Text](All_images/SA_REGA_calendar_setting.png) Detils on options; default an user defined importing user defined regressors
 
 ##### R: Setting this options and retrieveing parameters which are in use
 
@@ -1431,6 +1413,7 @@ Forecasts are glued at the end it *italic*
 What can be done with this table (exapandable note ?) - charts container (link) - single series contextual menu (link)
 
 ##### Retrieve from GUI
+
 Generating outout from GUI (link) or from Cruncher (link), component series, their standard errors, forecasts and forecasts errors can be acessed with the following names
 
 | Series Name | Meaning |
@@ -1446,11 +1429,9 @@ Generating outout from GUI (link) or from Cruncher (link), component series, the
 | i           |         |
 | i_f         |         |
 
-
 ##### Retrieve in R
 
-version 2
-the names are the same as for retrieving from GUI
+version 2 the names are the same as for retrieving from GUI
 
 version 3
 
@@ -1470,39 +1451,17 @@ Click on the decomposition NODE
 
 ![Text](All_images/SA_SEATS_GUI_components_models.png)
 
+##### Retrieve from GUI
 
-##### Retrieve from GUI 
 ?
 
 ##### Retrieve in R
 
 version 2 version 3
 
-#### Other final parameters
-
-Final parameters which can be fine tuned be the user are described in User-defined specifications section below
-
-### Output3: Diagnostics
-
-SEATS (model based) specific diagnostics check GUI (more plots, values) vs R links to methods chapter, here just be able to "read" (knowledge assumed) (here direct base on gui plots, and the add what can be retrieved in R, if cannot be retrieved in R : could it be rebuild from available elements) Obj : simple description res : current doc, jpslides, doc esp, Q JP
-
--   WK analysis
-
-components final estimators
-
--   Error analysis autocorrelation of the errors (sa, trend) revisons of the errors
-
--   Growth rates
-
--   Model based tests
-
--   Significant seasonality
-
--   Stationnary variance decompostion
-
 ### Setting user-defined parameters
 
-The section below explains how the user can fine-tune some seats parameters, which are put in context in [the corresponding method chapter](M-SEATS-decomposition.qmd).the default value is indicated ().
+The section below explains how the user can fine-tune seats parameters, which are put in context in [the corresponding method chapter](M-SEATS-decomposition.qmd). The default value is indicated in parenthesis ().
 
 -   Prediction length
 
@@ -1534,12 +1493,11 @@ KalmanSmoother
 
 McEllroyMatrix
 
-
 ##### Seting parameters in GUI
 
 In specification window (link) corresponding to a given series:
 
-![Text](All_images\SA_SEATS_GUI_user_def_params.png)
+![Text](All_images%5CSA_SEATS_GUI_user_def_params.png)
 
 ##### Set in R
 
@@ -1561,36 +1519,12 @@ tramoseats_spec(
 
 ```
 
-in version 3 with {rjd3tramoseats}
-
-## Quality assessment for X13-Arima and Tramo-Seats
-
-(add at begininng of chapter ? X13 an d TS as historical and more popular, have more built-in available features, like pre-defined quality assessment)
-
-- display in GUI 
-- retrieve from GUI (or cruncher)
-- retrieve from R
-
-(see excel table)
-
-### Matrix
-
-comparaing all predefined specs available only in a formatted state in GUI (in R has to be generated by the user
-
-### Residual seasonality
-
-list (what is available)
-
-visu in GUI (can be larger than what is pre-defined in R)
-
-### Residual calendar effects
-
-### Add other diagnostics node
-
 ## STL
 
-use on linearized data data, no pre-adjustment (2nd layer)
+Decomposition algorithm used sed on linearized data data, no pre-adjustment.
 
-## SSF
+Not currently available. Under construction.
 
-(2nd layer)
+## Basic Structural Models
+
+Not currently available. Under construction.
