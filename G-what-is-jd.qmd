@@ -16,7 +16,7 @@ link to key references - handbooks (3) - sets of guidelines (2 or 3 ?)
 ## Main functions
 
 Core JDemetra (java) algorithms can be accessied via several tools:
-- Graphical User Interface [GUI](T-graphical-user_interface.qmd)
+- Graphical User Interface [GUI](T-graphical-user-interface.qmd)
 - ...enhanced with additionnal [plug-ins](T-plug-ins.qmd)
 - `R` packages
 
