@@ -1,57 +1,273 @@
 # Seasonal adjustment of high-frequency data {.unnumbered}
 
-## Motivation: data specificities
+## Overview
 
-Infra monthly data displays multiple and non integer periodicities which cannot be dealt with classical versions of SA algorithms. JD+ provides tailored versions of these algorithms.
+This chapter provides basic hints on seasonal adjustment of high-frequency data with JDemetra+ tailored algorithms.
 
-Link to worked example (Daily French births)
+Currently available topics:
 
-## Available algorithms
+-   description of high frequency data specificities
 
-code here and/or link to R packages chapter
+-   R functions for pre-treatment, extended X11 and extended Seats
 
-| Col1          | Algorithm                                | GUI v 3.0 | R package / function |
-|--------------|-----------------------------|--------------|--------------|
-| Pre-treatment | Fractionnal Airline Model                | yes       |                      |
-| Decompsition  | Extended SEATS Fractionnal Airline Model | yes       |                      |
-|               | Extended X-11                            | yes       |                      |
-|               | Extended STL                             | no        |                      |
-| One-Step      | SSF Framework                            | no        |                      |
+Topics under construction - graphical user interface 3.0 functionalities for high-frequency data
+
+-   STL functions
+
+-   State space framework
+
+## Data specificities
+
+Intra-monthly data displays multiple and non integer periodicities which cannot be dealt with classical versions of SA algorithms. JD+ provides tailored versions of these algorithms.
+
+| Data      | Day | Week | Month   | Quarter   | Year     |
+|-----------|-----|------|---------|-----------|----------|
+| quarterly |     |      |         |           | 4        |
+| monthly   |     |      |         | 3         | 12       |
+| weekly    |     |      | 4.3481  | 13.0443   | 52.1775  |
+| daily     |     | 7    | 30.4368 | 91.3106   | 365.2425 |
+| hourly    | 24  | 168  | 730.485 | 2191.4550 | 8765.82  |
+
+: Periodicities (number of observations per cycle)
+
+## Tailored algorithms in JDemetra+
+
+| Col1          | Algorithm                               | GUI v 3.0 | R package    |
+|------------------|--------------------|------------------|------------------|
+| Pre-treatment | Fractional Airline Model                | yes       | rjd3highfreq |
+| Decomposition | Extended SEATS Fractional Airline Model | yes       | rjd3highfreq |
+|               | Extended X-11                           | yes       | rjd3highfreq |
+|               | Extended STL                            | no        | rdj3stl      |
+| One-Step      | SSF Framework                           | no        | rjd3sts      |
 
 ## Unobserved Components
 
+### Raw series decomposition
+
+![](All_images/SA_HF_unobs_comps.png)
+
+### Multiple seasonal factors
+
+For high-frequency data multiple seasonal factors might be taken into account. $$S_{t}= S_{t,7} \circ S_{t,30.44} \circ S_{t,365.25}$$
+
+The decomposition is done iteratively periodicity by periodicity starting with the smallest one (highest frequency) as:
+
+-   highest frequencies usually display the biggest and most stable variations
+
+-   cycles of highest frequencies can mix up with lower ones
+
 ## Identifying seasonal patterns
 
-### Spectral analysis
-
-### Seasonality tests
+JDemetra+ provides the Canova-Hansen test in rjd3modelling package.
 
 ## Pre-adjustment
 
+In X13-Arima and Tramo-Seats, a pre-adjustment step is performed to remove deterministic effects, outliers and calendar with a Reg-Arima model. In the extended version for HF data, it is also the case with a **fractional airline model**.
+
+A general Reg-ARIMA model is written as follows: $$
+\left(Y_t - \sum {\alpha_i}X_{it}\right) \sim ARIMA(p,d,q)(P,D,Q)
+$$ These models contain seasonal backshift operators $B^{s}(y_t)=y_{t-s}$. Here $s$ can be non integer. JDemetra+ will rely on a modified version of a frequently used Arima model: the "Airline" model:
+
+$$
+(1-B)(1-B^{s})y_t=(1-\theta_1 B)(1-\theta_2 B^{s}) \epsilon_t \text{~~~~} \epsilon_t \sim \text{NID}(0,\sigma^2_{\epsilon})  
+$$
+
+For high frequency-data potentially non integer $s$ will be written: $s=s' + \alpha$, with $\alpha$ real number i $]0,1[$ (for example $52.18 = 52 +0.18$ is the yearly periodicity for weekly data)
+
+Taylor development around 1 of $f(x)=x^\alpha$ $$
+\begin{array}{lll}
+x^\alpha &=& 1 + \alpha (x-1) + \frac{\alpha (\alpha+1)}{2!} (x-1)^2 + \frac{\alpha (\alpha+1) (\alpha+2)}{3!} (x-1)^3 +\cdots \\
+            B^\alpha &\cong& (1 - \alpha)+ \alpha B     
+\end{array}
+$$ Approximation of $B^{s+\alpha}$ in a fractional Airline model
+
+$$
+\begin{array}{lll}
+B^{s+\alpha} &\cong& (1 - \alpha)B^s+ \alpha B^{s+1}                
+\end{array}
+$$ Example for a daily series displaying two periodicities $p_{1}=7$ and $p_{2}=365.25$:
+
+$$
+(1-B)(1-B^{7})(1-B^{365.25)}(Y_t - \sum {\alpha_i}X_{it})=(1-\theta_1 B)(1-\theta_2 B^{7})(1-\theta_3 B^{365.25}) \epsilon_t
+$$ $$
+\epsilon_t \sim \text{NID}(0,\sigma^2_{\epsilon}) 
+$$
+
+with $$
+1-B^{365.25}=(1 - 0.75B^{365} - 0.25B^{366})
+$$
+
 ### Calendar correction
 
-generate
+Calendar regressors can be defined with rjd3modelling package and added to pre-treatment function as a matrix.
+
+```{r, eval=FALSE}
+#setting calendar variables
+## define a calendar
+frenchCalendar <- rjd3modelling::calendar.new()
+rjd3modelling::calendar.holiday(frenchCalendar, "NEWYEAR")
+#rjd3modelling::calendar.holiday(frenchCalendar, "GOODFRIDAY")
+rjd3modelling::calendar.holiday(frenchCalendar, "EASTERMONDAY") # Lundi de Pâques
+rjd3modelling::calendar.holiday(frenchCalendar, "MAYDAY") # 1er mai
+rjd3modelling::calendar.fixedday(frenchCalendar, 5, 8,start="1982-05-08") # since 1982, 2nd world war 
+rjd3modelling::calendar.easter(frenchCalendar,offset = 39) ## ascension
+rjd3modelling::calendar.holiday(frenchCalendar, "WHITMONDAY") # Lundi de Pentecôte
+rjd3modelling::calendar.fixedday(frenchCalendar, 7, 14)  # national holiday
+rjd3modelling::calendar.holiday(frenchCalendar, "ASSUMPTION") # Assomption
+rjd3modelling::calendar.holiday(frenchCalendar, "ALLSAINTSDAY") # Toussaint
+rjd3modelling::calendar.holiday(frenchCalendar, "ARMISTICE") # first world war
+rjd3modelling::calendar.holiday(frenchCalendar, "CHRISTMAS") #  25th December
+
+## extract regressors: here daily series 
+q<-rjd3modelling::holidays(frenchCalendar, "1968-01-01", 
+                           length = length(y_raw_daily), type="All",
+                           nonworking = as.integer(7))
+```
 
 ### Outliers and intervention variables
 
-add
+Outliers detection is available in the pre-treatment function. Detected outliers are AO, LS and WS. Critical value can be computed by the algorithm or user-defined.
 
 ### Linearization
+
+Example using rjd3highfreq::fractionalAirlineEstimation function:
+
+```{r, eval= FALSE}
+pre_adjustment<- rjd3highfreq::fractionalAirlineEstimation(y_raw,
+                x = q, # q= calendar regressors
+                periods = c(7,365.25)
+                ndiff = 2, ar = FALSE, mean = FALSE,
+                outliers = c("ao","ls", "wo"), 
+                criticalValue = 0, # computed in the algorithm
+                precision = 1e-9, approximateHessian = TRUE)
+```
+
+"pre_adjustment" R object is a list of lists in which the user can retrieve input series, parameters and output series. For more details see chapter on [R packages](T-r-packages.qmd) and rjd3highfreq help pages R, where all parameters are listed.
 
 ## Decomposition
 
 ### Extended X-11
 
-### Arima Model Based (AMB) Decomposition
+X-11 is the decomposition module of [X-13-Arima](A-sa.qmd), the linearized series from the pre-adjustment step is split into seasonal ($S$), trend ($T$) and irregular ($I$) components.In case of multiple periodicities the decomposition is done periodicity by periodicity starting with the smallest one. Global structure of the iterations is the same as in "classical" X-11 but modifications were introduced for tackling non integer periodicities. They rely on the Taylor approximation for the seasonal backshift operator:
+
+$$
+\begin{array}{lll}
+B^{s+\alpha} &\cong& (1 - \alpha)B^s+ \alpha B^{s+1}                
+\end{array}
+$$
+
+#### Modification of the first trend filter for removing seasonality
+
+The first trend estimation is thanks to a generalization of the centred and symmetrical moving averages with an order equal to the periodicity $p$.
+
+-   filter length longueur $l$: smallest odd integer greater than $p$
+
+-   ex : p=7, l=7, p=12 l=13, p=365,25, l=367, p=52.18 l=53
+
+-   central coefficients $1/p$ (1/12,1/7, 1/365.25)
+
+-   extreme coefficients $\mathbb{I} \{\text{$E(p)$ pair}\} +(p-E(p)) /2p$
+
+-   example for p=12: (1/12 and 1/24) (we fall back on $M_{2\times12}$ of the monthly case
+
+-   example for p=365.25: (1/365.25 and 0.25/(2\*365.25)
+
+#### Modification of seasonality extraction filters
+
+Computation is done on a given period
+
+Example $M_{3\times3}$
+
+$$
+M_{3\times3}X = \frac{1}{9}(X_{t-2p})+\frac{2}{9}(X_{t-p})+\frac{3}{9}(X_{t})+\frac{2}{9}(X_{t+p})+\frac{1}{9}(X_{t+2p})
+$$
+
+if $p$ integer: no changes needed
+
+if $p$ non integer: Taylor approximation of the backshift operator
+
+#### Modification of final trend estimation filter
+
+As seasonality has been removed in the first step, there is no non integer periodicity issue in the final trend estimation, but extended X-11 offers additional features vs genuine X-11, in which final trend is estimated with Henderson filters and Musgrave asymmetrical surrogates. In extended in X-11, a generalization of this method with local polynomial approximation is available.
+
+#### Example of decomposition
+
+Here the raw series is daily and displays two periodicities $p=7$ and $p=365.25$
+
+```{r, eval= FALSE}
+# extraction of day-of-the-week pattern (dow)
+x11.dow <- rjd3highfreq::x11(y_linearized,
+        period = 7,                 # DOW pattern
+        mul = TRUE,                              
+        trend.horizon = 9,  # 1/2 Filter length : not too long vs p
+        trend.degree = 3,                         # Polynomial degree
+        trend.kernel = "Henderson",               # Kernel function
+        trend.asymmetric = "CutAndNormalize",     # Truncation method
+        seas.s0 = "S3X9", seas.s1 = "S3X9",       # Seasonal filters
+        extreme.lsig = 1.5, extreme.usig = 2.5)   # Sigma-limits
+
+
+# extraction of day-of-the-week pattern (doy)
+
+x11.doy <- rjd3highfreq::x11(x11.dow$decomposition$sa,  # previous sa
+                    period = 365.2425,         # DOY pattern
+                    mul = TRUE, 
+                    trend.horizon = 371, # 1/2 final filter length 
+                    trend.degree = 3,
+                    trend.kernel = "Henderson", 
+                    trend.asymmetric = "CutAndNormalize",
+                    seas.s0 = "S3X15", seas.s1 = "S3X5",
+                    extreme.lsig = 1.5, extreme.usig = 2.5)
+
+
+```
+
+### Arima Model Based (AMB) Decomposition (Extended Seats)
+
+Example
+
+```{r, eval=FALSE}
+# extracting doy pattern
+
+amb.doy <- rjd3highfreq::fractionalAirlineDecomposition(
+  amb.dow$decomposition$sa,  # DOW-adjusted linearised data
+  period = 365.2425,         # DOY pattern
+  sn = FALSE,                # Signal (SA)-noise decomposition 
+  stde = FALSE,              # Calculate standard deviations
+  nbcasts = 0, nfcasts = 0)  # Numbers of back- and forecasts
+```
+
+### Summary of the process
+
+Seasonal adjustment processing in rjd3highfreq cannot be encompassed by one one function like for lower frequency, e.g rjd3x13::x13(y_raw)
+
+The user has to run the steps one by one, here is an example with $p=7$ and $p=365.25$
+
+-   computation of the linearized series $Y_{lin}=FracAirline(Y)$
+
+-   computation of the calendar corrected series $Y_{cal}$
+
+-   computation of $S_{7}$ by decomposition of the linearized series
+
+-   computation of $S_{365.25}$ by decomposition of the seasonally adjusted series with $p=7$
+
+-   finally adjusted series $sa_{final} = Y_{cal}/S_{7}/S_{365.25}$ (if multiplicative model)
 
 ### STL decomposition
 
+Not currently available. Under construction.
+
 ## State Space framework
 
-one step for pre-treatment and decomp
+Not currently available. Under construction.
 
-## Quality assessment 
+## Quality assessment
 
 ### Residual seasonality
 
+JDemetra+ provides the Canova-Hansen test in rjd3modelling package which allows to check for any remaining seasonal periodicity in the final SA data.
+
 ### Residual Calendar effects
+
+Not currently available. Under construction.
+
