@@ -941,7 +941,7 @@ statistics.
 Edit : problem with tables display
 
 $$
-\small
+\scriptsize
 Q = \frac{10M1 + 11M2 + 10M3 + 8M4 + 11M5 + 10M6 + 18M7 + 7M8 + 7M9 + 4M10 + 4M11}{100}
 $$
 \[1\]<!---\[5.25\]-->
