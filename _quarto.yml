@@ -10,7 +10,7 @@ book:
     - index.qmd
     - G-what-is-jd.qmd
     - part: P_Algorithms.qmd
-      chapters: 
+      chapters:
         - A-sa.qmd
         - A-sa-hf.qmd
         - A-outlier-detection.qmd
@@ -19,14 +19,14 @@ book:
         - A-trend-cycle-estimation.qmd
         - A-nowcasting.qmd
     - part: P_Tools.qmd
-      chapters: 
+      chapters:
         - T-graphical-user-interface.qmd
         - T-r-packages.qmd
         - T-Production-tools-cruncher-QR.qmd
         - T-rev-policies-production.qmd
         - T-plug-ins.qmd
     - part: P_Methods.qmd
-      chapters: 
+      chapters:
         - M-spectral-analysis.qmd
         - M-reg-arima-modelling.qmd
         - M-X11-decomposition.qmd
@@ -43,7 +43,10 @@ bibliography: references.bib
 
 format:
   html:
-    theme: cosmo
+    theme: 
+        - united
+        - custom.scss
+    css: styles.css
   pdf:
     documentclass: scrreprt
 
