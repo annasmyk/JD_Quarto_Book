@@ -1,8 +1,10 @@
 # Outlier detection {.unnumbered}
 
-(in or outside a seasonal adjustment process)
+Under construction.
 
-## Motivation
+## Overview 
+
+JDemetra+ provides outlier detection routines which can be used stand alone or as part of a seasonal adjustment process. They can be accessed via GUI or R packages.
 
 ## With Reg Arima models
 
