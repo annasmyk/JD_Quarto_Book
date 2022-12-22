@@ -8,28 +8,28 @@ This chapter provides general information about using the graphical interface (G
 
 The graphical user interface in the 2.x family gives access to:
 
-- Seasonal adjustment [(SA) algorithms](A-sa.qmd)
+-   Seasonal adjustment [(SA) algorithms](A-sa.qmd)
+
     -   X13-Arima
     -   Tramo-Seats
     -   Direct-indirect SA comparisons
-    
-- Outlier detection (TERROR)
 
-- Benchmarking
+-   Outlier detection (TERROR)
+
+-   Benchmarking
 
 The graphical user interface in the 3.x family gives access **in addition** to extended SA algorithms for high-frequency data (HF) [high-frequency data (HF)](A-sa-hf.qmd).
 
 ## Available Time Series tools
 
-The graphical user interface in the 2.x and 3.x family give access to generic time series tools:  
+The graphical user interface in the 2.x and 3.x family give access to generic time series tools:
 
-- Graphics
-    - time domain
-    - spectral analysis
-    
-- Tests
-    - seasonality tests
-    - autocorrelation, normality, randomness tests
+-   Graphics
+    -   time domain
+    -   spectral analysis
+-   Tests
+    -   seasonality tests
+    -   autocorrelation, normality, randomness tests
 
 ## Installation Procedure
 
@@ -722,7 +722,3 @@ add : some explanations + link to cruncher (production chapter)
     ![Text](All_images/UDimage20.jpg)
 
     **Generating output - status information**
-
-
-
-
