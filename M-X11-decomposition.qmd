@@ -153,7 +153,7 @@ $$\[7.64\]-->
 
 $$
 \mathbf{3 \times 3}
-$$ 
+$$
 
 
 ***moving average over each month:***
