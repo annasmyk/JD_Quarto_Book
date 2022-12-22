@@ -1,83 +1,62 @@
-# JDemetra+ {.unnumbered}
+# JDemetra+ Software {.unnumbered}
 
 ## Introduction
 
-JDemetra+ is an open source software for seasonal adjustment and time series analysis. It has been officially recommended by Eurostat to the European Statistical System members since 2015. It is unique in its combination of very fast Java routines, a graphical user interface and a family of R packages. The graphical interface offers a structured and visual feedback, suitable for refined analysis and training, whereas R tools allow the user to mix the capabilities of JDemetra+ with the versatility of the R world, be it for mathematical functions or data wrangling.
+JDemetra+ is an open source software for **seasonal adjustment** and time series analysis. It has been officially recommended by Eurostat to the European Statistical System members since 2015. It is unique in its combination of very fast Java routines, a graphical user interface and a family of R packages. The graphical interface offers a structured and visual feedback, suitable for refined analysis and training. R tools allow the user to mix the capabilities of JDemetra+ with the versatility of the R world, be it for mathematical functions or data wrangling.
 
-.
+**Version 2.x and version 3**
 
-link to key references - handbooks (3) - sets of guidelines (2 or 3 ?)
-
-## Version 2.x and version 3
-
-3.0 to be released in December 2022, fills several critical gaps in the tool box of a time series analyst providing extended features for seasonal adjustment and trend estimation, including high frequency data and production tools.
-
-
-## Main functions
-
-Core JDemetra (java) algorithms can be accessied via several tools:
-- Graphical User Interface [GUI](T-graphical-user-interface.qmd)
-- ...enhanced with additionnal [plug-ins](T-plug-ins.qmd)
-- `R` packages
-
-### Seasonal adjustment algorithms
-
-All are available for low and high frequency data.
-
-| Algorithms               | Access | Key features |
-|--------------------------|--------|--------------|
-| X13-Arima                |        |              |
-| Tramo-Seats              |        |              |
-| STL                      |        |              |
-| State Space Models (STS) |        |              |
-
-### Temporal Disaggregation and benchmarking
-
-| Algorithms | Access | Key features |
-|------------|--------|--------------|
-| Chow-lin   |        |              |
-| Fernandez  |        |              |
-|            |        |              |
-|            |        |              |
-
-### Trend-cycle estimation
-
-| Algorithms | Access | Key features |
-|------------|--------|--------------|
-|            |        |              |
-|            |        |              |
-|            |        |              |
-|            |        |              |
-
-## Nowcasting
-
-| Algorithms | Access | Key features |
-|------------|--------|--------------|
-|            |        |              |
-|            |        |              |
-|            |        |              |
-|            |        |              |
+Version 3.0 to be released in December 2022, fills several critical gaps in the tool box of a time series analyst providing extended features for seasonal adjustment and trend estimation, including **high frequency data** and production tools.
 
 ## Structure of this book
 
-This book is divided in four parts, allowing the user to access the resources from different perspectives.
+This book is divided in 3 parts, allowing the user to access the resources from different perspectives.
 
 ### Algorithms
 
-This part provides a step by step description of all the algorithms featured in JD+, grouped by purpose - seasonal adjustment - benchmarking - temporal disaggregation - ... links
+This part provides a step by step description of all the algorithms featured in JDemetra+:
+
+-   [Seasonal Adjustment](A-sa.qmd)
+-   [Seasonal Adjustment of high-frequency data](A-sa-hf.qmd)
+-   [Reg-Arima modelling](A-sa.qmd)
+-   [Outlier detection](A-outlier-detection.qmd)
+-   [Generating Calendar regressors and input variables](A-calendar-and-input.qmd)
+-   [Benchmarking and temporal disaggregation](A-benchmarking.qmd)
+-   [Trend-Cycle estimation](A-trend-cycle-estimation.qmd)
+-   [Nowcasting](A-nowcasting.qmd)
+
+Output series, diagnostics, as well as parameters (automatically estimated or user-defined) are detailed in the relevant chapters.
 
 ### Tools
 
-JDemetra+ offers 3 kinds of tools - A Graphical User Interface (GUI) which can be enhanced with plug-ins - A set of R packages - A Cruncher for mass production in seasonal adjustment
+This part describes the tools allowing to access JDemetra+ algorithms:
 
-### Underlying Statistical Methods
+-   Graphical User Interface [GUI](T-graphical-user-interface.qmd)
 
-This part gives details about the underlying statistical methods to foster a more in-depth understanding of the algorithms.Those methods are described in the light and spirit of their use as building blocks of the algorithms presented above, not aiming at all at their comprehensive coverage.
+-   ...enhanced with additional [plug-ins](T-plug-ins.qmd)
 
-## How to use this book
+-   ..and a [Cruncher](T-Production-tools-cruncher-QR.qmd) for mass production
 
-### Audience
+-   [R packages](T-r-packages.qmd)
 
-This book targets the beginner as well as seasoned methodologist interested in using JDemetra+ software for any the purposes listed below.
+### Methods
 
-The documentation is built in layers allowing to skip details and complexity in the first steps
+This part describes in greater detail the core algorithms and their underlying statistical methods:
+
+-   [Reg-Arima modelling](M-reg-arima-modelling.qmd)
+
+-   [X-11: moving average based decomposition](M-X11-decomposition.qmd)
+
+-   [SEATS: Arima model based decomposition](M-SEATS-decomposition.qmd)
+
+-   [STL: Loess based decomposition](M-STL-decomposition.qmd)
+
+-   [Benchmarking and temporal disaggregation](M-Temp-Disagg-Bench.qmd)
+
+-   [Spectral analysis tools](M-spectral-analysis.qmd)
+
+-   [Trend Estimation](M-Trend-Estimation-Local-Polynomials.qmd)
+
+-   [Tests for seasonality and residuals](M-tests.qmd)
+
+-   [Structural time series and state space framework](M-state-space-framework.qmd)
