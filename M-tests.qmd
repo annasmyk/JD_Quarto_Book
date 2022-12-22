@@ -209,7 +209,7 @@ M_{j,t} =
 \end{cases} \text{ - dummy variables;}
 $$
 
-One can use the individual t-statistics to assess whether seasonality for a given month is significant, or a chi-squared test statistic if the null hypothesis is that the parameters are collectively all zero. The chi-squared test statistic is ${\widehat{\chi}}^{2} = {\widehat{\beta}}^{'}{\lbrack Var(\widehat{\beta})}^{\ })^{- 1}\rbrack{\widehat{\beta}}^{\ }$ in this case compared to critical values from a $\chi^{2}\left( \text{df} \right)$-distribution, with degrees of freedom $df = 11\$ (monthly series) or $df = 3$ (quarterly series). Since the ${Var(\widehat{\beta})}^{\ }$ computed using the estimated variance of $\alpha_{t}$ may be very different from the actual variance in small samples, this test is corrected using the proposed $\text{F}$ statistic:
+One can use the individual t-statistics to assess whether seasonality for a given month is significant, or a chi-squared test statistic if the null hypothesis is that the parameters are collectively all zero. The chi-squared test statistic is ${\widehat{\chi}}^{2} = {\widehat{\beta}}^{'}{\lbrack Var(\widehat{\beta})}^{\ })^{- 1}\rbrack{\widehat{\beta}}^{\ }$ in this case compared to critical values from a $\chi^{2}\left( \text{df} \right)$-distribution, with degrees of freedom $df = 11$ (monthly series) or $df = 3$ (quarterly series). Since the ${Var(\widehat{\beta})}^{\ }$ computed using the estimated variance of $\alpha_{t}$ may be very different from the actual variance in small samples, this test is corrected using the proposed $\text{F}$ statistic:
 
 $$
 F = \frac{ {\widehat{\chi}}^{2}}{s - 1} \times \frac{n - d - k}{n - d}

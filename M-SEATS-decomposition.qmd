@@ -12,7 +12,7 @@ HILLMER, S.C., and TIAO, G.C. (1982), BELL, W.R., and HILLMER, S.C.
 
 In JDemetra+ the input for the model based signal extraction procedure
 is always provided by TRAMO and includes the original series $y_{t}$,
-the linearized series $x_{t}$ (i.e. the original series $y\_{t}$ with
+the linearized series $x_{t}$ (i.e. the original series $y_{t}$ with
 the deterministic effects removed), the ARIMA model for the stochastic
 (linearized) time series $x_{t}$ and the deterministic effects (calendar
 effects, outliers and other regression variable
@@ -57,7 +57,7 @@ where:
     ;
 
 -   $\phi(B)$ -- a stationary autoregressive (AR) polynomial in $B$ and
-    in $B\^{S}$ containing regular and seasonal unit roots, with *s*
+    in $B^{S}$ containing regular and seasonal unit roots, with *s*
     representing the number of observations per year;
 
 -   $a_{t}$ -- a white-noise variable with the variance$\ V(a)$.
@@ -146,7 +146,7 @@ zero[^m-seats-decomposition-6].
 [^m-seats-decomposition-6]: MARAVALL, A. (1995).
 
 Since aggregation of ARIMA models yields ARIMA models, the series
-$x\_{t}$ will also follow an ARIMA model, as in @eq-2 <!---\[7.26\]-->,
+$x_{t}$ will also follow an ARIMA model, as in @eq-2 <!---\[7.26\]-->,
 and consequently the following identity can be derived:
 
 $$
@@ -350,8 +350,8 @@ i.e.:[^m-seats-decomposition-8]
 -   Roots of
     $\ \left( 1 - B^{s} \right)^{d_{s}} = {((1 - B)(1 + B + \ldots + B^{s - 1}))}^{d_{s}}$
     are assigned to the trend component (root of
-    ${\left( 1 - B \right)}\^{d\_{s}}$) and to the seasonal component
-    (roots of ${(1 + B + \ldots + B\^{s - 1})}\^{d\_{s}}$).
+    ${\left( 1 - B \right)}^{d_{s}}$) and to the seasonal component
+    (roots of ${(1 + B + \ldots + B^{s - 1})}^{d_{s}}$).
 
 -   When the modulus of the inverse of a real positive root of
     $\varphi(B)$ is greater than $k$ or equal to $k$, where $k$ is the
@@ -512,7 +512,7 @@ where:
 
 -   $F$ is the forward operator.
 
-A pseudo-spectrum for a monthly time series $x\_{t}$ is presented in the
+A pseudo-spectrum for a monthly time series $x_{t}$ is presented in the
 figure below: The pseudo-spectrum for a monthly series. The frequency
 $\omega = 0$ is associated with the trend, frequencies in the range
 \[$0 + \epsilon_{1},\ \frac{\pi}{6} - \epsilon_{2}$\] with
