@@ -3,7 +3,11 @@ project:
 
 book:
   title: "JDemetra+ documentation"
-  author: "Anna Smyk, Alain Quartier-la-Tente, Tanguy Barthelemy, Karsten Webel"
+  author: 
+    - name: Anna Smyk
+    - name: Alain Quartier-la-Tente
+    - name: Tanguy Barthelemy
+    - name: Karsten Webel
   date: "12/22/2022"
   page-navigation: true
   chapters:
