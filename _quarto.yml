@@ -2,7 +2,7 @@ project:
   type: book
 
 book:
-  title: "JDemetra+ online documentation"
+  title: "JDemetra+ documentation"
   author: "Anna Smyk, Alain Quartier-la-Tente, Tanguy Barthelemy, Karsten Webel"
   date: "12/22/2022"
   page-navigation: true

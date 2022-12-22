@@ -1,10 +1,12 @@
 # Seasonal Adjustment {.unnumbered}
 
+\footnotesize
+
 ## Overview
 
-The goal of the seasonal adjustment process is to remove seasonal fluctuations a time series. Seasonal fluctuations are quasi-periodic infra-annual movements. They can mask evolution of greater interest for the user such as short term evolutions or long time trends.
+The goal of seasonal adjustment is to remove seasonal fluctuations a time series. Seasonal fluctuations are quasi-periodic infra-annual movements. They can mask evolution of greater interest for the user such as short term evolutions or long time trends.
 
-This chapter focuses on the **practical step by step use** of JDemetra+ algorithms, restricted to monthly and quarterly series. For intra-monthly data see the [following chapter](A-sa-hf.qmd). The use of [graphical user interface](T-grahical-user-interface.qmd) and [R packages](T-r-pacakages.qmd) are described simultaneously whenever relevant.
+This chapter focuses on the **practical step by step** use of JDemetra+ algorithms, restricted to monthly and quarterly series. For intra-monthly data see the [following chapter](A-sa-hf.qmd). The use of [graphical user interface](T-grahical-user-interface.qmd) and [R packages](T-r-pacakages.qmd) are described simultaneously whenever relevant.
 
 In-depth methodological explanations of the algorithms are covered in separated chapters, in the [Methods](P_Methods.qmd) part.
 
@@ -14,33 +16,26 @@ More information on the steps and best practices of a seasonal adjustment proces
 
 For an overview on the algorithms and methodological issues, please refer to the [Handbook on Seasonal Adjustment](https://ec.europa.eu/eurostat/documents/3859598/8939616/KS-GQ-18-001-EN-N.pdf)
 
-## Seasonal Adjustment (SA) algorithms available in JDemetra+
+### Seasonal Adjustment Algorithms
 
 | Algorithm              | Access in GUI | Access in R (v2) | Access in R v3 |
 |------------------------|---------------|------------------|----------------|
-| X-13 Arima             | yes           | RJDemetra::x13   | rjdx13::x13    |
-| Reg-Arima only         |               |                  |                |
-| X11 decomposition only |               |                  |                |
-|                        |               |                  |                |
-|                        |               |                  |                |
-|                        |               |                  |                |
+| X-13 Arima             | yes           | RJDemetra        | rjd3x13        |
+| Reg-Arima only         | yes           | RJDemetra        | rjd3x13        |
+| X11 decomposition only | yes           | RJDemetra        | rjd3x13        |
+| Tramo-Seats            | yes           | RJDemetra        | rjd3tramoseats |
+| Tramo only             | yes           | RJDemetra        | rjd3tramoseats |
+| Seats only             | \-            | \-               | \-             |
+| STL                    | no            | no               | rjd3stl        |
+| STS                    | no            | no               | rjd3sts        |
 
 : SA algorithms
 
--   X13-Arima (GUI and R)
--   Tramo-Seats (GUI and R)
--   STL (R only)
--   Structural Time Series (SSF framework) (R only)
+X13-Arima and Tramo-Seats are two-step algorithm with a pretreatment phase (Reg-Arima or Tramo) and a decomposition phase (X11 and Seats). STL is a local regression (Loess) based decomposition, without pre-treatment. In a Structural Time Series approach pre-treatment and decomposition are done simultaneously in a State Space Framework [(SSF)](M-state-space-framework.qmd).
 
-X13 and TS are two step algos, pretreatment +dcomp (no pre ptreatment in STL + all at once in BSM)
+### Decomposition in unobserved components
 
--   pre-treatment objectives and methods
-
--   decomposition objective and methods
-
-## Unobserved Components (UC)
-
-To seasonally adjust a series, seasonal factors $S_{t}$ will be estimated and removed from the original raw series: $Y_{sa}=Y_{t}/S_{t}$$ or $Y_{sa}=Y_{t}-S_{t}$. To do so the series is first decomposed into unobservable components. Two decomposition models:
+To seasonally adjust a series, seasonal factors $S_{t}$ will be estimated and removed from the original raw series: $Y_{sa}=Y_{t}/S_{t}$ or $Y_{sa}=Y_{t}-S_{t}$. To do so the series is first decomposed into unobservable components. Two decomposition models:
 
 -   The additive model: $X_{t} = T_{t} + S_{t} + I_{t}$;
 
@@ -60,7 +55,21 @@ In general, the trend consists of 2 sub-components:
 
 -   The cycle, that represents the smooth, almost periodic movement around the long-term evolution of the series. It reveals a succession of phases of growth and recession. Trend and cycle are not separated in SA algorithms.
 
-## Detecting seasonal patterns
+### Pre-treatment principles
+
+The goal of this step is to remove deterministic effects (calendar and outliers) in order to improve the decomposition. $$
+Y_t = \sum {\alpha}_i O_{it} + \sum\beta_j C_{jt} + \sum {\gamma}_i U_{it} + Y_{lin,t}
+$$
+
+-   $O_{it}$ are the $i$ final outliers (AO, LS, TC)
+
+-   $C_{it}$ are the calendar regressors (automatic or user-defined) (link to calendar chap)
+
+-   $U_{it}$ are all the other user-defined regressors (link to outliers and regressors chap)
+
+-   $Y_{lin,t} \sim ARIMA(p,d,q)(P,D,Q)$
+
+### Detecting seasonal patterns
 
 A large number of [seasonality tests](M-tests.qmd) are available in JDemetra+. They can be accessed in the graphical user interface or via R.
 
@@ -82,154 +91,89 @@ In rjd3sa package:
 
 -   QS Seasonality Test (`seasonality.qs()`)
 
-## Pre-treatment with Reg-ARIMA (or TRAMO)
+## Perfroming pre-treatment
 
-The goal of this step is to remove deterministic effects (calendar and outliers) in order to improve the decomposition.
-$$
-Y_t = \sum {\alpha}_i O_{it} + \sum\beta_j C_{jt} + \sum {\gamma}_i U_{it} + Y_{lin,t}
-$$ 
-
--   $O_{it}$ are the $i$ final outliers (AO, LS, TC)
-
--   $C_{it}$ are the calendar regressors (automatic or user-defined) (link to calendar chap)
-
--   $U_{it}$ are all the other user-defined regressors (link to outliers and regressors chap)
-
--   $Y_{lin,t} \sim ARIMA(p,d,q)(P,D,Q)$
-
-In the following sections will cover in more details: not the tight structure 
-
-- Default params: (quick launch) INPUT (?) - Setting User-defined parameters (and not at the end post diagnostics ?) - Output1: series - Output2: Final Params - Output3: Diagnostics for each of these steps - calendar (auto and user) - outliers (auto and user) - adding intervention variables (here: just how to feed the model, details on regressor and calendar specif chapter) - aima models parameters annd diagno
-
-Reg-Arima modelling part can be of an SA process or run on its own. 
+The following sections cover how to perform pre-treatment with Reg-ARIMA (or TRAMO) algorithms. Tramo and the Reg-Arima part of X13-Arima rely on very similar principles: [Reg-Arima modelling](M-reg-arima-modelling). Thus Tramo will be mentioned only to highlight differences with the Reg-Arima part of X13-Arima. Reg-Arima modelling part can be of a seasonal adjustment process or run on its own, we focus first on launching pre-treatment as part of a SA processing.
 
 ### Default Specifications
 
-here general explanations
-
-default specification are set for the whole sa procedure: pre-treatment end decomposition
-
-they are slightly different for X13-ARIMA and tramo seats
-
-the user chooses the algo + one default spec
-
-this default spec can be modified with user defined params for most of its parts, this is tackeled in details dor every sub part of the reg arima (tramo) modelling and corresponding decompostion (x11 and seats)
+Default specifications are set for the whole SA procedure (pre-treatment end decomposition). They are slightly different for X13-ARIMA and Tramo-Seats and can be modified with user defined parameters. This is tackled in details for every sub part of the Reg-Arima (Tramo) modelling and corresponding decomposition (x11 and Seats)
 
 #### Starting point for X13-ARIMA
 
-+-----------------+---------------------+--------------------+------------------+----------------+
 | Spec identifier | Log/level detection | Outliers detection | Calendar effects | ARIMA          |
-+=================+=====================+====================+==================+================+
+|-----------------|---------------------|--------------------|------------------|----------------|
 | RSA0            | *NA*                | *NA*               | *NA*             | Airline(+mean) |
-+-----------------+---------------------+--------------------+------------------+----------------+
 | RSA1            | automatic           | AO/LS/TC           | *NA*             | Airline(+mean) |
-+-----------------+---------------------+--------------------+------------------+----------------+
 | RSA2c           | automatic           | AO/LS/TC           | 2 TD vars+Easter | Airline(+mean) |
-+-----------------+---------------------+--------------------+------------------+----------------+
 | RSA3            | automatic           | AO/LS/TC           | *NA*             | automatic      |
-+-----------------+---------------------+--------------------+------------------+----------------+
 | RSA4c           | automatic           | AO/LS/TC           | 2 TD vars+Easter | automatic      |
-+-----------------+---------------------+--------------------+------------------+----------------+
 | RSA5            | automatic           | AO/LS/TC           | 7 TD vars+Easter | automatic      |
-+-----------------+---------------------+--------------------+------------------+----------------+
 | X-11            | *NA*                | *NA*               | *NA*             | *NA*           |
-+-----------------+---------------------+--------------------+------------------+----------------+
 
-explanations :
+explanations:
 
-*NA :* non applied
+-   *NA :* non applied, for example in RSA3 there is no calendar effect correction
 
-X11
+-   automatic: test is performed
 
-RSA0
+-   outliers detection : AO/LS/TC type of outliers automatically detected under a critical T-Stat value (default value=4)
 
-RSA3: no calendar effect correction
+-   calendar
 
-automatic: test is performed,
+-   2 regressors: weekdays vs week-ends + LY
 
-outliers : AO/LS/TC type of outliers automatically detected under a critical T-Stat value (defautl value=4)
-
-calendar
-
--   2 regresssors: weekdays vs week-ends + LY
-
--   7 regressors: each week day vs sunadys + LY
+-   7 regressors: each week day vs Sundays + LY
 
 -   always tested
 
--   easter tested (length = 6 days in tramo, 8 days in X13 arima)
-
-arima model automatic detection
-
-TEST : RSA0 : mult or add
-
-TD vars include LY (link to calendar)
+-   easter tested (length = 6 days in tramo, 8 days in X13-Arima)
 
 #### Starting point for Tramo-Seats
 
-+-----------------+---------------------+--------------------+------------------+----------------+
 | Spec identifier | Log/level detection | Outliers detection | Calendar effects | ARIMA          |
-+=================+=====================+====================+==================+================+
+|-----------------|---------------------|--------------------|------------------|----------------|
 | RSA0            | *NA*                | *NA*               | *NA*             | Airline(+mean) |
-+-----------------+---------------------+--------------------+------------------+----------------+
 | RSA1            | automatic           | AO/LS/TC           | *NA*             | Airline(+mean) |
-+-----------------+---------------------+--------------------+------------------+----------------+
 | RSA2            | automatic           | AO/LS/TC           | 2 TD vars+Easter | Airline(+mean) |
-+-----------------+---------------------+--------------------+------------------+----------------+
 | RSA3            | automatic           | AO/LS/TC           | *NA*             | automatic      |
-+-----------------+---------------------+--------------------+------------------+----------------+
 | RSA5            | automatic           | AO/LS/TC           | 6 TD vars+Easter | automatic      |
-+-----------------+---------------------+--------------------+------------------+----------------+
 | RSAfull         | automatic           | AO/LS/TC           | automatic        | automatic      |
-+-----------------+---------------------+--------------------+------------------+----------------+
 
-Principle of user setting parameters: can be done from one of the default specs or any spec in "save" as mode very similar inGUI and R
+Principle of user setting parameters: can be done from one of the default specs or any spec in "save" as" mode very similar in GUI and R, see below.
 
 ### Spans
 
 #### Estimation span
 
-principle + some differences between tramo and reg-arima
-
-Specifies the span (data interval) of the time series to be used in the seasonal adjustment process (no computations outside) The user can restrcit the span
+Specifies the span (data interval) of the time series to be used in the seasonal adjustment process (no computations outside) The user can restrict the span
 
 Table Common settings
 
-+-------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------+
-| Option            | Description (expected format)                                                                                                                                               |        |
-+===================+=============================================================================================================================================================================+========+
-| All               | default                                                                                                                                                                     |        |
-+-------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------+
-| From              | first observation included (yyyy-mm-dd)                                                                                                                                     |        |
-+-------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------+
-| To                | last observation included (yyyy-mm-dd)                                                                                                                                      |        |
-+-------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------+
-| Between           | interval \[from ; to\] inculded (yyyy-mm-dd to yyyy-mm-dd)                                                                                                                  |        |
-+-------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------+
-| First             | number of obs from the begining of the series included (dynamic) (integer)                                                                                                  |        |
-+-------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------+
-| Last              | number of obs from the end of the series (dynamic)(integer)                                                                                                                 |        |
-+-------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------+
-| Excluding         | excluding N first obs and P last obs from the computation,dynamic) (integer)                                                                                                |        |
-+-------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------+
-| Preliminary check | check to exclude highly problematic series e.g. the series with a number of identical observations and/or missing values above pre-specified threshold values. (True/False) |        |
-+-------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------+
-|                   |                                                                                                                                                                             |        |
-+-------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------+
-|                   |                                                                                                                                                                             |        |
-+-------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------+
-|                   |                                                                                                                                                                             |        |
-+-------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------+
-|                   |                                                                                                                                                                             |        |
-+-------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------+
+| Option            | Description (expected format)                                                                                                                                               |     |
+|-------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----|
+| All               | default                                                                                                                                                                     |     |
+| From              | first observation included (yyyy-mm-dd)                                                                                                                                     |     |
+| To                | last observation included (yyyy-mm-dd)                                                                                                                                      |     |
+| Between           | interval \[from ; to\] inculded (yyyy-mm-dd to yyyy-mm-dd)                                                                                                                  |     |
+| First             | number of obs from the beginning of the series included (dynamic) (integer)                                                                                                 |     |
+| Last              | number of obs from the end of the series (dynamic)(integer)                                                                                                                 |     |
+| Excluding         | excluding N first obs and P last obs from the computation,dynamic) (integer)                                                                                                |     |
+| Preliminary check | check to exclude highly problematic series e.g. the series with a number of identical observations and/or missing values above pre-specified threshold values. (True/False) |     |
+|                   |                                                                                                                                                                             |     |
+|                   |                                                                                                                                                                             |     |
+|                   |                                                                                                                                                                             |     |
+|                   |                                                                                                                                                                             |     |
 
-Setting span in GUI
+**Setting span in GUI**
 
 Use the specification window for a given series (link to details) and expand the nodes (add access of specification window)
 
 ![Setting series span](All_images/SA_REGA_Spans.png)
 
-Setting span in R (part of modifying a specification (link))
+**Setting span in R**
+
+x13 in version 2 \footnotesize
 
 ```{r, EVAL=FALSE}
 library(RJDemetra)
@@ -257,16 +201,11 @@ estimate.exclFirst = 24,
 estimate.exclLast = 36)
 
 # Retrieve settings
-
 ```
 
-For comprehensive details about x13_spec function see {RJDemetra} documentation for tramo seats : the same ..one example outlining differences
+For comprehensive details about x13_spec function see RJDemetra R help pages.
 
-\[V3(JDemetra+ V3) Example in X13\]
-
-Tramo-seats
-
-(JD+ version 2) With RJDemetra, example in Tramo-Seats:
+Tramo-Seats in version 2
 
 ```{r, eval=FALSE}
 
@@ -277,11 +216,13 @@ estimate.exclLast = 36)
 
 ```
 
+For comprehensive details about tramoseats_spec function see RJDemetra R help pages
+
 #### Setting the model span
 
-Setting works the same way as settinf series (estimation) span described above. But here, the user can specify the span (data interval) of the time series to be used for the estimation of the RegARIMA model coefficients. It allows to impede a chosen part of the data from influencing the regression estimates.
+The user can also specify the span (data interval) of the time series to be used for the estimation of the Reg-ARIMA model coefficients. It allows to impede a chosen part of the data from influencing the regression estimates. Setting works the same way as setting series (estimation) span described above.
 
-Additionnal (vs series span setting) parameters are described below:
+Additional (vs series span setting) parameters are described below:
 
 +--------------------------+-----------------------------------------------------------------------------------------------------------------------------+
 | Tolerance                | Convergence tolerance for the nonlinear estimation.                                                                         |
@@ -303,17 +244,15 @@ Additionnal (vs series span setting) parameters are described below:
 |                          | ARIMA model is higher than this limit, the root is set equal to 1. The default parameter value is 0.96.                     |
 +--------------------------+-----------------------------------------------------------------------------------------------------------------------------+
 
-Setting in GUI:
+**Setting in GUI**:
 
 Use the specification window
 
 ![Model span setting](All_images/SA_REGA_model_spans.png)
 
-Setting in R
+**Setting in R**
 
-Specific settingcnot possible (to confirm), estimation span and model span must be equal. So additional Tramo parameters for model span are set on the estimation span.
-
-Tramo example: version 2
+Tramo example in version 2
 
 ```{r, eval=FALSE}
 
@@ -325,21 +264,9 @@ estimate.urfinal = 0.98)
 
 ```
 
-version 3
-
 ### Decomposition Scheme
 
-Principle
-
-ecriture add
-
-ecriture multi
-
-if multi : log
-
-ecriture log
-
-consequences on X11 decomp and seats decomp
+#### Parameters
 
 Transformation test -- a test is performed to choose between an additive decomposition (no transformation) (link to reg A chap to detail this)
 
@@ -367,7 +294,7 @@ transform {aicdiff=}
 
 Defines the difference in AICC needed to accept no transformation over a log transformation when the automatic transformation
 
-    selection option is invoked. The option is disabled when Function is not set to Auto. The default AIC difference value is -2.
+selection option is invoked. The option is disabled when Function is not set to Auto. The default AIC difference value is -2.
 
 Adjust
 
@@ -390,11 +317,11 @@ Tramo specific settings
 
 Controls the bias in the log/level pre-test (the function is active when **Function** is set to *Auto*); **Fct** \> 1 favours levels, **Fct** \< 1 favours logs. The default setting is 0.95.
 
-Set in GUI
+**Set in GUI**
 
 ![Model span setting](All_images/SA_REGA_transfo.png)
 
-Set and in R
+**Set and in R**
 
 X13
 
@@ -411,7 +338,7 @@ transform.aicdiff = -3)
 
 ```
 
-Tramo seats settings
+Tramo-Seats settings
 
 ```{r, eval=FALSE}
 
@@ -427,15 +354,11 @@ transform.fct = 0.5)
 
 ### Calendar correction
 
-Rationale : why correct (in a nutshell)
-
-Method regression as deterministic effects, details of regressor building in calendar chapter [building](A-calendar-and-input.qmd#Overview%20of%20Calendar%20effects%20in%20JDemetra)
-
 #### Default specifications for calendar correction
 
-Options related to calendar regressors choice are embedded into default specifications described above (link)
+Options related to calendar regressors choice are embedded into default specifications described above.
 
-National calendars not taken into accout.
+National calendars not taken into account.
 
 -   working days
 
@@ -455,9 +378,11 @@ National calendars not taken into accout.
 
 -   pre-test
 
-##### GUI Retrieving parameters which are in use
+#### Retrieving parameters which are in use
 
-Automatically chosen or user-defined calendar options (as well as other pre-adjustment options) are displayed at th top of the MAIN Results NODE
+**In GUI**
+
+Automatically chosen or user-defined calendar options (as well as other pre-adjustment options) are displayed at the top of the MAIN Results NODE
 
 ![Text](All_images/SA_REGA_retrieve_cal_options_MAIN.png)
 
@@ -465,211 +390,75 @@ Details of regression results are displayed in the pre processing panel
 
 ![Text](All_images/SA_REGA_retrieve_calendar_options_details.png)
 
-##### GUI Setting options
+#### Setting options
 
-Use the specification window
+**In GUI** Use the specification window
 
-![Text](All_images/SA_REGA_calendar_setting.png) Detils on options; default an user defined importing user defined regressors
-
-##### R: Setting this options and retrieveing parameters which are in use
+![Text](All_images/SA_REGA_calendar_setting.png)
 
 #### Customizing calendars
 
-How to correct this ?
-
-solution 1: if working with GUI build a new calendar in GUI (building details in chap C) set this option import it : here
-
-GUI : how to use it or customize HTML file structure explanation
-
-Question: can rjd3modelling generate an HTML calendar for GUI
-
-set this option in GUI
-
-image: spec window calendar / holidays / choics of calendar
-
-set this option in R ?
-
-version 2:
-
-version 3:
-
-solution 2: import external regressors can be built with rjd3modelling (link) which can then be used in via are or imported via GUI
-
-set this option in GUI how to import vaiables into JD+ / set utility (in interface chapter) calssical user defined
-
-set this option in R version 2:
-
-```{r, eval=FALSE}
-spec_4 <- x13_spec(spec = spec_1, 
-                   tradingdays.option = "UserDefined", 
-                   tradingdays.test = "None", 
-                   usrdef.varEnabled = TRUE, 
-                   usrdef.varType = "Calendar", 
-                   usrdef.var = reg3) # set of regressors in TS format
-```
-
-version 3
-
-(generic sentence to quasi repeat at the end of each part) Once regressors set, the RegArima (tramo) model will be estimated gloablly with all the other regression variables and taking into account arima model specificities as well. That is why diagnostics are all jointly displayed at the end of the process. (link)
-
-link to: worked example: french calendar in R
+Under construction.
 
 ### Outliers and intervention variables
 
-quick intro: rational = improve decomposition (cf guidelines) (determinsitic= effects estimated by regression 2 ways - (customizable) automatic detection - user prespecifified outliers
-
-#### Automatic detection
-
-overview: one sentence
-
-##### what can be set (list)
-
-(what do we look for) : AO, LS, TC (detailed in outliers chapter link), how cf. RegArima method chapter types can be set and TC rate specified SO can be added to detection detection - detection enabled - detection span - types of outliers (+ rate for TC) - critical value ("method" = is an incative parameter, always add one)
-
-all is identic for TRamo
-
-###### how to set this in GUI
-
-image specification window, outliers box commented
-
-##### how ro set this in R
-
-version 2: RJDemetra
-
-```{r, eval=FALSE}
-# idem for x13 or tramo
-# spec_4 <- x13_spec(spec = spec_1, 
-# outlier.enabled = NA,
-#   outlier.from = NA_character_,
-#   outlier.to = NA_character_,
-#   outlier.first = NA_integer_,
-#   outlier.last = NA_integer_,
-#   outlier.exclFirst = NA_integer_,
-#   outlier.exclLast = NA_integer_,
-#   outlier.ao = NA,
-#   outlier.tc = NA,
-#   outlier.ls = NA,
-#   outlier.so = NA,
-#   outlier.usedefcv = NA,
-#   outlier.cv = NA_integer_,
-#   outlier.method = c(NA, "AddOne", "AddAll"),
-#   outlier.tcrate = NA_integer_,
-
-```
-
-(how to retrieve these settings? in regression results cf end) )
-
-#### Pre-specified Outliers
-
-the user can set outliers (in the past) will be complemented by automatic detection (unless disabled)
-
-##### in GUI
-
-image specif window open the calendar image of calendar
-
-##### how to set this in R
-
-version 2: RJDemetra
-
-```{r, eval=FALSE}
-# idem for x13 or tramo
-# spec_4 <- x13_spec(spec = spec_1, 
-
-
-```
-
-#### Other User-defined regressors
-
-rjd3modelling
-
-some principles - allocate to a component - out of calendars and outliers warning: calendars won't be allocated to calendars, if not...
-
-##### Import regressors in GUI
-
--   import
--   additionnal operations
-
-##### Import regressors R
-
-```{r,eval=FALSE}
-
-spec_5 <- x13_spec(spec = spec_1, 
-                   usrdef.varEnabled = TRUE, 
-                   # On choisit d'attribuer l'outlier à la composante tendance
-                   usrdef.varType = "Trend", 
-                   # Les régresseurs doivent être au format ts
-                   usrdef.var = reg_externe_ts)
-
-```
+Under construction.
 
 ### Arima Model
 
-Once regressors have been defined, the software looks for a structure of the autocorrelations of the lneariezd series
-
-The arima model will be evaluated lookng at its residuals supposed to be a whiet noise
+Once regressors have been defined, the software looks for a structure of the autocorrelations of the linearized series.
 
 #### Default specifications
 
-Key specifications on arima model are embedded in default specifications: airline (daufault model) or full automatic reserach.
+Key specifications on Arima modelling are embedded in default specifications: airline (default model) or full automatic research.
 
-automdl.enabled a logical. If TRUE, the automatic modelling of the ARIMA model is enabled. If FALSE, the parameters of the ARIMA model can be specified.
+*automdl.enabled* If TRUE, the automatic modelling of the ARIMA model is enabled. If FALSE, the parameters of the ARIMA model can be specified.
 
-A word on restrictions; can some setting be mixed, ex user model and different u roots limits
-
-Forecast horizon is in X-11..
-
-#### Modifing automatic detection
+#### Modifying automatic detection
 
 Control variables for the automatic modelling of the ARIMA model (when automdl.enabled is set to TRUE):
 
-automdl.acceptdefault\
-a logical. If TRUE, the default model (ARIMA(0,1,1)(0,1,1)) may be chosen in the first step of the automatic model identification. If the Ljung-Box Q statistics for the residuals is acceptable, the default model is accepted and no further attempt will be made to identify another model.
+*automdl.acceptdefault* a logical. If TRUE, the default model (ARIMA(0,1,1)(0,1,1)) may be chosen in the first step of the automatic model identification. If the Ljung-Box Q statistics for the residuals is acceptable, the default model is accepted and no further attempt will be made to identify another model.
 
-automdl.cancel\
-the cancelation limit (numeric). If the difference in moduli of an AR and an MA roots (when estimating ARIMA(1,0,1)(1,0,1) models in the second step of the automatic identification of the differencing orders) is smaller than the cancelation limit, the two roots are assumed equal and cancel out.
+*automdl.cancel* the cancellation limit (numeric). If the difference in moduli of an AR and an MA roots (when estimating ARIMA(1,0,1)(1,0,1) models in the second step of the automatic identification of the differencing orders) is smaller than the cancellation limit, the two roots are assumed equal and cancel out.
 
-automdl.ub1 the first unit root limit (numeric). It is the threshold value for the initial unit root test in the automatic differencing procedure. When one of the roots in the estimation of the ARIMA(2,0,0)(1,0,0) plus mean model, performed in the first step of the automatic model identification procedure, is larger than the first unit root limit in modulus, it is set equal to unity.
+*automdl.ub1* the first unit root limit (numeric). It is the threshold value for the initial unit root test in the automatic differencing procedure. When one of the roots in the estimation of the ARIMA(2,0,0)(1,0,0) plus mean model, performed in the first step of the automatic model identification procedure, is larger than the first unit root limit in modulus, it is set equal to unity.
 
-automdl.ub2 the second unit root limit (numeric). When one of the roots in the estimation of the ARIMA(1,0,1)(1,0,1) plus mean model, which is performed in the second step of the automatic model identification procedure, is larger than second unit root limit in modulus, it is checked if there is a common factor in the corresponding AR and MA polynomials of the ARMA model that can be cancelled (see automdl.cancel). If there is no cancellation, the AR root is set equal to unity (i.e. the differencing order changes).
+*automdl.ub2* the second unit root limit (numeric). When one of the roots in the estimation of the ARIMA(1,0,1)(1,0,1) plus mean model, which is performed in the second step of the automatic model identification procedure, is larger than second unit root limit in modulus, it is checked if there is a common factor in the corresponding AR and MA polynomials of the ARMA model that can be cancelled (see automdl.cancel). If there is no cancellation, the AR root is set equal to unity (i.e. the differencing order changes).
 
-automdl.mixed\
-a logical. This variable controls whether ARIMA models with non-seasonal AR and MA terms or seasonal AR and MA terms will be considered in the automatic model identification procedure. If FALSE, a model with AR and MA terms in both the seasonal and non-seasonal parts of the model can be acceptable, provided there are no AR or MA terms in either the seasonal or non-seasonal terms.
+*automdl.mixed* a logical. This variable controls whether ARIMA models with non-seasonal AR and MA terms or seasonal AR and MA terms will be considered in the automatic model identification procedure. If FALSE, a model with AR and MA terms in both the seasonal and non-seasonal parts of the model can be acceptable, provided there are no AR or MA terms in either the seasonal or non-seasonal terms.
 
-automdl.balanced\
-a logical. If TRUE, the automatic model identification procedure will have a preference for balanced models (i.e. models for which the order of the combined AR and differencing operator is equal to the order of the combined MA operator).
+*automdl.balanced* a logical. If TRUE, the automatic model identification procedure will have a preference for balanced models (i.e. models for which the order of the combined AR and differencing operator is equal to the order of the combined MA operator).
 
-automdl.armalimit\
-the ARMA limit (numeric). It is the threshold value for t-statistics of ARMA coefficients and constant term used for the final test of model parsimony. If the highest order ARMA coefficient has a t-value smaller than this value in magnitude, the order of the model is reduced. If the constant term t-value is smaller than the ARMA limit in magnitude, it is removed from the set of regressors.
+*automdl.armalimit* the ARMA limit (numeric). It is the threshold value for t-statistics of ARMA coefficients and constant term used for the final test of model parsimony. If the highest order ARMA coefficient has a t-value smaller than this value in magnitude, the order of the model is reduced. If the constant term t-value is smaller than the ARMA limit in magnitude, it is removed from the set of regressors.
 
-automdl.reducecv\
-numeric, ReduceCV. The percentage by which the outlier's critical value will be reduced when an identified model is found to have a Ljung-Box statistic with an unacceptable confidence coefficient. The parameter should be between 0 and 1, and will only be active when automatic outlier identification is enabled. The reduced critical value will be set to (1-ReduceCV)\*CV, where CV is the original critical value.
+*automdl.reducecv* numeric, ReduceCV. The percentage by which the outlier's critical value will be reduced when an identified model is found to have a Ljung-Box statistic with an unacceptable confidence coefficient. The parameter should be between 0 and 1, and will only be active when automatic outlier identification is enabled. The reduced critical value will be set to (1-ReduceCV)\*CV, where CV is the original critical value.
 
-automdl.ljungboxlimit\
-the Ljung Box limit (numeric). Acceptance criterion for the confidence intervals of the Ljung-Box Q statistic. If the LjungBox Q statistics for the residuals of a final model is greater than the Ljung Box limit, then the model is rejected, the outlier critical value is reduced and model and outlier identification (if specified) is redone with a reduced value.
+*automdl.ljungboxlimit* the Ljung Box limit (numeric). Acceptance criterion for the confidence intervals of the Ljung-Box Q statistic. If the LjungBox Q statistics for the residuals of a final model is greater than the Ljung Box limit, then the model is rejected, the outlier critical value is reduced and model and outlier identification (if specified) is redone with a reduced value.
 
-automdl.ubfinal numeric, final unit root limit. The threshold value for the final unit root test. If the magnitude of an AR root for the final model is smaller than the final unit root limit, then a unit root is assumed, the order of the AR polynomial is reduced by one and the appropriate order of the differencing (non-seasonal, seasonal) is increased. The parameter value should be greater than one.
+*automdl.ubfinal* numeric, final unit root limit. The threshold value for the final unit root test. If the magnitude of an AR root for the final model is smaller than the final unit root limit, then a unit root is assumed, the order of the AR polynomial is reduced by one and the appropriate order of the differencing (non-seasonal, seasonal) is increased. The parameter value should be greater than one.
 
-setting in GUI
+Setting in GUI
 
-image specification window, arima with auto box ticked
+Under construction
 
-setting in R (see if Tramo specificities)
+**Setting in R**
+
+X13-Arima template in v2
 
 ```{r,eval=FALSE}
-
-# spec_5 <- x13_spec(spec = spec_1, 
-# automdl.enabled = NA,
-#   automdl.acceptdefault = NA,
-#   automdl.cancel = NA_integer_,
-#   automdl.ub1 = NA_integer_,
-#   automdl.ub2 = NA_integer_,
-#   automdl.mixed = NA,
-#   automdl.balanced = NA,
-#   automdl.armalimit = NA_integer_,
-#   automdl.reducecv = NA_integer_,
-#   automdl.ljungboxlimit = NA_integer_,
-#   automdl.ubfinal = NA_integer_,
-
+spec_2 <- x13_spec(spec = spec_1,
+automdl.enabled = NA,
+  automdl.acceptdefault = NA,
+  automdl.cancel = NA_integer_,
+  automdl.ub1 = NA_integer_,
+  automdl.ub2 = NA_integer_,
+  automdl.mixed = NA,
+  automdl.balanced = NA,
+  automdl.armalimit = NA_integer_,
+  automdl.reducecv = NA_integer_,
+  automdl.ljungboxlimit = NA_integer_,
+  automdl.ubfinal = NA_integer_)
 
 ```
 
@@ -677,47 +466,40 @@ setting in R (see if Tramo specificities)
 
 Control variables for the non-automatic modelling of the ARIMA model (when automdl.enabled is set to FALSE):
 
-arima.mu\
-logical. If TRUE, the mean is considered as part of the ARIMA model.
+*arima.mu* logical. If TRUE, the mean is considered as part of the ARIMA model.
 
-arima.p numeric. The order of the non-seasonal autoregressive (AR) polynomial.
+*arima.p* numeric. The order of the non-seasonal autoregressive (AR) polynomial.
 
-arima.d numeric. The regular differencing order.
+*arima.d* numeric. The regular differencing order.
 
-arima.q numeric. The order of the non-seasonal moving average (MA) polynomial.
+*arima.q* numeric. The order of the non-seasonal moving average (MA) polynomial.
 
-arima.bp\
-numeric. The order of the seasonal autoregressive (AR) polynomial.
+*arima.bp* numeric. The order of the seasonal autoregressive (AR) polynomial.
 
-arima.bd\
-numeric. The seasonal differencing order.
+*arima.bd* numeric. The seasonal differencing order.
 
-arima.bq\
-numeric. The order of the seasonal moving average (MA) polynomial.
+*arima.bq* numeric. The order of the seasonal moving average (MA) polynomial.
 
 Control variables for the user-defined ARMA coefficients. Coefficients can be defined for the regular and seasonal autoregressive (AR) polynomials and moving average (MA) polynomials. The model considers the coefficients only if the procedure for their estimation (arima.coefType) is provided, and the number of provided coefficients matches the sum of (regular and seasonal) AR and MA orders (p,q,bp,bq).
 
-arima.coefEnabled\
-logical. If TRUE, the program uses the user-defined ARMA coefficients.
+*arima.coefEnabled* logical. If TRUE, the program uses the user-defined ARMA coefficients.
 
-arima.coef\
-a vector providing the coefficients for the regular and seasonal AR and MA polynominals. The vector length must be equal to the sum of the regular and seasonal AR and MA orders. The coefficients shall be provided in the following order: regular AR (Phi; p elements), regular MA (Theta; q elements), seasonal AR (BPhi; bp elements) and seasonal MA (BTheta; bq elements). E.g.: arima.coef=c(0.6,0.7) with arima.p=1, arima.q=0,arima.bp=1 and arima.bq=0.
+*arima.coef* a vector providing the coefficients for the regular and seasonal AR and MA polynomials. The vector length must be equal to the sum of the regular and seasonal AR and MA orders. The coefficients shall be provided in the following order: regular AR (Phi; p elements), regular MA (Theta; q elements), seasonal AR (BPhi; bp elements) and seasonal MA (BTheta; bq elements). E.g.: arima.coef=c(0.6,0.7) with arima.p=1, arima.q=0,arima.bp=1 and arima.bq=0.
 
-arima.coefType\
-a vector defining the ARMA coefficients estimation procedure. Possible procedures are: "Undefined" = no use of any user-defined input (i.e. coefficients are estimated), "Fixed" = the coefficients are fixed at the value provided by the user, "Initial" = the value defined by the user is used as the initial condition. For orders for which the coefficients shall not be defined, the arima.coef can be set to NA or 0, or the arima.coefType can be set to "Undefined". E.g.: arima.coef = c(-0.8,-0.6,NA), arima.coefType = c("Fixed","Fixed","Undefined").
+*arima.coefType* a vector defining the ARMA coefficients estimation procedure. Possible procedures are: "Undefined" = no use of any user-defined input (i.e. coefficients are estimated), "Fixed" = the coefficients are fixed at the value provided by the user, "Initial" = the value defined by the user is used as the initial condition. For orders for which the coefficients shall not be defined, the arima.coef can be set to NA or 0, or the arima.coefType can be set to "Undefined". E.g.: arima.coef = c(-0.8,-0.6,NA), arima.coefType = c("Fixed","Fixed","Undefined").
 
-(for both options) fcst.horizon\
-the forecasting horizon (numeric). The forecast length generated by the RegARIMA model in periods (positive values) or years (negative values). By default, the program generates a two-year forecast (fcst.horizon set to -2).
+(for both options) *fcst.horizon* the forecasting horizon (numeric). The forecast length generated by the Reg-Arima model in periods (positive values) or years (negative values). By default, the program generates a two-year forecast (fcst.horizon set to -2).
 
-setting in GUI
+**Setting in GUI**
 
-image specification window, arima with auto box not tickec
+Under construction
 
-setting in R (see if Tramo specificities)
+**Setting in R**
+
+X13-Arima template in v2
 
 ```{r,eval=FALSE}
-
-spec_5 <- x13_spec(spec = spec_1, 
+spec_2 <- x13_spec(spec = spec_1, 
 automdl.enabled = FALSE,
 
   arima.mu = NA,
@@ -730,89 +512,35 @@ automdl.enabled = FALSE,
   arima.coefEnabled = NA,
   arima.coef = NA,
   arima.coefType = NA,
-  fcst.horizon = NA_integer_,
+  fcst.horizon = NA_integer_)
 
 ```
 
-Tramo and Reg-Arima are very similar...details in M chapter, parameters and output are the same, treated as one here
+### Reg-Arima model Results and Diagnostics
 
-Context : here in put is spcified (auto or user) focus on global model estimation
-
-Quick launch (= automatic run)
-
-Output1: series (if relevant) Retrieve regressors GUI (cruncher) R
-
-Retrieve Pre-adjustment series Table
-
-in GUI (cruncher)
-
-in R
-
-Output2: Final Params what is selected and estimated by the software (not in the specifs above)
-
-arima orders (if relevant) and coefficients
-
-GUI
-
-R
-
-### RegArima model Results and Diagnostics
-
-#### Regression Results and diagnostics
-
-tables with results for all variables (auto and user-defined) student, F test - tests
-
-#### Arima model results
-
-##### Final parameters
-
-table with coefficients, student, correlation
-
-in GUI additonnal graphs
-
-in R
-
-```{r, eval=FALSE}
-
-```
-
-##### Goodness of fit Test on Arima model residuals
-
-list
-
-retrieve in GUI - main - prep proc main node datails peut etre pas de capture pour tout: pb de volume la lacture des chapitres doit rester fluide appndix, gui chapter ? - diagnostics node here just residuals and full residuals (what is the difference)
-
-(global post decomp results explained in QA part)
-
-retireve in R v2 rjdemetra (comprehensive inR )
-
-#### Residual Calendar effects
-
-Residual calendar effects what kinf of test is performed ? td spectral peaks residual effect in $SA$ or $I$ serie
-
-retrieve in GUI
-
-retrieve in R (v2 and v3)
-
-### Allocation of pre-treatment effects
-
-(in the decomp part for x11 and seats, table with allocation post decomp)
+Under construction.
 
 ## X-11 Decompostion
 
-This part explains how to **use** X-11 decomposition algorithm, via R as well as via GUI. The algorithm itself is explained in more details [here](M-X11-decomposition.qmd)
+This part explains how to use X-11 decomposition algorithm, via R as well as via GUI. The algorithm itself is explained in more details [here](M-X11-decomposition.qmd)
 
-In a nutshell, X-11 will de deompose the **linearized series** using iteratively different moving averages iteratively. The effects of pre-treatment will be reallocated at the end.
+In a nutshell, X-11 will de decompose the **linearized series** using iteratively different moving averages. The effects of pre-treatment will be reallocated at the end.
 
 ### Default specifications
 
-The default specifications for X-11 must be chosen at the starting of the SA processing. They are detailed in the [RegArima part](A-sa.qmd#Pre-treatment:%20Reg-ARIMA%20(or%20TRAMO)) Note: X-11 can be run without pre-treatment
+The default specifications for X-11 must be chosen at the starting of the SA processing. They are detailed in the [Reg-Arima part](A-sa.qmd#Pre-treatment:%20Reg-ARIMA%20(or%20TRAMO)) Note: X-11 can be run without pre-treatment
 
 ### Quick Launch
 
 #### From GUI
 
-With - a workspace open - an SA pocessing created an open data - choose a default specification - drop your data and press green arrow (see old doc?, gif demo?)
+With a workspace open, an SAProcessing created and open data provider:
+
+-   choose a default specification
+
+-   drop your data and press green arrow
+
+(gif to be inserted)
 
 #### In R
 
@@ -825,33 +553,11 @@ model_sa<-x13(serie_brute, spec ="RSA5c")
 
 ```
 
-The model_sa object contains all results and will be progressively detai below. Its global structure is outlined here.
-
-in version 3
-
-```{r,eval=FALSE}
-
-```
+The model_sa R object (list of lists) contains all parameters and results. It will be progressively detailed below.
 
 ### Output 1: series
 
-(X11 just final series or intermediate as well ? homogenise with seats ?) +---------------------------+----------------+---------------+----------------------------------------+ \| Series \| Final X11 name \| Final Results \| Reallocation of pre-adjustment effects \| +===========================+================+===============+========================================+ \| Raw series (forecasts) \| \| y (y_f) \| \| +---------------------------+----------------+---------------+----------------------------------------+ \| Linearized series \| B1 \| \| none \| +---------------------------+----------------+---------------+----------------------------------------+ \| Final seasonal component \| D16 \| s (s_f) \| \| +---------------------------+----------------+---------------+----------------------------------------+ \| Final trend \| D12 \| t (t_f) \| \| +---------------------------+----------------+---------------+----------------------------------------+ \| Final irregular \| D13 \| i (i_f) \| \| +---------------------------+----------------+---------------+----------------------------------------+ \| Calendar component \| \| \| \| +---------------------------+----------------+---------------+----------------------------------------+ \| Seasonal without calendar \| D10 \| \| \| +---------------------------+----------------+---------------+----------------------------------------+
-
-make clear - reallocation of outliers effects (frequent questions) - reallocation of intervention variables effects
-
-att : diff D10 and D16
-
-X-11 gives access to a great part of it's intermediate computations (link to M chapter)
-
-Here we focus on the final components main series (= 2nd part of D tables, outliers effects added)
-
-List of series (edit : table with name and meaning)
-
 #### Display in GUI
-
-homogeneiser avec seats
-
-#### Retrieve in GUI
 
 Main results ![Text](All_images/SA_MainResults_Series.png)
 
@@ -861,11 +567,15 @@ X-11 Tables
 
 ![Text](All_images/RDimage41.png)
 
-Output series can be exported out if GUI by two means: - generating output files from GUI as explained here - running the cruncher to genereate those files as described here
+Output series can be exported out of GUI by two means:
+
+-   generating output files
+
+-   running the cruncher to generate those files as described [here](T-Production-tools-cruncher-QR.qmd)
 
 #### Retrieve in R
 
-in version 2
+In version 2
 
 ```{r,eval=FALSE}
 
@@ -876,19 +586,13 @@ model_sa$final$forecasts
 # from user defined output 
 ```
 
-in version 3
-
 ### Output 2: diagnostics
 
 X11 produces the following type diagnostics or quality measures
 
 #### SI-ratios
 
-It is a plot, see below
-
-Description, and computation details
-
-##### Retrieve in GUI
+##### Display in GUI
 
 NODE Main Results \> SI-Ratios SA_MainResults_SI_ratios.png
 
@@ -898,7 +602,7 @@ In GUI all values cannot be retrieved
 
 ##### Retrieve in R
 
-in version 2
+In version 2
 
 ```{r, eval=FALSE}
 # data frame with values 
@@ -908,15 +612,9 @@ plot(model_sa, type= "cal-seas-irr",first_date = c(2015, 1))
 
 ```
 
-in version 3
-
-```{r,eval=FALSE}
-
-```
-
 #### M-statistics
 
-At the end of the decomposition, X-11 algorithm provides quality mesures of the decomposition called "M statistics": 11 statistics (M1 to M11) and 2 summary indicators (Q et Q-M2). By design (clickable) $0<M_x<3$ and acceptance region is $M_x \leq 1$ Formula for $Q$ (They are based on F-tables)
+At the end of the decomposition, X-11 algorithm provides quality measure of the decomposition called "M statistics": 11 statistics (M1 to M11) and 2 summary indicators (Q et Q-M2). By design $0<M_x<3$ and acceptance region is $M_x \leq 1$
 
 -   **M1** The relative contribution of the irregular over three months span
 -   **M2** The relative contribution of the irregular component to the stationary portion of the variance
@@ -928,8 +626,6 @@ At the end of the decomposition, X-11 algorithm provides quality mesures of the 
 -   **M9** The average linear movement in the seasonal component throughout the whole series
 -   **M10** Same as 8, calculated for recent years only (4 years, N-2 to N-5)
 -   **M11** Same as 9, calculated for recent years only
-
-add composite indicators \\(Q\\) and \\(Q - M2.\\)
 
 The $Q$ statistic is a composite indicator calculated from the $M$ statistics.
 
@@ -945,11 +641,11 @@ $$Q = \frac{14M1 + 15M2 + 10M3 + 8M4 + 11M5 + 10M6 + 32M7}{100}$$
 
 The model has a satisfactory quality if the $Q$ statistic is lower than 1.
 
-For futher details link to Lothian-Mory (quid in M_meth X11)
+##### Display in GUI
 
-##### Retrieve in GUI
+To display results in GUI, expand NODE
 
-To display results in GUI, expande NODE Decompostion(X-11) \> Quality Measures \> Summary
+Decompostion(X-11) \> Quality Measures \> Summary
 
 Results displayed in red indicate that the test failed.
 
@@ -957,7 +653,7 @@ Results displayed in red indicate that the test failed.
 
 ##### Retrieve in R
 
-in version 2
+In version 2
 
 ```{r, eval=FALSE}
 # this code snippet is not self-sufficient 
@@ -965,19 +661,13 @@ in version 2
 model_sa$decomposition$mstats
 ```
 
-in version 3
-
 #### Detailed Quality measures
 
-List (+ link to chap M: add descp from Lothian Mory/ current doc) make clear: on which x11 series is the measure based
+In GUI all the diagnostics below can be displayed expanding the NODE
 
-in GUI all the diagnostics below can be retrieved expandin the NODE Decomposition(X-11) \> Quality Measures \> Details
-
-If a stat can be retrieved in R, the code example is in the corresponding paragraph, otherwise it means that these stats are not directly available and must be computed by the user if needed.
+Decomposition(X-11) \> Quality Measures \> Details
 
 ##### Average percent change (or Average differences) without regard to sign over the indicated span
-
-(here clarify notations) (link to tables details in meth chapter or appendix) (here A, D, E are needed) (link to Ladiray-Quenneville)
 
 The first table presents the average percent change without regard to sign of the percent changes (multiplicative model) or average differences (additive model) over several periods (from 1 to 12 for a monthly series, from 1 to 4 for a quarterly series) for the following series:
 
@@ -991,7 +681,7 @@ The first table presents the average percent change without regard to sign of th
 
 -   $S$ -- Final seasonal factors (Table D10);
 
--   $P$ -- Preliminary adjustment coefficients, i.e. regressors estimated by the RegARIMA model (Table A2);
+-   $P$ -- Preliminary adjustment coefficients, i.e. regressors estimated by the Reg-Arima model (Table A2);
 
 -   $TD\& H$ -- Final calendar component (Tables A6 and A7);
 
@@ -1019,11 +709,7 @@ $\text{Table}$ -- the name of the table that corresponds to the component.
 
 For the multiplicative decomposition the following formula is used: $$\text{Component}_{d} = \frac{1}{n - d}\sum_{t = d+1}^{n}{|\frac{\text{Tabl}e_{t}}{\text{Table}_{t - d}} - 1|}$$.
 
-(add image of result table for multiplictive model)
-
 ##### Relative contribution to the variance of the differences in the components of the original series
-
-(homogenize titles: "variance") (one formula is enough)
 
 Next, Table F2B of relative contributions of the different components to the differences (additive model) or percent changes (multiplicative model) in the original series is displayed. They express the relative importance of the changes in each component. Assuming that the components are independent, the following relation is valid:
 
@@ -1113,13 +799,13 @@ Final trend filter : length of Henderson filter applied for final estimation (in
 
 Final seasonal filer: length of Henderson filter applied for final estimation (in the second part of the D step).
 
-#### Retrieve in GUI
+#### Display in GUI
 
-Node Decomposition(X11) \> Final Filters (make node clickable, link to GUI chapter, handling of nodes)
+Node Decomposition(X11) \> Final Filters
 
 #### Retrieve in R
 
-in version 2
+In version 2
 
 ```{r, eval=FALSE}
 
@@ -1128,33 +814,29 @@ model_sa$decomposition$t_filter
 
 ```
 
-in version 3
-
 ### User-defined parameters
 
-Here is described how to change default values or automatic choices.
+The following sections describe how to change default values or automatic choices.
 
 ##### General settings
 
 -   **Mode**
-    -   check if this option still works, if so add and edit instructions from old page)
-    -   if not but button present : explain that the mode is determined in pre-adjustment (function)
+
 -   **Seasonal component**
-    -   check if still relevant, idem as above
-    -   in v.2.3 if not ticked, S estimated but options on seasonal filter not available
+
 -   **Forecasts horizon**
 
-Length of the forecasts generated by the RegARIMA model - in months (positive values) - years (negative values) - if set to is set to 0, the X-11 procedure does not use any model-based forecasts but the original X-11 type forecasts for one year. - default value: -1, thus one year from the Arima model
+Length of the forecasts generated by the Reg-Arima model - in months (positive values) - years (negative values) - if set to is set to 0, the X-11 procedure does not use any model-based forecasts but the original X-11 type forecasts for one year. - default value: -1, thus one year from the Arima model
 
 -   **Backcasts horizon**
 
-Length of the backcasts generated by the RegARIMA model - in months (positive values) - years (negative values) - default value: 0
+Length of the backcasts generated by the Reg-Arima model - in months (positive values) - years (negative values) - default value: 0
 
 ##### Irregular correction
 
 -   **LSigma**
 
-    -   sets lower sigma (standard deviation) limit used to down-weight the extreme irregular values in the internal seasonal adjustment iterations, learn more here (LINK to M\_ chapter)
+    -   sets lower sigma (standard deviation) limit used to down-weight the extreme irregular values in the internal seasonal adjustment iterations
     -   values in $[0,Usigma]$
     -   default value is 1.5
 
@@ -1175,22 +857,22 @@ Length of the backcasts generated by the RegARIMA model - in months (positive va
 
 -   **Excludeforecasts**
 
-    -   ticked : forecasts and backcasts from the RegARIMA model not used in Irregular Correction
+    -   ticked : forecasts and backcasts from the Reg-Arima model not used in Irregular Correction
     -   unticked (default): forecasts and backcasts used
 
 ##### Seasonality extraction filters choice
 
-Specifies which be used to estimate the seasonal factors for the entire series (link to relevant part in M chapter):
+Specifies which be used to estimate the seasonal factors for the entire series.
 
 -   **Seasonal filter**
 
--   default value: *MSR* (Moving seasonality ratio), automatic choice of final seasonal filter (cf msr defintion and decison table: link ), initial filters are computed with $3\times 3$
+-   default value: *MSR* (Moving seasonality ratio), automatic choice of final seasonal filter, initial filters are $3\times 3$
 
 -   choices : $3\times 1$, $3\times 3$, $3\times 5$, $3\times 9$, $3\times 15$ or Stable
 
--   "Stable" : constat factor for each calendar period (simple moving average of all $S+I$ values for each period)
+-   "Stable" : constant factor for each calendar period (simple moving average of a all $S+I$ values for each period)
 
-User choices will be applied to all steps or only to final phase D step.
+User choices will be applied to final phase D step.
 
 The seasonal filters can be selected for the entire series, or for a particular month or quarter.
 
@@ -1216,19 +898,11 @@ Check: will user choice be applied to all steps or only to final phase D step
 
 #### Parameter setting in GUI
 
-Specification (general or particular to one series) image
-
-All the parameters above can be set with the specification (link to general explanations) box
+All the parameters above can be set with in the specification box.
 
 #### Parameter setting in R packages
 
-extensive help on functions available in package help pages Rcode snippets
-
-In R, to implement any param change, it is required to retrieve current spec, modify it and apply it again (see T R packages chapter for details). (specific link)
-
-here example changing all the settings (just remove irrelevant changes)
-
-Rjdemetra (v2) Edit : here static R code link to a "worked example" wih dynamic code ticked box in GUI corresponds to ...? in R
+In version 2
 
 ```{r eval=FALSE}
 #Creating a modified specification, customizing all available X11 parameters
@@ -1239,289 +913,36 @@ modified_spec<- x13_spec(current_sa_model,
     x11.bcasts = -1,
     x11.lsigma = 1.2,
     x11.usigma = 2.8,
-    x11.calendarSigma = NA, # EDIT with example
+    x11.calendarSigma = NA, 
       x11.sigmaVector = NA,
     x11.excludeFcasts = NA
     # filters 
-    x11.trendAuto = NA, # needed inf value ?
+    x11.trendAuto = NA, 
     x11.trendma = 23,
-    x11.seasonalma = "S3X9
-    # details on seasonal filters ?)
+    x11.seasonalma = "S3X9)
 
 #New SA estimation : apply modified_spec
+
 modified_sa_model<-x13(raw_series,modified_spec)
 
 ```
 
-EDIT : link to package help page v2 +v3
-
 ## SEATS Decomposition
 
-(policy: what is readable in GUI should be explained, even if shortly, adding links to relevant method chapter)
-
-SEATS (Signal Extraction for Arima Time Series) algorithm will decompose the linearized series, in level or in logarithm, using the Arima model fitted in the pre-treatment phase (link). The sections below describe - the specifications needed to run SEATS - the generated output - series - diagnostics - final parameters - the available user-defined parameters
-
-### Default specifications
-
-The default specifications for SEATS must be chosen at the starting of the SA processing. They are detailed in the [RegArima part](A-sa.qmd#Pre-treatment:%20Reg-ARIMA%20(or%20TRAMO)) Starting point for Tramo-Seats
-
-### Quick Launch
-
-link from introduction 3 steps - import data - chose spec - retrieve results (GUi, R , cruncher) overall procedure
-
-in GUI
-
-in R in version 2 in version 3
-
-### Global outline in GUI
-
-2 places for each series - decomp node for output, diagnostics and (some) final parameters
-
-![Text](All_images/SA_SEATS_GUI_global_outline.png)
-
-This node will be detailed in the sections below.
-
--   specification window for customizable finl parameters access
-
-### Global outline in R
-
-??
-
-### Output 1: series
-
-#### Stochastic series
-
-Decompostion of the linearized series or of its logarithm in case of a multiplicative model, in this case the series are displayed in log.
-
-y_lin is split into components: t_lin, s_lin, i_lin
-
-suffixes: - \_f stands for forecast - \_e stands for - \_ef stands for
-
-##### Display in GUI
-
-NODE Decompostion\>Stochastic series - Table with series and its standard error image
-
--   Plot of Trend with confidence interval image
--   Plot of Seasonal component with confidence interval image
-
-##### Retrieve from GUI
-
-Generating outout from GUI (link) or from Cruncher (link), stochastic series, their standard errors, forecasts and forecasts errors can be acessed with the following names
-
-| Series Name             | Meaning |
-|-------------------------|---------|
-| decomposition.y_lin     |         |
-| decomposition.y_lin_f   |         |
-| decomposition.y_lin_ef  |         |
-| decomposition.t_lin     |         |
-| decomposition.t_lin_f   |         |
-| decomposition.t_lin_e   |         |
-| decomposition.t_lin_f   |         |
-| decomposition.sa_lin    |         |
-| decomposition.sa_lin_f  |         |
-| decomposition.sa_lin_e  |         |
-| decomposition.sa_lin_ef |         |
-| decomposition.s_lin     |         |
-| decomposition.s_lin_f   |         |
-| decomposition.s_lin_e   |         |
-| decomposition.s_lin_ef  |         |
-| decomposition.i_lin     |         |
-| decomposition.i_lin_f   |         |
-| decomposition.i_lin_e   |         |
-| decomposition.i_lin_ef  |         |
-
-##### Retrieve in R
-
-version 2 version 3
-
-#### Components (Level)
-
-Decompostion of the linearized series, back to level in case of a multiplicative model.
-
-y_lin is split into components: t_lin, s_lin, i_lin
-
-suffixes: - \_f stands for forecast - \_e stands for - \_ef stands for
-
-##### Displayed in GUI
-
-NODE Decompostion\>Components - Table with series and its standard error image
-
-##### Retrieve from GUI
-
-Generating outout from GUI (link) or from Cruncher (link), component series, their standard errors, forecasts and forecasts errors can be acessed with the following names
-
-| Series Name             | Meaning |
-|-------------------------|---------|
-| decomposition.y_cmp     |         |
-| decomposition.y_cmp_f   |         |
-| decomposition.y_cmp_ef  |         |
-| decomposition.t_cmp     |         |
-| decomposition.t_cmp_f   |         |
-| decomposition.t_cmp_e   |         |
-| decomposition.t_cmp_f   |         |
-| decomposition.sa_cmp    |         |
-| decomposition.sa_cmp_f  |         |
-| decomposition.sa_cmp_e  |         |
-| decomposition.sa_cmp_ef |         |
-| decomposition.s_cmp     |         |
-| decomposition.s_cmp_f   |         |
-| decomposition.s_cmp_e   |         |
-| decomposition.s_cmp_ef  |         |
-| decomposition.i_cmp     |         |
-| decomposition.i_cmp_f   |         |
-| decomposition.i_cmp_e   |         |
-| decomposition.i_cmp_ef  |         |
-
-##### Retrieve in R
-
-version 2 version 3
-
-##### Bias correction
-
-#### Final series
-
-pb : qu'est ce que la sa de de cmp vs la SA finale ?
-
-+---------------------------+------------------------+---------------+----------------------------------------+
-| Series                    | Final SEATS components | Final Results | Reallocation of pre-adjustment effects |
-+===========================+========================+===============+========================================+
-| Raw series (forecasts)    |                        | y (y_f)       |                                        |
-+---------------------------+------------------------+---------------+----------------------------------------+
-| Linearized series         | B1                     |               | none                                   |
-+---------------------------+------------------------+---------------+----------------------------------------+
-| Final seasonal component  | D16                    | s (s_f)       |                                        |
-+---------------------------+------------------------+---------------+----------------------------------------+
-| Final trend               | D12                    | t (t_f)       |                                        |
-+---------------------------+------------------------+---------------+----------------------------------------+
-| Final irregular           | D13                    | i (i_f)       |                                        |
-+---------------------------+------------------------+---------------+----------------------------------------+
-| Calendar component        |                        |               |                                        |
-+---------------------------+------------------------+---------------+----------------------------------------+
-| Seasonal without calendar | D10                    |               |                                        |
-+---------------------------+------------------------+---------------+----------------------------------------+
-
-make clear - reallocation of outliers effects (frequent questions)
-
-##### Display in GUI
-
-Final results are displayed for each series in the NODE MAIN\>Table
-
-![Text](All_images/SA_SEATS_GUI_final_series.png)
-
-Forecasts are glued at the end it *italic*
-
-What can be done with this table (exapandable note ?) - charts container (link) - single series contextual menu (link)
-
-##### Retrieve from GUI
-
-Generating outout from GUI (link) or from Cruncher (link), component series, their standard errors, forecasts and forecasts errors can be acessed with the following names
-
-| Series Name | Meaning |
-|-------------|---------|
-| y           |         |
-| y_f         |         |
-| t           |         |
-| t_f         |         |
-| sa          |         |
-| sa_f        |         |
-| s           |         |
-| s_f         |         |
-| i           |         |
-| i_f         |         |
-
-##### Retrieve in R
-
-version 2 the names are the same as for retrieving from GUI
-
-version 3
-
-### Output2: Final Params
-
-This section describes what is chosen automatically or default (cf estp) Relevant if parameters not set manually, or any parameters automatically selected by the software without having a fixed default value. (The rest of the parameters is set in the spec) To manually set hose parameters and see all the fixed default values see Specifications / parameters section
-
-here all have a default value, nothing to be automatically selected ?
-
-#### Arima Models for components
-
-brief description
-
-##### Display in GUI
-
-Click on the decomposition NODE
-
-![Text](All_images/SA_SEATS_GUI_components_models.png)
-
-##### Retrieve from GUI
-
-?
-
-##### Retrieve in R
-
-version 2 version 3
-
-### Setting user-defined parameters
-
-The section below explains how the user can fine-tune seats parameters, which are put in context in [the corresponding method chapter](M-SEATS-decomposition.qmd). The default value is indicated in parenthesis ().
-
--   Prediction length
-
-Forecast span used in the decomposition default: one year (-1) (years are set in negative values, positive values indicate nimber of periods)
-
--   Approximation Mode
-
-Modification type for inadmissible models None (default) Legacy Noisy
-
--   MA unit root boundary
-
-Modulus threshold for resetteing MA "near-unit" roots \[0,1\] default (0.95)
-
--   Trend Boundary Modulus thershold for assingning positive real AR Roots \[0,1\] default (0.5)
-
--   Seasonal Tolerance Degree threshold for assigning complex AR roots \[0,10\] default (2)
-
--   Seasonal Boundary (unique) Modulus threshold for assigning negative real AR roots \[0,1\] default (0.8)
-
--   Seasonal Boundary (unique) Same modulus threshold unique seasonal AR roots \[0,1\] default (0.8)
-
--   Method
-
-Algorithm used for estimation of unobserved componements
-
-Burman (default)
-
-KalmanSmoother
-
-McEllroyMatrix
-
-##### Seting parameters in GUI
-
-In specification window (link) corresponding to a given series:
-
-![Text](All_images%5CSA_SEATS_GUI_user_def_params.png)
-
-##### Set in R
-
-version 2 (RJDemetra)
-
-```{r, eval=FALSE}
-tramoseats_spec(
- spec = c("RSAfull", "RSA0", "RSA1", "RSA2", "RSA3", "RSA4", "RSA5"),
-  fcst.horizon = NA_integer_,
-  seats.predictionLength = NA_integer_,
-  seats.approx = c(NA, "None", "Legacy", "Noisy"),
-  seats.trendBoundary = NA_integer_,
-  seats.seasdBoundary = NA_integer_,
-  seats.seasdBoundary1 = NA_integer_,
-  seats.seasTol = NA_integer_,
-  seats.maBoundary = NA_integer_,
-  seats.method = c(NA, "Burman", "KalmanSmoother", "McElroyMatrix")
-)
-
-```
+SEATS (Signal Extraction for Arima Time Series) algorithm will decompose the linearized series, in level or in logarithm, using the Arima model fitted in the pre-treatment phase. The sections below describe
+
+-   specifications needed to run SEATS
+-   generated output
+-   series
+-   diagnostics
+-   final parameters
+-   user-defined parameters
+
+Not currently available. Under construction
 
 ## STL
 
-Decomposition algorithm used sed on linearized data data, no pre-adjustment.
+Loess based decomposition algorithm used on linearized data data, no pre-adjustment.
 
 Not currently available. Under construction.
 
