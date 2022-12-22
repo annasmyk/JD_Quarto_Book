@@ -6,10 +6,9 @@ This chapter describes all the tests available in JDemetra+, via
 Graphical User interface and/or R packages. An outline of the underlying
 theoretical principles of each test is provided.
 
-The procedure to apply these tests in context is described when their
-use is relevant in the chapters dedicated to algorithms description,
-mainly on seasonal adjustment.(not sure) Links to use in context are
-available below.
+The procedure to apply these tests in context is described when their 
+use is relevant in the chapters dedicated to algorithms description, 
+mainly on [seasonal adjustment](A-sa.qmd).
 
 ## Tests on residuals
 

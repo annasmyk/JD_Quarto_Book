@@ -1,7 +1,5 @@
 # Seasonal Adjustment {.unnumbered}
 
-\footnotesize
-
 ## Overview
 
 The goal of seasonal adjustment is to remove seasonal fluctuations a time series. Seasonal fluctuations are quasi-periodic infra-annual movements. They can mask evolution of greater interest for the user such as short term evolutions or long time trends.
@@ -18,20 +16,27 @@ For an overview on the algorithms and methodological issues, please refer to the
 
 ### Seasonal Adjustment Algorithms
 
++------------------------+---------------+------------------+----------------+
 | Algorithm              | Access in GUI | Access in R (v2) | Access in R v3 |
-|------------------------|---------------|------------------|----------------|
++========================+===============+==================+================+
 | X-13 Arima             | yes           | RJDemetra        | rjd3x13        |
++------------------------+---------------+------------------+----------------+
 | Reg-Arima only         | yes           | RJDemetra        | rjd3x13        |
++------------------------+---------------+------------------+----------------+
 | X11 decomposition only | yes           | RJDemetra        | rjd3x13        |
++------------------------+---------------+------------------+----------------+
 | Tramo-Seats            | yes           | RJDemetra        | rjd3tramoseats |
++------------------------+---------------+------------------+----------------+
 | Tramo only             | yes           | RJDemetra        | rjd3tramoseats |
++------------------------+---------------+------------------+----------------+
 | Seats only             | \-            | \-               | \-             |
++------------------------+---------------+------------------+----------------+
 | STL                    | no            | no               | rjd3stl        |
++------------------------+---------------+------------------+----------------+
 | STS                    | no            | no               | rjd3sts        |
++------------------------+---------------+------------------+----------------+
 
-: SA algorithms
-
-X13-Arima and Tramo-Seats are two-step algorithm with a pretreatment phase (Reg-Arima or Tramo) and a decomposition phase (X11 and Seats). STL is a local regression (Loess) based decomposition, without pre-treatment. In a Structural Time Series approach pre-treatment and decomposition are done simultaneously in a State Space Framework [(SSF)](M-state-space-framework.qmd).
+: X13-Arima and Tramo-Seats are two-step algorithm with a pretreatment phase (Reg-Arima or Tramo) and a decomposition phase (X11 and Seats). STL is a local regression (Loess) based decomposition, without pre-treatment. In a Structural Time Series approach pre-treatment and decomposition are done simultaneously in a State Space Framework [(SSF)](M-state-space-framework.qmd).
 
 ### Decomposition in unobserved components
 
@@ -91,25 +96,33 @@ In rjd3sa package:
 
 -   QS Seasonality Test (`seasonality.qs()`)
 
-## Perfroming pre-treatment
+## Performing pre-treatment
 
 The following sections cover how to perform pre-treatment with Reg-ARIMA (or TRAMO) algorithms. Tramo and the Reg-Arima part of X13-Arima rely on very similar principles: [Reg-Arima modelling](M-reg-arima-modelling). Thus Tramo will be mentioned only to highlight differences with the Reg-Arima part of X13-Arima. Reg-Arima modelling part can be of a seasonal adjustment process or run on its own, we focus first on launching pre-treatment as part of a SA processing.
 
 ### Default Specifications
 
-Default specifications are set for the whole SA procedure (pre-treatment end decomposition). They are slightly different for X13-ARIMA and Tramo-Seats and can be modified with user defined parameters. This is tackled in details for every sub part of the Reg-Arima (Tramo) modelling and corresponding decomposition (x11 and Seats)
+Default specifications are set for the whole SA procedure, pre-treatment end decomposition. They are slightly different for X13-ARIMA and Tramo-Seats and can be modified with user defined parameters.
 
 #### Starting point for X13-ARIMA
 
++-----------------+---------------------+--------------------+------------------+----------------+
 | Spec identifier | Log/level detection | Outliers detection | Calendar effects | ARIMA          |
-|-----------------|---------------------|--------------------|------------------|----------------|
++=================+=====================+====================+==================+================+
 | RSA0            | *NA*                | *NA*               | *NA*             | Airline(+mean) |
++-----------------+---------------------+--------------------+------------------+----------------+
 | RSA1            | automatic           | AO/LS/TC           | *NA*             | Airline(+mean) |
++-----------------+---------------------+--------------------+------------------+----------------+
 | RSA2c           | automatic           | AO/LS/TC           | 2 TD vars+Easter | Airline(+mean) |
++-----------------+---------------------+--------------------+------------------+----------------+
 | RSA3            | automatic           | AO/LS/TC           | *NA*             | automatic      |
++-----------------+---------------------+--------------------+------------------+----------------+
 | RSA4c           | automatic           | AO/LS/TC           | 2 TD vars+Easter | automatic      |
++-----------------+---------------------+--------------------+------------------+----------------+
 | RSA5            | automatic           | AO/LS/TC           | 7 TD vars+Easter | automatic      |
++-----------------+---------------------+--------------------+------------------+----------------+
 | X-11            | *NA*                | *NA*               | *NA*             | *NA*           |
++-----------------+---------------------+--------------------+------------------+----------------+
 
 explanations:
 
@@ -131,14 +144,21 @@ explanations:
 
 #### Starting point for Tramo-Seats
 
++-----------------+---------------------+--------------------+------------------+----------------+
 | Spec identifier | Log/level detection | Outliers detection | Calendar effects | ARIMA          |
-|-----------------|---------------------|--------------------|------------------|----------------|
++=================+=====================+====================+==================+================+
 | RSA0            | *NA*                | *NA*               | *NA*             | Airline(+mean) |
++-----------------+---------------------+--------------------+------------------+----------------+
 | RSA1            | automatic           | AO/LS/TC           | *NA*             | Airline(+mean) |
++-----------------+---------------------+--------------------+------------------+----------------+
 | RSA2            | automatic           | AO/LS/TC           | 2 TD vars+Easter | Airline(+mean) |
++-----------------+---------------------+--------------------+------------------+----------------+
 | RSA3            | automatic           | AO/LS/TC           | *NA*             | automatic      |
++-----------------+---------------------+--------------------+------------------+----------------+
 | RSA5            | automatic           | AO/LS/TC           | 6 TD vars+Easter | automatic      |
++-----------------+---------------------+--------------------+------------------+----------------+
 | RSAfull         | automatic           | AO/LS/TC           | automatic        | automatic      |
++-----------------+---------------------+--------------------+------------------+----------------+
 
 Principle of user setting parameters: can be done from one of the default specs or any spec in "save" as" mode very similar in GUI and R, see below.
 
@@ -146,34 +166,47 @@ Principle of user setting parameters: can be done from one of the default specs 
 
 #### Estimation span
 
-Specifies the span (data interval) of the time series to be used in the seasonal adjustment process (no computations outside) The user can restrict the span
+Specifies the span (data interval) of the time series to be used in the seasonal adjustment process. The user can restrict the span
 
-Table Common settings
+Common settings
 
-| Option            | Description (expected format)                                                                                                                                               |     |
-|-------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----|
-| All               | default                                                                                                                                                                     |     |
-| From              | first observation included (yyyy-mm-dd)                                                                                                                                     |     |
-| To                | last observation included (yyyy-mm-dd)                                                                                                                                      |     |
-| Between           | interval \[from ; to\] inculded (yyyy-mm-dd to yyyy-mm-dd)                                                                                                                  |     |
-| First             | number of obs from the beginning of the series included (dynamic) (integer)                                                                                                 |     |
-| Last              | number of obs from the end of the series (dynamic)(integer)                                                                                                                 |     |
-| Excluding         | excluding N first obs and P last obs from the computation,dynamic) (integer)                                                                                                |     |
-| Preliminary check | check to exclude highly problematic series e.g. the series with a number of identical observations and/or missing values above pre-specified threshold values. (True/False) |     |
-|                   |                                                                                                                                                                             |     |
-|                   |                                                                                                                                                                             |     |
-|                   |                                                                                                                                                                             |     |
-|                   |                                                                                                                                                                             |     |
++-------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------+
+| Option            | Description (expected format)                                                                                                                                               |       |
++===================+=============================================================================================================================================================================+=======+
+| All               | default                                                                                                                                                                     |       |
++-------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------+
+| From              | first observation included (yyyy-mm-dd)                                                                                                                                     |       |
++-------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------+
+| To                | last observation included (yyyy-mm-dd)                                                                                                                                      |       |
++-------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------+
+| Between           | interval \[from ; to\] inculded (yyyy-mm-dd to yyyy-mm-dd)                                                                                                                  |       |
++-------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------+
+| First             | number of obs from the beginning of the series included (dynamic) (integer)                                                                                                 |       |
++-------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------+
+| Last              | number of obs from the end of the series (dynamic)(integer)                                                                                                                 |       |
++-------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------+
+| Excluding         | excluding N first obs and P last obs from the computation,dynamic) (integer)                                                                                                |       |
++-------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------+
+| Preliminary check | check to exclude highly problematic series e.g. the series with a number of identical observations and/or missing values above pre-specified threshold values. (True/False) |       |
++-------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------+
+|                   |                                                                                                                                                                             |       |
++-------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------+
+|                   |                                                                                                                                                                             |       |
++-------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------+
+|                   |                                                                                                                                                                             |       |
++-------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------+
+|                   |                                                                                                                                                                             |       |
++-------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------+
 
 **Setting span in GUI**
 
-Use the specification window for a given series (link to details) and expand the nodes (add access of specification window)
+Use the specification window for a given series and expand the nodes.
 
 ![Setting series span](All_images/SA_REGA_Spans.png)
 
 **Setting span in R**
 
-x13 in version 2 \footnotesize
+x13 in version 2
 
 ```{r, EVAL=FALSE}
 library(RJDemetra)
@@ -225,7 +258,7 @@ The user can also specify the span (data interval) of the time series to be used
 Additional (vs series span setting) parameters are described below:
 
 +--------------------------+-----------------------------------------------------------------------------------------------------------------------------+
-| Tolerance                | Convergence tolerance for the nonlinear estimation.                                                                         |
+| Tolerance                | Convergence tolerance for the non-linear estimation.                                                                        |
 |                          |                                                                                                                             |
 |                          | The absolute changes in the log-likelihood are compared to Tolerance to check the convergence of the estimation iterations. |
 |                          |                                                                                                                             |
@@ -378,7 +411,7 @@ National calendars not taken into account.
 
 -   pre-test
 
-#### Retrieving parameters which are in use
+#### Retrieving parameters
 
 **In GUI**
 
@@ -388,13 +421,13 @@ Automatically chosen or user-defined calendar options (as well as other pre-adju
 
 Details of regression results are displayed in the pre processing panel
 
-![Text](All_images/SA_REGA_retrieve_calendar_options_details.png)
+![](All_images/SA_REGA_retrieve_calendar_options_details.png)
 
 #### Setting options
 
-**In GUI** Use the specification window
+#### **In GUI** Use the specification window
 
-![Text](All_images/SA_REGA_calendar_setting.png)
+![](All_images/SA_REGA_calendar_setting.png)
 
 #### Customizing calendars
 
@@ -405,8 +438,6 @@ Under construction.
 Under construction.
 
 ### Arima Model
-
-Once regressors have been defined, the software looks for a structure of the autocorrelations of the linearized series.
 
 #### Default specifications
 
@@ -438,13 +469,13 @@ Control variables for the automatic modelling of the ARIMA model (when automdl.e
 
 *automdl.ubfinal* numeric, final unit root limit. The threshold value for the final unit root test. If the magnitude of an AR root for the final model is smaller than the final unit root limit, then a unit root is assumed, the order of the AR polynomial is reduced by one and the appropriate order of the differencing (non-seasonal, seasonal) is increased. The parameter value should be greater than one.
 
-Setting in GUI
+**Setting in GUI**
 
 Under construction
 
 **Setting in R**
 
-X13-Arima template in v2
+X13-Arima template in version 2
 
 ```{r,eval=FALSE}
 spec_2 <- x13_spec(spec = spec_1,
@@ -496,7 +527,7 @@ Under construction
 
 **Setting in R**
 
-X13-Arima template in v2
+X13-Arima template in version 2
 
 ```{r,eval=FALSE}
 spec_2 <- x13_spec(spec = spec_1, 
@@ -520,15 +551,24 @@ automdl.enabled = FALSE,
 
 Under construction.
 
-## X-11 Decompostion
+## X-11 Decomposition
 
 This part explains how to use X-11 decomposition algorithm, via R as well as via GUI. The algorithm itself is explained in more details [here](M-X11-decomposition.qmd)
 
 In a nutshell, X-11 will de decompose the **linearized series** using iteratively different moving averages. The effects of pre-treatment will be reallocated at the end.
 
+The sections below (will) describe
+
+-   specifications needed to run X-11
+-   generated output
+-   series
+-   diagnostics
+-   final parameters
+-   user-defined parameters
+
 ### Default specifications
 
-The default specifications for X-11 must be chosen at the starting of the SA processing. They are detailed in the [Reg-Arima part](A-sa.qmd#Pre-treatment:%20Reg-ARIMA%20(or%20TRAMO)) Note: X-11 can be run without pre-treatment
+The default specifications for X-11 must be chosen at the starting of the SA processing. They are detailed in the [Reg-Arima part](A-sa.qmd#Pre-treatment:%20Reg-ARIMA%20(or%20TRAMO)). X-11 can be run without pre-treatment
 
 ### Quick Launch
 
@@ -540,11 +580,9 @@ With a workspace open, an SAProcessing created and open data provider:
 
 -   drop your data and press green arrow
 
-(gif to be inserted)
-
 #### In R
 
-in version 2
+In version 2
 
 ```{r,eval=FALSE}
 
@@ -645,7 +683,7 @@ The model has a satisfactory quality if the $Q$ statistic is lower than 1.
 
 To display results in GUI, expand NODE
 
-Decompostion(X-11) \> Quality Measures \> Summary
+Decomposition(X-11) \> Quality Measures \> Summary
 
 Results displayed in red indicate that the test failed.
 
@@ -705,7 +743,7 @@ $\text{Component}$ -- the name of the component;
 
 $\text{Table}$ -- the name of the table that corresponds to the component.
 
-![Text](All_images/RDimage48.png)
+![](All_images/RDimage48.png)
 
 For the multiplicative decomposition the following formula is used: $$\text{Component}_{d} = \frac{1}{n - d}\sum_{t = d+1}^{n}{|\frac{\text{Tabl}e_{t}}{\text{Table}_{t - d}} - 1|}$$.
 
@@ -727,31 +765,31 @@ $\frac{I_{d}^{2}}{O_{d}^{*2}}$, $\frac{C_{d}^{2}}{O_{d}^{*2}}$, $\frac{S_{d}^{2}
 
 The last column presents the *Ratio* calculated as: $100 \times\frac{O_{d}^{*2}}{O_{d}^{2}}$, which is an indicator of how well the approximation ${(O_{d}^{*})}^{2} \approx O_{d}^{2}$ holds.
 
-![Text](All_images/RDimage49.png)
+![](All_images/RDimage49.png)
 
 ##### Average differences with regard to sign and standard deviation over indicated span
 
 When an additive decomposition is used, Table F2C presents the average and standard deviation of changes calculated for each time lag $d$, taking into consideration the sign of the changes of the raw series and its components. In case of a multiplicative decomposition the respective table shows the average percent differences and related standard deviations.
 
-![Text](All_images/RDimage50.png)
+![](All_images/RDimage50.png)
 
 ##### Average duration of run
 
 Average duration of run is an average number of consecutive monthly (or quarterly) changes in the same direction (no change is counted as a change in the same direction as the preceding change). JDemetra+ displays this indicator for the seasonally adjusted series, for the trend and for the irregular component.
 
-![Text](All_images/RDimage51.png)
+![](All_images/RDimage51.png)
 
 ##### I/C ratio over indicated span and global
 
 The $\frac{I}{C}$ ratios for each value of time lag $d$, presented in Table F2E, are computed on a basis of the data in Table F2A. Global IC is displayed below the table
 
-![Text](All_images/RDimage52.png)
+![](All_images/RDimage52.png)
 
-##### Relative contribution to the stationnary part of the variance in the original series
+##### Relative contribution to the stationary part of the variance in the original series
 
 The relative contribution of components to the variance of the stationary part of the original series is calculated for the irregular component ($I$), trend made stationary ($C$), seasonal component ($S$) and calendar effects (TD&H).
 
-The trend is made staionnary by by extracting a linear trend from the trend component presented in Table D12.
+The trend is made stationary by by extracting a linear trend from the trend component presented in Table D12.
 
 ![Text](All_images/RDimage53.png)
 
@@ -763,7 +801,7 @@ $$\text{Corr}_{k}I = \frac{\sum_{t = k + 1}^{N}{(I_{t} - 1)(I_{t - k} - 1)}}{\su
 
 For the additive decomposition the formula is: $$Corr_{k}I_{t} = \frac{\sum_{t = k + 1}^{N}{(I_{t} \times I_{t - k})}}{\sum_{t = 1}^{N}{(I_{t})}^{2}}$$
 
-![Text](All_images/RDimage54.png)
+![](All_images/RDimage54.png)
 
 ##### Heteroskedasticity
 
@@ -852,7 +890,7 @@ Length of the backcasts generated by the Reg-Arima model - in months (positive v
     -   values
         -   None (default)
         -   All: standard errors used for the extreme values detection and adjustment computed separately for each calendar month/quarter
-        -   Signif: groups determined by cochran test (check)
+        -   Signif: groups determined by Cochran test (check)
         -   Sigmavec: set two customized groups of periods
 
 -   **Excludeforecasts**
@@ -929,7 +967,9 @@ modified_sa_model<-x13(raw_series,modified_spec)
 
 ## SEATS Decomposition
 
-SEATS (Signal Extraction for Arima Time Series) algorithm will decompose the linearized series, in level or in logarithm, using the Arima model fitted in the pre-treatment phase. The sections below describe
+SEATS (Signal Extraction for Arima Time Series) algorithm will decompose the linearized series, in level or in logarithm, using the Arima model fitted in the pre-treatment phase.
+
+The sections below will describe
 
 -   specifications needed to run SEATS
 -   generated output

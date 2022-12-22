@@ -7,7 +7,7 @@ JDemetra+ is an application that supports plug-ins, which are components adding 
 ### Default Plugins
 
 | **Name**                       | **Category**       | **Description**                                                                                                                                              |
-|----------------------|--------------------------|------------------------|
+|--------------------------------|--------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | NbDemetra -- Anomaly detection | SA core algorithms | Identification of outliers                                                                                                                                   |
 | NbDemetra -- Spreadsheet       | IO (Input/output)  | Time series providers for spreadsheet (Excel, OpenOffice)                                                                                                    |
 | NbDemetra -- Common            | IO (Input/output)  | Common time series providers, like XML and TXT                                                                                                               |
@@ -19,12 +19,9 @@ JDemetra+ is an application that supports plug-ins, which are components adding 
 | NbDemetra -- Branding          | SA core algorithms |                                                                                                                                                              |
 | NbDemetra -- SA                | SA core algorithms | Default SA framework, including TRAMO-SEATS and X-13ARIMA-SEATS. This implementation can lead to small differences in comparison with the original programs. |
 
+This list is displayed in the *Installed* panel. This panel is available from the *Plugin* functionality and it is activated from the *Tools* menu (Figure *Activation of the Plugin functionality from the Tools menu* in [Plugins](#plugins) section).
 
-This list is displayed in the *Installed* panel. This panel is available from the
-*Plugin* functionality and it is activated from the *Tools* menu (Figure
-*Activation of the Plugin functionality from the Tools menu* in [Plugins](#plugins) section).
-
-![Text](All_images/UG_A_image36.png)
+![](All_images/UG_A_image36.png)
 
 ## Plugins-list
 
@@ -64,199 +61,107 @@ This list is displayed in the *Installed* panel. This panel is available from th
 
 ## Installation procedure
 
-Installation from GUI 
+Installation from GUI
 
-menu>tools> plug-ins
+menu\>tools\> plug-ins
 
-The *Plugins* window includes five panels: *Updates*, *Available
-plugins*, *Downloaded*, *Installed* and *Settings*, some of them however
-are not operational in the current version of the software.
+The *Plugins* window includes five panels: *Updates*, *Available plugins*, *Downloaded*, *Installed* and *Settings*, some of them however are not operational in the current version of the software.
 
-* The *Updates* panel offers the user the option to manually check if
-some updates of the already installed plugins are available. This
-functionality, however, is currently not operational for the JDemetra+
-plugins.
-* The *Available plugins* panel allows the downloading of all plugins that
-are related to JDemetra+. This functionality, however, is currently not
-operational for the JDemetra+ plugins.
-* The *Downloaded* panel is designed for the installation of new plugins
-from a local machine. This process in explained in more detail below.
-* The *Settings* panel is designated for adding update centres, which
-are the locations that hold plugins. For each centre the user can specify
-proxy settings and a time interval to automatically check for any
-updates. At the moment this functionality is not operational for the
-JDemetra+ plugins.
+-   The *Updates* panel offers the user the option to manually check if some updates of the already installed plugins are available. This functionality, however, is currently not operational for the JDemetra+ plugins.
+-   The *Available plugins* panel allows the downloading of all plugins that are related to JDemetra+. This functionality, however, is currently not operational for the JDemetra+ plugins.
+-   The *Downloaded* panel is designed for the installation of new plugins from a local machine. This process in explained in more detail below.
+-   The *Settings* panel is designated for adding update centres, which are the locations that hold plugins. For each centre the user can specify proxy settings and a time interval to automatically check for any updates. At the moment this functionality is not operational for the JDemetra+ plugins.
 
-Installation of the new plugins from the local machine can be done from
-the *Plugin* functionality activated from the *Tools* menu.
+Installation of the new plugins from the local machine can be done from the *Plugin* functionality activated from the *Tools* menu.
 
-Installation of the new plugins from the local machine can be done from
-the *Plugin* functionality activated from the *Tools* menu.
+Installation of the new plugins from the local machine can be done from the *Plugin* functionality activated from the *Tools* menu.
 
-{: .text-center.image-wrapper}
-
-![Text](All_images/UG_A_image22.png)
-
-
+![](All_images/UG_A_image22.png)
 
 **Activation of the *Plugin* functionality from the *Tools* menu**
 
-To start the process, go to the *Downloaded* panel and click on the
-**Add Plugins...** option. Next the user should select the plugins from
-the folder in which the plugins have been saved and click the **OK** button.
+To start the process, go to the *Downloaded* panel and click on the **Add Plugins...** option. Next the user should select the plugins from the folder in which the plugins have been saved and click the **OK** button.
 
-{: .text-center.image-wrapper}
+\`\`
 
-![Text](All_images/UG_A_image23.png)
-
-
+![](All_images/UG_A_image23.png)
 
 **The *Downloaded* panel -- the choice of available plugins**
 
 The new plugin is now visible in the panel.
 
-{: .text-center.image-wrapper}
-
-![Text](All_images/UG_A_image24.png)
-
-
+![](All_images/UG_A_image24.png)
 
 **A downloaded plugin**
 
 Click on it and choose the **Install** button.
 
-{: .text-center.image-wrapper}
-
-![Text](All_images/UG_A_image25.png)
-
-
+![](All_images/UG_A_image25.png)
 
 **Starting an installation procedure**
 
-There is a wizard that allows the user to install the marked plugin(s).
-In the first step choose **Next** to continue or **Cancel** to terminate
-the process.
+There is a wizard that allows the user to install the marked plugin(s). In the first step choose **Next** to continue or **Cancel** to terminate the process.
 
-{: .text-center.image-wrapper}
-
-![Text](All_images/UG_A_image26.png)
-
-
+![](All_images/UG_A_image26.png)
 
 **Installation wizard window**
 
 Next, mark the terms of agreements and choose **Install**.
 
-{: .text-center.image-wrapper}
-
-![Text](All_images/UG_A_image27.png)
-
-
+![](All_images/UG_A_image27.png)
 
 **Initiating installation process**
 
 Then the process is started.
 
-{: .text-center.image-wrapper}
-
-![Text](All_images/UG_A_image28.png)
-
-
+![](All_images/UG_A_image28.png)
 
 **Installation in progress**
 
-After a while JDemetra+ will provide an update in the installation process. Click **Finish** to
-close the window.
+After a while JDemetra+ will provide an update in the installation process. Click **Finish** to close the window.
 
-{: .text-center.image-wrapper}
-
-![Text](All_images/UG_A_image29.png)
-
-
+![](All_images/UG_A_image29.png)
 
 **Installation completed**
 
-Once the process is finished, the newly installed plugin is automatically integrated
-within the software. The picture below compares the view of the
-*Workspace* window before (on the left) and after (on the right) the
-installation of the NbDemetra-ODBC plugin.
+Once the process is finished, the newly installed plugin is automatically integrated within the software. The picture below compares the view of the *Workspace* window before (on the left) and after (on the right) the installation of the NbDemetra-ODBC plugin.
 
-{: .text-center.image-wrapper}
-
-![Text](All_images/UG_A_image30.png)
-
-
+![](All_images/UG_A_image30.png)
 
 **The impact of the plugin on the interface**
 
-The list of all installed plugins is displayed in the fourth panel. To
-modify the current settings mark the plugin (by clicking the checkbox in
-the *Select* column) and chose an action.
+The list of all installed plugins is displayed in the fourth panel. To modify the current settings mark the plugin (by clicking the checkbox in the *Select* column) and chose an action.
 
 The following options are available:
 
--   **Activate** -- activates the marked plugin if it is currently
-    inactive. The option is available for inactive plugins (see the
-    picture below);
+-   **Activate** -- activates the marked plugin if it is currently inactive. The option is available for inactive plugins (see the picture below);
 
--   **Deactivate** -- deactivates the marked plugin if it is currently
-    active. The option is available for active plugins (see the picture
-    below);
+-   **Deactivate** -- deactivates the marked plugin if it is currently active. The option is available for active plugins (see the picture below);
 
 -   **Uninstall** -- uninstalls the marked plugin.
 
 Inactive plugins can be activated or uninstalled.
 
-{: .text-center.image-wrapper}
-
-![Text](All_images/UG_A_image31.png)
-
-
+![](All_images/UG_A_image31.png)
 
 **Active plugins can be deactivated or uninstalled**
 
-{: .text-center.image-wrapper}
-
-![Text](All_images/UG_A_image32.png)
-
-
+![](All_images/UG_A_image32.png)
 
 **List of plugins -- deactivation**
 
-There is a wizard that allows the user to activate/deactivate/uninstall
-the marked plugin(s). The example below illustrates the deactivation
-process. In the first step the user is expected to confirm or cancel the
-deactivation.
+There is a wizard that allows the user to activate/deactivate/uninstall the marked plugin(s). The example below illustrates the deactivation process. In the first step the user is expected to confirm or cancel the deactivation.
 
-{: .text-center.image-wrapper}
-
-![Text](All_images/UG_A_image33.png)
-
-
+![](All_images/UG_A_image33.png)
 
 **Plugin's deactivation process**
 
-In the second step the user should decide if the software will be
-restarted immediately after the uninstallation is completed or not.
+In the second step the user should decide if the software will be restarted immediately after the uninstallation is completed or not.
 
-{: .text-center.image-wrapper}
-
-![Text](All_images/UG_A_image34.png)
-
-
+![](All_images/UG_A_image34.png)
 
 **The final step of the installation procedure**
 
-It is possible to delay the restart of the application, although the
-restart is necessary to complete the process.
+It is possible to delay the restart of the application, although the restart is necessary to complete the process.
 
-{: .text-center.image-wrapper}
-
-![Text](All_images/UG_A_image35.png)
-
-
-
-
-
-
-
+![](All_images/UG_A_image35.png)
