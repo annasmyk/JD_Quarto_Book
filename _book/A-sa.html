@@ -1,0 +1,1568 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.280">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>JDemetra+ documentation - Seasonal Adjustment</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./A-sa-hf.html" rel="next">
+<link href="./P_Algorithms.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title">Seasonal Adjustment</h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">JDemetra+ documentation</a> 
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">Preface</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./G-what-is-jd.html" class="sidebar-item-text sidebar-link">JDemetra+ Software</a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./P_Algorithms.html" class="sidebar-item-text sidebar-link">Algorithms</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A-sa.html" class="sidebar-item-text sidebar-link active">Seasonal Adjustment</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A-sa-hf.html" class="sidebar-item-text sidebar-link">Seasonal adjustment of high-frequency data</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A-outlier-detection.html" class="sidebar-item-text sidebar-link">Outlier detection</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A-calendar-and-input.html" class="sidebar-item-text sidebar-link">Calendar and user-defined corrections</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A-benchmarking.html" class="sidebar-item-text sidebar-link">Benchmarking and temporal disagreggation</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A-trend-cycle-estimation.html" class="sidebar-item-text sidebar-link">Trend-cycle estimation</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A-nowcasting.html" class="sidebar-item-text sidebar-link">Nowcasting</a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./P_Tools.html" class="sidebar-item-text sidebar-link">Tools</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./T-graphical-user-interface.html" class="sidebar-item-text sidebar-link">Graphical User Interface</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./T-r-packages.html" class="sidebar-item-text sidebar-link">Using JDemetra+ in R</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./T-Production-tools-cruncher-QR.html" class="sidebar-item-text sidebar-link">Production, Cruncher and quality report</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./T-rev-policies-production.html" class="sidebar-item-text sidebar-link">Production and revision policies</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./T-plug-ins.html" class="sidebar-item-text sidebar-link">Plug-ins for JDemetra+</a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./P_Methods.html" class="sidebar-item-text sidebar-link">Methods</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./M-spectral-analysis.html" class="sidebar-item-text sidebar-link">Spectral Analysis Principles and Tools</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./M-reg-arima-modelling.html" class="sidebar-item-text sidebar-link">Reg-Arima models</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./M-X11-decomposition.html" class="sidebar-item-text sidebar-link">X-11 decomposition</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./M-STL-decomposition.html" class="sidebar-item-text sidebar-link">STL: Local regression decomposition</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./M-SEATS-decomposition.html" class="sidebar-item-text sidebar-link">SEATS decomposition</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./M-Trend-Estimation-Local-Polynomials.html" class="sidebar-item-text sidebar-link">Local Polynomials Methods for Trend Estimation</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./M-tests.html" class="sidebar-item-text sidebar-link">Tests</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./M-state-space-framework.html" class="sidebar-item-text sidebar-link">State space modelling</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./M-Temp-Disagg-Bench.html" class="sidebar-item-text sidebar-link">Temporal disaggregation and benchmarking</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">References</a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a>
+  <ul class="collapse">
+  <li><a href="#seasonal-adjustment-algorithms" id="toc-seasonal-adjustment-algorithms" class="nav-link" data-scroll-target="#seasonal-adjustment-algorithms">Seasonal Adjustment Algorithms</a></li>
+  <li><a href="#decomposition-in-unobserved-components" id="toc-decomposition-in-unobserved-components" class="nav-link" data-scroll-target="#decomposition-in-unobserved-components">Decomposition in unobserved components</a></li>
+  <li><a href="#pre-treatment-principles" id="toc-pre-treatment-principles" class="nav-link" data-scroll-target="#pre-treatment-principles">Pre-treatment principles</a></li>
+  <li><a href="#detecting-seasonal-patterns" id="toc-detecting-seasonal-patterns" class="nav-link" data-scroll-target="#detecting-seasonal-patterns">Detecting seasonal patterns</a></li>
+  </ul></li>
+  <li><a href="#performing-pre-treatment" id="toc-performing-pre-treatment" class="nav-link" data-scroll-target="#performing-pre-treatment">Performing pre-treatment</a>
+  <ul class="collapse">
+  <li><a href="#default-specifications" id="toc-default-specifications" class="nav-link" data-scroll-target="#default-specifications">Default Specifications</a></li>
+  <li><a href="#spans" id="toc-spans" class="nav-link" data-scroll-target="#spans">Spans</a></li>
+  <li><a href="#decomposition-scheme" id="toc-decomposition-scheme" class="nav-link" data-scroll-target="#decomposition-scheme">Decomposition Scheme</a></li>
+  <li><a href="#calendar-correction" id="toc-calendar-correction" class="nav-link" data-scroll-target="#calendar-correction">Calendar correction</a></li>
+  <li><a href="#outliers-and-intervention-variables" id="toc-outliers-and-intervention-variables" class="nav-link" data-scroll-target="#outliers-and-intervention-variables">Outliers and intervention variables</a></li>
+  <li><a href="#arima-model" id="toc-arima-model" class="nav-link" data-scroll-target="#arima-model">Arima Model</a></li>
+  <li><a href="#reg-arima-model-results-and-diagnostics" id="toc-reg-arima-model-results-and-diagnostics" class="nav-link" data-scroll-target="#reg-arima-model-results-and-diagnostics">Reg-Arima model Results and Diagnostics</a></li>
+  </ul></li>
+  <li><a href="#x-11-decomposition" id="toc-x-11-decomposition" class="nav-link" data-scroll-target="#x-11-decomposition">X-11 Decomposition</a>
+  <ul class="collapse">
+  <li><a href="#default-specifications-2" id="toc-default-specifications-2" class="nav-link" data-scroll-target="#default-specifications-2">Default specifications</a></li>
+  <li><a href="#quick-launch" id="toc-quick-launch" class="nav-link" data-scroll-target="#quick-launch">Quick Launch</a></li>
+  <li><a href="#output-1-series" id="toc-output-1-series" class="nav-link" data-scroll-target="#output-1-series">Output 1: series</a></li>
+  <li><a href="#output-2-diagnostics" id="toc-output-2-diagnostics" class="nav-link" data-scroll-target="#output-2-diagnostics">Output 2: diagnostics</a></li>
+  <li><a href="#output-3-final-parameters" id="toc-output-3-final-parameters" class="nav-link" data-scroll-target="#output-3-final-parameters">Output 3: final parameters</a></li>
+  <li><a href="#user-defined-parameters" id="toc-user-defined-parameters" class="nav-link" data-scroll-target="#user-defined-parameters">User-defined parameters</a></li>
+  </ul></li>
+  <li><a href="#seats-decomposition" id="toc-seats-decomposition" class="nav-link" data-scroll-target="#seats-decomposition">SEATS Decomposition</a></li>
+  <li><a href="#stl" id="toc-stl" class="nav-link" data-scroll-target="#stl">STL</a></li>
+  <li><a href="#basic-structural-models" id="toc-basic-structural-models" class="nav-link" data-scroll-target="#basic-structural-models">Basic Structural Models</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block">Seasonal Adjustment</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="overview" class="level2">
+<h2 class="anchored" data-anchor-id="overview">Overview</h2>
+<p>The goal of seasonal adjustment is to remove seasonal fluctuations a time series. Seasonal fluctuations are quasi-periodic infra-annual movements. They can mask evolution of greater interest for the user such as short term evolutions or long time trends.</p>
+<p>This chapter focuses on the <strong>practical step by step</strong> use of JDemetra+ algorithms, restricted to monthly and quarterly series. For intra-monthly data see the <a href="./A-sa-hf.html">following chapter</a>. The use of <a href="T-grahical-user-interface.qmd">graphical user interface</a> and <a href="T-r-pacakages.qmd">R packages</a> are described simultaneously whenever relevant.</p>
+<p>In-depth methodological explanations of the algorithms are covered in separated chapters, in the <a href="./P_Methods.html">Methods</a> part.</p>
+<p>This chapter is under construction, missing parts will be updated in the coming months.</p>
+<p>More information on the steps and best practices of a seasonal adjustment process can be found in the <a href="https://ec.europa.eu/eurostat/documents/3859598/6830795/KS-GQ-15-001-EN-N.pdf">Eurostat guidelines on seasonal adjustment</a></p>
+<p>For an overview on the algorithms and methodological issues, please refer to the <a href="https://ec.europa.eu/eurostat/documents/3859598/8939616/KS-GQ-18-001-EN-N.pdf">Handbook on Seasonal Adjustment</a></p>
+<section id="seasonal-adjustment-algorithms" class="level3">
+<h3 class="anchored" data-anchor-id="seasonal-adjustment-algorithms">Seasonal Adjustment Algorithms</h3>
+<table class="table">
+<caption>X13-Arima and Tramo-Seats are two-step algorithm with a pretreatment phase (Reg-Arima or Tramo) and a decomposition phase (X11 and Seats). STL is a local regression (Loess) based decomposition, without pre-treatment. In a Structural Time Series approach pre-treatment and decomposition are done simultaneously in a State Space Framework <a href="./M-state-space-framework.html">(SSF)</a>.</caption>
+<thead>
+<tr class="header">
+<th>Algorithm</th>
+<th>Access in GUI</th>
+<th>Access in R (v2)</th>
+<th>Access in R v3</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>X-13 Arima</td>
+<td>yes</td>
+<td>RJDemetra</td>
+<td>rjd3x13</td>
+</tr>
+<tr class="even">
+<td>Reg-Arima only</td>
+<td>yes</td>
+<td>RJDemetra</td>
+<td>rjd3x13</td>
+</tr>
+<tr class="odd">
+<td>X11 decomposition only</td>
+<td>yes</td>
+<td>RJDemetra</td>
+<td>rjd3x13</td>
+</tr>
+<tr class="even">
+<td>Tramo-Seats</td>
+<td>yes</td>
+<td>RJDemetra</td>
+<td>rjd3tramoseats</td>
+</tr>
+<tr class="odd">
+<td>Tramo only</td>
+<td>yes</td>
+<td>RJDemetra</td>
+<td>rjd3tramoseats</td>
+</tr>
+<tr class="even">
+<td>Seats only</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr class="odd">
+<td>STL</td>
+<td>no</td>
+<td>no</td>
+<td>rjd3stl</td>
+</tr>
+<tr class="even">
+<td>STS</td>
+<td>no</td>
+<td>no</td>
+<td>rjd3sts</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="decomposition-in-unobserved-components" class="level3">
+<h3 class="anchored" data-anchor-id="decomposition-in-unobserved-components">Decomposition in unobserved components</h3>
+<p>To seasonally adjust a series, seasonal factors <span class="math inline">\(S_{t}\)</span> will be estimated and removed from the original raw series: <span class="math inline">\(Y_{sa}=Y_{t}/S_{t}\)</span> or <span class="math inline">\(Y_{sa}=Y_{t}-S_{t}\)</span>. To do so the series is first decomposed into unobservable components. Two decomposition models:</p>
+<ul>
+<li><p>The additive model: <span class="math inline">\(X_{t} = T_{t} + S_{t} + I_{t}\)</span>;</p></li>
+<li><p>The multiplicative model: <span class="math inline">\(X_{t} = T_{t} \times S_{t} \times I_{t}\)</span>.</p></li>
+</ul>
+<p>The main components, each representing the impact of certain types of phenomena on the time series (<span class="math inline">\(X_{t}\)</span>), are:</p>
+<ul>
+<li><p>The trend (<span class="math inline">\(T_{t}\)</span>) that captures long-term and medium-term behaviour;</p></li>
+<li><p>The seasonal component (<span class="math inline">\(S_{t}\)</span>) representing intra-year fluctuations, monthly or quarterly, that are repeated more or less regularly year after year;</p></li>
+<li><p>The irregular component (<span class="math inline">\(I_{t}\)</span>) combining all the other more or less erratic fluctuations not covered by the previous components.</p></li>
+</ul>
+<p>In general, the trend consists of 2 sub-components:</p>
+<ul>
+<li><p>The long-term evolution of the series;</p></li>
+<li><p>The cycle, that represents the smooth, almost periodic movement around the long-term evolution of the series. It reveals a succession of phases of growth and recession. Trend and cycle are not separated in SA algorithms.</p></li>
+</ul>
+</section>
+<section id="pre-treatment-principles" class="level3">
+<h3 class="anchored" data-anchor-id="pre-treatment-principles">Pre-treatment principles</h3>
+<p>The goal of this step is to remove deterministic effects (calendar and outliers) in order to improve the decomposition. <span class="math display">\[
+Y_t = \sum {\alpha}_i O_{it} + \sum\beta_j C_{jt} + \sum {\gamma}_i U_{it} + Y_{lin,t}
+\]</span></p>
+<ul>
+<li><p><span class="math inline">\(O_{it}\)</span> are the <span class="math inline">\(i\)</span> final outliers (AO, LS, TC)</p></li>
+<li><p><span class="math inline">\(C_{it}\)</span> are the calendar regressors (automatic or user-defined) (link to calendar chap)</p></li>
+<li><p><span class="math inline">\(U_{it}\)</span> are all the other user-defined regressors (link to outliers and regressors chap)</p></li>
+<li><p><span class="math inline">\(Y_{lin,t} \sim ARIMA(p,d,q)(P,D,Q)\)</span></p></li>
+</ul>
+</section>
+<section id="detecting-seasonal-patterns" class="level3">
+<h3 class="anchored" data-anchor-id="detecting-seasonal-patterns">Detecting seasonal patterns</h3>
+<p>A large number of <a href="./M-tests.html">seasonality tests</a> are available in JDemetra+. They can be accessed in the graphical user interface or via R.</p>
+<p>In rjd3modelling package:</p>
+<ul>
+<li>Canova-Hansen (<code>seasonality.canovahansen()</code>)</li>
+</ul>
+<p>In rjd3sa package:</p>
+<ul>
+<li><p>X-12 combined test (<code>seasonality.combined()</code>)</p></li>
+<li><p>F-test on seasonal dummies (<code>seasonality.f()</code>)</p></li>
+<li><p>Friedman Seasonality Test (<code>seasonality.friedman()</code>)</p></li>
+<li><p>Kruskall-Wallis Seasonality Test (<code>seasonality.kruskalwallis()</code>)</p></li>
+<li><p>Periodogram Seasonality Test (<code>seasonality.periodogram()</code>)</p></li>
+<li><p>QS Seasonality Test (<code>seasonality.qs()</code>)</p></li>
+</ul>
+</section>
+</section>
+<section id="performing-pre-treatment" class="level2">
+<h2 class="anchored" data-anchor-id="performing-pre-treatment">Performing pre-treatment</h2>
+<p>The following sections cover how to perform pre-treatment with Reg-ARIMA (or TRAMO) algorithms. Tramo and the Reg-Arima part of X13-Arima rely on very similar principles: <a href="M-reg-arima-modelling">Reg-Arima modelling</a>. Thus Tramo will be mentioned only to highlight differences with the Reg-Arima part of X13-Arima. Reg-Arima modelling part can be of a seasonal adjustment process or run on its own, we focus first on launching pre-treatment as part of a SA processing.</p>
+<section id="default-specifications" class="level3">
+<h3 class="anchored" data-anchor-id="default-specifications">Default Specifications</h3>
+<p>Default specifications are set for the whole SA procedure, pre-treatment end decomposition. They are slightly different for X13-ARIMA and Tramo-Seats and can be modified with user defined parameters.</p>
+<section id="starting-point-for-x13-arima" class="level4">
+<h4 class="anchored" data-anchor-id="starting-point-for-x13-arima">Starting point for X13-ARIMA</h4>
+<table class="table">
+<colgroup>
+<col style="width: 18%">
+<col style="width: 22%">
+<col style="width: 21%">
+<col style="width: 19%">
+<col style="width: 17%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Spec identifier</th>
+<th>Log/level detection</th>
+<th>Outliers detection</th>
+<th>Calendar effects</th>
+<th>ARIMA</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>RSA0</td>
+<td><em>NA</em></td>
+<td><em>NA</em></td>
+<td><em>NA</em></td>
+<td>Airline(+mean)</td>
+</tr>
+<tr class="even">
+<td>RSA1</td>
+<td>automatic</td>
+<td>AO/LS/TC</td>
+<td><em>NA</em></td>
+<td>Airline(+mean)</td>
+</tr>
+<tr class="odd">
+<td>RSA2c</td>
+<td>automatic</td>
+<td>AO/LS/TC</td>
+<td>2 TD vars+Easter</td>
+<td>Airline(+mean)</td>
+</tr>
+<tr class="even">
+<td>RSA3</td>
+<td>automatic</td>
+<td>AO/LS/TC</td>
+<td><em>NA</em></td>
+<td>automatic</td>
+</tr>
+<tr class="odd">
+<td>RSA4c</td>
+<td>automatic</td>
+<td>AO/LS/TC</td>
+<td>2 TD vars+Easter</td>
+<td>automatic</td>
+</tr>
+<tr class="even">
+<td>RSA5</td>
+<td>automatic</td>
+<td>AO/LS/TC</td>
+<td>7 TD vars+Easter</td>
+<td>automatic</td>
+</tr>
+<tr class="odd">
+<td>X-11</td>
+<td><em>NA</em></td>
+<td><em>NA</em></td>
+<td><em>NA</em></td>
+<td><em>NA</em></td>
+</tr>
+</tbody>
+</table>
+<p>explanations:</p>
+<ul>
+<li><p><em>NA :</em> non applied, for example in RSA3 there is no calendar effect correction</p></li>
+<li><p>automatic: test is performed</p></li>
+<li><p>outliers detection : AO/LS/TC type of outliers automatically detected under a critical T-Stat value (default value=4)</p></li>
+<li><p>calendar</p></li>
+<li><p>2 regressors: weekdays vs week-ends + LY</p></li>
+<li><p>7 regressors: each week day vs Sundays + LY</p></li>
+<li><p>always tested</p></li>
+<li><p>easter tested (length = 6 days in tramo, 8 days in X13-Arima)</p></li>
+</ul>
+</section>
+<section id="starting-point-for-tramo-seats" class="level4">
+<h4 class="anchored" data-anchor-id="starting-point-for-tramo-seats">Starting point for Tramo-Seats</h4>
+<table class="table">
+<colgroup>
+<col style="width: 18%">
+<col style="width: 22%">
+<col style="width: 21%">
+<col style="width: 19%">
+<col style="width: 17%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Spec identifier</th>
+<th>Log/level detection</th>
+<th>Outliers detection</th>
+<th>Calendar effects</th>
+<th>ARIMA</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>RSA0</td>
+<td><em>NA</em></td>
+<td><em>NA</em></td>
+<td><em>NA</em></td>
+<td>Airline(+mean)</td>
+</tr>
+<tr class="even">
+<td>RSA1</td>
+<td>automatic</td>
+<td>AO/LS/TC</td>
+<td><em>NA</em></td>
+<td>Airline(+mean)</td>
+</tr>
+<tr class="odd">
+<td>RSA2</td>
+<td>automatic</td>
+<td>AO/LS/TC</td>
+<td>2 TD vars+Easter</td>
+<td>Airline(+mean)</td>
+</tr>
+<tr class="even">
+<td>RSA3</td>
+<td>automatic</td>
+<td>AO/LS/TC</td>
+<td><em>NA</em></td>
+<td>automatic</td>
+</tr>
+<tr class="odd">
+<td>RSA5</td>
+<td>automatic</td>
+<td>AO/LS/TC</td>
+<td>6 TD vars+Easter</td>
+<td>automatic</td>
+</tr>
+<tr class="even">
+<td>RSAfull</td>
+<td>automatic</td>
+<td>AO/LS/TC</td>
+<td>automatic</td>
+<td>automatic</td>
+</tr>
+</tbody>
+</table>
+<p>Principle of user setting parameters: can be done from one of the default specs or any spec in “save” as” mode very similar in GUI and R, see below.</p>
+</section>
+</section>
+<section id="spans" class="level3">
+<h3 class="anchored" data-anchor-id="spans">Spans</h3>
+<section id="estimation-span" class="level4">
+<h4 class="anchored" data-anchor-id="estimation-span">Estimation span</h4>
+<p>Specifies the span (data interval) of the time series to be used in the seasonal adjustment process. The user can restrict the span</p>
+<p>Common settings</p>
+<table class="table">
+<colgroup>
+<col style="width: 9%">
+<col style="width: 85%">
+<col style="width: 3%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Option</th>
+<th>Description (expected format)</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>All</td>
+<td>default</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>From</td>
+<td>first observation included (yyyy-mm-dd)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>To</td>
+<td>last observation included (yyyy-mm-dd)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Between</td>
+<td>interval [from ; to] inculded (yyyy-mm-dd to yyyy-mm-dd)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>First</td>
+<td>number of obs from the beginning of the series included (dynamic) (integer)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Last</td>
+<td>number of obs from the end of the series (dynamic)(integer)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Excluding</td>
+<td>excluding N first obs and P last obs from the computation,dynamic) (integer)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Preliminary check</td>
+<td>check to exclude highly problematic series e.g.&nbsp;the series with a number of identical observations and/or missing values above pre-specified threshold values. (True/False)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Setting span in GUI</strong></p>
+<p>Use the specification window for a given series and expand the nodes.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/SA_REGA_Spans.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Setting series span</figcaption><p></p>
+</figure>
+</div>
+<p><strong>Setting span in R</strong></p>
+<p>x13 in version 2</p>
+<div class="cell" data-eval="false">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(RJDemetra)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># estimation interval: option with static dates</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>user_spec_1<span class="ot">&lt;-</span><span class="fu">x13_spec</span>(<span class="at">spec =</span> <span class="fu">c</span>(<span class="st">"RSA5c"</span>, <span class="st">"RSA0"</span>, <span class="st">"RSA1"</span>, <span class="st">"RSA2c"</span>, </span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>                               <span class="st">"RSA3"</span>, <span class="st">"RSA4c"</span>, <span class="st">"X11"</span>), </span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="at">preliminary.check =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="at">estimate.from =</span> <span class="st">"2012-06-01"</span>, </span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="at">estimate.to =</span> <span class="st">"2019-12-01"</span>) </span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># estimation interval: option with dynamic numbers of observations</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co"># spec can be applied on different series and therefore exclude different dates</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>user_spec_2<span class="ot">&lt;-</span><span class="fu">x13_spec</span>(<span class="at">spec =</span> <span class="fu">c</span>(<span class="st">"RSA5c"</span>, <span class="st">"RSA0"</span>, <span class="st">"RSA1"</span>, <span class="st">"RSA2c"</span>, <span class="st">"RSA3"</span>, <span class="st">"RSA4c"</span>, <span class="st">"X11"</span>), </span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="at">estimate.first =</span> <span class="dv">12</span>) </span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="co"># eestimation on the last 120 obs</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>user_spec_3<span class="ot">&lt;-</span><span class="fu">x13_spec</span>(<span class="at">spec =</span> <span class="fu">c</span>(<span class="st">"RSA5c"</span>, <span class="st">"RSA0"</span>, <span class="st">"RSA1"</span>, <span class="st">"RSA2c"</span>, <span class="st">"RSA3"</span>, <span class="st">"RSA4c"</span>, <span class="st">"X11"</span>), </span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="at">estimate.last =</span> <span class="dv">120</span>)</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="co">#excluding first 24 and last 36 observations</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>user_spec_4<span class="ot">&lt;-</span><span class="fu">x13_spec</span>(<span class="at">spec =</span> <span class="fu">c</span>(<span class="st">"RSA5c"</span>, <span class="st">"RSA0"</span>, <span class="st">"RSA1"</span>, <span class="st">"RSA2c"</span>, <span class="st">"RSA3"</span>, <span class="st">"RSA4c"</span>, <span class="st">"X11"</span>), </span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="at">estimate.exclFirst =</span> <span class="dv">24</span>, </span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="at">estimate.exclLast =</span> <span class="dv">36</span>)</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="co"># Retrieve settings</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>For comprehensive details about x13_spec function see RJDemetra R help pages.</p>
+<p>Tramo-Seats in version 2</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">#excluding first 24 and last 36 observations</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>user_spec_1<span class="ot">&lt;-</span><span class="fu">tramoseats_spec</span>( <span class="at">spec =</span> <span class="fu">c</span>(<span class="st">"RSAfull"</span>, <span class="st">"RSA0"</span>, <span class="st">"RSA1"</span>, <span class="st">"RSA2"</span>, <span class="st">"RSA3"</span>, <span class="st">"RSA4"</span>, <span class="st">"RSA5"</span>),  </span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="at">estimate.exclFirst =</span> <span class="dv">24</span>, </span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="at">estimate.exclLast =</span> <span class="dv">36</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>For comprehensive details about tramoseats_spec function see RJDemetra R help pages</p>
+</section>
+<section id="setting-the-model-span" class="level4">
+<h4 class="anchored" data-anchor-id="setting-the-model-span">Setting the model span</h4>
+<p>The user can also specify the span (data interval) of the time series to be used for the estimation of the Reg-ARIMA model coefficients. It allows to impede a chosen part of the data from influencing the regression estimates. Setting works the same way as setting series (estimation) span described above.</p>
+<p>Additional (vs series span setting) parameters are described below:</p>
+<table class="table">
+<colgroup>
+<col style="width: 17%">
+<col style="width: 82%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td>Tolerance</td>
+<td><p>Convergence tolerance for the non-linear estimation.</p>
+<p>The absolute changes in the log-likelihood are compared to Tolerance to check the convergence of the estimation iterations.</p>
+<p>The default setting is 0.0000001.</p></td>
+</tr>
+<tr class="even">
+<td>Tramo specifc parameters</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Exact ML</td>
+<td><p>When this option is marked, an exact maximum likelihood estimation is performed.</p>
+<p>Alternatively, the Unconditional Least Squares method is used.</p>
+<p>However, in the current version of JDemetra+ it is not recommended to change this parameter’s value</p></td>
+</tr>
+<tr class="even">
+<td>Unit Root Limit</td>
+<td><p>Limit for the autoregressive roots. If the inverse of a real root of the autoregressive polynomial of the</p>
+<p>ARIMA model is higher than this limit, the root is set equal to 1. The default parameter value is 0.96.</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Setting in GUI</strong>:</p>
+<p>Use the specification window</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/SA_REGA_model_spans.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Model span setting</figcaption><p></p>
+</figure>
+</div>
+<p><strong>Setting in R</strong></p>
+<p>Tramo example in version 2</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">#excluding first 24 and last 36 observations</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>user_spec_1<span class="ot">&lt;-</span><span class="fu">tramoseats_spec</span>( <span class="at">spec =</span> <span class="fu">c</span>(<span class="st">"RSAfull"</span>, <span class="st">"RSA0"</span>, <span class="st">"RSA1"</span>, <span class="st">"RSA2"</span>, <span class="st">"RSA3"</span>, <span class="st">"RSA4"</span>, <span class="st">"RSA5"</span>),  </span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="at">estimate.tol =</span> <span class="fl">0.0000001</span>, </span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="at">estimate.eml =</span> <span class="cn">FALSE</span>, </span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="at">estimate.urfinal =</span> <span class="fl">0.98</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="decomposition-scheme" class="level3">
+<h3 class="anchored" data-anchor-id="decomposition-scheme">Decomposition Scheme</h3>
+<section id="parameters" class="level4">
+<h4 class="anchored" data-anchor-id="parameters">Parameters</h4>
+<p>Transformation test – a test is performed to choose between an additive decomposition (no transformation) (link to reg A chap to detail this)</p>
+<p>Settings</p>
+<p>Function</p>
+<p>transform {function=}</p>
+<p>Transformation of data. 2 The user can choose between:</p>
+<p>None – no transformation of the data;</p>
+<p>Log – takes logs of the data;</p>
+<p>Auto – the program tests for the log-level specification. This option is recommended for automatic modelling of many series.</p>
+<p>The default setting is Auto.</p>
+<p>Reg-Arima specific settings</p>
+<p>AIC difference</p>
+<p>transform {aicdiff=}</p>
+<p>Defines the difference in AICC needed to accept no transformation over a log transformation when the automatic transformation</p>
+<p>selection option is invoked. The option is disabled when Function is not set to Auto. The default AIC difference value is -2.</p>
+<p>Adjust</p>
+<p>transform {adjust=}</p>
+<p>Options for proportional adjustment for the leap year effect. The option is available when Function is set to Log. Adjust can be set to:</p>
+<p>LeapYear – performs a leap year adjustment of monthly or quarterly data;</p>
+<p>LengthofPeriod – performs a length-of-month adjustment on monthly data or length-of-quarter adjustment on quarterly data;</p>
+<p>None – does not include a correction for the length of the period.</p>
+<p>The default setting is None</p>
+<p>Tramo specific settings</p>
+<p><strong>Fct</strong><br>
+<em>Transformation; fct</em></p>
+<p>Controls the bias in the log/level pre-test (the function is active when <strong>Function</strong> is set to <em>Auto</em>); <strong>Fct</strong> &gt; 1 favours levels, <strong>Fct</strong> &lt; 1 favours logs. The default setting is 0.95.</p>
+<p><strong>Set in GUI</strong></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/SA_REGA_transfo.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Model span setting</figcaption><p></p>
+</figure>
+</div>
+<p><strong>Set and in R</strong></p>
+<p>X13</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">#excluding first 24 and last 36 observations</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>user_spec <span class="ot">&lt;-</span><span class="fu">x13_spec</span>(<span class="at">spec =</span> <span class="fu">c</span>(<span class="st">"RSA5c"</span>, <span class="st">"RSA0"</span>, <span class="st">"RSA1"</span>, <span class="st">"RSA2c"</span>, <span class="st">"RSA3"</span>, <span class="st">"RSA4c"</span>, <span class="st">"X11"</span>), </span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="at">transform.function =</span><span class="st">"Log"</span>, <span class="co"># choose from: c(NA, "Auto", "None", "Log"),</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="at">transform.adjust =</span> <span class="st">"LeapYear"</span>, <span class="co">#c(NA, "None", "LeapYear", "LengthOfPeriod"),</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="at">transform.aicdiff =</span> <span class="sc">-</span><span class="dv">3</span>)</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co">#Retrieve settings</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Tramo-Seats settings</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">#transfo</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>user_spec_1<span class="ot">&lt;-</span><span class="fu">tramoseats_spec</span>( <span class="at">spec =</span> <span class="fu">c</span>(<span class="st">"RSAfull"</span>, <span class="st">"RSA0"</span>, <span class="st">"RSA1"</span>, <span class="st">"RSA2"</span>, <span class="st">"RSA3"</span>, <span class="st">"RSA4"</span>, <span class="st">"RSA5"</span>),  </span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="at">transform.function =</span> <span class="st">"Auto"</span>, <span class="co">#c(NA, "Auto", "None", "Log"), </span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="at">transform.fct =</span> <span class="fl">0.5</span>)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a> </span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Retrieve settings  </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="calendar-correction" class="level3">
+<h3 class="anchored" data-anchor-id="calendar-correction">Calendar correction</h3>
+<section id="default-specifications-for-calendar-correction" class="level4">
+<h4 class="anchored" data-anchor-id="default-specifications-for-calendar-correction">Default specifications for calendar correction</h4>
+<p>Options related to calendar regressors choice are embedded into default specifications described above.</p>
+<p>National calendars not taken into account.</p>
+<ul>
+<li><p>working days</p></li>
+<li><p>trading days</p></li>
+<li><p>Leap year regressor</p></li>
+<li><p>Test: Remove/ Add / None</p></li>
+<li><p>Easter</p></li>
+<li><p>Test add / remove / non</p></li>
+<li><p>duration (enabled when testing removed)</p></li>
+<li><p>Julian</p></li>
+<li><p>pre-test</p></li>
+</ul>
+</section>
+<section id="retrieving-parameters" class="level4">
+<h4 class="anchored" data-anchor-id="retrieving-parameters">Retrieving parameters</h4>
+<p><strong>In GUI</strong></p>
+<p>Automatically chosen or user-defined calendar options (as well as other pre-adjustment options) are displayed at the top of the MAIN Results NODE</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/SA_REGA_retrieve_cal_options_MAIN.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Text</figcaption><p></p>
+</figure>
+</div>
+<p>Details of regression results are displayed in the pre processing panel</p>
+<p><img src="All_images/SA_REGA_retrieve_calendar_options_details.png" class="img-fluid"></p>
+</section>
+<section id="setting-options" class="level4">
+<h4 class="anchored" data-anchor-id="setting-options">Setting options</h4>
+</section>
+<section id="in-gui-use-the-specification-window" class="level4">
+<h4 class="anchored" data-anchor-id="in-gui-use-the-specification-window"><strong>In GUI</strong> Use the specification window</h4>
+<p><img src="All_images/SA_REGA_calendar_setting.png" class="img-fluid"></p>
+</section>
+<section id="customizing-calendars" class="level4">
+<h4 class="anchored" data-anchor-id="customizing-calendars">Customizing calendars</h4>
+<p>Under construction.</p>
+</section>
+</section>
+<section id="outliers-and-intervention-variables" class="level3">
+<h3 class="anchored" data-anchor-id="outliers-and-intervention-variables">Outliers and intervention variables</h3>
+<p>Under construction.</p>
+</section>
+<section id="arima-model" class="level3">
+<h3 class="anchored" data-anchor-id="arima-model">Arima Model</h3>
+<section id="default-specifications-1" class="level4">
+<h4 class="anchored" data-anchor-id="default-specifications-1">Default specifications</h4>
+<p>Key specifications on Arima modelling are embedded in default specifications: airline (default model) or full automatic research.</p>
+<p><em>automdl.enabled</em> If TRUE, the automatic modelling of the ARIMA model is enabled. If FALSE, the parameters of the ARIMA model can be specified.</p>
+</section>
+<section id="modifying-automatic-detection" class="level4">
+<h4 class="anchored" data-anchor-id="modifying-automatic-detection">Modifying automatic detection</h4>
+<p>Control variables for the automatic modelling of the ARIMA model (when automdl.enabled is set to TRUE):</p>
+<p><em>automdl.acceptdefault</em> a logical. If TRUE, the default model (ARIMA(0,1,1)(0,1,1)) may be chosen in the first step of the automatic model identification. If the Ljung-Box Q statistics for the residuals is acceptable, the default model is accepted and no further attempt will be made to identify another model.</p>
+<p><em>automdl.cancel</em> the cancellation limit (numeric). If the difference in moduli of an AR and an MA roots (when estimating ARIMA(1,0,1)(1,0,1) models in the second step of the automatic identification of the differencing orders) is smaller than the cancellation limit, the two roots are assumed equal and cancel out.</p>
+<p><em>automdl.ub1</em> the first unit root limit (numeric). It is the threshold value for the initial unit root test in the automatic differencing procedure. When one of the roots in the estimation of the ARIMA(2,0,0)(1,0,0) plus mean model, performed in the first step of the automatic model identification procedure, is larger than the first unit root limit in modulus, it is set equal to unity.</p>
+<p><em>automdl.ub2</em> the second unit root limit (numeric). When one of the roots in the estimation of the ARIMA(1,0,1)(1,0,1) plus mean model, which is performed in the second step of the automatic model identification procedure, is larger than second unit root limit in modulus, it is checked if there is a common factor in the corresponding AR and MA polynomials of the ARMA model that can be cancelled (see automdl.cancel). If there is no cancellation, the AR root is set equal to unity (i.e.&nbsp;the differencing order changes).</p>
+<p><em>automdl.mixed</em> a logical. This variable controls whether ARIMA models with non-seasonal AR and MA terms or seasonal AR and MA terms will be considered in the automatic model identification procedure. If FALSE, a model with AR and MA terms in both the seasonal and non-seasonal parts of the model can be acceptable, provided there are no AR or MA terms in either the seasonal or non-seasonal terms.</p>
+<p><em>automdl.balanced</em> a logical. If TRUE, the automatic model identification procedure will have a preference for balanced models (i.e.&nbsp;models for which the order of the combined AR and differencing operator is equal to the order of the combined MA operator).</p>
+<p><em>automdl.armalimit</em> the ARMA limit (numeric). It is the threshold value for t-statistics of ARMA coefficients and constant term used for the final test of model parsimony. If the highest order ARMA coefficient has a t-value smaller than this value in magnitude, the order of the model is reduced. If the constant term t-value is smaller than the ARMA limit in magnitude, it is removed from the set of regressors.</p>
+<p><em>automdl.reducecv</em> numeric, ReduceCV. The percentage by which the outlier’s critical value will be reduced when an identified model is found to have a Ljung-Box statistic with an unacceptable confidence coefficient. The parameter should be between 0 and 1, and will only be active when automatic outlier identification is enabled. The reduced critical value will be set to (1-ReduceCV)*CV, where CV is the original critical value.</p>
+<p><em>automdl.ljungboxlimit</em> the Ljung Box limit (numeric). Acceptance criterion for the confidence intervals of the Ljung-Box Q statistic. If the LjungBox Q statistics for the residuals of a final model is greater than the Ljung Box limit, then the model is rejected, the outlier critical value is reduced and model and outlier identification (if specified) is redone with a reduced value.</p>
+<p><em>automdl.ubfinal</em> numeric, final unit root limit. The threshold value for the final unit root test. If the magnitude of an AR root for the final model is smaller than the final unit root limit, then a unit root is assumed, the order of the AR polynomial is reduced by one and the appropriate order of the differencing (non-seasonal, seasonal) is increased. The parameter value should be greater than one.</p>
+<p><strong>Setting in GUI</strong></p>
+<p>Under construction</p>
+<p><strong>Setting in R</strong></p>
+<p>X13-Arima template in version 2</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>spec_2 <span class="ot">&lt;-</span> <span class="fu">x13_spec</span>(<span class="at">spec =</span> spec_1,</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="at">automdl.enabled =</span> <span class="cn">NA</span>,</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">automdl.acceptdefault =</span> <span class="cn">NA</span>,</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">automdl.cancel =</span> <span class="cn">NA_integer_</span>,</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">automdl.ub1 =</span> <span class="cn">NA_integer_</span>,</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">automdl.ub2 =</span> <span class="cn">NA_integer_</span>,</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">automdl.mixed =</span> <span class="cn">NA</span>,</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">automdl.balanced =</span> <span class="cn">NA</span>,</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">automdl.armalimit =</span> <span class="cn">NA_integer_</span>,</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">automdl.reducecv =</span> <span class="cn">NA_integer_</span>,</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">automdl.ljungboxlimit =</span> <span class="cn">NA_integer_</span>,</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">automdl.ubfinal =</span> <span class="cn">NA_integer_</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="user-defined-arima-model" class="level4">
+<h4 class="anchored" data-anchor-id="user-defined-arima-model">User-defined Arima model</h4>
+<p>Control variables for the non-automatic modelling of the ARIMA model (when automdl.enabled is set to FALSE):</p>
+<p><em>arima.mu</em> logical. If TRUE, the mean is considered as part of the ARIMA model.</p>
+<p><em>arima.p</em> numeric. The order of the non-seasonal autoregressive (AR) polynomial.</p>
+<p><em>arima.d</em> numeric. The regular differencing order.</p>
+<p><em>arima.q</em> numeric. The order of the non-seasonal moving average (MA) polynomial.</p>
+<p><em>arima.bp</em> numeric. The order of the seasonal autoregressive (AR) polynomial.</p>
+<p><em>arima.bd</em> numeric. The seasonal differencing order.</p>
+<p><em>arima.bq</em> numeric. The order of the seasonal moving average (MA) polynomial.</p>
+<p>Control variables for the user-defined ARMA coefficients. Coefficients can be defined for the regular and seasonal autoregressive (AR) polynomials and moving average (MA) polynomials. The model considers the coefficients only if the procedure for their estimation (arima.coefType) is provided, and the number of provided coefficients matches the sum of (regular and seasonal) AR and MA orders (p,q,bp,bq).</p>
+<p><em>arima.coefEnabled</em> logical. If TRUE, the program uses the user-defined ARMA coefficients.</p>
+<p><em>arima.coef</em> a vector providing the coefficients for the regular and seasonal AR and MA polynomials. The vector length must be equal to the sum of the regular and seasonal AR and MA orders. The coefficients shall be provided in the following order: regular AR (Phi; p elements), regular MA (Theta; q elements), seasonal AR (BPhi; bp elements) and seasonal MA (BTheta; bq elements). E.g.: arima.coef=c(0.6,0.7) with arima.p=1, arima.q=0,arima.bp=1 and arima.bq=0.</p>
+<p><em>arima.coefType</em> a vector defining the ARMA coefficients estimation procedure. Possible procedures are: “Undefined” = no use of any user-defined input (i.e.&nbsp;coefficients are estimated), “Fixed” = the coefficients are fixed at the value provided by the user, “Initial” = the value defined by the user is used as the initial condition. For orders for which the coefficients shall not be defined, the arima.coef can be set to NA or 0, or the arima.coefType can be set to “Undefined”. E.g.: arima.coef = c(-0.8,-0.6,NA), arima.coefType = c(“Fixed”,“Fixed”,“Undefined”).</p>
+<p>(for both options) <em>fcst.horizon</em> the forecasting horizon (numeric). The forecast length generated by the Reg-Arima model in periods (positive values) or years (negative values). By default, the program generates a two-year forecast (fcst.horizon set to -2).</p>
+<p><strong>Setting in GUI</strong></p>
+<p>Under construction</p>
+<p><strong>Setting in R</strong></p>
+<p>X13-Arima template in version 2</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>spec_2 <span class="ot">&lt;-</span> <span class="fu">x13_spec</span>(<span class="at">spec =</span> spec_1, </span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="at">automdl.enabled =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">arima.mu =</span> <span class="cn">NA</span>,</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">arima.p =</span> <span class="cn">NA_integer_</span>,</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">arima.d =</span> <span class="cn">NA_integer_</span>,</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">arima.q =</span> <span class="cn">NA_integer_</span>,</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">arima.bp =</span> <span class="cn">NA_integer_</span>,</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">arima.bd =</span> <span class="cn">NA_integer_</span>,</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">arima.bq =</span> <span class="cn">NA_integer_</span>,</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">arima.coefEnabled =</span> <span class="cn">NA</span>,</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">arima.coef =</span> <span class="cn">NA</span>,</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">arima.coefType =</span> <span class="cn">NA</span>,</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">fcst.horizon =</span> <span class="cn">NA_integer_</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="reg-arima-model-results-and-diagnostics" class="level3">
+<h3 class="anchored" data-anchor-id="reg-arima-model-results-and-diagnostics">Reg-Arima model Results and Diagnostics</h3>
+<p>Under construction.</p>
+</section>
+</section>
+<section id="x-11-decomposition" class="level2">
+<h2 class="anchored" data-anchor-id="x-11-decomposition">X-11 Decomposition</h2>
+<p>This part explains how to use X-11 decomposition algorithm, via R as well as via GUI. The algorithm itself is explained in more details <a href="./M-X11-decomposition.html">here</a></p>
+<p>In a nutshell, X-11 will de decompose the <strong>linearized series</strong> using iteratively different moving averages. The effects of pre-treatment will be reallocated at the end.</p>
+<p>The sections below (will) describe</p>
+<ul>
+<li>specifications needed to run X-11</li>
+<li>generated output</li>
+<li>series</li>
+<li>diagnostics</li>
+<li>final parameters</li>
+<li>user-defined parameters</li>
+</ul>
+<section id="default-specifications-2" class="level3">
+<h3 class="anchored" data-anchor-id="default-specifications-2">Default specifications</h3>
+<p>The default specifications for X-11 must be chosen at the starting of the SA processing. They are detailed in the <a href="./A-sa.html#Pre-treatment: Reg-ARIMA (or TRAMO)">Reg-Arima part</a>. X-11 can be run without pre-treatment</p>
+</section>
+<section id="quick-launch" class="level3">
+<h3 class="anchored" data-anchor-id="quick-launch">Quick Launch</h3>
+<section id="from-gui" class="level4">
+<h4 class="anchored" data-anchor-id="from-gui">From GUI</h4>
+<p>With a workspace open, an SAProcessing created and open data provider:</p>
+<ul>
+<li><p>choose a default specification</p></li>
+<li><p>drop your data and press green arrow</p></li>
+</ul>
+</section>
+<section id="in-r" class="level4">
+<h4 class="anchored" data-anchor-id="in-r">In R</h4>
+<p>In version 2</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(RJDemetra)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>model_sa<span class="ot">&lt;-</span><span class="fu">x13</span>(serie_brute, <span class="at">spec =</span><span class="st">"RSA5c"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The model_sa R object (list of lists) contains all parameters and results. It will be progressively detailed below.</p>
+</section>
+</section>
+<section id="output-1-series" class="level3">
+<h3 class="anchored" data-anchor-id="output-1-series">Output 1: series</h3>
+<section id="display-in-gui" class="level4">
+<h4 class="anchored" data-anchor-id="display-in-gui">Display in GUI</h4>
+<p>Main results <img src="All_images/SA_MainResults_Series.png" class="img-fluid" alt="Text"></p>
+<p>(forecasts glued, values in <em>italic</em>)</p>
+<p>X-11 Tables</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/RDimage41.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Text</figcaption><p></p>
+</figure>
+</div>
+<p>Output series can be exported out of GUI by two means:</p>
+<ul>
+<li><p>generating output files</p></li>
+<li><p>running the cruncher to generate those files as described <a href="./T-Production-tools-cruncher-QR.html">here</a></p></li>
+</ul>
+</section>
+<section id="retrieve-in-r" class="level4">
+<h4 class="anchored" data-anchor-id="retrieve-in-r">Retrieve in R</h4>
+<p>In version 2</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># final components</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>model_sa<span class="sc">$</span>final<span class="sc">$</span>series</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co"># their forecasts y_f sa_f s_f t_f i_f</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>model_sa<span class="sc">$</span>final<span class="sc">$</span>forecasts</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="co"># from user defined output </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="output-2-diagnostics" class="level3">
+<h3 class="anchored" data-anchor-id="output-2-diagnostics">Output 2: diagnostics</h3>
+<p>X11 produces the following type diagnostics or quality measures</p>
+<section id="si-ratios" class="level4">
+<h4 class="anchored" data-anchor-id="si-ratios">SI-ratios</h4>
+<section id="display-in-gui-1" class="level5">
+<h5 class="anchored" data-anchor-id="display-in-gui-1">Display in GUI</h5>
+<p>NODE Main Results &gt; SI-Ratios SA_MainResults_SI_ratios.png</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/SA_MainResults_SI_ratios.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Text</figcaption><p></p>
+</figure>
+</div>
+<p>In GUI all values cannot be retrieved</p>
+</section>
+<section id="retrieve-in-r-1" class="level5">
+<h5 class="anchored" data-anchor-id="retrieve-in-r-1">Retrieve in R</h5>
+<p>In version 2</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># data frame with values </span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>model_sa<span class="sc">$</span>decomposition<span class="sc">$</span>si_ratio</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="co"># customizable plot</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(model_sa, <span class="at">type=</span> <span class="st">"cal-seas-irr"</span>,<span class="at">first_date =</span> <span class="fu">c</span>(<span class="dv">2015</span>, <span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="m-statistics" class="level4">
+<h4 class="anchored" data-anchor-id="m-statistics">M-statistics</h4>
+<p>At the end of the decomposition, X-11 algorithm provides quality measure of the decomposition called “M statistics”: 11 statistics (M1 to M11) and 2 summary indicators (Q et Q-M2). By design <span class="math inline">\(0&lt;M_x&lt;3\)</span> and acceptance region is <span class="math inline">\(M_x \leq 1\)</span></p>
+<ul>
+<li><strong>M1</strong> The relative contribution of the irregular over three months span</li>
+<li><strong>M2</strong> The relative contribution of the irregular component to the stationary portion of the variance</li>
+<li><strong>M3</strong> The amount of month to month change in the irregular component as compared to the amount of month to month change in the trend-cycle (I/C-ratio)</li>
+<li><strong>M5</strong> MCD (Months for Cyclical Dominance): The number of months it takes the change in the trend-cycle to surpass the amount of change in the irregular</li>
+<li><strong>M6</strong> The amount of year to year change in the irregular as compared to the amount of year to year change in the seasonal (only valid for 3x5 seasonal filter)</li>
+<li><strong>M7</strong> The amount of moving seasonality present relative to the amount of stable seasonality</li>
+<li><strong>M8</strong> The size of the fluctuations in the seasonal component throughout the whole series</li>
+<li><strong>M9</strong> The average linear movement in the seasonal component throughout the whole series</li>
+<li><strong>M10</strong> Same as 8, calculated for recent years only (4 years, N-2 to N-5)</li>
+<li><strong>M11</strong> Same as 9, calculated for recent years only</li>
+</ul>
+<p>The <span class="math inline">\(Q\)</span> statistic is a composite indicator calculated from the <span class="math inline">\(M\)</span> statistics.</p>
+<p><span class="math display">\[Q = \frac{10M1 + 11M2 + 10M3 + 8M4 + 11M5 + 10M6 + 18M7 + 7M8 + 7M9 + 4M10 + 4M11}{100}\]</span></p>
+<p><span class="math inline">\(Q = Q - M2\)</span> (also called <span class="math inline">\(Q2\)</span>) is the <span class="math inline">\(Q\)</span> statistic for which the <span class="math inline">\(M2\)</span> statistics was excluded from the formula, i.e.:</p>
+<p><span class="math display">\[Q - M2 = \frac{10M1 + 10M3 + 8M4 + 11M5 + 10M6 + 18M7 + 7M8 + 7M9 + 4M10 + 4M11}{89}\]</span></p>
+<p>If a time series does not cover at least 6 years, the <span class="math inline">\(M8\)</span>, <span class="math inline">\(M9\)</span>, <span class="math inline">\(M10\)</span> and <span class="math inline">\(M11\)</span> statistics cannot be calculated. In this case the <span class="math inline">\(Q\)</span> statistic is computed as:</p>
+<p><span class="math display">\[Q = \frac{14M1 + 15M2 + 10M3 + 8M4 + 11M5 + 10M6 + 32M7}{100}\]</span></p>
+<p>The model has a satisfactory quality if the <span class="math inline">\(Q\)</span> statistic is lower than 1.</p>
+<section id="display-in-gui-2" class="level5">
+<h5 class="anchored" data-anchor-id="display-in-gui-2">Display in GUI</h5>
+<p>To display results in GUI, expand NODE</p>
+<p>Decomposition(X-11) &gt; Quality Measures &gt; Summary</p>
+<p>Results displayed in red indicate that the test failed.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/RDimage46.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Text</figcaption><p></p>
+</figure>
+</div>
+</section>
+<section id="retrieve-in-r-2" class="level5">
+<h5 class="anchored" data-anchor-id="retrieve-in-r-2">Retrieve in R</h5>
+<p>In version 2</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># this code snippet is not self-sufficient </span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="co"># shpould it be </span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>model_sa<span class="sc">$</span>decomposition<span class="sc">$</span>mstats</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="detailed-quality-measures" class="level4">
+<h4 class="anchored" data-anchor-id="detailed-quality-measures">Detailed Quality measures</h4>
+<p>In GUI all the diagnostics below can be displayed expanding the NODE</p>
+<p>Decomposition(X-11) &gt; Quality Measures &gt; Details</p>
+<section id="average-percent-change-or-average-differences-without-regard-to-sign-over-the-indicated-span" class="level5">
+<h5 class="anchored" data-anchor-id="average-percent-change-or-average-differences-without-regard-to-sign-over-the-indicated-span">Average percent change (or Average differences) without regard to sign over the indicated span</h5>
+<p>The first table presents the average percent change without regard to sign of the percent changes (multiplicative model) or average differences (additive model) over several periods (from 1 to 12 for a monthly series, from 1 to 4 for a quarterly series) for the following series:</p>
+<ul>
+<li><p><span class="math inline">\(O\)</span> – Original series (Table A1);</p></li>
+<li><p><span class="math inline">\(\text{CI}\)</span> – Final seasonally adjusted series (Table D11);</p></li>
+<li><p><span class="math inline">\(I\)</span> – Final irregular component (Table D13);</p></li>
+<li><p><span class="math inline">\(C\)</span> – Final trend (Table D12);</p></li>
+<li><p><span class="math inline">\(S\)</span> – Final seasonal factors (Table D10);</p></li>
+<li><p><span class="math inline">\(P\)</span> – Preliminary adjustment coefficients, i.e.&nbsp;regressors estimated by the Reg-Arima model (Table A2);</p></li>
+<li><p><span class="math inline">\(TD\&amp; H\)</span> – Final calendar component (Tables A6 and A7);</p></li>
+<li><p><span class="math inline">\(\text{Mod.O}\)</span> – Original series adjusted for extreme values (Table E1);</p></li>
+<li><p><span class="math inline">\(\text{Mod.CI}\)</span> – Final seasonally adjusted series corrected for extreme values (Table E2);</p></li>
+<li><p><span class="math inline">\(\text{Mod.I}\)</span> – Final irregular component adjusted for extreme values (Table E3).</p></li>
+</ul>
+<p>In the case of an additive decomposition, for each component the average absolute changes over several periods are calculated as:</p>
+<p><span class="math display">\[\text{Component}_{d} = \frac{1}{n - d}\sum_{t = d + 1}^{n}|Table_{t} - Table_{t - d}|\]</span></p>
+<p>where:</p>
+<p><span class="math inline">\(d\)</span> – time lag in periods (from a monthly time series <span class="math inline">\(d\)</span> varies from to 4 or from 1 to 12);</p>
+<p><span class="math inline">\(n\)</span> – total number of observations per period;</p>
+<p><span class="math inline">\(\text{Component}\)</span> – the name of the component;</p>
+<p><span class="math inline">\(\text{Table}\)</span> – the name of the table that corresponds to the component.</p>
+<p><img src="All_images/RDimage48.png" class="img-fluid"></p>
+<p>For the multiplicative decomposition the following formula is used: <span class="math display">\[\text{Component}_{d} = \frac{1}{n - d}\sum_{t = d+1}^{n}{|\frac{\text{Tabl}e_{t}}{\text{Table}_{t - d}} - 1|}\]</span>.</p>
+</section>
+<section id="relative-contribution-to-the-variance-of-the-differences-in-the-components-of-the-original-series" class="level5">
+<h5 class="anchored" data-anchor-id="relative-contribution-to-the-variance-of-the-differences-in-the-components-of-the-original-series">Relative contribution to the variance of the differences in the components of the original series</h5>
+<p>Next, Table F2B of relative contributions of the different components to the differences (additive model) or percent changes (multiplicative model) in the original series is displayed. They express the relative importance of the changes in each component. Assuming that the components are independent, the following relation is valid:</p>
+<p><span class="math display">\[O_{d}^{2} \approx C_{d}^{2} + S_{d}^{2} + I_{d}^{2} + P_{d}^{2} + {TD\&amp; H}_{d}^{2}\]</span></p>
+<p>In order to simplify the analysis, the approximation can be replaced by the following equation:</p>
+<p><span class="math display">\[O_{d}^{*2} = C_{d}^{2} + S_{d}^{2} + I_{d}^{2} + P_{d}^{2} + {TD\&amp; H}_{d}^{2}\]</span></p>
+<p>The notation is the same as for Table F2A. The column <span class="math inline">\(\text{Total}\)</span> denotes total changes in the raw time series.</p>
+<p>Data presented in Table F2B indicate the relative contribution of each component to the percent changes (differences) in the original series over each span, and are calculated as:</p>
+<p><span class="math inline">\(\frac{I_{d}^{2}}{O_{d}^{*2}}\)</span>, <span class="math inline">\(\frac{C_{d}^{2}}{O_{d}^{*2}}\)</span>, <span class="math inline">\(\frac{S_{d}^{2}}{O_{d}^{*2}}\)</span>, <span class="math inline">\(\frac{P_{d}^{2}}{O_{d}^{*2}}\)</span> and <span class="math inline">\(\frac{TD\&amp; H_{d}^{2}}{O_{d}^{*2}}\)</span> where: <span class="math inline">\(O_{d}^{*2} = I_{d}^{2} + C_{d}^{2} + S_{d}^{2} + P_{d}^{2}{+ TD\&amp; H}_{d}^{2}\)</span>.</p>
+<p>The last column presents the <em>Ratio</em> calculated as: <span class="math inline">\(100 \times\frac{O_{d}^{*2}}{O_{d}^{2}}\)</span>, which is an indicator of how well the approximation <span class="math inline">\({(O_{d}^{*})}^{2} \approx O_{d}^{2}\)</span> holds.</p>
+<p><img src="All_images/RDimage49.png" class="img-fluid"></p>
+</section>
+<section id="average-differences-with-regard-to-sign-and-standard-deviation-over-indicated-span" class="level5">
+<h5 class="anchored" data-anchor-id="average-differences-with-regard-to-sign-and-standard-deviation-over-indicated-span">Average differences with regard to sign and standard deviation over indicated span</h5>
+<p>When an additive decomposition is used, Table F2C presents the average and standard deviation of changes calculated for each time lag <span class="math inline">\(d\)</span>, taking into consideration the sign of the changes of the raw series and its components. In case of a multiplicative decomposition the respective table shows the average percent differences and related standard deviations.</p>
+<p><img src="All_images/RDimage50.png" class="img-fluid"></p>
+</section>
+<section id="average-duration-of-run" class="level5">
+<h5 class="anchored" data-anchor-id="average-duration-of-run">Average duration of run</h5>
+<p>Average duration of run is an average number of consecutive monthly (or quarterly) changes in the same direction (no change is counted as a change in the same direction as the preceding change). JDemetra+ displays this indicator for the seasonally adjusted series, for the trend and for the irregular component.</p>
+<p><img src="All_images/RDimage51.png" class="img-fluid"></p>
+</section>
+<section id="ic-ratio-over-indicated-span-and-global" class="level5">
+<h5 class="anchored" data-anchor-id="ic-ratio-over-indicated-span-and-global">I/C ratio over indicated span and global</h5>
+<p>The <span class="math inline">\(\frac{I}{C}\)</span> ratios for each value of time lag <span class="math inline">\(d\)</span>, presented in Table F2E, are computed on a basis of the data in Table F2A. Global IC is displayed below the table</p>
+<p><img src="All_images/RDimage52.png" class="img-fluid"></p>
+</section>
+<section id="relative-contribution-to-the-stationary-part-of-the-variance-in-the-original-series" class="level5">
+<h5 class="anchored" data-anchor-id="relative-contribution-to-the-stationary-part-of-the-variance-in-the-original-series">Relative contribution to the stationary part of the variance in the original series</h5>
+<p>The relative contribution of components to the variance of the stationary part of the original series is calculated for the irregular component (<span class="math inline">\(I\)</span>), trend made stationary (<span class="math inline">\(C\)</span>), seasonal component (<span class="math inline">\(S\)</span>) and calendar effects (TD&amp;H).</p>
+<p>The trend is made stationary by by extracting a linear trend from the trend component presented in Table D12.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/RDimage53.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Text</figcaption><p></p>
+</figure>
+</div>
+</section>
+<section id="autocorrelations-in-the-irregular" class="level5">
+<h5 class="anchored" data-anchor-id="autocorrelations-in-the-irregular">Autocorrelations in the irregular</h5>
+<p>The last table shows the autocorrelogram of the irregular component from Table D13. In the case of multiplicative decomposition it is calculated for time lags between 1 and the number of periods per year +2 using the formula:</p>
+<p><span class="math display">\[\text{Corr}_{k}I = \frac{\sum_{t = k + 1}^{N}{(I_{t} - 1)(I_{t - k} - 1)}}{\sum_{t = 1}^{N}{(I_{t} - 1)}^{2}}\]</span> where <span class="math inline">\(N\)</span> is number of observations in the time series and <span class="math inline">\(k\)</span> the lag.</p>
+<p>For the additive decomposition the formula is: <span class="math display">\[Corr_{k}I_{t} = \frac{\sum_{t = k + 1}^{N}{(I_{t} \times I_{t - k})}}{\sum_{t = 1}^{N}{(I_{t})}^{2}}\]</span></p>
+<p><img src="All_images/RDimage54.png" class="img-fluid"></p>
+</section>
+<section id="heteroskedasticity" class="level5">
+<h5 class="anchored" data-anchor-id="heteroskedasticity">Heteroskedasticity</h5>
+<p>Cochran test on equal variances within each period</p>
+<p>The Cochran test is design to identify the heterogeneity of a series of variances. X-13-ARIMA-SEATS uses this test in the extreme value detection procedure to check if the irregular component is heteroskedastic. In this procedure the standard errors of the irregular component are used for an identification of extreme values. If the null hypothesis that for all the periods (months, quarters) the variances of the irregular component are identical is rejected, the standard errors will be computed separately for each period (in case the option <em>Calendarsigma</em>=<strong>signif</strong> has been selected).</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/RDimage55.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Text</figcaption><p></p>
+</figure>
+</div>
+</section>
+<section id="moving-seasonality-ratios-msr" class="level5">
+<h5 class="anchored" data-anchor-id="moving-seasonality-ratios-msr">Moving seasonality ratios (MSR)</h5>
+<p>For each <span class="math inline">\(i^{\text{th}}\)</span> month we will be looking at the mean annual changes for each component by calculating:</p>
+<p><span class="math display">\[{\overline{S}}_{i} = \frac{1}{N_{i} - 1}\sum_{t = 2}^{N_{i}}|S_{i,t} - S_{i,t - 1}|\]</span></p>
+<p>and</p>
+<p><span class="math display">\[{\overline{I}}_{i} = \frac{1}{N_{i} - 1}\sum_{t = 2}^{N_{i}}| I_{i,t} - I_{i,t - 1}|\]</span>,</p>
+<p>where <span class="math inline">\(N_{i}\)</span> refers to the number of months <span class="math inline">\(\text{i}\)</span> in the data, and the moving seasonality ratio of month <span class="math inline">\(i\)</span>:</p>
+<p><span class="math display">\[MSR_{i} = \frac{\overline{I}_{i}}{\overline{S}_{i}}\]</span></p>
+<p>The <a href="./M-X11-decomposition.html">Moving Seasonality Ratio (MSR)</a> is used to measure the amount of noise in the Seasonal-Irregular component. By studying these values, the user can <a href="../reference-manual/sa-spec-X13.html#seasonal-filter-x11-seasonalma">select for each period the seasonal filter</a> that is the most suitable given the noisiness of the series.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/RDimage56.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Text</figcaption><p></p>
+</figure>
+</div>
+</section>
+</section>
+</section>
+<section id="output-3-final-parameters" class="level3">
+<h3 class="anchored" data-anchor-id="output-3-final-parameters">Output 3: final parameters</h3>
+<p>Relevant if parameters not set manually, or any parameters automatically selected by the software without having a fixed default value. (The rest of the parameters is set in the spec). To manually set those parameters and see all the fixed default values see Specifications / parameters section</p>
+<p>Final trend filter : length of Henderson filter applied for final estimation (in the second part of the D step).</p>
+<p>Final seasonal filer: length of Henderson filter applied for final estimation (in the second part of the D step).</p>
+<section id="display-in-gui-3" class="level4">
+<h4 class="anchored" data-anchor-id="display-in-gui-3">Display in GUI</h4>
+<p>Node Decomposition(X11) &gt; Final Filters</p>
+</section>
+<section id="retrieve-in-r-3" class="level4">
+<h4 class="anchored" data-anchor-id="retrieve-in-r-3">Retrieve in R</h4>
+<p>In version 2</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>model_sa<span class="sc">$</span>decomposition<span class="sc">$</span>s_filter</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>model_sa<span class="sc">$</span>decomposition<span class="sc">$</span>t_filter</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="user-defined-parameters" class="level3">
+<h3 class="anchored" data-anchor-id="user-defined-parameters">User-defined parameters</h3>
+<p>The following sections describe how to change default values or automatic choices.</p>
+<section id="general-settings" class="level5">
+<h5 class="anchored" data-anchor-id="general-settings">General settings</h5>
+<ul>
+<li><p><strong>Mode</strong></p></li>
+<li><p><strong>Seasonal component</strong></p></li>
+<li><p><strong>Forecasts horizon</strong></p></li>
+</ul>
+<p>Length of the forecasts generated by the Reg-Arima model - in months (positive values) - years (negative values) - if set to is set to 0, the X-11 procedure does not use any model-based forecasts but the original X-11 type forecasts for one year. - default value: -1, thus one year from the Arima model</p>
+<ul>
+<li><strong>Backcasts horizon</strong></li>
+</ul>
+<p>Length of the backcasts generated by the Reg-Arima model - in months (positive values) - years (negative values) - default value: 0</p>
+</section>
+<section id="irregular-correction" class="level5">
+<h5 class="anchored" data-anchor-id="irregular-correction">Irregular correction</h5>
+<ul>
+<li><p><strong>LSigma</strong></p>
+<ul>
+<li>sets lower sigma (standard deviation) limit used to down-weight the extreme irregular values in the internal seasonal adjustment iterations</li>
+<li>values in <span class="math inline">\([0,Usigma]\)</span></li>
+<li>default value is 1.5</li>
+</ul></li>
+<li><p><strong>USigma</strong></p>
+<ul>
+<li>sets upper sigma (standard deviation)</li>
+<li>values in <span class="math inline">\([Lsigma,+\infty]\)</span></li>
+<li>default value is 2.5</li>
+</ul></li>
+<li><p><strong>Calendarsigma</strong></p>
+<ul>
+<li>allows to set different <strong>LSigma</strong> and <strong>USigma</strong> for each period</li>
+<li>values
+<ul>
+<li>None (default)</li>
+<li>All: standard errors used for the extreme values detection and adjustment computed separately for each calendar month/quarter</li>
+<li>Signif: groups determined by Cochran test (check)</li>
+<li>Sigmavec: set two customized groups of periods</li>
+</ul></li>
+</ul></li>
+<li><p><strong>Excludeforecasts</strong></p>
+<ul>
+<li>ticked : forecasts and backcasts from the Reg-Arima model not used in Irregular Correction</li>
+<li>unticked (default): forecasts and backcasts used</li>
+</ul></li>
+</ul>
+</section>
+<section id="seasonality-extraction-filters-choice" class="level5">
+<h5 class="anchored" data-anchor-id="seasonality-extraction-filters-choice">Seasonality extraction filters choice</h5>
+<p>Specifies which be used to estimate the seasonal factors for the entire series.</p>
+<ul>
+<li><p><strong>Seasonal filter</strong></p></li>
+<li><p>default value: <em>MSR</em> (Moving seasonality ratio), automatic choice of final seasonal filter, initial filters are <span class="math inline">\(3\times 3\)</span></p></li>
+<li><p>choices : <span class="math inline">\(3\times 1\)</span>, <span class="math inline">\(3\times 3\)</span>, <span class="math inline">\(3\times 5\)</span>, <span class="math inline">\(3\times 9\)</span>, <span class="math inline">\(3\times 15\)</span> or Stable</p></li>
+<li><p>“Stable” : constant factor for each calendar period (simple moving average of a all <span class="math inline">\(S+I\)</span> values for each period)</p></li>
+</ul>
+<p>User choices will be applied to final phase D step.</p>
+<p>The seasonal filters can be selected for the entire series, or for a particular month or quarter.</p>
+<ul>
+<li><strong>Details on seasonal filters</strong></li>
+</ul>
+<p>Sets different seasonal filters by period in order to account for seasonal heteroskedasticity (link to M chapter)</p>
+<ul>
+<li>default value: empty</li>
+</ul>
+</section>
+<section id="trend-estimation-filters" class="level5">
+<h5 class="anchored" data-anchor-id="trend-estimation-filters">Trend estimation filters</h5>
+<ul>
+<li><p><strong>Automatic Henderson filter</strong> our user-defined</p>
+<ul>
+<li>default: length 13</li>
+<li>unticked: user defined length choice</li>
+</ul></li>
+<li><p><strong>Henderson filter</strong> length choice</p>
+<ul>
+<li>values: odd number in <span class="math inline">\([3,101]\)</span></li>
+<li>default value: 13</li>
+</ul></li>
+</ul>
+<p>Check: will user choice be applied to all steps or only to final phase D step</p>
+</section>
+<section id="parameter-setting-in-gui" class="level4">
+<h4 class="anchored" data-anchor-id="parameter-setting-in-gui">Parameter setting in GUI</h4>
+<p>All the parameters above can be set with in the specification box.</p>
+</section>
+<section id="parameter-setting-in-r-packages" class="level4">
+<h4 class="anchored" data-anchor-id="parameter-setting-in-r-packages">Parameter setting in R packages</h4>
+<p>In version 2</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Creating a modified specification, customizing all available X11 parameters</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>modified_spec<span class="ot">&lt;-</span> <span class="fu">x13_spec</span>(current_sa_model,</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">#x11.mode="?",</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>    <span class="co">#x11.seasonalComp = "?",</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">x11.fcasts =</span> <span class="sc">-</span><span class="dv">2</span>,</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">x11.bcasts =</span> <span class="sc">-</span><span class="dv">1</span>,</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">x11.lsigma =</span> <span class="fl">1.2</span>,</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">x11.usigma =</span> <span class="fl">2.8</span>,</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">x11.calendarSigma =</span> <span class="cn">NA</span>, </span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>      <span class="at">x11.sigmaVector =</span> <span class="cn">NA</span>,</span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">x11.excludeFcasts =</span> <span class="cn">NA</span></span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>    <span class="co"># filters </span></span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">x11.trendAuto =</span> <span class="cn">NA</span>, </span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">x11.trendma =</span> <span class="dv">23</span>,</span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">x11.seasonalma =</span> <span class="st">"S3X9)</span></span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a><span class="st">#New SA estimation : apply modified_spec</span></span>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a><span class="st">modified_sa_model&lt;-x13(raw_series,modified_spec)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+</section>
+<section id="seats-decomposition" class="level2">
+<h2 class="anchored" data-anchor-id="seats-decomposition">SEATS Decomposition</h2>
+<p>SEATS (Signal Extraction for Arima Time Series) algorithm will decompose the linearized series, in level or in logarithm, using the Arima model fitted in the pre-treatment phase.</p>
+<p>The sections below will describe</p>
+<ul>
+<li>specifications needed to run SEATS</li>
+<li>generated output</li>
+<li>series</li>
+<li>diagnostics</li>
+<li>final parameters</li>
+<li>user-defined parameters</li>
+</ul>
+<p>Not currently available. Under construction</p>
+</section>
+<section id="stl" class="level2">
+<h2 class="anchored" data-anchor-id="stl">STL</h2>
+<p>Loess based decomposition algorithm used on linearized data data, no pre-adjustment.</p>
+<p>Not currently available. Under construction.</p>
+</section>
+<section id="basic-structural-models" class="level2">
+<h2 class="anchored" data-anchor-id="basic-structural-models">Basic Structural Models</h2>
+<p>Not currently available. Under construction.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./P_Algorithms.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Algorithms</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./A-sa-hf.html" class="pagination-link">
+        <span class="nav-page-text">Seasonal adjustment of high-frequency data</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>
