@@ -4,7 +4,7 @@
 
 Core JDemetra Java algorithms can be accessed via several tools:
 
--   Graphical User Interface [GUI](T-graphical-user_interface.qmd)
+-   Graphical User Interface [GUI](T-graphical-user-interface.qmd)
 
 -   ...enhanced with additional [plug-ins](T-plug-ins.qmd)
 
@@ -68,7 +68,7 @@ More details on functions parameters and retrieving output in the chapter dedica
 
 ### Running the cruncher and generating a quality report
 
-[JDemetra+ cruncher](T_cruncher.qmd) is an executable module designed for mass production of seasonally adjusted series .
+[JDemetra+ cruncher](T-Production-tools-cruncher-QR.qmd) is an executable module designed for mass production of seasonally adjusted series .
 
 | Package       | JD+ version | Comments                       |
 |---------------|-------------|--------------------------------|
