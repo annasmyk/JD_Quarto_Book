@@ -1,189 +1,93 @@
 # Production and revision policies {.unnumbered}
 
+Under construction.
+
 ## Context of use
 
-After a first estimation, raw data has been modified (extended and/or revised) and the user wants to update SA estimation keeping fixed. The set of constraints on the parameters is called "revision policy" or "refresh policy".
-
+Raw data has been modified (extended and/or revised) and the previous SA estimation needs updating, but with keeping certain parameters fixed. The set of constraints on the parameters is called "revision policy" or "refresh policy".
 
 ## Revision policies in GUI
 
-The saved results from a seasonal adjustment processing can be
-refreshed when new or modified observations are available.
+The saved results from a seasonal adjustment processing can be refreshed when new or modified observations are available.
 
-1.  To refresh the results open a previously saved workspace using the
-    path *File* → *Open Workspace*. Choose the multi-document option
-    from the [*Workspace* window](../reference-manual/workspace.html)
-    and double click on it to display the multi-document menu
-    (*SAProcessing*).
+1.  To refresh the results open a previously saved workspace using the path *File* → *Open Workspace*. Choose the multi-document option from the [*Workspace* window](../reference-manual/workspace.html) and double click on it to display the multi-document menu (*SAProcessing*).
 
-    ![Text](All_images/UDimage21.jpg)
+    ![](All_images/UDimage21.jpg)
 
     **Opening a multi-document**
 
 2.  Several refreshment options are available.
 
-    ![Text](All_images/UDimage22.jpg)
+    ![](All_images/UDimage22.jpg)
 
     **The *Refresh* menu**
 
 ### Concurrent
 
-According to the [ESS Guidelines on Seasonal Adjustment
-(2015)](https://ec.europa.eu/eurostat/documents/3859598/6830795/KS-GQ-15-001-EN-N.pdf/d8f1e5f5-251b-4a69-93e3-079031b74bd3)
-, concurrent adjustment means that the model, filters, outliers,
-regression parameters and transformation type are all re-identified and
-the respective parameters and factors re-estimated every time new
-observations are available. This option in JDemetra+ means that a
-completely new model is identified, and the previous results are not
-taken into account.
+According to the [ESS Guidelines on Seasonal Adjustment (2015)](https://ec.europa.eu/eurostat/documents/3859598/6830795/KS-GQ-15-001-EN-N.pdf/d8f1e5f5-251b-4a69-93e3-079031b74bd3) , concurrent adjustment means that the model, filters, outliers, regression parameters and transformation type are all re-identified and the respective parameters and factors re-estimated every time new observations are available. This option in JDemetra+ means that a completely new model is identified, and the previous results are not taken into account.
 
-The picture below presents the initial model (on the left) and the
-results of the refreshment procedure with the *Concurrent adjustment*
-option (on the right). The transformation type has changed from none to
-log. The ARIMA model has been re-identified (it has changed from
-(0,1,1)(1,1,0) to (1,1,0)(0,1,1)). In contrast to the initial model, in
-the updated model trading day effects and a leap year effect are no
-longer included. Also the automatically identified outliers are not the
-same in both models.
+The picture below presents the initial model (on the left) and the results of the refreshment procedure with the *Concurrent adjustment* option (on the right). The transformation type has changed from none to log. The ARIMA model has been re-identified (it has changed from (0,1,1)(1,1,0) to (1,1,0)(0,1,1)). In contrast to the initial model, in the updated model trading day effects and a leap year effect are no longer included. Also the automatically identified outliers are not the same in both models.
 
-![Text](All_images/UG_PCA_image2.jpg)
+![](All_images/UG_PCA_image2.jpg)
 
 **The *Concurrent adjustment* revision policy results**
 
 ### Partial concurrent adjustment → Fixed model
 
-The *Partial concurrent adjustment → Fixed model* strategy means that
-the ARIMA model, outliers and other regression parameters are not
-re-identified and the values of the parameters are fixed. In particular,
-no new outliers or calendar variables are added to the model as well as
-no changes neither in the calendar variables nor in the outliers' types
-are allowed. The transformation type remains unchanged.
+The *Partial concurrent adjustment → Fixed model* strategy means that the ARIMA model, outliers and other regression parameters are not re-identified and the values of the parameters are fixed. In particular, no new outliers or calendar variables are added to the model as well as no changes neither in the calendar variables nor in the outliers' types are allowed. The transformation type remains unchanged.
 
-The picture below presents the initial model (on the left) and the
-results of the refreshment procedure with the *Partial concurrent
-adjustment → Fixed model* option (on the right). The parameters of the
-ARIMA part are not estimated and their values are the same as before.
-The trading days and outliers are fixed too and no new regression
-effects are identified.
+The picture below presents the initial model (on the left) and the results of the refreshment procedure with the *Partial concurrent adjustment → Fixed model* option (on the right). The parameters of the ARIMA part are not estimated and their values are the same as before. The trading days and outliers are fixed too and no new regression effects are identified.
 
-![Text](All_images/UDimage23.jpg)
+![](All_images/UDimage23.jpg)
 
-**A *Partial concurrent adjustment* → *fixed model* revision policy
-results**
+**A *Partial concurrent adjustment* → *fixed model* revision policy results**
 
 ### Partial concurrent adjustment → Estimate regression coefficients
 
-The *Partial current adjustment → Estimate regression coefficients*
-option means that the ARIMA model, outliers and other regression
-parameters are not re-identified. The coefficients of the ARIMA model
-are fixed, other coefficients are re-estimated. In particular, no new
-outliers or calendar variables are added to the model as well as no
-changes neither in the calendar variables nor in the outliers' types are
-allowed. The transformation type remains unchanged.
+The *Partial current adjustment → Estimate regression coefficients* option means that the ARIMA model, outliers and other regression parameters are not re-identified. The coefficients of the ARIMA model are fixed, other coefficients are re-estimated. In particular, no new outliers or calendar variables are added to the model as well as no changes neither in the calendar variables nor in the outliers' types are allowed. The transformation type remains unchanged.
 
-The picture below presents the initial model (on the left) and the
-results of the refreshment procedure with the *Partial concurrent
-adjustment* *→ Estimate regression coefficients* option (on the right).
-The number of estimated parameters is 16 in the initial model and 14 in
-the revised model (the parameters of the ARIMA model are not estimated.
+The picture below presents the initial model (on the left) and the results of the refreshment procedure with the *Partial concurrent adjustment* *→ Estimate regression coefficients* option (on the right). The number of estimated parameters is 16 in the initial model and 14 in the revised model (the parameters of the ARIMA model are not estimated.
 
-![Text](All_images/UDimage24.jpg)
+![](All_images/UDimage24.jpg)
 
-**The *Partial concurrent adjustment→ Estimate regression coefficients*
-revision policy results**
+**The *Partial concurrent adjustment→ Estimate regression coefficients* revision policy results**
 
 ### Partial concurrent adjustment → Estimate regression coefficients + Arima parameters
 
-The *Partial concurrent adjustment → Estimate regression coefficients +
-Arima parameters* strategy means that the ARIMA model, outliers and
-other regression parameters are not re-identified. All parameters of the
-RegARIMA model are re-estimated but the explanatory variables remain the
-same. The transformation type remains unchanged.
+The *Partial concurrent adjustment → Estimate regression coefficients + Arima parameters* strategy means that the ARIMA model, outliers and other regression parameters are not re-identified. All parameters of the Reg-ARIMA model are re-estimated but the explanatory variables remain the same. The transformation type remains unchanged.
 
-The picture below presents the initial model (on the left) and the
-results of the refreshment procedure with the *Partial* *concurrent
-adjustment → Estimate regression coefficient + Arima parameters* option
-(on the right). The parameters of the ARIMA part have been re-estimated
-and their values have been updated. Also regression coefficients have
-been re-estimated and the number of estimated coefficients in the
-revised model is the same as in the initial model (i.e. 16 estimated
-coefficients). The structure of the model remains unchanged while all
-coefficients have been updated.
+The picture below presents the initial model (on the left) and the results of the refreshment procedure with the *Partial* *concurrent adjustment → Estimate regression coefficient + Arima parameters* option (on the right). The parameters of the ARIMA part have been re-estimated and their values have been updated. Also regression coefficients have been re-estimated and the number of estimated coefficients in the revised model is the same as in the initial model (i.e. 16 estimated coefficients). The structure of the model remains unchanged while all coefficients have been updated.
 
-![Text](All_images/UDimage25.jpg)
+![](All_images/UDimage25.jpg)
 
-**The *Partial concurrent adjustment* → *Estimate regression
-coefficients + Arima parameters* revision policy results**
+**The *Partial concurrent adjustment* → *Estimate regression coefficients + Arima parameters* revision policy results**
 
 ### Partial concurrent adjustment → Estimate regression coefficients + outliers
 
-The *Partial concurrent adjustment → Estimate regression coefficients +
-outliers* option means that the ARIMA model and regression parameters,
-except outliers, are not re-identified. The parameters of these
-variables, however, are re-estimated. All outliers are re-identified,
-i.e. the previous outcome of the outlier detection procedure is not
-taken into account and all outliers are identified and estimated once
-again. The transformation type remains unchanged.
+The *Partial concurrent adjustment → Estimate regression coefficients + outliers* option means that the ARIMA model and regression parameters, except outliers, are not re-identified. The parameters of these variables, however, are re-estimated. All outliers are re-identified, i.e. the previous outcome of the outlier detection procedure is not taken into account and all outliers are identified and estimated once again. The transformation type remains unchanged.
 
-The picture below presents the initial model (on the left) and the
-results of the refreshment procedure with the *Partial concurrent
-adjustment → Estimate regression coefficients + outliers* option (on the
-right). The parameters of the ARIMA part have been re-estimated and
-their values have been updated. Also regression coefficients for the
-calendar variables have been re-estimated. In the revised model there is
-no *Prespecified outliers* section. Instead, the outliers were
-re-identified.
+The picture below presents the initial model (on the left) and the results of the refreshment procedure with the *Partial concurrent adjustment → Estimate regression coefficients + outliers* option (on the right). The parameters of the ARIMA part have been re-estimated and their values have been updated. Also regression coefficients for the calendar variables have been re-estimated. In the revised model there is no *Prespecified outliers* section. Instead, the outliers were re-identified.
 
-![Text](All_images/UDimage27.jpg)
+![](All_images/UDimage27.jpg)
 
-**The *Partial concurrent adjustment* → *Estimate regression
-coefficient + outliers* revision policy results**
+**The *Partial concurrent adjustment* → *Estimate regression coefficient + outliers* revision policy results**
 
 ### The *Partial concurrent adjustment → Estimate regression coefficients + Arima model*
 
-The *Partial concurrent adjustment → Estimate regression coefficients +
-Arima model* option means that the ARIMA model, outliers and regression
-variables (except the calendar variables) are re-identified. All
-parameters are re-estimated. The transformation type remains unchanged.
+The *Partial concurrent adjustment → Estimate regression coefficients + Arima model* option means that the ARIMA model, outliers and regression variables (except the calendar variables) are re-identified. All parameters are re-estimated. The transformation type remains unchanged.
 
-The picture below presents the initial model (on the left) and the
-results of the refreshment procedure with the *Partial concurrent
-adjustment → Estimate regression coefficients + Arima model* option (on
-the right). The ARIMA part has been re-identified (a change from
-(2,1,0)(0,1,1) to (0,1,1)(1,1,1)). Also the regression coefficients for
-the calendar variables have been re-estimated. In the revised model
-there is no *Prespecified outliers* section. Therefore, the outliers
-were re-identified.
+The picture below presents the initial model (on the left) and the results of the refreshment procedure with the *Partial concurrent adjustment → Estimate regression coefficients + Arima model* option (on the right). The ARIMA part has been re-identified (a change from (2,1,0)(0,1,1) to (0,1,1)(1,1,1)). Also the regression coefficients for the calendar variables have been re-estimated. In the revised model there is no *Prespecified outliers* section. Therefore, the outliers were re-identified.
 
-![Text](All_images/UG_PCA_image1.jpg)
+![](All_images/UG_PCA_image1.jpg)
 
-**The *Partial concurrent adjustment* → *Estimate regression
-coefficient + Arima model* revision policy results**
+**The *Partial concurrent adjustment* → *Estimate regression coefficient + Arima model* revision policy results**
 
 ### Partial concurrent adjustment → Estimate regression coefficients + Last outliers
 
-The *Partial concurrent adjustment → Estimate regression coefficients +
-Last outliers* strategy means that the ARIMA model, outliers (except for
-the last year of the sample) and other regression parameters are not
-re-identified. All parameters of the RegARIMA model are re-estimated.
-The software tests for outliers in the last year of the data span and
-will include in the model those which are statistically significant. The
-transformation type remains unchanged.
+The *Partial concurrent adjustment → Estimate regression coefficients + Last outliers* strategy means that the ARIMA model, outliers (except for the last year of the sample) and other regression parameters are not re-identified. All parameters of the Reg-ARIMA model are re-estimated. The software tests for outliers in the last year of the data span and will include in the model those which are statistically significant. The transformation type remains unchanged.
 
-The picture below presents the initial model (on the left) and the
-results of the refreshment procedure with the *Partial* *concurrent
-adjustment → Estimate regression coefficients + Last outliers* option
-(on the right). The parameters of the ARIMA part have been re-estimated
-and their values have been updated. Also the regression coefficients
-have been re-estimated. The number of estimated coefficients in the
-revised model is larger than the initial model because an additional
-outlier has been identified in the last year of the data span.
+The picture below presents the initial model (on the left) and the results of the refreshment procedure with the *Partial* *concurrent adjustment → Estimate regression coefficients + Last outliers* option (on the right). The parameters of the ARIMA part have been re-estimated and their values have been updated. Also the regression coefficients have been re-estimated. The number of estimated coefficients in the revised model is larger than the initial model because an additional outlier has been identified in the last year of the data span.
 
-![Text](All_images/UDimage26.jpg)
+![](All_images/UDimage26.jpg)
 
-**The *Partial concurrent adjustment* → *Estimate regression
-coefficient + Last outliers* revision policy results**
-
-
-
-
+**The *Partial concurrent adjustment* → *Estimate regression coefficient + Last outliers* revision policy results**

@@ -24,7 +24,7 @@ Packages corresponding to version 2.x core routines:
 -   **ggdemetra**
 -   **rjdqa**
 
-### Scope of sersion 3
+### Scope of version 3
 
 Packages corresponding to version 3.x core routines (still under construction, moving perimeters) are listed
 
@@ -41,7 +41,7 @@ Packages corresponding to version 3.x core routines (still under construction, m
 -   [**rjd3bench**](https://github.com/palatej/rjd3bench) on <https://github.com/palatej/rjd3bench>
 -   [**ggdemetra3**](https://github.com/palatej/ggdemetra3) on <https://github.com/palatej/ggdemetra3>
 
-[rjd3 overview](All_images/Schema_JP_orga_packages.png)
+![rjd3 overview](All_images/Schema_JP_orga_packages.png)
 
 ## Algorithms available in R
 
@@ -70,10 +70,10 @@ More details on functions parameters and retrieving output in the chapter dedica
 
 [JDemetra+ cruncher](T_cruncher.qmd) is an executable module designed for mass production of seasonally adjusted series .
 
-| Package       | JD+ version | Comments                     |
-|---------------|-------------|------------------------------|
-| rjwsacruncher | 2.x         | estimation update and output |
-| JDcruncher    | 2.x         | idem + Quality Report        |
+| Package       | JD+ version | Comments                       |
+|---------------|-------------|--------------------------------|
+| rjwsacruncher | 2.x         | estimation update and output   |
+| JDCruncheR    | 2.x         | all the above + Quality Report |
 
 ### Wrangling JD+ workspaces
 
@@ -123,11 +123,9 @@ Organised by domain:
 
 To retrieve any element just navigate this list of lists.
 
-### Output structure for rjdx13 package
+### Output structure for rjd3x13 package
 
 Results and specification are separated first and then organised by domain.
-
-\footnotesize
 
 ```{r,eval=FALSE, include=TRUE}
 sa_x13_v3 <- RJDemetra::x13(y_raw, spec = "RSA5")
@@ -211,7 +209,7 @@ autocorrelations.partial(x)
 
 This package allows creating input variables (regressors) for to be used in Reg-Arima modelling step:
 
--   create user-defined calendar and trading-days regressors: `calendar.new()` (create a new calendar), `calendar.holiday()` (add a specific holiday, e.g. christmas), `calendar.easter()` (easter related day) and `calendar.fixedday()`) (for tecnical details on building those regressors link to calendar chapter)
+-   create user-defined calendar and trading-days regressors: `calendar.new()` (create a new calendar), `calendar.holiday()` (add a specific holiday, e.g. Christmas), `calendar.easter()` (easter related day) and `calendar.fixedday()`)
 
 -   outliers regressors (AO, LS, TC, SO, Ramp, intervention variables), calendar related regressors (stock, leap year, periodic dummies and contrasts, trigonometric variables)
 
@@ -300,11 +298,9 @@ Seasonal adjustment of high frequency data:
 
 ### Add-in packages
 
-table ggdemetra rjworkspace
-
-attention version 2 and version: adaptation under construction version 2, retrieve R tools info here
-
 ### ggdemetra
+
+Enhanced plots.
 
 ### ggdemetra3
 
@@ -334,8 +330,6 @@ p_sa +
 
 ## rjdfilters
 
-### `rjdfilters` (1)
-
 -   easily create/combine/apply moving averages `moving_average()` (much more general than `stats::filter()`) and study their properties: plot coefficients (`plot_coef()`), gain (`plot_gain()`), phase-shift (`plot_phase()`) and different statics (`diagnostic_matrix()`)
 
 -   trend-cycle extraction with different methods to treat endpoints:
@@ -354,12 +348,12 @@ p_sa +
 library(rjdfilters)
 ```
 
-### Create moving average `moving_average()`
+### Create moving averages
 
 ```{r,eval=FALSE}
 library(rjdfilters)
 m1 = moving_average(rep(1,3), lags = 1); m1 # Forward MA
-m2 = moving_average(rep(1,3), lags = -1); m2 # centered MA
+m2 = moving_average(rep(1,3), lags = -1); m2 # centred MA
 m1 + m2
 m1 - m2
 m1 * m2
@@ -422,18 +416,18 @@ plot(window(ts.union(y, trend, sa), start = 2000),
 
 ## rjd3sts
 
-### rjd3sts
-
 Interface to structural time series and state space models
 
 Several examples available here https://github.com/palatej/test_rjd3sts
 
 ## rjd3bench
 
-### rjd3bench
-
 Benchmarking and temporal disaggregation
 
 Several examples [here](https://github.com/palatej/test_rjd3bench)
 
 ## Wrangling workspaces in R
+
+Under construction
+
+More [here](https://github.com/annasmyk/Tsace_RJD_Webinar_Dec22/blob/main/Presentations/P3_Wrangling_Workspaces.pdf)
