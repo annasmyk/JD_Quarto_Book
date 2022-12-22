@@ -1,366 +1,262 @@
 # Calendar and user-defined corrections {.unnumbered}
 
-This chapter describes the generating process of calendar regressors, outliers and other input variables. The use of this variables inside a seasonal adjustment process is described in the relevant chapter on SA or on SA of HF data.
+This chapter will describe
+
+-   underlying principles and concepts of calendar correction
+
+```{=html}
+<!-- -->
+```
+-    generating process of calendars, calendar regressors, outliers and other input variables.
+
+How to use these variables inside a seasonal adjustment process is detailed in chapters on [SA](A-sa.qmd) or [SA of HF data](A-sa-hf.qmd).
 
 ### Overview of Calendar effects in JDemetra
 
-edit : this has a evolved a lot with v3
-definition possibilities via GUI and R have to be re described 
+A natural way for modelling calendar effects consists of distributing the days of each period into different groups. The regression variable corresponding to a type of day (a group) is simply defined by the number of days it contains for each period. Usual classifications are:
 
-The following description of the calendar effects in JDemetra+ is
-strictly based on PALATE, J. (2014).
-
-A natural way for modelling calendar effects consists of distributing
-the days of each period into different groups. The regression variable
-corresponding to a type of day (a group) is simply defined by the number
-of days it contains for each period. Usual classifications are:
-
--   Trading days (7 groups): each day of the week defines a group
-    (Mondays,\...,Sundays);
+-   Trading days (7 groups): each day of the week defines a group (Mondays,\...,Sundays);
 
 -   Working days (2 groups): week days and weekends.
 
-The definition of a group could involve partial days. For instance, we
-could consider that one half of Saturdays belong to week days and the
-second half to weekends.
+The definition of a group could involve partial days. For instance, we could consider that one half of Saturdays belong to week days and the second half to weekends.
 
-Usually, specific holidays are handled as Sundays and they are included
-in the group corresponding to \"non-working days\". This approach
-assumes that the economic activity on national holidays is the same (or
-very close to) the level of activity that is typical for Sundays.
-Alternatively, specific holidays can be considered separately, e.g. by
-the specification that divided days into three groups:
+Usually, specific holidays are handled as Sundays and they are included in the group corresponding to "non-working days". This approach assumes that the economic activity on national holidays is the same (or very close to) the level of activity that is typical for Sundays. Alternatively, specific holidays can be considered separately, e.g. by the specification that divided days into three groups:
 
 -   Working days (Mondays to Fridays, except for specific holidays),
 
--   Non-working days (Saturdays and Sundays, except for specific
-    holidays),
+-   Non-working days (Saturdays and Sundays, except for specific holidays),
 
 -   Specific holidays.
 
 ### Summary of the method used in JDemetra+ to compute trading day and working day effects
 
-The computation of trading day and working days effects is performed in
-four steps:
+The computation of trading day and working days effects is performed in four steps:
 
 1.  Computation of the number of each weekday performed for all periods.
 
-2.  Calculation of the usual contrast variables for trading day and
-    working day.
+2.  Calculation of the usual contrast variables for trading day and working day.
 
-3.  Correction of the contrast variables with specific holidays (for
-    each holiday add +1 to the number of Sundays and subtract 1 from the
-    number of days of the holiday). The correction is not performed if
-    the holiday falls on a Sunday, taking into account the validity
-    period of the holiday.
+3.  Correction of the contrast variables with specific holidays (for each holiday add +1 to the number of Sundays and subtract 1 from the number of days of the holiday). The correction is not performed if the holiday falls on a Sunday, taking into account the validity period of the holiday.
 
-4.  Correction of the constant variables for long term mean effects,
-    > taking into account the validity period of the holiday; see below
-    > for the different cases.
+4.  Correction of the constant variables for long term mean effects, \> taking into account the validity period of the holiday; see below \> for the different cases.
 
-The corrections of the constant variables may receive a weight
-corresponding to the part of the holiday considered as a Sunday.
+The corrections of the constant variables may receive a weight corresponding to the part of the holiday considered as a Sunday.
 
-An example below illustrates the application of the above algorithm for
-the hypothetical country in which three holidays are celebrated:
+An example below illustrates the application of the above algorithm for the hypothetical country in which three holidays are celebrated:
 
 -   New Year (a fixed holiday, celebrated on 01 January);
 
--   Shrove Tuesday (a moving holiday, which falls 47 days before Easter
-    Sunday, celebrated until the end of 2012);
+-   Shrove Tuesday (a moving holiday, which falls 47 days before Easter Sunday, celebrated until the end of 2012);
 
 -   Freedom day (a fixed holiday, celebrated on 25 April).
 
-The consecutive steps in calculation of the calendar for 2012 and 2013
-years are explained below.
+The consecutive steps in calculation of the calendar for 2012 and 2013 years are explained below.
 
-First, the number of each day of the week in the given month is
-calculated as it is shown in table below.
-
+First, the number of each day of the week in the given month is calculated as it is shown in table below.
 
 **Number of each weekday in different months**
 
+| **Month** | **Mon** | **Tue** | **Wed** | **Thu** | **Fri** | **Sat** | **Sun** |
+|-----------|---------|---------|---------|---------|---------|---------|---------|
+| Jan-12    | 5       | 5       | 4       | 4       | 4       | 4       | 5       |
+| Feb-12    | 4       | 4       | 5       | 4       | 4       | 4       | 4       |
+| Mar-12    | 4       | 4       | 4       | 5       | 5       | 5       | 4       |
+| Apr-12    | 5       | 4       | 4       | 4       | 4       | 4       | 5       |
+| May-12    | 4       | 5       | 5       | 5       | 4       | 4       | 4       |
+| Jun-12    | 4       | 4       | 4       | 4       | 5       | 5       | 4       |
+| Jul-12    | 5       | 5       | 4       | 4       | 4       | 4       | 5       |
+| Aug-12    | 4       | 4       | 5       | 5       | 5       | 4       | 4       |
+| Sep-12    | 4       | 4       | 4       | 4       | 4       | 5       | 5       |
+| Oct-12    | 5       | 5       | 5       | 4       | 4       | 4       | 4       |
+| Nov-12    | 4       | 4       | 4       | 5       | 5       | 4       | 4       |
+| Dec-12    | 5       | 4       | 4       | 4       | 4       | 5       | 5       |
+| Jan-13    | 4       | 5       | 5       | 5       | 4       | 4       | 4       |
+| Feb-13    | 4       | 4       | 4       | 4       | 4       | 4       | 4       |
+| Mar-13    | 4       | 4       | 4       | 4       | 5       | 5       | 5       |
+| Apr-13    | 5       | 5       | 4       | 4       | 4       | 4       | 4       |
+| May-13    | 4       | 4       | 5       | 5       | 5       | 4       | 4       |
+| Jun-13    | 4       | 4       | 4       | 4       | 4       | 5       | 5       |
+| Jul-13    | 5       | 5       | 5       | 4       | 4       | 4       | 4       |
+| Aug-13    | 4       | 4       | 4       | 5       | 5       | 5       | 4       |
+| Sep-13    | 5       | 4       | 4       | 4       | 4       | 4       | 5       |
+| Oct-13    | 4       | 5       | 5       | 5       | 4       | 4       | 4       |
+| Nov-13    | 4       | 4       | 4       | 4       | 5       | 5       | 4       |
+| Dec-13    | 5       | 5       | 4       | 4       | 4       | 4       | 5       |
 
-  |**Month**   | **Mon**  | **Tue**  | **Wed**  | **Thu**  | **Fri**  | **Sat**  | **Sun**|
-  |----------- | ---------| ---------| ---------| ---------| ---------| ---------| ---------|
-  |Jan-12      |5         |5         |4         |4         |4         |4         |5|
-  |Feb-12      |4         |4         |5         |4         |4         |4         |4|
-  |Mar-12      |4         |4         |4         |5         |5         |5         |4|
-  |Apr-12      |5         |4         |4         |4         |4         |4         |5|
-  |May-12      |4         |5         |5         |5         |4         |4         |4|
-  |Jun-12      |4         |4         |4         |4         |5         |5         |4|
-  |Jul-12      |5         |5         |4         |4         |4         |4         |5|
-  |Aug-12      |4         |4         |5         |5         |5         |4         |4|
-  |Sep-12      |4         |4         |4         |4         |4         |5         |5|
-  |Oct-12      |5         |5         |5         |4         |4         |4         |4|
-  |Nov-12      |4         |4         |4         |5         |5         |4         |4|
-  |Dec-12      |5         |4         |4         |4         |4         |5         |5|
-  |Jan-13      |4         |5         |5         |5         |4         |4         |4|
-  |Feb-13      |4         |4         |4         |4         |4         |4         |4|
-  |Mar-13      |4         |4         |4         |4         |5         |5         |5|
-  |Apr-13      |5         |5         |4         |4         |4         |4         |4|
-  |May-13      |4         |4         |5         |5         |5         |4         |4|
-  |Jun-13      |4         |4         |4         |4         |4         |5         |5|
-  |Jul-13      |5         |5         |5         |4         |4         |4         |4|
-  |Aug-13      |4         |4         |4         |5         |5         |5         |4|
-  |Sep-13      |5         |4         |4         |4         |4         |4         |5|
-  |Oct-13      |4         |5         |5         |5         |4         |4         |4|
-  |Nov-13      |4         |4         |4         |4         |5         |5         |4|
-  |Dec-13      |5         |5         |4         |4         |4         |4         |5|
-
-Next, the contrast variables are calculated (table below) as a result of
-the linear transformation applied to the variables presented in table below.
+Next, the contrast variables are calculated (table below) as a result of the linear transformation applied to the variables presented in table below.
 
 **Contrast variables (series corrected for leap year effects)**
 
+| **Month** | **Mon** | **Tue** | **Wed** | **Thu** | **Fri** | **Sat** | **Length** |
+|-----------|---------|---------|---------|---------|---------|---------|------------|
+| Jan-12    | 0       | 0       | -1      | -1      | -1      | -1      | 0          |
+| Feb-12    | 0       | 0       | 1       | 0       | 0       | 0       | 0.75       |
+| Mar-12    | 0       | 0       | 0       | 1       | 1       | 1       | 0          |
+| Apr-12    | 0       | -1      | -1      | -1      | -1      | -1      | 0          |
+| May-12    | 0       | 1       | 1       | 1       | 0       | 0       | 0          |
+| Jun-12    | 0       | 0       | 0       | 0       | 1       | 1       | 0          |
+| Jul-12    | 0       | 0       | -1      | -1      | -1      | -1      | 0          |
+| Aug-12    | 0       | 0       | 1       | 1       | 1       | 0       | 0          |
+| Sep-12    | -1      | -1      | -1      | -1      | -1      | 0       | 0          |
+| Oct-12    | 1       | 1       | 1       | 0       | 0       | 0       | 0          |
+| Nov-12    | 0       | 0       | 0       | 1       | 1       | 0       | 0          |
+| Dec-12    | 0       | -1      | -1      | -1      | -1      | 0       | 0          |
+| Jan-13    | 0       | 1       | 1       | 1       | 0       | 0       | 0          |
+| Feb-13    | 0       | 0       | 0       | 0       | 0       | 0       | -0.25      |
+| Mar-13    | -1      | -1      | -1      | -1      | 0       | 0       | 0          |
+| Apr-13    | 1       | 1       | 0       | 0       | 0       | 0       | 0          |
+| May-13    | 0       | 0       | 1       | 1       | 1       | 0       | 0          |
+| Jun-13    | -1      | -1      | -1      | -1      | -1      | 0       | 0          |
+| Jul-13    | 1       | 1       | 1       | 0       | 0       | 0       | 0          |
+| Aug-13    | 0       | 0       | 0       | 1       | 1       | 1       | 0          |
+| Sep-13    | 0       | -1      | -1      | -1      | -1      | -1      | 0          |
+| Oct-13    | 0       | 1       | 1       | 1       | 0       | 0       | 0          |
+| Nov-13    | 0       | 0       | 0       | 0       | 1       | 1       | 0          |
+| Dec-13    | 5       | 5       | 4       | 4       | 4       | 4       | 0          |
 
-  |**Month**  |**Mon**   |**Tue**   |**Wed**  | **Thu**  | **Fri**   |**Sat**   |**Length**|
-  |-----------| ---------| ---------|---------| ---------| --------- |--------- |------------|
-  |Jan-12     | 0        |0         |-1       | -1       | -1        |-1        |0|
-  |Feb-12     | 0        | 0        | 1       |  0       |  0        | 0        | 0.75|
-  |Mar-12     | 0        | 0        | 0       |  1       |  1        | 1        | 0|
-  |Apr-12     | 0        | -1       | -1      |  -1      |  -1       | -1       | 0|
-  |May-12     | 0        | 1        | 1       |  1       |  0        | 0        | 0|
-  |Jun-12     | 0        | 0        | 0       |  0       |  1        | 1        | 0|
-  |Jul-12     | 0        | 0        | -1      |  -1      |  -1       | -1       | 0|
-  |Aug-12     | 0        | 0        | 1       |  1       |  1        | 0        | 0|
-  |Sep-12     | -1       | -1       | -1      |  -1      |  -1       | 0        | 0|
-  |Oct-12     | 1        | 1        | 1       |  0       |  0        | 0        | 0|
-  |Nov-12     | 0        | 0        | 0       |  1       |  1        | 0        | 0|
-  |Dec-12     | 0        | -1       | -1      |  -1      |  -1       | 0        | 0|
-  |Jan-13     | 0        | 1        | 1       |  1       |  0        | 0        | 0|
-  |Feb-13     | 0        | 0        | 0       |  0       |  0        | 0        | -0.25|
-  |Mar-13     | -1       | -1       | -1      |  -1      |  0        | 0        | 0|
-  |Apr-13     | 1        | 1        | 0       |  0       |  0        | 0        | 0|
-  |May-13     | 0        | 0        | 1       |  1       |  1        | 0        | 0|
-  |Jun-13     | -1       | -1       | -1      |  -1      |  -1       | 0        | 0|
-  |Jul-13     | 1        | 1        | 1       |  0       |  0        | 0        | 0|
-  |Aug-13     | 0        | 0        | 0       |  1       |  1        | 1        | 0|
-  |Sep-13     | 0        | -1       |-1       | -1       | -1        |-1        | 0|
-  |Oct-13     | 0        | 1        | 1       |  1       |  0        | 0        | 0|
-  |Nov-13     | 0        | 0        | 0       |  0       |  1        | 1        | 0|
-  |Dec-13     | 5        | 5        | 4       |  4       | 4         |4         | 0|
+In the next step the corrections for holidays is done in the following way:
 
-In the next step the corrections for holidays is done in the following
-way:
+-   New Year: In 2012 it falls on a Sunday. Therefore no correction is applied. In 2013 it falls on a Tuesday. Consequently, the following corrections are applied to the number of each weekday in January: Tuesday -1, Sunday +1, so the following corrections are applied to the contrast variables: -2 for Tuesday and -1 for the other contrast variables.
 
--   New Year: In 2012 it falls on a Sunday. Therefore no correction is
-    applied. In 2013 it falls on a Tuesday. Consequently, the following
-    corrections are applied to the number of each weekday in January:
-    Tuesday -1, Sunday +1, so the following corrections are applied to
-    the contrast variables: -2 for Tuesday and -1 for the other contrast
-    variables.
+-   Shrove Tuesday: It is a fixed day of the week holiday that always falls on Tuesday. For this reason in 2012 the following corrections are applied to the number of each weekday in February: Tuesday -1, Sunday +1, so the following corrections are applied to the contrast variables: -2 for the contrast variable associated with Tuesday, and -1 for the other contrast variables. The holiday expires at the end of 2012. Therefore no corrections are made for 2013.
 
--   Shrove Tuesday: It is a fixed day of the week holiday that always
-    falls on Tuesday. For this reason in 2012 the following corrections
-    are applied to the number of each weekday in February: Tuesday -1,
-    Sunday +1, so the following corrections are applied to the contrast
-    variables: -2 for the contrast variable associated with Tuesday,
-    and -1 for the other contrast variables. The holiday expires at the
-    end of 2012. Therefore no corrections are made for 2013.
-
--   Freedom Day: In 2012 it falls on a Wednesday. Consequently, the
-    following corrections are applied to the number of each weekday in
-    April: Wednesday -1, Sunday +1, so the following corrections are
-    applied to the contrast variables: -2 for Wednesday and -1 for the
-    other contrast variables. In 2013 it falls on Thursday. Therefore,
-    the following corrections are applied to the number of each weekday
-    in April: Thursday -1, Sunday +1, so the following corrections are
-    applied to the contrast variables: -2 for Thursday, and -1 for the
-    other contrast variables.
+-   Freedom Day: In 2012 it falls on a Wednesday. Consequently, the following corrections are applied to the number of each weekday in April: Wednesday -1, Sunday +1, so the following corrections are applied to the contrast variables: -2 for Wednesday and -1 for the other contrast variables. In 2013 it falls on Thursday. Therefore, the following corrections are applied to the number of each weekday in April: Thursday -1, Sunday +1, so the following corrections are applied to the contrast variables: -2 for Thursday, and -1 for the other contrast variables.
 
 The result of these corrections is presented in table below.
 
 **Contrast variables corrected for holidays**
 
+| **Month** | **Mon** | **Tue** | **Wed** | **Thu** | **Fri** | **Sat** | **Length** |
+|-----------|---------|---------|---------|---------|---------|---------|------------|
+| Jan-12    | 0       | 0       | -1      | -1      | -1      | -1      | 0          |
+| Feb-12    | -1      | -2      | 0       | -1      | -1      | -1      | 0.75       |
+| Mar-12    | 0       | 0       | 0       | 1       | 1       | 1       | 0          |
+| Apr-12    | -1      | -2      | -3      | -2      | -2      | -2      | 0          |
+| May-12    | 0       | 1       | 1       | 1       | 0       | 0       | 0          |
+| Jun-12    | 0       | 0       | 0       | 0       | 1       | 1       | 0          |
+| Jul-12    | 0       | 0       | -1      | -1      | -1      | -1      | 0          |
+| Aug-12    | 0       | 0       | 1       | 1       | 1       | 0       | 0          |
+| Sep-12    | -1      | -1      | -1      | -1      | -1      | 0       | 0          |
+| Oct-12    | 1       | 1       | 1       | 0       | 0       | 0       | 0          |
+| Nov-12    | 0       | 0       | 0       | 1       | 1       | 0       | 0          |
+| Dec-12    | 0       | -1      | -1      | -1      | -1      | 0       | 0          |
+| Jan-13    | -1      | -1      | 0       | 0       | -1      | -1      | 0          |
+| Feb-13    | 0       | 0       | 0       | 0       | 0       | 0       | -0.25      |
+| Mar-13    | -1      | -1      | -1      | -1      | 0       | 0       | 0          |
+| Apr-13    | 0       | 0       | -1      | -2      | -1      | -1      | 0          |
+| May-13    | 0       | 0       | 1       | 1       | 1       | 0       | 0          |
+| Jun-13    | -1      | -1      | -1      | -1      | -1      | 0       | 0          |
+| Jul-13    | 1       | 1       | 1       | 0       | 0       | 0       | 0          |
+| Aug-13    | 0       | 0       | 0       | 1       | 1       | 1       | 0          |
+| Sep-13    | 0       | -1      | -1      | -1      | -1      | -1      | 0          |
+| Oct-13    | 0       | 1       | 1       | 1       | 0       | 0       | 0          |
+| Nov-13    | 0       | 0       | 0       | 0       | 1       | 1       | 0          |
+| Dec-13    | 0       | 0       | -1      | -1      | -1      | -1      | 0          |
 
-  |**Month**  | **Mon**   |**Tue**  | **Wed**  | **Thu**  | **Fri** |  **Sat** |  **Length**|
-  |-----------| --------- |---------| ---------| ---------|---------| ---------| -----------|
-  |Jan-12     | 0         |0        | -1       | -1       | -1      |  -1      |  0|
-  |Feb-12     | -1        |-2       | 0        | -1       | -1      |  -1      |  0.75|
-  |Mar-12     | 0         |0        | 0        | 1        | 1       | 1        |  0|
-  |Apr-12     | -1        |-2       | -3       | -2       | -2      |  -2      |  0|
-  |May-12     | 0         |1        | 1        | 1        | 0       |  0       |  0|
-  |Jun-12     | 0         |0        | 0        | 0        | 1       |  1       |  0|
-  |Jul-12     | 0         |0        | -1       | -1       | -1      |  -1      |  0|
-  |Aug-12     | 0         |0        | 1        | 1        | 1       |  0       |  0|
-  |Sep-12     | -1        |-1       | -1       | -1       | -1      |  0       |  0|
-  |Oct-12     | 1         |1        | 1        | 0        | 0       |  0       |  0|
-  |Nov-12     | 0         |0        | 0        | 1        | 1       |  0       |  0|
-  |Dec-12     | 0         |-1       | -1       | -1       | -1      |  0       |  0|
-  |Jan-13     | -1        |-1       | 0        | 0        | -1      |  -1      |  0|
-  |Feb-13     | 0         |0        | 0        | 0        | 0       |  0       |  -0.25|
-  |Mar-13     | -1        |-1       | -1       | -1       | 0       |  0       |  0|
-  |Apr-13     | 0         |0        | -1       | -2       | -1      |  -1      |  0|
-  |May-13     | 0         |0        | 1        |1         | 1       |  0       |  0|
-  |Jun-13     |-1         |-1       | -1       | -1       |-1       | 0        |  0|
-  |Jul-13     | 1         |1        | 1        | 0        | 0       |  0       |  0|
-  |Aug-13     | 0         |0        | 0        | 1        | 1       |  1       |  0|
-  |Sep-13     | 0         |-1       | -1       | -1       | -1      |  -1      |  0|
-  |Oct-13     | 0         |1        | 1        | 1        | 0       |  0       |  0|
-  |Nov-13     | 0         |0        | 0        | 0        | 1       |  1       |  0|
-  |Dec-13     | 0         |0        | -1       | -1       | -1      |  -1      |  0|
+Finally, the long term corrections are applied on each year of the validity period of the holiday.
 
-Finally, the long term corrections are applied on each year of the
-validity period of the holiday.
+-   New Year: Correction on the contrasts: +1, to be applied to January of 2012 and 2013.
 
--   New Year: Correction on the contrasts: +1, to be applied to January
-    of 2012 and 2013.
+-   Shrove Tuesday: It may fall either in February or in March. It will fall in March if Easter is on or after 17 April. Taking into account the theoretical distribution of Easter, it gives: prob(March) = +0.22147, prob(February) = +0.77853. The correction of the contrasts will be +1.55707 for Tuesday in February 2012 and +0.77853 for the other contrast variables. The correction of the contrasts will be +0.44293 for Tuesday in March 2012, +0.22147 for the other contrast variables.
 
--   Shrove Tuesday: It may fall either in February or in March. It will
-    fall in March if Easter is on or after 17 April. Taking into account
-    the theoretical distribution of Easter, it gives: prob(March) =
-    +0.22147, prob(February) = +0.77853. The correction of the contrasts
-    will be +1.55707 for Tuesday in February 2012 and +0.77853 for the
-    other contrast variables. The correction of the contrasts will be
-    +0.44293 for Tuesday in March 2012, +0.22147 for the other contrast
-    variables.
+-   Freedom Day: Correction on the contrasts: +1, to be applied to April of 2012 and 2013.
 
--   Freedom Day: Correction on the contrasts: +1, to be applied to April
-    of 2012 and 2013.
-
-The modifications due to the corrections described above are presented
-in table below.
+The modifications due to the corrections described above are presented in table below.
 
 **Trading day variables corrected for the long term effects**
 
-
-  |**Month**  | **Mon**   | **Tue**   | **Wed**   | **Thu**   |  **Fri**  | **Sat**  |  **Length**|
-  |-----------| ----------| ----------| ----------| ----------| ----------|----------| ------------|
-  |Jan-12     | 1         | 1         | 0         | 0         | 0         |0         | 0|
-  |Feb-12     | -0.22115  | -0.44229  | 0.778853  |-0.22115   |-0.22115   |-0.22115  | 0.75|
-  |Mar-12     | 0.221147  | 0.442293  | 0.221147  |1.221147   |1.221147   |1.221147  | 0|
-  |Apr-12     | 0         | -1        | -2        | -1        | -1        | -1       |  0|
-  |May-12     | 0         | 1         | 1         | 1         | 0         | 0        |  0|
-  |Jun-12     | 0         | 0         | 0         | 0         | 1         | 1        |  0|
-  |Jul-12     | 0         | 0         | -1        | -1        | -1        | -1       |  0|
-  |Aug-12     | 0         | 0         | 1         | 1         | 1         | 0        |  0|
-  |Sep-12     | -1        | -1        | -1        | -1        | -1        | 0        |  0|
-  |Oct-12     | 1         | 1         | 1         | 0         | 0         | 0        |  0|
-  |Nov-12     | 0         | 0         | 0         | 1         | 1         | 0        |  0|
-  |Dec-12     | 0         | -1        | -1        | -1        | -1        | 0        |  0|
-  |Jan-13     | 0         | 0         | 1         | 1         | 0         | 0        |  0 |
-  |Feb-13     | 0         | 0         | 0         | 0         | 0         | 0        |  -0.25|
-  |Mar-13     | -1        | -1        | -1        |-1         | 0         | 0        |  0|
-  |Apr-13     | 1         | 1         | 0         | -1        | 0         | 0        |  0|
-  |May-13     | 0         | 0         | 1         | 1         | 1         | 0        |  0|
-  |Jun-13     | -1        | -1        | -1        | -1        | -1        | 0        |  0|
-  |Jul-13     | 1         | 1         | 1         | 0         | 0         | 0        |  0|
-  |Aug-13     | 0         | 0         | 0         | 1         | 1         | 1        |  0|
-  |Sep-13     | 0         | -1        | -1        |-1         |-1         |-1        |  0|
-  |Oct-13     | 0         | 1         | 1         | 1         | 0         | 0        |  0|
-  |Nov-13     | 0         | 0         | 0         | 0         | 1         |1         |  0|
-  |Dec-13     | 0         | 0         | -1        |-1         |-1         |-1        |  0|
-  
+| **Month** | **Mon**  | **Tue**  | **Wed**  | **Thu**  | **Fri**  | **Sat**  | **Length** |
+|---------|---------|---------|---------|---------|---------|---------|---------|
+| Jan-12    | 1        | 1        | 0        | 0        | 0        | 0        | 0          |
+| Feb-12    | -0.22115 | -0.44229 | 0.778853 | -0.22115 | -0.22115 | -0.22115 | 0.75       |
+| Mar-12    | 0.221147 | 0.442293 | 0.221147 | 1.221147 | 1.221147 | 1.221147 | 0          |
+| Apr-12    | 0        | -1       | -2       | -1       | -1       | -1       | 0          |
+| May-12    | 0        | 1        | 1        | 1        | 0        | 0        | 0          |
+| Jun-12    | 0        | 0        | 0        | 0        | 1        | 1        | 0          |
+| Jul-12    | 0        | 0        | -1       | -1       | -1       | -1       | 0          |
+| Aug-12    | 0        | 0        | 1        | 1        | 1        | 0        | 0          |
+| Sep-12    | -1       | -1       | -1       | -1       | -1       | 0        | 0          |
+| Oct-12    | 1        | 1        | 1        | 0        | 0        | 0        | 0          |
+| Nov-12    | 0        | 0        | 0        | 1        | 1        | 0        | 0          |
+| Dec-12    | 0        | -1       | -1       | -1       | -1       | 0        | 0          |
+| Jan-13    | 0        | 0        | 1        | 1        | 0        | 0        | 0          |
+| Feb-13    | 0        | 0        | 0        | 0        | 0        | 0        | -0.25      |
+| Mar-13    | -1       | -1       | -1       | -1       | 0        | 0        | 0          |
+| Apr-13    | 1        | 1        | 0        | -1       | 0        | 0        | 0          |
+| May-13    | 0        | 0        | 1        | 1        | 1        | 0        | 0          |
+| Jun-13    | -1       | -1       | -1       | -1       | -1       | 0        | 0          |
+| Jul-13    | 1        | 1        | 1        | 0        | 0        | 0        | 0          |
+| Aug-13    | 0        | 0        | 0        | 1        | 1        | 1        | 0          |
+| Sep-13    | 0        | -1       | -1       | -1       | -1       | -1       | 0          |
+| Oct-13    | 0        | 1        | 1        | 1        | 0        | 0        | 0          |
+| Nov-13    | 0        | 0        | 0        | 0        | 1        | 1        | 0          |
+| Dec-13    | 0        | 0        | -1       | -1       | -1       | -1       | 0          |
 
 ### Mean and seasonal effects of calendar variables
 
-The calendar effects produced by the regression variables that fulfil
-the definition presented above include a mean effect (i.e. an effect
-that is independent of the period) and a seasonal effect (i.e. an effect
-that is dependent of the period and on average it is equal to 0). Such
-an outcome is inappropriate, as in the usual decomposition of a series
-the mean effect should be allocated to the trend component and the fixed
-seasonal effect should be affected to the corresponding component.
-Therefore, the actual calendar effect should only contain effects that
-don\'t belong to the other components.
+The calendar effects produced by the regression variables that fulfil the definition presented above include a mean effect (i.e. an effect that is independent of the period) and a seasonal effect (i.e. an effect that is dependent of the period and on average it is equal to 0). Such an outcome is inappropriate, as in the usual decomposition of a series the mean effect should be allocated to the trend component and the fixed seasonal effect should be affected to the corresponding component. Therefore, the actual calendar effect should only contain effects that don't belong to the other components.
 
-In the context of JDemetra+ the mean effect and the seasonal effect are
-long term theoretical effects rather than the effects computed on the
-time span of the considered series (which should be continuously
-revised).
+In the context of JDemetra+ the mean effect and the seasonal effect are long term theoretical effects rather than the effects computed on the time span of the considered series (which should be continuously revised).
 
-The mean effect of a calendar variable is the average number of days in
-its group. Taking into account that one year has on average 365.25 days,
-the monthly mean effects for a working days are, as shown in the table below,
-21.7411 for week days and 8.696 for weekends.
+The mean effect of a calendar variable is the average number of days in its group. Taking into account that one year has on average 365.25 days, the monthly mean effects for a working days are, as shown in the table below, 21.7411 for week days and 8.696 for weekends.
 
 **Monthly mean effects for the Working day variable**
 
- 
- |**Groups of Working day effect**|   **Mean effect**            |
- |--------------------------------|------------------------------|
- |Week days                       |  365.25/12\*5/7 = **21.7411**|
- |Weekends                        |  365.25/12\*2/7 = **8.696**  |
- |Total                           | 365.25/12 = **30.4375**      |
+| **Groups of Working day effect** | **Mean effect**              |
+|----------------------------------|------------------------------|
+| Week days                        | 365.25/12\*5/7 = **21.7411** |
+| Weekends                         | 365.25/12\*2/7 = **8.696**   |
+| Total                            | 365.25/12 = **30.4375**      |
 
-The number of days by period is highly seasonal, as apart from
-February, the length of each month is the same every year. For this
-reason, any set of calendar variables will contain, at least in some
-variables, a significant seasonal effect, which is defined as the
-average number of days by period (Januaries\..., first quarters\...)
-outside the mean effect. Removing that fixed seasonal effects consists
-of removing for each period the long term average of days that belong to
-it. The calculation of a seasonal effect for the working days
-classification is presented in the table below.
+The number of days by period is highly seasonal, as apart from February, the length of each month is the same every year. For this reason, any set of calendar variables will contain, at least in some variables, a significant seasonal effect, which is defined as the average number of days by period (Januaries\..., first quarters\...) outside the mean effect. Removing that fixed seasonal effects consists of removing for each period the long term average of days that belong to it. The calculation of a seasonal effect for the working days classification is presented in the table below.
 
 **The mean effect and the seasonal effect for the calendar periods**
 
- 
-  |**Period**   |**Average number of days**   |**Average number of week days**   |**Mean effect**   |**Seasonal effect** |
-  |------------ |---------------------------- |--------------------------------- |----------------- |--------------------|
-  |January      |31                           |31\*5/7=22.1429                   |21.7411           |0.4018|
-  |February     |28.25                        |28.25\*5/7=20.1786                |21.7411           |-1.5625|
-  |March        |31                           |31\*5/7=22.1429                   |21.7411           |0.4018|
-  |April        |30                           |30\*5/7=21.4286                   |21.7411           |-0.3125|
-  |May          |31                           |31\*5/7=22.1429                   |21.7411           |0.4018|
-  |June         |30                           |30\*5/7=21.4286                   |21.7411           |-0.3125|
-  |July         |31                           |31\*5/7=22.1429                   |21.7411           |0.4018|
-  |August       |31                           |31\*5/7=22.1429                   |21.7411           |0.4018|
-  |September    |30                           |30\*5/7=21.4286                   |21.7411           |-0.3125|
-  |October      |31                           |31\*5/7=22.1429                   |21.7411           |0.4018|
-  |November     |30                           |30\*5/7=21.4286                   |21.7411           |-0.3125|
-  |December     |31                           |31\*5/7=22.1429                   |21.7411           |0.4018|
-  |Total        |365.25                       |260.8929                          |260.8929          |0|
+| **Period** | **Average number of days** | **Average number of week days** | **Mean effect** | **Seasonal effect** |
+|--------------|--------------|-----------------|--------------|--------------|
+| January    | 31                         | 31\*5/7=22.1429                 | 21.7411         | 0.4018              |
+| February   | 28.25                      | 28.25\*5/7=20.1786              | 21.7411         | -1.5625             |
+| March      | 31                         | 31\*5/7=22.1429                 | 21.7411         | 0.4018              |
+| April      | 30                         | 30\*5/7=21.4286                 | 21.7411         | -0.3125             |
+| May        | 31                         | 31\*5/7=22.1429                 | 21.7411         | 0.4018              |
+| June       | 30                         | 30\*5/7=21.4286                 | 21.7411         | -0.3125             |
+| July       | 31                         | 31\*5/7=22.1429                 | 21.7411         | 0.4018              |
+| August     | 31                         | 31\*5/7=22.1429                 | 21.7411         | 0.4018              |
+| September  | 30                         | 30\*5/7=21.4286                 | 21.7411         | -0.3125             |
+| October    | 31                         | 31\*5/7=22.1429                 | 21.7411         | 0.4018              |
+| November   | 30                         | 30\*5/7=21.4286                 | 21.7411         | -0.3125             |
+| December   | 31                         | 31\*5/7=22.1429                 | 21.7411         | 0.4018              |
+| Total      | 365.25                     | 260.8929                        | 260.8929        | 0                   |
 
-For a given time span, the actual calendar effect for week days can be
-easily calculated as the difference between the number of week days in a
-specific period and the sum of the mean effect and the seasonal effect
-assigned to this period, as it is shown in the table below for the period
-01.2013 -- 06.2013.
+For a given time span, the actual calendar effect for week days can be easily calculated as the difference between the number of week days in a specific period and the sum of the mean effect and the seasonal effect assigned to this period, as it is shown in the table below for the period 01.2013 -- 06.2013.
 
 **The calendar effect for the period 01.2013 - 06.2013**
 
- 
-  |**Time period (t)**   |**Week days**   |**Mean effect**   |**Seasonal effect**   |**Calendar effect**|
-  |--------------------- |--------------- |----------------- |--------------------- |---------------------|
-  |Jan-2013              |23              |21.7411           |0.4018                |0.8571|
-  |Feb-2013              |20              |21.7411           |-1.5625               |-0.1786|
-  |Mar-2013              |21              |21.7411           |0.4018                |-1.1429|
-  |Apr-2013              |22              |21.7411           |-0.3125               |0.5714|
-  |May-2013              |23              |21.7411           |0.4018                |0.8571|
-  |Jun-2013              |20              |21.7411           |-0.3125               |-1.4286|
-  |Jul-2013              |23              |21.7411           |0.4018                |0.8571|
+| **Time period (t)** | **Week days** | **Mean effect** | **Seasonal effect** | **Calendar effect** |
+|---------------|---------------|---------------|---------------|---------------|
+| Jan-2013            | 23            | 21.7411         | 0.4018              | 0.8571              |
+| Feb-2013            | 20            | 21.7411         | -1.5625             | -0.1786             |
+| Mar-2013            | 21            | 21.7411         | 0.4018              | -1.1429             |
+| Apr-2013            | 22            | 21.7411         | -0.3125             | 0.5714              |
+| May-2013            | 23            | 21.7411         | 0.4018              | 0.8571              |
+| Jun-2013            | 20            | 21.7411         | -0.3125             | -1.4286             |
+| Jul-2013            | 23            | 21.7411         | 0.4018              | 0.8571              |
 
-The distinction between the mean effect and the seasonal effect is
-usually unnecessary. Those effects can be considered together (simply
-called mean effects) and be computed by removing from each calendar
-variable its average number of days by period. These global means effect
-are considered in the next section.
+The distinction between the mean effect and the seasonal effect is usually unnecessary. Those effects can be considered together (simply called mean effects) and be computed by removing from each calendar variable its average number of days by period. These global means effect are considered in the next section.
 
 ### Impact of the mean effects on the decomposition
 
-When the ARIMA model contains a seasonal difference -- something that
-should always happen with calendar variables -- the mean effects
-contained in the calendar variables are automatically eliminated, so
-that they don\'t modify the estimation. The model is indeed estimated on
-the series/regression variables after differencing. However, they lead
-to a different linearised series ($y_{\text{lin}})$. The impact of other
-corrections (mean and/or fixed seasonal) on the decomposition is
-presented in the next paragraph. Such corrections could be obtained, for
-instance, by applying other solutions for the long term corrections or
-by computing them on the time span of the series.
+When the ARIMA model contains a seasonal difference -- something that should always happen with calendar variables -- the mean effects contained in the calendar variables are automatically eliminated, so that they don't modify the estimation. The model is indeed estimated on the series/regression variables after differencing. However, they lead to a different linearised series ($y_{\text{lin}})$. The impact of other corrections (mean and/or fixed seasonal) on the decomposition is presented in the next paragraph. Such corrections could be obtained, for instance, by applying other solutions for the long term corrections or by computing them on the time span of the series.
 
-Now the model with \"correct\" calendar effects (denoted as $C$), i.e.
-effects without mean and fixed seasonal effects, can be considered. To
-simplify the problem, the model has no other regression effects.
+Now the model with "correct" calendar effects (denoted as $C$), i.e. effects without mean and fixed seasonal effects, can be considered. To simplify the problem, the model has no other regression effects.
 
 For such a model the following relations hold:
 
-$$y_{\text{lin}} = \ y - C$$                       
-$$T = \ F_{T}\left( y_{\text{lin}} \right)$$       
-$$S = \ F_{S}\left( y_{\text{lin}} \right) + C$$   
-$$I = \ F_{I}\left( y_{\text{lin}} \right)$$       
+$$y_{\text{lin}} = \ y - C$$\
+$$T = \ F_{T}\left( y_{\text{lin}} \right)$$\
+$$S = \ F_{S}\left( y_{\text{lin}} \right) + C$$\
+$$I = \ F_{I}\left( y_{\text{lin}} \right)$$
 
 where:
 
@@ -372,77 +268,50 @@ I - the irregular component;
 
 $F_{X}$ - the linear filter for the component X.
 
-Consider next other calendar effects ($\widetilde{C}$) that contain some
-mean ($\text{cm}$, integrated to the final trend) and fixed seasonal
-effects ($\text{cs}$, integrated to the final seasonal). The modified
-equations are now:
+Consider next other calendar effects ($\widetilde{C}$) that contain some mean ($\text{cm}$, integrated to the final trend) and fixed seasonal effects ($\text{cs}$, integrated to the final seasonal). The modified equations are now:
 
-  $$\widetilde{C} = C + cm + cs$$                                                       
-  $${\widetilde{y}}_{\text{lin}} = \ y - \widetilde{C} = \ y_{\text{lin}} - cm - cs$$   
-  $$\widetilde{T} = \ F_{T}\left( {\widetilde{y}}_{\text{lin}} \right) + cm$$           
-  $$\widetilde{S} = \ F_{S}\left( {\widetilde{y}}_{\text{lin}} \right) + C + cs$$       
-  $$\widetilde{I} = \ F_{I}\left( {\widetilde{y}}_{\text{lin}} \right)$$                
+$$\widetilde{C} = C + cm + cs$$\
+$${\widetilde{y}}_{\text{lin}} = \ y - \widetilde{C} = \ y_{\text{lin}} - cm - cs$$\
+$$\widetilde{T} = \ F_{T}\left( {\widetilde{y}}_{\text{lin}} \right) + cm$$\
+$$\widetilde{S} = \ F_{S}\left( {\widetilde{y}}_{\text{lin}} \right) + C + cs$$\
+$$\widetilde{I} = \ F_{I}\left( {\widetilde{y}}_{\text{lin}} \right)$$
 
-Taking into account that $F_{X}$ is a linear transformation and
-that[^64]
+Taking into account that $F_{X}$ is a linear transformation and that[^a-calendar-and-input-1]
 
-  $$F_{T}\left( \text{cm} \right) = cm$$   
-  $$F_{T}\left( \text{cs} \right) = 0$$     
-  $$F_{S}\left( \text{cm} \right) = 0\ $$   
-  $$F_{S}\left( \text{cs} \right) = cs$$    
-  $$F_{I}\left( \text{cm} \right) = 0$$     
-  $$F_{I}\left( \text{cs} \right) = 0$$     
+[^a-calendar-and-input-1]: In case of SEATS the properties can be trivially derived from the matrix formulation of signal extraction. They are also valid for X-11 (additive).
+
+$$F_{T}\left( \text{cm} \right) = cm$$\
+$$F_{T}\left( \text{cs} \right) = 0$$\
+$$F_{S}\left( \text{cm} \right) = 0\ $$\
+$$F_{S}\left( \text{cs} \right) = cs$$\
+$$F_{I}\left( \text{cm} \right) = 0$$\
+$$F_{I}\left( \text{cs} \right) = 0$$
 
 The following relationships hold:
 
-  $$\widetilde{T} = \ F_{T}\left( {\widetilde{y}}_{\text{lin}} \right) + cm = F_{T}\left( y_{\text{lin}} \right) - cm + cm = T$$           
-  $$\widetilde{S} = \ F_{S}\left( {\widetilde{y}}_{\text{lin}} \right) + C + cs = F_{S}\left( y_{\text{lin}} \right) - cs + C + cs = S$$   
-  $$\widetilde{I} = \ I$$                                                                                                                 
+$$\widetilde{T} = \ F_{T}\left( {\widetilde{y}}_{\text{lin}} \right) + cm = F_{T}\left( y_{\text{lin}} \right) - cm + cm = T$$\
+$$\widetilde{S} = \ F_{S}\left( {\widetilde{y}}_{\text{lin}} \right) + C + cs = F_{S}\left( y_{\text{lin}} \right) - cs + C + cs = S$$\
+$$\widetilde{I} = \ I$$
 
-If we don't take into account the effects and apply the same approach
-as in the "correct" calendar effects, we will get:
+If we don't take into account the effects and apply the same approach as in the "correct" calendar effects, we will get:
 
-  $$\breve{T} = \ F_{T}\left( {\widetilde{y}}_{\text{lin}} \right) = T - cm$$                   
-  $$\breve{S} = \ F_{S}\left( {\widetilde{y}}_{\text{lin}} \right) + \widetilde{C} = S + cm$$   
-  $$\breve{I} = \ F_{I}\left( {\widetilde{y}}_{\text{lin}} \right) = I$$                        
+$$\breve{T} = \ F_{T}\left( {\widetilde{y}}_{\text{lin}} \right) = T - cm$$\
+$$\breve{S} = \ F_{S}\left( {\widetilde{y}}_{\text{lin}} \right) + \widetilde{C} = S + cm$$\
+$$\breve{I} = \ F_{I}\left( {\widetilde{y}}_{\text{lin}} \right) = I$$
 
-The trend, seasonal and seasonally adjusted series will only differ by a
-(usually small) constant.
+The trend, seasonal and seasonally adjusted series will only differ by a (usually small) constant.
 
-In summary, the decomposition does not depend on the mean and fixed
-seasonal effects used for the calendar effects, provided that those
-effects are integrated in the corresponding final components. If these
-corrections are not taken into account, the main series of the
-decomposition will only differ by a constant.
-
-
-[^64]: In case of SEATS the properties can be trivially derived from the matrix formulation of signal extraction. They are also valid for X-11 (additive).
-
+In summary, the decomposition does not depend on the mean and fixed seasonal effects used for the calendar effects, provided that those effects are integrated in the corresponding final components. If these corrections are not taken into account, the main series of the decomposition will only differ by a constant.
 
 ### Linear transformations of the calendar variables
 
-As far as the RegARIMA and the TRAMO models are considered, any
-non-degenerated linear transformation of the calendar variables can be
-used. It will produce the same results (likelihood, residuals,
-parameters, joint effect of the calendar variables, joint F-test on the
-coefficients of the calendar variables...). The linearised series that
-will be further decomposed is invariant to any linear transformation of
-the calendar variables.
+As far as the RegARIMA and the TRAMO models are considered, any non-degenerated linear transformation of the calendar variables can be used. It will produce the same results (likelihood, residuals, parameters, joint effect of the calendar variables, joint F-test on the coefficients of the calendar variables...). The linearised series that will be further decomposed is invariant to any linear transformation of the calendar variables.
 
-However, it should be mentioned that choices of calendar corrections
-based on the tests on the individual t statistics are dependent on the
-transformation, which is rather arbitrary. This is the case in old
-versions of TRAMO-SEATS. That is why the joint F-test (as in the version
-of TRAMO-SEATS implemented in TSW+) should be preferred.
+However, it should be mentioned that choices of calendar corrections based on the tests on the individual t statistics are dependent on the transformation, which is rather arbitrary. This is the case in old versions of TRAMO-SEATS. That is why the joint F-test (as in the version of TRAMO-SEATS implemented in TSW+) should be preferred.
 
-An example of a linear transformation is the calculation of the contrast
-variables. In the case of the usual trading day variables, they are
-defined by the following transformation: the 6 contrast variables
-($\text{No.}\left( \text{Mondays} \right) - No.\left( \text{Sundays} \right),\ldots No.\left( \text{Saturdays} \right) - No.(Sundays)$)
-used with the length of period.
+An example of a linear transformation is the calculation of the contrast variables. In the case of the usual trading day variables, they are defined by the following transformation: the 6 contrast variables ($\text{No.}\left( \text{Mondays} \right) - No.\left( \text{Sundays} \right),\ldots No.\left( \text{Saturdays} \right) - No.(Sundays)$) used with the length of period.
 
-
-  $$\begin{bmatrix}                 
+$$\begin{bmatrix}                 
   1 & 0 & 0 & 0 & 0 & 0 & - 1 \\    
   0 & 1 & 0 & 0 & 0 & 0 & - 1 \\    
   0 & 0 & 1 & 0 & 0 & 0 & - 1 \\    
@@ -466,12 +335,11 @@ used with the length of period.
   Fri - Sun \\                      
   Sat - Sun \\                      
   \text{Length of period} \\      
-  \end{bmatrix}$$                   
-  
-For the usual working day variables, two variables are used: one
-contrast variable and the length of period
+  \end{bmatrix}$$
 
-  $$\begin{bmatrix}                  
+For the usual working day variables, two variables are used: one contrast variable and the length of period
+
+$$\begin{bmatrix}                  
   1 & - \frac{5}{2} \\              
   1 & 1 \\                          
   \end{bmatrix}\begin{bmatrix}      
@@ -482,252 +350,123 @@ contrast variable and the length of period
   \text{Length of period} \\      
   \end{bmatrix}$$
 
-The $\text{Length of period}$ variable is defined as a deviation from
-the length of the month (in days) and the average month length, which is
-equal to $30.4375.$ Instead, the leap-year variable can be used here
-(see Regression sections in [RegARIMA](../reference-manual/modelling-spec-arima.html#regression) or 
-[Tramo](../reference-manual/modelling-spec-tramo.html#regression))[^62].
+The $\text{Length of period}$ variable is defined as a deviation from the length of the month (in days) and the average month length, which is equal to $30.4375.$ Instead, the leap-year variable can be used here (see Regression sections in [RegARIMA](../reference-manual/modelling-spec-arima.html#regression) or [Tramo](../reference-manual/modelling-spec-tramo.html#regression))[^a-calendar-and-input-2].
 
-Such transformations have several advantages. They suppress from the
-contrast variables the mean and the seasonal effects, which are
-concentrated in the last variable. So, they lead to fewer correlated
-variables, which are more appropriate to be included in the regression
-model. The sum of the effects of each day of the week estimated with the
-trading (working) day contrast variables cancel out.
+[^a-calendar-and-input-2]: GÓMEZ, V., and MARAVALL, A (2001b).
 
-
-[^62]: GÓMEZ, V., and MARAVALL, A (2001b).
+Such transformations have several advantages. They suppress from the contrast variables the mean and the seasonal effects, which are concentrated in the last variable. So, they lead to fewer correlated variables, which are more appropriate to be included in the regression model. The sum of the effects of each day of the week estimated with the trading (working) day contrast variables cancel out.
 
 ### Handling of specific holidays
 
 check vs GUI (v3) and rjd3 modelling
 
-
-
 Three types of holidays are implemented in JDemetra+:
 
--   Fixed days, corresponding to the fixed dates in the year (e.g. New
-    Year, Christmas).
+-   Fixed days, corresponding to the fixed dates in the year (e.g. New Year, Christmas).
 
--   Easter related days, corresponding to the days that are defined in
-    relation to Easter (e.g. Easter +/- n days; example: Ascension,
-    Pentecost).
+-   Easter related days, corresponding to the days that are defined in relation to Easter (e.g. Easter +/- n days; example: Ascension, Pentecost).
 
--   Fixed week days, corresponding to the fixed days in a given week of
-    a given month (e.g. Labor Day celebrated in the USA on the first
-    Monday of September).
+-   Fixed week days, corresponding to the fixed days in a given week of a given month (e.g. Labor Day celebrated in the USA on the first Monday of September).
 
-From a conceptual point of view, specific holidays are handled in
-exactly the same way as the other days. It should be decided, however,
-to which group of days they belong. Usually they are handled as Sundays.
-This convention is also used in JDemetra+. Therefore, except if the
-holiday falls on a Sunday, the appearance of a holiday leads to
-correction in two groups, i.e. in the group that contains the weekday,
-in which holiday falls, and the group that contains the Sundays.
+From a conceptual point of view, specific holidays are handled in exactly the same way as the other days. It should be decided, however, to which group of days they belong. Usually they are handled as Sundays. This convention is also used in JDemetra+. Therefore, except if the holiday falls on a Sunday, the appearance of a holiday leads to correction in two groups, i.e. in the group that contains the weekday, in which holiday falls, and the group that contains the Sundays.
 
-Country specific holidays have an impact on the mean and the seasonal
-effects of calendar effects. Therefore, the appropriate corrections to
-the number of particular days (which are usually the basis for the
-definition of other calendar variables) should be applied, following the
-kind of holidays. These corrections are applied to the period(s) that
-may contain the holiday. The long term corrections in JDemetra+ don\'t
-take into account the fact that some moving holidays could fall on the
-same day (for instance the May Day and the Ascension). However, those
-events are exceptional, and their impact on the final result is usually
-not significant.
+Country specific holidays have an impact on the mean and the seasonal effects of calendar effects. Therefore, the appropriate corrections to the number of particular days (which are usually the basis for the definition of other calendar variables) should be applied, following the kind of holidays. These corrections are applied to the period(s) that may contain the holiday. The long term corrections in JDemetra+ don't take into account the fact that some moving holidays could fall on the same day (for instance the May Day and the Ascension). However, those events are exceptional, and their impact on the final result is usually not significant.
 
 #### Fixed day
 
-The probability that the holiday falls on a given day of the week is
-1/7. Therefore, the probability to have 1 day more that is treated like
-Sunday is 6/7. The effect on the means for the period that contains the
-fixed day is presented in the table below (the correction on the calendar
-effect has the opposite sign).
+The probability that the holiday falls on a given day of the week is 1/7. Therefore, the probability to have 1 day more that is treated like Sunday is 6/7. The effect on the means for the period that contains the fixed day is presented in the table below (the correction on the calendar effect has the opposite sign).
 
 **The effect of the fixed holiday on the period, in which it occurred**
 
-
-  | **Sundays** |  **Others days**  | **Contrast variables** |
-  |-------------| ----------------- |------------------------|
-  |+ 6/7        |- 1/7              | 1/7 - (+ 6/7)= -1      |
+| **Sundays** | **Others days** | **Contrast variables** |
+|-------------|-----------------|------------------------|
+| \+ 6/7      | \- 1/7          | 1/7 - (+ 6/7)= -1      |
 
 #### Easter related days
 
-Easter related days always fall the same week day (denoted as Y in the table below: The effects of the Easter Sunday on the seasonal means). However, they can fall during different periods (months or
-quarters). Suppose that, taking into account the distribution of the
-dates for Easter and the fact that this holiday falls in one of two
-periods, the probability that Easter falls during the period
-$m$ is $p$, which implies that the probability that it falls in
-the period $m + 1$ is $1 - p$. The effects of Easter on the seasonal
-means are presented in the table below.
+Easter related days always fall the same week day (denoted as Y in the table below: The effects of the Easter Sunday on the seasonal means). However, they can fall during different periods (months or quarters). Suppose that, taking into account the distribution of the dates for Easter and the fact that this holiday falls in one of two periods, the probability that Easter falls during the period $m$ is $p$, which implies that the probability that it falls in the period $m + 1$ is $1 - p$. The effects of Easter on the seasonal means are presented in the table below.
 
 **The effects of the Easter Sunday on the seasonal means**
 
+\|**Period** \| **Sundays** **Days X** **Others days** **Contrast Y** **Other contrasts** \|------------\| ------------- ------------ ----------------- ------------------- --------------------- \|m \|+ p - p 0 - 2p - p \|m+1 \| + (1-p) - (1-p) 0 - 2$\times$(1-p) - (1-p)
 
-  |**Period**  | **Sundays**   **Days X**   **Others days**   **Contrast Y**      **Other contrasts**
-  |------------| ------------- ------------ ----------------- ------------------- ---------------------
-  |m            |\+ p          \- p         0                 \- 2p               \- p
-  |m+1        |  \+ (1-p)      \- (1-p)     0                 \- 2$\times$(1-p)   \- (1-p)
+The distribution of the dates for Easter may be approximated in different ways. One of the solutions consists of using some well-known algorithms for computing Easter on a very long period. JDemetra+ provides the Meeus/Jones/Butcher's and the Ron Mallen's algorithms (they are identical till year 4100, but they slightly differ after that date). Another approach consists in deriving a raw theoretical distribution based on the definition of Easter. It is the solution used for Easter related days. It is shortly explained below.
 
-The distribution of the dates for Easter may be approximated in
-different ways. One of the solutions consists of using some well-known
-algorithms for computing Easter on a very long period. JDemetra+
-provides the Meeus/Jones/Butcher\'s and the Ron Mallen\'s algorithms
-(they are identical till year 4100, but they slightly differ after that
-date). Another approach consists in deriving a raw theoretical
-distribution based on the definition of Easter. It is the solution used
-for Easter related days. It is shortly explained below.
+The date of Easter in the given year is the first Sunday after the full moon (the Paschal Full Moon) following the northern hemisphere's vernal equinox. The definition is influenced by the Christian tradition, according to which the equinox is reckoned to be on 21 March[^a-calendar-and-input-3] and the full moon is not necessarily the astronomically correct date. However, when the full moon falls on Sunday, then Easter is delayed by one week. With this definition, the date of Easter Sunday varies between 22 March and 25 April. Taking into account that an average lunar month is $29.530595$ days the approximated distribution of Easter can be derived. These calculations do not take into account the actual ecclesiastical moon calendar.
 
-The date of Easter in the given year is the first Sunday after the full
-moon (the Paschal Full Moon) following the northern hemisphere\'s vernal
-equinox. The definition is influenced by the Christian tradition,
-according to which the equinox is reckoned to be on 21 March[^63] and
-the full moon is not necessarily the astronomically correct date.
-However, when the full moon falls on Sunday, then Easter is delayed by
-one week. With this definition, the date of Easter Sunday varies between
-22 March and 25 April. Taking into account that an average lunar month
-is $29.530595$ days the approximated distribution of Easter can be
-derived. These calculations do not take into account the actual
-ecclesiastical moon calendar.
+[^a-calendar-and-input-3]: In fact, astronomical observations show that the equinox occurs on 20 March in most years.
 
-For example, the probability that Easter Sunday falls on 25 March is
-0.004838 and results from the facts that the probability that 25 March
-falls on a Sunday is $1/7$ and the probability that the full moon is on
-21 March, 22 March, 23 March or 24 March is $5/29.53059$. The
-probability that Easter falls on 24 April is 0.01708 and results from
-the fact that the probability that 24 April is Sunday is $1/7$ and takes
-into account that 18 April is the last acceptable date for the full
-moon. Therefore the probability that the full moon is on 16 April or 17
-April is $1/29.53059$ and the probability that the full moon is on 18
-April is $1.53059/29.53059$.
+For example, the probability that Easter Sunday falls on 25 March is 0.004838 and results from the facts that the probability that 25 March falls on a Sunday is $1/7$ and the probability that the full moon is on 21 March, 22 March, 23 March or 24 March is $5/29.53059$. The probability that Easter falls on 24 April is 0.01708 and results from the fact that the probability that 24 April is Sunday is $1/7$ and takes into account that 18 April is the last acceptable date for the full moon. Therefore the probability that the full moon is on 16 April or 17 April is $1/29.53059$ and the probability that the full moon is on 18 April is $1.53059/29.53059$.
 
 **The approximated distribution of Easter dates**
 
-
-  |**Day**    |**Probability**|
-  |---------- |-------------------------------|
-  |22 March   |1/7 \* 1/29.53059|
-  |23 March   |1/7 \* 2/29.53059|
-  |24 March   |1/7 \* 3/29.53059|
-  |25 March   |1/7 \* 4/29.53059|
-  |26 March   |1/7 \* 5/29.53059|
-  |27 March   |1/7 \* 6/29.53059|
-  |28 March   |1/29.53059|
-  |29 March   |1/29.53059|
-  |...        |...|
-  |18 April   |1/29.53059|
-  |19 April   |1/7 \* (6 + 1.53059)/29.53059|
-  |20 April   |1/7 \* (5 + 1.53059)/29.53059|
-  |21 April   |1/7 \* (4 + 1.53059)/29.53059|
-  |22 April   |1/7 \* (3 + 1.53059)/29.53059|
-  |23 April   |1/7 \* (2 + 1.53059)/29.53059|
-  |24 April   |1/7 \* (1 + 1.53059)/29.53059|
-  |25 April   |1/7 \* 1.53059/29.53059|
+| **Day**  | **Probability**               |
+|----------|-------------------------------|
+| 22 March | 1/7 \* 1/29.53059             |
+| 23 March | 1/7 \* 2/29.53059             |
+| 24 March | 1/7 \* 3/29.53059             |
+| 25 March | 1/7 \* 4/29.53059             |
+| 26 March | 1/7 \* 5/29.53059             |
+| 27 March | 1/7 \* 6/29.53059             |
+| 28 March | 1/29.53059                    |
+| 29 March | 1/29.53059                    |
+| ...      | ...                           |
+| 18 April | 1/29.53059                    |
+| 19 April | 1/7 \* (6 + 1.53059)/29.53059 |
+| 20 April | 1/7 \* (5 + 1.53059)/29.53059 |
+| 21 April | 1/7 \* (4 + 1.53059)/29.53059 |
+| 22 April | 1/7 \* (3 + 1.53059)/29.53059 |
+| 23 April | 1/7 \* (2 + 1.53059)/29.53059 |
+| 24 April | 1/7 \* (1 + 1.53059)/29.53059 |
+| 25 April | 1/7 \* 1.53059/29.53059       |
 
 #### Fixed week days
 
-Fixed week days always fall on the same week day (denoted as Y in the table below) and in the same period. Their effect on the seasonal means is
-presented in the table below.
+Fixed week days always fall on the same week day (denoted as Y in the table below) and in the same period. Their effect on the seasonal means is presented in the table below.
 
-**The effect of the fixed week holiday on the period, in which
-it occurred**
+**The effect of the fixed week holiday on the period, in which it occurred**
 
+| **Sundays** | **Day Y** | **Others days** |
+|-------------|-----------|-----------------|
+| \+ 1        | \- 1      | 0               |
 
-  |**Sundays**  | **Day Y**   |**Others days**|
-  |-------------| ----------- |-----------------|
-  |+ 1          |- 1          | 0|
-
-The impact of fixed week days on the regression variables is zero
-because the effect itself is compensated by the correction for the mean
-effect.
+The impact of fixed week days on the regression variables is zero because the effect itself is compensated by the correction for the mean effect.
 
 ### Holidays with a validity period
 
-When a holiday is valid only for a given time span, JDemetra+ applies
-the long term mean corrections only on the corresponding period.
-However, those corrections are computed in the same way as in the
-general case.
+When a holiday is valid only for a given time span, JDemetra+ applies the long term mean corrections only on the corresponding period. However, those corrections are computed in the same way as in the general case.
 
-It is important to note that using or not using mean corrections will
-impact in the estimation of the RegARIMA and TRAMO models. Indeed, the
-mean corrections do not disappear after differencing. The differences
-between the SA series computed with or without mean corrections will no
-longer be constant.
-
-
-[^63]: In fact, astronomical observations show that the equinox occurs
-    on 20 March in most years.
-
-
+It is important to note that using or not using mean corrections will impact in the estimation of the RegARIMA and TRAMO models. Indeed, the mean corrections do not disappear after differencing. The differences between the SA series computed with or without mean corrections will no longer be constant.
 
 ### Different Kinds of calendars
 
-see link with GUI 
+see link with GUI
 
-This scenario presents how to define different kinds of calendars. These
-calendars can be applied to the specifications that take into account
-country-specific holidays and can be used for detecting and estimating
-the calendar effects.
+This scenario presents how to define different kinds of calendars. These calendars can be applied to the specifications that take into account country-specific holidays and can be used for detecting and estimating the calendar effects.
 
-The calendar effects are those parts of the movements in the time series
-that are caused by different number of weekdays in calendar months (or
-quarters). They arise as the number of occurrences of each day of the
-week in a month (or a quarter) differs from year to year. These
-differences cause regular effects in some series. In particular, such
-variation is caused by a leap year effect because of an extra day
-inserted into February every four years. As with seasonal effects, it is
-desirable to estimate and remove calendar effects from the time series.
+The calendar effects are those parts of the movements in the time series that are caused by different number of weekdays in calendar months (or quarters). They arise as the number of occurrences of each day of the week in a month (or a quarter) differs from year to year. These differences cause regular effects in some series. In particular, such variation is caused by a leap year effect because of an extra day inserted into February every four years. As with seasonal effects, it is desirable to estimate and remove calendar effects from the time series.
 
-The calendar effects can be divided into a mean effect, a seasonal part
-and a structural part. The mean effect is independent from the period
-and therefore should be allocated to the trend-cycle. The seasonal part
-arises from the properties of the calendar that recur each year. For one
-thing, the number of working days of months with 31 calendar days is on
-average larger than that of months with 30 calendar days. This effect is
-part of the seasonal pattern captured by the seasonal component (with
-the exception of leap year effects). The structural part of the calendar
-effect remains to be determined by the calendar adjustment. For example,
-the number of working days of the same month in different years varies
-from year to year.
+The calendar effects can be divided into a mean effect, a seasonal part and a structural part. The mean effect is independent from the period and therefore should be allocated to the trend-cycle. The seasonal part arises from the properties of the calendar that recur each year. For one thing, the number of working days of months with 31 calendar days is on average larger than that of months with 30 calendar days. This effect is part of the seasonal pattern captured by the seasonal component (with the exception of leap year effects). The structural part of the calendar effect remains to be determined by the calendar adjustment. For example, the number of working days of the same month in different years varies from year to year.
 
-Both X-12-ARIMA/X-13ARIMA-SEATS and TRAMO/SEATS estimate calendar
-effects by adding some regressors to the equation estimated in the
-pre-processing part (RegARIMA or TRAMO, respectively). Regressors
-mentioned above are generated from the default calendar or the user
-defined calendar.
+Both X-12-ARIMA/X-13ARIMA-SEATS and TRAMO/SEATS estimate calendar effects by adding some regressors to the equation estimated in the pre-processing part (RegARIMA or TRAMO, respectively). Regressors mentioned above are generated from the default calendar or the user defined calendar.
 
-The calendars of JDemetra+ simply correspond to the usual trading days
-contrast variables based on the Gregorian calendar, modified to take
-into account some specific holidays. Those holidays are handled as
-\"Sundays\" and the variables are properly adjusted to take into account
-the long term mean effects.
-
-
+The calendars of JDemetra+ simply correspond to the usual trading days contrast variables based on the Gregorian calendar, modified to take into account some specific holidays. Those holidays are handled as "Sundays" and the variables are properly adjusted to take into account the long term mean effects.
 
 ### Tests for residual trading days
 
-We consider below tests on the seasonally adjusted series ($sa_t$) or on
-the irregular component ($irr_t$). When the reasoning applies on both
-components, we will use $y_t$. The functions $stdev$ stands for
-"standard deviation" and $rms$ for "root mean squares"
+We consider below tests on the seasonally adjusted series ($sa_t$) or on the irregular component ($irr_t$). When the reasoning applies on both components, we will use $y_t$. The functions $stdev$ stands for "standard deviation" and $rms$ for "root mean squares"
 
-The tests are computed on the log-transformed components in the case of
-multiplicative decomposition.
+The tests are computed on the log-transformed components in the case of multiplicative decomposition.
 
-TD are the usual contrasts of trading days, 6 variables (no specific
-calendar).
+TD are the usual contrasts of trading days, 6 variables (no specific calendar).
 
 #### Non significant irregular
 
-When $irr_t$ is not significant, we don't compute the test on it, to
-avoid irrelevant results. We consider that $irr_t$ is significant if
-$stdev( irr_t)>0.01$ (multiplicative case) or if
-$stdev(irr_t)/rms(sa_t) >0.01$ (additive case).
+When $irr_t$ is not significant, we don't compute the test on it, to avoid irrelevant results. We consider that $irr_t$ is significant if $stdev( irr_t)>0.01$ (multiplicative case) or if $stdev(irr_t)/rms(sa_t) >0.01$ (additive case).
 
 #### F test
 
-The test is the usual joint F-test on the TD coefficients, computed on
-the following models:
+The test is the usual joint F-test on the TD coefficients, computed on the following models:
 
 ##### Autoregressive model (AR modelling option)
 
@@ -741,18 +480,12 @@ We compute by OLS:
 
 $$\Delta y_t - \overline{\Delta y_t}=\beta TD_t + \epsilon_t $$
 
-So, the latter model is a restriction of the first one
-($\alpha =1, \mu =μ=\overline{\Delta y_t}$)
+So, the latter model is a restriction of the first one ($\alpha =1, \mu =μ=\overline{\Delta y_t}$)
 
 The tests are the usual joint F-tests on $\beta \quad (H_0:\beta=0)$.
 
-By default, we compute the tests on the 8 last years of the components,
-so that they might highlight moving calendar effects.
+By default, we compute the tests on the 8 last years of the components, so that they might highlight moving calendar effects.
 
 Remark:
 
-In Tramo, a similar test is computed on the residuals of the Arima
-model. More exactly, the F-test is computed on
-$e_t=\beta TD_t + \epsilon_t$, where $e_t$ are the one-step-ahead
-forecast errors.
-
+In Tramo, a similar test is computed on the residuals of the Arima model. More exactly, the F-test is computed on $e_t=\beta TD_t + \epsilon_t$, where $e_t$ are the one-step-ahead forecast errors.
