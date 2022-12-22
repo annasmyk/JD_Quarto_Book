@@ -1069,7 +1069,7 @@ The last column presents the *Ratio* calculated as:
 
 $$
 100 \times \frac{O_{d}^{*2}}{O_{d}^{2}}
-$$,
+$$
 
 which is an indicator of how well the approximation ${(O_{d}^{*})}^{2} \approx O_{d}^{2}$ holds.
 
