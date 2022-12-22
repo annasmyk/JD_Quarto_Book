@@ -1,6 +1,6 @@
 # Benchmarking and temporal disagreggation {.unnumbered}
 
-In this chapter we describe the practical implementation, the underlying theory in a dedicated chapter.(link)
+
 
 ## Benchmarking overview
 
@@ -102,11 +102,6 @@ According to the \[ESS Guidelines on Seasonal Adjustment (2015)\] (https://ec.eu
 
 ### Benchmarking in R
 
-package rjd3bench
-orga doc 
-- here 
-- in package
-- example
+See package **rjd3bench** and its documentation pages in R.
 
-## References
 
