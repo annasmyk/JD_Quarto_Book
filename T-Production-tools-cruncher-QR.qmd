@@ -1,14 +1,16 @@
 # Production, Cruncher and quality report {.unnumbered style="color:blue"}
 
+Under construction
+
 ## Overview
 
 The cruncher is an additional "executable" module. It can be launched via R or SAS for example.
 
-Objective of the cruncher: 
+Objective of the cruncher:
 
-- update a JDemetra+ workspace (with a given [revision policy](T-rev-policies-production.qmd))
+-   update a JDemetra+ workspace (with a given [revision policy](T-rev-policies-production.qmd))
 
-- export the results (series and diagnostics),
+-   export the results (series and diagnostics),
 
 without having to open the graphical interface and operate manually. Suitable for a production process.
 
@@ -32,11 +34,12 @@ Two R packages are currently available
 
 -   rjwsacruncher on CRAN: workspace update and output production
 
--   Cruncher (https://github.com/InseeFr/JDCruncheR): same functions as rjwsacruncher      but adds a quality report
+-   Cruncher (https://github.com/InseeFr/JDCruncheR): same functions as rjwsacruncher but adds a quality report
 
 ### Installation
 
--   rjwsacruncher 
+-   rjwsacruncher
+
 ```{r, eval = FALSE}
 install.packages(rjwsacruncher)
 ```
@@ -82,10 +85,9 @@ The functions described in this section are identical for both packages.
 
 ### Running estimations
 
-The general context 
-- First estimation 
+The general context - First estimation
 
-- Applying a [revision policy](T-rev-policies-production.qmd) to updated raw series
+-   Applying a [revision policy](T-rev-policies-production.qmd) to updated raw series
 
 The function `cruncher_and_param()` allows to do that
 
@@ -108,16 +110,13 @@ Before running SA estimations, set the export options.
 
 ### Configuring output options
 
-After updating the workspace with the selected revision policies, the cruncher generates output 
-- series (csv files) 
-- diagnostics and parameters (demetra_m.csv file)
+After updating the workspace with the selected revision policies, the cruncher generates output - series (csv files) - diagnostics and parameters (demetra_m.csv file)
 
 These files will be created in the workspace's repository, sub-repository 'Output"
 
 ```{r,eval=FALSE}
 path="My_Workspace/Output/SAProcessing"
 ```
-
 
 #### Selecting time series to export
 
@@ -142,7 +141,6 @@ options(default_matrix_item = c("likelihood.aic",
                                 "likelihood.bicc"))
 
 ```
-=
 
 ## Quality report with JDCruncheR
 
@@ -231,7 +229,6 @@ Practical steps if you want to customize the score computation (see package docu
 
 -   rebuild your package
 
-
 ## List of exportable diagnostics and parameters
 
 ```{r, eval=FALSE}
@@ -313,8 +310,3 @@ options(default_matrix_item = c("period", "span.start", "span.end", "span.n", "s
 ))
 
 ```
-
-
-
-
-
