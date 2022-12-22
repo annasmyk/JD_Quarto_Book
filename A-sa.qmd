@@ -4,7 +4,7 @@
 
 The goal of seasonal adjustment is to remove seasonal fluctuations a time series. Seasonal fluctuations are quasi-periodic infra-annual movements. They can mask evolution of greater interest for the user such as short term evolutions or long time trends.
 
-This chapter focuses on the **practical step by step** use of JDemetra+ algorithms, restricted to monthly and quarterly series. For intra-monthly data see the [following chapter](A-sa-hf.qmd). The use of [graphical user interface](T-grahical-user-interface.qmd) and [R packages](T-r-pacakages.qmd) are described simultaneously whenever relevant.
+This chapter focuses on the **practical step by step** use of JDemetra+ algorithms, restricted to monthly and quarterly series. For intra-monthly data see the [following chapter](A-sa-hf.qmd). The use of [graphical user interface](T-graphical-user-interface.qmd) and [R packages](T-r-packages.qmd) are described simultaneously whenever relevant.
 
 In-depth methodological explanations of the algorithms are covered in separated chapters, in the [Methods](P_Methods.qmd) part.
 
