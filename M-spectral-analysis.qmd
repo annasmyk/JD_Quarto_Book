@@ -488,13 +488,12 @@ The tests rely on two basic principles:
 
 **The seasonal and trading day frequencies by time series frequency**
 
-{: .table .table-style} \|**Number of months per full
-period**\|**Seasonal frequency**\|**Trading day frequency (radians)**\|
-\|--\|--\|--\|
-\|12\|$\frac{\pi}{6},\frac{\pi}{3},\ \frac{\pi}{2},\frac{2\pi}{3},\ \frac{5\pi}{6},\ \pi$\|$d$,
-2.714\| \|6\|$\frac{\pi}{3},\frac{2\pi}{3}$, $\pi$\|$d$
-\|4\|$\frac{\pi}{2}$, $\pi$\|$d$, 1.292, 1.850, 2.128\|
-\|3\|$\pi$\|$d$\| \|2\|$\pi$\|$d$\|
+{: .table .table-style} |**Number of months per fullperiod**|**Seasonal frequency**|**Trading day frequency (radians)**|
+|--|--|--|
+|12|$\frac{\pi}{6},\frac{\pi}{3},\ \frac{\pi}{2},\frac{2\pi}{3},\ \frac{5\pi}{6},\ \pi$|$d$,2.714| |6|$\frac{\pi}{3},\frac{2\pi}{3}$, $\pi$|$d$|
+|4|$\frac{\pi}{2}$, $\pi$|$d$, 1.292, 1.850, 2.128|
+|3|$\pi$|$d$|
+|2|$\pi$|$d$|
 
 The calendar (trading day or working day) effects, related to the
 variation in the number of different days of the week per period, can
