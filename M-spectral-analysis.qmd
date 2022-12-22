@@ -14,20 +14,22 @@ Assuming that the autocovariances $\gamma(k)$ are absolutely
 summable($\sum_{k =-\infty}^{\infty}|\gamma(k)|<\infty$), the
 autocovariance generating function, which summarizes these
 autocovariances through a scalar valued function, is given by equation
-\[1\][^m-spectral-analysis-1].
+@eq-1 [^m-spectral-analysis-1].
 
 [^m-spectral-analysis-1]: HAMILTON, J.D. (1994).
 
-$acgf(z)=\sum_{k=-\infty}^{\infty}{z^{k}\gamma(k)}$,
+$$
+acgf(z)=\sum_{k=-\infty}^{\infty}{z^{k}\gamma(k)}
+$$
 
 where $z$ denotes complex scalar.
 
-Once the equation \[1\]is divided by $\pi$ and evaluated at some
+Once the equation @eq-1 is divided by $\pi$ and evaluated at some
 $z{= e}^{- i\omega} = cos\omega - isin\omega$, where $i = \sqrt{- 1}$
 and $\omega$ is a real scalar, $\  - \infty < \ \omega < \infty$, the
 result of this transformation is called a population spectrum
 $f(\omega)$for $\ x_{t}$, given in equation
-\[2\][^m-spectral-analysis-2].
+@eq-2 [^m-spectral-analysis-2].
 
 [^m-spectral-analysis-2]: HAMILTON, J.D. (1994).
 
@@ -45,7 +47,7 @@ important contribution to the variance at frequencies near the value
 that corresponds to this peak.
 
 As $e^{-i\omega} = cos\omega - isin\omega$, the spectrum can be also
-expressed as in equation \[3\].
+expressed as in equation @eq-3.
 
 $$
 f(\omega) = \frac{1}{\pi}\sum_{k = - \infty}^{\infty}{(cos\omega k - isin\omega k)\gamma(k)}
@@ -53,11 +55,11 @@ $$
 
 Since $\gamma(k) = \gamma( - k)$ (i.e. $\gamma(k)$ is an even function
 of $k$) and $\sin{( - x)}\  = \operatorname{-sin}x$,
-\[3\]<!---[7.100]--> can be presented as equation
+@eq-3 <!---[7.100]--> can be presented as equation
 
 $$
 f(\omega) = \frac{1}{\pi}\lbrack \ \gamma(0) + 2\sum_{k = 1}^{\infty}{\ \gamma(k)}cos\text{ωk} \rbrack
-$$,
+$$
 
 This implies that if autocovariances are absolutely summable the
 population spectrum exists and is a continuous, real-valued function of
@@ -169,8 +171,8 @@ $$
 
 where the coefficients
 $a_{j} = \mathbf{e}_{j}^{*}\mathbf{x}=n^{-\frac{1}{2}}\sum_{t = 1}^{n}x_{t}e^{-it\omega_{j}}$
-are derived from \[3\] by multiplying the equation on the left by
-$\mathbf{e}_{j}^{*}$ and using \[1\].
+are derived from @eq-3 by multiplying the equation on the left by
+$\mathbf{e}_{j}^{*}$ and using @eq-1.
 
 The sequence of $\{a_{j},j\in F_{n}\}$ is referred as a discrete Fourier
 transform of $\mathbf{x}\mathbb{\in C}^{n}$ and the periodogram
@@ -182,7 +184,7 @@ $$
 {I(\omega_{j})\mathbf{=}{| a_{j} |^{2}}_{\ } = n^{- \ 1}| \sum_{t = 1}^{n}x_{t}e^{- it\omega_{j}} |^{2}}_{\mathbf{\ }}
 $$
 
-From \[2\] and \[3\] it can be shown that in fact the periodogram
+From @eq-2 and @eq-3 it can be shown that in fact the periodogram
 decomposes the total sum of squares $\sum_{t = 1}^{n}| x_{t} |^{2}$ into
 a sums of components associated with the Fourier frequencies $ω_{j}$:
 
@@ -193,7 +195,7 @@ $$
 If $\ \mathbf{x\  \in}\ {R}^{n}$, $\omega_{j}$ and ${-\omega}_{j}$ are
 both in $\lbrack- \pi, -\pi \rbrack$ and $a_{j}$ is presented in its
 polar form (i.e. $a_{j} = r_{j}\exp( i\theta_{j})$), where $r_{j}$ is
-the modulus of $a_{j}$, then \[3\] can be rewritten in the form:
+the modulus of $a_{j}$, then @eq-3 can be rewritten in the form:
 
 $$
 \mathbf{x} = a_{0}\mathbf{e}_{0} + \sum_{j = 1}^{\lbrack\frac{n - 1}{2}\rbrack}{ {2^{1/2}r}_{j}{(\mathbf{c}}_{j}\cos\theta_{j}{- \mathbf{s}}_{j}\sin\theta_{j}) + a_{n/2}\mathbf{e}_{n/2}}
@@ -230,23 +232,23 @@ orthonormal basis:
 
 $$
 {\widehat{a}}_{0}=\frac{1}{\sqrt{n}}\sum_{t=1}^{n}x_{t}
-$$ \[7\] <!---[7.108]      -->
+$$ {#eq-7} <!---[7.108]      -->
 
 $$
 {\widehat{a}}_{n/2}=\frac{1}{\sqrt{n}}\sum_{t=1}^{n}{(-1)}^{t}x_{t}(   \text{only when n is even})
-$$ \[8\] <!---[7.109]      -->
+$$ {#eq-8} <!---[7.109]      -->
 
 $$
 {\widehat{a}}_{0}=\frac{1}{\sqrt{n}}\sum_{t=1}^{n}x_{t}
-$$ \[9\] <!---[7.110]      -->
+$$ {#eq-9} <!---[7.110]      -->
 
 $$
 {\widehat{\alpha}}_{j} = 2^{1/2}r_{j}\cos{\theta_{j}} = {(\frac{n}{2})}^{- 1/2}\sum_{t = 1}^{n}x_{t}\cos{(t\frac{2\pi j}{n})}, j   = 1,\ldots,\lbrack\frac{n - 1}{2}\rbrack
-$$ \[10\] <!---[7.111]      -->
+$$ {#eq-10} <!---[7.111]      -->
 
 $$
 {\widehat{\beta}}_{j} = 2^{1/2}r_{j}\sin{\theta_{j}} = {(\frac{n}{2})}^{-1/2}\sum_{t = 1}^{n}x_{t}\sin{(t\frac{2\pi j}{n})}, j = 1,\ldots,\lbrack\frac{n - 1}{2}\rbrack
-$$ \[11\] <!---[7.112]      -->
+$$ {#eq-11} <!---[7.112]      -->
 
 With \[5\] the total sum of squares $\sum_{t = 1}^{n}| x_{t} |^{2}$ can
 be decomposed into $2 \times \lbrack\frac{n - 1}{2}\rbrack$ components
@@ -298,7 +300,7 @@ expressed as:
 $$
 I(\omega_{j})\mathbf{=}\begin{matrix}                                                                                r_{j}^{2} = \frac{1}{2}{(\alpha}_{j}^{2} + \beta_{j}^{2}) = \ {\frac{1}{n}(\sum_{t = 1}^{n}{x_{t}\cos{( {t\frac{2\pi j}{n}}_{\ })\ }})}^{2} + \frac{1}{n}(\sum_{t = 1}^{n}{x_{t}\sin( t\frac{2\pi j}{n})_{\ }})^{2} \\
 \end{matrix}
-$$ \[12\] <!---[7.113]      -->
+$$ {#eq-12} <!---[7.113]      -->
 
 where $j = 0,\ldots,lbrack \frac{n}{2} rbrack$.
 
@@ -310,19 +312,19 @@ squared coefficients:
 
 $$
 \mathbf{x} - a_{0}\mathbf{e}_{0} =\sum_{j=1}^{\lbrack(n - 1)/2\rbrack}(\alpha_{j}\mathbf{c}_{j}+\beta_{j}\mathbf{s}_{j}) + a_{n/2}\mathbf{e}_{n/2}
-$$. \[13\] <!---[7.114]      -->
+$$ {#eq-13} <!---[7.114]      -->
 
 Thus the sample variance of $x_{t}$ can be expressed as:
 
 $$
 n^{- 1}\sum_{t=1}^{n}{(x_{t}-\overline{x})}^{2}=n^{-1}(\sum_{k=1}^{\lbrack(n - 1)/2\rbrack}2{r_{j}}^{2}
 +{a_{n/2}}^{2})
-$$, \[14\] <!---[7.115]      -->
+$$ {#eq-14} <!---[7.115]      -->
 
 where $a_{n/2}^{2}$ is excluded if $n$ is odd.
 
-The term $2{r_{j}}^{2}$ in \[14\] is then the contribution of the
-$j^{\text{th}}$ harmonic to the variance and \[14\] shows then how the
+The term $2{r_{j}}^{2}$ in @eq-14 is then the contribution of the
+$j^{\text{th}}$ harmonic to the variance and @eq-14 shows then how the
 total variance is partitioned.
 
 The periodogram ordinate $I(\omega_{j})$ and the autocovariance
@@ -526,7 +528,7 @@ series) and 0.280 (quarterly series). They are computed as:
 
 $$
 \omega_{\text{ce}} = \frac{2\pi}{7}\left( n - 7 \times \left\lbrack \frac{n}{7} \right\rbrack \right)
-$$, \[1\] <!---[7.158]      -->
+$$ {#eq-1} <!---[7.158]      -->
 
 where $n = \frac{365.25}{s}$, $s = 4$ for quarterly series and $s = 12$
 for monthly series.
