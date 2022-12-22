@@ -373,23 +373,23 @@ f(\omega) = \frac{1}{\pi}\lbrack \ \gamma(0) + 2\sum_{k = 1}^{\infty}{\ \gamma(k
 <p><span class="math display">\[
 \mathbf{e}_{n/2} = {(- (n^{-\frac{1}{2}}),n^{- \frac{1}{2}},\ldots,{-(n)}^{- \frac{1}{2}}),n^{-\frac{1}{2}})}^{'}
 \]</span>.</p>
-<p>Equation [5] can be seen as an OLS regression of <span class="math inline">\(x_{t}\)</span> on a constant and the trigonometric terms. As the vector of explanatory variables includes <span class="math inline">\(n\)</span> elements, the number of explanatory variables in [5] is equal to the number of observations. HAMILTON, J.D. (1994) shows that the explanatory variables are linearly independent, which implies that an OLS regression yields a perfect fit (i.e.&nbsp;without an error term). The coefficients have the form of a simple OLS projection of the data on the orthonormal basis:</p>
+<p>Equation <a href="M-SEATS-decomposition.html#eq-5">Equation&nbsp;<span>5</span></a> can be seen as an OLS regression of <span class="math inline">\(x_{t}\)</span> on a constant and the trigonometric terms. As the vector of explanatory variables includes <span class="math inline">\(n\)</span> elements, the number of explanatory variables in <a href="M-SEATS-decomposition.html#eq-5">Equation&nbsp;<span>5</span></a> is equal to the number of observations. HAMILTON, J.D. (1994) shows that the explanatory variables are linearly independent, which implies that an OLS regression yields a perfect fit (i.e.&nbsp;without an error term). The coefficients have the form of a simple OLS projection of the data on the orthonormal basis:</p>
 <p><span id="eq-7"><span class="math display">\[
 {\widehat{a}}_{0}=\frac{1}{\sqrt{n}}\sum_{t=1}^{n}x_{t}
-\tag{1}\]</span></span> <!---[7.108]      --></p>
+\tag{1}\]</span></span> <!---[7.108] --></p>
 <p><span id="eq-8"><span class="math display">\[
 {\widehat{a}}_{n/2}=\frac{1}{\sqrt{n}}\sum_{t=1}^{n}{(-1)}^{t}x_{t}(   \text{only when n is even})
-\tag{2}\]</span></span> <!---[7.109]      --></p>
+\tag{2}\]</span></span> <!---[7.109] --></p>
 <p><span id="eq-9"><span class="math display">\[
 {\widehat{a}}_{0}=\frac{1}{\sqrt{n}}\sum_{t=1}^{n}x_{t}
-\tag{3}\]</span></span> <!---[7.110]      --></p>
+\tag{3}\]</span></span> <!---[7.110] --></p>
 <p><span id="eq-10"><span class="math display">\[
 {\widehat{\alpha}}_{j} = 2^{1/2}r_{j}\cos{\theta_{j}} = {(\frac{n}{2})}^{- 1/2}\sum_{t = 1}^{n}x_{t}\cos{(t\frac{2\pi j}{n})}, j   = 1,\ldots,\lbrack\frac{n - 1}{2}\rbrack
-\tag{4}\]</span></span> <!---[7.111]      --></p>
+\tag{4}\]</span></span> <!---[7.111] --></p>
 <p><span id="eq-11"><span class="math display">\[
 {\widehat{\beta}}_{j} = 2^{1/2}r_{j}\sin{\theta_{j}} = {(\frac{n}{2})}^{-1/2}\sum_{t = 1}^{n}x_{t}\sin{(t\frac{2\pi j}{n})}, j = 1,\ldots,\lbrack\frac{n - 1}{2}\rbrack
-\tag{5}\]</span></span> <!---[7.112]      --></p>
-<p>With [5] the total sum of squares <span class="math inline">\(\sum_{t = 1}^{n}| x_{t} |^{2}\)</span> can be decomposed into <span class="math inline">\(2 \times \lbrack\frac{n - 1}{2}\rbrack\)</span> components corresponding to <span class="math inline">\(\mathbf{c}_{j}\)</span> and <span class="math inline">\(\mathbf{s}_{j}\)</span>, which are grouped to produce the “frequency <span class="math inline">\(ω_{j}\)</span>” component for <span class="math inline">\(1 \geq j \geq \lbrack\frac{n - 1}{2}\rbrack\)</span>. As it is shown in the table below, the value of the periodogram at the frequency <span class="math inline">\(\omega_{j}\)</span> is the contribution of the <span class="math inline">\(j\^{\text{th}}\)</span> harmonic to the total sum of squares <span class="math inline">\(\sum_{t = 1}^{n}| x_{t} |^{2}\)</span>.</p>
+\tag{5}\]</span></span> <!---[7.112] --></p>
+<p>With <a href="M-SEATS-decomposition.html#eq-5">Equation&nbsp;<span>5</span></a> the total sum of squares <span class="math inline">\(\sum_{t = 1}^{n}| x_{t} |^{2}\)</span> can be decomposed into <span class="math inline">\(2 \times \lbrack\frac{n - 1}{2}\rbrack\)</span> components corresponding to <span class="math inline">\(\mathbf{c}_{j}\)</span> and <span class="math inline">\(\mathbf{s}_{j}\)</span>, which are grouped to produce the “frequency <span class="math inline">\(ω_{j}\)</span>” component for <span class="math inline">\(1 \geq j \geq \lbrack\frac{n - 1}{2}\rbrack\)</span>. As it is shown in the table below, the value of the periodogram at the frequency <span class="math inline">\(\omega_{j}\)</span> is the contribution of the <span class="math inline">\(j^{\text{th}}\)</span> harmonic to the total sum of squares <span class="math inline">\(\sum_{t = 1}^{n}| x_{t} |^{2}\)</span>.</p>
 <p><strong>Decomposition of sum of squares into components corresponding to the harmonics</strong></p>
 
 <!-- {: .table .table-style} -->
@@ -445,23 +445,23 @@ f(\omega) = \frac{1}{\pi}\lbrack \ \gamma(0) + 2\sum_{k = 1}^{\infty}{\ \gamma(k
 </tbody>
 </table>
 <p>Source: DE ANTONIO, D., and PALATE, J. (2015).</p>
-<p>Obviously, if series were random then each component <span class="math inline">\(I(\omega\_{j})\)</span> would have the same expectation. On the contrary, when the series contains a systematic sine component having a frequency <span class="math inline">\(j\)</span> and amplitude <span class="math inline">\(A\)</span> then the sum of squares <span class="math inline">\(I(\omega_{j})\)</span> increases with <span class="math inline">\(A\)</span>. In practice, it is unlikely that the frequency <span class="math inline">\(j\)</span> of an unknown systematic sine component would exactly match any of the frequencies, for which periodogram have been calculated. Therefore, the periodogram would show an increase in intensities in the immediate vicinity of <span class="math inline">\(j\)</span>.<a href="#fn8" class="footnote-ref" id="fnref8" role="doc-noteref"><sup>8</sup></a></p>
+<p>Obviously, if series were random then each component <span class="math inline">\(I(\omega_{j})\)</span> would have the same expectation. On the contrary, when the series contains a systematic sine component having a frequency <span class="math inline">\(j\)</span> and amplitude <span class="math inline">\(A\)</span> then the sum of squares <span class="math inline">\(I(\omega_{j})\)</span> increases with <span class="math inline">\(A\)</span>. In practice, it is unlikely that the frequency <span class="math inline">\(j\)</span> of an unknown systematic sine component would exactly match any of the frequencies, for which periodogram have been calculated. Therefore, the periodogram would show an increase in intensities in the immediate vicinity of <span class="math inline">\(j\)</span>.<a href="#fn8" class="footnote-ref" id="fnref8" role="doc-noteref"><sup>8</sup></a></p>
 <p>Note that in JDemetra+ the periodogram object corresponds exactly to the contribution to the sum of squares of the standardised data, since the series are divided by their standard deviation for computational reasons.</p>
 <p>Using the decomposition presented in table above the periodogram can be expressed as:</p>
 <p><span id="eq-12"><span class="math display">\[
-I(\omega_{j})\mathbf{=}\begin{matrix}                                                                                r_{j}^{2} = \frac{1}{2}{(\alpha}_{j}^{2} + \beta_{j}^{2}) = \ {\frac{1}{n}(\sum_{t = 1}^{n}{x_{t}\cos{( {t\frac{2\pi j}{n}}_{\ })\ }})}^{2} + \frac{1}{n}(\sum_{t = 1}^{n}{x_{t}\sin( t\frac{2\pi j}{n})_{\ }})^{2} \\
+I(\omega_{j})\mathbf{=}\begin{matrix}r_{j}^{2} = \frac{1}{2}{(\alpha}_{j}^{2} + \beta_{j}^{2}) = \ {\frac{1}{n}(\sum_{t = 1}^{n}{x_{t}\cos{( {t\frac{2\pi j}{n}}_{\ })\ }})}^{2} + \frac{1}{n}(\sum_{t = 1}^{n}{x_{t}\sin( t\frac{2\pi j}{n})_{\ }})^{2} \\
 \end{matrix}
-\tag{6}\]</span></span> <!---[7.113]      --></p>
+\tag{6}\]</span></span> <!---[7.113] --></p>
 <p>where <span class="math inline">\(j = 0,\ldots,lbrack \frac{n}{2} rbrack\)</span>.</p>
-<p>Since <span class="math inline">\(\mathbf{x} - \overline{\mathbf{x}}\)</span> are generated by an orthonormal basis, and <span class="math inline">\(\overline{\mathbf{x}}\mathbf{=}a_{0}\mathbf{e}_{0}\)</span> [5] can be rearranged to show that the sum of squares is equal to the sum of the squared coefficients:</p>
+<p>Since <span class="math inline">\(\mathbf{x} - \overline{\mathbf{x}}\)</span> are generated by an orthonormal basis, and <span class="math inline">\(\overline{\mathbf{x}}\mathbf{=}a_{0}\mathbf{e}_{0}\)</span> <a href="M-SEATS-decomposition.html#eq-5">Equation&nbsp;<span>5</span></a> can be rearranged to show that the sum of squares is equal to the sum of the squared coefficients:</p>
 <p><span id="eq-13"><span class="math display">\[
 \mathbf{x} - a_{0}\mathbf{e}_{0} =\sum_{j=1}^{\lbrack(n - 1)/2\rbrack}(\alpha_{j}\mathbf{c}_{j}+\beta_{j}\mathbf{s}_{j}) + a_{n/2}\mathbf{e}_{n/2}
-\tag{7}\]</span></span> <!---[7.114]      --></p>
+\tag{7}\]</span></span> <!---[7.114] --></p>
 <p>Thus the sample variance of <span class="math inline">\(x_{t}\)</span> can be expressed as:</p>
 <p><span id="eq-14"><span class="math display">\[
 n^{- 1}\sum_{t=1}^{n}{(x_{t}-\overline{x})}^{2}=n^{-1}(\sum_{k=1}^{\lbrack(n - 1)/2\rbrack}2{r_{j}}^{2}
 +{a_{n/2}}^{2})
-\tag{8}\]</span></span> <!---[7.115]      --></p>
+\tag{8}\]</span></span> <!---[7.115] --></p>
 <p>where <span class="math inline">\(a_{n/2}^{2}\)</span> is excluded if <span class="math inline">\(n\)</span> is odd.</p>
 <p>The term <span class="math inline">\(2{r_{j}}^{2}\)</span> in <a href="M-SEATS-decomposition.html#eq-14">Equation&nbsp;<span>14</span></a> is then the contribution of the <span class="math inline">\(j^{\text{th}}\)</span> harmonic to the variance and <a href="M-SEATS-decomposition.html#eq-14">Equation&nbsp;<span>14</span></a> shows then how the total variance is partitioned.</p>
 <p>The periodogram ordinate <span class="math inline">\(I(\omega_{j})\)</span> and the autocovariance coefficient <span class="math inline">\(\gamma(k)\)</span> are both quadratic forms of <span class="math inline">\(x_{t}\)</span>. It can be shown that the periodogram and autocovarinace function are related and the periodogram can be written in terms of the sample autocovariance function for any non-zero Fourier frequency <span class="math inline">\(ω_{j}\)</span> :<a href="#fn9" class="footnote-ref" id="fnref9" role="doc-noteref"><sup>9</sup></a></p>
@@ -469,7 +469,7 @@ n^{- 1}\sum_{t=1}^{n}{(x_{t}-\overline{x})}^{2}=n^{-1}(\sum_{k=1}^{\lbrack(n - 1
 I(\omega_{j}) = \sum_{| k | &lt; n}^{\ }{\widehat{\gamma}( k)}_{\ }e^{- ik\omega_{j}} = {\widehat{\gamma}( 0)}_{\ } + 2\sum_{k = 1}^{n - 1}{\widehat{\gamma}( k)\cos{(k\omega_{j})}}_{\ }
 \]</span></p>
 <p>and for the zero frequency <span class="math inline">\(\ I( 0) = n| \overline{x} |^{2}\)</span>.</p>
-<p>Once comparing [15] with an expression for the spectral density of a stationary process:</p>
+<p>Once comparing <a href="M-SEATS-decomposition.html#eq-15">Equation&nbsp;<span>15</span></a> with an expression for the spectral density of a stationary process:</p>
 <p><span class="math display">\[
 f(\omega_{\ }) = \frac{1}{2\pi}\sum_{k &lt; - \infty}^{\infty}{\gamma( k)}_{\ }e^{- ik\omega_{\ }} = \frac{1}{2\pi}lbrack {\gamma( 0)}_{\ } + 2(\sum_{k = 1}^{\infty}{\gamma( k)\cos{(k\omega_{\ })}}) rbrack
 \]</span></p>
@@ -492,8 +492,8 @@ x_{t} = \mu + (\phi_{1}B + \ldots + \phi_{p}B^{p})x_{t} + \varepsilon_{t}
 <li><p><span class="math inline">\(\sigma_{x}^{2}\)</span> – the innovation variance of the sample residuals;</p></li>
 <li><p><span class="math inline">\({\widehat{\phi}}_{k}\)</span> – <span class="math inline">\(\text{AR}(k)\)</span> coefficient estimates of the linear regression of <span class="math inline">\(x_{t} - \overline{x}\)</span> on <span class="math inline">\(x_{t - k} - \overline{x}\)</span>, <span class="math inline">\(1 \leq k \leq p\)</span>.</p></li>
 </ul>
-<p>The autoregressive spectrum estimator is used in the visual spectral analysis tool for detecting significant peaks in the spectrum. The criterion of <em>visual significance</em>, implemented in JDemetra+, is based on the range <span class="math inline">\({\widehat{s}}^{\max} - {\widehat{s}}^{\min}\)</span> of the <span class="math inline">\(\widehat{s}(\omega)\)</span> values, where <span class="math inline">\({\widehat{s}}^{\max} = \max_{k}\widehat{s}(\omega_{k})\)</span>; <span class="math inline">\({\widehat{s}}^{\min} = \min_{k}\widehat{s}(\omega_{k});\)</span> and <span class="math inline">\(\widehat{s}(\omega\_{k})\)</span> is <span class="math inline">\(k^{\text{th}}\)</span> value of autoregressive spectrum estimator.</p>
-<p>The particular value is considered to be visually significant if, at a trading day or at a seasonal frequency <span class="math inline">\(\omega_{k}\)</span> (other than the seasonal frequency <span class="math inline">\(\omega_{60} = \pi\)</span>), <span class="math inline">\(\widehat{s}(\omega\_{k})\)</span> is above the median of the plotted values of <span class="math inline">\(\widehat{s}(\omega_{k})\)</span> and is larger than both neighbouring values <span class="math inline">\(\widehat{s}(\omega_{k - 1})\)</span> and <span class="math inline">\(\widehat{s}(\omega_{k + 1})\)</span> by at least <span class="math inline">\(\frac{6}{52}\)</span> times the range <span class="math inline">\({\widehat{s}}^{\max} - {\widehat{s}}^{\min}\)</span>.</p>
+<p>The autoregressive spectrum estimator is used in the visual spectral analysis tool for detecting significant peaks in the spectrum. The criterion of <em>visual significance</em>, implemented in JDemetra+, is based on the range <span class="math inline">\({\widehat{s}}^{\max} - {\widehat{s}}^{\min}\)</span> of the <span class="math inline">\(\widehat{s}(\omega)\)</span> values, where <span class="math inline">\({\widehat{s}}^{\max} = \max_{k}\widehat{s}(\omega_{k})\)</span>; <span class="math inline">\({\widehat{s}}^{\min} = \min_{k}\widehat{s}(\omega_{k});\)</span> and <span class="math inline">\(\widehat{s}(\omega_{k})\)</span> is <span class="math inline">\(k^{\text{th}}\)</span> value of autoregressive spectrum estimator.</p>
+<p>The particular value is considered to be visually significant if, at a trading day or at a seasonal frequency <span class="math inline">\(\omega_{k}\)</span> (other than the seasonal frequency <span class="math inline">\(\omega_{60} = \pi\)</span>), <span class="math inline">\(\widehat{s}(\omega_{k})\)</span> is above the median of the plotted values of <span class="math inline">\(\widehat{s}(\omega_{k})\)</span> and is larger than both neighbouring values <span class="math inline">\(\widehat{s}(\omega_{k - 1})\)</span> and <span class="math inline">\(\widehat{s}(\omega_{k + 1})\)</span> by at least <span class="math inline">\(\frac{6}{52}\)</span> times the range <span class="math inline">\({\widehat{s}}^{\max} - {\widehat{s}}^{\min}\)</span>.</p>
 <p>Following the suggestion of SOUKUP, R.J., and FINDLEY, D.F. (1999), JDemetra+ uses an autoregressive model spectral estimator of model order 30. This order yields high resolution of strong components, meaning peaks that are sharply defined in the plot of <span class="math inline">\(\widehat{s}(\omega)\)</span> with 61 frequencies. The minimum number of observations needed to compute the spectrum is set to <span class="math inline">\(n=80\)</span> for monthly data and to <span class="math inline">\(n=60\)</span> for quarterly series while the maximum number of observations considered for the estimation is 121. Consequently, with these settings it is possible to identify up to 30 peaks in the plot of 61 frequencies. By choosing <span class="math inline">\(\omega_{k} = \frac{\text{πk}}{60}\)</span> for <span class="math inline">\(k=0,1,...,60\)</span> the density estimates are calculated at exact seasonal frequencies (1, 2, 3, 4, 5 and 6 cycles per year).</p>
 <p>The model order can also be selected based on the AIC criterion (in practice it is much lower than 30). A lower order produces the smoother spectrum, but the contrast between the spectral amplitudes at the trading day frequencies and neighbouring frequencies is weaker, and therefore not as suitable for automatic detection.</p>
 <p>SOUKUP, R.J., and FINDLEY, D.F. (1999) also explain that the periodogram can be used in the <em>visual significance</em> test as it has as good as those of the AR(30) spectrum abilities to detect trading day effect, but also has a greater false alarm rate<a href="#fn11" class="footnote-ref" id="fnref11" role="doc-noteref"><sup>11</sup></a>.</p>
@@ -515,6 +515,8 @@ x_{t} = \mu + (\phi_{1}B + \ldots + \phi_{p}B^{p})x_{t} + \varepsilon_{t}
 <p>JDemetra+ performs this test on the original series. If these two requirements are met, the test results are displayed in green. The statistical significance of each of the seasonal peaks (i.e. frequencies <span class="math inline">\(\frac{\pi}{6},\ \frac{\pi}{3},\ \frac{\pi}{2},\ \frac{2\pi}{3}\)</span> and <span class="math inline">\(\frac{5\pi}{6}\)</span> corresponding to 1, 2, 3, 4 and 5 cycles per year) is also displayed. The seasonal and trading days frequencies depends on the frequency of time series. They are shown in the table below. The symbol <span class="math inline">\(d\)</span> denotes a default frequency and is described below the table.</p>
 </blockquote>
 <p><strong>The seasonal and trading day frequencies by time series frequency</strong></p>
+
+<!-- {: .table .table-style} -->
 <table class="table">
 <colgroup>
 <col style="width: 33%">
@@ -523,9 +525,9 @@ x_{t} = \mu + (\phi_{1}B + \ldots + \phi_{p}B^{p})x_{t} + \varepsilon_{t}
 </colgroup>
 <thead>
 <tr class="header">
-<th>{: .table .table-style}</th>
 <th><strong>Number of months per fullperiod</strong></th>
 <th><strong>Seasonal frequency</strong></th>
+<th><strong>Trading day frequency (radians)</strong></th>
 </tr>
 </thead>
 <tbody>
@@ -555,7 +557,7 @@ x_{t} = \mu + (\phi_{1}B + \ldots + \phi_{p}B^{p})x_{t} + \varepsilon_{t}
 <p>The default frequencies (<span class="math inline">\(d\)</span>) for calendar effect are: 2.188 (monthly series) and 0.280 (quarterly series). They are computed as:</p>
 <p><span id="eq-1"><span class="math display">\[
 \omega_{\text{ce}} = \frac{2\pi}{7}\left( n - 7 \times \left\lbrack \frac{n}{7} \right\rbrack \right)
-\tag{9}\]</span></span> <!---[7.158]      --></p>
+\tag{9}\]</span></span> <!---[7.158] --></p>
 <p>where <span class="math inline">\(n = \frac{365.25}{s}\)</span>, <span class="math inline">\(s = 4\)</span> for quarterly series and <span class="math inline">\(s = 12\)</span> for monthly series.</p>
 <p>Other frequencies that correspond to trading day frequencies are: 2.714 (monthly series) and 1.292, 1.850, 2.128 (quarterly series).</p>
 <p>In particular, the calendar frequency in monthly data (marked in red on the figure below) is very close to the seasonal frequency corresponding to 4 cycles per year <span class="math inline">\(\text{ω}_{40} = \frac{2}{3}\pi = 2.0944\)</span>.</p>
@@ -605,9 +607,9 @@ x_{t} = \mu + (\phi_{1}B + \ldots + \phi_{p}B^{p})x_{t} + \varepsilon_{t}
 <p><strong>The seasonal and trading day frequencies by time series frequency</strong></p>
 <table class="table">
 <colgroup>
-<col style="width: 24%">
-<col style="width: 50%">
-<col style="width: 24%">
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -698,9 +700,9 @@ x_{t} = \mu + (\phi_{1}B + \ldots + \phi_{p}B^{p})x_{t} + \varepsilon_{t}
 <!-- {: .table .table-style} -->
 <table class="table">
 <colgroup>
-<col style="width: 24%">
-<col style="width: 50%">
-<col style="width: 24%">
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
 </colgroup>
 <thead>
 <tr class="header">
