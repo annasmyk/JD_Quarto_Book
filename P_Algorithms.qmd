@@ -1,2 +1,12 @@
 # Algorithms {.unnumbered}
 
+This part describes the algorithms featured in JDemetra+:
+
+-   [Seasonal Adjustment](A-sa.qmd)
+-   [Seasonal Adjustment of high-frequency data](A-sa-hf.qmd)
+-   [Reg-Arima modelling](A-sa.qmd)
+-   [Outlier detection](A-outlier-detection.qmd)
+-   [Generating Calendar regressors and input variables](A-calendar-and-input.qmd)
+-   [Benchmarking and temporal disaggregation](A-benchmarking.qmd)
+-   [Trend-Cycle estimation](A-trend-cycle-estimation.qmd)
+-   [Nowcasting](A-nowcasting.qmd)

@@ -1,0 +1,22 @@
+
+main {
+    box-sizing: border-box;
+    padding-top: 1px;
+    padding-bottom: 30px;
+    padding-right: 30px;
+    padding-left: 30px;
+    /*margin: 100px !important;*/
+    text-align: justify !important;
+    justify-content: center !important;
+    background-color: #f2f6ff !important;
+}
+
+
+body {
+    background-color: #ffffff !important;
+}
+
+nav {
+    background-color: #f2f6ff !important;
+}
+

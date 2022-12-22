@@ -1,0 +1,1275 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.280">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>JDemetra+ documentation - Graphical User Interface</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./T-r-packages.html" rel="next">
+<link href="./P_Tools.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title">Graphical User Interface</h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">JDemetra+ documentation</a> 
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">Preface</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./G-what-is-jd.html" class="sidebar-item-text sidebar-link">JDemetra+ Software</a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./P_Algorithms.html" class="sidebar-item-text sidebar-link">Algorithms</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A-sa.html" class="sidebar-item-text sidebar-link">Seasonal Adjustment</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A-sa-hf.html" class="sidebar-item-text sidebar-link">Seasonal adjustment of high-frequency data</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A-outlier-detection.html" class="sidebar-item-text sidebar-link">Outlier detection</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A-calendar-and-input.html" class="sidebar-item-text sidebar-link">Calendar and user-defined corrections</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A-benchmarking.html" class="sidebar-item-text sidebar-link">Benchmarking and temporal disagreggation</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A-trend-cycle-estimation.html" class="sidebar-item-text sidebar-link">Trend-cycle estimation</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A-nowcasting.html" class="sidebar-item-text sidebar-link">Nowcasting</a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./P_Tools.html" class="sidebar-item-text sidebar-link">Tools</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./T-graphical-user-interface.html" class="sidebar-item-text sidebar-link active">Graphical User Interface</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./T-r-packages.html" class="sidebar-item-text sidebar-link">Using JDemetra+ in R</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./T-Production-tools-cruncher-QR.html" class="sidebar-item-text sidebar-link">Production, Cruncher and quality report</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./T-rev-policies-production.html" class="sidebar-item-text sidebar-link">Production and revision policies</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./T-plug-ins.html" class="sidebar-item-text sidebar-link">Plug-ins for JDemetra+</a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./P_Methods.html" class="sidebar-item-text sidebar-link">Methods</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./M-spectral-analysis.html" class="sidebar-item-text sidebar-link">Spectral Analysis Principles and Tools</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./M-reg-arima-modelling.html" class="sidebar-item-text sidebar-link">Reg-Arima models</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./M-X11-decomposition.html" class="sidebar-item-text sidebar-link">X-11 decomposition</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./M-STL-decomposition.html" class="sidebar-item-text sidebar-link">STL: Local regression decomposition</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./M-SEATS-decomposition.html" class="sidebar-item-text sidebar-link">SEATS decomposition</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./M-Trend-Estimation-Local-Polynomials.html" class="sidebar-item-text sidebar-link">Local Polynomials Methods for Trend Estimation</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./M-tests.html" class="sidebar-item-text sidebar-link">Tests</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./M-state-space-framework.html" class="sidebar-item-text sidebar-link">State space modelling</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./M-Temp-Disagg-Bench.html" class="sidebar-item-text sidebar-link">Temporal disaggregation and benchmarking</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">References</a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
+  <li><a href="#available-algorithms" id="toc-available-algorithms" class="nav-link" data-scroll-target="#available-algorithms">Available algorithms</a></li>
+  <li><a href="#available-time-series-tools" id="toc-available-time-series-tools" class="nav-link" data-scroll-target="#available-time-series-tools">Available Time Series tools</a></li>
+  <li><a href="#installation-procedure" id="toc-installation-procedure" class="nav-link" data-scroll-target="#installation-procedure">Installation Procedure</a></li>
+  <li><a href="#running-jdemetra" id="toc-running-jdemetra" class="nav-link" data-scroll-target="#running-jdemetra">Running JDemetra+</a></li>
+  <li><a href="#closing-jdemetra" id="toc-closing-jdemetra" class="nav-link" data-scroll-target="#closing-jdemetra">Closing JDemetra+</a></li>
+  <li><a href="#interface-starting-winwow" id="toc-interface-starting-winwow" class="nav-link" data-scroll-target="#interface-starting-winwow">Interface Starting Winwow</a></li>
+  <li><a href="#widgets" id="toc-widgets" class="nav-link" data-scroll-target="#widgets">Widgets</a>
+  <ul class="collapse">
+  <li><a href="#all-tsview" id="toc-all-tsview" class="nav-link" data-scroll-target="#all-tsview">All TS&amp;view</a></li>
+  <li><a href="#search-option" id="toc-search-option" class="nav-link" data-scroll-target="#search-option">Search option</a></li>
+  </ul></li>
+  <li><a href="#application-menus" id="toc-application-menus" class="nav-link" data-scroll-target="#application-menus">Top bar menus</a>
+  <ul class="collapse">
+  <li><a href="#file" id="toc-file" class="nav-link" data-scroll-target="#file">File</a></li>
+  <li><a href="#statistical-methods" id="toc-statistical-methods" class="nav-link" data-scroll-target="#statistical-methods">Statistical Methods</a></li>
+  <li><a href="#view" id="toc-view" class="nav-link" data-scroll-target="#view">View</a></li>
+  <li><a href="#tools-menu" id="toc-tools-menu" class="nav-link" data-scroll-target="#tools-menu">Tools menu</a></li>
+  <li><a href="#window-menu" id="toc-window-menu" class="nav-link" data-scroll-target="#window-menu">Window menu</a></li>
+  <li><a href="#help-menu" id="toc-help-menu" class="nav-link" data-scroll-target="#help-menu">Help menu</a></li>
+  </ul></li>
+  <li><a href="#providers-window" id="toc-providers-window" class="nav-link" data-scroll-target="#providers-window">Providers window</a>
+  <ul class="collapse">
+  <li><a href="#spreadsheets" id="toc-spreadsheets" class="nav-link" data-scroll-target="#spreadsheets">Spreadsheets</a></li>
+  <li><a href="#import-data" id="toc-import-data" class="nav-link" data-scroll-target="#import-data">Import data</a></li>
+  </ul></li>
+  <li><a href="#workspace-window" id="toc-workspace-window" class="nav-link" data-scroll-target="#workspace-window">Workspace window</a></li>
+  <li><a href="#results-panel" id="toc-results-panel" class="nav-link" data-scroll-target="#results-panel">Results panel</a></li>
+  <li><a href="#data-visualisation" id="toc-data-visualisation" class="nav-link" data-scroll-target="#data-visualisation">Data Visualisation</a></li>
+  <li><a href="#generating-outpt" id="toc-generating-outpt" class="nav-link" data-scroll-target="#generating-outpt">Generating Outpt</a>
+  <ul class="collapse">
+  <li><a href="#steps" id="toc-steps" class="nav-link" data-scroll-target="#steps">Steps</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block">Graphical User Interface</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="overview" class="level2">
+<h2 class="anchored" data-anchor-id="overview">Overview</h2>
+<p>This chapter provides general information about using the graphical interface (GUI). Specific indications related to a given algorithm (X13-Arima, Tramo-seats, Benchmarking…) are displayed in the relevant chapters.</p>
+</section>
+<section id="available-algorithms" class="level2">
+<h2 class="anchored" data-anchor-id="available-algorithms">Available algorithms</h2>
+<p>The graphical user interface in the 2.x family gives access to:</p>
+<ul>
+<li><p>Seasonal adjustment <a href="./A-sa.html">(SA) algorithms</a></p>
+<ul>
+<li>X13-Arima</li>
+<li>Tramo-Seats</li>
+<li>Direct-indirect SA comparisons</li>
+</ul></li>
+<li><p>Outlier detection (TERROR)</p></li>
+<li><p>Benchmarking</p></li>
+</ul>
+<p>The graphical user interface in the 3.x family gives access <strong>in addition</strong> to extended SA algorithms for high-frequency data (HF) <a href="./A-sa-hf.html">high-frequency data (HF)</a>.</p>
+</section>
+<section id="available-time-series-tools" class="level2">
+<h2 class="anchored" data-anchor-id="available-time-series-tools">Available Time Series tools</h2>
+<p>The graphical user interface in the 2.x and 3.x family give access to generic time series tools:</p>
+<ul>
+<li>Graphics
+<ul>
+<li>time domain</li>
+<li>spectral analysis</li>
+</ul></li>
+<li>Tests
+<ul>
+<li>seasonality tests</li>
+<li>autocorrelation, normality, randomness tests</li>
+</ul></li>
+</ul>
+</section>
+<section id="installation-procedure" class="level2">
+<h2 class="anchored" data-anchor-id="installation-procedure">Installation Procedure</h2>
+<p>JDemetra+ is a stand-alone application packed in a zip package. To run JDemetra+ the Java RE 8 or higher is needed. Java RE can be downloaded from <a href="https://www.oracle.com/technetwork/java/javase/downloads/index.html">Oracle website</a>.</p>
+<p>The official release of JDemetra+ is accessible at <a href="https://github.com/jdemetra/jdemetra-app/releases">a dedicated Github page</a>. The site presents all available releases - both official releases (labelled in green as latest releases) and pre-releases (labelled in red) - packed in zip packages. From the <em>Latest release</em> section either choose the installer appropriate for your operating system (Windows, Linux, Mac OS, Solaris) or take the portable zip-file. The installation process is straightforward and intuitive. For example, when the zip-file is chosen and downloaded, then under Windows OS the application can be found in the “bin”-folder of the installation/unpacked zip. To open an application, double click on nbdemetra.exe or nbdemetra64.exe depending on the system version (nbdemetra.exe for the 32-bit system version and nbdemetra64.exe for the 64-bit system version).</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/RunningJDemetra.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><strong>Launching JDemetra+</strong></figcaption><p></p>
+</figure>
+</div>
+<p>If the launching of JDemetra+ fails, you can try the following operations:</p>
+<ul>
+<li><p>Check if Java SE Runtime Environment (JRE) is properly installed by typing in the following command in a terminal: <em>java –version</em></p></li>
+<li><p>Check the logs in your home directory:</p>
+<ul>
+<li><p>%appdata%/.nbdemetra/dev/var/log/ for Windows;</p></li>
+<li><p>~/.nbdemetra/dev/var/log/ for Linux and Solaris;</p></li>
+<li><p>~/Library/Application Support/.nbdemetra/dev/var/log/ for Mac OS X.</p></li>
+</ul></li>
+</ul>
+<p>In order to remove a previously installed JDemetra+ version, the user should delete an appropriate JDemetra+ folder.</p>
+</section>
+<section id="running-jdemetra" class="level2">
+<h2 class="anchored" data-anchor-id="running-jdemetra">Running JDemetra+</h2>
+<p>To open an application, navigate to the destination folder and double click on <em>nbdemetra.exe</em> or <em>nbdemetra64.exe</em> depending on the system version (<em>nbdemetra.exe</em> for the 32-bit system version and <em>nbdemetra64.exe</em> for the 64-bit system version).</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/A_Ref1.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><strong>Running JDemetra+</strong></figcaption><p></p>
+</figure>
+</div>
+</section>
+<section id="closing-jdemetra" class="level2">
+<h2 class="anchored" data-anchor-id="closing-jdemetra">Closing JDemetra+</h2>
+<p>To close the application, select <em>File → Exit</em> from the <a href="http://localhost:4000/pages/reference-manual/file.html">File menu</a>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/A_Ref2.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><strong>Closing JDemetra+</strong></figcaption><p></p>
+</figure>
+</div>
+<p>The other way is to click on the close box in the upper right-hand corner of the JDemetra+ window. If there is any unsaved work, JDemetra+ will display a warning and provide the user with the opportunity to save it. The message box is shown below.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/A_Ref3.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><strong>The warning from leaving JDemetra+ without saving the workspace</strong></figcaption><p></p>
+</figure>
+</div>
+<p>BELOW: menus and functions common to all the algos</p>
+</section>
+<section id="interface-starting-winwow" class="level2">
+<h2 class="anchored" data-anchor-id="interface-starting-winwow">Interface Starting Winwow</h2>
+<p>The default view of the JDemetra+ window, which is displayed after launching the program, is shown below.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/Jd+mainwindow.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><strong>JDemetra+ default window</strong></figcaption><p></p>
+</figure>
+</div>
+<p>By default, on the left hand side of the window two panels are visible: the <a href="../reference-manual/workspace.html"><em>Workspace</em> panel</a> and the <a href="../reference-manual/data-providers.html"><em>Providers</em> panel</a>. The <em>Workspace</em> panel stores the work performed by the user in a coherent and structured way. The <em>Providers</em> panel presents the list of the <a href="../quick-start/datasources.html">data sources</a> and organizes the imported series within each data provider. By default, JDemetra+ supports the following data sources:</p>
+<ul>
+<li><p>JDBC;</p></li>
+<li><p>ODBC;</p></li>
+<li><p>SDMX;</p></li>
+<li><p>Excel spreadsheets;</p></li>
+<li><p>TSW (input files for the <a href="https://www.bde.es/bde/en/secciones/servicios/Profesionales/Programas_estadi/Programas.html">Tramo-Seats-Windows application</a> by the Bank of Spain);</p></li>
+<li><p>TXT;</p></li>
+<li><p>USCB (input files for the <a href="https://www.census.gov/srd/www/winx13/">X-13-ARIMA-SEATS application</a> by the U.S. Census Bureau);</p></li>
+<li><p>XML.</p></li>
+</ul>
+<p>All standard databases (Oracle, SQLServer, DB2, MySQL) are supported by JDemetra+ via JDBC, which is a generic interface to many relational databases. Other providers can be added by users by creating plugins. We will now focus on the Spreadsheets data source, which corresponds to the series prepared in an Excel file. The file should have dates in Excel date format. Dates should be placed in the first column (or in the first row) and titles of the series in the corresponding cell of the first row (or in the first column). The top-left cell [A1] can include text or it can be left empty. The empty cells are interpreted by JDemetra+ as missing values and they can appear at the beginning, in the middle and at the end of the time series. The example is shown below.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/Spreadsheet.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><strong>Example of an Excel spreadsheet that can be imported to JDemetra+</strong></figcaption><p></p>
+</figure>
+</div>
+<p>Once the spreadsheet is prepared and saved, it can be imported to JDemetra+ as it is shown by the tutorial below.</p>
+<!--- ![Alt](All_images/Import_spreadsheet.gif) --->
+<p><strong>An example of importing process for the Excel file</strong></p>
+<p>The default JDemetra+ window, which is displayed after launching the program, is clearly divided into several panels.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/A_Ref_d28.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><strong>JDemetra+ default view</strong></figcaption><p></p>
+</figure>
+</div>
+<p>The key parts of the user interface are:</p>
+<ul>
+<li><p>The <a href="#application-menu">application menu</a>.</p></li>
+<li><p>The <a href="data-providers.html">Providers</a> window, which organises time series;</p></li>
+<li><p>The <a href="workspace.html">Workspace</a> window, which stores results generated by the software as well as settings used to create them;</p></li>
+<li><p>A central empty zone for presenting the actual analyses further called the <a href="#results-panel">Results</a> panel.</p></li>
+</ul>
+</section>
+<section id="widgets" class="level2">
+<h2 class="anchored" data-anchor-id="widgets">Widgets</h2>
+<section id="all-tsview" class="level3">
+<h3 class="anchored" data-anchor-id="all-tsview">All TS&amp;view</h3>
+</section>
+<section id="search-option" class="level3">
+<h3 class="anchored" data-anchor-id="search-option">Search option</h3>
+</section>
+</section>
+<section id="application-menus" class="level2">
+<h2 class="anchored" data-anchor-id="application-menus">Top bar menus</h2>
+<p>(Application menu: all that is available from the top bar)</p>
+<p>The majority of functionalities are available from the main application menu, which is situated at the very top of the main window. If the user moves the cursor to an entry in the main menu and clicks on the left mouse button, a drop-down menu will appear. Clicking on an entry in the drop-down menu selects the highlighted item.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/A_Ref10.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><strong>The main menu with selected drop-down menu</strong></figcaption><p></p>
+</figure>
+</div>
+<p>The functions available in the main application menu are:</p>
+<ul>
+<li><p><a href="file.html">File</a></p></li>
+<li><p><a href="Statistical-methods.html">Statistical methods</a></p></li>
+<li><p><a href="x-13doc.html">X-13Doc</a></p></li>
+<li><p><a href="regarimadoc.html">RegArimaDoc</a></p></li>
+<li><p><a href="tramodoc.html">TramoDoc</a></p></li>
+<li><p><a href="tramoseatsdoc.html">TramoSeatsDoc</a></p></li>
+<li><p><a href="view.html">View</a></p></li>
+<li><p><a href="tools.html">Tools</a></p></li>
+<li><p><a href="window.html">Window</a></p></li>
+<li><p><a href="help.html">Help</a></p></li>
+</ul>
+<section id="file" class="level3">
+<h3 class="anchored" data-anchor-id="file">File</h3>
+<p>The <em>File</em> menu is intended for working with <a href="workspace.html">workspaces</a> and <a href="../reference-manual/data-providers.html">data sources</a>. It offers the following functions:</p>
+<ul>
+<li><p><strong>New Workspace</strong> – creates a new workspace and displays it in the <em>Workspace</em> window with a default name (<em>Workspace_#number</em>);</p></li>
+<li><p><strong>Open Workspace</strong> – opens a dialog window, which enables the user to select and open an existing workspace;</p></li>
+<li><p><strong>Open Recent Workspace</strong> – presents a list of workspaces recently created by the user and enables the user to open one of them;</p></li>
+<li><p><strong>Save Workspace</strong> – saves the project file named by the system under the default name (<em>Workspace_#number</em>) and in a default location. The workspace can be re-opened at a later time;</p></li>
+<li><p><strong>Save Workspace As…</strong> – saves the current workspace under the name chosen by the user in the chosen location. The workspace can be re-opened at a later time;</p></li>
+<li><p><strong>Open Recent</strong> – presents a list of datasets recently used and enables the user to open one of them;</p></li>
+<li><p><strong>Exit</strong> – closes an application.</p></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/File menu.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><strong>The content of the <em>File</em> menu</strong></figcaption><p></p>
+</figure>
+</div>
+</section>
+<section id="statistical-methods" class="level3">
+<h3 class="anchored" data-anchor-id="statistical-methods">Statistical Methods</h3>
+<p>The Statistical methods menu includes functionalities for modelling, analysis and the seasonal adjustment of a time series. They are divided into three groups:</p>
+<ul>
+<li><p><a href="#anomaly-detection">Anomaly Detection</a> – allows for a purely automatic identification of regression effects;</p></li>
+<li><p><a href="#modelling">Modelling</a> – enables time series modelling using the TRAMO and RegARIMA models;</p></li>
+<li><p><a href="#seasonal-adjustment">Seasonal adjustment</a> – intended for the seasonal adjustment of a time series with the TRAMO-SEATS and X-13ARIMA-SEATS methods.</p></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/Statistical methods menu.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><strong>The <em>Statistical methods</em> menu.</strong></figcaption><p></p>
+</figure>
+</div>
+</section>
+<section id="view" class="level3">
+<h3 class="anchored" data-anchor-id="view">View</h3>
+<p>The View menu contains functionalities that enable the user to modify how JDemetra+ is viewed. It offers the following items:</p>
+<ul>
+<li><p><strong>Split</strong> – the function is not operational in the current version of the software.</p></li>
+<li><p><strong>Toolbars</strong> – displays selected toolbars under the main menu. The <em>File</em> toolbar contains the <em>Save all</em> icon. The <em>Performance</em> toolbar includes two icons: one to show the performance of the application, the other to stop the application profiling and taking a snapshot. The <em>Other</em> toolbar determines the default behaviour of the program when the user double clicks on the data. It may be useful to plot the data, visualise it on a grid, or to perform any pre-specified action, e.g.&nbsp;execute a seasonal adjustment procedure.</p></li>
+<li><p><strong>Show Only Editor</strong> – displays only the <em>Results</em> panel and hides other windows (e.g.&nbsp;<em>Workspace</em> and <em>Providers</em>).</p></li>
+<li><p><strong>Full Screen</strong> – displays the current JDemetra+ view in full screen.</p></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/View menu.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><strong>The <em>View</em> menu</strong></figcaption><p></p>
+</figure>
+</div>
+</section>
+<section id="tools-menu" class="level3">
+<h3 class="anchored" data-anchor-id="tools-menu">Tools menu</h3>
+<p>The following functionalities are available from the <em>Tools</em> menu:</p>
+<ul>
+<li><a href="#container"><em>Container</em></a> – includes several tools for displaying data in a time domain;</li>
+<li><a href="#spectral-analysis"><em>Spectral analysis</em></a> – contains tools for the analysis of a time series in a frequency domain;</li>
+<li><a href="#aggregation"><em>Aggregation</em></a> – enables the user to investigate a graph of the sum of multiple time series;</li>
+<li><a href="#differencing"><em>Differencing</em></a> – allows for the inspection of the first regular differences of the time series;</li>
+<li><a href="#spreadsheet-profiler"><em>Spreadsheet profiler</em></a> – offers an Excel-type view of the XLS file imported to JDemetra+.</li>
+<li><a href="#plugins"><em>Plugins</em></a> – allows for the installation and activation of plugins, which extend JDemetra+ functionalities.</li>
+<li><a href="#options"><em>Options</em></a> – presents the default interface settings and allows for their modification.</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/Tools menu.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><strong>The <em>Tools</em> menu</strong></figcaption><p></p>
+</figure>
+</div>
+<section id="container" class="level4">
+<h4 class="anchored" data-anchor-id="container">Container</h4>
+<p><em>Container</em> includes basic tools to display the data. The following items are available: <em>Chart</em>, <em>Grid</em>, <em>Growth Chart</em> and <em>List</em>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/Container tools.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><strong>The <em>Container</em> menu</strong></figcaption><p></p>
+</figure>
+</div>
+<p>Several containers can be opened at the same time. Each of them may include multiple time series.</p>
+<p><em>Chart</em> plots the time series as a graph. This function opens an empty window. To display a given series drag and drop the series from the <em>Providers</em> window into the empty window. More than one series can be displayed on one graph. The chart is automatically rescaled after adding a new series.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/A_Ref26.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><strong>Launching the <em>Chart</em> functionality</strong></figcaption><p></p>
+</figure>
+</div>
+<p>The series to be viewed can be also dragged from the other windows (e.g.&nbsp;from the <a href="../reference-manual/user-defined-variables.html"><em>Variables</em></a> window) or directly from the windows that display the results of the estimation procedure.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/A_Ref27.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><strong>Displaying the seasonally adjusted series on a separate chart</strong></figcaption><p></p>
+</figure>
+</div>
+<p>To adjust the view of the chart and save it to a given location use the local menu, which is displayed after right-clicking on the chart. The explanation of the functions available for the local menu is given below.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/A_Ref28.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><strong>Local menu basic options for the time series graph</strong></figcaption><p></p>
+</figure>
+</div>
+<p>To display the time series value at a given date, hover over it with the cursor. Once the time series is selected by clicking on it with the right mouse button, the options dedicated to this series are available.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/A_Ref29.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><strong>Local menu options for chart</strong></figcaption><p></p>
+</figure>
+</div>
+<p>A list of possible actions includes:</p>
+<ul>
+<li><p><strong>Open</strong> – opens selected time series in a new window that contains <em>Chart</em> and <em>Grid</em> panels.</p></li>
+<li><p><strong>Open with</strong> – opens the time series in a separate window according to the user choice (<em>Chart</em> <em>&amp; grid</em> or <em>Simple chart</em>). The <em>All ts views</em> option is not currently available.</p></li>
+<li><p><strong>Save</strong> – saves the marked series in a spreadsheet file or in a text file.</p></li>
+<li><p><strong>Rename</strong> – enables the user to change the time series name.</p></li>
+<li><p><strong>Freeze</strong> – disables modifications of the chart.</p></li>
+<li><p><strong>Copy</strong> – copies the series and allows it to be pasted to another application e.g.&nbsp;into Excel.</p></li>
+<li><p><strong>Paste</strong> – pastes the time series previously marked.</p></li>
+<li><p><strong>Split into yearly components</strong> – opens a window that presents the analysed series data split by year. This chart is useful to investigate the differences in time series values caused by the seasonal factors as it gives some information on the existence and size of the deterministic and stochastic seasonality in data.</p></li>
+<li><p><strong>Remove</strong> – removes a time series from the chart.</p></li>
+<li><p><strong>Select all</strong> – selects all the time series presented in the graph.</p></li>
+<li><p><strong>Show title</strong> – option is not currently available.</p></li>
+<li><p><strong>Show legend</strong> – displays the names of all the time series presented on the graph.</p></li>
+<li><p><strong>Edit format</strong> – enables the user to change the data format.</p></li>
+<li><p><strong>Color scheme</strong> – allows the colour scheme used in the graph to be changed.</p></li>
+<li><p><strong>Lines thickness</strong> – allows the user to choose between thin and thick lines to be used for a graph.</p></li>
+<li><p><strong>Clear</strong> – removes all the time series from the chart.</p></li>
+<li><p><strong>Show all</strong> – this option is not currently available.</p></li>
+<li><p><strong>Export image to</strong> – allows the graph to be sent to the printer and saved in the clipboard or as a file in a jpg format.</p></li>
+<li><p><strong>Configure</strong> – enables the user to customize the chart and series display.</p></li>
+</ul>
+<p><em>Grid</em> enables the user to display the selected time series as a table. This function opens an empty window. To display a given series drag and drop the series from the <em>Providers</em> window into the empty window. More than one series can be displayed in one table.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/A_Ref30.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><strong>Launching the <em>Grid</em> functionality</strong></figcaption><p></p>
+</figure>
+</div>
+<p>To display options available for a given time series, left click on any time series’ observation.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/A_Ref31.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><strong>Local menu options for the <em>Grid</em> view</strong></figcaption><p></p>
+</figure>
+</div>
+<p>The options available in <em>Grid</em> are:</p>
+<ul>
+<li><p><strong>Transpose</strong> – changes the orientation of the table from horizontal to vertical.</p></li>
+<li><p><strong>Reverse chronology</strong> – displays the series from the last to the first observation.</p></li>
+<li><p><strong>Single time series</strong> – removes from the table all time series apart from the selected one.</p></li>
+<li><p><strong>Use color scheme</strong> – allows the series to be displayed in colour.</p></li>
+<li><p><strong>Show bars</strong> – presents values in a table as horizontal bars.</p></li>
+<li><p><strong>Show crosshair</strong> – highlights an active cell.</p></li>
+<li><p><strong>Zoom</strong> – option for modifying the chart size.</p></li>
+</ul>
+<p>When none of the series is selected, the local menu offers a reduced list of options. The explanation of the other options can be found below in the ‘<em>Local menu options for chart</em>’ figure in the <a href="#container"><em>Container</em></a> section.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/A_Ref32.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><strong>A reduced list of options for <em>Grid</em> </strong></figcaption><p></p>
+</figure>
+</div>
+<p>The <em>Growth chart</em> tab opens an empty window. Once a given series is dropped into it, <em>Growth chart</em> presents the year-over-year or period-over-period growth rates for the selected time series. More than one series can be displayed in a table. The growth chart is automatically rescaled after adding a new series.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/A_Ref33.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><strong>The <em>Growth chart</em> view with a local menu</strong></figcaption><p></p>
+</figure>
+</div>
+<p>A left click displays a local menu with the available options. Those that are characteristic for the <em>Growth chart</em> are:</p>
+<ul>
+<li><p><strong>Kind</strong> – displays m/m (or q/q) and y/y growth rates for all time series in the chart (previous period and previous year options respectively). By default, the period-over-period growth rates are shown.</p></li>
+<li><p><strong>Edit last year</strong> – for clarity and readability purposes, only five of the last years of observations are shown by default. This setting can be adjusted in the <a href="#options"><em>Options</em></a> section, if required.</p></li>
+</ul>
+<p>The explanation of other options can be found below in the ‘<em>Local menu options for chart</em>’ figure in the <a href="#container"><em>Container</em></a> section.</p>
+<p>The <em>List</em> tab provides basic information about the chosen time series, such as; the start and end date, the number of observations and a sketch of the data graph. This function opens an empty window. To display information, drag and drop the series from the <a href="../reference-manual/data-providers.html"><em>Providers</em></a> window into the <em>List</em> window. A right click displays the local menu with all available options. Apart from the standard options, the local menu for <em>List</em> enables marking the series that match the selected frequency (yearly, half-yearly, quarterly, monthly) by using the <em>Select by frequency</em> option. An explanation of other options can be found below in the ‘<em>Local menu options for chart</em>’ figure in the <a href="#container"><em>Container</em></a> section.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/A_Ref34.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><strong>A view of a list of series</strong></figcaption><p></p>
+</figure>
+</div>
+<p>For a selected series a local menu offers an extended list of options. The explanation of the functions available for the local menu is given below in the ‘<em>Local menu options for chart</em>’ figure in the <a href="#container"><em>Container</em></a> section.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/A_Ref35.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><strong>Options available for a selected series from the list</strong></figcaption><p></p>
+</figure>
+</div>
+</section>
+<section id="spectral-analysis" class="level4">
+<h4 class="anchored" data-anchor-id="spectral-analysis">Spectral analysis</h4>
+<p>The <em>Spectral analysis</em> section provides three spectral graphs that allows an in-depth analysis of a time series in the frequency domain. These graphs are the <em>Auto-regressive Spectrum</em>, the <em>Periodogram</em> and the <em>Tukey Spectrum</em>. For more information the user may study <a href="../theory/spectral.html">a basic desription of spectral analysis</a> and <a href="../case-studies/spectralgraphs.html">a detailed presentation of the abovementioned tools</a>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/A_Ref36.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><strong>Tools for spectral analysis</strong></figcaption><p></p>
+</figure>
+</div>
+</section>
+<section id="aggregation" class="level4">
+<h4 class="anchored" data-anchor-id="aggregation">Aggregation</h4>
+<p><em>Aggregation</em> calculates the sum of the selected series and provides basic information about the selected time series, including the start and end date, the number of observations and a sketch of the data graph, in the same way as in the <em>List</em> functionality. <em>Aggregation</em> opens an empty window. To sum the selected series, drag and drop them from the <em>Providers</em> window into the <em>Aggregation</em> window. Right click displays the local menu with the available options. The content of the local menu depends on the panel chosen (the panel on the left that contains the list of the series and the panel on the right that presents the graph of an aggregate). The local menu for the list of series offers the option <em>Select by frequency</em>, which marks all the series on the list that are yearly, half-yearly, quarterly or monthly (depending on the user’s choice). The explanation of the other options can be found below in the ‘<em>Local menu options for chart</em>’ figure in the <a href="#container"><em>Container</em></a> section. The local menu for the panel on the left offers functionalities that are analogous to the ones that are available for the <em>List</em> functionalities, while the options available for the local menu in the panel on the left are the same as the ones available in <em>Chart</em> (see <a href="#container"><em>Container</em></a>).</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/A_Ref37.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><strong>The <em>Aggregation</em> tool</strong></figcaption><p></p>
+</figure>
+</div>
+</section>
+<section id="differencing" class="level4">
+<h4 class="anchored" data-anchor-id="differencing">Differencing</h4>
+<p>The <em>Differencing</em> window displays the first regular differences for the selected time series together with the corresponding periodogram and the PACF function. By default, the window presents the results for non-seasonally and seasonally differenced series (( <span class="math inline">\(d = 1,D = 1\)</span>)). These settings can be changed through the <em>Properties</em> window (<em>Tools</em> <em>→ Properties</em>). A description of a periodogram and the PACF function can be found <a href="../theory/spectral_periodogram.html">here</a>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/A_Ref38.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><strong>The properties of the <em>Differencing</em> tool</strong></figcaption><p></p>
+</figure>
+</div>
+<p>The typical results are shown below. The bottom left graph presents the partial autocorrelation coefficients (vertical bars) and the confidence intervals. The right-click local menu offers several functionalities for a differenced series. An explanation of the available options can be found below in the “<em>Local menu options for chart</em>” figure in the <a href="#container"><em>Container</em></a> section.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/A_Ref39.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><strong>The <em>Differencing</em> tool</strong></figcaption><p></p>
+</figure>
+</div>
+<p>For the <em>Partial autocorrelation</em> and the <em>Periodogram</em> panels the right-button menu offers “a copy series” option that allows data to be exported to another application and a graph to be printed and saved to a clipboard or as a jpg file. Information about the partial autocorrelation function is given <a href="../theory/ACF_and_PACF.html">here</a>. The description of a periodogram is presented in <a href="../case-studies/spectralgraphs.html">the Spectral graphs scenario</a>.</p>
+</section>
+<section id="spreadsheet-profiler" class="level4">
+<h4 class="anchored" data-anchor-id="spreadsheet-profiler">Spreadsheet profiler</h4>
+<p>The <em>Spreadsheet profiler</em> offers an Excel-type view of the XLS file imported to JDemetra+. To use this functionality drag the file name from the <em>Providers</em> window and drop it to the empty <em>Spreadsheet profiler</em> window.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/A_Ref40.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><strong>The <em>Spreadsheet Profiler</em> window</strong></figcaption><p></p>
+</figure>
+</div>
+</section>
+<section id="plugins" class="level4">
+<h4 class="anchored" data-anchor-id="plugins">Plugins</h4>
+<p>Installation an functionalities of plugins are described in the related <a href="./T-plug-ins.html">chapter</a></p>
+</section>
+<section id="options" class="level4">
+<h4 class="anchored" data-anchor-id="options">Options</h4>
+<p>The <em>Options</em> window includes five main panels: <em>Demetra</em>, <em>General</em>, <em>Keymap</em>, <em>Appearance</em> and <em>Miscellaneous</em>. They are visible in the very top of the <em>Options</em> window.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/A_Ref41.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><strong>The main sections of the <em>Options</em> window</strong></figcaption><p></p>
+</figure>
+</div>
+<p>By default, the <em>Demetra</em> tab is shown. It is divided into seven panels: <em>Behaviour</em>, <em>Demetra UI</em>, <em>Statistics</em>, <em>Data transfer</em>, <em>Demetra Paths</em>, <em>ProcDocumentItems</em>, and <em>Interchange</em>.</p>
+<p><em>Behaviour</em> defines the default reaction of JDemetra+ to some of the actions performed by the user.</p>
+<ul>
+<li><p><strong>Providers</strong> – an option to show only the data providers that are currently available.</p></li>
+<li><p><strong>Persistence</strong> – an option to restore the data sources after re-starting the application so that there is no need to fetch them again (<strong>Persist opened DataSources</strong>) and an option to restore all the content of the chart and grid tools (<strong>Persist tools content</strong>).</p></li>
+<li><p><strong>Threading</strong> – defines how resources are allocated to the computation (<strong>Batch Pool Size</strong> controls the number of cores used in parallel computation and <strong>Batch Priority</strong> defines the priority of computation over other processes). Changing these values might improve computation speed but also reduce user interface responsiveness.</p></li>
+<li><p><strong>Time Series</strong> – determines the default behaviour of the program when the user double clicks on the data. It may be useful to plot the data, visualise it on a grid, or to perform any pre-specified action, e.g.&nbsp;execute a seasonal adjustment procedure.</p></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/A_Ref42.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><strong>The content of the <em>Behavior</em> tab</strong></figcaption><p></p>
+</figure>
+</div>
+<p>The <em>Demetra UI</em> tab enables the setting of:</p>
+<ul>
+<li><p>A default colour scheme for the graphs (<strong>Color scheme</strong>).</p></li>
+<li><p>The data format (uses MS Excel conventions). For example, ###,###.#### implies the numbers in the tables and the y-axis of the graphs will be rounded up to four decimals after the decimal point (<strong>Data format</strong>).</p></li>
+<li><p>The default number of last years of the time series displayed in charts representing growth rates (<strong>Growth rates</strong>).</p></li>
+<li><p>The control of the view of the window for adding pre-specified outliers. (<strong>Pre-specified Outliers</strong>).</p></li>
+<li><p>The visibility of the icons in the context menus (<strong>Context Menus</strong>).</p></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/A_Ref43.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><strong>The content of the <em>Demetra UI</em> tab</strong></figcaption><p></p>
+</figure>
+</div>
+<p>The <em>Statistics</em> tab includes options to control:</p>
+<ul>
+<li><p>The number of years used for spectral analysis and for model stability (<strong>Default Number of Last Years</strong>);</p></li>
+<li><p>The default pre-defined specification for seasonal adjustment (<strong>Seasonal Adjustment</strong>);</p></li>
+<li><p>The type of the analysis of revision history (<strong>Revision History</strong>):</p>
+<ul>
+<li><p><em>FreeParameters</em> – the RegARIMA model parameters and regression coefficients of the RegARIMA model will be re-estimated each time the end point of the data is changed. This argument is ignored if no RegARIMA model is fit to the series.</p></li>
+<li><p><em>Complete</em> – the whole RegARIMA model together with regressors will be re-identified and re-estimated each time the end point of the data is changed. This argument is ignored if no RegARIMA model is fitted to the series.</p></li>
+<li><p><em>None</em> – the ARIMA parameters and regression coefficients of the RegARIMA model will be fixed throughout the analysis at the values estimated from the entire series (or model span).</p></li>
+</ul></li>
+<li><p>The settings for the quality measures and tests used in a diagnostic procedure:</p>
+<ul>
+<li><strong>Default components</strong> – a list of series and diagnostics that are displayed in the <strong>SAProcessing</strong> \(\) <strong>Output</strong> window. The list of default items can be modified with the respective <strong>Select</strong> button (see figure below)</li>
+<li><strong>Diagnostics</strong> – a list of diagnostics tests, where the user can modify the default settings (see figure “<em>The panel for modification of the settings for the tests in the Basic checks section</em>” below).</li>
+</ul></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/A_Ref44.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><strong>The <em>Default components</em> section on the <em>Statistics</em> tab</strong></figcaption><p></p>
+</figure>
+</div>
+<p>An explanation of the list of the series and diagnostics components that are displayed in the <em>Default components</em> section can be found <a href="../theory/output.html">here</a>.</p>
+<p>To modify the settings for a particular measure, double click on a selected row (select the test’s name from the list and click on the working tools button), introduce changes in the pop-up window and click the <strong>OK</strong> button.</p>
+<p>To reset the default settings for a given test, select this test from the list and click on the backspace button situated below the working tools button. The description of the parameters for each quality measure and test used in a diagnostic procedure can be found in the <a href="../reference-manual/output-modelling.html">output from modelling</a> and the <a href="../reference-manual/output.html">output from seasonal adjustement</a> nodes.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/A_Ref45.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><strong>The panel for modification of the settings for the tests in the <em>Basic checks</em> section</strong></figcaption><p></p>
+</figure>
+</div>
+<p>The users can customize the diagnostics and they can specify the default settings for different outputs. Their preferences are saved between different sessions of JDemetra+. This new feature is accessible in the <em>Statistics</em> tab of the <em>Options</em> panel.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/A_Ref46.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><strong>The settings of the output files</strong></figcaption><p></p>
+</figure>
+</div>
+<p>The <em>Data Transfer</em> tab contains multiple options that define the behaviour of the drag and drop and copy-paste actions. To change the default settings, double click on the selected item. Once the modifications are introduced, confirm them with the <strong>OK</strong> button.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/A_Ref47.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><strong>The content of the <em>Data Transfer</em> tab</strong></figcaption><p></p>
+</figure>
+</div>
+<p><em>Demetra Paths</em> allows the user to specify the relative location of the folders where the data can be found. In this way, the application can access data from different computers. Otherwise, the user would need to have access to the exact path where the data is located. To add a location, select the data provider, click the “<strong>+</strong>” button and specify the location.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/A_Ref48.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><strong>The content of the <em>Demetra Paths</em> tab</strong></figcaption><p></p>
+</figure>
+</div>
+<p><em>ProcDocumentItems</em> includes a list of all reports available for processed documents like seasonal adjustment. The <em>Interchange</em> tab lists the protocols that can be used to export/import information like calendars, specifications, etc. For the time being, the user cannot customize the way the standard exchanges are done. However, such features could be implemented in plug-ins.</p>
+<p>The next section, <em>General</em>, allows for the customisation of the proxy settings. A proxy is an intermediate server that allows an application to access the Internet. It is typically used inside a corporate network where Internet access is restricted. In JDemetra+, the proxy is used to get time series from remote servers like .Stat.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/A_Ref49.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><strong>The <em>General</em> tab</strong></figcaption><p></p>
+</figure>
+</div>
+<p><em>Keymap</em> provides a list of default key shortcuts to access some of the functionalities and it allows the user to edit them and to define additional shortcuts.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/A_Ref50.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><strong>The <em>Keymap</em> tab</strong></figcaption><p></p>
+</figure>
+</div>
+<p>The <em>Appearance</em> and <em>Miscellaneous</em> tabs are tabs automatically provided by the Netbeans platform. They are not used by JDemetra+.</p>
+</section>
+</section>
+<section id="window-menu" class="level3">
+<h3 class="anchored" data-anchor-id="window-menu">Window menu</h3>
+<p>The <em>Window</em> menu offers several functions that facilitate the analysis of data and enables the user to adjust the interface view to the user’s needs.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/A_Ref51.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><strong>The <em>Window</em> menu</strong></figcaption><p></p>
+</figure>
+</div>
+<ul>
+<li><p><strong>Preview Time Series</strong> – opens a window that plots any of the series the user selects from <em>Providers</em>.</p></li>
+<li><p><strong>Debug</strong> – opens a <em>Preview Time Series</em> window that enables a fast display of the graphs for time series from a large dataset. To display the graph click on the series in the <em>Providers</em> window.</p></li>
+<li><p><a href="../reference-manual/data-providers.html"><strong>Providers</strong></a> – opens (if closed) and activates the <em>Providers</em> window.</p></li>
+<li><p><a href="../reference-manual/user-defined-variables.html"><strong>Variables</strong></a> – opens (if closed) and activates the <em>Variable</em> window.</p></li>
+<li><p><a href="../reference-manual/workspace.html"><strong>Workspace</strong></a> – opens (if closed) and activates the <em>Workspace</em> window.</p></li>
+<li><p><strong>Output</strong> – a generic window to display outputs in the form of text; useful with certain plug-ins (e.g.&nbsp;tutorial descriptive statistics).</p></li>
+<li><p><strong>Editor</strong> – activates the editor panel (and update the main menu consequently).</p></li>
+<li><p><strong>Configure Window</strong> – enables the user to change the way that the window is displayed (maximise, float, float group, minimise, minimise group). This option is active when some window is displayed in the JD+ interface.</p></li>
+<li><p><strong>Properties</strong> – opens the <em>Properties</em> window and displays the properties of the marked item (e.g.&nbsp;time series, data source).</p></li>
+<li><p><strong>Reset Windows</strong> – restores the default JDemetra+ view.</p></li>
+<li><p><strong>Close Window</strong> – closes all windows that are open.</p></li>
+<li><p><strong>Close All Documents</strong> – closes all documents that are open.</p></li>
+<li><p><strong>Close Other Documents</strong> – closes all documents that are open except for the one that is active (which is the last activated one).</p></li>
+<li><p><strong>Document Groups</strong> – enables the user to create and manage the document groups.</p></li>
+<li><p><strong>Documents</strong> – lists all documents that are active.</p></li>
+</ul>
+</section>
+<section id="help-menu" class="level3">
+<h3 class="anchored" data-anchor-id="help-menu">Help menu</h3>
+</section>
+</section>
+<section id="providers-window" class="level2">
+<h2 class="anchored" data-anchor-id="providers-window">Providers window</h2>
+<p>The <em>Providers</em> window presents the list of the data sources and organises the imported series within each data provider.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/A_Ref5.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><strong>The <em>Providers</em> window</strong></figcaption><p></p>
+</figure>
+</div>
+<p>The allowed data sources include:</p>
+<ul>
+<li><p>JDBC;</p></li>
+<li><p>ODBC;</p></li>
+<li><p>SDMX;</p></li>
+<li><p>Spreadsheets;</p></li>
+<li><p>TSW;</p></li>
+<li><p>TXT;</p></li>
+<li><p>USCB;</p></li>
+<li><p>XML.</p></li>
+</ul>
+<p>All standard databases (Oracle, SQLServer, DB2, MySQL) are supported by JDemetra+ via JDBC, which is a generic interface to many relational databases. Other providers can be added by users by creating plugins (see <em>Plugins</em> section in the <a href="tools.html">Tools</a> menu). To import data, right-click on the appropriate provider from the <em>Providers</em> panel and specify the required parameters. For all providers the procedure follows the same logic. An example is provided <a href="#import-data">here</a>.</p>
+<p>The <em>Providers</em> window organises data in a tree structure reflecting the manner in which data are presented in the original source. The picture below presents how JDemetra+ visualises the imported spreadsheet file. If the user expands all the pluses under the spreadsheet all the series within each sheet that has been loaded are visible. Here two time series are visible: <em>Japan</em> (under the <em>Asia</em> branch) and <em>United States</em> (under the <em>North America</em> branch) while the <em>Europe</em> branch is still folded. The names of the time series have been taken from the column headings of the spreadsheet while the names of the branches come from sheets’ names.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/A_Ref6.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><strong>A structure of a dataset</strong></figcaption><p></p>
+</figure>
+</div>
+<p>Series uploaded to the <em>Providers</em> window can be <a href="../reference-manual/data-visualization.html">displayed</a>, modified and <a href="../case-studies/seasonalitytests.html">tested for seasonality</a> and used in estimation routines (see <a href="modelling.html">Modelling</a> and <a href="sa.html">Seasonal adjustment</a>). The data sources can be restored after re-starting the application so that there is no need to get them again. This functionality can be set in the <em>Behaviour</em> tab available at the <a href="../reference-manual/tools.html#options"><em>Option</em></a> item from the <a href="../reference-manual/tools.html"><em>Tools</em></a> menu.</p>
+<section id="spreadsheets" class="level3">
+<h3 class="anchored" data-anchor-id="spreadsheets">Spreadsheets</h3>
+<p>The Spreadsheets data source corresponds to the series prepared in the Excel file. The file should have true dates in the first column (or in the first row) and titles of the series in the corresponding cell of the first row (or in the first column). The top-left cell <span class="math inline">\(A1\)</span> can include a text or it can be left empty. The empty cells are interpreted by JDemetra+ as missing values and they can appear in the beginning, in the middle and in the end of time series.</p>
+<p>An example is presented below:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/Aimage5.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><strong>Example of an Excel spreadsheet that can be imported to JDemetra+</strong></figcaption><p></p>
+</figure>
+</div>
+<p>Time series are identified by their names. JDemetra+ derives some information (like data periodicity, starting and ending period) directly from the first column (or from the first row, depending on the chosen data orientation (vertical or horizontal)).</p>
+</section>
+<section id="import-data" class="level3">
+<h3 class="anchored" data-anchor-id="import-data">Import data</h3>
+<p>To import data from a given data source, click on this data source in the <em>Providers</em> window shown below, choose <em>Open</em> option and specify the import details, such as a path to a data file. These details vary according to data providers. The example below show how to import the data from an Excel file.</p>
+<ol type="1">
+<li><p>From the <em>Providers</em> window right-click on the <em>Spreadsheets</em> branch and choose <em>Open</em> option.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/Aimage6.jpeg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><strong>Data provider available by default</strong></figcaption><p></p>
+</figure>
+</div></li>
+<li><p>The <em>Open data source</em> window contains the following options:</p>
+<ul>
+<li><p><strong>Spreadsheet file</strong> – a path to access the Excel file.</p></li>
+<li><p><strong>Data format</strong> – the data format used to read dates and values. It includes three fields: <em>locale</em> (country), <em>date pattern</em> (data format, e.g.&nbsp;<em>yyyy-mm-dd</em>), <em>number pattern</em> (a metaformat of numeric value, e.g.&nbsp;0.## represents two digit number).</p></li>
+<li><p><strong>Frequency</strong> – time series frequency. This can be undefined, yearly, half-yearly, four-monthly, quarterly, bi-monthly, or monthly. When the frequency is set to undefined, JDemetra+ determines the time series frequency by analysing the sequence of dates in the file.</p></li>
+<li><p><strong>Aggregation type</strong> – the type of aggregation (over time for each time series in the dataset) for the imported time series. This can be <em>None</em>, <em>Sum</em>, <em>Average</em>, <em>First</em>, <em>Last</em>, <em>Min</em> or <em>Max</em>. The aggregation can be performed only if the <em>frequency</em> parameter is specified. For example, when frequency is set to <em>Quarterly</em> and aggregation type is set to <em>Average</em>, a monthly time series is transformed to quarterly one with values that are equal to the one third of the sum of the monthly values that belong to the corresponding calendar quarter.</p></li>
+<li><p><strong>Clean missing</strong> – erases the missing values of the series.</p></li>
+</ul>
+<p>Next, in the <em>Source</em> section click the grey “….” button (see below) to open the file.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/Aimage7.jpeg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><strong>Data source window</strong></figcaption><p></p>
+</figure>
+</div></li>
+<li><p>Choose a file and click <em>OK</em>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/Aimage8.jpeg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><strong>Choice of an Excel spreadsheet</strong></figcaption><p></p>
+</figure>
+</div></li>
+<li><p>The user may specify <em>Data format</em>, <em>Frequency</em> and <em>Aggregation type</em>, however this step is not compulsory. When these options are specified JDemetra+ is able to convert the time series frequency. Otherwise, the functionality that enables the time series frequency to be converted will not be available.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/Aimage9.jpeg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><strong>Options for importing data</strong></figcaption><p></p>
+</figure>
+</div></li>
+<li><p>The data are organized in a tree structure.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/Aimage10.jpeg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><strong>Dataset structure</strong></figcaption><p></p>
+</figure>
+</div>
+<p>Once the data has been successfully imported, it is available to the user for various analyses (e.g.&nbsp;visualization, modelling, seasonal adjustment, etc.)</p></li>
+</ol>
+<p>The data are organized in a tree structure. If you expand all the plus-signs under the spreadsheet you will see all the series within each sheet that has been loaded. Here all time series are visible under the Production in construction branch. The names of time series have been taken from the columns’ headings of the spreadsheet while the names of the branches come from sheets’ names.</p>
+</section>
+</section>
+<section id="workspace-window" class="level2">
+<h2 class="anchored" data-anchor-id="workspace-window">Workspace window</h2>
+<p>Restructure: present all the nodes</p>
+<p>Workspace is a JDemetra+ functionality that stores the work performed by the user in a coherent and structured way. By default, each workspace contains the pre-defined modelling and seasonal adjustment specifications and a basic calendar. A specification is a set of modelling and/or seasonal adjustment parameters. Within the workspace the following items can be saved:</p>
+<ul>
+<li><p><a href="../reference-manual/modelling-specifications.html#user-definedSpec">User-defined modelling specifications</a> and <a href="../reference-manual/sa-specifications.html">seasonal adjustment specifications</a>;</p></li>
+<li><p>Documents that contain <a href="../reference-manual/output-modelling.html">results from time series modelling</a> and <a href="../reference-manual/output.html">output from the seasonal adjustment process</a>;</p></li>
+<li><p><a href="../reference-manual/calendars.html">User-defined calendars</a>;</p></li>
+<li><p><a href="../reference-manual/user-defined-variables.html">User-defined regression variables</a>.</p></li>
+</ul>
+<p>Together with the results from modelling and seasonal adjustment, the original data, paths to the input files and parameters of processes are all saved. These results can then be re-opened, updated, investigated and modified in further JDemetra+ sessions.</p>
+<p>The workspace saved by JDemetra+ includes:</p>
+<ul>
+<li><p>Main folder containing several folders that correspond to the different types of items created by the user and;</p></li>
+<li><p>The xml file that enables the user to import the workspace to the application and to display its content.</p></li>
+</ul>
+<p>An example of the workspace is shown in the figure below.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/A_Ref7.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><strong>A workspace saved on PC</strong></figcaption><p></p>
+</figure>
+</div>
+<p>The workspace can be shared with other users, which eases the burden of work with defining specifications, modelling and seasonal adjustment processes.</p>
+<p>The content of the workspace is presented in the <em>Workspace</em> window. It is divided into three sections:</p>
+<ul>
+<li><p><a href="../reference-manual/modelling.html">Modelling</a> (contains the default and user-defined specifications for modelling; and the output from the modelling process)</p></li>
+<li><p><a href="../reference-manual/sa.html">Seasonal adjustment</a> (contains the default and user-defined specifications for seasonal adjustment and the output from the seasonal adjustment process),</p></li>
+<li><p>Utilities (<a href="calendars.html">calendars</a> and <a href="user-defined-variables.html">user defined variables</a>).</p></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/A_Ref8.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><strong>The <em>Workspace</em> window</strong></figcaption><p></p>
+</figure>
+</div>
+</section>
+<section id="results-panel" class="level2">
+<h2 class="anchored" data-anchor-id="results-panel">Results panel</h2>
+<p>The blank zone in the figure above (on the right of the view) is the location where JDemetra+ displays various windows. More than one window can be displayed at the same time. Windows can overlap with each other with the foremost window being the one in focus or active. The active window has a darkened title bar. <a href="../reference-manual/window.html">The windows in the results panel can be arranged in many different ways</a>, depending on the user’s needs. The example below shows one of the possible views of this panel. The results of the user’s analysis are displayed in an accompanying window. The picture below shows two panels – a window containing seasonal adjustment results (upper panel) and another one containing an autoregressive spectrum (lower panel).</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/A_Ref9.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><strong>The <em>Results</em> panel filled with two windows</strong></figcaption><p></p>
+</figure>
+</div>
+</section>
+<section id="data-visualisation" class="level2">
+<h2 class="anchored" data-anchor-id="data-visualisation">Data Visualisation</h2>
+<p>everything is in Tools &gt; container</p>
+</section>
+<section id="generating-outpt" class="level2">
+<h2 class="anchored" data-anchor-id="generating-outpt">Generating Outpt</h2>
+<p>add : some explanations + link to cruncher (production chapter)</p>
+<section id="steps" class="level3">
+<h3 class="anchored" data-anchor-id="steps">Steps</h3>
+<ol type="1">
+<li><p>Once a seasonal adjustment process for the dataset is performed Go to the TOP menu bar and follow the path: <em>SAProcessing</em> → <em>Output…</em></p></li>
+<li><p>In the <em>Batch output</em> window the user can specify which output items will be saved and the folder in which JDemetra+ saves the results. It is possible to save the results in the <em>TXT</em>, <em>XLS</em>, <em>CSV</em>, and <em>CSV matrix</em> formats. In the first step the user should choose the output format from the list.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/UDimage6.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><strong>Default output formats</strong></figcaption><p></p>
+</figure>
+</div></li>
+<li><p>The user may choose more than one format as the output can be generated in different formats at the same time.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/UDimage7.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><strong>Adding an output format to the list</strong></figcaption><p></p>
+</figure>
+</div></li>
+<li><p>To display and modify the settings click on the given output format on the list. The available options depend on the output format.</p></li>
+<li><p>For <em>Csv</em> format the following options are available: <em>folder</em> (location of the file), <em>file prefix</em> (name of the file), <em>presentation</em> (controls how the output is divided into separate files) and <em>series</em> (series included in the file). These options are presented in the next points of this case study.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/UDimage8.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><strong>Options for a <em>Csv</em> format</strong></figcaption><p></p>
+</figure>
+</div></li>
+<li><p>The user can define the folder in which the selected results and components will be saved (click the <em>folder</em> item and choose the final destination).</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/UDimage9.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><strong>Specifying a destination folder</strong></figcaption><p></p>
+</figure>
+</div></li>
+<li><p>With the option <em>File Prefix</em> the user can modify the default name of the output saved in the CSV file.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/UDimage10.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><strong>Setting a <em>File Prefix</em> option</strong></figcaption><p></p>
+</figure>
+</div></li>
+<li><p><em>Layout</em> controls how the output is divided into separate files. Expand the list to display available options:</p>
+<ul>
+<li><p><em>HTable</em> – the output series will be presented in the form of horizontal tables (time series in rows).</p></li>
+<li><p><em>VTable</em> – the output series will be presented in the form of vertical tables (time series in columns).</p></li>
+<li><p><em>List</em> – the output series will be presented in the form of vertical tables (time series in rows). Apart from that, for each time series each file contains in separate columns: the data frequency, the first year and of estimation span, the first period (month or quarter) of observation span and the number of observations. The files do not include dates.</p></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/UDimage11.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><strong>Layout options for a <em>Csv</em> format</strong></figcaption><p></p>
+</figure>
+</div></li>
+<li><p>The <em>Content</em> section presents <a href="../theory/output.html">a list of series that will be included into a set of output files</a>. To modify the initial settings click on the grey button in the <em>Content</em> section. The <em>CVS-series</em> window presents two panels: the panel on the left includes a list of all valuable output items. The panel on the right presents the selected output items. Mark the series and use the arrows to change the settings. Confirm your choice with the <em>OK</em> button.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/UDimage12.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><strong>Specifying a content of the output file</strong></figcaption><p></p>
+</figure>
+</div></li>
+<li><p>Options available for the <em>XLS</em> format are the same as for the <em>TXT</em> format with an exception of the <em>Layout</em> section. The list of available codes in the <em>Content</em> section is given <a href="../theory/output.html">here</a>.</p>
+<ul>
+<li><p><em>BySeries</em> – all results for a given time series are placed in one sheet;</p></li>
+<li><p><em>ByComponent</em> – results are grouped by components. Each component type is saved in a separate sheet.</p></li>
+<li><p><em>OneSheet</em> – all results are saved in one sheet.</p></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/UDimage13.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><strong>Layout options for an <em>Excel</em> format</strong></figcaption><p></p>
+</figure>
+</div></li>
+<li><p>If the user sets the option layout to <em>ByComponent</em>, the output will be generated as follows:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/UDimage14.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><strong>An Excel file view for the <em>ByComponent</em> option</strong></figcaption><p></p>
+</figure>
+</div></li>
+<li><p>The option <em>OneSheet</em> will produce the following <em>XLS</em> file:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/UDimage15.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><strong>An Excel file view for the <em>OneSheet</em> option</strong></figcaption><p></p>
+</figure>
+</div></li>
+<li><p>By default, the series in the Excel output files are organised vertically. When the user unmarks the check box the horizontal orientation is used.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/UDimage16.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><strong>The <em>VerticalOrientatio</em>n option</strong></figcaption><p></p>
+</figure>
+</div></li>
+<li><p>In the case of the <em>TXT</em> format the only available options are <em>folder</em> (location of the file) and <em>series</em> (results included in the output file). The list of available codes in the <em>Content</em> section is given <a href="../theory/output.html">here</a>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/UDimage17.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><strong>Options for the <em>Txt</em> output</strong></figcaption><p></p>
+</figure>
+</div></li>
+<li><p>The <em>CSV matrix</em> produces the CSV file containing information about the model and quality diagnostics of the seasonal adjustment. The user may generate the list of default items or create their own quality report. By default, all the available items are included in the output. The list of the items is given <a href="../theory/output.html">here</a>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/UDimage18.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><strong>List of items available for the <em>Csv matrix</em> output type</strong></figcaption><p></p>
+</figure>
+</div></li>
+<li><p>Once the output settings are selected, click the <em>OK</em> button.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/UDimage19.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><strong>Options for the <em>Csv matrix</em> output</strong></figcaption><p></p>
+</figure>
+</div></li>
+<li><p>For each output JDemetra+ provides information on the status of the operation. An example is presented below.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/UDimage20.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption"><strong>Generating output - status information</strong></figcaption><p></p>
+</figure>
+</div></li>
+</ol>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./P_Tools.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Tools</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./T-r-packages.html" class="pagination-link">
+        <span class="nav-page-text">Using JDemetra+ in R</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>
