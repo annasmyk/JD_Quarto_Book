@@ -1,2 +1,21 @@
 # Methods {.unnumbered}
 
+This part describes in greater detail:
+
+-   [Reg-Arima modelling](M-reg-arima-modelling.qmd)
+
+-   [X-11: moving average based decomposition](M-X11-decomposition.qmd)
+
+-   [SEATS: Arima model based decomposition](M-SEATS-decomposition.qmd)
+
+-   [STL: Loess based decomposition](M-STL-decomposition.qmd)
+
+-   [Benchmarking and temporal disaggregation](M-Temp-Disagg-Bench.qmd)
+
+-   [Spectral analysis tools](M-spectral-analysis.qmd)
+
+-   [Trend Estimation](M-Trend-Estimation-Local-Polynomials.qmd)
+
+-   [Tests for seasonality and residuals](M-tests.qmd)
+
+-   [Structural time series and state space framework](M-state-space-framework.qmd)

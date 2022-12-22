@@ -1,2 +1,11 @@
 # Tools {.unnumbered}
 
+The different tools described in this part:
+
+-   Graphical User Interface [GUI](T-graphical-user-interface.qmd)
+
+-   ...enhanced with additional [plug-ins](T-plug-ins.qmd)
+
+-   ..and a [Cruncher](T-Production-tools-cruncher-QR.qmd) for mass production
+
+-   [R packages](T-r-packages.qmd)
