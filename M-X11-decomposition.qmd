@@ -943,8 +943,8 @@ Edit : problem with tables display
 $$
 \scriptsize
 Q = \frac{10M1 + 11M2 + 10M3 + 8M4 + 11M5 + 10M6 + 18M7 + 7M8 + 7M9 + 4M10 + 4M11}{100}
-$$
-\[1\]<!---\[5.25\]-->
+$$ {#eq-1}
+<!---\[5.25\]-->
 
 $Q = Q - M2$ (also called $Q2$) is the $Q$ statistic for which the $M2$
 statistics was excluded from the formula, i.e.:
@@ -952,8 +952,8 @@ statistics was excluded from the formula, i.e.:
 $$
 \small
 Q - M2 = \frac{10M1 + 10M3 + 8M4 + 11M5 + 10M6 + 18M7 + 7M8 + 7M9 + 4M10 + 4M11}{89}
-$$
-\[2\]<!---\[5.26\]-->
+$$ {#eq-2}
+<!---\[5.26\]-->
 
 If a time series does not cover at least 6 years, the $M8$, $M9$, $M10$
 and $M11$ statistics cannot be calculated. In this case the $Q$
@@ -1015,8 +1015,8 @@ $$
 
 $$
 \text{Component}_{d} = \frac{1}{n - d}\sum_{t = d + 1}^{n}|Table_{t} - Table_{t - d}|
-$$
-\[4\]
+$$ {#eq-4}
+
 
 where:
 
@@ -1041,16 +1041,16 @@ components are independent, the following relation is valid:
 
 $$
 O_{d}^{2} \approx C_{d}^{2} + S_{d}^{2} + I_{d}^{2} + P_{d}^{2} + {TD\& H}_{d}^{2}
-$$
-\[5\]<!---\[5.29\]-->
+$$ {#eq-5}
+<!---\[5.29\]-->
 
 In order to simplify the analysis, the approximation can be replaced by
 the following equation:
 
 $$
 O_{d}^{*2} = C_{d}^{2} + S_{d}^{2} + I_{d}^{2} + P_{d}^{2} + {TD\& H}_{d}^{2}
-$$
-\[6\]<!---\[5.30\]-->
+$$ {#eq-6}
+<!---\[5.30\]-->
 
 The notation is the same as for Table F2A. The column $\text{Total}$
 denotes total changes in the raw time series.
@@ -1125,7 +1125,7 @@ $$
 
 $$
 \text{Corr}_{k}I = \frac{\sum_{t = k + 1}^{N}{(I_{t} - 1)(I_{t - k} - 1)}}{\sum_{t = 1}^{N}{(I_{t} - 1)}^{2}}]
-$$ \[7\]<!---\[5.31\]-->
+$$ {#eq-7}<!---\[5.31\]-->
 
 where $N$ is number of observations in the time series and $\text{k}$
 the lag.
