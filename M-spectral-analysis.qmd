@@ -221,9 +221,9 @@ $$
 \mathbf{e}_{n/2} = {(- (n^{-\frac{1}{2}}),n^{- \frac{1}{2}},\ldots,{-(n)}^{- \frac{1}{2}}),n^{-\frac{1}{2}})}^{'}
 $$.
 
-Equation \[5\] can be seen as an OLS regression of $x_{t}$ on a constant
+Equation @eq-5 can be seen as an OLS regression of $x_{t}$ on a constant
 and the trigonometric terms. As the vector of explanatory variables
-includes $n$ elements, the number of explanatory variables in \[5\] is
+includes $n$ elements, the number of explanatory variables in @eq-5 is
 equal to the number of observations. HAMILTON, J.D. (1994) shows that
 the explanatory variables are linearly independent, which implies that
 an OLS regression yields a perfect fit (i.e. without an error term). The
@@ -232,31 +232,31 @@ orthonormal basis:
 
 $$
 {\widehat{a}}_{0}=\frac{1}{\sqrt{n}}\sum_{t=1}^{n}x_{t}
-$$ {#eq-7} <!---[7.108]      -->
+$$ {#eq-7} <!---[7.108] -->
 
 $$
 {\widehat{a}}_{n/2}=\frac{1}{\sqrt{n}}\sum_{t=1}^{n}{(-1)}^{t}x_{t}(   \text{only when n is even})
-$$ {#eq-8} <!---[7.109]      -->
+$$ {#eq-8} <!---[7.109] -->
 
 $$
 {\widehat{a}}_{0}=\frac{1}{\sqrt{n}}\sum_{t=1}^{n}x_{t}
-$$ {#eq-9} <!---[7.110]      -->
+$$ {#eq-9} <!---[7.110] -->
 
 $$
 {\widehat{\alpha}}_{j} = 2^{1/2}r_{j}\cos{\theta_{j}} = {(\frac{n}{2})}^{- 1/2}\sum_{t = 1}^{n}x_{t}\cos{(t\frac{2\pi j}{n})}, j   = 1,\ldots,\lbrack\frac{n - 1}{2}\rbrack
-$$ {#eq-10} <!---[7.111]      -->
+$$ {#eq-10} <!---[7.111] -->
 
 $$
 {\widehat{\beta}}_{j} = 2^{1/2}r_{j}\sin{\theta_{j}} = {(\frac{n}{2})}^{-1/2}\sum_{t = 1}^{n}x_{t}\sin{(t\frac{2\pi j}{n})}, j = 1,\ldots,\lbrack\frac{n - 1}{2}\rbrack
-$$ {#eq-11} <!---[7.112]      -->
+$$ {#eq-11} <!---[7.112] -->
 
-With \[5\] the total sum of squares $\sum_{t = 1}^{n}| x_{t} |^{2}$ can
+With @eq-5 the total sum of squares $\sum_{t = 1}^{n}| x_{t} |^{2}$ can
 be decomposed into $2 \times \lbrack\frac{n - 1}{2}\rbrack$ components
 corresponding to $\mathbf{c}_{j}$ and $\mathbf{s}_{j}$, which are
 grouped to produce the "frequency $ω_{j}$" component for
 $1 \geq j \geq \lbrack\frac{n - 1}{2}\rbrack$. As it is shown in the
 table below, the value of the periodogram at the frequency $\omega_{j}$
-is the contribution of the $j\^{\text{th}}$ harmonic to the total sum of
+is the contribution of the $j^{\text{th}}$ harmonic to the total sum of
 squares $\sum_{t = 1}^{n}| x_{t} |^{2}$.
 
 **Decomposition of sum of squares into components corresponding to the
@@ -264,19 +264,19 @@ harmonics**
 
 <!-- {: .table .table-style} -->
 
-| **Frequency**                                 | **Degrees of freedom** | **Sum of squares decomposition**                                         |
+| **Frequency**   | **Degrees of freedom** | **Sum of squares decomposition** |
 |----------------------|-----------------|----------------------------------|
-| $\omega_{0}$(mean)                            | 1                      | ${a_{0}^{2}}_{\ }=n^{- 1}(\sum_{t=1}^{n}x_{t})^{2} = I( 0)$              |
-| $\omega_{1}$                                  | 2                      | ${2r_{1}^{2}}_{\ } = 2{|a_{1}|}^{2} = 2I(\omega_{1})$                    |
-| $\vdots$                                      | $\vdots$               | $\vdots$                                                                 |
-| $\omega_{k}$                                  | 2                      | ${2r_{k}^{2}}_{\ } = 2{|a_{k}|}^{2} = 2I(\omega_{k})$                    |
-| $\vdots$                                      | $\vdots$               | $\vdots$                                                                 |
-| $\omega_{n/2} = \pi$ (excluded if $n$ is odd) | 1                      | $a_{n/2}^{2} = I(\pi)$                                                   |
-| **Total**                                     | $\mathbf{n}$           | $\sum_{\mathbf{t = 1}}^{\mathbf{n}}\mathbf{x}_{\mathbf{t}}^{\mathbf{2}}$ |
+| $\omega_{0}$(mean)   | 1  | ${a_{0}^{2}}_{\ }=n^{- 1}(\sum_{t=1}^{n}x_{t})^{2} = I( 0)$    |
+| $\omega_{1}$    | 2  | ${2r_{1}^{2}}_{\ } = 2{|a_{1}|}^{2} = 2I(\omega_{1})$|
+| $\vdots$   | $\vdots$| $\vdots$|
+| $\omega_{k}$    | 2  | ${2r_{k}^{2}}_{\ } = 2{|a_{k}|}^{2} = 2I(\omega_{k})$|
+| $\vdots$   | $\vdots$| $\vdots$|
+| $\omega_{n/2} = \pi$ (excluded if $n$ is odd) | 1  | $a_{n/2}^{2} = I(\pi)$ |
+| **Total**  | $\mathbf{n}$ | $\sum_{\mathbf{t = 1}}^{\mathbf{n}}\mathbf{x}_{\mathbf{t}}^{\mathbf{2}}$ |
 
 Source: DE ANTONIO, D., and PALATE, J. (2015).
 
-Obviously, if series were random then each component $I(\omega\_{j})$
+Obviously, if series were random then each component $I(\omega_{j})$
 would have the same expectation. On the contrary, when the series
 contains a systematic sine component having a frequency $j$ and
 amplitude $A$ then the sum of squares $I(\omega_{j})$ increases with
@@ -298,28 +298,28 @@ Using the decomposition presented in table above the periodogram can be
 expressed as:
 
 $$
-I(\omega_{j})\mathbf{=}\begin{matrix}                                                                                r_{j}^{2} = \frac{1}{2}{(\alpha}_{j}^{2} + \beta_{j}^{2}) = \ {\frac{1}{n}(\sum_{t = 1}^{n}{x_{t}\cos{( {t\frac{2\pi j}{n}}_{\ })\ }})}^{2} + \frac{1}{n}(\sum_{t = 1}^{n}{x_{t}\sin( t\frac{2\pi j}{n})_{\ }})^{2} \\
+I(\omega_{j})\mathbf{=}\begin{matrix}r_{j}^{2} = \frac{1}{2}{(\alpha}_{j}^{2} + \beta_{j}^{2}) = \ {\frac{1}{n}(\sum_{t = 1}^{n}{x_{t}\cos{( {t\frac{2\pi j}{n}}_{\ })\ }})}^{2} + \frac{1}{n}(\sum_{t = 1}^{n}{x_{t}\sin( t\frac{2\pi j}{n})_{\ }})^{2} \\
 \end{matrix}
-$$ {#eq-12} <!---[7.113]      -->
+$$ {#eq-12} <!---[7.113] -->
 
 where $j = 0,\ldots,lbrack \frac{n}{2} rbrack$.
 
 Since $\mathbf{x} - \overline{\mathbf{x}}$ are generated by an
 orthonormal basis, and
-$\overline{\mathbf{x}}\mathbf{=}a_{0}\mathbf{e}_{0}$ \[5\] can be
+$\overline{\mathbf{x}}\mathbf{=}a_{0}\mathbf{e}_{0}$ @eq-5 can be
 rearranged to show that the sum of squares is equal to the sum of the
 squared coefficients:
 
 $$
 \mathbf{x} - a_{0}\mathbf{e}_{0} =\sum_{j=1}^{\lbrack(n - 1)/2\rbrack}(\alpha_{j}\mathbf{c}_{j}+\beta_{j}\mathbf{s}_{j}) + a_{n/2}\mathbf{e}_{n/2}
-$$ {#eq-13} <!---[7.114]      -->
+$$ {#eq-13} <!---[7.114] -->
 
 Thus the sample variance of $x_{t}$ can be expressed as:
 
 $$
 n^{- 1}\sum_{t=1}^{n}{(x_{t}-\overline{x})}^{2}=n^{-1}(\sum_{k=1}^{\lbrack(n - 1)/2\rbrack}2{r_{j}}^{2}
 +{a_{n/2}}^{2})
-$$ {#eq-14} <!---[7.115]      -->
+$$ {#eq-14} <!---[7.115] -->
 
 where $a_{n/2}^{2}$ is excluded if $n$ is odd.
 
@@ -343,7 +343,7 @@ $$
 
 and for the zero frequency $\ I( 0) = n| \overline{x} |^{2}$.
 
-Once comparing \[15\] with an expression for the spectral density of a
+Once comparing @eq-15 with an expression for the spectral density of a
 stationary process:
 
 $$
@@ -410,12 +410,12 @@ on the range ${\widehat{s}}^{\max} - {\widehat{s}}^{\min}$ of the
 $\widehat{s}(\omega)$ values, where
 ${\widehat{s}}^{\max} = \max_{k}\widehat{s}(\omega_{k})$;
 ${\widehat{s}}^{\min} = \min_{k}\widehat{s}(\omega_{k});$ and
-$\widehat{s}(\omega\_{k})$ is $k^{\text{th}}$ value of autoregressive
+$\widehat{s}(\omega_{k})$ is $k^{\text{th}}$ value of autoregressive
 spectrum estimator.
 
 The particular value is considered to be visually significant if, at a
 trading day or at a seasonal frequency $\omega_{k}$ (other than the
-seasonal frequency $\omega_{60} = \pi$), $\widehat{s}(\omega\_{k})$ is
+seasonal frequency $\omega_{60} = \pi$), $\widehat{s}(\omega_{k})$ is
 above the median of the plotted values of $\widehat{s}(\omega_{k})$ and
 is larger than both neighbouring values $\widehat{s}(\omega_{k - 1})$
 and $\widehat{s}(\omega_{k + 1})$ by at least $\frac{6}{52}$ times the
@@ -488,7 +488,8 @@ The tests rely on two basic principles:
 
 **The seasonal and trading day frequencies by time series frequency**
 
-{: .table .table-style} |**Number of months per fullperiod**|**Seasonal frequency**|**Trading day frequency (radians)**|
+<!-- {: .table .table-style} -->
+|**Number of months per fullperiod**|**Seasonal frequency**|**Trading day frequency (radians)**|
 |--|--|--|
 |12|$\frac{\pi}{6},\frac{\pi}{3},\ \frac{\pi}{2},\frac{2\pi}{3},\ \frac{5\pi}{6},\ \pi$|$d$,2.714| |6|$\frac{\pi}{3},\frac{2\pi}{3}$, $\pi$|$d$|
 |4|$\frac{\pi}{2}$, $\pi$|$d$, 1.292, 1.850, 2.128|
@@ -520,7 +521,7 @@ series) and 0.280 (quarterly series). They are computed as:
 
 $$
 \omega_{\text{ce}} = \frac{2\pi}{7}\left( n - 7 \times \left\lbrack \frac{n}{7} \right\rbrack \right)
-$$ {#eq-1} <!---[7.158]      -->
+$$ {#eq-1} <!---[7.158] -->
 
 where $n = \frac{365.25}{s}$, $s = 4$ for quarterly series and $s = 12$
 for monthly series.
@@ -629,13 +630,13 @@ so ignore them for the moment.
 
 **The seasonal and trading day frequencies by time series frequency**
 
-| **Number of months per full period** | **Seasonal frequency**                                                              | **Trading day frequency (radians)** |
-|------------------|-------------------------------------|------------------|
-| 12                                   | $\frac{\pi}{6},\frac{\pi}{3},\ \frac{\pi}{2},\frac{2\pi}{3},\ \frac{5\pi}{6},\ \pi$ | $d$, 2.714                          |
-| 6                                    | $\frac{\pi}{3},\frac{2\pi}{3}$, $\pi$                                               | $d$                                 |
-| 4                                    | $\frac{\pi}{2}$, $\pi$                                                              | $d$, 1.292, 1.850, 2.128            |
-| 3                                    | $\pi$                                                                               | $d$                                 |
-| 2                                    | $\pi$                                                                               | $d$                                 |
+|**Number of months per full period**|**Seasonal frequency**|**Trading day frequency (radians)**|
+|--|--|--|
+|12|$\frac{\pi}{6},\frac{\pi}{3},\ \frac{\pi}{2},\frac{2\pi}{3},\ \frac{5\pi}{6},\ \pi$ |$d$, 2.714|
+|6|$\frac{\pi}{3},\frac{2\pi}{3}$, $\pi$|$d$|
+|4|$\frac{\pi}{2}$, $\pi$|$d$, 1.292, 1.850, 2.128|
+|3|$\pi$|$d$|
+|2|$\pi$|$d$|
 
 Currently, only seasonal frequencies are tested, but the program allows
 you to manually plot the Tukey spectrum and focus your attention on both
@@ -743,13 +744,13 @@ so ignore them for the moment.
 
 <!-- {: .table .table-style} -->
 
-| **Number of months per full period** | **Seasonal frequency**                                                              | **Trading day frequency (radians)** |
-|------------------|-------------------------------------|------------------|
-| 12                                   | $\frac{\pi}{6},\frac{\pi}{3},\ \frac{\pi}{2},\frac{2\pi}{3},\ \frac{5\pi}{6},\ \pi$ | $d$, 2.714                          |
-| 6                                    | $\frac{\pi}{3},\frac{2\pi}{3}$, $\pi$                                               | $d$                                 |
-| 4                                    | $\frac{\pi}{2}$, $\pi$                                                              | $d$, 1.292, 1.850, 2.128            |
-| 3                                    | $\pi$                                                                               | $d$                                 |
-| 2                                    | $\pi$                                                                               | $d$                                 |
+|**Number of months per full period**|**Seasonal frequency**|**Trading day frequency (radians)**|
+|--|--|--|
+| 12               | $\frac{\pi}{6},\frac{\pi}{3},\ \frac{\pi}{2},\frac{2\pi}{3},\ \frac{5\pi}{6},\ \pi$ | $d$, 2.714       |
+| 6                | $\frac{\pi}{3},\frac{2\pi}{3}$, $\pi$       | $d$             |
+| 4                | $\frac{\pi}{2}$, $\pi$  | $d$, 1.292, 1.850, 2.128            |
+| 3                | $\pi$                   | $d$             |
+| 2                | $\pi$                   | $d$             |
 
 Currently, only seasonal frequencies are tested, but the program allows
 you to manually plot the AR spectrum and focus your attention on both
