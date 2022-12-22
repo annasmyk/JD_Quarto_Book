@@ -10,9 +10,9 @@ Currently available topics:
 
 -   R functions for pre-treatment, extended X11 and extended Seats
 
-Topics under construction 
+Topics under construction
 
-- graphical user interface 3.0 functionalities for high-frequency data
+-   graphical user interface 3.0 functionalities for high-frequency data
 
 -   STL functions
 
@@ -35,11 +35,11 @@ Intra-monthly data displays multiple and non integer periodicities which cannot 
 ## Tailored algorithms in JDemetra+
 
 | Col1          | Algorithm                               | GUI v 3.0 | R package    |
-|------------------|--------------------|------------------|------------------|
+|------------------|-------------------|------------------|------------------|
 | Pre-treatment | Fractional Airline Model                | yes       | rjd3highfreq |
 | Decomposition | Extended SEATS Fractional Airline Model | yes       | rjd3highfreq |
 |               | Extended X-11                           | yes       | rjd3highfreq |
-|               | Extended STL                            | no        | rdj3stl      |
+|               | Extended STL                            | no        | rjd3stl      |
 | One-Step      | SSF Framework                           | no        | rjd3sts      |
 
 ## Unobserved Components
@@ -128,7 +128,7 @@ q<-rjd3modelling::holidays(frenchCalendar, "1968-01-01",
 
 ### Outliers and intervention variables
 
-Outliers detection is available in the pre-treatment function. Detected outliers are AO, LS and WS. Critical value can be computed by the algorithm or user-defined.
+Outliers detection is available in the pre-treatment function. Detected outliers are AO, LS and WO. Critical value can be computed by the algorithm or user-defined.
 
 ### Linearization
 
@@ -168,7 +168,7 @@ The first trend estimation is thanks to a generalization of the centred and symm
 
 -   central coefficients $1/p$ (1/12,1/7, 1/365.25)
 
--   extreme coefficients $\mathbb{I} \{\text{$E(p)$ pair}\} +(p-E(p)) /2p$
+-   extreme coefficients $\mathbb{I} \{\text{$E(p)$ even}\} +(p-E(p)) /2p$
 
 -   example for p=12: (1/12 and 1/24) (we fall back on $M_{2\times12}$ of the monthly case
 
@@ -272,4 +272,3 @@ JDemetra+ provides the Canova-Hansen test in rjd3modelling package which allows 
 ### Residual Calendar effects
 
 Not currently available. Under construction.
-

@@ -1,5 +1,7 @@
 # SEATS decomposition {.unnumbered}
 
+Under construction.
+
 ## Introduction
 
 SEATS is a program for estimating unobserved components in a time

@@ -1,5 +1,7 @@
 # Spectral Analysis Principles and Tools {.unnumbered}
 
+Under construction.
+
 ## Spectral analysis concepts
 
 A time series $x_{t}$ with stationary covariance, mean $μ$ and $k^{th}$
@@ -8,7 +10,7 @@ as a weighted sum of periodic trigonometric functions: $sin(\omega t)$
 and $cos(\omega t)$, where $\omega=\frac{2*pi}{T}$ denotes frequency.
 Spectral analysis investigates this frequency domain representation of
 $x_{t}$ to determine how important cycles of different frequencies are
-in accounting for the behavior of $x_{t}$.
+in accounting for the behaviour of $x_{t}$.
 
 Assuming that the autocovariances $\gamma(k)$ are absolutely
 summable($\sum_{k =-\infty}^{\infty}|\gamma(k)|<\infty$), the
@@ -28,8 +30,8 @@ Once the equation @eq-1 is divided by $\pi$ and evaluated at some
 $z{= e}^{- i\omega} = cos\omega - isin\omega$, where $i = \sqrt{- 1}$
 and $\omega$ is a real scalar, $\  - \infty < \ \omega < \infty$, the
 result of this transformation is called a population spectrum
-$f(\omega)$for $\ x_{t}$, given in equation
-@eq-2 [^m-spectral-analysis-2].
+$f(\omega)$for $\ x_{t}$, given in equation @eq-2
+[^m-spectral-analysis-2].
 
 [^m-spectral-analysis-2]: HAMILTON, J.D. (1994).
 
@@ -54,8 +56,8 @@ f(\omega) = \frac{1}{\pi}\sum_{k = - \infty}^{\infty}{(cos\omega k - isin\omega 
 $$
 
 Since $\gamma(k) = \gamma( - k)$ (i.e. $\gamma(k)$ is an even function
-of $k$) and $\sin{( - x)}\  = \operatorname{-sin}x$,
-@eq-3 <!---[7.100]--> can be presented as equation
+of $k$) and $\sin{( - x)}\  = \operatorname{-sin}x$, @eq-3
+<!---[7.100]--> can be presented as equation
 
 $$
 f(\omega) = \frac{1}{\pi}\lbrack \ \gamma(0) + 2\sum_{k = 1}^{\infty}{\ \gamma(k)}cos\text{ωk} \rbrack
@@ -100,8 +102,6 @@ analysis are the autoregressive spectrum and the periodogram.
 The explanations given in the subsections of this node derive mainly
 from DE ANTONIO, D., and PALATE, J. (2015) and BROCKWELL, P.J., and
 DAVIS, R.A. (2006).
-
-comment1: end old intro: ok
 
 ### Theoretical spectral density of an ARIMA model
 
@@ -265,7 +265,7 @@ harmonics**
 <!-- {: .table .table-style} -->
 
 | **Frequency**                                 | **Degrees of freedom** | **Sum of squares decomposition**                                         |
-|---------------------|---------------------|-------------------------------|
+|----------------------|-----------------|----------------------------------|
 | $\omega_{0}$(mean)                            | 1                      | ${a_{0}^{2}}_{\ }=n^{- 1}(\sum_{t=1}^{n}x_{t})^{2} = I( 0)$              |
 | $\omega_{1}$                                  | 2                      | ${2r_{1}^{2}}_{\ } = 2{|a_{1}|}^{2} = 2I(\omega_{1})$                    |
 | $\vdots$                                      | $\vdots$               | $\vdots$                                                                 |
@@ -281,9 +281,9 @@ would have the same expectation. On the contrary, when the series
 contains a systematic sine component having a frequency $j$ and
 amplitude $A$ then the sum of squares $I(\omega_{j})$ increases with
 $A$. In practice, it is unlikely that the frequency $j$ of an unknown
-systematic sine component would exacly match any of the frequencies, for
-which peridogram have been calcuated. Therefore, the periodogram would
-show an increase in intensities in the immediate vicinity of
+systematic sine component would exactly match any of the frequencies,
+for which periodogram have been calculated. Therefore, the periodogram
+would show an increase in intensities in the immediate vicinity of
 $j$.[^m-spectral-analysis-8]
 
 [^m-spectral-analysis-8]: BOX, G.E.P., JENKINS, G.M., and REINSEL, G.C.
@@ -350,7 +350,7 @@ $$
 f(\omega_{\ }) = \frac{1}{2\pi}\sum_{k < - \infty}^{\infty}{\gamma( k)}_{\ }e^{- ik\omega_{\ }} = \frac{1}{2\pi}lbrack {\gamma( 0)}_{\ } + 2(\sum_{k = 1}^{\infty}{\gamma( k)\cos{(k\omega_{\ })}}) rbrack
 $$
 
-It can be noticed that the periodogram is a sample analog of the
+It can be noticed that the periodogram is a sample analogue of the
 population spectrum. In fact, it can be shown that the periodogram is
 asymptotically unbiased but inconsistent estimator of the population
 spectrum $f(\omega)$.\[\^75\] Therefore, the periodogram is a wildly
@@ -362,8 +362,6 @@ Tukey, Barlett, Hanning and Parzen. They are described in DE ANTONIO,
 D., and PALATE, J. (2015). Alternatively, the model-based consistent
 estimation procedure, resulting in autoregressive spectrum estimator,
 can be applied.
-
-comment2: end part theory\>spectral analysis\>periodogram
 
 ### Method 2: Autoregressive spectrum estimation
 
@@ -453,14 +451,9 @@ has a greater false alarm rate[^m-spectral-analysis-11].
     considered in the designated output spectra (SOUKUP, R.J., and
     FINDLEY, D.F. (1999)).
 
-comment2: end part theory\>spectral analysis\>auto-regressive spectrum
-
 ### Method 3: Tukey spectrum
 
 ## Identification of spectral peaks
-
-comment3: start part theory\>spectral analysis\>identification of
-spectral peaks
 
 Identification of seasonal peaks in a Tukey periodogram and in an
 autoregressive spectrum
@@ -638,7 +631,7 @@ so ignore them for the moment.
 **The seasonal and trading day frequencies by time series frequency**
 
 | **Number of months per full period** | **Seasonal frequency**                                                              | **Trading day frequency (radians)** |
-|------------------------|------------------------|------------------------|
+|------------------|-------------------------------------|------------------|
 | 12                                   | $\frac{\pi}{6},\frac{\pi}{3},\ \frac{\pi}{2},\frac{2\pi}{3},\ \frac{5\pi}{6},\ \pi$ | $d$, 2.714                          |
 | 6                                    | $\frac{\pi}{3},\frac{2\pi}{3}$, $\pi$                                               | $d$                                 |
 | 4                                    | $\frac{\pi}{2}$, $\pi$                                                              | $d$, 1.292, 1.850, 2.128            |
@@ -752,7 +745,7 @@ so ignore them for the moment.
 <!-- {: .table .table-style} -->
 
 | **Number of months per full period** | **Seasonal frequency**                                                              | **Trading day frequency (radians)** |
-|------------------------|------------------------|------------------------|
+|------------------|-------------------------------------|------------------|
 | 12                                   | $\frac{\pi}{6},\frac{\pi}{3},\ \frac{\pi}{2},\frac{2\pi}{3},\ \frac{5\pi}{6},\ \pi$ | $d$, 2.714                          |
 | 6                                    | $\frac{\pi}{3},\frac{2\pi}{3}$, $\pi$                                               | $d$                                 |
 | 4                                    | $\frac{\pi}{2}$, $\pi$                                                              | $d$, 1.292, 1.850, 2.128            |
@@ -1032,7 +1025,7 @@ Spectral graphs in GUI
         series taken to produce periodogram. By default it is 0, which
         means that the whole time series is considered.
 
-    ![Periodogram\'s properties](All_images/image6_342.jpeg)
+    ![Periodogram's properties](All_images/image6_342.jpeg)
 
 7.  The [periodogram](../theory/spectral_periodogram.html) was one of
     the earliest tools used for the analysis of time series in the
@@ -1083,6 +1076,6 @@ Spectral graphs in GUI
         windows types (*Square*, *Welch*, *Tukey*, *Barlett*, *Hamming*,
         *Parzen*) are suitable to estimate the spectral density.
 
-    ![Tukey spectrum\'s properties](All_images/image10_342.jpeg)
+    ![Tukey spectrum's properties](All_images/image10_342.jpeg)
 
 comment3: end part case studies \> spectral graphs
