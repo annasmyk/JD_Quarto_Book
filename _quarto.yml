@@ -3,11 +3,15 @@ project:
 
 book:
   title: "JDemetra+ documentation"
-  author: 
+  author:
     - name: Anna Smyk
+      url: https://github.com/annasmyk
     - name: Alain Quartier-la-Tente
+      url: https://github.com/AQLT
     - name: Tanguy Barthelemy
+      url: https://github.com/TanguyBarthelemy
     - name: Karsten Webel
+      url: https://github.com/webelk
   date: "12/22/2022"
   page-navigation: true
   chapters:
