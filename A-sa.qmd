@@ -36,7 +36,7 @@ For an overview on the algorithms and methodological issues, please refer to the
 | STS                    | no            | no               | rjd3sts        |
 +------------------------+---------------+------------------+----------------+
 
-: X13-Arima and Tramo-Seats are two-step algorithm with a pretreatment phase (Reg-Arima or Tramo) and a decomposition phase (X11 and Seats). STL is a local regression (Loess) based decomposition, without pre-treatment. In a Structural Time Series approach pre-treatment and decomposition are done simultaneously in a State Space Framework [(SSF)](M-state-space-framework.qmd).
+: X13-Arima and Tramo-Seats are two-step algorithms with a pre-treatment phase (Reg-Arima or Tramo) and a decomposition phase (X11 and Seats). STL is a local regression (Loess) based decomposition, without pre-treatment. In a Structural Time Series approach pre-treatment and decomposition are done simultaneously in a State Space Framework [(SSF)](M-state-space-framework.qmd).
 
 ### Decomposition in unobserved components
 
@@ -98,11 +98,11 @@ In rjd3sa package:
 
 ## Performing pre-treatment
 
-The following sections cover how to perform pre-treatment with Reg-ARIMA (or TRAMO) algorithms. Tramo and the Reg-Arima part of X13-Arima rely on very similar principles: [Reg-Arima modelling](M-reg-arima-modelling). Thus Tramo will be mentioned only to highlight differences with the Reg-Arima part of X13-Arima. Reg-Arima modelling part can be of a seasonal adjustment process or run on its own, we focus first on launching pre-treatment as part of a SA processing.
+The following sections cover how to perform pre-treatment with Reg-ARIMA (or Tramo) algorithms. Tramo and the Reg-Arima part of X13-Arima rely on very similar principles: [Reg-Arima modelling](M-reg-arima-modelling). Thus Tramo will be mentioned only to highlight differences with the Reg-Arima part of X13-Arima. Reg-Arima modelling part can be of a seasonal adjustment process or run on its own, we focus first on launching pre-treatment as part of a SA processing.
 
 ### Default Specifications
 
-Default specifications are set for the whole SA procedure, pre-treatment end decomposition. They are slightly different for X13-ARIMA and Tramo-Seats and can be modified with user defined parameters.
+Default specifications are set for the whole SA procedure, pre-treatment and decomposition. They are slightly different for X13-ARIMA and Tramo-Seats and can be modified with user defined parameters.
 
 #### Starting point for X13-ARIMA
 
@@ -140,7 +140,7 @@ explanations:
 
 -   always tested
 
--   easter tested (length = 6 days in tramo, 8 days in X13-Arima)
+-   easter tested (length = 6 days in Tramo, 8 days in X13-Arima)
 
 #### Starting point for Tramo-Seats
 
@@ -160,7 +160,7 @@ explanations:
 | RSAfull         | automatic           | AO/LS/TC           | automatic        | automatic      |
 +-----------------+---------------------+--------------------+------------------+----------------+
 
-Principle of user setting parameters: can be done from one of the default specs or any spec in "save" as" mode very similar in GUI and R, see below.
+Principle of user setting parameters: can be done from one of the default specifications or any specification in a "save" as" mode very similar in GUI and R, see below.
 
 ### Spans
 
@@ -170,41 +170,33 @@ Specifies the span (data interval) of the time series to be used in the seasonal
 
 Common settings
 
-+-------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------+
-| Option            | Description (expected format)                                                                                                                                               |       |
-+===================+=============================================================================================================================================================================+=======+
-| All               | default                                                                                                                                                                     |       |
-+-------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------+
-| From              | first observation included (yyyy-mm-dd)                                                                                                                                     |       |
-+-------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------+
-| To                | last observation included (yyyy-mm-dd)                                                                                                                                      |       |
-+-------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------+
-| Between           | interval \[from ; to\] inculded (yyyy-mm-dd to yyyy-mm-dd)                                                                                                                  |       |
-+-------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------+
-| First             | number of obs from the beginning of the series included (dynamic) (integer)                                                                                                 |       |
-+-------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------+
-| Last              | number of obs from the end of the series (dynamic)(integer)                                                                                                                 |       |
-+-------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------+
-| Excluding         | excluding N first obs and P last obs from the computation,dynamic) (integer)                                                                                                |       |
-+-------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------+
-| Preliminary check | check to exclude highly problematic series e.g. the series with a number of identical observations and/or missing values above pre-specified threshold values. (True/False) |       |
-+-------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------+
-|                   |                                                                                                                                                                             |       |
-+-------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------+
-|                   |                                                                                                                                                                             |       |
-+-------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------+
-|                   |                                                                                                                                                                             |       |
-+-------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------+
-|                   |                                                                                                                                                                             |       |
-+-------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+-------+
++-------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------+
+| Option            | Description (expected format)                                                                                                                                               |        |
++===================+=============================================================================================================================================================================+========+
+| All               | default                                                                                                                                                                     |        |
++-------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------+
+| From              | first observation included (yyyy-mm-dd)                                                                                                                                     |        |
++-------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------+
+| To                | last observation included (yyyy-mm-dd)                                                                                                                                      |        |
++-------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------+
+| Between           | interval \[from ; to\] included (yyyy-mm-dd to yyyy-mm-dd)                                                                                                                  |        |
++-------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------+
+| First             | number of obs from the beginning of the series included (dynamic) (integer)                                                                                                 |        |
++-------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------+
+| Last              | number of obs from the end of the series (dynamic)(integer)                                                                                                                 |        |
++-------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------+
+| Excluding         | excluding N first obs and P last obs from the computation,dynamic) (integer)                                                                                                |        |
++-------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------+
+| Preliminary check | check to exclude highly problematic series e.g. the series with a number of identical observations and/or missing values above pre-specified threshold values. (True/False) |        |
++-------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------+
 
-**Setting span in GUI**
+**Setting series span in GUI**
 
 Use the specification window for a given series and expand the nodes.
 
-![Setting series span](All_images/SA_REGA_Spans.png)
+![](All_images/SA_REGA_Spans.png)
 
-**Setting span in R**
+**Setting series span in R**
 
 x13 in version 2
 
@@ -249,39 +241,39 @@ estimate.exclLast = 36)
 
 ```
 
-For comprehensive details about tramoseats_spec function see RJDemetra R help pages
+For comprehensive details about tramoseats_spec function see RJDemetra R help pages.
 
-#### Setting the model span
+#### Setting model span
 
 The user can also specify the span (data interval) of the time series to be used for the estimation of the Reg-ARIMA model coefficients. It allows to impede a chosen part of the data from influencing the regression estimates. Setting works the same way as setting series (estimation) span described above.
 
 Additional (vs series span setting) parameters are described below:
 
-+--------------------------+-----------------------------------------------------------------------------------------------------------------------------+
-| Tolerance                | Convergence tolerance for the non-linear estimation.                                                                        |
-|                          |                                                                                                                             |
-|                          | The absolute changes in the log-likelihood are compared to Tolerance to check the convergence of the estimation iterations. |
-|                          |                                                                                                                             |
-|                          | The default setting is 0.0000001.                                                                                           |
-+--------------------------+-----------------------------------------------------------------------------------------------------------------------------+
-| Tramo specifc parameters |                                                                                                                             |
-+--------------------------+-----------------------------------------------------------------------------------------------------------------------------+
-| Exact ML                 | When this option is marked, an exact maximum likelihood estimation is performed.                                            |
-|                          |                                                                                                                             |
-|                          | Alternatively, the Unconditional Least Squares method is used.                                                              |
-|                          |                                                                                                                             |
-|                          | However, in the current version of JDemetra+ it is not recommended to change this parameter's value                         |
-+--------------------------+-----------------------------------------------------------------------------------------------------------------------------+
-| Unit Root Limit          | Limit for the autoregressive roots. If the inverse of a real root of the autoregressive polynomial of the                   |
-|                          |                                                                                                                             |
-|                          | ARIMA model is higher than this limit, the root is set equal to 1. The default parameter value is 0.96.                     |
-+--------------------------+-----------------------------------------------------------------------------------------------------------------------------+
++---------------------------+-----------------------------------------------------------------------------------------------------------------------------+
+| Tolerance                 | Convergence tolerance for the non-linear estimation.                                                                        |
+|                           |                                                                                                                             |
+|                           | The absolute changes in the log-likelihood are compared to Tolerance to check the convergence of the estimation iterations. |
+|                           |                                                                                                                             |
+|                           | The default setting is 0.0000001.                                                                                           |
++---------------------------+-----------------------------------------------------------------------------------------------------------------------------+
+| Tramo specific parameters |                                                                                                                             |
++---------------------------+-----------------------------------------------------------------------------------------------------------------------------+
+| Exact ML                  | When this option is marked, an exact maximum likelihood estimation is performed.                                            |
+|                           |                                                                                                                             |
+|                           | Alternatively, the Unconditional Least Squares method is used.                                                              |
+|                           |                                                                                                                             |
+|                           | However, in the current version of JDemetra+ it is not recommended to change this parameter's value                         |
++---------------------------+-----------------------------------------------------------------------------------------------------------------------------+
+| Unit Root Limit           | Limit for the autoregressive roots. If the inverse of a real root of the autoregressive polynomial of the                   |
+|                           |                                                                                                                             |
+|                           | ARIMA model is higher than this limit, the root is set equal to 1. The default parameter value is 0.96.                     |
++---------------------------+-----------------------------------------------------------------------------------------------------------------------------+
 
-**Setting in GUI**:
+**Setting model span in GUI**:
 
 Use the specification window
 
-![Model span setting](All_images/SA_REGA_model_spans.png)
+![](All_images/SA_REGA_model_spans.png)
 
 **Setting in R**
 
@@ -301,7 +293,7 @@ estimate.urfinal = 0.98)
 
 #### Parameters
 
-Transformation test -- a test is performed to choose between an additive decomposition (no transformation) (link to reg A chap to detail this)
+Transformation test : a test is performed to choose between an additive decomposition (no transformation) (link to reg A chap to detail this)
 
 Settings
 
@@ -366,7 +358,7 @@ transform.function ="Log", # choose from: c(NA, "Auto", "None", "Log"),
 transform.adjust = "LeapYear", #c(NA, "None", "LeapYear", "LengthOfPeriod"),
 transform.aicdiff = -3)
 
-#Retrieve settings
+#Retrieve settings: to complete
 
 
 ```
@@ -381,7 +373,7 @@ transform.function = "Auto", #c(NA, "Auto", "None", "Log"),
 transform.fct = 0.5)
 
  
-# Retrieve settings  
+# Retrieve settings: to complete  
 
 ```
 
@@ -568,7 +560,7 @@ The sections below (will) describe
 
 ### Default specifications
 
-The default specifications for X-11 must be chosen at the starting of the SA processing. They are detailed in the [Reg-Arima part](A-sa.qmd#Pre-treatment:%20Reg-ARIMA%20(or%20TRAMO)). X-11 can be run without pre-treatment
+The default specifications for X-11 must be chosen at the starting of the SA processing. They are detailed in the [Reg-Arima part](A-sa.qmd#Pre-treatment:%20Reg-ARIMA%20(or%20Tramo)). X-11 can be run without pre-treatment
 
 ### Quick Launch
 

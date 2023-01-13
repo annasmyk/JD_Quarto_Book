@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.280">
+<meta name="generator" content="quarto-1.2.313">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -372,7 +372,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="overview" class="level2">
 <h2 class="anchored" data-anchor-id="overview">Overview</h2>
 <p>The goal of seasonal adjustment is to remove seasonal fluctuations a time series. Seasonal fluctuations are quasi-periodic infra-annual movements. They can mask evolution of greater interest for the user such as short term evolutions or long time trends.</p>
-<p>This chapter focuses on the <strong>practical step by step</strong> use of JDemetra+ algorithms, restricted to monthly and quarterly series. For intra-monthly data see the <a href="./A-sa-hf.html">following chapter</a>. The use of <a href="T-grahical-user-interface.qmd">graphical user interface</a> and <a href="T-r-pacakages.qmd">R packages</a> are described simultaneously whenever relevant.</p>
+<p>This chapter focuses on the <strong>practical step by step</strong> use of JDemetra+ algorithms, restricted to monthly and quarterly series. For intra-monthly data see the <a href="./A-sa-hf.html">following chapter</a>. The use of <a href="./T-graphical-user-interface.html">graphical user interface</a> and <a href="./T-r-packages.html">R packages</a> are described simultaneously whenever relevant.</p>
 <p>In-depth methodological explanations of the algorithms are covered in separated chapters, in the <a href="./P_Methods.html">Methods</a> part.</p>
 <p>This chapter is under construction, missing parts will be updated in the coming months.</p>
 <p>More information on the steps and best practices of a seasonal adjustment process can be found in the <a href="https://ec.europa.eu/eurostat/documents/3859598/6830795/KS-GQ-15-001-EN-N.pdf">Eurostat guidelines on seasonal adjustment</a></p>
@@ -380,7 +380,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="seasonal-adjustment-algorithms" class="level3">
 <h3 class="anchored" data-anchor-id="seasonal-adjustment-algorithms">Seasonal Adjustment Algorithms</h3>
 <table class="table">
-<caption>X13-Arima and Tramo-Seats are two-step algorithm with a pretreatment phase (Reg-Arima or Tramo) and a decomposition phase (X11 and Seats). STL is a local regression (Loess) based decomposition, without pre-treatment. In a Structural Time Series approach pre-treatment and decomposition are done simultaneously in a State Space Framework <a href="./M-state-space-framework.html">(SSF)</a>.</caption>
+<caption>X13-Arima and Tramo-Seats are two-step algorithms with a pre-treatment phase (Reg-Arima or Tramo) and a decomposition phase (X11 and Seats). STL is a local regression (Loess) based decomposition, without pre-treatment. In a Structural Time Series approach pre-treatment and decomposition are done simultaneously in a State Space Framework <a href="./M-state-space-framework.html">(SSF)</a>.</caption>
 <thead>
 <tr class="header">
 <th>Algorithm</th>
@@ -492,10 +492,10 @@ Y_t = \sum {\alpha}_i O_{it} + \sum\beta_j C_{jt} + \sum {\gamma}_i U_{it} + Y_{
 </section>
 <section id="performing-pre-treatment" class="level2">
 <h2 class="anchored" data-anchor-id="performing-pre-treatment">Performing pre-treatment</h2>
-<p>The following sections cover how to perform pre-treatment with Reg-ARIMA (or TRAMO) algorithms. Tramo and the Reg-Arima part of X13-Arima rely on very similar principles: <a href="M-reg-arima-modelling">Reg-Arima modelling</a>. Thus Tramo will be mentioned only to highlight differences with the Reg-Arima part of X13-Arima. Reg-Arima modelling part can be of a seasonal adjustment process or run on its own, we focus first on launching pre-treatment as part of a SA processing.</p>
+<p>The following sections cover how to perform pre-treatment with Reg-ARIMA (or Tramo) algorithms. Tramo and the Reg-Arima part of X13-Arima rely on very similar principles: <a href="M-reg-arima-modelling">Reg-Arima modelling</a>. Thus Tramo will be mentioned only to highlight differences with the Reg-Arima part of X13-Arima. Reg-Arima modelling part can be of a seasonal adjustment process or run on its own, we focus first on launching pre-treatment as part of a SA processing.</p>
 <section id="default-specifications" class="level3">
 <h3 class="anchored" data-anchor-id="default-specifications">Default Specifications</h3>
-<p>Default specifications are set for the whole SA procedure, pre-treatment end decomposition. They are slightly different for X13-ARIMA and Tramo-Seats and can be modified with user defined parameters.</p>
+<p>Default specifications are set for the whole SA procedure, pre-treatment and decomposition. They are slightly different for X13-ARIMA and Tramo-Seats and can be modified with user defined parameters.</p>
 <section id="starting-point-for-x13-arima" class="level4">
 <h4 class="anchored" data-anchor-id="starting-point-for-x13-arima">Starting point for X13-ARIMA</h4>
 <table class="table">
@@ -576,7 +576,7 @@ Y_t = \sum {\alpha}_i O_{it} + \sum\beta_j C_{jt} + \sum {\gamma}_i U_{it} + Y_{
 <li><p>2 regressors: weekdays vs week-ends + LY</p></li>
 <li><p>7 regressors: each week day vs Sundays + LY</p></li>
 <li><p>always tested</p></li>
-<li><p>easter tested (length = 6 days in tramo, 8 days in X13-Arima)</p></li>
+<li><p>easter tested (length = 6 days in Tramo, 8 days in X13-Arima)</p></li>
 </ul>
 </section>
 <section id="starting-point-for-tramo-seats" class="level4">
@@ -643,7 +643,7 @@ Y_t = \sum {\alpha}_i O_{it} + \sum\beta_j C_{jt} + \sum {\gamma}_i U_{it} + Y_{
 </tr>
 </tbody>
 </table>
-<p>Principle of user setting parameters: can be done from one of the default specs or any spec in “save” as” mode very similar in GUI and R, see below.</p>
+<p>Principle of user setting parameters: can be done from one of the default specifications or any specification in a “save” as” mode very similar in GUI and R, see below.</p>
 </section>
 </section>
 <section id="spans" class="level3">
@@ -656,7 +656,7 @@ Y_t = \sum {\alpha}_i O_{it} + \sum\beta_j C_{jt} + \sum {\gamma}_i U_{it} + Y_{
 <colgroup>
 <col style="width: 9%">
 <col style="width: 85%">
-<col style="width: 3%">
+<col style="width: 4%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -683,7 +683,7 @@ Y_t = \sum {\alpha}_i O_{it} + \sum\beta_j C_{jt} + \sum {\gamma}_i U_{it} + Y_{
 </tr>
 <tr class="even">
 <td>Between</td>
-<td>interval [from ; to] inculded (yyyy-mm-dd to yyyy-mm-dd)</td>
+<td>interval [from ; to] included (yyyy-mm-dd to yyyy-mm-dd)</td>
 <td></td>
 </tr>
 <tr class="odd">
@@ -706,37 +706,12 @@ Y_t = \sum {\alpha}_i O_{it} + \sum\beta_j C_{jt} + \sum {\gamma}_i U_{it} + Y_{
 <td>check to exclude highly problematic series e.g.&nbsp;the series with a number of identical observations and/or missing values above pre-specified threshold values. (True/False)</td>
 <td></td>
 </tr>
-<tr class="odd">
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td></td>
-<td></td>
-<td></td>
-</tr>
 </tbody>
 </table>
-<p><strong>Setting span in GUI</strong></p>
+<p><strong>Setting series span in GUI</strong></p>
 <p>Use the specification window for a given series and expand the nodes.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="All_images/SA_REGA_Spans.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Setting series span</figcaption><p></p>
-</figure>
-</div>
-<p><strong>Setting span in R</strong></p>
+<p><img src="All_images/SA_REGA_Spans.png" class="img-fluid"></p>
+<p><strong>Setting series span in R</strong></p>
 <p>x13 in version 2</p>
 <div class="cell" data-eval="false">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(RJDemetra)</span>
@@ -773,16 +748,16 @@ Y_t = \sum {\alpha}_i O_{it} + \sum\beta_j C_{jt} + \sum {\gamma}_i U_{it} + Y_{
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="at">estimate.exclFirst =</span> <span class="dv">24</span>, </span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="at">estimate.exclLast =</span> <span class="dv">36</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>For comprehensive details about tramoseats_spec function see RJDemetra R help pages</p>
+<p>For comprehensive details about tramoseats_spec function see RJDemetra R help pages.</p>
 </section>
-<section id="setting-the-model-span" class="level4">
-<h4 class="anchored" data-anchor-id="setting-the-model-span">Setting the model span</h4>
+<section id="setting-model-span" class="level4">
+<h4 class="anchored" data-anchor-id="setting-model-span">Setting model span</h4>
 <p>The user can also specify the span (data interval) of the time series to be used for the estimation of the Reg-ARIMA model coefficients. It allows to impede a chosen part of the data from influencing the regression estimates. Setting works the same way as setting series (estimation) span described above.</p>
 <p>Additional (vs series span setting) parameters are described below:</p>
 <table class="table">
 <colgroup>
-<col style="width: 17%">
-<col style="width: 82%">
+<col style="width: 18%">
+<col style="width: 81%">
 </colgroup>
 <tbody>
 <tr class="odd">
@@ -792,7 +767,7 @@ Y_t = \sum {\alpha}_i O_{it} + \sum\beta_j C_{jt} + \sum {\gamma}_i U_{it} + Y_{
 <p>The default setting is 0.0000001.</p></td>
 </tr>
 <tr class="even">
-<td>Tramo specifc parameters</td>
+<td>Tramo specific parameters</td>
 <td></td>
 </tr>
 <tr class="odd">
@@ -808,14 +783,9 @@ Y_t = \sum {\alpha}_i O_{it} + \sum\beta_j C_{jt} + \sum {\gamma}_i U_{it} + Y_{
 </tr>
 </tbody>
 </table>
-<p><strong>Setting in GUI</strong>:</p>
+<p><strong>Setting model span in GUI</strong>:</p>
 <p>Use the specification window</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="All_images/SA_REGA_model_spans.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Model span setting</figcaption><p></p>
-</figure>
-</div>
+<p><img src="All_images/SA_REGA_model_spans.png" class="img-fluid"></p>
 <p><strong>Setting in R</strong></p>
 <p>Tramo example in version 2</p>
 <div class="cell">
@@ -831,7 +801,7 @@ Y_t = \sum {\alpha}_i O_{it} + \sum\beta_j C_{jt} + \sum {\gamma}_i U_{it} + Y_{
 <h3 class="anchored" data-anchor-id="decomposition-scheme">Decomposition Scheme</h3>
 <section id="parameters" class="level4">
 <h4 class="anchored" data-anchor-id="parameters">Parameters</h4>
-<p>Transformation test – a test is performed to choose between an additive decomposition (no transformation) (link to reg A chap to detail this)</p>
+<p>Transformation test : a test is performed to choose between an additive decomposition (no transformation) (link to reg A chap to detail this)</p>
 <p>Settings</p>
 <p>Function</p>
 <p>transform {function=}</p>
@@ -872,7 +842,7 @@ Y_t = \sum {\alpha}_i O_{it} + \sum\beta_j C_{jt} + \sum {\gamma}_i U_{it} + Y_{
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="at">transform.adjust =</span> <span class="st">"LeapYear"</span>, <span class="co">#c(NA, "None", "LeapYear", "LengthOfPeriod"),</span></span>
 <span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="at">transform.aicdiff =</span> <span class="sc">-</span><span class="dv">3</span>)</span>
 <span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co">#Retrieve settings</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co">#Retrieve settings: to complete</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Tramo-Seats settings</p>
 <div class="cell">
@@ -882,7 +852,7 @@ Y_t = \sum {\alpha}_i O_{it} + \sum\beta_j C_{jt} + \sum {\gamma}_i U_{it} + Y_{
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="at">transform.fct =</span> <span class="fl">0.5</span>)</span>
 <span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Retrieve settings  </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Retrieve settings: to complete  </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 </section>
@@ -1029,7 +999,7 @@ Y_t = \sum {\alpha}_i O_{it} + \sum\beta_j C_{jt} + \sum {\gamma}_i U_{it} + Y_{
 </ul>
 <section id="default-specifications-2" class="level3">
 <h3 class="anchored" data-anchor-id="default-specifications-2">Default specifications</h3>
-<p>The default specifications for X-11 must be chosen at the starting of the SA processing. They are detailed in the <a href="./A-sa.html#Pre-treatment: Reg-ARIMA (or TRAMO)">Reg-Arima part</a>. X-11 can be run without pre-treatment</p>
+<p>The default specifications for X-11 must be chosen at the starting of the SA processing. They are detailed in the <a href="./A-sa.html#Pre-treatment: Reg-ARIMA (or Tramo)">Reg-Arima part</a>. X-11 can be run without pre-treatment</p>
 </section>
 <section id="quick-launch" class="level3">
 <h3 class="anchored" data-anchor-id="quick-launch">Quick Launch</h3>

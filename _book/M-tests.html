@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.280">
+<meta name="generator" content="quarto-1.2.313">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -522,7 +522,7 @@ M_{j,t} =
 0 &amp; \text{ otherwise}
 \end{cases} \text{ - dummy variables;}
 \]</span></p>
-<p>One can use the individual t-statistics to assess whether seasonality for a given month is significant, or a chi-squared test statistic if the null hypothesis is that the parameters are collectively all zero. The chi-squared test statistic is <span class="math inline">\({\widehat{\chi}}^{2} = {\widehat{\beta}}^{'}{\lbrack Var(\widehat{\beta})}^{\ })^{- 1}\rbrack{\widehat{\beta}}^{\ }\)</span> in this case compared to critical values from a <span class="math inline">\(\chi^{2}\left( \text{df} \right)\)</span>-distribution, with degrees of freedom $df = 11$ (monthly series) or <span class="math inline">\(df = 3\)</span> (quarterly series). Since the <span class="math inline">\({Var(\widehat{\beta})}^{\ }\)</span> computed using the estimated variance of <span class="math inline">\(\alpha_{t}\)</span> may be very different from the actual variance in small samples, this test is corrected using the proposed <span class="math inline">\(\text{F}\)</span> statistic:</p>
+<p>One can use the individual t-statistics to assess whether seasonality for a given month is significant, or a chi-squared test statistic if the null hypothesis is that the parameters are collectively all zero. The chi-squared test statistic is <span class="math inline">\({\widehat{\chi}}^{2} = {\widehat{\beta}}^{'}{\lbrack Var(\widehat{\beta})}^{\ })^{- 1}\rbrack{\widehat{\beta}}^{\ }\)</span> in this case compared to critical values from a <span class="math inline">\(\chi^{2}\left( \text{df} \right)\)</span>-distribution, with degrees of freedom <span class="math inline">\(df = 11\)</span> (monthly series) or <span class="math inline">\(df = 3\)</span> (quarterly series). Since the <span class="math inline">\({Var(\widehat{\beta})}^{\ }\)</span> computed using the estimated variance of <span class="math inline">\(\alpha_{t}\)</span> may be very different from the actual variance in small samples, this test is corrected using the proposed <span class="math inline">\(\text{F}\)</span> statistic:</p>
 <p><span class="math display">\[
 F = \frac{ {\widehat{\chi}}^{2}}{s - 1} \times \frac{n - d - k}{n - d}
 \]</span></p>
