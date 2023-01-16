@@ -62,7 +62,8 @@ In general, the trend consists of 2 sub-components:
 
 ### Pre-treatment principles
 
-The goal of this step is to remove deterministic effects (calendar and outliers) in order to improve the decomposition. $$
+The goal of this step is to remove deterministic effects (calendar and outliers) in order to improve the decomposition. 
+$$
 Y_t = \sum {\alpha}_i O_{it} + \sum\beta_j C_{jt} + \sum {\gamma}_i U_{it} + Y_{lin,t}
 $$
 
@@ -349,41 +350,35 @@ Controls the bias in the log/level pre-test (the function is active when **Funct
 **Set and in R**
 
 X13
-
 ```{r, eval=FALSE}
-
 #excluding first 24 and last 36 observations
 user_spec <-x13_spec(spec = c("RSA5c", "RSA0", "RSA1", "RSA2c", "RSA3", "RSA4c", "X11"), 
 transform.function ="Log", # choose from: c(NA, "Auto", "None", "Log"),
 transform.adjust = "LeapYear", #c(NA, "None", "LeapYear", "LengthOfPeriod"),
 transform.aicdiff = -3)
-
-#Retrieve settings: to complete
-
-
+#Retrieve settings: to complete*
+end 
 ```
 
 Tramo-Seats settings
 
 ```{r, eval=FALSE}
-
 #transfo
 user_spec_1<-tramoseats_spec( spec = c("RSAfull", "RSA0", "RSA1", "RSA2", "RSA3", "RSA4", "RSA5"),  
 transform.function = "Auto", #c(NA, "Auto", "None", "Log"), 
 transform.fct = 0.5)
-
- 
-# Retrieve settings: to complete  
-
+# Retrieve settings: to complete 
+end 
 ```
 
 ### Calendar correction
 
-#### Default specifications for calendar correction
+(see Maruman for new outline)
+(see aux txt file for param def)
 
-Options related to calendar regressors choice are embedded into default specifications described above.
+#### Default specifications
 
-National calendars not taken into account.
+Options related to calendar regressors choice are embedded into default specifications described above. National calendars are not taken into account.
 
 -   working days
 
@@ -391,7 +386,8 @@ National calendars not taken into account.
 
 -   Leap year regressor
 
--   Test: Remove/ Add / None
+-   Test: 
+        Remove/ Add / None
 
 -   Easter
 
@@ -401,7 +397,8 @@ National calendars not taken into account.
 
 -   Julian
 
--   pre-test
+-   pre-test 
+
 
 #### Retrieving parameters
 
@@ -415,11 +412,67 @@ Details of regression results are displayed in the pre processing panel
 
 ![](All_images/SA_REGA_retrieve_calendar_options_details.png)
 
+Retrieving regressors 
+
+**In R**
+
+
+
 #### Setting options
 
 #### **In GUI** Use the specification window
 
-![](All_images/SA_REGA_calendar_setting.png)
+![](All_images/SA_REGA_calendar_default_options.png)
+
+Missing: stock td option, length-of-period
+
+##### GUI Setting options
+
+
+
+##### R: Setting this options and retrieveing parameters which are in use
+
+#### Customizing calendars
+
+How to correct this ?
+
+solution 1: if working with GUI build a new calendar in GUI (building details in chap C) set this option import it : here
+
+GUI : how to use it or customize HTML file structure explanation
+
+Question: can rjd3modelling generate an HTML calendar for GUI
+
+set this option in GUI
+
+image: spec window calendar / holidays / choics of calendar
+
+set this option in R ?
+
+version 2:
+
+version 3:
+
+solution 2: import external regressors can be built with rjd3modelling (link) which can then be used in via are or imported via GUI
+
+set this option in GUI how to import vaiables into JD+ / set utility (in interface chapter) calssical user defined
+
+set this option in R version 2:
+
+```{r, eval=FALSE}
+spec_4 <- x13_spec(spec = spec_1, 
+                   tradingdays.option = "UserDefined", 
+                   tradingdays.test = "None", 
+                   usrdef.varEnabled = TRUE, 
+                   usrdef.varType = "Calendar", 
+                   usrdef.var = reg3) # set of regressors in TS format
+```
+
+version 3
+
+(generic sentence to quasi repeat at the end of each part) Once regressors set, the RegArima (tramo) model will be estimated gloablly with all the other regression variables and taking into account arima model specificities as well. That is why diagnostics are all jointly displayed at the end of the process. (link)
+
+link to: worked example: french calendar in R
+
 
 #### Customizing calendars
 
