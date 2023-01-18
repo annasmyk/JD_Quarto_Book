@@ -62,8 +62,7 @@ In general, the trend consists of 2 sub-components:
 
 ### Pre-treatment principles
 
-The goal of this step is to remove deterministic effects (calendar and outliers) in order to improve the decomposition. 
-$$
+The goal of this step is to remove deterministic effects (calendar and outliers) in order to improve the decomposition. $$
 Y_t = \sum {\alpha}_i O_{it} + \sum\beta_j C_{jt} + \sum {\gamma}_i U_{it} + Y_{lin,t}
 $$
 
@@ -99,7 +98,7 @@ In rjd3sa package:
 
 ## Performing pre-treatment
 
-The following sections cover how to perform pre-treatment with Reg-ARIMA (or Tramo) algorithms. Tramo and the Reg-Arima part of X13-Arima rely on very similar principles: [Reg-Arima modelling](M-reg-arima-modelling). Thus Tramo will be mentioned only to highlight differences with the Reg-Arima part of X13-Arima. Reg-Arima modelling part can be of a seasonal adjustment process or run on its own, we focus first on launching pre-treatment as part of a SA processing.
+The following sections cover how to perform pre-treatment with Reg-ARIMA (or Tramo) algorithms. Tramo and the Reg-Arima part of X13-Arima rely on very similar principles: [Reg-Arima modelling](M-reg-arima-modelling.qmd). Thus Tramo will be mentioned only to highlight differences with the Reg-Arima part of X13-Arima. Reg-Arima modelling part can be of a seasonal adjustment process or run on its own, we focus first on launching pre-treatment as part of a SA processing.
 
 ### Default Specifications
 
@@ -131,9 +130,9 @@ explanations:
 
 -   automatic: test is performed
 
--   outliers detection : AO/LS/TC type of outliers automatically detected under a critical T-Stat value (default value=4)
+outliers detection : AO/LS/TC type of outliers automatically detected under a critical T-Stat value (default value=4)
 
--   calendar
+calendar:
 
 -   2 regressors: weekdays vs week-ends + LY
 
@@ -141,7 +140,7 @@ explanations:
 
 -   always tested
 
--   easter tested (length = 6 days in Tramo, 8 days in X13-Arima)
+-   easter tested (default length = 6 days in Tramo, 8 days in X13-Arima)
 
 #### Starting point for Tramo-Seats
 
@@ -341,7 +340,7 @@ Tramo specific settings
 **Fct**\
 *Transformation; fct*
 
-Controls the bias in the log/level pre-test (the function is active when **Function** is set to *Auto*); **Fct** \> 1 favours levels, **Fct** \< 1 favours logs. The default setting is 0.95.
+Controls the bias in the log/level pre-test (the function is active when **Function** is set to *Auto*); **Fct** \> 1 favours levels, **Fct** \< 1 favors logs. The default setting is 0.95.
 
 **Set in GUI**
 
@@ -350,14 +349,15 @@ Controls the bias in the log/level pre-test (the function is active when **Funct
 **Set and in R**
 
 X13
+
 ```{r, eval=FALSE}
+
 #excluding first 24 and last 36 observations
 user_spec <-x13_spec(spec = c("RSA5c", "RSA0", "RSA1", "RSA2c", "RSA3", "RSA4c", "X11"), 
 transform.function ="Log", # choose from: c(NA, "Auto", "None", "Log"),
 transform.adjust = "LeapYear", #c(NA, "None", "LeapYear", "LengthOfPeriod"),
 transform.aicdiff = -3)
 #Retrieve settings: to complete*
-end 
 ```
 
 Tramo-Seats settings
@@ -368,71 +368,225 @@ user_spec_1<-tramoseats_spec( spec = c("RSAfull", "RSA0", "RSA1", "RSA2", "RSA3"
 transform.function = "Auto", #c(NA, "Auto", "None", "Log"), 
 transform.fct = 0.5)
 # Retrieve settings: to complete 
-end 
 ```
 
 ### Calendar correction
 
-(see Maruman for new outline)
-(see aux txt file for param def)
+(see Maruman for new outline) (see aux txt file for param def)
 
-#### Default specifications
+Some calendar correction options included in the starting specifications for X13-Arima or Tramo-Seats, they can be fine-tuned and user-defined by modifying specifications. The following section lists all the available options, illustrates how to set them in GUI or R and shows have to retrieve used parameters, regressors as well as results.
 
-Options related to calendar regressors choice are embedded into default specifications described above. National calendars are not taken into account.
+JDemetra+ offers two default options for calendar correction working days regressors and trading days regressors, with Leap-year effect if needed. Those options don't take into account national calendars (link) and their specific holidays. There are two ways to change this:
 
--   working days
+-   user-defined regressors (link)
 
--   trading days
+-   customized calendars (link)
 
--   Leap year regressor
+#### Available Options
 
--   Test: 
-        Remove/ Add / None
+Trading days
 
--   Easter
+-   **Option**: to specify the set of trading days regression variables NOTE: "Trading Days" has two meanings: general calendar correction process (here without easter effect ) and one of the options of this correction (see below)
 
--   Test add / remove / non
+MAL FAIT : 
+- add holidays (then mention tdays + custo calendar + not available in R (GUI will build regressors taking the calendar into accoutn, R procedures requires pre built regressors)
 
--   duration (enabled when testing removed)
+    -   "TradingDays": six day-of-the-week regression variables (expl)
 
--   Julian
+    -   "WorkingDays": one working/non-working day contrast variable
 
--   pre-test 
+    -   "None": no correction for trading days and working days effects
+
+    -   "UserDefined": user-defined trading days regressors (see below)
+
+    -   "None": must also be specified for the "day-of-week effects" correction (tradingdays.stocktd to be modified accordingly).
+    -   tradingdays.stocktd a numeric indicating the day of the month when inventories and other stock are reported (to denote the last day of the month, set the variable to 31). Modifications of this variable are taken into account only when tradingdays.option is set to "None".
+
+**Autoadjust**
+
+If enabled, the program corrects automatically for the leap year effect.
+when is the option available 
+Modifications of this variable are taken into account only when transform.function is set to "Auto".
+
+**Leapyear**
+
+to specify whether or not to include the leap-year effect in the model: 
+    - "LeapYear": leap year effect; 
+    - "LengthOfPeriod": length of period, 
+    - "None" = no effect included. 
+
+The leap-year effect can be pre-specified in the model only if the input series hasn't been pre-adjusted (transform.adjust set to "None") and if the automatic correction for the leap-year effect isn't selected (tradingdays.autoadjust set to FALSE).
+
+**Test**
+
+defines the pre-tests for the significance of the trading day regression variables based on the AICC statistics: "Add" = the trading day variables are not included in the initial regression model but can be added to the RegARIMA model after the test; "Remove" = the trading day variables belong to the initial regression model but can be removed from the RegARIMA model after the test; "None" = the trading day variables are not pre-tested and are included in the model.
 
 
-#### Retrieving parameters
+##### Options for easter
 
-**In GUI**
+Easter.enabled
+a logical. If TRUE, the program considers the Easter effect in the model.
 
-Automatically chosen or user-defined calendar options (as well as other pre-adjustment options) are displayed at the top of the MAIN Results NODE
+easter.julian
+a logical. If TRUE, the program uses the Julian Easter (expressed in Gregorian calendar).
 
-![Text](All_images/SA_REGA_retrieve_cal_options_MAIN.png)
+easter.duration a numeric indicating the duration of the Easter effect (length in days, between 1 and 20).
 
-Details of regression results are displayed in the pre processing panel
+easter.test defines the pre-tests for the significance of the Easter effect based on the t-statistic (the Easter effect is considered as significant if the t-statistic is greater than 1.96): "Add" = the Easter effect variable is not included in the initial regression model but can be added to the RegARIMA model after the test; "Remove" = the Easter effect variable belongs to the initial regression model but can be removed from the RegARIMA model after the test; "None" = the Easter effect variable is not pre-tested and is included in the model.
 
-![](All_images/SA_REGA_retrieve_calendar_options_details.png)
+A user-defined regressor can also be used.
 
-Retrieving regressors 
+#### Setting Calendar correction in GUI
 
-**In R**
+Attention: tramo modelling specific options yc for calendar 
 
+##### Using default options (without national calendars)
 
+**In GUI** Use the specification window
 
-#### Setting options
+Calendar effects
 
-#### **In GUI** Use the specification window
+STEP 1: Selection from JDemetra+ Default...or User_defined
+
+![](All_images/SA_REGA_calendar_options.png)
+
+SA_REGA_calendar_options.png
+
+STEP2: Calendar effects minus Easter are labeled **trading days**
 
 ![](All_images/SA_REGA_calendar_default_options.png)
 
+
+##### Holidays option  
+
+using a customized calendar 
+just show how to fetch it 
+building process in calendar chapter 
+
+![](All_images/SA_REGA_calendar_custom.png)
+
+
+
 Missing: stock td option, length-of-period
 
-##### GUI Setting options
+User-defined regressors: adding see below 
+
+Link to Import data Once data imported : here explain how to link variables
+
+##### Easter
+
+![](All_images/SA_REGA_easter_options.png)
 
 
 
-##### R: Setting this options and retrieveing parameters which are in use
+#### Setting Calendar correction in R
 
-#### Customizing calendars
+In version 2
+
+```{r, eval=FALSE}
+# Parameter choice NA=...
+  tradingdays.option = c(NA, "TradingDays", "WorkingDays", "UserDefined", "None"),
+  tradingdays.autoadjust = NA,
+  tradingdays.leapyear = c(NA, "LeapYear", "LengthOfPeriod", "None"),
+  tradingdays.stocktd = NA_integer_,
+  tradingdays.test = c(NA, "Remove", "Add", "None"),
+  easter.enabled = NA,
+  easter.julian = NA,
+  easter.duration = NA_integer_,
+  easter.test = c(NA, "Add", "Remove", "None"),
+# example 
+```
+
+In version 3 (Under construction)
+
+#### User defined regressors
+
+If **User Defined** options is used for trading days, regressors have to be provided by the user. 
+
+Building Regressors 
+The underlying methodology and implementation in JDemetra+ to build these regression variables are provided [here](A-Calendar-and-input.qmd)
+
+##### Adding Regressors in GUI
+
+Step 1: import data set containing the regressors, general procedure explained
+
+Step 2: Link the regressors to the workspace, procedure detailed here 
+
+Step 3: Modify specifications 
+Modifications are done the same way in a global specification (whole SAP) or series by series.
+
+- select trading days **User-defined option** and select variables 
+
+In the specification window, click right from "userVariables" on "Unused" to open the variable selection window 
+
+![](All_images/SA_REGA_calendar_user_defined_open_variables_window.png)
+
+
+Move right the chosen regressors 
+
+![](All_images/SA_REGA_calendar_user_def_variables.png)
+SA_REGA_calendar_user_def_variables
+
+- set TEST option (expl)
+
+![](All_images/SA_REGA_Calendar_user_def_test.png)
+
+
+##### Adding Regressors in R
+
+"UserDefined" = user-defined trading days regressors (regressors must be defined by the usrdef.var argument with 
+usrdef.varType set to "Calendar" 
+and usrdef.varEnabled = TRUE). 
+
+```{r, eval=FALSE}
+
+# example 
+```{r, eval=FALSE}
+spec_4 <- x13_spec(spec = spec_1, 
+                   tradingdays.option = "UserDefined", 
+                   tradingdays.test = "None", 
+                   usrdef.varEnabled = TRUE, 
+                   usrdef.varType = "Calendar", 
+                   usrdef.var = reg3) # set of regressors in TS format
+```
+
+#### Retrieving used parameters
+
+**In GUI**
+
+Automatically chosen or user-defined calendar options (as well as other pre-adjustment options) are displayed at the top of the MAIN Results NODE displayed by clicking on a given series name in the workspace panel.
+
+![](All_images/SA_REGA_retrieve_cal_options_MAIN.png)
+
+**In R**
+
+#### Retrieving regressors
+
+**In GUI** All regressors in the pre-adjustment phase (calendar, outliers, external) are displayed in the pre-processing-regressors node.
+
+![](All_images/SA_REGA_calendar_retrieving_regressors.png) **In R**
+
+Version 2
+
+#### Retrieving regression results for calendar effects
+
+Regressions results and test for residual trading-days effects
+
+**In GUI**
+
+The results of the whole Reg-Arima regression (link to last section) including calendar effects (below) are displayed in the pre-processing panel.
+
+![](All_images/SA_REGA_calendar_retrieving_regressions_results.png)
+
+**In R**
+
+#### Customizing Calendars
+(will go to calendar chapter)
+(where are the links leading here: 
+- 
+- )
+
+To take national 
 
 How to correct this ?
 
@@ -458,27 +612,19 @@ set this option in GUI how to import vaiables into JD+ / set utility (in interfa
 
 set this option in R version 2:
 
-```{r, eval=FALSE}
-spec_4 <- x13_spec(spec = spec_1, 
-                   tradingdays.option = "UserDefined", 
-                   tradingdays.test = "None", 
-                   usrdef.varEnabled = TRUE, 
-                   usrdef.varType = "Calendar", 
-                   usrdef.var = reg3) # set of regressors in TS format
-```
+
 
 version 3
 
-(generic sentence to quasi repeat at the end of each part) Once regressors set, the RegArima (tramo) model will be estimated gloablly with all the other regression variables and taking into account arima model specificities as well. That is why diagnostics are all jointly displayed at the end of the process. (link)
+(generic sentence to quasi repeat at the end of each part) Once regressors set, the RegArima (tramo) model will be estimated globally with all the other regression variables and taking into account arima model specificities as well. That is why diagnostics are all jointly displayed at the end of the process. (link)
 
 link to: worked example: french calendar in R
 
 
-#### Customizing calendars
 
-Under construction.
+### Outliers
 
-### Outliers and intervention variables
+### Intervention variables
 
 Under construction.
 
@@ -664,7 +810,7 @@ In version 2
 
 # final components
 model_sa$final$series
-# their forecasts y_f sa_f s_f t_f i_f
+# final forecasts y_f sa_f s_f t_f i_f
 model_sa$final$forecasts
 # from user defined output 
 ```
