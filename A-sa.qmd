@@ -382,26 +382,34 @@ JDemetra+ offers two default options for calendar correction working days regres
 
 -   customized calendars (link)
 
+Overview: what you can do
+
+Need 1: correct for working days, trading days (+ easter) not taking national calendars 
+
+Need 2: taking national calendar into account 
+Solutions 
+
++ add a work of means of allocating regressors to the calendar component
+
+
 #### Available Options
 
-Trading days
+##### Trading Days
 
--   **Option**: to specify the set of trading days regression variables NOTE: "Trading Days" has two meanings: general calendar correction process (here without easter effect ) and one of the options of this correction (see below)
+ "Trading Days" has two meanings: general calendar correction process (here without easter effect) and one of the options of this correction (see below)
 
-MAL FAIT : 
-- add holidays (then mention tdays + custo calendar + not available in R (GUI will build regressors taking the calendar into accoutn, R procedures requires pre built regressors)
+    -    "None": no correction for trading days and working days effects
+    
+    -    "Default": JDemetra + built regressors (xorking days or trading days)
+    
+    -    "Holidays": same as above but taking into accoutn a national calendar,                  available on ly in GUI, R interface requires direct use of pre-built                   regressors 
 
-    -   "TradingDays": six day-of-the-week regression variables (expl)
+    -     "UserDefined": user-defined trading days regressors (see below)
 
-    -   "WorkingDays": one working/non-working day contrast variable
-
-    -   "None": no correction for trading days and working days effects
-
-    -   "UserDefined": user-defined trading days regressors (see below)
-
-    -   "None": must also be specified for the "day-of-week effects" correction (tradingdays.stocktd to be modified accordingly).
-    -   tradingdays.stocktd a numeric indicating the day of the month when inventories and other stock are reported (to denote the last day of the month, set the variable to 31). Modifications of this variable are taken into account only when tradingdays.option is set to "None".
-
+    -    (if NONE) indicating the day of the month when inventories and other stock are reported (to denote the last day of the month, set the variable to 31). 
+    
+##### Leap Year effect
+    
 **Autoadjust**
 
 If enabled, the program corrects automatically for the leap year effect.
@@ -417,12 +425,16 @@ to specify whether or not to include the leap-year effect in the model:
 
 The leap-year effect can be pre-specified in the model only if the input series hasn't been pre-adjusted (transform.adjust set to "None") and if the automatic correction for the leap-year effect isn't selected (tradingdays.autoadjust set to FALSE).
 
+#### Test 
+
 **Test**
 
 defines the pre-tests for the significance of the trading day regression variables based on the AICC statistics: "Add" = the trading day variables are not included in the initial regression model but can be added to the RegARIMA model after the test; "Remove" = the trading day variables belong to the initial regression model but can be removed from the RegARIMA model after the test; "None" = the trading day variables are not pre-tested and are included in the model.
 
+EJOR here ? (detailed elsewhere)
 
-##### Options for easter
+
+##### Easter
 
 Easter.enabled
 a logical. If TRUE, the program considers the Easter effect in the model.
@@ -508,7 +520,7 @@ The underlying methodology and implementation in JDemetra+ to build these regres
 
 ##### Adding Regressors in GUI
 
-Step 1: import data set containing the regressors, general procedure explained
+Step 1: import data set containing the regressors, general procedure explained here
 
 Step 2: Link the regressors to the workspace, procedure detailed here 
 
@@ -550,27 +562,41 @@ spec_4 <- x13_spec(spec = spec_1,
                    usrdef.var = reg3) # set of regressors in TS format
 ```
 
-#### Retrieving used parameters
+#### Retrieving Results 
+
+The following section details how to retrieve results (parameters, regressors, regression coefficients and test) when using GUI or R interface.
+
+##### Parameters
+
+Parameters are regressors used in fine.
+If non test options, parameters are known 
+If test options are selected by the algorithm.
 
 **In GUI**
 
-Automatically chosen or user-defined calendar options (as well as other pre-adjustment options) are displayed at the top of the MAIN Results NODE displayed by clicking on a given series name in the workspace panel.
+Automatically chosen or user-defined calendar options (as well as other pre-adjustment options) are displayed at the top of the MAIN Results NODE displayed by clicking on a given series name in the SAProcessing panel.
 
 ![](All_images/SA_REGA_retrieve_cal_options_MAIN.png)
 
 **In R**
 
-#### Retrieving regressors
+version 2: RJDemetra
+
+version 3: rjd3x13 or rjd3tramoseats
+
+##### Regressors
 
 **In GUI** All regressors in the pre-adjustment phase (calendar, outliers, external) are displayed in the pre-processing-regressors node.
 
-![](All_images/SA_REGA_calendar_retrieving_regressors.png) **In R**
+![](All_images/SA_REGA_calendar_retrieving_regressors.png) 
+
+**In R**
 
 Version 2
 
-#### Retrieving regression results for calendar effects
+##### Regression results
 
-Regressions results and test for residual trading-days effects
+Regressions results
 
 **In GUI**
 
@@ -580,8 +606,24 @@ The results of the whole Reg-Arima regression (link to last section) including c
 
 **In R**
 
+
+##### Test for residual trading-days effects
+
+Residual calendar effects are tested with A F-Test 7 regressors and no national calendar, on sa final series and on irregular component
+(link to calendar chapter for test details)
+
+**In GUI**
+
+F-Test results are displayed at hte bottom of **Main  Results** NODE in the SAProcessing panel
+
+![](All_images/SA_REGA_Calendar_EJOR_Test.png)
+
+
+
+**In R**
+
 #### Customizing Calendars
-(will go to calendar chapter)
+(deatils will go to calendar chapter)
 (where are the links leading here: 
 - 
 - )
@@ -619,8 +661,6 @@ version 3
 (generic sentence to quasi repeat at the end of each part) Once regressors set, the RegArima (tramo) model will be estimated globally with all the other regression variables and taking into account arima model specificities as well. That is why diagnostics are all jointly displayed at the end of the process. (link)
 
 link to: worked example: french calendar in R
-
-
 
 ### Outliers
 
