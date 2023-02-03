@@ -96,7 +96,7 @@ In rjd3sa package:
 
 -   QS Seasonality Test (`seasonality.qs()`)
 
-## Performing pre-treatment
+## Pre-treatment: Reg-Arima or Tramo
 
 The following sections cover how to perform pre-treatment with Reg-ARIMA (or Tramo) algorithms. Tramo and the Reg-Arima part of X13-Arima rely on very similar principles: [Reg-Arima modelling](M-reg-arima-modelling.qmd). Thus Tramo will be mentioned only to highlight differences with the Reg-Arima part of X13-Arima. Reg-Arima modelling part can be of a seasonal adjustment process or run on its own, we focus first on launching pre-treatment as part of a SA processing.
 
@@ -539,7 +539,7 @@ In the specification window, click right from "userVariables" on "Unused" to ope
 Move right the chosen regressors 
 
 ![](All_images/SA_REGA_calendar_user_def_variables.png)
-SA_REGA_calendar_user_def_variables
+
 
 - set TEST option (expl)
 
@@ -625,7 +625,7 @@ F-Test results are displayed at hte bottom of **Main  Results** NODE in the SAPr
 **In R**
 
 #### Customizing Calendars
-(deatils will go to calendar chapter)
+(details will go to calendar chapter)
 (where are the links leading here: 
 - 
 - )
@@ -791,14 +791,84 @@ Describe...
 
 **In R**
 
-### Additional Regressors 
+to complete
 
-3 types
-intervention variables 
+### User-defined regressors 
 
- - **Intervention variables**<br> *regression variables; --*
+(some kind of summary chapter introduction)
+- rationale
+
+- common parameters: assign to a component
+
+rationale and equations (equalities)
+
+Pre-treatment regression with additionnal outliers 
+
+$$
+Y_t = \sum \hat{\alpha}_i O_{it} + \sum\hat\beta_j C_{jt} + \sum\hat\gamma_k Reg_{kt} + y_{lin_t}
+$$
+
+##### Allocation to components 
+(att some are missing)
+$reg= reg_{i}+reg_{t}+reg_{s}+...$
+	The user-defined regression variable associated to a specific component should not contain effects that have to 
+	be associated with another component. Therefore, the following rules should be observed: 
+    * The variable assigned to the trend or to the seasonally adjusted series should not contain a seasonal pattern;
+    * The variable assigned to the seasonal should not contain a trend (or level); 
+    * The variable assigned to the irregular should contain neither a seasonal pattern nor a trend (or level).
+    - no external regressors can be assigned to calendar component. It has to be be done via user defined calendar regressors specific part (link)
+
+Questions: 
+- allocation to sa : done at the very end ? 
+- allocated to undefined ? 
+
+Ramps and intervention variables are Specific cases of external regressors
+
+
+#### Setting in GUI 
+
+User-defined variables
+
+Step 1: import data set containing the regressors, general procedure explained here
+
+Step 2: Link the regressors to the workspace, procedure detailed here 
+
+Step 3: Modify specifications via window 
+Modifications are done the same way in a global specification (whole SAP) or series by series.
+
+SA_REGA_User_def_Regressors_1
+
+Describe...
+
+![](All_images/SA_REGA_User_def_Regressors_1.png)
+
+#### Setting in R
+
+#### Special case 1: Ramp effects 
+A ramp effect means a linear increase or decrease in the level of the series over a specified time interval $t_{0}$ to $\ t_{1}$. All dates of the ramps must occur within the time series  span. (tested: not true). Ramps can overlap other ramps, additive outliers and level shifts. 
+
+test: several  
+
+see if here: ?
+The graph and formula are available in [Linearisation with the TRAMO and RegARIMA models](../theory/SA_lin.html).
+
+
+###### Creation in GUI
+
+![](All_images/SA_REGA_user_def_regs_ramps_definition.png)
  
-   The intervention variables are defined as in TSW+. Following the definition, these effects are special events known a priori (strikes, devaluations, political events, and so on). Intervention variables are modeled as any possible sequence of ones and zeros, on which some operators may be applied. Intervention variables are built as combinations of the following basic structures[^16]: 
+###### Creation in R
+
+###### Allocation to components 
+allocation when intervention or ramps ?
+in test allocated to trend ? (reg)
+
+impossible (?) to create several intervention variables 
+
+#### Special case 2: Intervention variables
+
+Intervention variables:
+Intervention variables are modeled as any possible sequence of ones and zeros, on which some operators may be applied. Intervention variables are built as combinations of the following basic structures[^16]: 
    *  Dummy variables[^17];
    *  Any possible sequence of ones and zeros;
    *  $\frac{1}{(1 - \delta B)}$, 
@@ -807,43 +877,80 @@ intervention variables
    *  $(0 < \delta_{s} \leq 1)$;
    *  $\frac{1}{(1 - B)(1 - B^{s})}$;
     where $B$ is backshift operator (i.e. $B^{k}X_{t} = X_{t - k}$) and $s$ is frequency of the time series ($s = 12\ $for a monthly time series, $s = 4\ $for a quarterly time series). 
-   <br>
-	
+
    These basic structures enable the generation of not only AO, LS, TC, SO and RP outliers but also sophisticated intervention variables that are well-adjusted to the particular case. 
-   No intervention variables are included in the pre-defined specifications. They can only be added to the user-defined specifications. 
 
+Ramp Effects:
 
-ramp effects
-user defined 
+As they are the most common external regressors, JDemetra+ offers functionalities to build them directly
+
+###### Creation in GUI
+step 1
+![](All_images/SA_REGA_calendar_user_def_inter_var_1.png)
+
+Step 2:
+
+![](All_images/SA_REGA_calendar_user_def_inter_var_2.png)
+
+step 3: 
+![](All_images/SA_REGA_calendar_user_def_inter_var_3.png)
+explain params 
+- differentiation orders
+D1DS : if ticked: 1 1 automatically 
+(pb differentiation before the real differentiation ??)
+
+###### Creation in R
+
+###### Allocation to components 
+allocation when intervention or ramps ?
+in test allocated to trend ? (reg)
+
+impossible (?) to create several intervention variables 
+
+Remaining topics
 
 fixed coefficient options
+
+ - **Fixed regression coefficients**<br> *regression variables; --* 
+ 
+    For the pre-specified regression variables this option specifies the parameter estimates that will be held fixed at the values provided by the user.
+    To fix a coefficient the user should undertake the following actions:    
+    * Choose the transformation (log or none).
+    * Define some regression variables in the *Regressors* specification.
+    * Push on the fixed regression coefficients editor button in the **User-defined variables** row.
+    * Select the regression variable from the list for which the coefficient will be fixed. 
+    * Save the new setting with the **Done** button.
 
 Overview: 
 differences 
 GUI set up vs R set up  
 
-#### Settiing in GUI 
-
-#### Setting in R
 
 #### Retrieving Results 
+(for all types of external regressors: user def imported, ramps or intervention variables)
 
-##### Parameters 
+##### Regressors
 
-##### Regressors 
+capture pane with 3 variables: interv, ramp and user defined 
 
-##### Regression details 
+pb: I cannot add user-defined when already ramp and interv 
 
+##### Regression details
+
+capture pane with 3 variables: interv, ramp and user defined 
+all at the same time 
 
 ### Arima Model
 
-#### Default specifications
+Key specifications on Arima modelling are embedded in default specifications: airline (default model) or full automatic research.(links)
 
-Key specifications on Arima modelling are embedded in default specifications: airline (default model) or full automatic research.
+Two kinds of interventions are available to the user 
+- modify automatic detection parametrs 
+- set a user defined arima model 
+
+#### Options for modifying automatic detection
 
 *automdl.enabled* If TRUE, the automatic modelling of the ARIMA model is enabled. If FALSE, the parameters of the ARIMA model can be specified.
-
-#### Modifying automatic detection
 
 Control variables for the automatic modelling of the ARIMA model (when automdl.enabled is set to TRUE):
 
@@ -868,12 +975,13 @@ Control variables for the automatic modelling of the ARIMA model (when automdl.e
 *automdl.ubfinal* numeric, final unit root limit. The threshold value for the final unit root test. If the magnitude of an AR root for the final model is smaller than the final unit root limit, then a unit root is assumed, the order of the AR polynomial is reduced by one and the appropriate order of the differencing (non-seasonal, seasonal) is increased. The parameter value should be greater than one.
 
 **Setting in GUI**
+![](All_images/SA_REGA_arima_auto_params.png)
 
-Under construction
 
 **Setting in R**
-
+(first template, then worked example)
 X13-Arima template in version 2
+
 
 ```{r,eval=FALSE}
 spec_2 <- x13_spec(spec = spec_1,
@@ -891,7 +999,10 @@ automdl.enabled = NA,
 
 ```
 
-#### User-defined Arima model
+in version 3
+
+
+#### Options for setting a user-defined Arima model
 
 Control variables for the non-automatic modelling of the ARIMA model (when automdl.enabled is set to FALSE):
 
@@ -923,6 +1034,8 @@ Control variables for the user-defined ARMA coefficients. Coefficients can be de
 
 Under construction
 
+SA_REGA_Arima_user_params_1.png
+
 **Setting in R**
 
 X13-Arima template in version 2
@@ -944,6 +1057,8 @@ automdl.enabled = FALSE,
   fcst.horizon = NA_integer_)
 
 ```
+
+in version 3
 
 ### Reg-Arima model Results and Diagnostics
 
@@ -991,7 +1106,7 @@ model_sa<-x13(serie_brute, spec ="RSA5c")
 
 The model_sa R object (list of lists) contains all parameters and results. It will be progressively detailed below.
 
-### Output 1: series
+### Retrieve series
 
 #### Display in GUI
 
