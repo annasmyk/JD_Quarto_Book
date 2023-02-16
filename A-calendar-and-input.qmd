@@ -1,13 +1,12 @@
 # Calendar and user-defined corrections {.unnumbered}
 
+### In this chapter
+
 This chapter will describe
 
 -   underlying principles and concepts of calendar correction
 
-```{=html}
-<!-- -->
-```
--    generating process of calendars, calendar regressors, outliers and other input variables.
+-   generating process of calendars, calendar regressors, outliers and other input variables.
 
 How to use these variables inside a seasonal adjustment process is detailed in chapters on [SA](A-sa.qmd) or [SA of HF data](A-sa-hf.qmd).
 
@@ -214,7 +213,7 @@ The number of days by period is highly seasonal, as apart from February, the len
 **The mean effect and the seasonal effect for the calendar periods**
 
 | **Period** | **Average number of days** | **Average number of week days** | **Mean effect** | **Seasonal effect** |
-|--------------|--------------|-----------------|--------------|--------------|
+|---------------|---------------|---------------|---------------|---------------|
 | January    | 31                         | 31\*5/7=22.1429                 | 21.7411         | 0.4018              |
 | February   | 28.25                      | 28.25\*5/7=20.1786              | 21.7411         | -1.5625             |
 | March      | 31                         | 31\*5/7=22.1429                 | 21.7411         | 0.4018              |
@@ -489,3 +488,125 @@ By default, we compute the tests on the 8 last years of the components, so that 
 Remark:
 
 In Tramo, a similar test is computed on the residuals of the Arima model. More exactly, the F-test is computed on $e_t=\beta TD_t + \epsilon_t$, where $e_t$ are the one-step-ahead forecast errors.
+
+### Customizing calendars
+
+There three ways to build customized calendars taking into account national holidays
+
+    - In the Graphical User Interface 
+
+The resulting calendar can be directly linked to the calendar correction option in GUI while running a seasonal adjustment processing (see SA chapter, link)
+
+    - In R 
+
+The resulting calendar will allow to generate customized regressors which can then be added while running a seasonal adjustment processing via GUI (link) or in R (link).
+
+    - Directly writing xml files 
+
+#### In GUI
+
+##### Default Calendar
+
+In the graphical user interface, calendars in are stored in the *Workspace* window in the *Utilities* section. In the default calendar, country-specific national holidays are not taken into account, it reflects only the usual composition of the weeks in the calendar periods.
+
+    ![Text](All_images/UG_CAL_image1.jpg)
+
+    **The *Calendars* section in the *Workspace* window**
+    
+
+
+To view the details of the default calendar
+
+    - double click on it
+
+    ![Text](All_images/UG_CAL_image2.jpg)
+
+    **The default view of the default calendar**
+
+##### Set Properties
+
+In the *Properties* panel the user can set:
+
+-   Frequency (monthly, quarterly..)
+
+-   Trading days or working days regressors
+
+*Trading days*: 6 contrast variables ($number\ of\ Mondays - number\ of\ Sundays$,...) and one regressor for the leap year effect.
+
+*Working Days*: 1 contrast variable ($number\ of\ working days (monday to friday) - number\ of\ Saturdays and Sundays$,...) and one regressor for the leap year effect.
+  
+![Text](All_images/UG_CAL_image3.jpg)
+
+**Modification of the initial settings for the Default calendar**
+
+##### Spectrum visualization 
+
+The top-right panel displays the spectrum for the given calendar variable. By default, the first variable from the table is shown.
+
+- To change it, click on the calendar variable header.
+
+Calendar variables shouldn't have a peak neither at a zero frequency (trend) nor the seasonal frequencies. 
+
+![Text](All_images/UG_CAL_image6.jpg)
+#### Modify an existing Calendar
+
+- click the option *Edit* from the context menu
+
+- the list of holidays defined for this calendar is displayed
+
+![Text](All_images/UG_CAL_image12.jpg)
+
+**Edit a calendar window**
+
+- To add a holiday unfold the **+** menu 
+
+- To remove a holiday click on it and choose the **-** button
+![Text](All_images/UG_CAL_image13.jpg)
+
+**Removing a holiday from the calendar**
+
+#### Creating a new calendar
+
+An appropriate calendar, containing the required national holidays, needs to be created to adjust a series for country-specific calendar effects.
+
+- right click on the *Calendar* item from the *Workspace* window and choose **Add**
+
+![Text](All_images/UG_CAL_image14.jpg)
+
+Three options are available:
+
+- *National calendars*: allows to include country-specific holidays
+
+- *Composite calendars* : creates calendar as a weighted sum of several national calendars
+
+- *Chained calendars* : allows to chain two national calendars before and after a break 
+
+
+#### Importing an existing calendar from a file
+
+- right click on the *Calendar* item from the
+*Workspace* window and choose the *Import* item from the menu.
+
+![Text](All_images/UG_CAL_image8.jpg)
+
+**Importing a calendar to JDemetra+**
+
+- choose the appropriate file and open it
+
+![Text](All_images/UG_CAL_image10.jpg)
+
+**Choosing the file**
+
+JDemetra+ adds it to the calendars list
+
+	![Text](All_images/UG_CAL_image11.jpg)
+
+**A list of calendars with a newly imported calendar**
+
+
+##### Example of a calendar file
+
+example of a html file containing a calendar 
+
+![Text](All_images/UG_CAL_image9.jpg)
+
