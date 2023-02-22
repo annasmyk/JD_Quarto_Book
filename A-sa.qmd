@@ -1317,7 +1317,7 @@ The [Moving Seasonality Ratio (MSR)](M-X11-decomposition.qmd) is used to measure
 
 ### Retrieve final parameters
 
-This section describes the parameters which are automatically chosen by the software as a result of the estimation process. They have no default value. All parameters having a default value and beign
+This section describes the parameters which are automatically chosen by the software as a result of the estimation process. They have no default value.
 
 Final trend filter : length of Henderson filter applied for final estimation (in the second part of the D step).
 

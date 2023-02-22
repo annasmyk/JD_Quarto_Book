@@ -1,12 +1,18 @@
 # X-11 decomposition {.unnumbered}
 
-## Introduction
+## In this chapter 
 
-A complete documentation of the X-11 method is available in LADIRAY, D.,
-and QUENNEVILLE, B. (2001). The X-11 program is the result of a long
-tradition of non-parametric smoothing based on moving averages, which
-are weighted averages of a moving span of a time series (see hereafter).
-Moving averages have two important drawbacks:
+- context 
+
+- moving averages 
+
+- algorithm steps 
+
+- high frequency data (extended features)
+
+## X-11 in seasonal adjustment
+
+The X-11 program is the result of a long tradition of non-parametric smoothing based on moving averages which have two important drawbacks:
 
 -   They are not resistant and might be deeply impacted by outliers;
 
@@ -14,259 +20,131 @@ Moving averages have two important drawbacks:
     asymmetric moving averages which introduce phase-shifts and delays
     in the detection of turning points.
 
-These drawbacks adversely affect the X-11 output and stimulate the
-development of this method. To overcome these flaws first the series are
-modelled with a RegARIMA model that calculates forecasts and estimates
-the regression effects. Therefore, the seasonal adjustment process is
-divided into two parts.
+To overcome these flaws first the series are modelled with a RegARIMA model that removes deterministic effects (calendar, outliers) and computes forecasts.
 
--   In a first step, the RegARIMA model is used to clean the series from
-    non-linearities, mainly outliers and calendar effects. A global
-    ARIMA model is adjusted to the series in order to compute the
-    forecasts.
+![The flow diagram for seasonal adjustment with X-13ARIMA-SEATS using
+the X-11 algorithm](All_images/UG_A_image13.png)
 
--   In a second step, an enhanced version of the X-11 algorithm is used
-    to compute the trend, the seasonal component and the irregular
-    component.
 
-![**The flow diagram for seasonal adjustment with X-13ARIMA-SEATS using
-the X-11 algorithm.**](All_images/UG_A_image13.png)
+## Moving averages
 
-#### Moving averages
+To understand the decomposition process, some concepts on moving averages (MA) are necessary
 
-The moving average of coefficient $\theta_{i}$ is defined as:
-
+A moving average of *order* $p+f+1$ and coefficients $(\theta_i)$ is the operator $M$ defined as:
 $$
-M\left( X_{t} \right) = \sum_{k = - p}^{+ f}\theta_{k}X_{t + k}
+MX_t = \sum_{i=-p}^{f}\theta_i X_{t+i}
 $$
 
-<!-- $$ -->
-
-<!-- 1 -->
-
-<!-- $$<!---\[7.61\]-->
+The series value in $t$ is replaced by a weighted average of $p$ past values, the current value and the $f$ future values. If $p=f$, the moving average is *centered* and if $\theta_{-i} = \theta_i$, it is *symmetrical*.
 
 
-The value at time $t$ of the series is therefore replaced by a weighted
-average of $p$ "past" values of the series, the current value, and $f$
-"future" values of the series. The quantity $p + f + 1$ is called the
-moving average order. When $p$ is equal to $f$, that is, when the number
-of points in the past is the same as the number of points in the future,
-the moving average is said to be centred. If, in addition,
-$\theta_{- k} = \theta_{k}$ for any $k$, the moving average $M$ is said
-to be symmetric. One of the simplest moving averages is the symmetric
-moving average of order $P = 2p + 1$ where all the weights are equal to
-$\frac{1}{P}$.
-
-This moving average formula works well for all time series observations,
-except for the first $p$ values and last $f$ values. Generally, with a
-moving average of order $p + f + 1$ calculated for instant $t$ nwith
-points $p$ in the past and points $f$ in the future, it will be
-impossible to smooth out the first $p$ values and the last $f$ values of
-the series because of lack of input to the moving average formula.
-
-In the X-11 method, symmetric moving averages play an important role as
-they do not introduce any phase-shift in the smoothed series. But, to
-avoid losing information at the series ends, they are either
-supplemented by *ad hoc* asymmetric moving averages or applied on the
-series extended by forecasts.
-
-For the estimation of the seasonal component, X-13ARIMA-SEATS uses
-$P \times Q$ composite moving averages, obtained by composing a simple
-moving average of order $P$, which coefficients are all equal to
-$\frac{1}{P}$, and a simple moving average of order $Q$, which
-coefficients are all equal to $\frac{1}{Q}$.
-
-The composite moving averages are widely used by the X-11 method. For an
-initial estimation of trend X-11 method uses a $2 \times 4$ moving
-average in case of a quarterly time series while for a monthly time
-series a $2 \times 12$ moving average is applied. The $2 \times 4$
-moving average is an average of order 5 with coefficients
-$\frac{1}{8}\left\{1, 2, 2, 2, 1\right\}$. It eliminates frequency
-$\frac{\pi}{2}$ corresponding to period 4 and therefore it is suitable
-for seasonal adjustment of the quarterly series with a constant
-seasonality. The $2 \times 12$ moving average, with coefficients
-$\frac{1}{24}\left\{1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1\right\}$ that
-retains linear trends, eliminates order-$12$ constant seasonality and
-minimises the variance of the irregular component. The $2 \times 4$ and
-$2 \times 12$ moving averages are also used in the X-11 method to
-normalise the seasonal factors. The composite moving averages are also
-used to extract the seasonal component. These, which are used in the
-purely automatic run of the X-11 method (without any intervention from
-the user) are $3 \times 3$, $3 \times 5$ and $3 \times 9$.
-
-In the estimation of the trend also Henderson moving averages are used.
-These filters have been chosen for their smoothing properties. The
-coefficients of a Henderson moving average of order $2p + 1$ may be
-calculated using the formula:
+Example of simple moving average of order 3:
 
 $$
-\theta_{i} = \frac{315\left\lbrack \left( n - 1 \right)^{2} - i^{2} \right\rbrack\left\lbrack n^{2} - i^{2} \right\rbrack\left\lbrack \left( n + 1 \right)^{2} - i^{2} \right\rbrack\left\lbrack {3n}^{2} - 16 - 11i^{2} \right\rbrack}{8n\left( n^{2} - 1 \right)\left( {4n}^{2} - 1 \right)\left( {4n}^{2} - 9 \right)\left( 4n^{2} - 25 \right)}
+MX_t = \frac{1}{3}(X_{t-1}+X_{t}+ X_{t+1})
 $$
 
-<!---$$
-2
-$$\[7.62\]-->
+A moving average is a **linear operator**, $M(X_t+Y_t) = M(X_t)+M(Y_t)$.
 
-where $n = p + 2$.
+#### Combined moving averages
 
-#### The basic algorithm of the X-11 method
+Centered and symmetrical moving averages preserve linear trends, which is a desirable propriety. They cannot have an even order,  thus for even orders they are obtained by combining simple MAs as arithmetic means of p moving averages of same order (ie. length): $M_{p\times order}$
 
-The X-11 method is based on an iterative principle of estimation of the
-different components using appropriate moving averages at each step of
-the algorithm. The successive results are saved in tables. The list of
-the X-11 tables displayed in JDemetra+ is included at the end of this
-section.
+Combination example for order 12:
 
-The basic algorithm of the X-11 method will be presented for a monthly
-time series $X_{t}$ that is assumed to be decomposable into trend,
-seasonality and irregular component according to an additive model
-$X_{t} = TC_{t} + S_{t} + I_{t}$.
-
-A simple seasonal adjustment algorithm can be thought of in eight steps.
-The steps presented below are designed for the monthly time series. In
-the algorithm that is run for the quarterly time series the $2 \times 4$
-moving average instead of the $2 \times 12$ moving average is used.
-
-***Step 1: Estimation of Trend by*** $\mathbf{2 \times 12}$ ***moving
-average:***
+There a are two intuitive ways to create a MA of order 12:
 
 $$
-TC_{t}^{(1)} = M_{2 \times 12}(X_{t})
+M1X_t = \frac{1}{12}(X_{t-6}+X_{t-5}+ X_{t-4}+ X_{t-3}+ X_{t-2}+ X_{t-1}
+$$
+$$
++ X_{t}+ X_{t+1}+ X_{t+2}+ X_{t+3}+ X_{t+4}+X_{t+5})
+$$
+The other being:
+$$
+M2X_t = \frac{1}{12}(X_{t-5}+ X_{t-4}+ X_{t-3}+ X_{t-2}+ X_{t-1}+ X_{t}
+$$
+$$
++ X_{t+1}+ X_{t+2}+ X_{t+3}+ X_{t+4}+X_{t+5}+X_{t+6})
 $$
 
-<!---$$
-3
-$$<!---\[7.63\]-->
-
-***Step 2: Estimation of the Seasonal-Irregular component:***
+**Combining** MAs enables us to create a centered and symmetrical MA with an **even order**:
 
 $$
-\left( S_{t} + I_{t} \right)^{(1)} = X_{t} - \text{TC}_{t}^{(1)}
+M_{2\times 12}= \frac{1}{2}(M1X_t+M2X_t)
 $$
-
-<!---$$
-4
-$$\[7.64\]-->
-
-***Step 3: Estimation of the Seasonal component by*** 
+which is: 
 
 $$
-\mathbf{3 \times 3}
+M_{2\times 12} =\frac{1}{24}(X_{t-6}) +\frac{1}{12}(X_{t-5}+ X_{t-4}
+$$
+$$
++X_{t-3}+ X_{t-2}+ X_{t-1}+ X_{t}+X_{t+1}+ X_{t+2}
+$$
+$$
++ X_{t+3}+ X_{t+4}+X_{t+5})+\frac{1}{24}(X_{t+6})
 $$
 
 
-***moving average over each month:***
+#### Supressing locally constant seasonality 
 
+Applying a moving average of an order equal to the periodicity of the raw series removes a locally stable seasonality ($\sum_{i=1}^{12}S_{t+i} = 0$)
+
+A moving average of order, 12 will remove a locally stable monthly seasonality: $M_{1\times 12}(S)=0$ and also $M_{2\times 12}(S)=0$ with linear trend preservation.
+
+
+## X-11 algorithm basic steps
+
+The seasonal adjustment algorithm can has eight steps. They are outlined below for a monthly time series. (For a quarterly time series a $2\times 4$
+moving average would be used, instead of $2\times 12$)
+
+
+Step 1: Estimation of the **trend-cycle** with a $2\times 12$ MA:
 $$
-S_{t}^{(1)} - M_{3 \times 3}\left\lbrack \left( S_{t} + I_{t} \right)^{(1)} \right\rbrack
-$$
-
-<!---$$
-5
-$$\[7.65\]-->
-
-The moving average used here is a $3 \times 3$ moving average over $5$
-terms, with coefficients $\frac{1}{9} \left\{1, 2, 3, 2, 1 \right\}$.
-The seasonal component is then centred using a $2 \times 12$ moving
-average.
-
-$$
-\widetilde{S}_{t}^{(1)} = S_{t}^{(1)} - M_{2 \times 12}\left( S_{t}^{(1)} \right)
-$$
-
-<!---$$
-6
-$$\[7.66\]-->
-
-***Step 4: Estimation of the seasonally adjusted series:***
-
-$$
-SA_{t}^{\left( 1 \right)} = \left( \text{TC}_{t} + I_{t} \right)^{(1)} = X_{t} - {\widetilde{S}}_{t}^{(1)}
+TC_t^{(1)}=M_{2\times 12}(X_t)
 $$
 
-<!---$$
-7
-$$\[7.67\]-->
-
-This first estimation of the seasonally adjusted series must, by
-construction, contain less seasonality. The X-11 method again executes
-the algorithm presented above, changing the moving averages to take this
-property into account.
-
-***Step 5: Estimation of Trend by 13-term Henderson moving average:***
-
+Step 2: Estimation of the **seasonal+irregular** component: 
 $$
-TC_{t}^{(2)} = H_{13}\left( \text{SA}_{t}^{\left( 1 \right)} \right)
+(S_t+I_t)^{(1)}= X_t - TC_t^{(1)}
 $$
 
-<!---$$
-8
-$$\[7.68\]-->
-
-Henderson moving averages, while they do not have special properties in
-terms of eliminating seasonality (limited or none at this stage), have a
-very good smoothing power and retain a local polynomial trend of degree
-$2$ and preserve a local polynomial trend of degree $3$.
-
-***Step 6: Estimation of the Seasonal-Irregular component:***
-
+Step 3: Estimation of the **seasonal** component by applying a $3\times 3$ MA to **each month**:
 $$
-\left( S_{t} + I_{t} \right)^{(2)} = X_{t} - \text{TC}_{t}^{(2)}
+S_t^{(1)}= M_{3\times 3}\left[(S_t+I_t)^{(1)}\right]
+\text{ and normalisation }
+Snorm_t^{(1)}=S_t^{(1)} - M_{2\times 12}\left(S_t^{(1)}\right)
 $$
 
-<!---$$
-9
-$$\[7.69\]-->
-
-***Step 7: Estimation of the Seasonal component by***
-$\mathbf{3 \times 5}$ ***moving average over each month:***
-
+Step 4 :First estimation of the seasonally adjusted series: 
 $$
-S_{t}^{(2)} - M_{3 \times 3}\left\lbrack \left( S_{t} + I_{t} \right)^{(2)} \right\rbrack
+Xsa_t^{(1)}= (TC_t+I_t)^{(1)} = X_t - Snorm_t^{(1)}
 $$
 
-<!---$$
-10
-$$\[7.70\]-->
 
-The moving average used here is a $3 \times 5$ moving average over $7$
-terms, of coefficients $\frac{1}{15} \left\{ 1,\ 2,\ 3,\ 3,\ 3,\ 2,\ 1 \right\}$ and retains linear trends. The coefficients are then normalised such
-that their sum over the whole $12$-month period is approximately
-cancelled out:
-
+Step 5: Refined estimation of the **trend-cycle** with a Henderson filter, which yields a better approximation fo trends than $2\times 12$ MA, but cannot be applied on seasonal series:
 $$
-{ \widetilde{S}}_{t}^{(2)} = S_{t}^{(2)} - M_{2 \times 12}\left( S_{t}^{(2)} \right)
+TC_t^{(2)}=H_{13}(Xsa_t^{(1)})
+$$
+Step 6: Refined estimation of the **seasonal+irregular** part: 
+$$
+(S_t+I_t)^{(2)}= X_t - TC_t^{(2)}
 $$
 
-<!---$$
-11
-$$\[7.71\]-->
-
-***Step 8: Estimation of the seasonally adjusted series:***
-
+Step 7: Refined estimation of the **seasonal** component by applying a $3\times 5$ MA (generally) to **each month/quarter**:
 $$
-SA_{t}^{\left( 2 \right)} = \left(TC_{t} + I_{t} \right)^{(2)} = X_{t} - {\widetilde{S}}_{t}^{(2)}
+S_t^{(2)}= M_{3\times 5}\left[(S_t+I_t)^{(2)}\right]
+\text{ and normalisation }
+Snorm_t^{(2)}=S_t^{(2)} - M_{2\times 12}\left(S_t^{(2)}\right)
 $$
 
-<!---$$
-12
-$$\[7.72\]-->
+Step 8: Final estimation of the seasonally adjusted series: 
+$$
+Xsa_t^{(2)}= X_t - Snorm_t^{(2)}
+$$
 
-The whole difficulty lies, then, in the choice of the moving averages
-used for the estimation of the trend in steps $1$ and $5$ on the one
-hand, and for the estimation of the seasonal component in steps $3$ and
-$5$. The course of the algorithm in the form that is implemented in
-JDemetra+ is presented in the figure below. The adjustment for trading
-day effects, which is present in the original X-11 program, is omitted
-here, as since calendar correction is performed by the RegARIMA model,
-JDemetra+ does not perform further adjustment for these effects in the
-decomposition step.
 
-**A workflow diagram for the X-11 algorithm based upon training material
-from the Deutsche Bundesbank**
-
-##### **The iterative principle of X-11**
+## Iterative principle of X-11
 
 To evaluate the different components of a series, while taking into
 account the possible presence of extreme observations, X-11 will proceed
@@ -322,8 +200,6 @@ that of the seasonal adjustment, as it leads to final estimates:
 
 -   of the irregular component (Table D13).
 
-<!-- -->
-
 -   **Part E: Components modified for large extreme values**
 
 Parts E includes:
@@ -351,22 +227,6 @@ adjustment. JDemetra+ presents selected output for part F, i.e.:
 
 -   Tables.
 
-<!-- -->
-
--   **Part G: Graphics**
-
-Part G presents spectra estimated for:
-
--   Raw time series adjusted a priori (Table B1);
-
--   Seasonally adjusted time series modified for large extreme values
-    (Table E2);
-
--   Final irregular component adjusted for large extreme values (Table
-    E3).
-
-Originally, graphics were displayed in character mode. In JDemetra+,
-these graphics are replaced favourably by the usual graphics software.
 
 **The Henderson moving average and the trend estimation**
 
@@ -500,11 +360,6 @@ The overall Moving Seasonality Ratio is calculated as follows:
 $$
 \text{MSR}_{i} = \frac{\sum_{i}^{}{N_{i}\ }\ {\overline{I}}_{i}}{\sum_{i}^{}N_{i}{\overline{S}}_{i}}
 $$
-
-<!---$$
-13
-$$\[7.73\]-->
-
 ***Step 4: Selecting a moving average and estimating the seasonal
 component***
 
@@ -537,7 +392,7 @@ averages.
 
 **Moving average selection procedure, source: DAGUM, E. B.(1999)**
 
-##### **Identification and replacement of extreme values**
+## Extreme values: identification and replacement
 
 X-13ARIMA-SEATS detects and removes outliers in the RegARIMA part.
 However, if there is a seasonal heteroscedasticity in a time series i.e.
@@ -564,90 +419,43 @@ value of the **calendarsigma** parameter will have an impact on the
 method of calculation of the moving standard deviation in the procedure
 for extreme values detection presented below.
 
-***Step 1: Estimating the seasonal component***
 
-The seasonal component is estimated by smoothing the SI component
-separately for each period using a $3 \times 3$ moving average, i.e.:
+Though we (should) rely on the pre-adjustment stage to correct for extreme values (transparent method with explicit modelling), X11 has its own (historical) module for identification and treatment of extreme values based on a comparison between the actual and the theoretical value of $I$. 
 
-$$
-  \frac{1}{9} \times \begin{Bmatrix}
-  1,0,0,0,0,0,0,0,0,0,0,0, \\
-  2,0,0,0,0,0,0,0,0,0,0,0, \\
-  3,0,0,0,0,0,0,0,0,0,0,0, \\
-  2,0,0,0,0,0,0,0,0,0,0,0, \\
-  1,0,0,0,0,0,0,0,0,0,0,0, \\
-  \end{Bmatrix}
-$$
+Stages B and C aim only at correcting for extreme values: 
 
-<!---$$
-14
-$$\[7.74\]-->
+**Step 1:** $I$ is estimated once $S$ has been extracted from $S+I$
 
-***Step 2: Normalizing the seasonal factors***
+- for each year the standard deviation $\sigma$ is computed on the 5 neighbouring years
 
-The preliminary seasonal factors are normalized in such a way that for
-one year their average is equal to zero (additive model) or to unity
-(multiplicative model).
+- $I$ has a theoretical value $m$, for multiplicative model $m=1$, $m=0$ for an additive model 
 
-***Step 3: Estimating the irregular component***
+- for a given year $y$: any point such as $\lvert I_t - m\rvert >2,5 \sigma_y$ is considered as an extreme value and suppressed....
 
-The initial normalized seasonal factors are removed from the
-Seasonal-Irregular component to provide an estimate of the irregular
-component.
+- ...all the yearly sigmas ($\sigma_y$) are computed without those points (more robust sigmas )
 
-***Step 4: Calculating a moving standard deviation***
 
-By default, a moving standard deviation of the irregular component is
-calculated at five-year intervals. Each standard deviation is associated
-with the central year used to calculate it. The values in the central
-year, which in the absolute terms deviate from average by more than the
-**Usigma** parameter are marked as extreme values and assigned a zero
-weight. After excluding the extreme values the moving standard deviation
-is calculated once again.
+**Step 2:** The distance $\lvert I_t - m\rvert$ is computed for each point and evaluated with $\sigma_{y}$ as a benchmark, a weight $w_t$ is then assigned to each point, 3 cases: 
 
-***Step 5: Detecting extreme values and weighting the irregular***
+1) value unchanged 
+$$\lvert I_t - m\rvert <1.5 \sigma_y \Rightarrow  w_t=1$$
+2) value downsized 
+$$1,5 \sigma_y<\lvert I_t - m\rvert <2,5 \sigma_y \Rightarrow w_t=\frac{2.5 \sigma_y -\lvert I_t - m\rvert}{2.5 \sigma_y-1.5 \sigma_y}$$
+3) value removed and replaced 
+$$\lvert I_t - m\rvert >2,5 \sigma_y \Rightarrow w_t=0$$
 
-The default settings for assigning a weight to each value of irregular
-component are:
 
--   Values which are more than **Usigma** (2.5, by default) standard
-    deviations away (in the absolute terms) from the 0 (additive) or 1
-    (multiplicative) are assigned a zero weight;
+**Step3:**
+Thanks to this weights, a new value of $S+I$ will be computed: 
 
--   Values which are less than 1.5 standard deviations away (in the
-    absolute terms) from the 0 (additive) or 1 (multiplicative) are
-    assigned a full weight (equal to one);
+- if $w_{t}=1$, $S+I$ remains unchanged for point {t}
 
--   Values which lie between 1.5 and 2.5 standard deviations away (in
-    the absolute terms) from the 0 (additive) or 1 (multiplicative) are
-    assigned a weight that varies linearly between 0 and 1 depending on
-    their position.
+- if $w_{t}<1$ then the new value of $S+I$ will be an average of $w_{t}*(S+I)_{t}$ and the values of $(S+I)$ of the two closest neighbors in the future and in the past with $w=1$
 
-The default boundaries for the detection of the extreme values can be
-changed with **LSigma** and **USigma** parameters
+[Weight distribution](All_images/MX11_extreme_values_weights)
 
-***Step 6: Adjusting extreme values of the seasonal-irregular
-component***
 
-Values of the SI component are considered extreme when a weight less
-than 1 is assigned to their irregular. Those values are replaced by a
-weighted average of five values:
-
--   The value itself with its weight;
-
--   The two preceding values, for the same period, having a full
-    weight(if available);
-
--   The next two values, for the same period, having full a weight (if
-    available).
-
-When the four full-weight values are not available, then a simple
-average of all the values available for the given period is taken.
-
-This general algorithm is used with some modification in parts B and C
-for detection and replacement of extreme values.
-
-##### **X-11 tables**
+##### X-11 output tables
 
 The list of tables produced by JDemetra+ is presented below. It is not
 identical to the output produced by the original X-11 program.

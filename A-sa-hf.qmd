@@ -1,5 +1,8 @@
 # Seasonal adjustment of high-frequency data {.unnumbered}
 
+
+## In this chapter 
+
 ## Overview
 
 This chapter provides basic hints on seasonal adjustment of high-frequency data with JDemetra+ tailored algorithms.
