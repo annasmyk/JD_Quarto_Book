@@ -12,7 +12,7 @@ book:
       url: https://github.com/TanguyBarthelemy
     - name: Karsten Webel
       url: https://github.com/webelk
-  date: "12/22/2022"
+  date: "02/24/2023"
   page-navigation: true
   chapters:
     - index.qmd
