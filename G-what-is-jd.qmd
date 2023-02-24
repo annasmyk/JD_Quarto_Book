@@ -6,7 +6,7 @@ JDemetra+ is an open source software for **seasonal adjustment** and time series
 
 **Version 2.x and version 3**
 
-Version 3.0 to be released in December 2022, fills several critical gaps in the tool box of a time series analyst providing extended features for seasonal adjustment and trend estimation, including **high frequency data** and production tools.
+Version 3.0 to be released by the summer of 2023, fills several critical gaps in the tool box of a time series analyst providing extended features for seasonal adjustment and trend estimation, including **high frequency data** and production tools.
 
 ## Structure of this book
 
@@ -14,7 +14,7 @@ This book is divided in 3 parts, allowing the user to access the resources from 
 
 ### Algorithms
 
-This part provides a step by step description of all the algorithms featured in JDemetra+:
+This part provides a step by step guidance for using of all the algorithms featured in JDemetra+:
 
 -   [Seasonal Adjustment](A-sa.qmd)
 -   [Seasonal Adjustment of high-frequency data](A-sa-hf.qmd)
