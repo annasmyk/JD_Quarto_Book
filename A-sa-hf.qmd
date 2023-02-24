@@ -104,27 +104,27 @@ $$
 
 ### Calendar correction
 
-Calendar regressors can be defined with rjd3modelling package and added to pre-treatment function as a matrix.
+Calendar regressors can be defined with rjd3toolkit package and added to pre-treatment function as a matrix.
 
 ```{r, eval=FALSE}
 #setting calendar variables
 ## define a calendar
-frenchCalendar <- rjd3modelling::calendar.new()
-rjd3modelling::calendar.holiday(frenchCalendar, "NEWYEAR")
-#rjd3modelling::calendar.holiday(frenchCalendar, "GOODFRIDAY")
-rjd3modelling::calendar.holiday(frenchCalendar, "EASTERMONDAY") # Lundi de Pâques
-rjd3modelling::calendar.holiday(frenchCalendar, "MAYDAY") # 1er mai
-rjd3modelling::calendar.fixedday(frenchCalendar, 5, 8,start="1982-05-08") # since 1982, 2nd world war 
-rjd3modelling::calendar.easter(frenchCalendar,offset = 39) ## ascension
-rjd3modelling::calendar.holiday(frenchCalendar, "WHITMONDAY") # Lundi de Pentecôte
-rjd3modelling::calendar.fixedday(frenchCalendar, 7, 14)  # national holiday
-rjd3modelling::calendar.holiday(frenchCalendar, "ASSUMPTION") # Assomption
-rjd3modelling::calendar.holiday(frenchCalendar, "ALLSAINTSDAY") # Toussaint
-rjd3modelling::calendar.holiday(frenchCalendar, "ARMISTICE") # first world war
-rjd3modelling::calendar.holiday(frenchCalendar, "CHRISTMAS") #  25th December
+frenchCalendar <- rjd3toolkit::calendar.new()
+rjd3toolkit::calendar.holiday(frenchCalendar, "NEWYEAR")
+#rjd3toolkit::calendar.holiday(frenchCalendar, "GOODFRIDAY")
+rjd3toolkit::calendar.holiday(frenchCalendar, "EASTERMONDAY") # Lundi de Pâques
+rjd3toolkit::calendar.holiday(frenchCalendar, "MAYDAY") # 1er mai
+rjd3toolkit::calendar.fixedday(frenchCalendar, 5, 8,start="1982-05-08") # since 1982, 2nd world war 
+rjd3toolkit::calendar.easter(frenchCalendar,offset = 39) ## ascension
+rjd3toolkit::calendar.holiday(frenchCalendar, "WHITMONDAY") # Lundi de Pentecôte
+rjd3toolkit::calendar.fixedday(frenchCalendar, 7, 14)  # national holiday
+rjd3toolkit::calendar.holiday(frenchCalendar, "ASSUMPTION") # Assomption
+rjd3toolkit::calendar.holiday(frenchCalendar, "ALLSAINTSDAY") # Toussaint
+rjd3toolkit::calendar.holiday(frenchCalendar, "ARMISTICE") # first world war
+rjd3toolkit::calendar.holiday(frenchCalendar, "CHRISTMAS") #  25th December
 
 ## extract regressors: here daily series 
-q<-rjd3modelling::holidays(frenchCalendar, "1968-01-01", 
+q<-rjd3toolkit::holidays(frenchCalendar, "1968-01-01", 
                            length = length(y_raw_daily), type="All",
                            nonworking = as.integer(7))
 ```
@@ -270,6 +270,6 @@ Not currently available. Under construction.
 
 ### Residual seasonality
 
-JDemetra+ provides the Canova-Hansen test in rjd3modelling package which allows to check for any remaining seasonal periodicity in the final SA data.
+JDemetra+ provides the Canova-Hansen test in rjd3toolkit package which allows to check for any remaining seasonal periodicity in the final SA data.
 
 

@@ -317,7 +317,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
+  <li><a href="#in-this-chapter" id="toc-in-this-chapter" class="nav-link active" data-scroll-target="#in-this-chapter">In this chapter</a></li>
+  <li><a href="#overview" id="toc-overview" class="nav-link" data-scroll-target="#overview">Overview</a></li>
   <li><a href="#data-specificities" id="toc-data-specificities" class="nav-link" data-scroll-target="#data-specificities">Data specificities</a></li>
   <li><a href="#tailored-algorithms-in-jdemetra" id="toc-tailored-algorithms-in-jdemetra" class="nav-link" data-scroll-target="#tailored-algorithms-in-jdemetra">Tailored algorithms in JDemetra+</a></li>
   <li><a href="#unobserved-components" id="toc-unobserved-components" class="nav-link" data-scroll-target="#unobserved-components">Unobserved Components</a>
@@ -343,7 +344,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#quality-assessment" id="toc-quality-assessment" class="nav-link" data-scroll-target="#quality-assessment">Quality assessment</a>
   <ul class="collapse">
   <li><a href="#residual-seasonality" id="toc-residual-seasonality" class="nav-link" data-scroll-target="#residual-seasonality">Residual seasonality</a></li>
-  <li><a href="#residual-calendar-effects" id="toc-residual-calendar-effects" class="nav-link" data-scroll-target="#residual-calendar-effects">Residual Calendar effects</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -368,9 +368,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 </header>
 
+<section id="in-this-chapter" class="level2">
+<h2 class="anchored" data-anchor-id="in-this-chapter">In this chapter</h2>
+</section>
 <section id="overview" class="level2">
 <h2 class="anchored" data-anchor-id="overview">Overview</h2>
-<p>This chapter provides basic hints on seasonal adjustment of high-frequency data with JDemetra+ tailored algorithms.</p>
+<p>This chapter provides guidance on seasonal adjustment of high-frequency (HF) data with JDemetra+ tailored algorithms.</p>
 <p>Currently available topics:</p>
 <ul>
 <li><p>description of high frequency data specificities</p></li>
@@ -511,11 +514,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 <section id="identifying-seasonal-patterns" class="level2">
 <h2 class="anchored" data-anchor-id="identifying-seasonal-patterns">Identifying seasonal patterns</h2>
-<p>JDemetra+ provides the Canova-Hansen test in rjd3modelling package.</p>
+<p>JDemetra+ provides the Canova-Hansen test in rjd3tookit package.</p>
 </section>
 <section id="pre-adjustment" class="level2">
 <h2 class="anchored" data-anchor-id="pre-adjustment">Pre-adjustment</h2>
-<p>In X13-Arima and Tramo-Seats, a pre-adjustment step is performed to remove deterministic effects, outliers and calendar with a Reg-Arima model. In the extended version for HF data, it is also the case with a <strong>fractional airline model</strong>.</p>
+<p>In classical X13-Arima and Tramo-Seats, a pre-adjustment step is performed to remove deterministic effects, outliers and calendar with a Reg-Arima model. In the extended version for HF data, it is also the case with a <strong>fractional airline model</strong>.</p>
 <p>A general Reg-ARIMA model is written as follows: <span class="math display">\[
 \left(Y_t - \sum {\alpha_i}X_{it}\right) \sim ARIMA(p,d,q)(P,D,Q)
 \]</span> These models contain seasonal backshift operators <span class="math inline">\(B^{s}(y_t)=y_{t-s}\)</span>. Here <span class="math inline">\(s\)</span> can be non integer. JDemetra+ will rely on a modified version of a frequently used Arima model: the “Airline” model:</p>
@@ -544,26 +547,26 @@ B^{s+\alpha} &amp;\cong&amp; (1 - \alpha)B^s+ \alpha B^{s+1}
 \]</span></p>
 <section id="calendar-correction" class="level3">
 <h3 class="anchored" data-anchor-id="calendar-correction">Calendar correction</h3>
-<p>Calendar regressors can be defined with rjd3modelling package and added to pre-treatment function as a matrix.</p>
+<p>Calendar regressors can be defined with rjd3toolkit package and added to pre-treatment function as a matrix.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#setting calendar variables</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="do">## define a calendar</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>frenchCalendar <span class="ot">&lt;-</span> rjd3modelling<span class="sc">::</span><span class="fu">calendar.new</span>()</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>rjd3modelling<span class="sc">::</span><span class="fu">calendar.holiday</span>(frenchCalendar, <span class="st">"NEWYEAR"</span>)</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co">#rjd3modelling::calendar.holiday(frenchCalendar, "GOODFRIDAY")</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>rjd3modelling<span class="sc">::</span><span class="fu">calendar.holiday</span>(frenchCalendar, <span class="st">"EASTERMONDAY"</span>) <span class="co"># Lundi de Pâques</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>rjd3modelling<span class="sc">::</span><span class="fu">calendar.holiday</span>(frenchCalendar, <span class="st">"MAYDAY"</span>) <span class="co"># 1er mai</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>rjd3modelling<span class="sc">::</span><span class="fu">calendar.fixedday</span>(frenchCalendar, <span class="dv">5</span>, <span class="dv">8</span>,<span class="at">start=</span><span class="st">"1982-05-08"</span>) <span class="co"># since 1982, 2nd world war </span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>rjd3modelling<span class="sc">::</span><span class="fu">calendar.easter</span>(frenchCalendar,<span class="at">offset =</span> <span class="dv">39</span>) <span class="do">## ascension</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>rjd3modelling<span class="sc">::</span><span class="fu">calendar.holiday</span>(frenchCalendar, <span class="st">"WHITMONDAY"</span>) <span class="co"># Lundi de Pentecôte</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>rjd3modelling<span class="sc">::</span><span class="fu">calendar.fixedday</span>(frenchCalendar, <span class="dv">7</span>, <span class="dv">14</span>)  <span class="co"># national holiday</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>rjd3modelling<span class="sc">::</span><span class="fu">calendar.holiday</span>(frenchCalendar, <span class="st">"ASSUMPTION"</span>) <span class="co"># Assomption</span></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>rjd3modelling<span class="sc">::</span><span class="fu">calendar.holiday</span>(frenchCalendar, <span class="st">"ALLSAINTSDAY"</span>) <span class="co"># Toussaint</span></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>rjd3modelling<span class="sc">::</span><span class="fu">calendar.holiday</span>(frenchCalendar, <span class="st">"ARMISTICE"</span>) <span class="co"># first world war</span></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>rjd3modelling<span class="sc">::</span><span class="fu">calendar.holiday</span>(frenchCalendar, <span class="st">"CHRISTMAS"</span>) <span class="co">#  25th December</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>frenchCalendar <span class="ot">&lt;-</span> rjd3toolkit<span class="sc">::</span><span class="fu">calendar.new</span>()</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>rjd3toolkit<span class="sc">::</span><span class="fu">calendar.holiday</span>(frenchCalendar, <span class="st">"NEWYEAR"</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co">#rjd3toolkit::calendar.holiday(frenchCalendar, "GOODFRIDAY")</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>rjd3toolkit<span class="sc">::</span><span class="fu">calendar.holiday</span>(frenchCalendar, <span class="st">"EASTERMONDAY"</span>) <span class="co"># Lundi de Pâques</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>rjd3toolkit<span class="sc">::</span><span class="fu">calendar.holiday</span>(frenchCalendar, <span class="st">"MAYDAY"</span>) <span class="co"># 1er mai</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>rjd3toolkit<span class="sc">::</span><span class="fu">calendar.fixedday</span>(frenchCalendar, <span class="dv">5</span>, <span class="dv">8</span>,<span class="at">start=</span><span class="st">"1982-05-08"</span>) <span class="co"># since 1982, 2nd world war </span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>rjd3toolkit<span class="sc">::</span><span class="fu">calendar.easter</span>(frenchCalendar,<span class="at">offset =</span> <span class="dv">39</span>) <span class="do">## ascension</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>rjd3toolkit<span class="sc">::</span><span class="fu">calendar.holiday</span>(frenchCalendar, <span class="st">"WHITMONDAY"</span>) <span class="co"># Lundi de Pentecôte</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>rjd3toolkit<span class="sc">::</span><span class="fu">calendar.fixedday</span>(frenchCalendar, <span class="dv">7</span>, <span class="dv">14</span>)  <span class="co"># national holiday</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>rjd3toolkit<span class="sc">::</span><span class="fu">calendar.holiday</span>(frenchCalendar, <span class="st">"ASSUMPTION"</span>) <span class="co"># Assomption</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>rjd3toolkit<span class="sc">::</span><span class="fu">calendar.holiday</span>(frenchCalendar, <span class="st">"ALLSAINTSDAY"</span>) <span class="co"># Toussaint</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>rjd3toolkit<span class="sc">::</span><span class="fu">calendar.holiday</span>(frenchCalendar, <span class="st">"ARMISTICE"</span>) <span class="co"># first world war</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>rjd3toolkit<span class="sc">::</span><span class="fu">calendar.holiday</span>(frenchCalendar, <span class="st">"CHRISTMAS"</span>) <span class="co">#  25th December</span></span>
 <span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="do">## extract regressors: here daily series </span></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>q<span class="ot">&lt;-</span>rjd3modelling<span class="sc">::</span><span class="fu">holidays</span>(frenchCalendar, <span class="st">"1968-01-01"</span>, </span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>q<span class="ot">&lt;-</span>rjd3toolkit<span class="sc">::</span><span class="fu">holidays</span>(frenchCalendar, <span class="st">"1968-01-01"</span>, </span>
 <span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>                           <span class="at">length =</span> <span class="fu">length</span>(y_raw_daily), <span class="at">type=</span><span class="st">"All"</span>,</span>
 <span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>                           <span class="at">nonworking =</span> <span class="fu">as.integer</span>(<span class="dv">7</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -669,7 +672,7 @@ M_{3\times3}X = \frac{1}{9}(X_{t-2p})+\frac{2}{9}(X_{t-p})+\frac{3}{9}(X_{t})+\f
 </section>
 <section id="summary-of-the-process" class="level3">
 <h3 class="anchored" data-anchor-id="summary-of-the-process">Summary of the process</h3>
-<p>Seasonal adjustment processing in rjd3highfreq cannot be encompassed by one one function like for lower frequency, e.g rjd3x13::x13(y_raw)</p>
+<p>For the time being, seasonal adjustment processing in rjd3highfreq cannot be encompassed by one one function like for lower frequency, e.g rjd3x13::x13(y_raw)</p>
 <p>The user has to run the steps one by one, here is an example with <span class="math inline">\(p=7\)</span> and <span class="math inline">\(p=365.25\)</span></p>
 <ul>
 <li><p>computation of the linearized series <span class="math inline">\(Y_{lin}=FracAirline(Y)\)</span></p></li>
@@ -692,11 +695,7 @@ M_{3\times3}X = \frac{1}{9}(X_{t-2p})+\frac{2}{9}(X_{t-p})+\frac{3}{9}(X_{t})+\f
 <h2 class="anchored" data-anchor-id="quality-assessment">Quality assessment</h2>
 <section id="residual-seasonality" class="level3">
 <h3 class="anchored" data-anchor-id="residual-seasonality">Residual seasonality</h3>
-<p>JDemetra+ provides the Canova-Hansen test in rjd3modelling package which allows to check for any remaining seasonal periodicity in the final SA data.</p>
-</section>
-<section id="residual-calendar-effects" class="level3">
-<h3 class="anchored" data-anchor-id="residual-calendar-effects">Residual Calendar effects</h3>
-<p>Not currently available. Under construction.</p>
+<p>JDemetra+ provides the Canova-Hansen test in rjd3toolkit package which allows to check for any remaining seasonal periodicity in the final SA data.</p>
 
 
 </section>

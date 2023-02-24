@@ -83,11 +83,11 @@ $$
 
 A large number of [seasonality tests](M-tests.qmd) are available in JDemetra+. They can be accessed in the graphical user interface or via R.
 
-In rjd3toolkitpackage:
+In rjd3toolkit package:
 
 -   Canova-Hansen (`seasonality.canovahansen()`)
 
-In rjd3sa package:
+In rjd3toolkit package:
 
 -   X-12 combined test (`seasonality.combined()`)
 

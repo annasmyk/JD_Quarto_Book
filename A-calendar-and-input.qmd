@@ -505,7 +505,7 @@ The resulting calendar will allow to generate customized regressors which can th
 
 #### Pre-Defined Holidays
 
-A *Special days* list is pre-defined for most commonly occurinng holidays.
+A *Special days* list is pre-defined for most commonly occurring holidays.
 
     {: .table .table-style}
       | **Holiday**    |    **Definition**| 

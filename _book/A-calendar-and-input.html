@@ -254,7 +254,8 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#overview-of-calendar-effects-in-jdemetra" id="toc-overview-of-calendar-effects-in-jdemetra" class="nav-link active" data-scroll-target="#overview-of-calendar-effects-in-jdemetra">Overview of Calendar effects in JDemetra</a></li>
+  <li><a href="#in-this-chapter" id="toc-in-this-chapter" class="nav-link active" data-scroll-target="#in-this-chapter">In this chapter</a></li>
+  <li><a href="#overview-of-calendar-effects-in-jdemetra" id="toc-overview-of-calendar-effects-in-jdemetra" class="nav-link" data-scroll-target="#overview-of-calendar-effects-in-jdemetra">Overview of Calendar effects in JDemetra</a></li>
   <li><a href="#summary-of-the-method-used-in-jdemetra-to-compute-trading-day-and-working-day-effects" id="toc-summary-of-the-method-used-in-jdemetra-to-compute-trading-day-and-working-day-effects" class="nav-link" data-scroll-target="#summary-of-the-method-used-in-jdemetra-to-compute-trading-day-and-working-day-effects">Summary of the method used in JDemetra+ to compute trading day and working day effects</a></li>
   <li><a href="#mean-and-seasonal-effects-of-calendar-variables" id="toc-mean-and-seasonal-effects-of-calendar-variables" class="nav-link" data-scroll-target="#mean-and-seasonal-effects-of-calendar-variables">Mean and seasonal effects of calendar variables</a></li>
   <li><a href="#impact-of-the-mean-effects-on-the-decomposition" id="toc-impact-of-the-mean-effects-on-the-decomposition" class="nav-link" data-scroll-target="#impact-of-the-mean-effects-on-the-decomposition">Impact of the mean effects on the decomposition</a></li>
@@ -263,6 +264,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#holidays-with-a-validity-period" id="toc-holidays-with-a-validity-period" class="nav-link" data-scroll-target="#holidays-with-a-validity-period">Holidays with a validity period</a></li>
   <li><a href="#different-kinds-of-calendars" id="toc-different-kinds-of-calendars" class="nav-link" data-scroll-target="#different-kinds-of-calendars">Different Kinds of calendars</a></li>
   <li><a href="#tests-for-residual-trading-days" id="toc-tests-for-residual-trading-days" class="nav-link" data-scroll-target="#tests-for-residual-trading-days">Tests for residual trading days</a></li>
+  <li><a href="#customizing-calendars" id="toc-customizing-calendars" class="nav-link" data-scroll-target="#customizing-calendars">Customizing calendars</a></li>
   </ul>
 </nav>
     </div>
@@ -286,15 +288,15 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
+<section id="in-this-chapter" class="level3">
+<h3 class="anchored" data-anchor-id="in-this-chapter">In this chapter</h3>
 <p>This chapter will describe</p>
 <ul>
-<li>underlying principles and concepts of calendar correction</li>
-</ul>
-<!-- -->
-<ul>
-<li>generating process of calendars, calendar regressors, outliers and other input variables.</li>
+<li><p>underlying principles and concepts of calendar correction</p></li>
+<li><p>generating process of calendars, calendar regressors, outliers and other input variables.</p></li>
 </ul>
 <p>How to use these variables inside a seasonal adjustment process is detailed in chapters on <a href="./A-sa.html">SA</a> or <a href="./A-sa-hf.html">SA of HF data</a>.</p>
+</section>
 <section id="overview-of-calendar-effects-in-jdemetra" class="level3">
 <h3 class="anchored" data-anchor-id="overview-of-calendar-effects-in-jdemetra">Overview of Calendar effects in JDemetra</h3>
 <p>A natural way for modelling calendar effects consists of distributing the days of each period into different groups. The regression variable corresponding to a type of day (a group) is simply defined by the number of days it contains for each period. Usual classifications are:</p>
@@ -1444,11 +1446,11 @@ ul.task-list li input[type="checkbox"] {
 <p><strong>The mean effect and the seasonal effect for the calendar periods</strong></p>
 <table class="table">
 <colgroup>
-<col style="width: 19%">
-<col style="width: 19%">
-<col style="width: 23%">
-<col style="width: 19%">
-<col style="width: 19%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -1891,6 +1893,340 @@ ul.task-list li input[type="checkbox"] {
 <p>By default, we compute the tests on the 8 last years of the components, so that they might highlight moving calendar effects.</p>
 <p>Remark:</p>
 <p>In Tramo, a similar test is computed on the residuals of the Arima model. More exactly, the F-test is computed on <span class="math inline">\(e_t=\beta TD_t + \epsilon_t\)</span>, where <span class="math inline">\(e_t\)</span> are the one-step-ahead forecast errors.</p>
+</section>
+</section>
+</section>
+<section id="customizing-calendars" class="level3">
+<h3 class="anchored" data-anchor-id="customizing-calendars">Customizing calendars</h3>
+<p>There three ways to build customized calendars taking into account national holidays</p>
+<pre><code>- In the Graphical User Interface </code></pre>
+<p>The resulting calendar can be directly linked to the calendar correction option in GUI while running a seasonal adjustment processing (see SA chapter, link)</p>
+<pre><code>- In R </code></pre>
+<p>The resulting calendar will allow to generate customized regressors which can then be added while running a seasonal adjustment processing via GUI (link) or in R (link).</p>
+<pre><code>- Directly writing xml files </code></pre>
+<section id="pre-defined-holidays" class="level4">
+<h4 class="anchored" data-anchor-id="pre-defined-holidays">Pre-Defined Holidays</h4>
+<p>A <em>Special days</em> list is pre-defined for most commonly occurring holidays.</p>
+<pre><code>{: .table .table-style}
+  | **Holiday**    |    **Definition**| 
+  ----------------- ----------------------------------------------------------------------------------------------------------------------------| 
+ |  New Year       |   Fixed holiday, falls on January, 1.| 
+ | Ash Wednesday   |   Moving holiday, occurring 46 days before Easter.| 
+ | Easter          |   Moving holiday, varies between March, 22 and April, 25.| 
+ |  Maundy Thursday|   Moving holiday, falls on the Thursday before Easter.| 
+ |  Good Friday    |   Moving holiday, falls on the Friday before Easter.| 
+ |  Easter Monday  |   Moving holiday, falls on the day after Easter.| 
+ |  Ascension Day  |   Moving holiday, celebrated on Thursday, 40 days after Easter.| 
+ |  Pentecost      |   Moving holiday, celebrated 50 days after Easter Sunday.| 
+ |  Whit Monday    |   Moving holiday, falling on the day after Pentecost.| 
+ |  May Day        |   Fixed holiday, falls on May, 1.| 
+ |  Assumption     |   Fixed holiday, falls on August, 15.| 
+ |  Halloween      |   Fixed holiday, falls on October, 31.| 
+ |  All Saints Day |   Fixed holiday, falls on November, 1.| 
+ |  Thanksgiving   |   Moving holiday, celebrated on the second Monday of October (Canada) or on the fourth Thursday of November (United States).| 
+ | Christmas Day   |   Fixed holiday, falls on December, 25.| </code></pre>
+</section>
+<section id="in-gui" class="level4">
+<h4 class="anchored" data-anchor-id="in-gui">In GUI</h4>
+<section id="default-calendar" class="level5">
+<h5 class="anchored" data-anchor-id="default-calendar">Default Calendar</h5>
+<p>In the graphical user interface, calendars in are stored in the <em>Workspace</em> window in the <em>Utilities</em> section. In the default calendar, country-specific national holidays are not taken into account, it reflects only the usual composition of the weeks in the calendar periods.</p>
+<pre><code>![Text](All_images/UG_CAL_image1.jpg)
+
+**The *Calendars* section in the *Workspace* window**</code></pre>
+<p>To view the details of the default calendar</p>
+<pre><code>- double click on it
+
+![Text](All_images/UG_CAL_image2.jpg)
+
+**The default view of the default calendar**</code></pre>
+</section>
+<section id="set-properties" class="level5">
+<h5 class="anchored" data-anchor-id="set-properties">Set Properties</h5>
+<p>In the <em>Properties</em> panel the user can set:</p>
+<ul>
+<li><p>Frequency (monthly, quarterly..)</p></li>
+<li><p>Trading days or working days regressors</p></li>
+</ul>
+<p><em>Trading days</em>: 6 contrast variables (<span class="math inline">\(number\ of\ Mondays - number\ of\ Sundays\)</span>,…) and one regressor for the leap year effect.</p>
+<p><em>Working Days</em>: 1 contrast variable (<span class="math inline">\(number\ of\ working days (monday to friday) - number\ of\ Saturdays and Sundays\)</span>,…) and one regressor for the leap year effect.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/UG_CAL_image3.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Text</figcaption><p></p>
+</figure>
+</div>
+<p><strong>Modification of the initial settings for the Default calendar</strong></p>
+</section>
+<section id="spectrum-visualization" class="level5">
+<h5 class="anchored" data-anchor-id="spectrum-visualization">Spectrum visualization</h5>
+<p>The top-right panel displays the spectrum for the given calendar variable. By default, the first variable from the table is shown.</p>
+<ul>
+<li>To change it, click on the calendar variable header.</li>
+</ul>
+<p>Calendar variables shouldn’t have a peak neither at a zero frequency (trend) nor the seasonal frequencies.</p>
+<p><img src="All_images/UG_CAL_image6.jpg" class="img-fluid" alt="Text"> #### Modify an existing Calendar</p>
+<ul>
+<li><p>click the option <em>Edit</em> from the context menu</p></li>
+<li><p>the list of holidays defined for this calendar is displayed</p></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/UG_CAL_image12.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Text</figcaption><p></p>
+</figure>
+</div>
+<p><strong>Edit a calendar window</strong></p>
+<ul>
+<li><p>To add a holiday unfold the <strong>+</strong> menu</p></li>
+<li><p>To remove a holiday click on it and choose the <strong>-</strong> button <img src="All_images/UG_CAL_image13.jpg" class="img-fluid" alt="Text"></p></li>
+</ul>
+<p><strong>Removing a holiday from the calendar</strong></p>
+</section>
+</section>
+<section id="creating-a-new-calendar" class="level4">
+<h4 class="anchored" data-anchor-id="creating-a-new-calendar">Creating a new calendar</h4>
+<p>An appropriate calendar, containing the required national holidays, needs to be created to adjust a series for country-specific calendar effects.</p>
+<ul>
+<li>right click on the <em>Calendar</em> item from the <em>Workspace</em> window and choose <strong>Add</strong></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/UG_CAL_image14.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Text</figcaption><p></p>
+</figure>
+</div>
+<p>Three options are available:</p>
+<ul>
+<li><p><em>National calendars</em>: allows to include country-specific holidays</p></li>
+<li><p><em>Composite calendars</em> : creates calendar as a weighted sum of several national calendars</p></li>
+<li><p><em>Chained calendars</em> : allows to chain two national calendars before and after a break</p></li>
+</ul>
+<section id="national-calendar" class="level5">
+<h5 class="anchored" data-anchor-id="national-calendar">National Calendar</h5>
+<p>To define a national calendar: right click on Calendar item in the Utility panel of the workspace window</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/UG_CAL_image14.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Text</figcaption><p></p>
+</figure>
+</div>
+<ul>
+<li><p>To add a holiday unfold the <strong>+</strong> menu</p></li>
+<li><p>To remove a holiday from the list click on it and choose the <strong>-</strong> button.</p></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/UG_CAL_image15.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Text</figcaption><p></p>
+</figure>
+</div>
+<p>Four options are available here:</p>
+<pre><code>- **Fixed** : holiday occurring at the same date
+
+- **Easter Related**: holiday that depends on Easter Sunday date
+
+- **Fixed Week**: fixed holiday that always falls in a specific week of a given month
+
+- **Special Day**:  choose a holiday from a list of pre-defined holidays (link to table)</code></pre>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/UG_CAL_image16.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Text</figcaption><p></p>
+</figure>
+</div>
+<ul>
+<li>to use Julian Easter</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/UG_CAL_image17.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Text</figcaption><p></p>
+</figure>
+</div>
+<pre><code>**The \*Julian Easter\* option**</code></pre>
+<p>To add a holiday from this list to the national calendar, choose the <em>Special day</em> item from the <em>Special days</em> list.</p>
+<p><img src="All_images/UG_CAL_image18.jpg" class="img-fluid" alt="Text"> <strong>Adding a pre-defined holiday to the calendar</strong></p>
+<p>By default, when the <em>Special Days</em> option is selected, JDemetra+ always adds <em>Christmas</em> to the list of selected holidays. The user can change this initial choice by specifying the settings in the panel on the right and clicking <em>OK</em>. The settings that can be changed include:</p>
+<ul>
+<li><p><strong>Start</strong>: starting date for the holiday (expecting <em>yyyy-mm-dd</em>) Default is the starting date of the calendar (empty cell).</p></li>
+<li><p><strong>End</strong>: same as start</p></li>
+<li><p><strong>Weight</strong> : specifies the impact of the holiday on the series. The default weight is 1 (full weight) assuming that the influence of the holiday is the same as a regular Sunday. If less the a value between 0 and 1 can be assigned.</p></li>
+<li><p><strong>Day event</strong>: a list of pre-defined holidays (link to table)</p></li>
+<li><p><strong>Offset</strong>: allows to set a holiday as related to a pre-specified holiday by specifying the distance in days (e.g Easter Sunday). Default offset is 1. It can be positive or negative. Positive offset: defines a holiday following the pre-specified holiday. Negative offset: defines a holiday preceding the selected pre-specified.</p>
+<p><img src="All_images/UG_CAL_image19.jpg" class="img-fluid" alt="Text"> <strong>Choosing a pre-defined holiday from the list</strong></p></li>
+<li><p>To define a fixed holiday not included in the list of pre-defined holidays:</p>
+<ul>
+<li>choose <em>Fixed</em> from the <em>Special days</em> list: by default January, 1 is displayed. Specify the settings:</li>
+</ul></li>
+<li><p><strong>Start</strong>: starting date for the holiday (expecting <em>yyyy-mm-dd</em>) Default is the starting date of the calendar (empty cell).</p></li>
+<li><p><strong>End</strong>: same as start</p></li>
+<li><p><strong>Weight</strong> : specifies the impact of the holiday on the series. The default weight is 1 (full weight) assuming that the influence of the holiday is the same as a regular Sunday. If less the a value between 0 and 1 can be assigned.</p></li>
+<li><p><strong>Day</strong>: day of month when the fixed holiday is celebrated.</p></li>
+<li><p><strong>Month</strong>: month, in which the fixed holiday is celebrated.</p></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/UG_CAL_image20.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Text</figcaption><p></p>
+</figure>
+</div>
+<p><strong>Options for a fixed holiday</strong></p>
+<ul>
+<li><p>Add <em>Corpus Christi</em>: example of an Easter related holiday not included in the special day list(link to table). It is is a moving holiday celebrated 60 days after Easter</p>
+<ul>
+<li>choose the <em>Easter related</em> item from the <em>Special days</em> list.</li>
+</ul>
+<p><img src="All_images/UG_CAL_image22.jpg" class="img-fluid" alt="Text"> By default <em>Easter + 1</em> is displayed. Setting can be changed :</p></li>
+<li><p><strong>Start</strong>: starting date for the holiday (expecting <em>yyyy-mm-dd</em>) Default is the starting date of the calendar (empty cell).</p></li>
+<li><p><strong>End</strong>: same as start</p></li>
+<li><p><strong>Weight</strong> : specifies the impact of the holiday on the series. The default weight is 1 (full weight) assuming that the influence of the holiday is the same as a regular Sunday. If less the a value between 0 and 1 can be assigned.</p></li>
+<li><p><strong>Offset</strong>: To define Corpus Christi enter <strong>60</strong>, as it is celebrated 60 days after Easter Sunday.</p></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/UG_CAL_image23.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Text</figcaption><p></p>
+</figure>
+</div>
+<ul>
+<li><p>Fixed week option: when dealing with holidays occurring on the same week of a given month. Example: Labour Day in the USA and Canada, celebrated on the first Monday of September in Canada</p>
+<ul>
+<li>choose <em>Fixed Week</em> from the <em>Special days</em> list.</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/UG_CAL_image24.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Text</figcaption><p></p>
+</figure>
+</div></li>
+</ul>
+<p>Available settings are:</p>
+<ul>
+<li><p><strong>Start</strong>: starting date for the holiday (expecting <em>yyyy-mm-dd</em>) Default is the starting date of the calendar (empty cell).</p></li>
+<li><p><strong>End</strong>: same as start</p></li>
+<li><p><strong>Weight</strong> : specifies the impact of the holiday on the series. The default weight is 1 (full weight) assuming that the influence of the holiday is the same as a regular Sunday. If less the a value between 0 and 1 can be assigned</p></li>
+<li><p><strong>Day of Week</strong>: day of week when the holiday is celebrated each year</p></li>
+<li><p><strong>Month</strong>: month, in which the holiday is celebrated each year</p></li>
+<li><p><strong>Week</strong>: number denoting the place of the week in the month: between 1 and 5</p></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/UG_CAL_image25.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Text</figcaption><p></p>
+</figure>
+</div>
+<p>The list of the holidays should contain only unique entries. Otherwise, a warning, as shown in the picture below, will be displayed.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/UG_CAL_image26.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Text</figcaption><p></p>
+</figure>
+</div>
+<p>A calendar without a name cannot be saved. Fill the <em>Name</em> box before saving the calendar.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/UG_CAL_image27.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Text</figcaption><p></p>
+</figure>
+</div>
+<p>Example : final view of a properly defined calendar for Poland</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/UG_CAL_image28.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Text</figcaption><p></p>
+</figure>
+</div>
+<p>The calendar is visible in the <em>Workspace</em> window</p>
+<ul>
+<li>To display the available options right-click on it</li>
+</ul>
+<p>A national calendar can be edited, duplicated (to create another calendar) and/or analysed (double click to display it in the panel on the right) or deleted.</p>
+</section>
+<section id="chained-calendar" class="level5">
+<h5 class="anchored" data-anchor-id="chained-calendar">Chained Calendar</h5>
+<p>Creating a chained calendar is relevant when a major break occurs in the definition of the country-specific holidays.</p>
+<p>First define the 2 (or <span class="math inline">\(N\)</span>) national calendars corresponding to each regime as explained in the section above.</p>
+<p>To define a chained calendar: right click on Calendar item in the Utility panel of the workspace window</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/UG_CAL_image14.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Text</figcaption><p></p>
+</figure>
+</div>
+<p>In the <em>Properties</em> panel specify:</p>
+<ul>
+<li><p>first and the second calendar</p></li>
+<li><p>break date</p></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/UG_CAL_image32.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Text</figcaption><p></p>
+</figure>
+</div>
+</section>
+<section id="composite-calendar" class="level5">
+<h5 class="anchored" data-anchor-id="composite-calendar">Composite Calendar</h5>
+<p>Creating a chained calendar is relevant when correcting series which include data from more than one country/region. This option can be used, for example, to create the calendar for the European Union or to create the national calendar for a country, in which regional holidays are celebrated.</p>
+<p>First define the relevant national calendars corresponding to each member state/region as explained above.</p>
+<p>To define a chained calendar: right click on Calendar item in the Utility panel of the workspace window</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/UG_CAL_image34.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Text</figcaption><p></p>
+</figure>
+</div>
+<ul>
+<li><p>Fill the name box</p></li>
+<li><p>Mark the regional calendars to be used</p></li>
+<li><p>Assign a weight to each calendar.</p></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/UG_CAL_image35.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Text</figcaption><p></p>
+</figure>
+</div>
+</section>
+</section>
+<section id="importing-an-existing-calendar-from-a-file" class="level4">
+<h4 class="anchored" data-anchor-id="importing-an-existing-calendar-from-a-file">Importing an existing calendar from a file</h4>
+<p>Right click on the <em>Calendar</em> item from the <em>Workspace</em> window and choose the <em>Import</em> item from the menu.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/UG_CAL_image8.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Text</figcaption><p></p>
+</figure>
+</div>
+<p><strong>Importing a calendar to JDemetra+</strong></p>
+<ul>
+<li>choose the appropriate file and open it</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/UG_CAL_image10.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Text</figcaption><p></p>
+</figure>
+</div>
+<p><strong>Choosing the file</strong></p>
+<p>JDemetra+ adds it to the calendars list</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/UG_CAL_image11.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Text</figcaption><p></p>
+</figure>
+</div>
+<p><strong>A list of calendars with a newly imported calendar</strong></p>
+<section id="example-of-a-calendar-file" class="level5">
+<h5 class="anchored" data-anchor-id="example-of-a-calendar-file">Example of a calendar file</h5>
+<p>example of a html file containing a calendar</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/UG_CAL_image9.jpg" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Text</figcaption><p></p>
+</figure>
+</div>
 
 
 </section>
