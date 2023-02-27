@@ -164,9 +164,7 @@ remotes::install_github("AQLT/ggdemetra3")
 
 The sections below provide an overview of the main functions by categories. For detailed description refer to each package's own R documentation pages.
 
-### Utility packages
-
-#### rjd3toolkit
+### Utility packages: rjd3toolkit
 
 Contains utility functions used in other `rjd` packages and several functions to perform tests.
 
@@ -245,11 +243,9 @@ seasonality.kruskalwallis(y, 12)
 seasonality.combined(y, 12)
 ```
 
+`rjd3toolkit` is also devoted to formatting the output of Arima related results
+
 ### Seasonal adjustment packages
-
-#### rjd3toolkit
-
-`rjd3toolkit` is devoted to formatting the output of Arima related results
 
 #### rjd3x13
 
