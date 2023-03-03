@@ -14,10 +14,9 @@ More information on the steps and best practices of a seasonal adjustment proces
 
 For an overview on the algorithms and methodological issues, please refer to the [Handbook on Seasonal Adjustment](https://ec.europa.eu/eurostat/documents/3859598/8939616/KS-GQ-18-001-EN-N.pdf)
 
-### In this chapter 
+### In this chapter
 
-- calendar correction steps 
-
+-   calendar correction steps
 
 ### Seasonal Adjustment Algorithms
 
@@ -377,7 +376,6 @@ transform.fct = 0.5)
 
 ### Calendar correction
 
-
 Some calendar correction options included in the starting specifications for X13-Arima or Tramo-Seats, they can be fine-tuned and user-defined by modifying specifications. The following section lists all the available options, illustrates how to set them in GUI or R and shows have to retrieve used parameters, regressors as well as results.
 
 JDemetra+ offers two default options for calendar correction working days regressors and trading days regressors, with Leap-year effect if needed. Those options don't take into account national calendars (link) and their specific holidays. There are two ways to change this:
@@ -435,8 +433,6 @@ easter.Julian a logical. If TRUE, the program uses the Julian Easter (expressed 
 easter.duration a numeric indicating the duration of the Easter effect (length in days, between 1 and 20).
 
 easter.test defines the pre-tests for the significance of the Easter effect based on the t-statistic (the Easter effect is considered as significant if the t-statistic is greater than 1.96): "Add" = the Easter effect variable is not included in the initial regression model but can be added to the RegARIMA model after the test; "Remove" = the Easter effect variable belongs to the initial regression model but can be removed from the RegARIMA model after the test; "None" = the Easter effect variable is not pre-tested and is included in the model.
-
-
 
 A user-defined regressor can also be used, see chapter on [calendar correction](A-calendar-and-input.qmd)
 
@@ -603,7 +599,7 @@ F-Test results are displayed at the bottom of **Main Results** NODE in the SAPro
 
 The following describes how to take a national calendar into account.
 
-Solution 1: if working with GUI build a new calendar in GUI ([here](A-calendar-and-input.qmd###Customizing calendars)
+Solution 1: if working with GUI build a new calendar in GUI ([here](A-calendar-and-input.qmd###Customizing%20calendars)
 
 (to be added: GUI: how to use it or customize HTML file structure explanation)
 
@@ -611,9 +607,7 @@ set this option in GUI
 
 (to be added: image: spec window calendar / holidays / choice of calendars)
 
-set this option in R
-(to be added)
-version 2:
+set this option in R (to be added) version 2:
 
 version 3:
 
@@ -631,8 +625,7 @@ Once the calendar regressors are set, the RegArima (tramo) model will be estimat
 
 ### Outliers
 
-(to be added)
-overview: why use outliers and what happens ?  Effects reallocation
+(to be added) overview: why use outliers and what happens ? Effects reallocation
 
 More in depth method outline will be available in [outliers](A-outlier-detection.qmd) chapter what will be available
 
@@ -658,7 +651,7 @@ The following outliers are available for automatic detection
 
     The critical value used in the outlier detection procedure. The option is active once **Use default critical value** is disabled. By default, it is set to 3.5.
 
--   **Detection span** $\rightarrow \$ **type**<br> *outliers; int1, int2\**
+-   **Detection span** \$\rightarrow \$ **type**<br> *outliers; int1, int2\**
 
     A span of the time series to be searched for outliers. The possible values of the parameter are:
 
@@ -748,11 +741,11 @@ In main results NODE (same info at top of pre-processing NODE)
 
 ### User-defined regressors
 
-(to be added) 
+(to be added)
 
-- rationale
+-   rationale
 
-- parameters: assign to a component
+-   parameters: assign to a component
 
 Pre-treatment regression with additional outliers
 
@@ -762,8 +755,7 @@ $$
 
 ##### Allocation to components
 
-$reg= reg_{i}+reg_{t}+reg_{s}+...$ 
-The user-defined regression variable associated to a specific component should not contain effects that have to be associated with another component. Therefore, the following rules should be observed: \* The variable assigned to the trend or to the seasonally adjusted series should not contain a seasonal pattern; \* The variable assigned to the seasonal should not contain a trend (or level); \* The variable assigned to the irregular should contain neither a seasonal pattern nor a trend (or level). - no external regressors can be assigned to calendar component. It has to be be done via user defined calendar regressors specific part (link)
+$reg= reg_{i}+reg_{t}+reg_{s}+...$ The user-defined regression variable associated to a specific component should not contain effects that have to be associated with another component. Therefore, the following rules should be observed: \* The variable assigned to the trend or to the seasonally adjusted series should not contain a seasonal pattern; \* The variable assigned to the seasonal should not contain a trend (or level); \* The variable assigned to the irregular should contain neither a seasonal pattern nor a trend (or level). - no external regressors can be assigned to calendar component. It has to be be done via user defined calendar regressors specific part (link)
 
 Ramps and intervention variables are Specific cases of external regressors
 
@@ -775,7 +767,7 @@ Step 1: import data set containing the regressors, general procedure explained h
 
 Step 2: Link the regressors to the workspace, procedure detailed here
 
-Step 3: Modify specifications via window 
+Step 3: Modify specifications via window
 
 Modifications are done the same way in a global specification (whole SAP) or series by series.
 
@@ -805,7 +797,7 @@ impossible (?) to create several intervention variables
 
 #### Special case 2: Intervention variables
 
-Intervention variables: Intervention variables are modeled as any possible sequence of ones and zeros, on which some operators may be applied. Intervention variables are built as combinations of the following basic structures\[\^16\]: \* Dummy variables\[\^17\]; \* Any possible sequence of ones and zeros; \* $\frac{1}{(1 - \delta B)}$, \* $(0 < \delta \leq 1)$; \* $\frac{1}{(1 - \delta_{s}B^{s })}$, \* $(0 < \delta_{s} \leq 1)$; \* $\frac{1}{(1 - B)(1 - B^{s})}$; where $B$ is backshift operator (i.e. $B^{k}X_{t} = X_{t - k}$) and $s$ is frequency of the time series ($s = 12\$for a monthly time series, $s = 4\$for a quarterly time series).
+Intervention variables: Intervention variables are modeled as any possible sequence of ones and zeros, on which some operators may be applied. Intervention variables are built as combinations of the following basic structures\[\^16\]: \* Dummy variables\[\^17\]; \* Any possible sequence of ones and zeros; \* $\frac{1}{(1 - \delta B)}$, \* $(0 < \delta \leq 1)$; \* $\frac{1}{(1 - \delta_{s}B^{s })}$, \* $(0 < \delta_{s} \leq 1)$; \* $\frac{1}{(1 - B)(1 - B^{s})}$; where $B$ is backshift operator (i.e. $B^{k}X_{t} = X_{t - k}$) and $s$ is frequency of the time series (\$s = 12\$for a monthly time series, \$s = 4\$for a quarterly time series).
 
 These basic structures enable the generation of not only AO, LS, TC, SO and RP outliers but also sophisticated intervention variables that are well-adjusted to the particular case.
 
@@ -821,7 +813,7 @@ Step 2:
 
 ![](All_images/SA_REGA_calendar_user_def_inter_var_2.png)
 
-step 3: ![](All_images/SA_REGA_calendar_user_def_inter_var_3.png) 
+step 3: ![](All_images/SA_REGA_calendar_user_def_inter_var_3.png)
 
 ###### Creation in R
 
@@ -999,19 +991,19 @@ in version 3
 
 ### Reg-Arima model Results and Diagnostics
 
-Type of results (including Tramo addenda) 
+Type of results (including Tramo addenda)
 
-- all regressors used (shown above) 
+-   all regressors used (shown above)
 
-- regression details: explanatory variables (above)
+-   regression details: explanatory variables (above)
 
-- Arima model specific results
+-   Arima model specific results
 
-- additional diagnostics on residuals 
+-   additional diagnostics on residuals
 
-- likelihood 
+-   likelihood
 
-- seasonality tests on residuals 
+-   seasonality tests on residuals
 
 #### Display in GUI
 
@@ -1437,8 +1429,7 @@ Generating output from GUI (link) or from Cruncher (link), stochastic series, th
 
 ##### Retrieve in R
 
-(to be added)
-version 2
+(to be added) version 2
 
 version 3
 
@@ -1539,7 +1530,7 @@ Generating outout from GUI (link) or from Cruncher (link), component series, the
 
 ##### Retrieve in R
 
-version 2 
+version 2
 
 version 3
 
@@ -1559,7 +1550,6 @@ components final estimators
 
 -   Stationary variance decomposition
 
-
 ### Retrieve Final Parameters
 
 This section describes what is chosen automatically or default.
@@ -1578,22 +1568,21 @@ Click on the **Decomposition** NODE
 
 ![](All_images/SA_SEATS_GUI_components_models.png)
 
-##### Retrieve from GUI 
+##### Retrieve from GUI
 
 (add names for output and cruncher)
 
-##### Display in R 
+##### Display in R
 
 (display or retrieve)
 
-version 2 
+version 2
 
 version 3
 
 #### Other final parameters
 
 Final parameters which can be fine-tuned be the user are described in User-defined specifications section below
-
 
 ### Setting user-defined parameters
 
@@ -1655,8 +1644,7 @@ tramoseats_spec(
 
 ```
 
-in version 3 with {rjd3tramoseats}
-(to be added)
+in version 3 with {rjd3tramoseats} (to be added)
 
 ## STL
 
