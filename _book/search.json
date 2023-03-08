@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "JDemetra+ documentation",
     "section": "",
-    "text": "Preface\nWelcome to the JDemetra+ on-line documentation.\nJDemetra+ is an open-source software for seasonal adjustment and time series analysis, developed in the framework of Eurostat’s “Centre of Excellence on Statistical Methods and Tools” by the National Bank of Belgium with the support of the Bundesbank and Insee.\nTo learn more about this project you can visit Eurostat CROS Portal\nTo keep up with all JDemetra+ related news head to the JDemetra+ Universe Blog\nThis website is under construction, in the meantime you can fill a large number of the gaps by referring to the previous version of the on-line documentation."
+    "text": "Preface\nWelcome to the JDemetra+ on-line documentation.\nJDemetra+ is an open-source software for seasonal adjustment and time series analysis, developed in the framework of Eurostat’s “Centre of Excellence on Statistical Methods and Tools” by the National Bank of Belgium with the support of the Bundesbank and Insee.\nTo learn more about this project you can visit Eurostat CROS Portal\nTo keep up with all JDemetra+ related news head to the JDemetra+ Universe Blog\nThis website is under construction, in the meantime you can fill a large number of the gaps by referring to the previous version of the on-line documentation, coordinated by Sylwia Grudkowska-Kubik(National Bank of Poland)."
   },
   {
     "objectID": "G-what-is-jd.html#introduction",
@@ -19,6 +19,13 @@
     "title": "JDemetra+ Software",
     "section": "Structure of this book",
     "text": "Structure of this book\nThis book is divided in 3 parts, allowing the user to access the resources from different perspectives.\n\nAlgorithms\nThis part provides a step by step guidance for using of all the algorithms featured in JDemetra+:\n\nSeasonal Adjustment\nSeasonal Adjustment of high-frequency data\nReg-Arima modelling\nOutlier detection\nGenerating Calendar regressors and input variables\nBenchmarking and temporal disaggregation\nTrend-Cycle estimation\nNowcasting\n\nOutput series, diagnostics, as well as parameters (automatically estimated or user-defined) are detailed in the relevant chapters.\n\n\nTools\nThis part describes the tools allowing to access JDemetra+ algorithms:\n\nGraphical User Interface GUI\n…enhanced with additional plug-ins\n..and a Cruncher for mass production\nR packages\n\n\n\nMethods\nThis part describes in greater detail the core algorithms and their underlying statistical methods:\n\nReg-Arima modelling\nX-11: moving average based decomposition\nSEATS: Arima model based decomposition\nSTL: Loess based decomposition\nBenchmarking and temporal disaggregation\nSpectral analysis tools\nTrend Estimation\nTests for seasonality and residuals\nStructural time series and state space framework"
+  },
+  {
+    "objectID": "G-jd-history.html#in-this-chapter",
+    "href": "G-jd-history.html#in-this-chapter",
+    "title": "How JDemetra+ came to be",
+    "section": "In this chapter",
+    "text": "In this chapter\n\nhistory of the project, people who built the software\nevolution of the software\n\n\nTime line"
   },
   {
     "objectID": "P_Algorithms.html",

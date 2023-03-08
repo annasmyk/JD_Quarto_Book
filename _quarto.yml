@@ -17,6 +17,7 @@ book:
   chapters:
     - index.qmd
     - G-what-is-jd.qmd
+    - G-jd-history.qmd
     - part: P_Algorithms.qmd
       chapters:
         - A-sa.qmd

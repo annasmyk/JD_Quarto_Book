@@ -1,0 +1,12 @@
+# How JDemetra+ came to be {.unnumbered}
+
+(under construction)
+
+## In this chapter
+
+- history of the project, people who built the software
+
+- evolution of the software
+
+### Time line 
+
