@@ -7,7 +7,7 @@
 
 This chapter provides guidance on seasonal adjustment of high-frequency (HF) data with JDemetra+ tailored algorithms.
 
-Currently available topics:
+Currently available topic TTTTTTTT s:
 
 -   description of high frequency data specificities
 
