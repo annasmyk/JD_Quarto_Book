@@ -630,7 +630,7 @@ Once the calendar regressors are set, the RegArima (tramo) model will be estimat
 More in depth method outline will be available in [outliers](A-outlier-detection.qmd) chapter what will be available
 
 #### Available outliers
-
+(this part might be migrated to outlier chapter, leaving just the last settings in SA process)
 The following outliers are available for automatic detection
 
 ![](All_images/SA_REGA_Outliers_AO_LS_TC.png)

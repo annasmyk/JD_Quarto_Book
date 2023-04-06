@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.313">
+<meta name="generator" content="quarto-1.2.335">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -193,12 +193,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./A-outlier-detection.html" class="sidebar-item-text sidebar-link">Outlier detection</a>
+  <a href="./A-outlier-detection.html" class="sidebar-item-text sidebar-link">Outlier detection and Intervention variables</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./A-calendar-and-input.html" class="sidebar-item-text sidebar-link">Calendar and user-defined corrections</a>
+  <a href="./A-calendar-correction.html" class="sidebar-item-text sidebar-link">Calendar and user-defined corrections</a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -288,7 +288,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./M-Trend-Estimation-Local-Polynomials.html" class="sidebar-item-text sidebar-link">Local Polynomials Methods for Trend Estimation</a>
+  <a href="./M-Trend-Estimation-Local-Polynomials.html" class="sidebar-item-text sidebar-link">Trend Estimation</a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -923,7 +923,7 @@ Y_t = \sum {\alpha}_i O_{it} + \sum\beta_j C_{jt} + \sum {\gamma}_i U_{it} + Y_{
 <p>easter.Julian a logical. If TRUE, the program uses the Julian Easter (expressed in Gregorian calendar).</p>
 <p>easter.duration a numeric indicating the duration of the Easter effect (length in days, between 1 and 20).</p>
 <p>easter.test defines the pre-tests for the significance of the Easter effect based on the t-statistic (the Easter effect is considered as significant if the t-statistic is greater than 1.96): “Add” = the Easter effect variable is not included in the initial regression model but can be added to the RegARIMA model after the test; “Remove” = the Easter effect variable belongs to the initial regression model but can be removed from the RegARIMA model after the test; “None” = the Easter effect variable is not pre-tested and is included in the model.</p>
-<p>A user-defined regressor can also be used, see chapter on <a href="./A-calendar-and-input.html">calendar correction</a></p>
+<p>A user-defined regressor can also be used, see chapter on <a href="A-calendar-and-input.qmd">calendar correction</a></p>
 <p>(to be added: additional options in Tramo)</p>
 </section>
 </section>
@@ -1048,7 +1048,7 @@ Y_t = \sum {\alpha}_i O_{it} + \sum\beta_j C_{jt} + \sum {\gamma}_i U_{it} + Y_{
 <section id="customizing-calendars" class="level4">
 <h4 class="anchored" data-anchor-id="customizing-calendars">Customizing Calendars</h4>
 <p>The following describes how to take a national calendar into account.</p>
-<p>Solution 1: if working with GUI build a new calendar in GUI (<a href="./A-calendar-and-input.html###Customizing calendars">here</a></p>
+<p>Solution 1: if working with GUI build a new calendar in GUI (<a href="A-calendar-and-input.qmd###Customizing calendars">here</a></p>
 <p>(to be added: GUI: how to use it or customize HTML file structure explanation)</p>
 <p>set this option in GUI</p>
 <p>(to be added: image: spec window calendar / holidays / choice of calendars)</p>
@@ -1068,7 +1068,7 @@ Y_t = \sum {\alpha}_i O_{it} + \sum\beta_j C_{jt} + \sum {\gamma}_i U_{it} + Y_{
 <p>More in depth method outline will be available in <a href="./A-outlier-detection.html">outliers</a> chapter what will be available</p>
 <section id="available-outliers" class="level4">
 <h4 class="anchored" data-anchor-id="available-outliers">Available outliers</h4>
-<p>The following outliers are available for automatic detection</p>
+<p>(this part might be migrated to outlier chapter, leaving just the last settings in SA process) The following outliers are available for automatic detection</p>
 <p><img src="All_images/SA_REGA_Outliers_AO_LS_TC.png" class="img-fluid"></p>
 <p><img src="All_images/SA_REGA_Outliers_SO.png" class="img-fluid"></p>
 </section>
