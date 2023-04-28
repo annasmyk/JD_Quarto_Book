@@ -7,15 +7,15 @@
 
 This chapter provides guidance on seasonal adjustment of high-frequency (HF) data with JDemetra+ tailored algorithms.
 
-Currently available topic TTTTTTTT s:
+Currently available topics:
 
 -   description of high frequency data specificities
 
--   R functions for pre-treatment, extended X11 and extended Seats
+-   R functions for pre-treatment, extended X-11 and extended Seats
 
 Topics under construction
 
--   graphical user interface 3.0 functionalities for high-frequency data
+-   graphical user interface 3.0 functionalities for HF data
 
 -   STL functions
 
@@ -23,7 +23,7 @@ Topics under construction
 
 ## Data specificities
 
-Intra-monthly data displays multiple and non integer periodicities which cannot be dealt with classical versions of SA algorithms. JD+ provides tailored versions of these algorithms.
+Intra-monthly data displays multiple and non-integer periodicities which cannot be dealt with classical versions of SA algorithms. JD+ provides tailored versions of these algorithms.
 
 | Data      | Day | Week | Month   | Quarter   | Year     |
 |-----------|-----|------|---------|-----------|----------|
@@ -39,8 +39,8 @@ Intra-monthly data displays multiple and non integer periodicities which cannot 
 
 | Col1          | Algorithm                               | GUI v 3.0 | R package    |
 |------------------|-------------------|------------------|------------------|
-| Pre-treatment | Fractional Airline Model                | yes       | rjd3highfreq |
-| Decomposition | Extended SEATS Fractional Airline Model | yes       | rjd3highfreq |
+| Pre-treatment | Extended Airline Model                  | yes       | rjd3highfreq |
+| Decomposition | Extended SEATS Extended Airline Model   | yes       | rjd3highfreq |
 |               | Extended X-11                           | yes       | rjd3highfreq |
 |               | Extended STL                            | no        | rjd3stl      |
 | One-Step      | SSF Framework                           | no        | rjd3sts      |
@@ -51,9 +51,9 @@ Intra-monthly data displays multiple and non integer periodicities which cannot 
 
 ![](All_images/SA_HF_unobs_comps.png)
 
-### Multiple seasonal factors
+### Multiple seasonal patterns
 
-For high-frequency data multiple seasonal factors might be taken into account. $$S_{t}= S_{t,7} \circ S_{t,30.44} \circ S_{t,365.25}$$
+For HF data multiple seasonal patterns might be taken into account. $$S_{t}= S_{t,7} \circ S_{t,30.44} \circ S_{t,365.25}$$
 
 The decomposition is done iteratively periodicity by periodicity starting with the smallest one (highest frequency) as:
 
@@ -63,28 +63,28 @@ The decomposition is done iteratively periodicity by periodicity starting with t
 
 ## Identifying seasonal patterns
 
-JDemetra+ provides the Canova-Hansen test in rjd3tookit package.
+JDemetra+ provides the Canova-Hansen test in rjd3toolkit package.
 
 ## Pre-adjustment
 
-In classical X13-Arima and Tramo-Seats, a pre-adjustment step is performed to remove deterministic effects, outliers and calendar with a Reg-Arima model. In the extended version for HF data, it is also the case with a **fractional airline model**.
+In classical X13-Arima and Tramo-Seats, a pre-adjustment step is performed to remove deterministic effects, such as outliers and calendar effects, with a Reg-Arima model. In the extended version for HF data, it is also the case with an **extended Airline model**.
 
 A general Reg-ARIMA model is written as follows: $$
 \left(Y_t - \sum {\alpha_i}X_{it}\right) \sim ARIMA(p,d,q)(P,D,Q)
-$$ These models contain seasonal backshift operators $B^{s}(y_t)=y_{t-s}$. Here $s$ can be non integer. JDemetra+ will rely on a modified version of a frequently used Arima model: the "Airline" model:
+$$ These models contain seasonal backshift operators $B^{s}(y_t)=y_{t-s}$. Here $s$ can be non-integer. JDemetra+ will rely on a modified version of a frequently used Arima model: the "Airline" model:
 
 $$
 (1-B)(1-B^{s})y_t=(1-\theta_1 B)(1-\theta_2 B^{s}) \epsilon_t \text{~~~~} \epsilon_t \sim \text{NID}(0,\sigma^2_{\epsilon})  
 $$
 
-For high frequency-data potentially non integer $s$ will be written: $s=s' + \alpha$, with $\alpha$ real number i $]0,1[$ (for example $52.18 = 52 +0.18$ is the yearly periodicity for weekly data)
+For HF data potentially non-integer $s$ will be written: $s=s' + \alpha$, with $\alpha$ real number i $]0,1[$ (for example $52.18 = 52 +0.18$ is the yearly periodicity for weekly data)
 
 Taylor development around 1 of $f(x)=x^\alpha$ $$
 \begin{array}{lll}
 x^\alpha &=& 1 + \alpha (x-1) + \frac{\alpha (\alpha+1)}{2!} (x-1)^2 + \frac{\alpha (\alpha+1) (\alpha+2)}{3!} (x-1)^3 +\cdots \\
             B^\alpha &\cong& (1 - \alpha)+ \alpha B     
 \end{array}
-$$ Approximation of $B^{s+\alpha}$ in a fractional Airline model
+$$ Approximation of $B^{s+\alpha}$ in an extended Airline model
 
 $$
 \begin{array}{lll}
@@ -153,7 +153,7 @@ pre_adjustment<- rjd3highfreq::fractionalAirlineEstimation(y_raw,
 
 ### Extended X-11
 
-X-11 is the decomposition module of [X-13-Arima](A-sa.qmd), the linearized series from the pre-adjustment step is split into seasonal ($S$), trend ($T$) and irregular ($I$) components.In case of multiple periodicities the decomposition is done periodicity by periodicity starting with the smallest one. Global structure of the iterations is the same as in "classical" X-11 but modifications were introduced for tackling non integer periodicities. They rely on the Taylor approximation for the seasonal backshift operator:
+X-11 is the decomposition module of [X-13-Arima](A-sa.qmd), the linearized series from the pre-adjustment step is split into seasonal ($S$), trend ($T$) and irregular ($I$) components. In case of multiple periodicities the decomposition is done periodicity by periodicity starting with the smallest one. Global structure of the iterations is the same as in "classical" X-11 but modifications were introduced for tackling non-integer periodicities. They rely on the Taylor approximation for the seasonal backshift operator:
 
 $$
 \begin{array}{lll}
@@ -165,13 +165,13 @@ $$
 
 The first trend estimation is thanks to a generalization of the centred and symmetrical moving averages with an order equal to the periodicity $p$.
 
--   filter length longueur $l$: smallest odd integer greater than $p$
+-   filter length $l$: smallest odd integer greater than $p$
 
 -   ex : p=7, l=7, p=12 l=13, p=365,25, l=367, p=52.18 l=53
 
 -   central coefficients $1/p$ (1/12,1/7, 1/365.25)
 
--   extreme coefficients $\mathbb{I} \{\text{$E(p)$ even}\} +(p-E(p)) /2p$
+-   end-point coefficients $\mathbb{I} \{\text{$E(p)$ even}\} +(p-E(p)) /2p$
 
 -   example for p=12: (1/12 and 1/24) (we fall back on $M_{2\times12}$ of the monthly case
 
@@ -189,11 +189,11 @@ $$
 
 if $p$ integer: no changes needed
 
-if $p$ non integer: Taylor approximation of the backshift operator
+if $p$ non-integer: Taylor approximation of the backshift operator
 
 #### Modification of final trend estimation filter
 
-As seasonality has been removed in the first step, there is no non integer periodicity issue in the final trend estimation, but extended X-11 offers additional features vs genuine X-11, in which final trend is estimated with Henderson filters and Musgrave asymmetrical surrogates. In extended in X-11, a generalization of this method with local polynomial approximation is available.
+As seasonality has been removed in the first step, there is no non-integer periodicity issue in the final trend estimation, but extended X-11 offers additional features vs genuine X-11, in which final trend is estimated with Henderson filters and Musgrave asymmetrical surrogates. In extended in X-11, a generalization of this method with local polynomial approximation is available.
 
 #### Example of decomposition
 
@@ -244,7 +244,7 @@ amb.doy <- rjd3highfreq::fractionalAirlineDecomposition(
 
 ### Summary of the process
 
-For the time being, seasonal adjustment processing in rjd3highfreq cannot be encompassed by one one function like for lower frequency, e.g rjd3x13::x13(y_raw)
+For the time being, seasonal adjustment processing in rjd3highfreq cannot be encompassed by one function like for lower frequency, e.g rjd3x13::x13(y_raw)
 
 The user has to run the steps one by one, here is an example with $p=7$ and $p=365.25$
 
