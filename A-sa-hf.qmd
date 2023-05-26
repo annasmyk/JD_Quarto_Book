@@ -9,7 +9,7 @@ This chapter provides guidance on seasonal adjustment of high-frequency (HF) dat
 
 Currently available topics:
 
--   description of high frequency data specificities
+-   description of HF data specificities
 
 -   R functions for pre-treatment, extended X-11 and extended Seats
 
