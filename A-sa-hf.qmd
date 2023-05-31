@@ -107,26 +107,29 @@ $$
 Calendar regressors can be defined with rjd3toolkit package and added to pre-treatment function as a matrix.
 
 ```{r, eval=FALSE}
-#setting calendar variables
-## define a calendar
-frenchCalendar <- rjd3toolkit::calendar.new()
-rjd3toolkit::calendar.holiday(frenchCalendar, "NEWYEAR")
-#rjd3toolkit::calendar.holiday(frenchCalendar, "GOODFRIDAY")
-rjd3toolkit::calendar.holiday(frenchCalendar, "EASTERMONDAY") # Lundi de Pâques
-rjd3toolkit::calendar.holiday(frenchCalendar, "MAYDAY") # 1er mai
-rjd3toolkit::calendar.fixedday(frenchCalendar, 5, 8,start="1982-05-08") # since 1982, 2nd world war 
-rjd3toolkit::calendar.easter(frenchCalendar,offset = 39) ## ascension
-rjd3toolkit::calendar.holiday(frenchCalendar, "WHITMONDAY") # Lundi de Pentecôte
-rjd3toolkit::calendar.fixedday(frenchCalendar, 7, 14)  # national holiday
-rjd3toolkit::calendar.holiday(frenchCalendar, "ASSUMPTION") # Assomption
-rjd3toolkit::calendar.holiday(frenchCalendar, "ALLSAINTSDAY") # Toussaint
-rjd3toolkit::calendar.holiday(frenchCalendar, "ARMISTICE") # first world war
-rjd3toolkit::calendar.holiday(frenchCalendar, "CHRISTMAS") #  25th December
+# Create a calendar with rjd3toolkit
+frenchCalendar <- national_calendar(days = list(
+  fixed_day(7, 14), # Bastille day
+  fixed_day(5, 8, validity = list(start = "1982-05-08")), # 2nd WW
+  special_day('NEWYEAR'), 
+  special_day('CHRISTMAS'),
+  special_day('MAYDAY'), 
+  special_day('EASTERMONDAY'), 
+  special_day('ASCENSION'),
+  special_day('WHITMONDAY'), 
+  special_day('ASSUMPTION'),
+  special_day('ALLSAINTSDAY'),
+  special_day('ARMISTICE')) 
+)
+# generate the matrix of egressors 
+q <- holidays(
+  frenchCalendar, 
+  start = start(raw_series), 
+  length = length(raw_series), 
+  type = "All", nonworking = 7L)
+# Argument type = All : taking all holidays into account
+# Argument type = Skip : taking into account only the holidays falling on a week day
 
-## extract regressors: here daily series 
-q<-rjd3toolkit::holidays(frenchCalendar, "1968-01-01", 
-                           length = length(y_raw_daily), type="All",
-                           nonworking = as.integer(7))
 ```
 
 ### Outliers and intervention variables
