@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -292,15 +326,18 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
-  <li><a href="#revision-policies" id="toc-revision-policies" class="nav-link" data-scroll-target="#revision-policies">Revision Policies</a></li>
+  <li><a href="#chapters-overview" id="toc-chapters-overview" class="nav-link active" data-scroll-target="#chapters-overview">Chapter’s overview</a></li>
+  <li><a href="#revision-policies" id="toc-revision-policies" class="nav-link" data-scroll-target="#revision-policies">Revision Policies</a>
+  <ul class="collapse">
   <li><a href="#definition-and-context" id="toc-definition-and-context" class="nav-link" data-scroll-target="#definition-and-context">Definition and context</a></li>
-  <li><a href="#overview-1" id="toc-overview-1" class="nav-link" data-scroll-target="#overview-1">Overview</a>
+  <li><a href="#overview" id="toc-overview" class="nav-link" data-scroll-target="#overview">Overview</a></li>
+  </ul></li>
+  <li><a href="#implementation-in-gui" id="toc-implementation-in-gui" class="nav-link" data-scroll-target="#implementation-in-gui">Implementation in GUI</a>
   <ul class="collapse">
   <li><a href="#display-in-results-panel" id="toc-display-in-results-panel" class="nav-link" data-scroll-target="#display-in-results-panel">Display in results panel</a></li>
   </ul></li>
-  <li><a href="#implementation-in-the-cruncher" id="toc-implementation-in-the-cruncher" class="nav-link" data-scroll-target="#implementation-in-the-cruncher">Implementation in the cruncher</a></li>
-  <li><a href="#implementation-in-rjd3x13-or-rjd3tramoseats" id="toc-implementation-in-rjd3x13-or-rjd3tramoseats" class="nav-link" data-scroll-target="#implementation-in-rjd3x13-or-rjd3tramoseats">Implementation in rjd3x13 or rjd3tramoseats</a></li>
+  <li><a href="#implementation-with-the-cruncher" id="toc-implementation-with-the-cruncher" class="nav-link" data-scroll-target="#implementation-with-the-cruncher">Implementation with the cruncher</a></li>
+  <li><a href="#implementation-in-r-with-rjd3x13-or-rjd3tramoseats" id="toc-implementation-in-r-with-rjd3x13-or-rjd3tramoseats" class="nav-link" data-scroll-target="#implementation-in-r-with-rjd3x13-or-rjd3tramoseats">Implementation in R with rjd3x13 or rjd3tramoseats</a></li>
   </ul>
 </nav>
     </div>
@@ -324,8 +361,8 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="overview" class="level2">
-<h2 class="anchored" data-anchor-id="overview">Overview</h2>
+<section id="chapters-overview" class="level2">
+<h2 class="anchored" data-anchor-id="chapters-overview">Chapter’s overview</h2>
 <p>In this chapter you will find out:</p>
 <ul>
 <li><p>how to update seasonally adjusted series when new data is available</p></li>
@@ -336,39 +373,35 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="revision-policies" class="level2">
 <h2 class="anchored" data-anchor-id="revision-policies">Revision Policies</h2>
-</section>
-<section id="definition-and-context" class="level2">
-<h2 class="anchored" data-anchor-id="definition-and-context">Definition and context</h2>
+<section id="definition-and-context" class="level3">
+<h3 class="anchored" data-anchor-id="definition-and-context">Definition and context</h3>
 <p>When raw data has been modified (extended and/or revised), the previous seasonal adjustment estimation needs updating. It can be redone from scratch (complete re-estimation) or update keeping fixed a predefined set of parameters already estimated. <a href="https://ec.europa.eu/eurostat/documents/3859598/6830795/KS-GQ-15-001-EN-N.pdf">Eurostat’s Guidelines on seasonal adjustment (2015)</a> recommend not to perform a complete re-estimation of the parameters on an infra-annual basis. The set of constraints on the parameters is called “revision policy” or “refresh policy”.</p>
 </section>
-<section id="overview-1" class="level2">
-<h2 class="anchored" data-anchor-id="overview-1">Overview</h2>
-<p>In X13-Arima and Tramo-Seats revision policies are ways to impose constraints on the pre-adjustment phase, while the decomposition phase (X-11 or Seats) will be entirely re-run. The changes induced by X-11 re-estimation stem only from a revised linerarized series, while in Seats they are also induced by the arima model possible coefficient and/ or order changes.</p>
+<section id="overview" class="level3">
+<h3 class="anchored" data-anchor-id="overview">Overview</h3>
+<p>In X13-Arima and Tramo-Seats revision policies are ways to impose constraints on the pre-adjustment phase, while the decomposition phase (X-11 or Seats) will be entirely re-run on new data. The changes induced by X-11 re-estimation stem only from a revised linerarized series, while in Seats they are also induced by the arima model possible coefficient and/ or order changes.</p>
 <p>The table below lists the available policies as well as their name for implementation with the graphical user interface (GUI), the cruncher or rjd3x13 ans rjd3tramoseats packages.</p>
-<p><img src="All_images/Rev_Policies.png" class="img-fluid"> ## Implementatio in GUI</p>
-<ol type="1">
-<li><p>To refresh the results open a previously saved workspace using the path <em>File</em> → <em>Open Workspace</em>. Choose the multi-document option from the <a href="../reference-manual/workspace.html"><em>Workspace</em> window</a> and double click on it to display the multi-document menu (<em>SAProcessing</em>).</p>
-<p><img src="All_images/UDimage21.jpg" class="img-fluid"></p>
-<p><strong>Opening a multi-document</strong></p></li>
-<li><p>Several refreshment options are available.</p>
-<p><img src="All_images/UDimage22.jpg" class="img-fluid"></p>
-<p><strong>The <em>Refresh</em> menu</strong></p></li>
-</ol>
+<p><img src="All_images/Rev_Policies.png" class="img-fluid"></p>
+</section>
+</section>
+<section id="implementation-in-gui" class="level2">
+<h2 class="anchored" data-anchor-id="implementation-in-gui">Implementation in GUI</h2>
+<p>To refresh results from previous estimation open your workspace, then SAprocessing click on a series to highlight it (or select several series), then right-click and choose <em>Refresh</em>, the following panel is displayed.</p>
+<p><img src="All_images/Rev_Policies_GUI.png" class="img-fluid"></p>
 <section id="display-in-results-panel" class="level3">
 <h3 class="anchored" data-anchor-id="display-in-results-panel">Display in results panel</h3>
+<p>Sections below detail, though an example, the changes in results display brought about by the use of a given revision policy.</p>
 <section id="concurrent" class="level4">
 <h4 class="anchored" data-anchor-id="concurrent">Concurrent</h4>
-<p>According to the <a href="https://ec.europa.eu/eurostat/documents/3859598/6830795/KS-GQ-15-001-EN-N.pdf/d8f1e5f5-251b-4a69-93e3-079031b74bd3">ESS Guidelines on Seasonal Adjustment (2015)</a> , concurrent adjustment means that the model, filters, outliers, regression parameters and transformation type are all re-identified and the respective parameters and factors re-estimated every time new observations are available. This option in JDemetra+ means that a completely new model is identified, and the previous results are not taken into account.</p>
+<p>Concurrent adjustment means that the model, filters, outliers, regression parameters and transformation type are all re-identified and the respective parameters and factors re-estimated every time new observations are available. This option in JDemetra+ means that a completely new model is identified, and the previous results are not taken into account, excepted for the user-defined parameters.</p>
 <p>The picture below presents the initial model (on the left) and the results of the refreshment procedure with the <em>Concurrent adjustment</em> option (on the right). The transformation type has changed from none to log. The ARIMA model has been re-identified (it has changed from (0,1,1)(1,1,0) to (1,1,0)(0,1,1)). In contrast to the initial model, in the updated model trading day effects and a leap year effect are no longer included. Also the automatically identified outliers are not the same in both models.</p>
 <p><img src="All_images/UG_PCA_image2.jpg" class="img-fluid"></p>
-<p><strong>The <em>Concurrent adjustment</em> revision policy results</strong></p>
 </section>
 <section id="partial-concurrent-adjustment-fixed-model" class="level4">
 <h4 class="anchored" data-anchor-id="partial-concurrent-adjustment-fixed-model">Partial concurrent adjustment → Fixed model</h4>
 <p>The <em>Partial concurrent adjustment → Fixed model</em> strategy means that the ARIMA model, outliers and other regression parameters are not re-identified and the values of the parameters are fixed. In particular, no new outliers or calendar variables are added to the model as well as no changes neither in the calendar variables nor in the outliers’ types are allowed. The transformation type remains unchanged.</p>
 <p>The picture below presents the initial model (on the left) and the results of the refreshment procedure with the <em>Partial concurrent adjustment → Fixed model</em> option (on the right). The parameters of the ARIMA part are not estimated and their values are the same as before. The trading days and outliers are fixed too and no new regression effects are identified.</p>
 <p><img src="All_images/UDimage23.jpg" class="img-fluid"></p>
-<p><strong>A <em>Partial concurrent adjustment</em> → <em>fixed model</em> revision policy results</strong></p>
 </section>
 <section id="partial-concurrent-adjustment-estimate-regression-coefficients" class="level4">
 <h4 class="anchored" data-anchor-id="partial-concurrent-adjustment-estimate-regression-coefficients">Partial concurrent adjustment → Estimate regression coefficients</h4>
@@ -382,37 +415,40 @@ ul.task-list li input[type="checkbox"] {
 <p>The <em>Partial concurrent adjustment → Estimate regression coefficients + Arima parameters</em> strategy means that the ARIMA model, outliers and other regression parameters are not re-identified. All parameters of the Reg-ARIMA model are re-estimated but the explanatory variables remain the same. The transformation type remains unchanged.</p>
 <p>The picture below presents the initial model (on the left) and the results of the refreshment procedure with the <em>Partial</em> <em>concurrent adjustment → Estimate regression coefficient + Arima parameters</em> option (on the right). The parameters of the ARIMA part have been re-estimated and their values have been updated. Also regression coefficients have been re-estimated and the number of estimated coefficients in the revised model is the same as in the initial model (i.e.&nbsp;16 estimated coefficients). The structure of the model remains unchanged while all coefficients have been updated.</p>
 <p><img src="All_images/UDimage25.jpg" class="img-fluid"></p>
-<p><strong>The <em>Partial concurrent adjustment</em> → <em>Estimate regression coefficients + Arima parameters</em> revision policy results</strong></p>
 </section>
 <section id="partial-concurrent-adjustment-estimate-regression-coefficients-outliers" class="level4">
 <h4 class="anchored" data-anchor-id="partial-concurrent-adjustment-estimate-regression-coefficients-outliers">Partial concurrent adjustment → Estimate regression coefficients + outliers</h4>
 <p>The <em>Partial concurrent adjustment → Estimate regression coefficients + outliers</em> option means that the ARIMA model and regression parameters, except outliers, are not re-identified. The parameters of these variables, however, are re-estimated. All outliers are re-identified, i.e.&nbsp;the previous outcome of the outlier detection procedure is not taken into account and all outliers are identified and estimated once again. The transformation type remains unchanged.</p>
 <p>The picture below presents the initial model (on the left) and the results of the refreshment procedure with the <em>Partial concurrent adjustment → Estimate regression coefficients + outliers</em> option (on the right). The parameters of the ARIMA part have been re-estimated and their values have been updated. Also regression coefficients for the calendar variables have been re-estimated. In the revised model there is no <em>Prespecified outliers</em> section. Instead, the outliers were re-identified.</p>
 <p><img src="All_images/UDimage27.jpg" class="img-fluid"></p>
-<p><strong>The <em>Partial concurrent adjustment</em> → <em>Estimate regression coefficient + outliers</em> revision policy results</strong></p>
 </section>
-<section id="the-partial-concurrent-adjustment-estimate-regression-coefficients-arima-model" class="level4">
-<h4 class="anchored" data-anchor-id="the-partial-concurrent-adjustment-estimate-regression-coefficients-arima-model">The <em>Partial concurrent adjustment → Estimate regression coefficients + Arima model</em></h4>
+<section id="partial-concurrent-adjustment-estimate-regression-coefficients-arima-model" class="level4">
+<h4 class="anchored" data-anchor-id="partial-concurrent-adjustment-estimate-regression-coefficients-arima-model">Partial concurrent adjustment → Estimate regression coefficients + Arima model</h4>
 <p>The <em>Partial concurrent adjustment → Estimate regression coefficients + Arima model</em> option means that the ARIMA model, outliers and regression variables (except the calendar variables) are re-identified. All parameters are re-estimated. The transformation type remains unchanged.</p>
 <p>The picture below presents the initial model (on the left) and the results of the refreshment procedure with the <em>Partial concurrent adjustment → Estimate regression coefficients + Arima model</em> option (on the right). The ARIMA part has been re-identified (a change from (2,1,0)(0,1,1) to (0,1,1)(1,1,1)). Also the regression coefficients for the calendar variables have been re-estimated. In the revised model there is no <em>Prespecified outliers</em> section. Therefore, the outliers were re-identified.</p>
 <p><img src="All_images/UG_PCA_image1.jpg" class="img-fluid"></p>
-<p><strong>The <em>Partial concurrent adjustment</em> → <em>Estimate regression coefficient + Arima model</em> revision policy results</strong></p>
 </section>
 <section id="partial-concurrent-adjustment-estimate-regression-coefficients-last-outliers" class="level4">
 <h4 class="anchored" data-anchor-id="partial-concurrent-adjustment-estimate-regression-coefficients-last-outliers">Partial concurrent adjustment → Estimate regression coefficients + Last outliers</h4>
 <p>The <em>Partial concurrent adjustment → Estimate regression coefficients + Last outliers</em> strategy means that the ARIMA model, outliers (except for the last year of the sample) and other regression parameters are not re-identified. All parameters of the Reg-ARIMA model are re-estimated. The software tests for outliers in the last year of the data span and will include in the model those which are statistically significant. The transformation type remains unchanged.</p>
 <p>The picture below presents the initial model (on the left) and the results of the refreshment procedure with the <em>Partial</em> <em>concurrent adjustment → Estimate regression coefficients + Last outliers</em> option (on the right). The parameters of the ARIMA part have been re-estimated and their values have been updated. Also the regression coefficients have been re-estimated. The number of estimated coefficients in the revised model is larger than the initial model because an additional outlier has been identified in the last year of the data span.</p>
 <p><img src="All_images/UDimage26.jpg" class="img-fluid"></p>
-<p><strong>The <em>Partial concurrent adjustment</em> → <em>Estimate regression coefficient + Last outliers</em> revision policy results</strong></p>
 </section>
 </section>
 </section>
-<section id="implementation-in-the-cruncher" class="level2">
-<h2 class="anchored" data-anchor-id="implementation-in-the-cruncher">Implementation in the cruncher</h2>
-<p>link to cruncher chap</p>
+<section id="implementation-with-the-cruncher" class="level2">
+<h2 class="anchored" data-anchor-id="implementation-with-the-cruncher">Implementation with the cruncher</h2>
+<p>In a production process, it might be suitable to use the <a href="T-Prodcution-tools-cruncher-QR.qmd">cruncher</a> in order to automatically update workspaces. When using an R package (<code>rjwsacruncher`` or</code>JDCruncher`) to do so, you will just need to specify the policy’s name as shown below. Available policies and names are detailed in the #Overview section.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cruncher_and_param</span>(<span class="at">workspace =</span> <span class="st">"D:/my_folder/my_ws.xml"</span>,</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>                   <span class="at">rename_multi_documents =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>                   <span class="at">policy =</span> <span class="st">"stochastic"</span> <span class="co">#name of the revision policy</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>                   <span class="at">log=</span> my_log_file.txt)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
-<section id="implementation-in-rjd3x13-or-rjd3tramoseats" class="level2">
-<h2 class="anchored" data-anchor-id="implementation-in-rjd3x13-or-rjd3tramoseats">Implementation in rjd3x13 or rjd3tramoseats</h2>
+<section id="implementation-in-r-with-rjd3x13-or-rjd3tramoseats" class="level2">
+<h2 class="anchored" data-anchor-id="implementation-in-r-with-rjd3x13-or-rjd3tramoseats">Implementation in R with rjd3x13 or rjd3tramoseats</h2>
+<p>When performing seasonal adjustment directly in R with <code>rjd3x13</code> or <code>rjd3tramoseats</code>, you will need to refresh the “result_spec” yielded by the previous estimation with the selected policy. Available policies and names are detailed in the #Overview section. More explanations and code examples are available in the packages’ help pages, corresponding to functions <code>rjd3x13::x13_refresh</code>, <code>rjd3x13::regarima_refresh</code>,<code>rjd3tramoseats::tramoseats_refresh</code>, <code>rjd3tramoseats::tramo_refresh</code>.</p>
 
 
 </section>
