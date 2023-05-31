@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.335">
+<meta name="generator" content="quarto-1.3.353">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -17,7 +17,7 @@ div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
   width: 0.8em;
-  margin: 0 0.8em 0.2em -1.6em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
 </style>
@@ -61,6 +61,7 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <link rel="stylesheet" href="styles.css">
@@ -70,11 +71,16 @@ ul.task-list li input[type="checkbox"] {
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-    <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">Graphical User Interface</h1>
-      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
-        <i class="bi bi-chevron-right"></i>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./P_Tools.html">Tools</a></li><li class="breadcrumb-item"><a href="./T-graphical-user-interface.html">Graphical User Interface</a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
       </button>
     </div>
   </nav>
@@ -82,170 +88,198 @@ ul.task-list li input[type="checkbox"] {
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">JDemetra+ documentation</a> 
     </div>
       </div>
-      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
         <div id="quarto-search" class="" title="Search"></div>
         </div>
-      </div>
+        </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link">Preface</a>
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./G-what-is-jd.html" class="sidebar-item-text sidebar-link">JDemetra+ Software</a>
+  <a href="./G-what-is-jd.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">JDemetra+ Software</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./G-jd-history.html" class="sidebar-item-text sidebar-link">How JDemetra+ came to be</a>
+  <a href="./G-jd-history.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">How JDemetra+ came to be</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./P_Algorithms.html" class="sidebar-item-text sidebar-link">Algorithms</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <a href="./P_Algorithms.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Algorithms</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./A-sa.html" class="sidebar-item-text sidebar-link">Seasonal Adjustment</a>
+  <a href="./A-sa.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Seasonal Adjustment</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./A-sa-hf.html" class="sidebar-item-text sidebar-link">Seasonal adjustment of high-frequency data</a>
+  <a href="./A-sa-hf.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Seasonal adjustment of high-frequency data</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./A-outlier-detection.html" class="sidebar-item-text sidebar-link">Outlier detection and Intervention variables</a>
+  <a href="./A-outlier-detection.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Outlier detection and Intervention variables</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./A-calendar-correction.html" class="sidebar-item-text sidebar-link">Calendar and user-defined corrections</a>
+  <a href="./A-calendar-correction.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Calendar and user-defined corrections</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./A-benchmarking.html" class="sidebar-item-text sidebar-link">Benchmarking and temporal disagreggation</a>
+  <a href="./A-benchmarking.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Benchmarking and temporal disagreggation</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./A-trend-cycle-estimation.html" class="sidebar-item-text sidebar-link">Trend-cycle estimation</a>
+  <a href="./A-trend-cycle-estimation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Trend-cycle estimation</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./A-nowcasting.html" class="sidebar-item-text sidebar-link">Nowcasting</a>
+  <a href="./A-nowcasting.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Nowcasting</span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./P_Tools.html" class="sidebar-item-text sidebar-link">Tools</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <a href="./P_Tools.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Tools</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./T-graphical-user-interface.html" class="sidebar-item-text sidebar-link active">Graphical User Interface</a>
+  <a href="./T-graphical-user-interface.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Graphical User Interface</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./T-r-packages.html" class="sidebar-item-text sidebar-link">Using JDemetra+ in R</a>
+  <a href="./T-r-packages.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Using JDemetra+ in R</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./T-Production-tools-cruncher-QR.html" class="sidebar-item-text sidebar-link">Production, Cruncher and quality report</a>
+  <a href="./T-Production-tools-cruncher-QR.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Production, Cruncher and quality report</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./T-rev-policies-production.html" class="sidebar-item-text sidebar-link">Production and revision policies</a>
+  <a href="./T-rev-policies-production.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Production and revision policies</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./T-plug-ins.html" class="sidebar-item-text sidebar-link">Plug-ins for JDemetra+</a>
+  <a href="./T-plug-ins.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Plug-ins for JDemetra+</span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./P_Methods.html" class="sidebar-item-text sidebar-link">Methods</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+            <a href="./P_Methods.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Methods</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./M-spectral-analysis.html" class="sidebar-item-text sidebar-link">Spectral Analysis Principles and Tools</a>
+  <a href="./M-spectral-analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Spectral Analysis Principles and Tools</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./M-reg-arima-modelling.html" class="sidebar-item-text sidebar-link">Reg-Arima models</a>
+  <a href="./M-reg-arima-modelling.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Reg-Arima models</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./M-X11-decomposition.html" class="sidebar-item-text sidebar-link">X-11 decomposition</a>
+  <a href="./M-X11-decomposition.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">X-11 decomposition</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./M-STL-decomposition.html" class="sidebar-item-text sidebar-link">STL: Local regression decomposition</a>
+  <a href="./M-STL-decomposition.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">STL: Local regression decomposition</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./M-SEATS-decomposition.html" class="sidebar-item-text sidebar-link">SEATS decomposition</a>
+  <a href="./M-SEATS-decomposition.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SEATS decomposition</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./M-Trend-Estimation-Local-Polynomials.html" class="sidebar-item-text sidebar-link">Trend Estimation</a>
+  <a href="./M-Trend-Estimation-Local-Polynomials.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Trend Estimation</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./M-tests.html" class="sidebar-item-text sidebar-link">Tests</a>
+  <a href="./M-tests.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Tests</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./M-state-space-framework.html" class="sidebar-item-text sidebar-link">State space modelling</a>
+  <a href="./M-state-space-framework.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">State space modelling</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./M-Temp-Disagg-Bench.html" class="sidebar-item-text sidebar-link">Temporal disaggregation and benchmarking</a>
+  <a href="./M-Temp-Disagg-Bench.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Temporal disaggregation and benchmarking</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./references.html" class="sidebar-item-text sidebar-link">References</a>
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
   </div>
 </li>
       </ul>
@@ -253,6 +287,7 @@ ul.task-list li input[type="checkbox"] {
     </ul>
     </div>
 </nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -300,7 +335,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">Graphical User Interface</h1>
+<h1 class="title">Graphical User Interface</h1>
 </div>
 
 
@@ -357,7 +392,7 @@ ul.task-list li input[type="checkbox"] {
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/RunningJDemetra.jpg" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption"><strong>Launching JDemetra+</strong></figcaption><p></p>
+<figcaption class="figure-caption"><strong>Launching JDemetra+</strong></figcaption>
 </figure>
 </div>
 <p>If the launching of JDemetra+ fails, you can try the following operations:</p>
@@ -378,7 +413,7 @@ ul.task-list li input[type="checkbox"] {
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/A_Ref1.jpg" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption"><strong>Running JDemetra+</strong></figcaption><p></p>
+<figcaption class="figure-caption"><strong>Running JDemetra+</strong></figcaption>
 </figure>
 </div>
 </section>
@@ -388,14 +423,14 @@ ul.task-list li input[type="checkbox"] {
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/A_Ref2.jpg" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption"><strong>Closing JDemetra+</strong></figcaption><p></p>
+<figcaption class="figure-caption"><strong>Closing JDemetra+</strong></figcaption>
 </figure>
 </div>
 <p>The other way is to click on the close box in the upper right-hand corner of the JDemetra+ window. If there is any unsaved work, JDemetra+ will display a warning and provide the user with the opportunity to save it. The message box is shown below.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/A_Ref3.jpg" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption"><strong>The warning from leaving JDemetra+ without saving the workspace</strong></figcaption><p></p>
+<figcaption class="figure-caption"><strong>The warning from leaving JDemetra+ without saving the workspace</strong></figcaption>
 </figure>
 </div>
 <p>BELOW: menus and functions common to all the algos</p>
@@ -406,7 +441,7 @@ ul.task-list li input[type="checkbox"] {
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/Jd+mainwindow.jpg" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption"><strong>JDemetra+ default window</strong></figcaption><p></p>
+<figcaption class="figure-caption"><strong>JDemetra+ default window</strong></figcaption>
 </figure>
 </div>
 <p>By default, on the left hand side of the window two panels are visible: the <a href="../reference-manual/workspace.html"><em>Workspace</em> panel</a> and the <a href="../reference-manual/data-providers.html"><em>Providers</em> panel</a>. The <em>Workspace</em> panel stores the work performed by the user in a coherent and structured way. The <em>Providers</em> panel presents the list of the <a href="../quick-start/datasources.html">data sources</a> and organizes the imported series within each data provider. By default, JDemetra+ supports the following data sources:</p>
@@ -424,7 +459,7 @@ ul.task-list li input[type="checkbox"] {
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/Spreadsheet.jpg" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption"><strong>Example of an Excel spreadsheet that can be imported to JDemetra+</strong></figcaption><p></p>
+<figcaption class="figure-caption"><strong>Example of an Excel spreadsheet that can be imported to JDemetra+</strong></figcaption>
 </figure>
 </div>
 <p>Once the spreadsheet is prepared and saved, it can be imported to JDemetra+ as it is shown by the tutorial below.</p>
@@ -434,7 +469,7 @@ ul.task-list li input[type="checkbox"] {
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/A_Ref_d28.jpg" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption"><strong>JDemetra+ default view</strong></figcaption><p></p>
+<figcaption class="figure-caption"><strong>JDemetra+ default view</strong></figcaption>
 </figure>
 </div>
 <p>The key parts of the user interface are:</p>
@@ -461,7 +496,7 @@ ul.task-list li input[type="checkbox"] {
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/A_Ref10.jpg" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption"><strong>The main menu with selected drop-down menu</strong></figcaption><p></p>
+<figcaption class="figure-caption"><strong>The main menu with selected drop-down menu</strong></figcaption>
 </figure>
 </div>
 <p>The functions available in the main application menu are:</p>
@@ -492,7 +527,7 @@ ul.task-list li input[type="checkbox"] {
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/File menu.jpg" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption"><strong>The content of the <em>File</em> menu</strong></figcaption><p></p>
+<figcaption class="figure-caption"><strong>The content of the <em>File</em> menu</strong></figcaption>
 </figure>
 </div>
 </section>
@@ -502,12 +537,12 @@ ul.task-list li input[type="checkbox"] {
 <ul>
 <li><p><a href="#anomaly-detection">Anomaly Detection</a> – allows for a purely automatic identification of regression effects;</p></li>
 <li><p><a href="#modelling">Modelling</a> – enables time series modelling using the TRAMO and RegARIMA models;</p></li>
-<li><p><a href="#seasonal-adjustment">Seasonal adjustment</a> – intended for the seasonal adjustment of a time series with the TRAMO-SEATS and X-13ARIMA-SEATS methods.</p></li>
+<li><p><a href="T-r-packages.html#seasonal-adjustment">Seasonal adjustment</a> – intended for the seasonal adjustment of a time series with the TRAMO-SEATS and X-13ARIMA-SEATS methods.</p></li>
 </ul>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/Statistical methods menu.jpg" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption"><strong>The <em>Statistical methods</em> menu.</strong></figcaption><p></p>
+<figcaption class="figure-caption"><strong>The <em>Statistical methods</em> menu.</strong></figcaption>
 </figure>
 </div>
 </section>
@@ -523,7 +558,7 @@ ul.task-list li input[type="checkbox"] {
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/View menu.jpg" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption"><strong>The <em>View</em> menu</strong></figcaption><p></p>
+<figcaption class="figure-caption"><strong>The <em>View</em> menu</strong></figcaption>
 </figure>
 </div>
 </section>
@@ -542,7 +577,7 @@ ul.task-list li input[type="checkbox"] {
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/Tools menu.jpg" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption"><strong>The <em>Tools</em> menu</strong></figcaption><p></p>
+<figcaption class="figure-caption"><strong>The <em>Tools</em> menu</strong></figcaption>
 </figure>
 </div>
 <section id="container" class="level4">
@@ -551,7 +586,7 @@ ul.task-list li input[type="checkbox"] {
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/Container tools.jpg" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption"><strong>The <em>Container</em> menu</strong></figcaption><p></p>
+<figcaption class="figure-caption"><strong>The <em>Container</em> menu</strong></figcaption>
 </figure>
 </div>
 <p>Several containers can be opened at the same time. Each of them may include multiple time series.</p>
@@ -559,28 +594,28 @@ ul.task-list li input[type="checkbox"] {
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/A_Ref26.jpg" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption"><strong>Launching the <em>Chart</em> functionality</strong></figcaption><p></p>
+<figcaption class="figure-caption"><strong>Launching the <em>Chart</em> functionality</strong></figcaption>
 </figure>
 </div>
 <p>The series to be viewed can be also dragged from the other windows (e.g.&nbsp;from the <a href="../reference-manual/user-defined-variables.html"><em>Variables</em></a> window) or directly from the windows that display the results of the estimation procedure.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/A_Ref27.jpg" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption"><strong>Displaying the seasonally adjusted series on a separate chart</strong></figcaption><p></p>
+<figcaption class="figure-caption"><strong>Displaying the seasonally adjusted series on a separate chart</strong></figcaption>
 </figure>
 </div>
 <p>To adjust the view of the chart and save it to a given location use the local menu, which is displayed after right-clicking on the chart. The explanation of the functions available for the local menu is given below.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/A_Ref28.jpg" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption"><strong>Local menu basic options for the time series graph</strong></figcaption><p></p>
+<figcaption class="figure-caption"><strong>Local menu basic options for the time series graph</strong></figcaption>
 </figure>
 </div>
 <p>To display the time series value at a given date, hover over it with the cursor. Once the time series is selected by clicking on it with the right mouse button, the options dedicated to this series are available.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/A_Ref29.jpg" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption"><strong>Local menu options for chart</strong></figcaption><p></p>
+<figcaption class="figure-caption"><strong>Local menu options for chart</strong></figcaption>
 </figure>
 </div>
 <p>A list of possible actions includes:</p>
@@ -609,14 +644,14 @@ ul.task-list li input[type="checkbox"] {
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/A_Ref30.jpg" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption"><strong>Launching the <em>Grid</em> functionality</strong></figcaption><p></p>
+<figcaption class="figure-caption"><strong>Launching the <em>Grid</em> functionality</strong></figcaption>
 </figure>
 </div>
 <p>To display options available for a given time series, left click on any time series’ observation.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/A_Ref31.jpg" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption"><strong>Local menu options for the <em>Grid</em> view</strong></figcaption><p></p>
+<figcaption class="figure-caption"><strong>Local menu options for the <em>Grid</em> view</strong></figcaption>
 </figure>
 </div>
 <p>The options available in <em>Grid</em> are:</p>
@@ -633,14 +668,14 @@ ul.task-list li input[type="checkbox"] {
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/A_Ref32.jpg" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption"><strong>A reduced list of options for <em>Grid</em> </strong></figcaption><p></p>
+<figcaption class="figure-caption"><strong>A reduced list of options for <em>Grid</em> </strong></figcaption>
 </figure>
 </div>
 <p>The <em>Growth chart</em> tab opens an empty window. Once a given series is dropped into it, <em>Growth chart</em> presents the year-over-year or period-over-period growth rates for the selected time series. More than one series can be displayed in a table. The growth chart is automatically rescaled after adding a new series.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/A_Ref33.jpg" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption"><strong>The <em>Growth chart</em> view with a local menu</strong></figcaption><p></p>
+<figcaption class="figure-caption"><strong>The <em>Growth chart</em> view with a local menu</strong></figcaption>
 </figure>
 </div>
 <p>A left click displays a local menu with the available options. Those that are characteristic for the <em>Growth chart</em> are:</p>
@@ -653,14 +688,14 @@ ul.task-list li input[type="checkbox"] {
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/A_Ref34.jpg" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption"><strong>A view of a list of series</strong></figcaption><p></p>
+<figcaption class="figure-caption"><strong>A view of a list of series</strong></figcaption>
 </figure>
 </div>
 <p>For a selected series a local menu offers an extended list of options. The explanation of the functions available for the local menu is given below in the ‘<em>Local menu options for chart</em>’ figure in the <a href="#container"><em>Container</em></a> section.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/A_Ref35.jpg" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption"><strong>Options available for a selected series from the list</strong></figcaption><p></p>
+<figcaption class="figure-caption"><strong>Options available for a selected series from the list</strong></figcaption>
 </figure>
 </div>
 </section>
@@ -670,7 +705,7 @@ ul.task-list li input[type="checkbox"] {
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/A_Ref36.jpg" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption"><strong>Tools for spectral analysis</strong></figcaption><p></p>
+<figcaption class="figure-caption"><strong>Tools for spectral analysis</strong></figcaption>
 </figure>
 </div>
 </section>
@@ -680,7 +715,7 @@ ul.task-list li input[type="checkbox"] {
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/A_Ref37.jpg" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption"><strong>The <em>Aggregation</em> tool</strong></figcaption><p></p>
+<figcaption class="figure-caption"><strong>The <em>Aggregation</em> tool</strong></figcaption>
 </figure>
 </div>
 </section>
@@ -690,14 +725,14 @@ ul.task-list li input[type="checkbox"] {
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/A_Ref38.jpg" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption"><strong>The properties of the <em>Differencing</em> tool</strong></figcaption><p></p>
+<figcaption class="figure-caption"><strong>The properties of the <em>Differencing</em> tool</strong></figcaption>
 </figure>
 </div>
 <p>The typical results are shown below. The bottom left graph presents the partial autocorrelation coefficients (vertical bars) and the confidence intervals. The right-click local menu offers several functionalities for a differenced series. An explanation of the available options can be found below in the “<em>Local menu options for chart</em>” figure in the <a href="#container"><em>Container</em></a> section.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/A_Ref39.jpg" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption"><strong>The <em>Differencing</em> tool</strong></figcaption><p></p>
+<figcaption class="figure-caption"><strong>The <em>Differencing</em> tool</strong></figcaption>
 </figure>
 </div>
 <p>For the <em>Partial autocorrelation</em> and the <em>Periodogram</em> panels the right-button menu offers “a copy series” option that allows data to be exported to another application and a graph to be printed and saved to a clipboard or as a jpg file. Information about the partial autocorrelation function is given <a href="../theory/ACF_and_PACF.html">here</a>. The description of a periodogram is presented in <a href="../case-studies/spectralgraphs.html">the Spectral graphs scenario</a>.</p>
@@ -708,7 +743,7 @@ ul.task-list li input[type="checkbox"] {
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/A_Ref40.jpg" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption"><strong>The <em>Spreadsheet Profiler</em> window</strong></figcaption><p></p>
+<figcaption class="figure-caption"><strong>The <em>Spreadsheet Profiler</em> window</strong></figcaption>
 </figure>
 </div>
 </section>
@@ -722,7 +757,7 @@ ul.task-list li input[type="checkbox"] {
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/A_Ref41.jpg" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption"><strong>The main sections of the <em>Options</em> window</strong></figcaption><p></p>
+<figcaption class="figure-caption"><strong>The main sections of the <em>Options</em> window</strong></figcaption>
 </figure>
 </div>
 <p>By default, the <em>Demetra</em> tab is shown. It is divided into seven panels: <em>Behaviour</em>, <em>Demetra UI</em>, <em>Statistics</em>, <em>Data transfer</em>, <em>Demetra Paths</em>, <em>ProcDocumentItems</em>, and <em>Interchange</em>.</p>
@@ -736,7 +771,7 @@ ul.task-list li input[type="checkbox"] {
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/A_Ref42.jpg" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption"><strong>The content of the <em>Behavior</em> tab</strong></figcaption><p></p>
+<figcaption class="figure-caption"><strong>The content of the <em>Behavior</em> tab</strong></figcaption>
 </figure>
 </div>
 <p>The <em>Demetra UI</em> tab enables the setting of:</p>
@@ -750,7 +785,7 @@ ul.task-list li input[type="checkbox"] {
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/A_Ref43.jpg" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption"><strong>The content of the <em>Demetra UI</em> tab</strong></figcaption><p></p>
+<figcaption class="figure-caption"><strong>The content of the <em>Demetra UI</em> tab</strong></figcaption>
 </figure>
 </div>
 <p>The <em>Statistics</em> tab includes options to control:</p>
@@ -772,7 +807,7 @@ ul.task-list li input[type="checkbox"] {
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/A_Ref44.jpg" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption"><strong>The <em>Default components</em> section on the <em>Statistics</em> tab</strong></figcaption><p></p>
+<figcaption class="figure-caption"><strong>The <em>Default components</em> section on the <em>Statistics</em> tab</strong></figcaption>
 </figure>
 </div>
 <p>An explanation of the list of the series and diagnostics components that are displayed in the <em>Default components</em> section can be found <a href="../theory/output.html">here</a>.</p>
@@ -781,28 +816,28 @@ ul.task-list li input[type="checkbox"] {
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/A_Ref45.jpg" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption"><strong>The panel for modification of the settings for the tests in the <em>Basic checks</em> section</strong></figcaption><p></p>
+<figcaption class="figure-caption"><strong>The panel for modification of the settings for the tests in the <em>Basic checks</em> section</strong></figcaption>
 </figure>
 </div>
 <p>The users can customize the diagnostics and they can specify the default settings for different outputs. Their preferences are saved between different sessions of JDemetra+. This new feature is accessible in the <em>Statistics</em> tab of the <em>Options</em> panel.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/A_Ref46.jpg" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption"><strong>The settings of the output files</strong></figcaption><p></p>
+<figcaption class="figure-caption"><strong>The settings of the output files</strong></figcaption>
 </figure>
 </div>
 <p>The <em>Data Transfer</em> tab contains multiple options that define the behaviour of the drag and drop and copy-paste actions. To change the default settings, double click on the selected item. Once the modifications are introduced, confirm them with the <strong>OK</strong> button.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/A_Ref47.jpg" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption"><strong>The content of the <em>Data Transfer</em> tab</strong></figcaption><p></p>
+<figcaption class="figure-caption"><strong>The content of the <em>Data Transfer</em> tab</strong></figcaption>
 </figure>
 </div>
 <p><em>Demetra Paths</em> allows the user to specify the relative location of the folders where the data can be found. In this way, the application can access data from different computers. Otherwise, the user would need to have access to the exact path where the data is located. To add a location, select the data provider, click the “<strong>+</strong>” button and specify the location.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/A_Ref48.jpg" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption"><strong>The content of the <em>Demetra Paths</em> tab</strong></figcaption><p></p>
+<figcaption class="figure-caption"><strong>The content of the <em>Demetra Paths</em> tab</strong></figcaption>
 </figure>
 </div>
 <p><em>ProcDocumentItems</em> includes a list of all reports available for processed documents like seasonal adjustment. The <em>Interchange</em> tab lists the protocols that can be used to export/import information like calendars, specifications, etc. For the time being, the user cannot customize the way the standard exchanges are done. However, such features could be implemented in plug-ins.</p>
@@ -810,14 +845,14 @@ ul.task-list li input[type="checkbox"] {
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/A_Ref49.jpg" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption"><strong>The <em>General</em> tab</strong></figcaption><p></p>
+<figcaption class="figure-caption"><strong>The <em>General</em> tab</strong></figcaption>
 </figure>
 </div>
 <p><em>Keymap</em> provides a list of default key shortcuts to access some of the functionalities and it allows the user to edit them and to define additional shortcuts.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/A_Ref50.jpg" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption"><strong>The <em>Keymap</em> tab</strong></figcaption><p></p>
+<figcaption class="figure-caption"><strong>The <em>Keymap</em> tab</strong></figcaption>
 </figure>
 </div>
 <p>The <em>Appearance</em> and <em>Miscellaneous</em> tabs are tabs automatically provided by the Netbeans platform. They are not used by JDemetra+.</p>
@@ -829,7 +864,7 @@ ul.task-list li input[type="checkbox"] {
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/A_Ref51.jpg" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption"><strong>The <em>Window</em> menu</strong></figcaption><p></p>
+<figcaption class="figure-caption"><strong>The <em>Window</em> menu</strong></figcaption>
 </figure>
 </div>
 <ul>
@@ -860,7 +895,7 @@ ul.task-list li input[type="checkbox"] {
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/A_Ref5.jpg" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption"><strong>The <em>Providers</em> window</strong></figcaption><p></p>
+<figcaption class="figure-caption"><strong>The <em>Providers</em> window</strong></figcaption>
 </figure>
 </div>
 <p>The allowed data sources include:</p>
@@ -879,7 +914,7 @@ ul.task-list li input[type="checkbox"] {
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/A_Ref6.jpg" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption"><strong>A structure of a dataset</strong></figcaption><p></p>
+<figcaption class="figure-caption"><strong>A structure of a dataset</strong></figcaption>
 </figure>
 </div>
 <p>Series uploaded to the <em>Providers</em> window can be <a href="../reference-manual/data-visualization.html">displayed</a>, modified and <a href="../case-studies/seasonalitytests.html">tested for seasonality</a> and used in estimation routines (see <a href="modelling.html">Modelling</a> and <a href="sa.html">Seasonal adjustment</a>). The data sources can be restored after re-starting the application so that there is no need to get them again. This functionality can be set in the <em>Behaviour</em> tab available at the <a href="../reference-manual/tools.html#options"><em>Option</em></a> item from the <a href="../reference-manual/tools.html"><em>Tools</em></a> menu.</p>
@@ -890,7 +925,7 @@ ul.task-list li input[type="checkbox"] {
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/Aimage5.jpg" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption"><strong>Example of an Excel spreadsheet that can be imported to JDemetra+</strong></figcaption><p></p>
+<figcaption class="figure-caption"><strong>Example of an Excel spreadsheet that can be imported to JDemetra+</strong></figcaption>
 </figure>
 </div>
 <p>Time series are identified by their names. JDemetra+ derives some information (like data periodicity, starting and ending period) directly from the first column (or from the first row, depending on the chosen data orientation (vertical or horizontal)).</p>
@@ -900,12 +935,7 @@ ul.task-list li input[type="checkbox"] {
 <p>To import data from a given data source, click on this data source in the <em>Providers</em> window shown below, choose <em>Open</em> option and specify the import details, such as a path to a data file. These details vary according to data providers. The example below show how to import the data from an Excel file.</p>
 <ol type="1">
 <li><p>From the <em>Providers</em> window right-click on the <em>Spreadsheets</em> branch and choose <em>Open</em> option.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="All_images/Aimage6.jpeg" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption"><strong>Data provider available by default</strong></figcaption><p></p>
-</figure>
-</div></li>
+<img src="All_images/Aimage6.jpeg" class="img-fluid" alt="Data provider available by default"></li>
 <li><p>The <em>Open data source</em> window contains the following options:</p>
 <ul>
 <li><p><strong>Spreadsheet file</strong> – a path to access the Excel file.</p></li>
@@ -915,33 +945,13 @@ ul.task-list li input[type="checkbox"] {
 <li><p><strong>Clean missing</strong> – erases the missing values of the series.</p></li>
 </ul>
 <p>Next, in the <em>Source</em> section click the grey “….” button (see below) to open the file.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="All_images/Aimage7.jpeg" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption"><strong>Data source window</strong></figcaption><p></p>
-</figure>
-</div></li>
+<img src="All_images/Aimage7.jpeg" class="img-fluid" alt="Data source window"></li>
 <li><p>Choose a file and click <em>OK</em>.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="All_images/Aimage8.jpeg" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption"><strong>Choice of an Excel spreadsheet</strong></figcaption><p></p>
-</figure>
-</div></li>
+<img src="All_images/Aimage8.jpeg" class="img-fluid" alt="Choice of an Excel spreadsheet"></li>
 <li><p>The user may specify <em>Data format</em>, <em>Frequency</em> and <em>Aggregation type</em>, however this step is not compulsory. When these options are specified JDemetra+ is able to convert the time series frequency. Otherwise, the functionality that enables the time series frequency to be converted will not be available.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="All_images/Aimage9.jpeg" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption"><strong>Options for importing data</strong></figcaption><p></p>
-</figure>
-</div></li>
+<img src="All_images/Aimage9.jpeg" class="img-fluid" alt="Options for importing data"></li>
 <li><p>The data are organized in a tree structure.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="All_images/Aimage10.jpeg" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption"><strong>Dataset structure</strong></figcaption><p></p>
-</figure>
-</div>
+<img src="All_images/Aimage10.jpeg" class="img-fluid" alt="Dataset structure">
 <p>Once the data has been successfully imported, it is available to the user for various analyses (e.g.&nbsp;visualization, modelling, seasonal adjustment, etc.)</p></li>
 </ol>
 <p>The data are organized in a tree structure. If you expand all the plus-signs under the spreadsheet you will see all the series within each sheet that has been loaded. Here all time series are visible under the Production in construction branch. The names of time series have been taken from the columns’ headings of the spreadsheet while the names of the branches come from sheets’ names.</p>
@@ -967,7 +977,7 @@ ul.task-list li input[type="checkbox"] {
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/A_Ref7.jpg" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption"><strong>A workspace saved on PC</strong></figcaption><p></p>
+<figcaption class="figure-caption"><strong>A workspace saved on PC</strong></figcaption>
 </figure>
 </div>
 <p>The workspace can be shared with other users, which eases the burden of work with defining specifications, modelling and seasonal adjustment processes.</p>
@@ -980,7 +990,7 @@ ul.task-list li input[type="checkbox"] {
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/A_Ref8.jpg" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption"><strong>The <em>Workspace</em> window</strong></figcaption><p></p>
+<figcaption class="figure-caption"><strong>The <em>Workspace</em> window</strong></figcaption>
 </figure>
 </div>
 </section>
@@ -990,7 +1000,7 @@ ul.task-list li input[type="checkbox"] {
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/A_Ref9.jpg" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption"><strong>The <em>Results</em> panel filled with two windows</strong></figcaption><p></p>
+<figcaption class="figure-caption"><strong>The <em>Results</em> panel filled with two windows</strong></figcaption>
 </figure>
 </div>
 </section>
@@ -1006,121 +1016,46 @@ ul.task-list li input[type="checkbox"] {
 <ol type="1">
 <li><p>Once a seasonal adjustment process for the dataset is performed Go to the TOP menu bar and follow the path: <em>SAProcessing</em> → <em>Output…</em></p></li>
 <li><p>In the <em>Batch output</em> window the user can specify which output items will be saved and the folder in which JDemetra+ saves the results. It is possible to save the results in the <em>TXT</em>, <em>XLS</em>, <em>CSV</em>, and <em>CSV matrix</em> formats. In the first step the user should choose the output format from the list.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="All_images/UDimage6.jpg" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption"><strong>Default output formats</strong></figcaption><p></p>
-</figure>
-</div></li>
+<img src="All_images/UDimage6.jpg" class="img-fluid" alt="Default output formats"></li>
 <li><p>The user may choose more than one format as the output can be generated in different formats at the same time.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="All_images/UDimage7.jpg" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption"><strong>Adding an output format to the list</strong></figcaption><p></p>
-</figure>
-</div></li>
+<img src="All_images/UDimage7.jpg" class="img-fluid" alt="Adding an output format to the list"></li>
 <li><p>To display and modify the settings click on the given output format on the list. The available options depend on the output format.</p></li>
 <li><p>For <em>Csv</em> format the following options are available: <em>folder</em> (location of the file), <em>file prefix</em> (name of the file), <em>presentation</em> (controls how the output is divided into separate files) and <em>series</em> (series included in the file). These options are presented in the next points of this case study.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="All_images/UDimage8.jpg" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption"><strong>Options for a <em>Csv</em> format</strong></figcaption><p></p>
-</figure>
-</div></li>
+<img src="All_images/UDimage8.jpg" class="img-fluid" alt="Options for a Csv format"></li>
 <li><p>The user can define the folder in which the selected results and components will be saved (click the <em>folder</em> item and choose the final destination).</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="All_images/UDimage9.jpg" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption"><strong>Specifying a destination folder</strong></figcaption><p></p>
-</figure>
-</div></li>
+<img src="All_images/UDimage9.jpg" class="img-fluid" alt="Specifying a destination folder"></li>
 <li><p>With the option <em>File Prefix</em> the user can modify the default name of the output saved in the CSV file.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="All_images/UDimage10.jpg" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption"><strong>Setting a <em>File Prefix</em> option</strong></figcaption><p></p>
-</figure>
-</div></li>
+<img src="All_images/UDimage10.jpg" class="img-fluid" alt="Setting a File Prefix option"></li>
 <li><p><em>Layout</em> controls how the output is divided into separate files. Expand the list to display available options:</p>
 <ul>
 <li><p><em>HTable</em> – the output series will be presented in the form of horizontal tables (time series in rows).</p></li>
 <li><p><em>VTable</em> – the output series will be presented in the form of vertical tables (time series in columns).</p></li>
 <li><p><em>List</em> – the output series will be presented in the form of vertical tables (time series in rows). Apart from that, for each time series each file contains in separate columns: the data frequency, the first year and of estimation span, the first period (month or quarter) of observation span and the number of observations. The files do not include dates.</p></li>
 </ul>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="All_images/UDimage11.jpg" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption"><strong>Layout options for a <em>Csv</em> format</strong></figcaption><p></p>
-</figure>
-</div></li>
+<img src="All_images/UDimage11.jpg" class="img-fluid" alt="Layout options for a Csv format"></li>
 <li><p>The <em>Content</em> section presents <a href="../theory/output.html">a list of series that will be included into a set of output files</a>. To modify the initial settings click on the grey button in the <em>Content</em> section. The <em>CVS-series</em> window presents two panels: the panel on the left includes a list of all valuable output items. The panel on the right presents the selected output items. Mark the series and use the arrows to change the settings. Confirm your choice with the <em>OK</em> button.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="All_images/UDimage12.jpg" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption"><strong>Specifying a content of the output file</strong></figcaption><p></p>
-</figure>
-</div></li>
+<img src="All_images/UDimage12.jpg" class="img-fluid" alt="Specifying a content of the output file"></li>
 <li><p>Options available for the <em>XLS</em> format are the same as for the <em>TXT</em> format with an exception of the <em>Layout</em> section. The list of available codes in the <em>Content</em> section is given <a href="../theory/output.html">here</a>.</p>
 <ul>
 <li><p><em>BySeries</em> – all results for a given time series are placed in one sheet;</p></li>
 <li><p><em>ByComponent</em> – results are grouped by components. Each component type is saved in a separate sheet.</p></li>
 <li><p><em>OneSheet</em> – all results are saved in one sheet.</p></li>
 </ul>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="All_images/UDimage13.jpg" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption"><strong>Layout options for an <em>Excel</em> format</strong></figcaption><p></p>
-</figure>
-</div></li>
+<img src="All_images/UDimage13.jpg" class="img-fluid" alt="Layout options for an Excel format"></li>
 <li><p>If the user sets the option layout to <em>ByComponent</em>, the output will be generated as follows:</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="All_images/UDimage14.jpg" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption"><strong>An Excel file view for the <em>ByComponent</em> option</strong></figcaption><p></p>
-</figure>
-</div></li>
+<img src="All_images/UDimage14.jpg" class="img-fluid" alt="An Excel file view for the ByComponent option"></li>
 <li><p>The option <em>OneSheet</em> will produce the following <em>XLS</em> file:</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="All_images/UDimage15.jpg" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption"><strong>An Excel file view for the <em>OneSheet</em> option</strong></figcaption><p></p>
-</figure>
-</div></li>
+<img src="All_images/UDimage15.jpg" class="img-fluid" alt="An Excel file view for the OneSheet option"></li>
 <li><p>By default, the series in the Excel output files are organised vertically. When the user unmarks the check box the horizontal orientation is used.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="All_images/UDimage16.jpg" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption"><strong>The <em>VerticalOrientatio</em>n option</strong></figcaption><p></p>
-</figure>
-</div></li>
+<img src="All_images/UDimage16.jpg" class="img-fluid" alt="The VerticalOrientation option"></li>
 <li><p>In the case of the <em>TXT</em> format the only available options are <em>folder</em> (location of the file) and <em>series</em> (results included in the output file). The list of available codes in the <em>Content</em> section is given <a href="../theory/output.html">here</a>.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="All_images/UDimage17.jpg" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption"><strong>Options for the <em>Txt</em> output</strong></figcaption><p></p>
-</figure>
-</div></li>
+<img src="All_images/UDimage17.jpg" class="img-fluid" alt="Options for the Txt output"></li>
 <li><p>The <em>CSV matrix</em> produces the CSV file containing information about the model and quality diagnostics of the seasonal adjustment. The user may generate the list of default items or create their own quality report. By default, all the available items are included in the output. The list of the items is given <a href="../theory/output.html">here</a>.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="All_images/UDimage18.jpg" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption"><strong>List of items available for the <em>Csv matrix</em> output type</strong></figcaption><p></p>
-</figure>
-</div></li>
+<img src="All_images/UDimage18.jpg" class="img-fluid" alt="List of items available for the Csv matrix output type"></li>
 <li><p>Once the output settings are selected, click the <em>OK</em> button.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="All_images/UDimage19.jpg" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption"><strong>Options for the <em>Csv matrix</em> output</strong></figcaption><p></p>
-</figure>
-</div></li>
+<img src="All_images/UDimage19.jpg" class="img-fluid" alt="Options for the Csv matrix output"></li>
 <li><p>For each output JDemetra+ provides information on the status of the operation. An example is presented below.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="All_images/UDimage20.jpg" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption"><strong>Generating output - status information</strong></figcaption><p></p>
-</figure>
-</div></li>
+<img src="All_images/UDimage20.jpg" class="img-fluid" alt="Generating output - status information"></li>
 </ol>
 
 
@@ -1155,9 +1090,23 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     icon: icon
   };
   anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
   const clipboard = new window.ClipboardJS('.code-copy-button', {
-    target: function(trigger) {
-      return trigger.previousElementSibling;
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
     }
   });
   clipboard.on('success', function(e) {
@@ -1222,6 +1171,92 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
   const findCites = (el) => {
     const parentEl = el.parentElement;
     if (parentEl) {

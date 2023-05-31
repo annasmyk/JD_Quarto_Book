@@ -4,10 +4,24 @@ Welcome to the JDemetra+ on-line documentation.
 
 [JDemetra+](https://github.com/jdemetra) is an open-source software for **seasonal adjustment and time series analysis**, developed in the framework of Eurostat's "Centre of Excellence on Statistical Methods and Tools" by the National Bank of Belgium with the support of the Bundesbank and Insee.
 
-To learn more about this project you can visit [Eurostat CROS Portal](https://ec.europa.eu/eurostat/cros/content/centre-excellence-statistical-methods-and-tools)
+To learn more about this project you can visit [Eurostat CROS Portal](https://ec.europa.eu/eurostat/cros/content/centre-excellence-statistical-methods-and-tools).
 
 To keep up with all JDemetra+ related news head to the [**JDemetra+ Universe Blog**](https://jdemetra-universe-blog.netlify.app/)
 
 This website is under construction, in the meantime you can fill a large number of the gaps by referring to the [previous version](https://jdemetradocumentation.github.io/JDemetra-documentation) of the on-line documentation, coordinated by Sylwia Grudkowska-Kubik(National Bank of Poland).
+
+Eurostat's recommendations on the statistical processes described in this documentation are outlined in: 
+
+- [Eurostat's Guidelines on seasonal adjustment (2015)](https://ec.europa.eu/eurostat/documents/3859598/6830795/KS-GQ-15-001-EN-N.pdf)
+
+- [Eurostat's Guidelines on temporal disaggregation, benchmarking and reconcilation (2018)](https://ec.europa.eu/eurostat/documents/3859598/9441376/KS-06-18-355-EN.pdf)
+
+
+Key methodological explanations and state-of-the-art description and references can be found in: 
+
+- [Handbook on seasonal adjustment (2018)](https://ec.europa.eu/eurostat/documents/3859598/8939616/KS-GQ-18-001-EN-N.pdf)
+
+- [Handbook on rapid estimates (2017)](https://ec.europa.eu/eurostat/documents/3859598/8555708/KS-GQ-17-008-EN-N.pdf)
+
 
 ![](All_images/jdemetra+.png)
