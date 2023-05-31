@@ -295,17 +295,12 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
   <li><a href="#revision-policies" id="toc-revision-policies" class="nav-link" data-scroll-target="#revision-policies">Revision Policies</a></li>
   <li><a href="#definition-and-context" id="toc-definition-and-context" class="nav-link" data-scroll-target="#definition-and-context">Definition and context</a></li>
-  <li><a href="#overview-1" id="toc-overview-1" class="nav-link" data-scroll-target="#overview-1">Overview</a></li>
-  <li><a href="#revision-policies-in-gui" id="toc-revision-policies-in-gui" class="nav-link" data-scroll-target="#revision-policies-in-gui">Revision policies in GUI</a>
+  <li><a href="#overview-1" id="toc-overview-1" class="nav-link" data-scroll-target="#overview-1">Overview</a>
   <ul class="collapse">
-  <li><a href="#concurrent" id="toc-concurrent" class="nav-link" data-scroll-target="#concurrent">Concurrent</a></li>
-  <li><a href="#partial-concurrent-adjustment-fixed-model" id="toc-partial-concurrent-adjustment-fixed-model" class="nav-link" data-scroll-target="#partial-concurrent-adjustment-fixed-model">Partial concurrent adjustment → Fixed model</a></li>
-  <li><a href="#partial-concurrent-adjustment-estimate-regression-coefficients" id="toc-partial-concurrent-adjustment-estimate-regression-coefficients" class="nav-link" data-scroll-target="#partial-concurrent-adjustment-estimate-regression-coefficients">Partial concurrent adjustment → Estimate regression coefficients</a></li>
-  <li><a href="#partial-concurrent-adjustment-estimate-regression-coefficients-arima-parameters" id="toc-partial-concurrent-adjustment-estimate-regression-coefficients-arima-parameters" class="nav-link" data-scroll-target="#partial-concurrent-adjustment-estimate-regression-coefficients-arima-parameters">Partial concurrent adjustment → Estimate regression coefficients + Arima parameters</a></li>
-  <li><a href="#partial-concurrent-adjustment-estimate-regression-coefficients-outliers" id="toc-partial-concurrent-adjustment-estimate-regression-coefficients-outliers" class="nav-link" data-scroll-target="#partial-concurrent-adjustment-estimate-regression-coefficients-outliers">Partial concurrent adjustment → Estimate regression coefficients + outliers</a></li>
-  <li><a href="#the-partial-concurrent-adjustment-estimate-regression-coefficients-arima-model" id="toc-the-partial-concurrent-adjustment-estimate-regression-coefficients-arima-model" class="nav-link" data-scroll-target="#the-partial-concurrent-adjustment-estimate-regression-coefficients-arima-model">The <em>Partial concurrent adjustment → Estimate regression coefficients + Arima model</em></a></li>
-  <li><a href="#partial-concurrent-adjustment-estimate-regression-coefficients-last-outliers" id="toc-partial-concurrent-adjustment-estimate-regression-coefficients-last-outliers" class="nav-link" data-scroll-target="#partial-concurrent-adjustment-estimate-regression-coefficients-last-outliers">Partial concurrent adjustment → Estimate regression coefficients + Last outliers</a></li>
+  <li><a href="#display-in-results-panel" id="toc-display-in-results-panel" class="nav-link" data-scroll-target="#display-in-results-panel">Display in results panel</a></li>
   </ul></li>
+  <li><a href="#implementation-in-the-cruncher" id="toc-implementation-in-the-cruncher" class="nav-link" data-scroll-target="#implementation-in-the-cruncher">Implementation in the cruncher</a></li>
+  <li><a href="#implementation-in-rjd3x13-or-rjd3tramoseats" id="toc-implementation-in-rjd3x13-or-rjd3tramoseats" class="nav-link" data-scroll-target="#implementation-in-rjd3x13-or-rjd3tramoseats">Implementation in rjd3x13 or rjd3tramoseats</a></li>
   </ul>
 </nav>
     </div>
@@ -350,12 +345,7 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="overview-1">Overview</h2>
 <p>In X13-Arima and Tramo-Seats revision policies are ways to impose constraints on the pre-adjustment phase, while the decomposition phase (X-11 or Seats) will be entirely re-run. The changes induced by X-11 re-estimation stem only from a revised linerarized series, while in Seats they are also induced by the arima model possible coefficient and/ or order changes.</p>
 <p>The table below lists the available policies as well as their name for implementation with the graphical user interface (GUI), the cruncher or rjd3x13 ans rjd3tramoseats packages.</p>
-<p><img src="All_images/Rev_Policies.png" class="img-fluid"></p>
-</section>
-<section id="revision-policies-in-gui" class="level2">
-<h2 class="anchored" data-anchor-id="revision-policies-in-gui">Revision policies in GUI</h2>
-<p>(pb links to GUI)</p>
-<p>The saved results from a seasonal adjustment processing can be refreshed when new or modified observations are available.</p>
+<p><img src="All_images/Rev_Policies.png" class="img-fluid"> ## Implementatio in GUI</p>
 <ol type="1">
 <li><p>To refresh the results open a previously saved workspace using the path <em>File</em> → <em>Open Workspace</em>. Choose the multi-document option from the <a href="../reference-manual/workspace.html"><em>Workspace</em> window</a> and double click on it to display the multi-document menu (<em>SAProcessing</em>).</p>
 <p><img src="All_images/UDimage21.jpg" class="img-fluid"></p>
@@ -364,57 +354,67 @@ ul.task-list li input[type="checkbox"] {
 <p><img src="All_images/UDimage22.jpg" class="img-fluid"></p>
 <p><strong>The <em>Refresh</em> menu</strong></p></li>
 </ol>
-<section id="concurrent" class="level3">
-<h3 class="anchored" data-anchor-id="concurrent">Concurrent</h3>
+<section id="display-in-results-panel" class="level3">
+<h3 class="anchored" data-anchor-id="display-in-results-panel">Display in results panel</h3>
+<section id="concurrent" class="level4">
+<h4 class="anchored" data-anchor-id="concurrent">Concurrent</h4>
 <p>According to the <a href="https://ec.europa.eu/eurostat/documents/3859598/6830795/KS-GQ-15-001-EN-N.pdf/d8f1e5f5-251b-4a69-93e3-079031b74bd3">ESS Guidelines on Seasonal Adjustment (2015)</a> , concurrent adjustment means that the model, filters, outliers, regression parameters and transformation type are all re-identified and the respective parameters and factors re-estimated every time new observations are available. This option in JDemetra+ means that a completely new model is identified, and the previous results are not taken into account.</p>
 <p>The picture below presents the initial model (on the left) and the results of the refreshment procedure with the <em>Concurrent adjustment</em> option (on the right). The transformation type has changed from none to log. The ARIMA model has been re-identified (it has changed from (0,1,1)(1,1,0) to (1,1,0)(0,1,1)). In contrast to the initial model, in the updated model trading day effects and a leap year effect are no longer included. Also the automatically identified outliers are not the same in both models.</p>
 <p><img src="All_images/UG_PCA_image2.jpg" class="img-fluid"></p>
 <p><strong>The <em>Concurrent adjustment</em> revision policy results</strong></p>
 </section>
-<section id="partial-concurrent-adjustment-fixed-model" class="level3">
-<h3 class="anchored" data-anchor-id="partial-concurrent-adjustment-fixed-model">Partial concurrent adjustment → Fixed model</h3>
+<section id="partial-concurrent-adjustment-fixed-model" class="level4">
+<h4 class="anchored" data-anchor-id="partial-concurrent-adjustment-fixed-model">Partial concurrent adjustment → Fixed model</h4>
 <p>The <em>Partial concurrent adjustment → Fixed model</em> strategy means that the ARIMA model, outliers and other regression parameters are not re-identified and the values of the parameters are fixed. In particular, no new outliers or calendar variables are added to the model as well as no changes neither in the calendar variables nor in the outliers’ types are allowed. The transformation type remains unchanged.</p>
 <p>The picture below presents the initial model (on the left) and the results of the refreshment procedure with the <em>Partial concurrent adjustment → Fixed model</em> option (on the right). The parameters of the ARIMA part are not estimated and their values are the same as before. The trading days and outliers are fixed too and no new regression effects are identified.</p>
 <p><img src="All_images/UDimage23.jpg" class="img-fluid"></p>
 <p><strong>A <em>Partial concurrent adjustment</em> → <em>fixed model</em> revision policy results</strong></p>
 </section>
-<section id="partial-concurrent-adjustment-estimate-regression-coefficients" class="level3">
-<h3 class="anchored" data-anchor-id="partial-concurrent-adjustment-estimate-regression-coefficients">Partial concurrent adjustment → Estimate regression coefficients</h3>
+<section id="partial-concurrent-adjustment-estimate-regression-coefficients" class="level4">
+<h4 class="anchored" data-anchor-id="partial-concurrent-adjustment-estimate-regression-coefficients">Partial concurrent adjustment → Estimate regression coefficients</h4>
 <p>The <em>Partial current adjustment → Estimate regression coefficients</em> option means that the ARIMA model, outliers and other regression parameters are not re-identified. The coefficients of the ARIMA model are fixed, other coefficients are re-estimated. In particular, no new outliers or calendar variables are added to the model as well as no changes neither in the calendar variables nor in the outliers’ types are allowed. The transformation type remains unchanged.</p>
 <p>The picture below presents the initial model (on the left) and the results of the refreshment procedure with the <em>Partial concurrent adjustment</em> <em>→ Estimate regression coefficients</em> option (on the right). The number of estimated parameters is 16 in the initial model and 14 in the revised model (the parameters of the ARIMA model are not estimated.</p>
 <p><img src="All_images/UDimage24.jpg" class="img-fluid"></p>
 <p><strong>The <em>Partial concurrent adjustment→ Estimate regression coefficients</em> revision policy results</strong></p>
 </section>
-<section id="partial-concurrent-adjustment-estimate-regression-coefficients-arima-parameters" class="level3">
-<h3 class="anchored" data-anchor-id="partial-concurrent-adjustment-estimate-regression-coefficients-arima-parameters">Partial concurrent adjustment → Estimate regression coefficients + Arima parameters</h3>
+<section id="partial-concurrent-adjustment-estimate-regression-coefficients-arima-parameters" class="level4">
+<h4 class="anchored" data-anchor-id="partial-concurrent-adjustment-estimate-regression-coefficients-arima-parameters">Partial concurrent adjustment → Estimate regression coefficients + Arima parameters</h4>
 <p>The <em>Partial concurrent adjustment → Estimate regression coefficients + Arima parameters</em> strategy means that the ARIMA model, outliers and other regression parameters are not re-identified. All parameters of the Reg-ARIMA model are re-estimated but the explanatory variables remain the same. The transformation type remains unchanged.</p>
 <p>The picture below presents the initial model (on the left) and the results of the refreshment procedure with the <em>Partial</em> <em>concurrent adjustment → Estimate regression coefficient + Arima parameters</em> option (on the right). The parameters of the ARIMA part have been re-estimated and their values have been updated. Also regression coefficients have been re-estimated and the number of estimated coefficients in the revised model is the same as in the initial model (i.e.&nbsp;16 estimated coefficients). The structure of the model remains unchanged while all coefficients have been updated.</p>
 <p><img src="All_images/UDimage25.jpg" class="img-fluid"></p>
 <p><strong>The <em>Partial concurrent adjustment</em> → <em>Estimate regression coefficients + Arima parameters</em> revision policy results</strong></p>
 </section>
-<section id="partial-concurrent-adjustment-estimate-regression-coefficients-outliers" class="level3">
-<h3 class="anchored" data-anchor-id="partial-concurrent-adjustment-estimate-regression-coefficients-outliers">Partial concurrent adjustment → Estimate regression coefficients + outliers</h3>
+<section id="partial-concurrent-adjustment-estimate-regression-coefficients-outliers" class="level4">
+<h4 class="anchored" data-anchor-id="partial-concurrent-adjustment-estimate-regression-coefficients-outliers">Partial concurrent adjustment → Estimate regression coefficients + outliers</h4>
 <p>The <em>Partial concurrent adjustment → Estimate regression coefficients + outliers</em> option means that the ARIMA model and regression parameters, except outliers, are not re-identified. The parameters of these variables, however, are re-estimated. All outliers are re-identified, i.e.&nbsp;the previous outcome of the outlier detection procedure is not taken into account and all outliers are identified and estimated once again. The transformation type remains unchanged.</p>
 <p>The picture below presents the initial model (on the left) and the results of the refreshment procedure with the <em>Partial concurrent adjustment → Estimate regression coefficients + outliers</em> option (on the right). The parameters of the ARIMA part have been re-estimated and their values have been updated. Also regression coefficients for the calendar variables have been re-estimated. In the revised model there is no <em>Prespecified outliers</em> section. Instead, the outliers were re-identified.</p>
 <p><img src="All_images/UDimage27.jpg" class="img-fluid"></p>
 <p><strong>The <em>Partial concurrent adjustment</em> → <em>Estimate regression coefficient + outliers</em> revision policy results</strong></p>
 </section>
-<section id="the-partial-concurrent-adjustment-estimate-regression-coefficients-arima-model" class="level3">
-<h3 class="anchored" data-anchor-id="the-partial-concurrent-adjustment-estimate-regression-coefficients-arima-model">The <em>Partial concurrent adjustment → Estimate regression coefficients + Arima model</em></h3>
+<section id="the-partial-concurrent-adjustment-estimate-regression-coefficients-arima-model" class="level4">
+<h4 class="anchored" data-anchor-id="the-partial-concurrent-adjustment-estimate-regression-coefficients-arima-model">The <em>Partial concurrent adjustment → Estimate regression coefficients + Arima model</em></h4>
 <p>The <em>Partial concurrent adjustment → Estimate regression coefficients + Arima model</em> option means that the ARIMA model, outliers and regression variables (except the calendar variables) are re-identified. All parameters are re-estimated. The transformation type remains unchanged.</p>
 <p>The picture below presents the initial model (on the left) and the results of the refreshment procedure with the <em>Partial concurrent adjustment → Estimate regression coefficients + Arima model</em> option (on the right). The ARIMA part has been re-identified (a change from (2,1,0)(0,1,1) to (0,1,1)(1,1,1)). Also the regression coefficients for the calendar variables have been re-estimated. In the revised model there is no <em>Prespecified outliers</em> section. Therefore, the outliers were re-identified.</p>
 <p><img src="All_images/UG_PCA_image1.jpg" class="img-fluid"></p>
 <p><strong>The <em>Partial concurrent adjustment</em> → <em>Estimate regression coefficient + Arima model</em> revision policy results</strong></p>
 </section>
-<section id="partial-concurrent-adjustment-estimate-regression-coefficients-last-outliers" class="level3">
-<h3 class="anchored" data-anchor-id="partial-concurrent-adjustment-estimate-regression-coefficients-last-outliers">Partial concurrent adjustment → Estimate regression coefficients + Last outliers</h3>
+<section id="partial-concurrent-adjustment-estimate-regression-coefficients-last-outliers" class="level4">
+<h4 class="anchored" data-anchor-id="partial-concurrent-adjustment-estimate-regression-coefficients-last-outliers">Partial concurrent adjustment → Estimate regression coefficients + Last outliers</h4>
 <p>The <em>Partial concurrent adjustment → Estimate regression coefficients + Last outliers</em> strategy means that the ARIMA model, outliers (except for the last year of the sample) and other regression parameters are not re-identified. All parameters of the Reg-ARIMA model are re-estimated. The software tests for outliers in the last year of the data span and will include in the model those which are statistically significant. The transformation type remains unchanged.</p>
 <p>The picture below presents the initial model (on the left) and the results of the refreshment procedure with the <em>Partial</em> <em>concurrent adjustment → Estimate regression coefficients + Last outliers</em> option (on the right). The parameters of the ARIMA part have been re-estimated and their values have been updated. Also the regression coefficients have been re-estimated. The number of estimated coefficients in the revised model is larger than the initial model because an additional outlier has been identified in the last year of the data span.</p>
 <p><img src="All_images/UDimage26.jpg" class="img-fluid"></p>
 <p><strong>The <em>Partial concurrent adjustment</em> → <em>Estimate regression coefficient + Last outliers</em> revision policy results</strong></p>
-
-
 </section>
+</section>
+</section>
+<section id="implementation-in-the-cruncher" class="level2">
+<h2 class="anchored" data-anchor-id="implementation-in-the-cruncher">Implementation in the cruncher</h2>
+<p>link to cruncher chap</p>
+</section>
+<section id="implementation-in-rjd3x13-or-rjd3tramoseats" class="level2">
+<h2 class="anchored" data-anchor-id="implementation-in-rjd3x13-or-rjd3tramoseats">Implementation in rjd3x13 or rjd3tramoseats</h2>
+
+
 </section>
 
 </main> <!-- /main -->
