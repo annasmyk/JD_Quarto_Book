@@ -94,7 +94,7 @@ More details rjd3toolkit help (how to set a link) pages and vignette
 
 
 
-## Intervention variables
+### Intervention variables
 
 why ? what is different from outliers (and ramps)
 how can they be allocated 
@@ -105,10 +105,10 @@ dans GUI intervention va dans reg_i ? always? can be selected
 can coefficient be fixes
 je ne comprends pas fenetre dans GUI 
 
-### Adding intervention variables in GUI 
+#### Adding intervention variables in GUI 
 
 
-### Generating intervention variables in R 
+#### Generating intervention variables in R 
 
 example
 
@@ -133,17 +133,17 @@ plot(iv)
 More details rjd3toolkit help (how to set a link) pages and vignette 
 
 
-### Adding intervention variables in R
+#### Adding intervention variables in R
 
 
 
-## Periodic dummies and contrasts
+### Periodic dummies and contrasts
 
 why ? use case ?
 
 in GUI not possible 
 
-### Generating in R
+#### Generating regressors in R
 
 dummies :as many time series as type of periods in a year (4,12)
 periodic contrasts; objectif
@@ -161,9 +161,9 @@ contrasts
 
 ```
 
-### Adding to estimation 
+#### Adding to estimation 
 
-## Trigonometric variables 
+### Trigonometric variables 
 
 use case: stable seaso
 in what kind of model ?
@@ -171,7 +171,7 @@ allocation
 fixed coeff 
 in GUI not possible (different algo)
 
-### Generating trigonometric regressors in R
+#### Generating trigonometric regressors in R
 
 ```{r,eval=FALSE}
 
@@ -179,7 +179,7 @@ in GUI not possible (different algo)
 ```
 More details rjd3toolkit help (how to set a link) pages and vignette 
 
-###  Adding trigonometric regressors in R
+####  Adding trigonometric regressors in R
 
 ## Outlier Detection
 
