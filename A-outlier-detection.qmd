@@ -1,117 +1,84 @@
-# Outlier detection and Intervention variables {.unnumbered}
+# Outlier detection and external regressors {.unnumbered}
 
-Under construction.
 
-## Overview
+## Chapter's overview
 
-- External regressors and their use 
+The chapter describes 
 
-- 2 types of external regressors
-equations on allocation to components
+- how to easily generate useful external regressors for improving seasonal adjustment
 
-    - calendar
-very specific issue, specific chapter 
-    - others : outliers,...
-    
+- JDemetra+ solutions for outlier detection and in a time series.  
+These routines can be used stand alone or as part of a seasonal adjustment process. They can be accessed via GUI or R packages.
+
+How to use the generated regressors in a seasonal adjustment or reg-arima modelling process is discussed in the relevant chapters on [SA](A-sa.qmd) and [SA of High-frequency data](A-sa-hf.qmd). There you will also find out how to fix the corresponding coefficients and how to allocate the effects to selected component.
+
+The external regressors described below are not meant for calendar correction which is detailed [here](A-calendar-correction.qmd)
+
+Type of data in the scope of this chapter:     
 Here construction of variables for quarterly and monthly data 
-quid about HF ? bilan à faire 
+quid about HF ? 
+TABLE by data type 
+
+ADD (to each chapter)
+
+- scope by data type 
+
+- contrast differences R vs GUI 
 
 
-in R once a regressor is defined, it can be used as an external regressor: more possibilities of allocation and fixing coeffs
+## Generating external regressors
 
+### Outliers
 
-JDemetra+ provides outlier detection routines which can be used stand alone or as part of a seasonal adjustment process. They can be accessed via GUI or R packages.
+#### Outlier Types
 
-## In this chapter 
+wo for hf data
 
-- generation 
+#### Pre-specifying outliers 
 
-- plug in into algos : in relevant chapters : key = allocation to components ?
-automatic or not ?
-specify for each type
+Outliers are well-defined types of auxiliary variables, therefore when they are used (reg-arima or tramo modelling) they don't need to be explicitly
+generated. This is detailed in chapters on [SA](A-sa.qmd) and [SA of High-frequency data](A-sa-hf.qmd). 
 
-- detection 
+check: 
 
+- in v2 fixing coefficients impossible? (window displayed as a calendar
 
+- in v3 calendar window  or different window, allowing to fix coefficients
 
-## Generating regressors for outliers
+#### Generating regressors for outliers
 
-### Available types of outiers
-
-if smth else needed (intervention variables or ramps)
-pull out from R doc + Sa chapter 
-- names 
-- equations 
-- explanations 
-
-## Generating regressors for outliers
-
-use cases 
-allocation to components: pre-defined in the type, not user customizable
-
-### Generation in GUI
-regressors are notre really generated but pre-specified 
-v2 calendar (fixing coefficients impossible ?)
-
-V3 calendar or different window, allowing to fix coefficients
-
-### Generation in R 
-v2
-regressors couldn't be generated but directly implemented in spec 
-link to SA chap 
-
-v3 
-outliers can be directly implemented in a spec 
-link to SA chap
-
-but regressors can also be generated with rjd3toolkit(link to R pack chap) for an independent use
+Nevertheless, explicit regressors corresponding to outliers can be generated with `rjd3toolkit` functions for further use.independent use
 
 ```{r,eval=FALSE}
 #Outliers in February 2002
+library(rjd3toolkit)
 ao <- ao_variable(12, c(2000,1), length = 12*4, date = "2002-02-01")
 ls <- ls_variable(12, c(2000,1), length = 12*4, date = "2002-02-01")
 tc <- tc_variable(12, c(2000,1), length = 12*4, date = "2002-02-01")
 so <- so_variable(12, c(2000,1), length = 12*4, date = "2002-02-01")
 
 ```
-More details rjd3toolkit help (how to set a link) pages and vignette 
+More details rjd3toolkit help pages and vignette. 
 
-### adding outliers to specification 
+### Ramp regressors 
 
-### in GUI 
+What are ramps ?
+To which component they are allocated ?
 
-### in R
+in R 
+- step 1 generate 
+- step 2 add as an external regressor to the estimation process (reg-arima modelling or full SA estimation)
 
-v2
+in GUI 
+- generation and addition step are merged as one (cf sa ?)
+(sa chapter)
 
-V3
-pb : add outlier and set outlier 
+Differences between R and GUI
 
-## Generating ramp regressors 
+#### Adding ramps in GUI 
 
-why ? what is different from outliers (and i variables )
-how can they be allocated 
-dans GUI ramp se voir dans reg_t, pas de choix d'allocation
-voir si idem en r
+#### Generating ramp regressors in R
 
-can coefficient be fixed
-in GUI separated window
-
-### Generation in GUI 
-v2 calendar (fixing coefficients impossible ?)
-
-V3 calendar or different window, allowing to fix coefficients
-
-### Generation in R 
-v2
-regressors couldn't be generated but directly implemented in spec 
-link to SA chap 
-
-v3 
-outliers can be directly implemented in a spec 
-link to SA chap
-
-but regressors can also be generated with rjd3toolkit for an independent use
 
 ```{r,eval=FALSE}
 # Ramp variable from January 2001 to September 2001
@@ -123,43 +90,27 @@ plot.ts(rp)
 ```
 More details rjd3toolkit help (how to set a link) pages and vignette 
 
-### adding ramps to specification 
+#### Adding ramps in R 
 
-### in GUI 
 
-### in R
 
-v2
-
-V3
-
-## Generating intervention variable
+## Intervention variables
 
 why ? what is different from outliers (and ramps)
 how can they be allocated 
 details in component very important cf JP 
 
-dans GUI intervention va dans reg_i
-
+dans GUI intervention va dans reg_i ? always? can be selected 
 
 can coefficient be fixes
 je ne comprends pas fenetre dans GUI 
 
-### Generation in GUI 
-v2 calendar (fixing coefficients impossible ?)
+### Adding intervention variables in GUI 
 
-V3 calendar or different window, allowing to fix coefficients
 
-### Generation in R 
-v2
-regressors couldn't be generated but directly implemented in spec 
-link to SA chap 
+### Generating intervention variables in R 
 
-v3 
-outliers can be directly implemented in a spec 
-link to SA chap
-
-but regressors can also be generated with rjd3toolkit for an independent use
+example
 
 ```{r,eval=FALSE}
 
@@ -182,23 +133,17 @@ plot(iv)
 More details rjd3toolkit help (how to set a link) pages and vignette 
 
 
-### adding intervention variable to specification 
+### Adding intervention variables in R
 
-### in GUI 
 
-### in R
 
-v2
-
-V3
-
-## Generating periodic dummies and contrasts
+## Periodic dummies and contrasts
 
 why ? use case ?
 
 in GUI not possible 
 
-### In R
+### Generating in R
 
 dummies :as many time series as type of periods in a year (4,12)
 periodic contrasts; objectif
@@ -216,7 +161,9 @@ contrasts
 
 ```
 
-## Generating trigonometric variables 
+### Adding to estimation 
+
+## Trigonometric variables 
 
 use case: stable seaso
 in what kind of model ?
@@ -224,7 +171,7 @@ allocation
 fixed coeff 
 in GUI not possible (different algo)
 
-### in R
+### Generating trigonometric regressors in R
 
 ```{r,eval=FALSE}
 
@@ -232,21 +179,21 @@ in GUI not possible (different algo)
 ```
 More details rjd3toolkit help (how to set a link) pages and vignette 
 
-## adding user defined variables to specification
-- allocation to component 
-- coefficient 
+###  Adding trigonometric regressors in R
 
-## Outlier detection Parameters in a SA processing
+## Outlier Detection
+
+### With Reg Arima models
+
+#### Within an SA processing
 
 cf function set outlier
 
-
-## Outlier Detection With Reg Arima models
-
 here we are talking detection outside of an SA process 
 
-### In R 
+#### Stand alone 
 
+available in R packages 
 independent function in 
 
 - rjd3x13 
@@ -262,6 +209,6 @@ regarima_outliers(rjd3toolkit::ABS$X0.2.09.10.M, order=c(1,1,1), seasonal=c(0,1,
 
 - rjd3tramoseats
 
-## Specific TERROR tool
+#### Specific TERROR tool
 
-## With structural models (BSM)
+### With structural models (BSM)
