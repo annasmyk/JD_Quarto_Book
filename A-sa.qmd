@@ -625,17 +625,14 @@ Once the calendar regressors are set, the RegArima (tramo) model will be estimat
 
 ### Outliers
 
-(to be added) overview: why use outliers and what happens ? Effects reallocation
+The sections below focus on 
 
-More in depth method outline will be available in [outliers](A-outlier-detection.qmd) chapter what will be available
+- outlier detection parameters (type and critical value)
 
-#### Available outliers
-(this part might be migrated to outlier chapter, leaving just the last settings in SA process)
-The following outliers are available for automatic detection
+- pre-specifying outliers in a seasonal adjustement (reg-arima modelling) process
 
-![](All_images/SA_REGA_Outliers_AO_LS_TC.png)
+Additional information can be found in [this chapter](A-outlier-detection.qmd).
 
-![](All_images/SA_REGA_Outliers_SO.png)
 
 #### Options for automatic detection
 
@@ -777,6 +774,8 @@ Modifications are done the same way in a global specification (whole SAP) or ser
 
 (to be added)
 
+
+
 #### Special case 1: Ramp effects
 
 A ramp effect means a linear increase or decrease in the level of the series over a specified time interval $t_{0}$ to $\ t_{1}$. All dates of the ramps must occur within the time series span. (tested: not true). Ramps can overlap other ramps, additive outliers and level shifts.
@@ -785,9 +784,6 @@ A ramp effect means a linear increase or decrease in the level of the series ove
 
 ![](All_images/SA_REGA_user_def_regs_ramps_definition.png)
 
-###### Creation in R
-
-(to be added)
 
 ###### Allocation to components
 

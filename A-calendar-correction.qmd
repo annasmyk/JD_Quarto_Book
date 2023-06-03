@@ -2,8 +2,11 @@
 
 ## Chapter's overview
 
-This chapter describes:
-theory (part one)
+This chapter is diived in two parts
+- theory 
+- practice
+IT describes:
+theory 
 - rationale for calendar correction as part of seasonal adjustment 
 -   underlying principles and concepts of calendar correction
 BOILS down to 
@@ -25,6 +28,7 @@ Regressors for different data frequencies
 
 - step 2b: easter effect different concept (not a group of days )
 
+Most of the fucntions are designed for quarterly and mothly data, but also HF specificities underlined 
 
 Regressors are corrected for seasonality, long term mean correction (link to later)
 
@@ -38,6 +42,16 @@ How to use these variables within a seasonal adjustment process is detailed in c
 How to add other types of regressors outliers chap
 
 #### Calendar in R vs in GUI: quick contrasting
+
+(do this kind of stuff in every chapter)
+
+- is group and reference day choice as flexible in GUI as in R 
+
+- in GUI (v3) automatic detection, what about in R
+
+- HF in R vs in GUI calndar wise
+
+- aggregation to weekly
 
 ## Rationale for Calendar correction
 
@@ -465,7 +479,7 @@ In the *Properties* panel specify:
 
 ##### Composite Calendar
 
-Creating a chained calendar is relevant when correcting series which
+Creating a composite calendar is relevant when correcting series which
 include data from more than one country/region. This option can be
 used, for example, to create the calendar for the European Union or to
 create the national calendar for a country, in which regional holidays
@@ -514,7 +528,7 @@ example of a html file containing a calendar
 ![Text](All_images/UG_CAL_image9.jpg)
 #### Generating regressors
 
-#### Type of days
+##### Type of days
 
 
 ##### Leap year length of P 
@@ -523,7 +537,14 @@ adjust param
 
 ##### Easter 
 
+
+has to be declared in SA (o modelling params) ref to sa chapter
+
+explain principle 
+
 ##### stock TD 
+
+idem 
 
 ### In R 
 
@@ -552,92 +573,104 @@ here just some indications and examples
 
 #### Customizing (Creating) calendars 
 
-##### Default calendar
-
-how to describe this concept in R
-
-##### Creating a National Calendar
-
-check options R vs options GUI and fill IN 
-
--   to use Julian Easter
+##### National Calendar
 
 
-    **The \*Julian Easter\* option**
-    
-To add a holiday from this list to the national calendar, choose the
-	*Special day* item from the *Special days* list.
+```{r, eval=FALSE}
+## French calendar
+frenchCalendar <- national_calendar(days = list(
+  fixed_day(7, 14), # Bastille Day
+  fixed_day(5, 8, validity = list(start = "1982-05-08")),# End of 2nd WW
+  special_day('NEWYEAR'), 
+  special_day('CHRISTMAS'), 
+  special_day('MAYDAY'),
+  special_day('EASTERMONDAY'), 
+  special_day('ASCENSION'), #
+  special_day('WHITMONDAY'), 
+  special_day('ASSUMPTION'), 
+  special_day('ALLSAINTSDAY'),
+  special_day('ARMISTICE'))
+)
 
-![Text](All_images/UG_CAL_image18.jpg)
-**Adding a pre-defined holiday to the calendar**
+```
 
-By default, when the *Special Days* option is selected, JDemetra+ always adds *Christmas* to the list of selected holidays. The user can change this initial choice by specifying the settings in the panel on the right and clicking *OK*. The settings that can be changed include:
+Holidays can be created with the following functions
 
-- **Start**: starting date for the holiday (expecting *yyyy-mm-dd*) Default is the starting date of the calendar (empty cell). 
+1 fixed_day(7, 14)
 
-- **End**: same as start
+```{r}
+day <- fixed_day(month= 12, day=25,weight= .9, validity = list(start="1968-02-01", end = "2010-01-01"))
+day # December 25th, with weight=0.9, from February 1968 until January 2010
+```
 
-- **Weight** : specifies the impact of the holiday on the series. The default weight is 1 (full weight) assuming that the influence of the holiday is the same as a regular Sunday. If less  the a value between 0 and 1 can be assigned.
-
-- **Day event**: a list of pre-defined holidays (link to table)
-
-- **Offset**: allows to set a holiday as related to a pre-specified holiday by specifying the distance in days (e.g Easter Sunday). Default offset is 1. It can be positive or negative. Positive offset: defines a holiday following the pre-specified holiday. Negative offset: defines a holiday preceding the selected pre-specified.
-
-	
-- To define a fixed holiday not included in the list of
-    pre-defined holidays:
-    - choose *Fixed* from the *Special days* list: by default January, 1 is displayed. Specify the settings:
-
-- **Start**: starting date for the holiday (expecting *yyyy-mm-dd*) Default is the starting date of the calendar (empty cell). 
-
-- **End**: same as start
-
-- **Weight** : specifies the impact of the holiday on the series. The default weight is 1 (full weight) assuming that the influence of the holiday is the same as a regular Sunday. If less  the a value between 0 and 1 can be assigned.
-
-- **Day**: day of month when the fixed holiday is celebrated.
-
-- **Month**: month, in which the fixed holiday is celebrated.
+2 special_day('ARMISTICE')
+list 
+a holidday can be defined from an event of the list
+```{r, eval=FALSE}
+# To define a holiday for the day after Christmas, with validity and weight
+special_day("CHRISTMAS", offset = 1, weight = 0.8,
+validity = list(start="2000-01-01", end = "2020-12-01"))
+```
 
 
 
-- Add *Corpus Christi*: example of an Easter related holiday not included in the special day list(link to table). It is  is a moving holiday celebrated 60 days after Easter
-    - choose the *Easter related* item from the *Special days* list.
+3 fixed week day
 
-	![Text](All_images/UG_CAL_image22.jpg)
-By default *Easter + 1* is displayed. Setting can be changed :
-
-- **Start**: starting date for the holiday (expecting *yyyy-mm-dd*) Default is the starting date of the calendar (empty cell). 
-
-- **End**: same as start
-
-- **Weight** : specifies the impact of the holiday on the series. The default weight is 1 (full weight) assuming that the influence of the holiday is the same as a regular Sunday. If less  the a value between 0 and 1 can be assigned.
-
-- **Offset**: To define Corpus Christi enter **60**, as it is celebrated 60 days after Easter Sunday.
+```{r, eval=FALSE}
+fixed_week_day(7, 2, 3) # second Wednesday of July
+```
 
 
-
-- Fixed week option: when dealing with holidays occurring on the same week of a given month. Example: Labour Day in the USA and Canada, celebrated on the first Monday of September in Canada
-
-    - choose *Fixed Week* from the *Special days* list.
-
-	![Text](All_images/UG_CAL_image24.jpg)
-
-Available settings are:
-
-- **Start**: starting date for the holiday (expecting *yyyy-mm-dd*) Default is the starting date of the calendar (empty cell). 
-
-- **End**: same as start
-
-- **Weight** : specifies the impact of the holiday on the series. The default weight is 1 (full weight) assuming that the influence of the holiday is the same as a regular Sunday. If less  the a value between 0 and 1 can be assigned
-
-- **Day of Week**: day of week when the holiday is celebrated each year
-
-- **Month**: month, in which the holiday is celebrated each year
-
-- **Week**: number denoting the place of the week in the month: between 1 and 5
+4 easter related 
+```{r, eval=FALSE}
+     easter_day(1), # Easter Monday
+     easter_day(-2), # Good Friday
+```
 
 
+An example of calendar bringing together all fucntions
+```{r, eval=FALSE}
 
+MyCalendar <- national_calendar(list(
+    fixed_day(7,21),
+     special_day('NEWYEAR'),
+     special_day('CHRISTMAS'),
+     fixed_week_day(7, 2, 3), # second Wednesday of July
+     special_day('MAYDAY'),
+     easter_day(1), # Easter Monday
+     easter_day(-2), # Good Friday
+     fixed_day(5, 8, validity = list(start = "1982-05-08")), # End of 2nd WW
+     single_day("2001-09-11"), # appearing once 
+     special_day('ASCENSION'),
+     easter_day(offset=60,julian=FALSE, weight=0.5, validity = list(start="2000-01-01", end = "2020-12-01")),  # Corpus Christi
+     special_day('WHITMONDAY'),
+     special_day('ASSUMPTION'),
+     special_day('ALLSAINTSDAY'),
+     special_day('ARMISTICE')))
+
+```
+
+visualize long term means for a calendar
+```{r, eval=FALSE}
+
+### Long-term means of a calendar
+BE <- national_calendar(list(
+    fixed_day(7,21),
+    special_day('NEWYEAR'),
+    special_day('CHRISTMAS'),
+    special_day('MAYDAY'),
+    special_day('EASTERMONDAY'),
+    special_day('ASCENSION'),
+    special_day('WHITMONDAY'),
+    special_day('ASSUMPTION'),
+    special_day('ALLSAINTSDAY'),
+    special_day('ARMISTICE')))
+class(BE)
+lt<-long_term_mean(BE,12,
+    groups = c(1,1,1,1,1,0,0),
+    holiday = 7)
+
+```
 
 
 ##### Chained Calendar
@@ -646,38 +679,69 @@ Creating a chained calendar is relevant when a major break occurs in the definit
 
 First define the 2 (or $N$) national calendars corresponding to each regime as explained in the section above. 
 
-To define a chained calendar: right click on Calendar item in the Utility panel of the workspace window
-
-
-
+```{r, eval=FALSE}
+Belgium <- national_calendar(list(special_day('NEWYEAR'),fixed_day(7,21)))
+France <- national_calendar(list(special_day('NEWYEAR'),fixed_day(7,14)))
+chained_cal<-chained_calendar(France, Belgium, "2000-01-01")
+```
 
 
 ##### Composite Calendar
 
-Creating a chained calendar is relevant when correcting series which
+Creating a composite calendar is relevant when correcting series which
 include data from more than one country/region. This option can be
 used, for example, to create the calendar for the European Union or to
 create the national calendar for a country, in which regional holidays
 are celebrated.
 
-First define the relevant national calendars corresponding to each member
-state/region as explained above.
 
-To define a chained calendar: right click on Calendar item in the Utility panel of the workspace window
-
-![Text](All_images/UG_CAL_image34.jpg)
-
-- Fill the name box
-
-- Mark the regional calendars to be used
-
-- Assign a weight to each calendar.
-
-![Text](All_images/UG_CAL_image35.jpg)
+```{r, eval=FALSE}
+Belgium <- national_calendar(list(special_day('NEWYEAR'),fixed_day(7,21)))
+France <- national_calendar(list(special_day('NEWYEAR'),fixed_day(7,14)))
+composite_calendar<- weighted_calendar(list(France,Belgium), weights = c(1,2))
+```
 
 #### Generating regressors
 
-#### Type of days
+First for monthly, Q, bi monthly...(set this right)
+
+##### Type of days
+
+Two approches 
+- use default calendar (no specifc holidays taken into avccout)
+
+- use customized calendar 
+
+Trading day regressors without holidays
+
+The rjd3toolkit::td function
+
+```{r, eval=FALSE}
+# Monthly regressors for Trading Days: each type of day is different
+# contrasts to Sundays (6 series)
+regs_td<- td(12,c(2020,1),60, groups = c(1, 2, 3, 4, 5, 6, 0), contrasts = TRUE)
+
+```
+
+
+Trading day regressors with pre-defined holidays
+
+The rjd3toolkit::calendar_td function
+```{r, eval=FALSE}
+BE <- national_calendar(list(
+    fixed_day(7,21),
+    special_day('NEWYEAR'),
+    special_day('CHRISTMAS'),
+    special_day('MAYDAY'),
+    special_day('EASTERMONDAY'),
+    special_day('ASCENSION'),
+    special_day('WHITMONDAY'),
+    special_day('ASSUMPTION'),
+    special_day('ALLSAINTSDAY'),
+    special_day('ARMISTICE')))
+calendar_td(BE, 12, c(1980,1), 240, holiday=7, groups=c(1,1,1,2,2,3,0),
+contrasts = FALSE)
+```
 
 
 ##### Leap year length of P 
@@ -686,12 +750,50 @@ adjust param
 
 ##### Easter 
 
+explicitly create a regressor
+
+the rjd3toolkit::easter_variable
+cf help pages for details
+
+```{r}
+#Monthly regressor, five-year long, duration 8 days, effect finishing on Easter Monday
+ee<-easter_variable(12, c(2020,1),length=5*12,duration=8, endpos=1)
+```
+
+additionnal fuctionnality in R 
+
+Display Easter Sunday dates in given period
+Description
+Allows to display the date of Easter Sunday for each year, in the defined period. Dates are displayed in "YYYY-MM-DD" format and as a number of days since January 1st 1970.
+
+
+```{r, eval=FALSE}
+#Dates from 2018(included) to 2023 (included)
+easter_dates(2018, 2023)
+```
+
+
 ##### stock TD 
 
 cf book x12 and SH
 
+The regressor will have the value -1 if the w-th day is a Sunday, 1 if it is a Monday as 0 otherwise.
 
-## Test EJOR
+example lacking in the package 
+
+
+##### Daily data (dummies)
+
+```{r}
+## dummies corresponding to holidays
+q<-holidays(BE, "2020-01-01",365.25, type="All")
+tail(q)
+```
+
+###### Weekly data
+
+
+## Test for Residual Calendar effects 
 
 - test
 - where to find it : GUI and R

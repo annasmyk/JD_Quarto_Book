@@ -10,7 +10,7 @@ The chapter describes
 - JDemetra+ solutions for outlier detection and in a time series.  
 These routines can be used stand alone or as part of a seasonal adjustment process. They can be accessed via GUI or R packages.
 
-How to use the generated regressors in a seasonal adjustment or reg-arima modelling process is discussed in the relevant chapters on [SA](A-sa.qmd) and [SA of High-frequency data](A-sa-hf.qmd). There you will also find out how to fix the corresponding coefficients and how to allocate the effects to selected component.
+How to use the generated regressors, or any user-defined variable, in a seasonal adjustment or reg-arima modelling process is discussed in the relevant chapters on [SA](A-sa.qmd) and [SA of High-frequency data](A-sa-hf.qmd). There you will also find out how to fix the corresponding coefficients and how to allocate the effects to selected component.
 
 The external regressors described below are not meant for calendar correction which is detailed [here](A-calendar-correction.qmd)
 
@@ -32,7 +32,17 @@ ADD (to each chapter)
 
 #### Outlier Types
 
-wo for hf data
+The following outliers are available for automatic detection
+
+![](All_images/SA_REGA_Outliers_AO_LS_TC.png)
+
+![](All_images/SA_REGA_Outliers_SO.png)
+
+Allocation specified
+
+ADD: specifics for HF data
+
+
 
 #### Pre-specifying outliers 
 
