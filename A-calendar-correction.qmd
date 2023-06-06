@@ -157,8 +157,7 @@ As regressors have the same data frequency as the input series, several cases:
 
 #### Creating calendars 
 
-The resulting calendar will allow to generate customized regressors which can then be added while running a seasonal adjustment processing 
-The customized calendar can be directly linked to the calendar correction option in GUI while running a seasonal adjustment processing (see SA chapter, link).
+The customized calendar can be directly linked to the calendar correction option in GUI while specifying a seasonal adjustment process. See chapters on [SA](A-sa.qmd) or [SA of HF data](A-sa-hf.qmd).
 
 ##### Default Calendar
 
