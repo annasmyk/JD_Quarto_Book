@@ -177,13 +177,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./A-outlier-detection.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Outlier detection and Intervention variables</span></a>
+ <span class="menu-text">Outlier detection and external regressors</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./A-calendar-correction.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Calendar and user-defined corrections</span></a>
+ <span class="menu-text">Calendar correction</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -1070,14 +1070,12 @@ Y_t = \sum {\alpha}_i O_{it} + \sum\beta_j C_{jt} + \sum {\gamma}_i U_{it} + Y_{
 </section>
 <section id="outliers" class="level3">
 <h3 class="anchored" data-anchor-id="outliers">Outliers</h3>
-<p>(to be added) overview: why use outliers and what happens ? Effects reallocation</p>
-<p>More in depth method outline will be available in <a href="./A-outlier-detection.html">outliers</a> chapter what will be available</p>
-<section id="available-outliers" class="level4">
-<h4 class="anchored" data-anchor-id="available-outliers">Available outliers</h4>
-<p>(this part might be migrated to outlier chapter, leaving just the last settings in SA process) The following outliers are available for automatic detection</p>
-<p><img src="All_images/SA_REGA_Outliers_AO_LS_TC.png" class="img-fluid"></p>
-<p><img src="All_images/SA_REGA_Outliers_SO.png" class="img-fluid"></p>
-</section>
+<p>The sections below focus on</p>
+<ul>
+<li><p>outlier detection parameters (type and critical value)</p></li>
+<li><p>pre-specifying outliers in a seasonal adjustement (reg-arima modelling) process</p></li>
+</ul>
+<p>Additional information can be found in <a href="./A-outlier-detection.html">this chapter</a>.</p>
 <section id="options-for-automatic-detection" class="level4">
 <h4 class="anchored" data-anchor-id="options-for-automatic-detection">Options for automatic detection</h4>
 <p>*Is enabled**<br> <em>outliers; iatip</em></p>
@@ -1191,10 +1189,6 @@ Y_t = \sum \hat{\alpha}_i O_{it} + \sum\hat\beta_j C_{jt} + \sum\hat\gamma_k Reg
 <h6 class="anchored" data-anchor-id="creation-in-gui">Creation in GUI</h6>
 <p><img src="All_images/SA_REGA_user_def_regs_ramps_definition.png" class="img-fluid"></p>
 </section>
-<section id="creation-in-r" class="level6">
-<h6 class="anchored" data-anchor-id="creation-in-r">Creation in R</h6>
-<p>(to be added)</p>
-</section>
 <section id="allocation-to-components-1" class="level6">
 <h6 class="anchored" data-anchor-id="allocation-to-components-1">Allocation to components</h6>
 <p>allocation when intervention or ramps ? in test allocated to trend ? (reg)</p>
@@ -1214,8 +1208,8 @@ Y_t = \sum \hat{\alpha}_i O_{it} + \sum\hat\beta_j C_{jt} + \sum\hat\gamma_k Reg
 <p><img src="All_images/SA_REGA_calendar_user_def_inter_var_2.png" class="img-fluid"></p>
 <p>step 3: <img src="All_images/SA_REGA_calendar_user_def_inter_var_3.png" class="img-fluid"></p>
 </section>
-<section id="creation-in-r-1" class="level6">
-<h6 class="anchored" data-anchor-id="creation-in-r-1">Creation in R</h6>
+<section id="creation-in-r" class="level6">
+<h6 class="anchored" data-anchor-id="creation-in-r">Creation in R</h6>
 <p>(to be added)</p>
 </section>
 <section id="allocation-to-components-2" class="level6">

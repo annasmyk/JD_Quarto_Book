@@ -2,109 +2,62 @@
 
 ## Chapter's overview
 
-This chapter is diived in two parts
-- theory 
-- practice
-IT describes:
-theory 
-- rationale for calendar correction as part of seasonal adjustment 
--   underlying principles and concepts of calendar correction
-BOILS down to 
-Choice to correct calendar effects by regression (deterministic)
-happens in pre adjustment
+This chapter is divided in two parts. The first one (theory) outlines the rationale for correcting calendar correction and the underlying modelling. The second part (practice) describes how relevant regressors for calendar correction are built in JDemetra+.
 
-Practical consequence
+As calendar effects are deterministic, they can be corrected with a regression model. In the algorithms X13-Arima and Tramo-Seats it boils down to adding suitable regressors to the reg-arima modelling (pre-adjustment) phase. This chapter will describe how to generate a set of regressors corresponding to the desired correction, which will happen according to the following steps:  
 
-goal= generate a set of regresssors corresponding to the desired correction 
+- step 1: generate a calendar (usually national calendar of interest). If this step is skipped a default calendar, not taking into account country-specific holidays will be used.
 
-- step 1 : generate a calendar (usually national calndar of interest, uif this step is skipped a defalut calendar not taking into accoutn (any) country-specific holidays will be used ) 
+- step 2: generate regressors based on the above defined calendar
 
-- step 2 generate regressors based on the above defined calendar
+Regressors will have the same frequency as the raw data, thus an aggregation process will be defined unless the data is daily.
 
-Regressors for different data frequencies 
-- 
-- 
-- daily data: calendar regressors = dummies 
+- step 2b: a specific variable for modelling the easter effect (or any other moving holiday effect like Ramadan) can also be defined
 
-- step 2b: easter effect different concept (not a group of days )
+Most of the functions are designed for quarterly and monthly data. What applies to daily and weekly data will be highlighted.
 
-Most of the fucntions are designed for quarterly and mothly data, but also HF specificities underlined 
+Regressors are corrected for deterministic seasonality through a long-term mean correction (see below)
 
-Regressors are corrected for seasonality, long term mean correction (link to later)
+- step 3: these regressors have to be plugged-in in pre-adjustment phase of a seasonal adjustment estimation. How to do this is detailed in chapters on [SA](A-sa.qmd) or [SA of HF data](A-sa-hf.qmd).
 
+How to add other types of regressors is described [here](A-outlier-detection.qmd)
 
-- step 3: these regressors have to be plugged-in in pre-adjustment 
+#### Calendar correction in R vs in GUI: quick contrasting
 
-several ways to do this 
+- is group and reference day choice as flexible in GUI as in R ?
 
-How to use these variables within a seasonal adjustment process is detailed in chapters on [SA](A-sa.qmd) or [SA of HF data](A-sa-hf.qmd).
+- in GUI (v3) automatic detection, what in R ?
 
-How to add other types of regressors outliers chap
+- are the same data frequencies available in R and in GUI (divisors of 12 and...)
 
-#### Calendar in R vs in GUI: quick contrasting
-
-(do this kind of stuff in every chapter)
-
-- is group and reference day choice as flexible in GUI as in R 
-
-- in GUI (v3) automatic detection, what about in R
-
-- HF in R vs in GUI calndar wise
-
-- aggregation to weekly
+- calendar correction HF data: R vs GUI ? including weekly data
 
 ## Rationale for Calendar correction
 
-The calendar is heterogeneous:  
+A calendar is heterogeneous, it at least composed of:
 
-- trading days:   
-    + days usually worked, taking into account the company's sector. Most frequently, they are Mondays through Fridays when not bank holidays.  
+- trading days: days usually worked, taking into account the company's sector. (Most frequently Mondays through Fridays when not bank holidays).  
 
 - week-ends  
 
 - bank holidays  
 
-For a given year as well as throughout the years, every month doesn't have the same number of days per day-type:  
-$\implies$ all months/quarters aren't "equal", even for a given type of month or quarter  
-This causes **calendar effects**.
+For a given year as well as throughout the years, every month doesn't have the same number of days per day-type, which implies that all months/quarters aren't "equal", even for a given type of month or quarter. This causes **calendar effects** which have to be removed to allow sounder comparisons following the same principle as seasonality correction.
 
-2 types of effects are highlighted:
+Two types of effects result from this heterogeneity:
 
 - length of period (month/quarter) (leap-year or direct correction)
+
 - composition of period (type of day)
 
-add a note on daily and weekly series, or generalize
+This second effect is also relevant for daily (and weekly) data.
 
-- easter
-or more generally moving holiday special effect (Ramadan, Chinese new year..cf HB ?)
-For some series, variations linked to Easter can be seen over a few days prior or following Easter: it's the  *gradual Easter effect*.
-
-Example: flowers and chocolate sales might rise significantly as Easter approaches
-
-(in practice very rare, better to deactivate by default detection)
+An additional easter effect can be modelled, as for some series, variations linked to Easter can be seen over a few days prior or following Easter. For example, flowers and chocolate sales might rise significantly as Easter approaches. (in practice this effect is very rare, it is better to deactivate by default detection)
 
 
 ## Modelling calendar effects
 
-
-Correction via regression in preadj step (or simultaneous in BSM)
-
-remove deterministic seaso from regressors with log terme mean correction
-
-To identify "significant" effects and to reduce the number of parameters to estimate with the regression, we must try to establish similarities between types of days. GROUPS
-
-- normal
-
-- leap year (adjust)
-
-- length of period 
-
-- easter 
-
-- stock..
-
-
-### Regression Model 
+### Regression Model for type of days
 
 For each period $t$, the days are divided in $K$ groups $\lbrace{D_{t1},\dots, D_{tK}\rbrace}$.
 
@@ -161,7 +114,7 @@ The corrected contrast for the time t belonging to the period J is:
 $$C_{ti}=D_{ti}-\bar{D_{i, J}^y}-\frac{w_i}{w_K}(D_{tK}- \bar{D_{K, J}^y})$$
 
 How is the long term mean computed? Probabilistic approach
-
+(more on this soon)
 
 ### Weights for different groups of days
 
@@ -179,95 +132,43 @@ The estimated coefficients slightly change if we use different weights (not if w
 
 The use of different specifications of the trading days doesn't impact the final results (except through some automatic selection procedure). It just (slightly) changes the way we interpret the estimated coefficients.
 
-now let's get dow to practical steps
+### Easter effect 
+
+### Stock series 
 
 ## Generating Regressors for calendar correction
 
-unlike seasonality, calendar effects are corrected via regressors 
-here we'll see how to build them
+The following parts details how to build customized regressors for calendar correction using
 
-it always start with building a calendar (or using a default one) which will allow to take holidays into account, this is described here  
+- graphical user interface (GUI)
 
-then regrssors will be bulit from calendars + info on distinguishing several types of days (more or less), mondays...
+- rjd3toolkit package.
 
-several cases, as regressors have the same data granularity as the input series 
+To take specific holidays into account a calendar has to be defined, regressors will be built subsequently.
 
-- daily series : dummies for holidays, type of day in p=7
+As regressors have the same data frequency as the input series, several cases:
 
-- monthly and quaterly series : regressors = aggregated indicators 
-holidays are grouped with one day, and more or less groups
+- for daily series : regressors are dummies representing each holidays
 
-the goal is at the end to have regressors 
-can be 
-
-- built in 
-
-- external, completely user defined 
-
-once the calendar is defined the corresponding regressors can be generated and used 
-in gui 
-in R
-Step 1: customizing calendars 
-step 2: builind regressors 
-
-
-There are three ways to build customized calendars taking into account national holidays
-
-    - In the Graphical User Interface 
-
-The resulting calendar will allow to generate customized regressors which can then be added while running a seasonal adjustment processing 
-The customized calendar can be directly linked to the calendar correction option in GUI while running a seasonal adjustment processing (see SA chapter, link).
-
-
-    - In R 
-
-via GUI (link) or in R (link).
-
-    - Directly writing xml files 
+- for weekly, monthly and quarterly series regressors are aggregated indicators, the way of grouping different types of days and holidays has to be specified. 
 
 
 ### In GUI
 
-#### Customizing (Creating) calendars 
+#### Creating calendars 
 
-##### Pre-Defined Holidays (to be moved)
-
-A *Special days* list is pre-defined for most commonly occurring holidays.
-
-    {: .table .table-style}
-      | **Holiday**    |    **Definition**| 
-      ----------------- ----------------------------------------------------------------------------------------------------------------------------| 
-     |  New Year       |   Fixed holiday, falls on January, 1.| 
-     | Ash Wednesday   |   Moving holiday, occurring 46 days before Easter.| 
-     | Easter          |   Moving holiday, varies between March, 22 and April, 25.| 
-     |  Maundy Thursday|   Moving holiday, falls on the Thursday before Easter.| 
-     |  Good Friday    |   Moving holiday, falls on the Friday before Easter.| 
-     |  Easter Monday  |   Moving holiday, falls on the day after Easter.| 
-     |  Ascension Day  |   Moving holiday, celebrated on Thursday, 40 days after Easter.| 
-     |  Pentecost      |   Moving holiday, celebrated 50 days after Easter Sunday.| 
-     |  Whit Monday    |   Moving holiday, falling on the day after Pentecost.| 
-     |  May Day        |   Fixed holiday, falls on May, 1.| 
-     |  Assumption     |   Fixed holiday, falls on August, 15.| 
-     |  Halloween      |   Fixed holiday, falls on October, 31.| 
-     |  All Saints Day |   Fixed holiday, falls on November, 1.| 
-     |  Thanksgiving   |   Moving holiday, celebrated on the second Monday of October (Canada) or on the fourth Thursday of November (United States).| 
-     | Christmas Day   |   Fixed holiday, falls on December, 25.| 
+The resulting calendar will allow to generate customized regressors which can then be added while running a seasonal adjustment processing 
+The customized calendar can be directly linked to the calendar correction option in GUI while running a seasonal adjustment processing (see SA chapter, link).
 
 ##### Default Calendar
 
 In the graphical user interface, calendars in are stored in the *Workspace* window in the *Utilities* section. In the default calendar, country-specific national holidays are not taken into account, it reflects only the usual composition of the weeks in the calendar periods.
 
-    ![Text](All_images/UG_CAL_image1.jpg)
+![Text](All_images/UG_CAL_image1.jpg)
 
-    **The *Calendars* section in the *Workspace* window**
+To view the details of the default calendar: double click on it
 
-To view the details of the default calendar
-
-    - double click on it
-
-    ![Text](All_images/UG_CAL_image2.jpg)
-
-    **The default view of the default calendar**
+![Text](All_images/UG_CAL_image2.jpg)
 
 ##### Set Properties
 
@@ -277,7 +178,11 @@ In the *Properties* panel the user can set:
 
 -   Trading days or working days regressors
 
-*Trading days*: 6 contrast variables ($number\ of\ Mondays - number\ of\ Sundays$,...) and one regressor for the leap year effect.
+*Trading days*: 6 contrast variables 
+
+number of Mondays - number of Sundays 
+
+and one regressor for the leap year effect.
 
 *Working Days*: 1 contrast variable ($number\ of\ working days (monday to friday) - number\ of\ Saturdays and Sundays$,...) and one regressor for the leap year effect.
 
@@ -293,7 +198,10 @@ The top-right panel displays the spectrum for the given calendar variable. By de
 
 Calendar variables shouldn't have a peak neither at a zero frequency (trend) nor the seasonal frequencies.
 
-![Text](All_images/UG_CAL_image6.jpg) \#### Modify an existing Calendar
+![Text](All_images/UG_CAL_image6.jpg)
+
+
+#### Modify an existing Calendar
 
 -   click the option *Edit* from the context menu
 
@@ -305,7 +213,9 @@ Calendar variables shouldn't have a peak neither at a zero frequency (trend) nor
 
 -   To add a holiday unfold the **+** menu
 
--   To remove a holiday click on it and choose the **-** button ![Text](All_images/UG_CAL_image13.jpg)
+-   To remove a holiday click on it and choose the **-** button
+
+![Text](All_images/UG_CAL_image13.jpg)
 
 **Removing a holiday from the calendar**
 
@@ -353,7 +263,6 @@ Four options are available here:
 
 ![Text](All_images/UG_CAL_image17.jpg)
 
-    **The \*Julian Easter\* option**
     
 To add a holiday from this list to the national calendar, choose the
 	*Special day* item from the *Special days* list.
@@ -531,50 +440,35 @@ example of a html file containing a calendar
 ##### Type of days
 
 
-##### Leap year length of P 
+##### Leap year 
 
-adjust param 
+##### Length of Period
+
+(adjust param)
 
 ##### Easter 
 
-
-has to be declared in SA (o modelling params) ref to sa chapter
-
-explain principle 
-
 ##### stock TD 
 
-idem 
 
-### In R 
 
-In version 2 (RJDemetra), not possible to build calendars and generate regressors with jd+. Two approaches 
+### In R with rjd3toolkit
 
-- use built in regressors (wd or td) not taking into account national holidays 
-- import externally generated user defined calendar
+Version 3 of JDemetra+ allows to build calendar regressors using the `rjd3toolkit` package.
 
-(link to how to plug this in into a spec)
+The underlying concepts are identical to those available in the graphical user interface (GUI) as described above. R functions replicate the same process and all arguments and outputs are detailed in `rjd3toolkit` help pages. The sections below provide basic examples.
 
-in version 3 new functionalities with `rjd3toolkit`
+Note that, RJDemetra package based on version 2 of JDemetra+, doesn't allow to build calendars and generate regressors. Thus, two approaches are possible when using version 2 
 
-Concepts are identical to GUI (as detailed above)
-Functions to replicate same processing in R
+- use built in regressors ("working days" or "trading days") not taking into account national holidays 
 
-package 
-link to doc 
-examples
+- import user defined calendar regressors
 
-concepts identical to hses described in GUI section above
-in rjd3toolkit package 
-- help pages 
-- vignette
-
-here just some indications and examples 
-
-#### Customizing (Creating) calendars 
+#### Creating calendars 
 
 ##### National Calendar
 
+Creating a national calendar with rjd3toolkit.
 
 ```{r, eval=FALSE}
 ## French calendar
@@ -594,43 +488,39 @@ frenchCalendar <- national_calendar(days = list(
 
 ```
 
-Holidays can be created with the following functions
+Holidays can be created with the following ways:
 
-1 fixed_day(7, 14)
+- as fixed days (falling on the exact same date every year)
 
-```{r}
+```{r, eval=FALSE}
 day <- fixed_day(month= 12, day=25,weight= .9, validity = list(start="1968-02-01", end = "2010-01-01"))
 day # December 25th, with weight=0.9, from February 1968 until January 2010
 ```
 
-2 special_day('ARMISTICE')
-list 
-a holidday can be defined from an event of the list
+- as special days, when on the list of common holidays, which is available in the function's halp page.
+
 ```{r, eval=FALSE}
+# Get the list 
+?special_day
 # To define a holiday for the day after Christmas, with validity and weight
 special_day("CHRISTMAS", offset = 1, weight = 0.8,
 validity = list(start="2000-01-01", end = "2020-12-01"))
 ```
 
-
-
-3 fixed week day
+- as a fixed week day
 
 ```{r, eval=FALSE}
 fixed_week_day(7, 2, 3) # second Wednesday of July
 ```
 
-
-4 easter related 
+- as an easter related holiday 
 ```{r, eval=FALSE}
      easter_day(1), # Easter Monday
      easter_day(-2), # Good Friday
 ```
 
-
-An example of calendar bringing together all fucntions
+An example of calendar bringing together all options 
 ```{r, eval=FALSE}
-
 MyCalendar <- national_calendar(list(
     fixed_day(7,21),
      special_day('NEWYEAR'),
@@ -650,7 +540,7 @@ MyCalendar <- national_calendar(list(
 
 ```
 
-visualize long term means for a calendar
+For any defined calendar, it is possible to retrieve the long term-mean correction values which would be applied on a given set of regressors.
 ```{r, eval=FALSE}
 
 ### Long-term means of a calendar
@@ -671,8 +561,6 @@ lt<-long_term_mean(BE,12,
     holiday = 7)
 
 ```
-
-
 ##### Chained Calendar
 
 Creating a chained calendar is relevant when a major break occurs in the definition of the country-specific holidays.
@@ -707,27 +595,26 @@ First for monthly, Q, bi monthly...(set this right)
 
 ##### Type of days
 
-Two approches 
-- use default calendar (no specifc holidays taken into avccout)
+This section describes how to generate regressors to correct for type of days effects. They can be based on a default calendar (no specific holidays taken into account) or on a customized calendar. 
 
-- use customized calendar 
-
-Trading day regressors without holidays
-
-The rjd3toolkit::td function
+###### Trading day regressors without holidays using rjd3toolkit::td function
 
 ```{r, eval=FALSE}
 # Monthly regressors for Trading Days: each type of day is different
 # contrasts to Sundays (6 series)
-regs_td<- td(12,c(2020,1),60, groups = c(1, 2, 3, 4, 5, 6, 0), contrasts = TRUE)
+?td 
+regs_td<- td(frequency=12,c(2020,1),60, groups = c(1, 2, 3, 4, 5, 6, 0), contrasts = TRUE)
 
 ```
 
+The `groups` argument allows to build groups of days, as daus belonging to the same group will be identified by the same number, and to set a reference for contrasts with the number `0`.
 
-Trading day regressors with pre-defined holidays
+###### Trading day regressors with pre-defined holidays using rjd3toolkit::calendar_td function
 
 The rjd3toolkit::calendar_td function
 ```{r, eval=FALSE}
+?calendar_td
+# first define a calendar
 BE <- national_calendar(list(
     fixed_day(7,21),
     special_day('NEWYEAR'),
@@ -739,32 +626,35 @@ BE <- national_calendar(list(
     special_day('ASSUMPTION'),
     special_day('ALLSAINTSDAY'),
     special_day('ARMISTICE')))
-calendar_td(BE, 12, c(1980,1), 240, holiday=7, groups=c(1,1,1,2,2,3,0),
+# generate regressors
+calendar_td(BE, frequency=12, c(1980,1), 240, holiday=7, groups=c(1,1,1,2,2,3,0),
 contrasts = FALSE)
+# here three groups and one reference are defined
+# Mondays = Tuesdays= Wednesdays (`1`)
+# Thursdays= Fridays (`2`)
+# Saturdays (`3`)
+# Sundays and all holidays (`0`) 
 ```
 
+##### Leap year
 
-##### Leap year length of P 
+##### Length of Period 
 
 adjust param 
 
-##### Easter 
+##### Easter Regressor
 
-explicitly create a regressor
+Create a regressor for modelling the easter effect:
 
-the rjd3toolkit::easter_variable
-cf help pages for details
 
-```{r}
+```{r, eval=FALSE}
 #Monthly regressor, five-year long, duration 8 days, effect finishing on Easter Monday
-ee<-easter_variable(12, c(2020,1),length=5*12,duration=8, endpos=1)
+ee<-easter_variable(frequency=12, c(2020,1),length=5*12,duration=8, endpos=1)
 ```
 
-additionnal fuctionnality in R 
-
 Display Easter Sunday dates in given period
-Description
-Allows to display the date of Easter Sunday for each year, in the defined period. Dates are displayed in "YYYY-MM-DD" format and as a number of days since January 1st 1970.
+
+The function below allows to display the date of Easter Sunday for each year, in the defined period. Dates are displayed in "YYYY-MM-DD" format and as a number of days since January 1st 1970.
 
 
 ```{r, eval=FALSE}
@@ -775,16 +665,9 @@ easter_dates(2018, 2023)
 
 ##### stock TD 
 
-cf book x12 and SH
-
-The regressor will have the value -1 if the w-th day is a Sunday, 1 if it is a Monday as 0 otherwise.
-
-example lacking in the package 
-
-
 ##### Daily data (dummies)
 
-```{r}
+```{r,eval=FALSE}
 ## dummies corresponding to holidays
 q<-holidays(BE, "2020-01-01",365.25, type="All")
 tail(q)
@@ -795,8 +678,7 @@ tail(q)
 
 ## Test for Residual Calendar effects 
 
-- test
-- where to find it : GUI and R
+(To be added: where exactly to find the tests in GUI and R)
 
 We consider below tests on the seasonally adjusted series ($sa_t$) or on the irregular component ($irr_t$). When the reasoning applies on both components, we will use $y_t$. The functions $stdev$ stands for "standard deviation" and $rms$ for "root mean squares"
 

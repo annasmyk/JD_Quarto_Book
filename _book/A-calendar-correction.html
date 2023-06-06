@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>JDemetra+ documentation - Calendar and user-defined corrections</title>
+<title>JDemetra+ documentation - Calendar correction</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +19,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -76,7 +110,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./P_Algorithms.html">Algorithms</a></li><li class="breadcrumb-item"><a href="./A-calendar-correction.html">Calendar and user-defined corrections</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./P_Algorithms.html">Algorithms</a></li><li class="breadcrumb-item"><a href="./A-calendar-correction.html">Calendar correction</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -143,13 +177,13 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./A-outlier-detection.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Outlier detection and Intervention variables</span></a>
+ <span class="menu-text">Outlier detection and external regressors</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./A-calendar-correction.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Calendar and user-defined corrections</span></a>
+ <span class="menu-text">Calendar correction</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -294,22 +328,24 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#in-this-chapter" id="toc-in-this-chapter" class="nav-link active" data-scroll-target="#in-this-chapter">In this chapter</a></li>
-  <li><a href="#overview-of-calendar-effects-in-jdemetra" id="toc-overview-of-calendar-effects-in-jdemetra" class="nav-link" data-scroll-target="#overview-of-calendar-effects-in-jdemetra">Overview of Calendar effects in JDemetra</a>
+  <li><a href="#chapters-overview" id="toc-chapters-overview" class="nav-link active" data-scroll-target="#chapters-overview">Chapter’s overview</a></li>
+  <li><a href="#rationale-for-calendar-correction" id="toc-rationale-for-calendar-correction" class="nav-link" data-scroll-target="#rationale-for-calendar-correction">Rationale for Calendar correction</a></li>
+  <li><a href="#modelling-calendar-effects" id="toc-modelling-calendar-effects" class="nav-link" data-scroll-target="#modelling-calendar-effects">Modelling calendar effects</a>
   <ul class="collapse">
-  <li><a href="#summary-of-the-method-used-in-jdemetra-to-compute-trading-day-and-working-day-effects" id="toc-summary-of-the-method-used-in-jdemetra-to-compute-trading-day-and-working-day-effects" class="nav-link" data-scroll-target="#summary-of-the-method-used-in-jdemetra-to-compute-trading-day-and-working-day-effects">Summary of the method used in JDemetra+ to compute trading day and working day effects</a></li>
-  <li><a href="#mean-and-seasonal-effects-of-calendar-variables" id="toc-mean-and-seasonal-effects-of-calendar-variables" class="nav-link" data-scroll-target="#mean-and-seasonal-effects-of-calendar-variables">Mean and seasonal effects of calendar variables</a></li>
-  <li><a href="#impact-of-the-mean-effects-on-the-decomposition" id="toc-impact-of-the-mean-effects-on-the-decomposition" class="nav-link" data-scroll-target="#impact-of-the-mean-effects-on-the-decomposition">Impact of the mean effects on the decomposition</a></li>
-  <li><a href="#linear-transformations-of-the-calendar-variables" id="toc-linear-transformations-of-the-calendar-variables" class="nav-link" data-scroll-target="#linear-transformations-of-the-calendar-variables">Linear transformations of the calendar variables</a></li>
-  <li><a href="#handling-of-specific-holidays" id="toc-handling-of-specific-holidays" class="nav-link" data-scroll-target="#handling-of-specific-holidays">Handling of specific holidays</a></li>
-  <li><a href="#holidays-with-a-validity-period" id="toc-holidays-with-a-validity-period" class="nav-link" data-scroll-target="#holidays-with-a-validity-period">Holidays with a validity period</a></li>
-  <li><a href="#different-kinds-of-calendars" id="toc-different-kinds-of-calendars" class="nav-link" data-scroll-target="#different-kinds-of-calendars">Different Kinds of calendars</a></li>
-  <li><a href="#tests-for-residual-trading-days" id="toc-tests-for-residual-trading-days" class="nav-link" data-scroll-target="#tests-for-residual-trading-days">Tests for residual trading days</a></li>
+  <li><a href="#regression-model-for-type-of-days" id="toc-regression-model-for-type-of-days" class="nav-link" data-scroll-target="#regression-model-for-type-of-days">Regression Model for type of days</a></li>
+  <li><a href="#correction-for-deterministic-seasonality" id="toc-correction-for-deterministic-seasonality" class="nav-link" data-scroll-target="#correction-for-deterministic-seasonality">Correction for deterministic seasonality</a></li>
+  <li><a href="#weights-for-different-groups-of-days" id="toc-weights-for-different-groups-of-days" class="nav-link" data-scroll-target="#weights-for-different-groups-of-days">Weights for different groups of days</a></li>
+  <li><a href="#use-in-regarima-models" id="toc-use-in-regarima-models" class="nav-link" data-scroll-target="#use-in-regarima-models">Use in RegArima models</a></li>
+  <li><a href="#interpretation" id="toc-interpretation" class="nav-link" data-scroll-target="#interpretation">Interpretation</a></li>
+  <li><a href="#easter-effect" id="toc-easter-effect" class="nav-link" data-scroll-target="#easter-effect">Easter effect</a></li>
+  <li><a href="#stock-series" id="toc-stock-series" class="nav-link" data-scroll-target="#stock-series">Stock series</a></li>
   </ul></li>
-  <li><a href="#regressors-for-calendar-correction" id="toc-regressors-for-calendar-correction" class="nav-link" data-scroll-target="#regressors-for-calendar-correction">Regressors for calendar correction</a>
+  <li><a href="#generating-regressors-for-calendar-correction" id="toc-generating-regressors-for-calendar-correction" class="nav-link" data-scroll-target="#generating-regressors-for-calendar-correction">Generating Regressors for calendar correction</a>
   <ul class="collapse">
-  <li><a href="#customizing-calendars" id="toc-customizing-calendars" class="nav-link" data-scroll-target="#customizing-calendars">Customizing calendars</a></li>
+  <li><a href="#in-gui" id="toc-in-gui" class="nav-link" data-scroll-target="#in-gui">In GUI</a></li>
+  <li><a href="#in-r-with-rjd3toolkit" id="toc-in-r-with-rjd3toolkit" class="nav-link" data-scroll-target="#in-r-with-rjd3toolkit">In R with rjd3toolkit</a></li>
   </ul></li>
+  <li><a href="#test-for-residual-calendar-effects" id="toc-test-for-residual-calendar-effects" class="nav-link" data-scroll-target="#test-for-residual-calendar-effects">Test for Residual Calendar effects</a></li>
   </ul>
 </nav>
     </div>
@@ -318,7 +354,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Calendar and user-defined corrections</h1>
+<h1 class="title">Calendar correction</h1>
 </div>
 
 
@@ -333,1681 +369,145 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="in-this-chapter" class="level2">
-<h2 class="anchored" data-anchor-id="in-this-chapter">In this chapter</h2>
-<p>This chapter describes: theory - underlying principles and concepts of calendar correction</p>
-<p>practice - generating process of calendars, calendar regressors,</p>
-<p>How to use these variables inside a seasonal adjustment process is detailed in chapters on <a href="./A-sa.html">SA</a> or <a href="./A-sa-hf.html">SA of HF data</a>.</p>
-<p>Process: - default calendars are not suited for the situation otherwise nothing to do: cf sa chapter..?</p>
+<section id="chapters-overview" class="level2">
+<h2 class="anchored" data-anchor-id="chapters-overview">Chapter’s overview</h2>
+<p>This chapter is divided in two parts. The first one (theory) outlines the rationale for correcting calendar correction and the underlying modelling. The second part (practice) describes how relevant regressors for calendar correction are built in JDemetra+.</p>
+<p>As calendar effects are deterministic, they can be corrected with a regression model. In the algorithms X13-Arima and Tramo-Seats it boils down to adding suitable regressors to the reg-arima modelling (pre-adjustment) phase. This chapter will describe how to generate a set of regressors corresponding to the desired correction, which will happen according to the following steps:</p>
 <ul>
-<li><p>NEED = customized regressors. What does it mean ? Steps to define them ?</p></li>
-<li><p>Step 1 define a calendar</p></li>
-<li><p>Step 2 generate sets of regressors at different data frequencies : q, monthly, weekly ? daily</p>
+<li><p>step 1: generate a calendar (usually national calendar of interest). If this step is skipped a default calendar, not taking into account country-specific holidays will be used.</p></li>
+<li><p>step 2: generate regressors based on the above defined calendar</p></li>
+</ul>
+<p>Regressors will have the same frequency as the raw data, thus an aggregation process will be defined unless the data is daily.</p>
 <ul>
-<li>normal calendar effects</li>
-<li>esater (effect: completely different to be explained above)</li>
-</ul></li>
-<li><p>Step 3 plug in sa algo (cf sa chapter: check if well explained)</p></li>
+<li>step 2b: a specific variable for modelling the easter effect (or any other moving holiday effect like Ramadan) can also be defined</li>
+</ul>
+<p>Most of the functions are designed for quarterly and monthly data. What applies to daily and weekly data will be highlighted.</p>
+<p>Regressors are corrected for deterministic seasonality through a long-term mean correction (see below)</p>
+<ul>
+<li>step 3: these regressors have to be plugged-in in pre-adjustment phase of a seasonal adjustment estimation. How to do this is detailed in chapters on <a href="./A-sa.html">SA</a> or <a href="./A-sa-hf.html">SA of HF data</a>.</li>
+</ul>
+<p>How to add other types of regressors is described <a href="./A-outlier-detection.html">here</a></p>
+<section id="calendar-correction-in-r-vs-in-gui-quick-contrasting" class="level4">
+<h4 class="anchored" data-anchor-id="calendar-correction-in-r-vs-in-gui-quick-contrasting">Calendar correction in R vs in GUI: quick contrasting</h4>
+<ul>
+<li><p>is group and reference day choice as flexible in GUI as in R ?</p></li>
+<li><p>in GUI (v3) automatic detection, what in R ?</p></li>
+<li><p>are the same data frequencies available in R and in GUI (divisors of 12 and…)</p></li>
+<li><p>calendar correction HF data: R vs GUI ? including weekly data</p></li>
 </ul>
 </section>
-<section id="overview-of-calendar-effects-in-jdemetra" class="level2">
-<h2 class="anchored" data-anchor-id="overview-of-calendar-effects-in-jdemetra">Overview of Calendar effects in JDemetra</h2>
-<p>A natural way for modelling calendar effects consists of distributing the days of each period into different groups. The regression variable corresponding to a type of day (a group) is simply defined by the number of days it contains for each period. Usual classifications are:</p>
+</section>
+<section id="rationale-for-calendar-correction" class="level2">
+<h2 class="anchored" data-anchor-id="rationale-for-calendar-correction">Rationale for Calendar correction</h2>
+<p>A calendar is heterogeneous, it at least composed of:</p>
 <ul>
-<li><p>Trading days (7 groups): each day of the week defines a group (Mondays,...,Sundays);</p></li>
-<li><p>Working days (2 groups): week days and weekends.</p></li>
+<li><p>trading days: days usually worked, taking into account the company’s sector. (Most frequently Mondays through Fridays when not bank holidays).</p></li>
+<li><p>week-ends</p></li>
+<li><p>bank holidays</p></li>
 </ul>
-<p>The definition of a group could involve partial days. For instance, we could consider that one half of Saturdays belong to week days and the second half to weekends.</p>
-<p>Usually, specific holidays are handled as Sundays and they are included in the group corresponding to “non-working days”. This approach assumes that the economic activity on national holidays is the same (or very close to) the level of activity that is typical for Sundays. Alternatively, specific holidays can be considered separately, e.g.&nbsp;by the specification that divided days into three groups:</p>
+<p>For a given year as well as throughout the years, every month doesn’t have the same number of days per day-type, which implies that all months/quarters aren’t “equal”, even for a given type of month or quarter. This causes <strong>calendar effects</strong> which have to be removed to allow sounder comparisons following the same principle as seasonality correction.</p>
+<p>Two types of effects result from this heterogeneity:</p>
 <ul>
-<li><p>Working days (Mondays to Fridays, except for specific holidays),</p></li>
-<li><p>Non-working days (Saturdays and Sundays, except for specific holidays),</p></li>
-<li><p>Specific holidays.</p></li>
+<li><p>length of period (month/quarter) (leap-year or direct correction)</p></li>
+<li><p>composition of period (type of day)</p></li>
 </ul>
-<section id="summary-of-the-method-used-in-jdemetra-to-compute-trading-day-and-working-day-effects" class="level3">
-<h3 class="anchored" data-anchor-id="summary-of-the-method-used-in-jdemetra-to-compute-trading-day-and-working-day-effects">Summary of the method used in JDemetra+ to compute trading day and working day effects</h3>
-<p>The computation of trading day and working days effects is performed in four steps:</p>
-<ol type="1">
-<li><p>Computation of the number of each weekday performed for all periods.</p></li>
-<li><p>Calculation of the usual contrast variables for trading day and working day.</p></li>
-<li><p>Correction of the contrast variables with specific holidays (for each holiday add +1 to the number of Sundays and subtract 1 from the number of days of the holiday). The correction is not performed if the holiday falls on a Sunday, taking into account the validity period of the holiday.</p></li>
-<li><p>Correction of the constant variables for long term mean effects, &gt; taking into account the validity period of the holiday; see below &gt; for the different cases.</p></li>
-</ol>
-<p>The corrections of the constant variables may receive a weight corresponding to the part of the holiday considered as a Sunday.</p>
-<p>An example below illustrates the application of the above algorithm for the hypothetical country in which three holidays are celebrated:</p>
+<p>This second effect is also relevant for daily (and weekly) data.</p>
+<p>An additional easter effect can be modelled, as for some series, variations linked to Easter can be seen over a few days prior or following Easter. For example, flowers and chocolate sales might rise significantly as Easter approaches. (in practice this effect is very rare, it is better to deactivate by default detection)</p>
+</section>
+<section id="modelling-calendar-effects" class="level2">
+<h2 class="anchored" data-anchor-id="modelling-calendar-effects">Modelling calendar effects</h2>
+<section id="regression-model-for-type-of-days" class="level3">
+<h3 class="anchored" data-anchor-id="regression-model-for-type-of-days">Regression Model for type of days</h3>
+<p>For each period <span class="math inline">\(t\)</span>, the days are divided in <span class="math inline">\(K\)</span> groups <span class="math inline">\(\lbrace{D_{t1},\dots, D_{tK}\rbrace}\)</span>.</p>
+<p>The groups of days can be anything (trading days, working days, Sundays + holidays assimilated to Sundays…) ADD</p>
+<p>We write <span class="math inline">\(N_t=\sum_1^K{D_{ti}}\)</span>, the number of days of the period <span class="math inline">\(t\)</span></p>
+<p>Two terms appear:</p>
 <ul>
-<li><p>New Year (a fixed holiday, celebrated on 01 January);</p></li>
-<li><p>Shrove Tuesday (a moving holiday, which falls 47 days before Easter Sunday, celebrated until the end of 2012);</p></li>
-<li><p>Freedom day (a fixed holiday, celebrated on 25 April).</p></li>
+<li><p>the specific effect of a type of day <span class="math inline">\(i\)</span> as a contrast between the number of days <span class="math inline">\(i\)</span> and the number of Sundays and bank holidays</p></li>
+<li><p>the effect of the month’s (or period’s) length.</p></li>
 </ul>
-<p>The consecutive steps in calculation of the calendar for 2012 and 2013 years are explained below.</p>
-<p>First, the number of each day of the week in the given month is calculated as it is shown in table below.</p>
-<p><strong>Number of each weekday in different months</strong></p>
-<table class="table">
-<colgroup>
-<col style="width: 14%">
-<col style="width: 12%">
-<col style="width: 12%">
-<col style="width: 12%">
-<col style="width: 12%">
-<col style="width: 12%">
-<col style="width: 12%">
-<col style="width: 12%">
-</colgroup>
-<thead>
-<tr class="header">
-<th><strong>Month</strong></th>
-<th><strong>Mon</strong></th>
-<th><strong>Tue</strong></th>
-<th><strong>Wed</strong></th>
-<th><strong>Thu</strong></th>
-<th><strong>Fri</strong></th>
-<th><strong>Sat</strong></th>
-<th><strong>Sun</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Jan-12</td>
-<td>5</td>
-<td>5</td>
-<td>4</td>
-<td>4</td>
-<td>4</td>
-<td>4</td>
-<td>5</td>
-</tr>
-<tr class="even">
-<td>Feb-12</td>
-<td>4</td>
-<td>4</td>
-<td>5</td>
-<td>4</td>
-<td>4</td>
-<td>4</td>
-<td>4</td>
-</tr>
-<tr class="odd">
-<td>Mar-12</td>
-<td>4</td>
-<td>4</td>
-<td>4</td>
-<td>5</td>
-<td>5</td>
-<td>5</td>
-<td>4</td>
-</tr>
-<tr class="even">
-<td>Apr-12</td>
-<td>5</td>
-<td>4</td>
-<td>4</td>
-<td>4</td>
-<td>4</td>
-<td>4</td>
-<td>5</td>
-</tr>
-<tr class="odd">
-<td>May-12</td>
-<td>4</td>
-<td>5</td>
-<td>5</td>
-<td>5</td>
-<td>4</td>
-<td>4</td>
-<td>4</td>
-</tr>
-<tr class="even">
-<td>Jun-12</td>
-<td>4</td>
-<td>4</td>
-<td>4</td>
-<td>4</td>
-<td>5</td>
-<td>5</td>
-<td>4</td>
-</tr>
-<tr class="odd">
-<td>Jul-12</td>
-<td>5</td>
-<td>5</td>
-<td>4</td>
-<td>4</td>
-<td>4</td>
-<td>4</td>
-<td>5</td>
-</tr>
-<tr class="even">
-<td>Aug-12</td>
-<td>4</td>
-<td>4</td>
-<td>5</td>
-<td>5</td>
-<td>5</td>
-<td>4</td>
-<td>4</td>
-</tr>
-<tr class="odd">
-<td>Sep-12</td>
-<td>4</td>
-<td>4</td>
-<td>4</td>
-<td>4</td>
-<td>4</td>
-<td>5</td>
-<td>5</td>
-</tr>
-<tr class="even">
-<td>Oct-12</td>
-<td>5</td>
-<td>5</td>
-<td>5</td>
-<td>4</td>
-<td>4</td>
-<td>4</td>
-<td>4</td>
-</tr>
-<tr class="odd">
-<td>Nov-12</td>
-<td>4</td>
-<td>4</td>
-<td>4</td>
-<td>5</td>
-<td>5</td>
-<td>4</td>
-<td>4</td>
-</tr>
-<tr class="even">
-<td>Dec-12</td>
-<td>5</td>
-<td>4</td>
-<td>4</td>
-<td>4</td>
-<td>4</td>
-<td>5</td>
-<td>5</td>
-</tr>
-<tr class="odd">
-<td>Jan-13</td>
-<td>4</td>
-<td>5</td>
-<td>5</td>
-<td>5</td>
-<td>4</td>
-<td>4</td>
-<td>4</td>
-</tr>
-<tr class="even">
-<td>Feb-13</td>
-<td>4</td>
-<td>4</td>
-<td>4</td>
-<td>4</td>
-<td>4</td>
-<td>4</td>
-<td>4</td>
-</tr>
-<tr class="odd">
-<td>Mar-13</td>
-<td>4</td>
-<td>4</td>
-<td>4</td>
-<td>4</td>
-<td>5</td>
-<td>5</td>
-<td>5</td>
-</tr>
-<tr class="even">
-<td>Apr-13</td>
-<td>5</td>
-<td>5</td>
-<td>4</td>
-<td>4</td>
-<td>4</td>
-<td>4</td>
-<td>4</td>
-</tr>
-<tr class="odd">
-<td>May-13</td>
-<td>4</td>
-<td>4</td>
-<td>5</td>
-<td>5</td>
-<td>5</td>
-<td>4</td>
-<td>4</td>
-</tr>
-<tr class="even">
-<td>Jun-13</td>
-<td>4</td>
-<td>4</td>
-<td>4</td>
-<td>4</td>
-<td>4</td>
-<td>5</td>
-<td>5</td>
-</tr>
-<tr class="odd">
-<td>Jul-13</td>
-<td>5</td>
-<td>5</td>
-<td>5</td>
-<td>4</td>
-<td>4</td>
-<td>4</td>
-<td>4</td>
-</tr>
-<tr class="even">
-<td>Aug-13</td>
-<td>4</td>
-<td>4</td>
-<td>4</td>
-<td>5</td>
-<td>5</td>
-<td>5</td>
-<td>4</td>
-</tr>
-<tr class="odd">
-<td>Sep-13</td>
-<td>5</td>
-<td>4</td>
-<td>4</td>
-<td>4</td>
-<td>4</td>
-<td>4</td>
-<td>5</td>
-</tr>
-<tr class="even">
-<td>Oct-13</td>
-<td>4</td>
-<td>5</td>
-<td>5</td>
-<td>5</td>
-<td>4</td>
-<td>4</td>
-<td>4</td>
-</tr>
-<tr class="odd">
-<td>Nov-13</td>
-<td>4</td>
-<td>4</td>
-<td>4</td>
-<td>4</td>
-<td>5</td>
-<td>5</td>
-<td>4</td>
-</tr>
-<tr class="even">
-<td>Dec-13</td>
-<td>5</td>
-<td>5</td>
-<td>4</td>
-<td>4</td>
-<td>4</td>
-<td>4</td>
-<td>5</td>
-</tr>
-</tbody>
-</table>
-<p>Next, the contrast variables are calculated (table below) as a result of the linear transformation applied to the variables presented in table below.</p>
-<p><strong>Contrast variables (series corrected for leap year effects)</strong></p>
-<table class="table">
-<colgroup>
-<col style="width: 14%">
-<col style="width: 11%">
-<col style="width: 11%">
-<col style="width: 11%">
-<col style="width: 11%">
-<col style="width: 11%">
-<col style="width: 11%">
-<col style="width: 15%">
-</colgroup>
-<thead>
-<tr class="header">
-<th><strong>Month</strong></th>
-<th><strong>Mon</strong></th>
-<th><strong>Tue</strong></th>
-<th><strong>Wed</strong></th>
-<th><strong>Thu</strong></th>
-<th><strong>Fri</strong></th>
-<th><strong>Sat</strong></th>
-<th><strong>Length</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Jan-12</td>
-<td>0</td>
-<td>0</td>
-<td>-1</td>
-<td>-1</td>
-<td>-1</td>
-<td>-1</td>
-<td>0</td>
-</tr>
-<tr class="even">
-<td>Feb-12</td>
-<td>0</td>
-<td>0</td>
-<td>1</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0.75</td>
-</tr>
-<tr class="odd">
-<td>Mar-12</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>1</td>
-<td>1</td>
-<td>1</td>
-<td>0</td>
-</tr>
-<tr class="even">
-<td>Apr-12</td>
-<td>0</td>
-<td>-1</td>
-<td>-1</td>
-<td>-1</td>
-<td>-1</td>
-<td>-1</td>
-<td>0</td>
-</tr>
-<tr class="odd">
-<td>May-12</td>
-<td>0</td>
-<td>1</td>
-<td>1</td>
-<td>1</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-</tr>
-<tr class="even">
-<td>Jun-12</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>1</td>
-<td>1</td>
-<td>0</td>
-</tr>
-<tr class="odd">
-<td>Jul-12</td>
-<td>0</td>
-<td>0</td>
-<td>-1</td>
-<td>-1</td>
-<td>-1</td>
-<td>-1</td>
-<td>0</td>
-</tr>
-<tr class="even">
-<td>Aug-12</td>
-<td>0</td>
-<td>0</td>
-<td>1</td>
-<td>1</td>
-<td>1</td>
-<td>0</td>
-<td>0</td>
-</tr>
-<tr class="odd">
-<td>Sep-12</td>
-<td>-1</td>
-<td>-1</td>
-<td>-1</td>
-<td>-1</td>
-<td>-1</td>
-<td>0</td>
-<td>0</td>
-</tr>
-<tr class="even">
-<td>Oct-12</td>
-<td>1</td>
-<td>1</td>
-<td>1</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-</tr>
-<tr class="odd">
-<td>Nov-12</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>1</td>
-<td>1</td>
-<td>0</td>
-<td>0</td>
-</tr>
-<tr class="even">
-<td>Dec-12</td>
-<td>0</td>
-<td>-1</td>
-<td>-1</td>
-<td>-1</td>
-<td>-1</td>
-<td>0</td>
-<td>0</td>
-</tr>
-<tr class="odd">
-<td>Jan-13</td>
-<td>0</td>
-<td>1</td>
-<td>1</td>
-<td>1</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-</tr>
-<tr class="even">
-<td>Feb-13</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>-0.25</td>
-</tr>
-<tr class="odd">
-<td>Mar-13</td>
-<td>-1</td>
-<td>-1</td>
-<td>-1</td>
-<td>-1</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-</tr>
-<tr class="even">
-<td>Apr-13</td>
-<td>1</td>
-<td>1</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-</tr>
-<tr class="odd">
-<td>May-13</td>
-<td>0</td>
-<td>0</td>
-<td>1</td>
-<td>1</td>
-<td>1</td>
-<td>0</td>
-<td>0</td>
-</tr>
-<tr class="even">
-<td>Jun-13</td>
-<td>-1</td>
-<td>-1</td>
-<td>-1</td>
-<td>-1</td>
-<td>-1</td>
-<td>0</td>
-<td>0</td>
-</tr>
-<tr class="odd">
-<td>Jul-13</td>
-<td>1</td>
-<td>1</td>
-<td>1</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-</tr>
-<tr class="even">
-<td>Aug-13</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>1</td>
-<td>1</td>
-<td>1</td>
-<td>0</td>
-</tr>
-<tr class="odd">
-<td>Sep-13</td>
-<td>0</td>
-<td>-1</td>
-<td>-1</td>
-<td>-1</td>
-<td>-1</td>
-<td>-1</td>
-<td>0</td>
-</tr>
-<tr class="even">
-<td>Oct-13</td>
-<td>0</td>
-<td>1</td>
-<td>1</td>
-<td>1</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-</tr>
-<tr class="odd">
-<td>Nov-13</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>1</td>
-<td>1</td>
-<td>0</td>
-</tr>
-<tr class="even">
-<td>Dec-13</td>
-<td>5</td>
-<td>5</td>
-<td>4</td>
-<td>4</td>
-<td>4</td>
-<td>4</td>
-<td>0</td>
-</tr>
-</tbody>
-</table>
-<p>In the next step the corrections for holidays is done in the following way:</p>
+<p>Once seasonally adjusted, this term comes down to the leap year effect:</p>
 <ul>
-<li><p>New Year: In 2012 it falls on a Sunday. Therefore no correction is applied. In 2013 it falls on a Tuesday. Consequently, the following corrections are applied to the number of each weekday in January: Tuesday -1, Sunday +1, so the following corrections are applied to the contrast variables: -2 for Tuesday and -1 for the other contrast variables.</p></li>
-<li><p>Shrove Tuesday: It is a fixed day of the week holiday that always falls on Tuesday. For this reason in 2012 the following corrections are applied to the number of each weekday in February: Tuesday -1, Sunday +1, so the following corrections are applied to the contrast variables: -2 for the contrast variable associated with Tuesday, and -1 for the other contrast variables. The holiday expires at the end of 2012. Therefore no corrections are made for 2013.</p></li>
-<li><p>Freedom Day: In 2012 it falls on a Wednesday. Consequently, the following corrections are applied to the number of each weekday in April: Wednesday -1, Sunday +1, so the following corrections are applied to the contrast variables: -2 for Wednesday and -1 for the other contrast variables. In 2013 it falls on Thursday. Therefore, the following corrections are applied to the number of each weekday in April: Thursday -1, Sunday +1, so the following corrections are applied to the contrast variables: -2 for Thursday, and -1 for the other contrast variables.</p></li>
+<li>for all months except Februaries <span class="math inline">\(\bar{N}_t = N_t\)</span></li>
+<li>for Februaries <span class="math inline">\(\bar{N}_t=28.25\)</span> and <span class="math inline">\(N_{t}=28\)</span> or <span class="math inline">\(N_{t}=29\)</span></li>
 </ul>
-<p>The result of these corrections is presented in table below.</p>
-<p><strong>Contrast variables corrected for holidays</strong></p>
-<table class="table">
-<colgroup>
-<col style="width: 14%">
-<col style="width: 11%">
-<col style="width: 11%">
-<col style="width: 11%">
-<col style="width: 11%">
-<col style="width: 11%">
-<col style="width: 11%">
-<col style="width: 15%">
-</colgroup>
-<thead>
-<tr class="header">
-<th><strong>Month</strong></th>
-<th><strong>Mon</strong></th>
-<th><strong>Tue</strong></th>
-<th><strong>Wed</strong></th>
-<th><strong>Thu</strong></th>
-<th><strong>Fri</strong></th>
-<th><strong>Sat</strong></th>
-<th><strong>Length</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Jan-12</td>
-<td>0</td>
-<td>0</td>
-<td>-1</td>
-<td>-1</td>
-<td>-1</td>
-<td>-1</td>
-<td>0</td>
-</tr>
-<tr class="even">
-<td>Feb-12</td>
-<td>-1</td>
-<td>-2</td>
-<td>0</td>
-<td>-1</td>
-<td>-1</td>
-<td>-1</td>
-<td>0.75</td>
-</tr>
-<tr class="odd">
-<td>Mar-12</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>1</td>
-<td>1</td>
-<td>1</td>
-<td>0</td>
-</tr>
-<tr class="even">
-<td>Apr-12</td>
-<td>-1</td>
-<td>-2</td>
-<td>-3</td>
-<td>-2</td>
-<td>-2</td>
-<td>-2</td>
-<td>0</td>
-</tr>
-<tr class="odd">
-<td>May-12</td>
-<td>0</td>
-<td>1</td>
-<td>1</td>
-<td>1</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-</tr>
-<tr class="even">
-<td>Jun-12</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>1</td>
-<td>1</td>
-<td>0</td>
-</tr>
-<tr class="odd">
-<td>Jul-12</td>
-<td>0</td>
-<td>0</td>
-<td>-1</td>
-<td>-1</td>
-<td>-1</td>
-<td>-1</td>
-<td>0</td>
-</tr>
-<tr class="even">
-<td>Aug-12</td>
-<td>0</td>
-<td>0</td>
-<td>1</td>
-<td>1</td>
-<td>1</td>
-<td>0</td>
-<td>0</td>
-</tr>
-<tr class="odd">
-<td>Sep-12</td>
-<td>-1</td>
-<td>-1</td>
-<td>-1</td>
-<td>-1</td>
-<td>-1</td>
-<td>0</td>
-<td>0</td>
-</tr>
-<tr class="even">
-<td>Oct-12</td>
-<td>1</td>
-<td>1</td>
-<td>1</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-</tr>
-<tr class="odd">
-<td>Nov-12</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>1</td>
-<td>1</td>
-<td>0</td>
-<td>0</td>
-</tr>
-<tr class="even">
-<td>Dec-12</td>
-<td>0</td>
-<td>-1</td>
-<td>-1</td>
-<td>-1</td>
-<td>-1</td>
-<td>0</td>
-<td>0</td>
-</tr>
-<tr class="odd">
-<td>Jan-13</td>
-<td>-1</td>
-<td>-1</td>
-<td>0</td>
-<td>0</td>
-<td>-1</td>
-<td>-1</td>
-<td>0</td>
-</tr>
-<tr class="even">
-<td>Feb-13</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>-0.25</td>
-</tr>
-<tr class="odd">
-<td>Mar-13</td>
-<td>-1</td>
-<td>-1</td>
-<td>-1</td>
-<td>-1</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-</tr>
-<tr class="even">
-<td>Apr-13</td>
-<td>0</td>
-<td>0</td>
-<td>-1</td>
-<td>-2</td>
-<td>-1</td>
-<td>-1</td>
-<td>0</td>
-</tr>
-<tr class="odd">
-<td>May-13</td>
-<td>0</td>
-<td>0</td>
-<td>1</td>
-<td>1</td>
-<td>1</td>
-<td>0</td>
-<td>0</td>
-</tr>
-<tr class="even">
-<td>Jun-13</td>
-<td>-1</td>
-<td>-1</td>
-<td>-1</td>
-<td>-1</td>
-<td>-1</td>
-<td>0</td>
-<td>0</td>
-</tr>
-<tr class="odd">
-<td>Jul-13</td>
-<td>1</td>
-<td>1</td>
-<td>1</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-</tr>
-<tr class="even">
-<td>Aug-13</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>1</td>
-<td>1</td>
-<td>1</td>
-<td>0</td>
-</tr>
-<tr class="odd">
-<td>Sep-13</td>
-<td>0</td>
-<td>-1</td>
-<td>-1</td>
-<td>-1</td>
-<td>-1</td>
-<td>-1</td>
-<td>0</td>
-</tr>
-<tr class="even">
-<td>Oct-13</td>
-<td>0</td>
-<td>1</td>
-<td>1</td>
-<td>1</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-</tr>
-<tr class="odd">
-<td>Nov-13</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>1</td>
-<td>1</td>
-<td>0</td>
-</tr>
-<tr class="even">
-<td>Dec-13</td>
-<td>0</td>
-<td>0</td>
-<td>-1</td>
-<td>-1</td>
-<td>-1</td>
-<td>-1</td>
-<td>0</td>
-</tr>
-</tbody>
-</table>
-<p>Finally, the long term corrections are applied on each year of the validity period of the holiday.</p>
+<p>The effect of one day of the group <span class="math inline">\(i\)</span> is measured by <span class="math inline">\(\alpha_i\)</span>, so that the global effect of the group <span class="math inline">\(i\)</span> for the period <span class="math inline">\(t\)</span> is <span class="math inline">\(\alpha_i D_{ti}\)</span></p>
+<p>The global effect of all the days for the period <span class="math inline">\(t\)</span> is</p>
+<p><span class="math display">\[\sum_{i=1}^K{\alpha_i D_{ti}} = \bar\alpha N_t + \sum_{i=1}^K{(\alpha_i-\bar\alpha) D_{ti}}\]</span></p>
+<p>where <span class="math inline">\(\bar\alpha=\sum_{i=1}^K{w_i \alpha_i}\)</span> with <span class="math inline">\(\sum_{i=1}^Kw_i=1\)</span></p>
+<p>So,</p>
+<p><span class="math display">\[\sum_{i=1}^K{(\alpha_i-\bar\alpha) w_i} = \sum_{i=1}^K{\alpha_iw_i}-\bar\alpha\sum_{i=1}^K w_i=0 \]</span></p>
+<p>LEAP YEAR part to comment</p>
+<p>We focus now on <span class="math inline">\(\sum_{i=1}^K{(\alpha_i-\bar\alpha) D_{ti}}\)</span>, the actual trading days effects (excluding the length of period effect).</p>
+<p>Writing <span class="math inline">\(\alpha_i-\bar\alpha = \beta_i\)</span> and using that <span class="math inline">\(\sum_{i=1}^K{\beta_i w_i} = 0\)</span>, we have that</p>
+<p><span class="math display">\[\sum_{i=1}^K{\beta_i D_{ti}}=\sum_{i=1}^K{\beta_i(D_{ti} - \frac{w_i}{w_K}}D_{tK})= \sum_{i=1}^{K-1}{\beta_i(D_{ti} - \frac{w_i}{w_K}}D_{tK})\]</span></p>
+<p>Note that the relationship is valid for any set of weights <span class="math inline">\(w_i\)</span>. It is also clear that the contrasting group of days can be any group:</p>
+<p><span class="math display">\[\sum_{i=1}^{K-1}{\beta_i(D_{ti} - \frac{w_i}{w_K}}D_{tK}) = \sum_{i=1}^{K, i \neq J}{\beta_i(D_{ti} - \frac{w_i}{w_J}}D_{tJ})\]</span></p>
+<p>The “missing” coefficient is easily derived from the others:</p>
+<p><span class="math display">\[\beta_K = -\frac{1}{w_K}\sum_{i=1}^{K-1}{\beta_i w_i}  \]</span></p>
+</section>
+<section id="correction-for-deterministic-seasonality" class="level3">
+<h3 class="anchored" data-anchor-id="correction-for-deterministic-seasonality">Correction for deterministic seasonality</h3>
+<p>In the case of seasonal adjustment, we further impose that the regression variables don’t contain deterministic seasonality. That is achieved by removing from each type of period (month, quarter…) its long term average. We write <span class="math inline">\(\bar{D_i^y}\)</span> the long term average of the yearly number of days in the group <span class="math inline">\(i\)</span> and <span class="math inline">\(\bar{D_{i,J}^y}\)</span> the long term average of the number of days in the group <span class="math inline">\(i\)</span> for the periods <span class="math inline">\(J\)</span> (for instance, average number of Mondays in January…).</p>
+<p>The corrected contrast for the time t belonging to the period J is:</p>
+<p><span class="math display">\[C_{ti}=D_{ti}-\bar{D_{i, J}^y}-\frac{w_i}{w_K}(D_{tK}- \bar{D_{K, J}^y})\]</span></p>
+<p>How is the long term mean computed? Probabilistic approach (more on this soon)</p>
+</section>
+<section id="weights-for-different-groups-of-days" class="level3">
+<h3 class="anchored" data-anchor-id="weights-for-different-groups-of-days">Weights for different groups of days</h3>
+<p>We can define different sets of weights. The usual one consists in giving the same weight to each type of days. <span class="math inline">\(w_i\)</span> is just proportional to the number of days in the group <span class="math inline">\(i\)</span>. In the case of “week days”, <span class="math inline">\(w_0 = \frac{5}{7}\)</span> (weeks) and <span class="math inline">\(w_1=\frac{2}{7}\)</span> (week-ends). In the case of “trading days”, <span class="math inline">\(w_i=\frac{1}{7}\)</span> … Another approach consists in using the long term yearly averages, taking into account the actual holidays. We get now that <span class="math inline">\(w_i=\frac{\bar{D_i^y}}{365.25}\)</span>.</p>
+<p>After the removal of the deterministic seasonality, the variables computed using the two sets of weights considered above are very similar. In the case of the “trading days”, the difference for the time <span class="math inline">\(t\)</span>, belonging to the period <span class="math inline">\(J\)</span>, and for the day <span class="math inline">\(i\)</span> with contrast <span class="math inline">\(K\)</span> is <span class="math inline">\((1-\frac{w_i}{w_K})(D_{tK}- \bar{D_{K, J}^y})\)</span>, which is usually small. By default, JD+ uses the first approach, which is simpler. The second approach is implemented in the algorithmic modules, but not available through the graphical interface.</p>
+</section>
+<section id="use-in-regarima-models" class="level3">
+<h3 class="anchored" data-anchor-id="use-in-regarima-models">Use in RegArima models</h3>
+<p>In the context of RegArima modeling, we can also observe that the global effect of the trading days doesn’t depend neither on the used weights (we project on the same space) nor on the contrasting group (see above) nor on the long term corrections (removed by differencing).</p>
+<p>The estimated coefficients slightly change if we use different weights (not if we use a different contrasting group). It must also be noted that the choices affect the T-Stat of the different coefficients (not the joint F-Test), which can lead to other solutions when those T-Stats are used for selecting the regression variables (Tramo). Considering that the leap year/length of period variable is nearly independent of the other variables, the test on that variable is not very sensitive to the various specifications.</p>
+</section>
+<section id="interpretation" class="level3">
+<h3 class="anchored" data-anchor-id="interpretation">Interpretation</h3>
+<p>The use of different specifications of the trading days doesn’t impact the final results (except through some automatic selection procedure). It just (slightly) changes the way we interpret the estimated coefficients.</p>
+</section>
+<section id="easter-effect" class="level3">
+<h3 class="anchored" data-anchor-id="easter-effect">Easter effect</h3>
+</section>
+<section id="stock-series" class="level3">
+<h3 class="anchored" data-anchor-id="stock-series">Stock series</h3>
+</section>
+</section>
+<section id="generating-regressors-for-calendar-correction" class="level2">
+<h2 class="anchored" data-anchor-id="generating-regressors-for-calendar-correction">Generating Regressors for calendar correction</h2>
+<p>The following parts details how to build customized regressors for calendar correction using</p>
 <ul>
-<li><p>New Year: Correction on the contrasts: +1, to be applied to January of 2012 and 2013.</p></li>
-<li><p>Shrove Tuesday: It may fall either in February or in March. It will fall in March if Easter is on or after 17 April. Taking into account the theoretical distribution of Easter, it gives: prob(March) = +0.22147, prob(February) = +0.77853. The correction of the contrasts will be +1.55707 for Tuesday in February 2012 and +0.77853 for the other contrast variables. The correction of the contrasts will be +0.44293 for Tuesday in March 2012, +0.22147 for the other contrast variables.</p></li>
-<li><p>Freedom Day: Correction on the contrasts: +1, to be applied to April of 2012 and 2013.</p></li>
+<li><p>graphical user interface (GUI)</p></li>
+<li><p>rjd3toolkit package.</p></li>
 </ul>
-<p>The modifications due to the corrections described above are presented in table below.</p>
-<p><strong>Trading day variables corrected for the long term effects</strong></p>
-<table class="table">
-<colgroup>
-<col style="width: 12%">
-<col style="width: 12%">
-<col style="width: 12%">
-<col style="width: 12%">
-<col style="width: 12%">
-<col style="width: 12%">
-<col style="width: 12%">
-<col style="width: 12%">
-</colgroup>
-<thead>
-<tr class="header">
-<th><strong>Month</strong></th>
-<th><strong>Mon</strong></th>
-<th><strong>Tue</strong></th>
-<th><strong>Wed</strong></th>
-<th><strong>Thu</strong></th>
-<th><strong>Fri</strong></th>
-<th><strong>Sat</strong></th>
-<th><strong>Length</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Jan-12</td>
-<td>1</td>
-<td>1</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-</tr>
-<tr class="even">
-<td>Feb-12</td>
-<td>-0.22115</td>
-<td>-0.44229</td>
-<td>0.778853</td>
-<td>-0.22115</td>
-<td>-0.22115</td>
-<td>-0.22115</td>
-<td>0.75</td>
-</tr>
-<tr class="odd">
-<td>Mar-12</td>
-<td>0.221147</td>
-<td>0.442293</td>
-<td>0.221147</td>
-<td>1.221147</td>
-<td>1.221147</td>
-<td>1.221147</td>
-<td>0</td>
-</tr>
-<tr class="even">
-<td>Apr-12</td>
-<td>0</td>
-<td>-1</td>
-<td>-2</td>
-<td>-1</td>
-<td>-1</td>
-<td>-1</td>
-<td>0</td>
-</tr>
-<tr class="odd">
-<td>May-12</td>
-<td>0</td>
-<td>1</td>
-<td>1</td>
-<td>1</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-</tr>
-<tr class="even">
-<td>Jun-12</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>1</td>
-<td>1</td>
-<td>0</td>
-</tr>
-<tr class="odd">
-<td>Jul-12</td>
-<td>0</td>
-<td>0</td>
-<td>-1</td>
-<td>-1</td>
-<td>-1</td>
-<td>-1</td>
-<td>0</td>
-</tr>
-<tr class="even">
-<td>Aug-12</td>
-<td>0</td>
-<td>0</td>
-<td>1</td>
-<td>1</td>
-<td>1</td>
-<td>0</td>
-<td>0</td>
-</tr>
-<tr class="odd">
-<td>Sep-12</td>
-<td>-1</td>
-<td>-1</td>
-<td>-1</td>
-<td>-1</td>
-<td>-1</td>
-<td>0</td>
-<td>0</td>
-</tr>
-<tr class="even">
-<td>Oct-12</td>
-<td>1</td>
-<td>1</td>
-<td>1</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-</tr>
-<tr class="odd">
-<td>Nov-12</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>1</td>
-<td>1</td>
-<td>0</td>
-<td>0</td>
-</tr>
-<tr class="even">
-<td>Dec-12</td>
-<td>0</td>
-<td>-1</td>
-<td>-1</td>
-<td>-1</td>
-<td>-1</td>
-<td>0</td>
-<td>0</td>
-</tr>
-<tr class="odd">
-<td>Jan-13</td>
-<td>0</td>
-<td>0</td>
-<td>1</td>
-<td>1</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-</tr>
-<tr class="even">
-<td>Feb-13</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>-0.25</td>
-</tr>
-<tr class="odd">
-<td>Mar-13</td>
-<td>-1</td>
-<td>-1</td>
-<td>-1</td>
-<td>-1</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-</tr>
-<tr class="even">
-<td>Apr-13</td>
-<td>1</td>
-<td>1</td>
-<td>0</td>
-<td>-1</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-</tr>
-<tr class="odd">
-<td>May-13</td>
-<td>0</td>
-<td>0</td>
-<td>1</td>
-<td>1</td>
-<td>1</td>
-<td>0</td>
-<td>0</td>
-</tr>
-<tr class="even">
-<td>Jun-13</td>
-<td>-1</td>
-<td>-1</td>
-<td>-1</td>
-<td>-1</td>
-<td>-1</td>
-<td>0</td>
-<td>0</td>
-</tr>
-<tr class="odd">
-<td>Jul-13</td>
-<td>1</td>
-<td>1</td>
-<td>1</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-</tr>
-<tr class="even">
-<td>Aug-13</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>1</td>
-<td>1</td>
-<td>1</td>
-<td>0</td>
-</tr>
-<tr class="odd">
-<td>Sep-13</td>
-<td>0</td>
-<td>-1</td>
-<td>-1</td>
-<td>-1</td>
-<td>-1</td>
-<td>-1</td>
-<td>0</td>
-</tr>
-<tr class="even">
-<td>Oct-13</td>
-<td>0</td>
-<td>1</td>
-<td>1</td>
-<td>1</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-</tr>
-<tr class="odd">
-<td>Nov-13</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>0</td>
-<td>1</td>
-<td>1</td>
-<td>0</td>
-</tr>
-<tr class="even">
-<td>Dec-13</td>
-<td>0</td>
-<td>0</td>
-<td>-1</td>
-<td>-1</td>
-<td>-1</td>
-<td>-1</td>
-<td>0</td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="mean-and-seasonal-effects-of-calendar-variables" class="level3">
-<h3 class="anchored" data-anchor-id="mean-and-seasonal-effects-of-calendar-variables">Mean and seasonal effects of calendar variables</h3>
-<p>The calendar effects produced by the regression variables that fulfil the definition presented above include a mean effect (i.e.&nbsp;an effect that is independent of the period) and a seasonal effect (i.e.&nbsp;an effect that is dependent of the period and on average it is equal to 0). Such an outcome is inappropriate, as in the usual decomposition of a series the mean effect should be allocated to the trend component and the fixed seasonal effect should be affected to the corresponding component. Therefore, the actual calendar effect should only contain effects that don’t belong to the other components.</p>
-<p>In the context of JDemetra+ the mean effect and the seasonal effect are long term theoretical effects rather than the effects computed on the time span of the considered series (which should be continuously revised).</p>
-<p>The mean effect of a calendar variable is the average number of days in its group. Taking into account that one year has on average 365.25 days, the monthly mean effects for a working days are, as shown in the table below, 21.7411 for week days and 8.696 for weekends.</p>
-<p><strong>Monthly mean effects for the Working day variable</strong></p>
-<table class="table">
-<thead>
-<tr class="header">
-<th><strong>Groups of Working day effect</strong></th>
-<th><strong>Mean effect</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Week days</td>
-<td>365.25/12*5/7 = <strong>21.7411</strong></td>
-</tr>
-<tr class="even">
-<td>Weekends</td>
-<td>365.25/12*2/7 = <strong>8.696</strong></td>
-</tr>
-<tr class="odd">
-<td>Total</td>
-<td>365.25/12 = <strong>30.4375</strong></td>
-</tr>
-</tbody>
-</table>
-<p>The number of days by period is highly seasonal, as apart from February, the length of each month is the same every year. For this reason, any set of calendar variables will contain, at least in some variables, a significant seasonal effect, which is defined as the average number of days by period (Januaries..., first quarters...) outside the mean effect. Removing that fixed seasonal effects consists of removing for each period the long term average of days that belong to it. The calculation of a seasonal effect for the working days classification is presented in the table below.</p>
-<p><strong>The mean effect and the seasonal effect for the calendar periods</strong></p>
-<table class="table">
-<colgroup>
-<col style="width: 20%">
-<col style="width: 20%">
-<col style="width: 20%">
-<col style="width: 20%">
-<col style="width: 20%">
-</colgroup>
-<thead>
-<tr class="header">
-<th><strong>Period</strong></th>
-<th><strong>Average number of days</strong></th>
-<th><strong>Average number of week days</strong></th>
-<th><strong>Mean effect</strong></th>
-<th><strong>Seasonal effect</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>January</td>
-<td>31</td>
-<td>31*5/7=22.1429</td>
-<td>21.7411</td>
-<td>0.4018</td>
-</tr>
-<tr class="even">
-<td>February</td>
-<td>28.25</td>
-<td>28.25*5/7=20.1786</td>
-<td>21.7411</td>
-<td>-1.5625</td>
-</tr>
-<tr class="odd">
-<td>March</td>
-<td>31</td>
-<td>31*5/7=22.1429</td>
-<td>21.7411</td>
-<td>0.4018</td>
-</tr>
-<tr class="even">
-<td>April</td>
-<td>30</td>
-<td>30*5/7=21.4286</td>
-<td>21.7411</td>
-<td>-0.3125</td>
-</tr>
-<tr class="odd">
-<td>May</td>
-<td>31</td>
-<td>31*5/7=22.1429</td>
-<td>21.7411</td>
-<td>0.4018</td>
-</tr>
-<tr class="even">
-<td>June</td>
-<td>30</td>
-<td>30*5/7=21.4286</td>
-<td>21.7411</td>
-<td>-0.3125</td>
-</tr>
-<tr class="odd">
-<td>July</td>
-<td>31</td>
-<td>31*5/7=22.1429</td>
-<td>21.7411</td>
-<td>0.4018</td>
-</tr>
-<tr class="even">
-<td>August</td>
-<td>31</td>
-<td>31*5/7=22.1429</td>
-<td>21.7411</td>
-<td>0.4018</td>
-</tr>
-<tr class="odd">
-<td>September</td>
-<td>30</td>
-<td>30*5/7=21.4286</td>
-<td>21.7411</td>
-<td>-0.3125</td>
-</tr>
-<tr class="even">
-<td>October</td>
-<td>31</td>
-<td>31*5/7=22.1429</td>
-<td>21.7411</td>
-<td>0.4018</td>
-</tr>
-<tr class="odd">
-<td>November</td>
-<td>30</td>
-<td>30*5/7=21.4286</td>
-<td>21.7411</td>
-<td>-0.3125</td>
-</tr>
-<tr class="even">
-<td>December</td>
-<td>31</td>
-<td>31*5/7=22.1429</td>
-<td>21.7411</td>
-<td>0.4018</td>
-</tr>
-<tr class="odd">
-<td>Total</td>
-<td>365.25</td>
-<td>260.8929</td>
-<td>260.8929</td>
-<td>0</td>
-</tr>
-</tbody>
-</table>
-<p>For a given time span, the actual calendar effect for week days can be easily calculated as the difference between the number of week days in a specific period and the sum of the mean effect and the seasonal effect assigned to this period, as it is shown in the table below for the period 01.2013 – 06.2013.</p>
-<p><strong>The calendar effect for the period 01.2013 - 06.2013</strong></p>
-<table class="table">
-<colgroup>
-<col style="width: 20%">
-<col style="width: 20%">
-<col style="width: 20%">
-<col style="width: 20%">
-<col style="width: 20%">
-</colgroup>
-<thead>
-<tr class="header">
-<th><strong>Time period (t)</strong></th>
-<th><strong>Week days</strong></th>
-<th><strong>Mean effect</strong></th>
-<th><strong>Seasonal effect</strong></th>
-<th><strong>Calendar effect</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Jan-2013</td>
-<td>23</td>
-<td>21.7411</td>
-<td>0.4018</td>
-<td>0.8571</td>
-</tr>
-<tr class="even">
-<td>Feb-2013</td>
-<td>20</td>
-<td>21.7411</td>
-<td>-1.5625</td>
-<td>-0.1786</td>
-</tr>
-<tr class="odd">
-<td>Mar-2013</td>
-<td>21</td>
-<td>21.7411</td>
-<td>0.4018</td>
-<td>-1.1429</td>
-</tr>
-<tr class="even">
-<td>Apr-2013</td>
-<td>22</td>
-<td>21.7411</td>
-<td>-0.3125</td>
-<td>0.5714</td>
-</tr>
-<tr class="odd">
-<td>May-2013</td>
-<td>23</td>
-<td>21.7411</td>
-<td>0.4018</td>
-<td>0.8571</td>
-</tr>
-<tr class="even">
-<td>Jun-2013</td>
-<td>20</td>
-<td>21.7411</td>
-<td>-0.3125</td>
-<td>-1.4286</td>
-</tr>
-<tr class="odd">
-<td>Jul-2013</td>
-<td>23</td>
-<td>21.7411</td>
-<td>0.4018</td>
-<td>0.8571</td>
-</tr>
-</tbody>
-</table>
-<p>The distinction between the mean effect and the seasonal effect is usually unnecessary. Those effects can be considered together (simply called mean effects) and be computed by removing from each calendar variable its average number of days by period. These global means effect are considered in the next section.</p>
-</section>
-<section id="impact-of-the-mean-effects-on-the-decomposition" class="level3">
-<h3 class="anchored" data-anchor-id="impact-of-the-mean-effects-on-the-decomposition">Impact of the mean effects on the decomposition</h3>
-<p>When the ARIMA model contains a seasonal difference – something that should always happen with calendar variables – the mean effects contained in the calendar variables are automatically eliminated, so that they don’t modify the estimation. The model is indeed estimated on the series/regression variables after differencing. However, they lead to a different linearised series (<span class="math inline">\(y_{\text{lin}})\)</span>. The impact of other corrections (mean and/or fixed seasonal) on the decomposition is presented in the next paragraph. Such corrections could be obtained, for instance, by applying other solutions for the long term corrections or by computing them on the time span of the series.</p>
-<p>Now the model with “correct” calendar effects (denoted as <span class="math inline">\(C\)</span>), i.e.&nbsp;effects without mean and fixed seasonal effects, can be considered. To simplify the problem, the model has no other regression effects.</p>
-<p>For such a model the following relations hold:</p>
-<p><span class="math display">\[y_{\text{lin}} = \ y - C\]</span><br>
-<span class="math display">\[T = \ F_{T}\left( y_{\text{lin}} \right)\]</span><br>
-<span class="math display">\[S = \ F_{S}\left( y_{\text{lin}} \right) + C\]</span><br>
-<span class="math display">\[I = \ F_{I}\left( y_{\text{lin}} \right)\]</span></p>
-<p>where:</p>
-<p>T - the trend;</p>
-<p>S - the seasonal component;</p>
-<p>I - the irregular component;</p>
-<p><span class="math inline">\(F_{X}\)</span> - the linear filter for the component X.</p>
-<p>Consider next other calendar effects (<span class="math inline">\(\widetilde{C}\)</span>) that contain some mean (<span class="math inline">\(\text{cm}\)</span>, integrated to the final trend) and fixed seasonal effects (<span class="math inline">\(\text{cs}\)</span>, integrated to the final seasonal). The modified equations are now:</p>
-<p><span class="math display">\[\widetilde{C} = C + cm + cs\]</span><br>
-<span class="math display">\[{\widetilde{y}}_{\text{lin}} = \ y - \widetilde{C} = \ y_{\text{lin}} - cm - cs\]</span><br>
-<span class="math display">\[\widetilde{T} = \ F_{T}\left( {\widetilde{y}}_{\text{lin}} \right) + cm\]</span><br>
-<span class="math display">\[\widetilde{S} = \ F_{S}\left( {\widetilde{y}}_{\text{lin}} \right) + C + cs\]</span><br>
-<span class="math display">\[\widetilde{I} = \ F_{I}\left( {\widetilde{y}}_{\text{lin}} \right)\]</span></p>
-<p>Taking into account that <span class="math inline">\(F_{X}\)</span> is a linear transformation and that<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
-<p><span class="math display">\[F_{T}\left( \text{cm} \right) = cm\]</span><br>
-<span class="math display">\[F_{T}\left( \text{cs} \right) = 0\]</span><br>
-<span class="math display">\[F_{S}\left( \text{cm} \right) = 0\ \]</span><br>
-<span class="math display">\[F_{S}\left( \text{cs} \right) = cs\]</span><br>
-<span class="math display">\[F_{I}\left( \text{cm} \right) = 0\]</span><br>
-<span class="math display">\[F_{I}\left( \text{cs} \right) = 0\]</span></p>
-<p>The following relationships hold:</p>
-<p><span class="math display">\[\widetilde{T} = \ F_{T}\left( {\widetilde{y}}_{\text{lin}} \right) + cm = F_{T}\left( y_{\text{lin}} \right) - cm + cm = T\]</span><br>
-<span class="math display">\[\widetilde{S} = \ F_{S}\left( {\widetilde{y}}_{\text{lin}} \right) + C + cs = F_{S}\left( y_{\text{lin}} \right) - cs + C + cs = S\]</span><br>
-<span class="math display">\[\widetilde{I} = \ I\]</span></p>
-<p>If we don’t take into account the effects and apply the same approach as in the “correct” calendar effects, we will get:</p>
-<p><span class="math display">\[\breve{T} = \ F_{T}\left( {\widetilde{y}}_{\text{lin}} \right) = T - cm\]</span><br>
-<span class="math display">\[\breve{S} = \ F_{S}\left( {\widetilde{y}}_{\text{lin}} \right) + \widetilde{C} = S + cm\]</span><br>
-<span class="math display">\[\breve{I} = \ F_{I}\left( {\widetilde{y}}_{\text{lin}} \right) = I\]</span></p>
-<p>The trend, seasonal and seasonally adjusted series will only differ by a (usually small) constant.</p>
-<p>In summary, the decomposition does not depend on the mean and fixed seasonal effects used for the calendar effects, provided that those effects are integrated in the corresponding final components. If these corrections are not taken into account, the main series of the decomposition will only differ by a constant.</p>
-</section>
-<section id="linear-transformations-of-the-calendar-variables" class="level3">
-<h3 class="anchored" data-anchor-id="linear-transformations-of-the-calendar-variables">Linear transformations of the calendar variables</h3>
-<p>As far as the RegARIMA and the TRAMO models are considered, any non-degenerated linear transformation of the calendar variables can be used. It will produce the same results (likelihood, residuals, parameters, joint effect of the calendar variables, joint F-test on the coefficients of the calendar variables…). The linearised series that will be further decomposed is invariant to any linear transformation of the calendar variables.</p>
-<p>However, it should be mentioned that choices of calendar corrections based on the tests on the individual t statistics are dependent on the transformation, which is rather arbitrary. This is the case in old versions of TRAMO-SEATS. That is why the joint F-test (as in the version of TRAMO-SEATS implemented in TSW+) should be preferred.</p>
-<p>An example of a linear transformation is the calculation of the contrast variables. In the case of the usual trading day variables, they are defined by the following transformation: the 6 contrast variables (<span class="math inline">\(\text{No.}\left( \text{Mondays} \right) - No.\left( \text{Sundays} \right),\ldots No.\left( \text{Saturdays} \right) - No.(Sundays)\)</span>) used with the length of period.</p>
-<p><span class="math display">\[\begin{bmatrix}                 
-  1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; - 1 \\    
-  0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; - 1 \\    
-  0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; 0 &amp; - 1 \\    
-  0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; 0 &amp; - 1 \\    
-  0 &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; 0 &amp; - 1 \\    
-  0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 1 &amp; - 1 \\    
-  1 &amp; 1 &amp; 1 &amp; 1 &amp; 1 &amp; 1 &amp; 1 \\      
-  \end{bmatrix}\begin{bmatrix}      
-  \text{Mon} \\                     
-  \text{Tue} \\                     
-  \text{Wed} \\                     
-  \text{Thu} \\                     
-  \text{Fri} \\                     
-  \text{Sat} \\                     
-  \text{Sun} \\                     
-  \end{bmatrix} = \begin{bmatrix}   
-  Mon - Sun \\                      
-  Tue - Sun \\                      
-  Wed - Sun \\                      
-  Thu - Sun \\                      
-  Fri - Sun \\                      
-  Sat - Sun \\                      
-  \text{Length of period} \\      
-  \end{bmatrix}\]</span></p>
-<p>For the usual working day variables, two variables are used: one contrast variable and the length of period</p>
-<p><span class="math display">\[\begin{bmatrix}                  
-  1 &amp; - \frac{5}{2} \\              
-  1 &amp; 1 \\                          
-  \end{bmatrix}\begin{bmatrix}      
-  \text{Week} \\                    
-  \text{Weekend} \\                 
-  \end{bmatrix} = \begin{bmatrix}   
-  \text{Contrast week} \\          
-  \text{Length of period} \\      
-  \end{bmatrix}\]</span></p>
-<p>The <span class="math inline">\(\text{Length of period}\)</span> variable is defined as a deviation from the length of the month (in days) and the average month length, which is equal to <span class="math inline">\(30.4375.\)</span> Instead, the leap-year variable can be used here (see Regression sections in <a href="../reference-manual/modelling-spec-arima.html#regression">RegARIMA</a> or <a href="../reference-manual/modelling-spec-tramo.html#regression">Tramo</a>)<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>.</p>
-<p>Such transformations have several advantages. They suppress from the contrast variables the mean and the seasonal effects, which are concentrated in the last variable. So, they lead to fewer correlated variables, which are more appropriate to be included in the regression model. The sum of the effects of each day of the week estimated with the trading (working) day contrast variables cancel out.</p>
-</section>
-<section id="handling-of-specific-holidays" class="level3">
-<h3 class="anchored" data-anchor-id="handling-of-specific-holidays">Handling of specific holidays</h3>
-<p>check vs GUI (v3) and rjd3</p>
-<p>Three types of holidays are implemented in JDemetra+:</p>
+<p>To take specific holidays into account a calendar has to be defined, regressors will be built subsequently.</p>
+<p>As regressors have the same data frequency as the input series, several cases:</p>
 <ul>
-<li><p>Fixed days, corresponding to the fixed dates in the year (e.g.&nbsp;New Year, Christmas).</p></li>
-<li><p>Easter related days, corresponding to the days that are defined in relation to Easter (e.g.&nbsp;Easter +/- n days; example: Ascension, Pentecost).</p></li>
-<li><p>Fixed week days, corresponding to the fixed days in a given week of a given month (e.g.&nbsp;Labor Day celebrated in the USA on the first Monday of September).</p></li>
+<li><p>for daily series : regressors are dummies representing each holidays</p></li>
+<li><p>for weekly, monthly and quarterly series regressors are aggregated indicators, the way of grouping different types of days and holidays has to be specified.</p></li>
 </ul>
-<p>From a conceptual point of view, specific holidays are handled in exactly the same way as the other days. It should be decided, however, to which group of days they belong. Usually they are handled as Sundays. This convention is also used in JDemetra+. Therefore, except if the holiday falls on a Sunday, the appearance of a holiday leads to correction in two groups, i.e.&nbsp;in the group that contains the weekday, in which holiday falls, and the group that contains the Sundays.</p>
-<p>Country specific holidays have an impact on the mean and the seasonal effects of calendar effects. Therefore, the appropriate corrections to the number of particular days (which are usually the basis for the definition of other calendar variables) should be applied, following the kind of holidays. These corrections are applied to the period(s) that may contain the holiday. The long term corrections in JDemetra+ don’t take into account the fact that some moving holidays could fall on the same day (for instance the May Day and the Ascension). However, those events are exceptional, and their impact on the final result is usually not significant.</p>
-<section id="fixed-day" class="level4">
-<h4 class="anchored" data-anchor-id="fixed-day">Fixed day</h4>
-<p>The probability that the holiday falls on a given day of the week is 1/7. Therefore, the probability to have 1 day more that is treated like Sunday is 6/7. The effect on the means for the period that contains the fixed day is presented in the table below (the correction on the calendar effect has the opposite sign).</p>
-<p><strong>The effect of the fixed holiday on the period, in which it occurred</strong></p>
-<table class="table">
-<thead>
-<tr class="header">
-<th><strong>Sundays</strong></th>
-<th><strong>Others days</strong></th>
-<th><strong>Contrast variables</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>+ 6/7</td>
-<td>- 1/7</td>
-<td>1/7 - (+ 6/7)= -1</td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="easter-related-days" class="level4">
-<h4 class="anchored" data-anchor-id="easter-related-days">Easter related days</h4>
-<p>Easter related days always fall the same week day (denoted as Y in the table below: The effects of the Easter Sunday on the seasonal means). However, they can fall during different periods (months or quarters). Suppose that, taking into account the distribution of the dates for Easter and the fact that this holiday falls in one of two periods, the probability that Easter falls during the period <span class="math inline">\(m\)</span> is <span class="math inline">\(p\)</span>, which implies that the probability that it falls in the period <span class="math inline">\(m + 1\)</span> is <span class="math inline">\(1 - p\)</span>. The effects of Easter on the seasonal means are presented in the table below.</p>
-<p><strong>The effects of the Easter Sunday on the seasonal means</strong></p>
-<p>|<strong>Period</strong> | <strong>Sundays</strong> <strong>Days X</strong> <strong>Others days</strong> <strong>Contrast Y</strong> <strong>Other contrasts</strong> |————| ————- ———— —————– ——————- ——————— |m |+ p - p 0 - 2p - p |m+1 | + (1-p) - (1-p) 0 - 2<span class="math inline">\(\times\)</span>(1-p) - (1-p)</p>
-<p>The distribution of the dates for Easter may be approximated in different ways. One of the solutions consists of using some well-known algorithms for computing Easter on a very long period. JDemetra+ provides the Meeus/Jones/Butcher’s and the Ron Mallen’s algorithms (they are identical till year 4100, but they slightly differ after that date). Another approach consists in deriving a raw theoretical distribution based on the definition of Easter. It is the solution used for Easter related days. It is shortly explained below.</p>
-<p>The date of Easter in the given year is the first Sunday after the full moon (the Paschal Full Moon) following the northern hemisphere’s vernal equinox. The definition is influenced by the Christian tradition, according to which the equinox is reckoned to be on 21 March<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> and the full moon is not necessarily the astronomically correct date. However, when the full moon falls on Sunday, then Easter is delayed by one week. With this definition, the date of Easter Sunday varies between 22 March and 25 April. Taking into account that an average lunar month is <span class="math inline">\(29.530595\)</span> days the approximated distribution of Easter can be derived. These calculations do not take into account the actual ecclesiastical moon calendar.</p>
-<p>For example, the probability that Easter Sunday falls on 25 March is 0.004838 and results from the facts that the probability that 25 March falls on a Sunday is <span class="math inline">\(1/7\)</span> and the probability that the full moon is on 21 March, 22 March, 23 March or 24 March is <span class="math inline">\(5/29.53059\)</span>. The probability that Easter falls on 24 April is 0.01708 and results from the fact that the probability that 24 April is Sunday is <span class="math inline">\(1/7\)</span> and takes into account that 18 April is the last acceptable date for the full moon. Therefore the probability that the full moon is on 16 April or 17 April is <span class="math inline">\(1/29.53059\)</span> and the probability that the full moon is on 18 April is <span class="math inline">\(1.53059/29.53059\)</span>.</p>
-<p><strong>The approximated distribution of Easter dates</strong></p>
-<table class="table">
-<thead>
-<tr class="header">
-<th><strong>Day</strong></th>
-<th><strong>Probability</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>22 March</td>
-<td>1/7 * 1/29.53059</td>
-</tr>
-<tr class="even">
-<td>23 March</td>
-<td>1/7 * 2/29.53059</td>
-</tr>
-<tr class="odd">
-<td>24 March</td>
-<td>1/7 * 3/29.53059</td>
-</tr>
-<tr class="even">
-<td>25 March</td>
-<td>1/7 * 4/29.53059</td>
-</tr>
-<tr class="odd">
-<td>26 March</td>
-<td>1/7 * 5/29.53059</td>
-</tr>
-<tr class="even">
-<td>27 March</td>
-<td>1/7 * 6/29.53059</td>
-</tr>
-<tr class="odd">
-<td>28 March</td>
-<td>1/29.53059</td>
-</tr>
-<tr class="even">
-<td>29 March</td>
-<td>1/29.53059</td>
-</tr>
-<tr class="odd">
-<td>…</td>
-<td>…</td>
-</tr>
-<tr class="even">
-<td>18 April</td>
-<td>1/29.53059</td>
-</tr>
-<tr class="odd">
-<td>19 April</td>
-<td>1/7 * (6 + 1.53059)/29.53059</td>
-</tr>
-<tr class="even">
-<td>20 April</td>
-<td>1/7 * (5 + 1.53059)/29.53059</td>
-</tr>
-<tr class="odd">
-<td>21 April</td>
-<td>1/7 * (4 + 1.53059)/29.53059</td>
-</tr>
-<tr class="even">
-<td>22 April</td>
-<td>1/7 * (3 + 1.53059)/29.53059</td>
-</tr>
-<tr class="odd">
-<td>23 April</td>
-<td>1/7 * (2 + 1.53059)/29.53059</td>
-</tr>
-<tr class="even">
-<td>24 April</td>
-<td>1/7 * (1 + 1.53059)/29.53059</td>
-</tr>
-<tr class="odd">
-<td>25 April</td>
-<td>1/7 * 1.53059/29.53059</td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="fixed-week-days" class="level4">
-<h4 class="anchored" data-anchor-id="fixed-week-days">Fixed week days</h4>
-<p>Fixed week days always fall on the same week day (denoted as Y in the table below) and in the same period. Their effect on the seasonal means is presented in the table below.</p>
-<p><strong>The effect of the fixed week holiday on the period, in which it occurred</strong></p>
-<table class="table">
-<thead>
-<tr class="header">
-<th><strong>Sundays</strong></th>
-<th><strong>Day Y</strong></th>
-<th><strong>Others days</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>+ 1</td>
-<td>- 1</td>
-<td>0</td>
-</tr>
-</tbody>
-</table>
-<p>The impact of fixed week days on the regression variables is zero because the effect itself is compensated by the correction for the mean effect.</p>
-</section>
-</section>
-<section id="holidays-with-a-validity-period" class="level3">
-<h3 class="anchored" data-anchor-id="holidays-with-a-validity-period">Holidays with a validity period</h3>
-<p>When a holiday is valid only for a given time span, JDemetra+ applies the long term mean corrections only on the corresponding period. However, those corrections are computed in the same way as in the general case.</p>
-<p>It is important to note that using or not using mean corrections will impact in the estimation of the RegARIMA and TRAMO models. Indeed, the mean corrections do not disappear after differencing. The differences between the SA series computed with or without mean corrections will no longer be constant.</p>
-</section>
-<section id="different-kinds-of-calendars" class="level3">
-<h3 class="anchored" data-anchor-id="different-kinds-of-calendars">Different Kinds of calendars</h3>
-<p>see link with GUI</p>
-<p>This scenario presents how to define different kinds of calendars. These calendars can be applied to the specifications that take into account country-specific holidays and can be used for detecting and estimating the calendar effects.</p>
-<p>The calendar effects are those parts of the movements in the time series that are caused by different number of weekdays in calendar months (or quarters). They arise as the number of occurrences of each day of the week in a month (or a quarter) differs from year to year. These differences cause regular effects in some series. In particular, such variation is caused by a leap year effect because of an extra day inserted into February every four years. As with seasonal effects, it is desirable to estimate and remove calendar effects from the time series.</p>
-<p>The calendar effects can be divided into a mean effect, a seasonal part and a structural part. The mean effect is independent from the period and therefore should be allocated to the trend-cycle. The seasonal part arises from the properties of the calendar that recur each year. For one thing, the number of working days of months with 31 calendar days is on average larger than that of months with 30 calendar days. This effect is part of the seasonal pattern captured by the seasonal component (with the exception of leap year effects). The structural part of the calendar effect remains to be determined by the calendar adjustment. For example, the number of working days of the same month in different years varies from year to year.</p>
-<p>Both X-12-ARIMA/X-13ARIMA-SEATS and TRAMO/SEATS estimate calendar effects by adding some regressors to the equation estimated in the pre-processing part (RegARIMA or TRAMO, respectively). Regressors mentioned above are generated from the default calendar or the user defined calendar.</p>
-<p>The calendars of JDemetra+ simply correspond to the usual trading days contrast variables based on the Gregorian calendar, modified to take into account some specific holidays. Those holidays are handled as “Sundays” and the variables are properly adjusted to take into account the long term mean effects.</p>
-</section>
-<section id="tests-for-residual-trading-days" class="level3">
-<h3 class="anchored" data-anchor-id="tests-for-residual-trading-days">Tests for residual trading days</h3>
-<p>We consider below tests on the seasonally adjusted series (<span class="math inline">\(sa_t\)</span>) or on the irregular component (<span class="math inline">\(irr_t\)</span>). When the reasoning applies on both components, we will use <span class="math inline">\(y_t\)</span>. The functions <span class="math inline">\(stdev\)</span> stands for “standard deviation” and <span class="math inline">\(rms\)</span> for “root mean squares”</p>
-<p>The tests are computed on the log-transformed components in the case of multiplicative decomposition.</p>
-<p>TD are the usual contrasts of trading days, 6 variables (no specific calendar).</p>
-<section id="non-significant-irregular" class="level4">
-<h4 class="anchored" data-anchor-id="non-significant-irregular">Non significant irregular</h4>
-<p>When <span class="math inline">\(irr_t\)</span> is not significant, we don’t compute the test on it, to avoid irrelevant results. We consider that <span class="math inline">\(irr_t\)</span> is significant if <span class="math inline">\(stdev( irr_t)&gt;0.01\)</span> (multiplicative case) or if <span class="math inline">\(stdev(irr_t)/rms(sa_t) &gt;0.01\)</span> (additive case).</p>
-</section>
-<section id="f-test" class="level4">
-<h4 class="anchored" data-anchor-id="f-test">F test</h4>
-<p>The test is the usual joint F-test on the TD coefficients, computed on the following models:</p>
-<section id="autoregressive-model-ar-modelling-option" class="level5">
-<h5 class="anchored" data-anchor-id="autoregressive-model-ar-modelling-option">Autoregressive model (AR modelling option)</h5>
-<p>We compute by OLS:</p>
-<p><span class="math display">\[y_t=\mu + \alpha y_{t-1} + \beta TD_t + \epsilon_t \]</span></p>
-</section>
-<section id="difference-model" class="level5">
-<h5 class="anchored" data-anchor-id="difference-model">Difference model</h5>
-<p>We compute by OLS:</p>
-<p><span class="math display">\[\Delta y_t - \overline{\Delta y_t}=\beta TD_t + \epsilon_t \]</span></p>
-<p>So, the latter model is a restriction of the first one (<span class="math inline">\(\alpha =1, \mu =μ=\overline{\Delta y_t}\)</span>)</p>
-<p>The tests are the usual joint F-tests on <span class="math inline">\(\beta \quad (H_0:\beta=0)\)</span>.</p>
-<p>By default, we compute the tests on the 8 last years of the components, so that they might highlight moving calendar effects.</p>
-<p>Remark:</p>
-<p>In Tramo, a similar test is computed on the residuals of the Arima model. More exactly, the F-test is computed on <span class="math inline">\(e_t=\beta TD_t + \epsilon_t\)</span>, where <span class="math inline">\(e_t\)</span> are the one-step-ahead forecast errors.</p>
-</section>
-</section>
-</section>
-</section>
-<section id="regressors-for-calendar-correction" class="level2">
-<h2 class="anchored" data-anchor-id="regressors-for-calendar-correction">Regressors for calendar correction</h2>
-<p>unlike seasonality, calendar effects are corrected via regressors here we’ll see how to build them</p>
-<p>it always start with building a calendar (or using a default one) which will allow to take holidays into account, this is described here</p>
-<p>then regrssors will be bulit from calendars + info on distinguishing several types of days (more or less), mondays…</p>
-<p>several cases, as regressors have the same data granularity as the input series</p>
-<ul>
-<li><p>daily series : dummies for holidays, type of day in p=7</p></li>
-<li><p>monthly and quaterly series : regressors = aggregated indicators holidays are grouped with one day, and more or less groups</p></li>
-</ul>
-<p>the goal is at the end to have regressors can be - built in</p>
-<ul>
-<li>external, completely user defined</li>
-</ul>
-<p>once the calendar is defined the corresponding regressors can be generated and used in gui in R</p>
-<section id="customizing-calendars" class="level3">
-<h3 class="anchored" data-anchor-id="customizing-calendars">Customizing calendars</h3>
-<p>There are three ways to build customized calendars taking into account national holidays</p>
-<pre><code>- In the Graphical User Interface </code></pre>
+<section id="in-gui" class="level3">
+<h3 class="anchored" data-anchor-id="in-gui">In GUI</h3>
+<section id="creating-calendars" class="level4">
+<h4 class="anchored" data-anchor-id="creating-calendars">Creating calendars</h4>
 <p>The resulting calendar will allow to generate customized regressors which can then be added while running a seasonal adjustment processing The customized calendar can be directly linked to the calendar correction option in GUI while running a seasonal adjustment processing (see SA chapter, link).</p>
-<pre><code>- In R </code></pre>
-<p>via GUI (link) or in R (link).</p>
-<pre><code>- Directly writing xml files </code></pre>
-<section id="pre-defined-holidays" class="level4">
-<h4 class="anchored" data-anchor-id="pre-defined-holidays">Pre-Defined Holidays</h4>
-<p>A <em>Special days</em> list is pre-defined for most commonly occurring holidays.</p>
-<pre><code>{: .table .table-style}
-  | **Holiday**    |    **Definition**| 
-  ----------------- ----------------------------------------------------------------------------------------------------------------------------| 
- |  New Year       |   Fixed holiday, falls on January, 1.| 
- | Ash Wednesday   |   Moving holiday, occurring 46 days before Easter.| 
- | Easter          |   Moving holiday, varies between March, 22 and April, 25.| 
- |  Maundy Thursday|   Moving holiday, falls on the Thursday before Easter.| 
- |  Good Friday    |   Moving holiday, falls on the Friday before Easter.| 
- |  Easter Monday  |   Moving holiday, falls on the day after Easter.| 
- |  Ascension Day  |   Moving holiday, celebrated on Thursday, 40 days after Easter.| 
- |  Pentecost      |   Moving holiday, celebrated 50 days after Easter Sunday.| 
- |  Whit Monday    |   Moving holiday, falling on the day after Pentecost.| 
- |  May Day        |   Fixed holiday, falls on May, 1.| 
- |  Assumption     |   Fixed holiday, falls on August, 15.| 
- |  Halloween      |   Fixed holiday, falls on October, 31.| 
- |  All Saints Day |   Fixed holiday, falls on November, 1.| 
- |  Thanksgiving   |   Moving holiday, celebrated on the second Monday of October (Canada) or on the fourth Thursday of November (United States).| 
- | Christmas Day   |   Fixed holiday, falls on December, 25.| </code></pre>
-</section>
-<section id="in-gui" class="level4">
-<h4 class="anchored" data-anchor-id="in-gui">In GUI</h4>
 <section id="default-calendar" class="level5">
 <h5 class="anchored" data-anchor-id="default-calendar">Default Calendar</h5>
 <p>In the graphical user interface, calendars in are stored in the <em>Workspace</em> window in the <em>Utilities</em> section. In the default calendar, country-specific national holidays are not taken into account, it reflects only the usual composition of the weeks in the calendar periods.</p>
-<pre><code>![Text](All_images/UG_CAL_image1.jpg)
-
-**The *Calendars* section in the *Workspace* window**</code></pre>
-<p>To view the details of the default calendar</p>
-<pre><code>- double click on it
-
-![Text](All_images/UG_CAL_image2.jpg)
-
-**The default view of the default calendar**</code></pre>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/UG_CAL_image1.jpg" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Text</figcaption>
+</figure>
+</div>
+<p>To view the details of the default calendar: double click on it</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/UG_CAL_image2.jpg" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Text</figcaption>
+</figure>
+</div>
 </section>
 <section id="set-properties" class="level5">
 <h5 class="anchored" data-anchor-id="set-properties">Set Properties</h5>
@@ -2016,7 +516,9 @@ ul.task-list li input[type="checkbox"] {
 <li><p>Frequency (monthly, quarterly..)</p></li>
 <li><p>Trading days or working days regressors</p></li>
 </ul>
-<p><em>Trading days</em>: 6 contrast variables (<span class="math inline">\(number\ of\ Mondays - number\ of\ Sundays\)</span>,…) and one regressor for the leap year effect.</p>
+<p><em>Trading days</em>: 6 contrast variables</p>
+<p>number of Mondays - number of Sundays</p>
+<p>and one regressor for the leap year effect.</p>
 <p><em>Working Days</em>: 1 contrast variable (<span class="math inline">\(number\ of\ working days (monday to friday) - number\ of\ Saturdays and Sundays\)</span>,…) and one regressor for the leap year effect.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -2033,7 +535,16 @@ ul.task-list li input[type="checkbox"] {
 <li>To change it, click on the calendar variable header.</li>
 </ul>
 <p>Calendar variables shouldn’t have a peak neither at a zero frequency (trend) nor the seasonal frequencies.</p>
-<p><img src="All_images/UG_CAL_image6.jpg" class="img-fluid" alt="Text"> #### Modify an existing Calendar</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/UG_CAL_image6.jpg" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Text</figcaption>
+</figure>
+</div>
+</section>
+</section>
+<section id="modify-an-existing-calendar" class="level4">
+<h4 class="anchored" data-anchor-id="modify-an-existing-calendar">Modify an existing Calendar</h4>
 <ul>
 <li><p>click the option <em>Edit</em> from the context menu</p></li>
 <li><p>the list of holidays defined for this calendar is displayed</p></li>
@@ -2047,10 +558,15 @@ ul.task-list li input[type="checkbox"] {
 <p><strong>Edit a calendar window</strong></p>
 <ul>
 <li><p>To add a holiday unfold the <strong>+</strong> menu</p></li>
-<li><p>To remove a holiday click on it and choose the <strong>-</strong> button <img src="All_images/UG_CAL_image13.jpg" class="img-fluid" alt="Text"></p></li>
+<li><p>To remove a holiday click on it and choose the <strong>-</strong> button</p></li>
 </ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/UG_CAL_image13.jpg" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Text</figcaption>
+</figure>
+</div>
 <p><strong>Removing a holiday from the calendar</strong></p>
-</section>
 <section id="creating-a-new-calendar" class="level5">
 <h5 class="anchored" data-anchor-id="creating-a-new-calendar">Creating a new calendar</h5>
 <p>An appropriate calendar, containing the required national holidays, needs to be created to adjust a series for country-specific calendar effects.</p>
@@ -2112,7 +628,6 @@ ul.task-list li input[type="checkbox"] {
 <figcaption class="figure-caption">Text</figcaption>
 </figure>
 </div>
-<pre><code>**The \*Julian Easter\* option**</code></pre>
 <p>To add a holiday from this list to the national calendar, choose the <em>Special day</em> item from the <em>Special days</em> list.</p>
 <p><img src="All_images/UG_CAL_image18.jpg" class="img-fluid" alt="Text"> <strong>Adding a pre-defined holiday to the calendar</strong></p>
 <p>By default, when the <em>Special Days</em> option is selected, JDemetra+ always adds <em>Christmas</em> to the list of selected holidays. The user can change this initial choice by specifying the settings in the panel on the right and clicking <em>OK</em>. The settings that can be changed include:</p>
@@ -2236,7 +751,7 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="composite-calendar" class="level5">
 <h5 class="anchored" data-anchor-id="composite-calendar">Composite Calendar</h5>
-<p>Creating a chained calendar is relevant when correcting series which include data from more than one country/region. This option can be used, for example, to create the calendar for the European Union or to create the national calendar for a country, in which regional holidays are celebrated.</p>
+<p>Creating a composite calendar is relevant when correcting series which include data from more than one country/region. This option can be used, for example, to create the calendar for the European Union or to create the national calendar for a country, in which regional holidays are celebrated.</p>
 <p>First define the relevant national calendars corresponding to each member state/region as explained above.</p>
 <p>To define a chained calendar: right click on Calendar item in the Utility panel of the workspace window</p>
 <div class="quarto-figure quarto-figure-center">
@@ -2289,46 +804,259 @@ ul.task-list li input[type="checkbox"] {
 <section id="example-of-a-calendar-file" class="level5">
 <h5 class="anchored" data-anchor-id="example-of-a-calendar-file">Example of a calendar file</h5>
 <p>example of a html file containing a calendar</p>
-<p><img src="All_images/UG_CAL_image9.jpg" class="img-fluid" alt="Text"> #### In R</p>
-<p>In version 2 (RJDemetra), not possible to build calendars and generate regressors with jd+. Two approaches</p>
+<p><img src="All_images/UG_CAL_image9.jpg" class="img-fluid" alt="Text"> #### Generating regressors</p>
+</section>
+<section id="type-of-days" class="level5">
+<h5 class="anchored" data-anchor-id="type-of-days">Type of days</h5>
+</section>
+<section id="leap-year" class="level5">
+<h5 class="anchored" data-anchor-id="leap-year">Leap year</h5>
+</section>
+<section id="length-of-period" class="level5">
+<h5 class="anchored" data-anchor-id="length-of-period">Length of Period</h5>
+<p>(adjust param)</p>
+</section>
+<section id="easter" class="level5">
+<h5 class="anchored" data-anchor-id="easter">Easter</h5>
+</section>
+<section id="stock-td" class="level5">
+<h5 class="anchored" data-anchor-id="stock-td">stock TD</h5>
+</section>
+</section>
+</section>
+<section id="in-r-with-rjd3toolkit" class="level3">
+<h3 class="anchored" data-anchor-id="in-r-with-rjd3toolkit">In R with rjd3toolkit</h3>
+<p>Version 3 of JDemetra+ allows to build calendar regressors using the <code>rjd3toolkit</code> package.</p>
+<p>The underlying concepts are identical to those available in the graphical user interface (GUI) as described above. R functions replicate the same process and all arguments and outputs are detailed in <code>rjd3toolkit</code> help pages. The sections below provide basic examples.</p>
+<p>Note that, RJDemetra package based on version 2 of JDemetra+, doesn’t allow to build calendars and generate regressors. Thus, two approaches are possible when using version 2</p>
 <ul>
-<li>use built in regressors (wd or td) not taking into account national holidays</li>
-<li>import externally generated user defined calendar</li>
+<li><p>use built in regressors (“working days” or “trading days”) not taking into account national holidays</p></li>
+<li><p>import user defined calendar regressors</p></li>
 </ul>
-<p>(link to how to plug this in into a spec)</p>
-<p>in version 3 new functionalities</p>
-</section>
-<section id="building-calendar" class="level5">
-<h5 class="anchored" data-anchor-id="building-calendar">Building calendar</h5>
-<p>(time series, data frequency will be taken into account later…) give an overview of the process beforehand</p>
-<p>step 1: defining a calendar</p>
+<section id="creating-calendars-1" class="level4">
+<h4 class="anchored" data-anchor-id="creating-calendars-1">Creating calendars</h4>
+<section id="national-calendar-1" class="level5">
+<h5 class="anchored" data-anchor-id="national-calendar-1">National Calendar</h5>
+<p>Creating a national calendar with rjd3toolkit.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="do">## French calendar</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>frenchCalendar <span class="ot">&lt;-</span> <span class="fu">national_calendar</span>(<span class="at">days =</span> <span class="fu">list</span>(</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fixed_day</span>(<span class="dv">7</span>, <span class="dv">14</span>), <span class="co"># Bastille Day</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fixed_day</span>(<span class="dv">5</span>, <span class="dv">8</span>, <span class="at">validity =</span> <span class="fu">list</span>(<span class="at">start =</span> <span class="st">"1982-05-08"</span>)),<span class="co"># End of 2nd WW</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">special_day</span>(<span class="st">'NEWYEAR'</span>), </span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">special_day</span>(<span class="st">'CHRISTMAS'</span>), </span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">special_day</span>(<span class="st">'MAYDAY'</span>),</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">special_day</span>(<span class="st">'EASTERMONDAY'</span>), </span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">special_day</span>(<span class="st">'ASCENSION'</span>), <span class="co">#</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">special_day</span>(<span class="st">'WHITMONDAY'</span>), </span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">special_day</span>(<span class="st">'ASSUMPTION'</span>), </span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">special_day</span>(<span class="st">'ALLSAINTSDAY'</span>),</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">special_day</span>(<span class="st">'ARMISTICE'</span>))</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Holidays can be created with the following ways:</p>
 <ul>
-<li><p>definition of days 3 functions ‘fixed_day’ and ‘fixed_week_day’ and ‘easter add a ’single_day’ also pre-defined special day ‘special_day’, eleven pre-.. events</p></li>
-<li><p>a list of day constitutes a calendar</p></li>
+<li>as fixed days (falling on the exact same date every year)</li>
 </ul>
-<p>here above: national calendar equivalent of</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>day <span class="ot">&lt;-</span> <span class="fu">fixed_day</span>(<span class="at">month=</span> <span class="dv">12</span>, <span class="at">day=</span><span class="dv">25</span>,<span class="at">weight=</span> .<span class="dv">9</span>, <span class="at">validity =</span> <span class="fu">list</span>(<span class="at">start=</span><span class="st">"1968-02-01"</span>, <span class="at">end =</span> <span class="st">"2010-01-01"</span>))</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>day <span class="co"># December 25th, with weight=0.9, from February 1968 until January 2010</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>as special days, when on the list of common holidays, which is available in the function’s halp page.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Get the list </span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>?special_day</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># To define a holiday for the day after Christmas, with validity and weight</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="fu">special_day</span>(<span class="st">"CHRISTMAS"</span>, <span class="at">offset =</span> <span class="dv">1</span>, <span class="at">weight =</span> <span class="fl">0.8</span>,</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="at">validity =</span> <span class="fu">list</span>(<span class="at">start=</span><span class="st">"2000-01-01"</span>, <span class="at">end =</span> <span class="st">"2020-12-01"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>as a fixed week day</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fixed_week_day</span>(<span class="dv">7</span>, <span class="dv">2</span>, <span class="dv">3</span>) <span class="co"># second Wednesday of July</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>as an easter related holiday</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>     <span class="fu">easter_day</span>(<span class="dv">1</span>), <span class="co"># Easter Monday</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>     <span class="fu">easter_day</span>(<span class="sc">-</span><span class="dv">2</span>), <span class="co"># Good Friday</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>An example of calendar bringing together all options</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>MyCalendar <span class="ot">&lt;-</span> <span class="fu">national_calendar</span>(<span class="fu">list</span>(</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">fixed_day</span>(<span class="dv">7</span>,<span class="dv">21</span>),</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>     <span class="fu">special_day</span>(<span class="st">'NEWYEAR'</span>),</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>     <span class="fu">special_day</span>(<span class="st">'CHRISTMAS'</span>),</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>     <span class="fu">fixed_week_day</span>(<span class="dv">7</span>, <span class="dv">2</span>, <span class="dv">3</span>), <span class="co"># second Wednesday of July</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>     <span class="fu">special_day</span>(<span class="st">'MAYDAY'</span>),</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>     <span class="fu">easter_day</span>(<span class="dv">1</span>), <span class="co"># Easter Monday</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>     <span class="fu">easter_day</span>(<span class="sc">-</span><span class="dv">2</span>), <span class="co"># Good Friday</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>     <span class="fu">fixed_day</span>(<span class="dv">5</span>, <span class="dv">8</span>, <span class="at">validity =</span> <span class="fu">list</span>(<span class="at">start =</span> <span class="st">"1982-05-08"</span>)), <span class="co"># End of 2nd WW</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>     <span class="fu">single_day</span>(<span class="st">"2001-09-11"</span>), <span class="co"># appearing once </span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>     <span class="fu">special_day</span>(<span class="st">'ASCENSION'</span>),</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>     <span class="fu">easter_day</span>(<span class="at">offset=</span><span class="dv">60</span>,<span class="at">julian=</span><span class="cn">FALSE</span>, <span class="at">weight=</span><span class="fl">0.5</span>, <span class="at">validity =</span> <span class="fu">list</span>(<span class="at">start=</span><span class="st">"2000-01-01"</span>, <span class="at">end =</span> <span class="st">"2020-12-01"</span>)),  <span class="co"># Corpus Christi</span></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>     <span class="fu">special_day</span>(<span class="st">'WHITMONDAY'</span>),</span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>     <span class="fu">special_day</span>(<span class="st">'ASSUMPTION'</span>),</span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>     <span class="fu">special_day</span>(<span class="st">'ALLSAINTSDAY'</span>),</span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>     <span class="fu">special_day</span>(<span class="st">'ARMISTICE'</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>For any defined calendar, it is possible to retrieve the long term-mean correction values which would be applied on a given set of regressors.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="do">### Long-term means of a calendar</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>BE <span class="ot">&lt;-</span> <span class="fu">national_calendar</span>(<span class="fu">list</span>(</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">fixed_day</span>(<span class="dv">7</span>,<span class="dv">21</span>),</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">special_day</span>(<span class="st">'NEWYEAR'</span>),</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">special_day</span>(<span class="st">'CHRISTMAS'</span>),</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">special_day</span>(<span class="st">'MAYDAY'</span>),</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">special_day</span>(<span class="st">'EASTERMONDAY'</span>),</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">special_day</span>(<span class="st">'ASCENSION'</span>),</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">special_day</span>(<span class="st">'WHITMONDAY'</span>),</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">special_day</span>(<span class="st">'ASSUMPTION'</span>),</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">special_day</span>(<span class="st">'ALLSAINTSDAY'</span>),</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">special_day</span>(<span class="st">'ARMISTICE'</span>)))</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(BE)</span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>lt<span class="ot">&lt;-</span><span class="fu">long_term_mean</span>(BE,<span class="dv">12</span>,</span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">groups =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>),</span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">holiday =</span> <span class="dv">7</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
-<section id="generating-regressors" class="level5">
-<h5 class="anchored" data-anchor-id="generating-regressors">generating regressors</h5>
-<section id="normal" class="level6">
-<h6 class="anchored" data-anchor-id="normal">normal</h6>
+<section id="chained-calendar-1" class="level5">
+<h5 class="anchored" data-anchor-id="chained-calendar-1">Chained Calendar</h5>
+<p>Creating a chained calendar is relevant when a major break occurs in the definition of the country-specific holidays.</p>
+<p>First define the 2 (or <span class="math inline">\(N\)</span>) national calendars corresponding to each regime as explained in the section above.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>Belgium <span class="ot">&lt;-</span> <span class="fu">national_calendar</span>(<span class="fu">list</span>(<span class="fu">special_day</span>(<span class="st">'NEWYEAR'</span>),<span class="fu">fixed_day</span>(<span class="dv">7</span>,<span class="dv">21</span>)))</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>France <span class="ot">&lt;-</span> <span class="fu">national_calendar</span>(<span class="fu">list</span>(<span class="fu">special_day</span>(<span class="st">'NEWYEAR'</span>),<span class="fu">fixed_day</span>(<span class="dv">7</span>,<span class="dv">14</span>)))</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>chained_cal<span class="ot">&lt;-</span><span class="fu">chained_calendar</span>(France, Belgium, <span class="st">"2000-01-01"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
-<section id="easter-effect" class="level6">
-<h6 class="anchored" data-anchor-id="easter-effect">easter effect</h6>
+<section id="composite-calendar-1" class="level5">
+<h5 class="anchored" data-anchor-id="composite-calendar-1">Composite Calendar</h5>
+<p>Creating a composite calendar is relevant when correcting series which include data from more than one country/region. This option can be used, for example, to create the calendar for the European Union or to create the national calendar for a country, in which regional holidays are celebrated.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>Belgium <span class="ot">&lt;-</span> <span class="fu">national_calendar</span>(<span class="fu">list</span>(<span class="fu">special_day</span>(<span class="st">'NEWYEAR'</span>),<span class="fu">fixed_day</span>(<span class="dv">7</span>,<span class="dv">21</span>)))</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>France <span class="ot">&lt;-</span> <span class="fu">national_calendar</span>(<span class="fu">list</span>(<span class="fu">special_day</span>(<span class="st">'NEWYEAR'</span>),<span class="fu">fixed_day</span>(<span class="dv">7</span>,<span class="dv">14</span>)))</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>composite_calendar<span class="ot">&lt;-</span> <span class="fu">weighted_calendar</span>(<span class="fu">list</span>(France,Belgium), <span class="at">weights =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="generating-regressors" class="level4">
+<h4 class="anchored" data-anchor-id="generating-regressors">Generating regressors</h4>
+<p>First for monthly, Q, bi monthly…(set this right)</p>
+<section id="type-of-days-1" class="level5">
+<h5 class="anchored" data-anchor-id="type-of-days-1">Type of days</h5>
+<p>This section describes how to generate regressors to correct for type of days effects. They can be based on a default calendar (no specific holidays taken into account) or on a customized calendar.</p>
+<section id="trading-day-regressors-without-holidays-using-rjd3toolkittd-function" class="level6">
+<h6 class="anchored" data-anchor-id="trading-day-regressors-without-holidays-using-rjd3toolkittd-function">Trading day regressors without holidays using rjd3toolkit::td function</h6>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Monthly regressors for Trading Days: each type of day is different</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="co"># contrasts to Sundays (6 series)</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>?td </span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>regs_td<span class="ot">&lt;-</span> <span class="fu">td</span>(<span class="at">frequency=</span><span class="dv">12</span>,<span class="fu">c</span>(<span class="dv">2020</span>,<span class="dv">1</span>),<span class="dv">60</span>, <span class="at">groups =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">0</span>), <span class="at">contrasts =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The <code>groups</code> argument allows to build groups of days, as daus belonging to the same group will be identified by the same number, and to set a reference for contrasts with the number <code>0</code>.</p>
+</section>
+<section id="trading-day-regressors-with-pre-defined-holidays-using-rjd3toolkitcalendar_td-function" class="level6">
+<h6 class="anchored" data-anchor-id="trading-day-regressors-with-pre-defined-holidays-using-rjd3toolkitcalendar_td-function">Trading day regressors with pre-defined holidays using rjd3toolkit::calendar_td function</h6>
+<p>The rjd3toolkit::calendar_td function</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>?calendar_td</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="co"># first define a calendar</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>BE <span class="ot">&lt;-</span> <span class="fu">national_calendar</span>(<span class="fu">list</span>(</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">fixed_day</span>(<span class="dv">7</span>,<span class="dv">21</span>),</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">special_day</span>(<span class="st">'NEWYEAR'</span>),</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">special_day</span>(<span class="st">'CHRISTMAS'</span>),</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">special_day</span>(<span class="st">'MAYDAY'</span>),</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">special_day</span>(<span class="st">'EASTERMONDAY'</span>),</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">special_day</span>(<span class="st">'ASCENSION'</span>),</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">special_day</span>(<span class="st">'WHITMONDAY'</span>),</span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">special_day</span>(<span class="st">'ASSUMPTION'</span>),</span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">special_day</span>(<span class="st">'ALLSAINTSDAY'</span>),</span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">special_day</span>(<span class="st">'ARMISTICE'</span>)))</span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a><span class="co"># generate regressors</span></span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a><span class="fu">calendar_td</span>(BE, <span class="at">frequency=</span><span class="dv">12</span>, <span class="fu">c</span>(<span class="dv">1980</span>,<span class="dv">1</span>), <span class="dv">240</span>, <span class="at">holiday=</span><span class="dv">7</span>, <span class="at">groups=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">0</span>),</span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a><span class="at">contrasts =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a><span class="co"># here three groups and one reference are defined</span></span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Mondays = Tuesdays= Wednesdays (`1`)</span></span>
+<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Thursdays= Fridays (`2`)</span></span>
+<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Saturdays (`3`)</span></span>
+<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Sundays and all holidays (`0`) </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="leap-year-1" class="level5">
+<h5 class="anchored" data-anchor-id="leap-year-1">Leap year</h5>
+</section>
+<section id="length-of-period-1" class="level5">
+<h5 class="anchored" data-anchor-id="length-of-period-1">Length of Period</h5>
+<p>adjust param</p>
+</section>
+<section id="easter-regressor" class="level5">
+<h5 class="anchored" data-anchor-id="easter-regressor">Easter Regressor</h5>
+<p>Create a regressor for modelling the easter effect:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Monthly regressor, five-year long, duration 8 days, effect finishing on Easter Monday</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>ee<span class="ot">&lt;-</span><span class="fu">easter_variable</span>(<span class="at">frequency=</span><span class="dv">12</span>, <span class="fu">c</span>(<span class="dv">2020</span>,<span class="dv">1</span>),<span class="at">length=</span><span class="dv">5</span><span class="sc">*</span><span class="dv">12</span>,<span class="at">duration=</span><span class="dv">8</span>, <span class="at">endpos=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Display Easter Sunday dates in given period</p>
+<p>The function below allows to display the date of Easter Sunday for each year, in the defined period. Dates are displayed in “YYYY-MM-DD” format and as a number of days since January 1st 1970.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Dates from 2018(included) to 2023 (included)</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">easter_dates</span>(<span class="dv">2018</span>, <span class="dv">2023</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="stock-td-1" class="level5">
+<h5 class="anchored" data-anchor-id="stock-td-1">stock TD</h5>
+</section>
+<section id="daily-data-dummies" class="level5">
+<h5 class="anchored" data-anchor-id="daily-data-dummies">Daily data (dummies)</h5>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="do">## dummies corresponding to holidays</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>q<span class="ot">&lt;-</span><span class="fu">holidays</span>(BE, <span class="st">"2020-01-01"</span>,<span class="fl">365.25</span>, <span class="at">type=</span><span class="st">"All"</span>)</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span>(q)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="weekly-data" class="level6">
+<h6 class="anchored" data-anchor-id="weekly-data">Weekly data</h6>
+</section>
+</section>
+</section>
+</section>
+</section>
+<section id="test-for-residual-calendar-effects" class="level2">
+<h2 class="anchored" data-anchor-id="test-for-residual-calendar-effects">Test for Residual Calendar effects</h2>
+<p>(To be added: where exactly to find the tests in GUI and R)</p>
+<p>We consider below tests on the seasonally adjusted series (<span class="math inline">\(sa_t\)</span>) or on the irregular component (<span class="math inline">\(irr_t\)</span>). When the reasoning applies on both components, we will use <span class="math inline">\(y_t\)</span>. The functions <span class="math inline">\(stdev\)</span> stands for “standard deviation” and <span class="math inline">\(rms\)</span> for “root mean squares”</p>
+<p>The tests are computed on the log-transformed components in the case of multiplicative decomposition.</p>
+<p>TD are the usual contrasts of trading days, 6 variables (no specific calendar).</p>
+<section id="non-significant-irregular" class="level4">
+<h4 class="anchored" data-anchor-id="non-significant-irregular">Non significant irregular</h4>
+<p>When <span class="math inline">\(irr_t\)</span> is not significant, we don’t compute the test on it, to avoid irrelevant results. We consider that <span class="math inline">\(irr_t\)</span> is significant if <span class="math inline">\(stdev( irr_t)&gt;0.01\)</span> (multiplicative case) or if <span class="math inline">\(stdev(irr_t)/rms(sa_t) &gt;0.01\)</span> (additive case).</p>
+</section>
+<section id="f-test" class="level4">
+<h4 class="anchored" data-anchor-id="f-test">F test</h4>
+<p>The test is the usual joint F-test on the TD coefficients, computed on the following models:</p>
+<section id="autoregressive-model-ar-modelling-option" class="level5">
+<h5 class="anchored" data-anchor-id="autoregressive-model-ar-modelling-option">Autoregressive model (AR modelling option)</h5>
+<p>We compute by OLS:</p>
+<p><span class="math display">\[y_t=\mu + \alpha y_{t-1} + \beta TD_t + \epsilon_t \]</span></p>
+</section>
+<section id="difference-model" class="level5">
+<h5 class="anchored" data-anchor-id="difference-model">Difference model</h5>
+<p>We compute by OLS:</p>
+<p><span class="math display">\[\Delta y_t - \overline{\Delta y_t}=\beta TD_t + \epsilon_t \]</span></p>
+<p>So, the latter model is a restriction of the first one (<span class="math inline">\(\alpha =1, \mu =μ=\overline{\Delta y_t}\)</span>)</p>
+<p>The tests are the usual joint F-tests on <span class="math inline">\(\beta \quad (H_0:\beta=0)\)</span>.</p>
+<p>By default, we compute the tests on the 8 last years of the components, so that they might highlight moving calendar effects.</p>
+<p>Remark:</p>
+<p>In Tramo, a similar test is computed on the residuals of the Arima model. More exactly, the F-test is computed on <span class="math inline">\(e_t=\beta TD_t + \epsilon_t\)</span>, where <span class="math inline">\(e_t\)</span> are the one-step-ahead forecast errors.</p>
 
 
 </section>
 </section>
-</section>
-</section>
-</section>
-<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
-<hr>
-<ol>
-<li id="fn1"><p>In case of SEATS the properties can be trivially derived from the matrix formulation of signal extraction. They are also valid for X-11 (additive).<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn2"><p>GÓMEZ, V., and MARAVALL, A (2001b).<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn3"><p>In fact, astronomical observations show that the equinox occurs on 20 March in most years.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-</ol>
 </section>
 
 </main> <!-- /main -->
@@ -2568,7 +1296,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./A-outlier-detection.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Outlier detection and Intervention variables</span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Outlier detection and external regressors</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">

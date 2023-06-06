@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>JDemetra+ documentation - Outlier detection and Intervention variables</title>
+<title>JDemetra+ documentation - Outlier detection and external regressors</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -108,7 +108,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./P_Algorithms.html">Algorithms</a></li><li class="breadcrumb-item"><a href="./A-outlier-detection.html">Outlier detection and Intervention variables</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./P_Algorithms.html">Algorithms</a></li><li class="breadcrumb-item"><a href="./A-outlier-detection.html">Outlier detection and external regressors</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -175,13 +175,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./A-outlier-detection.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Outlier detection and Intervention variables</span></a>
+ <span class="menu-text">Outlier detection and external regressors</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./A-calendar-correction.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Calendar and user-defined corrections</span></a>
+ <span class="menu-text">Calendar correction</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -326,52 +326,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
-  <li><a href="#in-this-chapter" id="toc-in-this-chapter" class="nav-link" data-scroll-target="#in-this-chapter">In this chapter</a></li>
-  <li><a href="#generating-regressors-for-outliers" id="toc-generating-regressors-for-outliers" class="nav-link" data-scroll-target="#generating-regressors-for-outliers">Generating regressors for outliers</a>
+  <li><a href="#chapters-overview" id="toc-chapters-overview" class="nav-link active" data-scroll-target="#chapters-overview">Chapter’s overview</a></li>
+  <li><a href="#generating-external-regressors" id="toc-generating-external-regressors" class="nav-link" data-scroll-target="#generating-external-regressors">Generating external regressors</a>
   <ul class="collapse">
-  <li><a href="#available-types-of-outiers" id="toc-available-types-of-outiers" class="nav-link" data-scroll-target="#available-types-of-outiers">Available types of outiers</a></li>
+  <li><a href="#outliers" id="toc-outliers" class="nav-link" data-scroll-target="#outliers">Outliers</a></li>
+  <li><a href="#ramp-regressors" id="toc-ramp-regressors" class="nav-link" data-scroll-target="#ramp-regressors">Ramp regressors</a></li>
+  <li><a href="#intervention-variables" id="toc-intervention-variables" class="nav-link" data-scroll-target="#intervention-variables">Intervention variables</a></li>
+  <li><a href="#periodic-dummies-and-contrasts" id="toc-periodic-dummies-and-contrasts" class="nav-link" data-scroll-target="#periodic-dummies-and-contrasts">Periodic dummies and contrasts</a></li>
+  <li><a href="#trigonometric-variables" id="toc-trigonometric-variables" class="nav-link" data-scroll-target="#trigonometric-variables">Trigonometric variables</a></li>
   </ul></li>
-  <li><a href="#generating-regressors-for-outliers-1" id="toc-generating-regressors-for-outliers-1" class="nav-link" data-scroll-target="#generating-regressors-for-outliers-1">Generating regressors for outliers</a>
+  <li><a href="#outlier-detection" id="toc-outlier-detection" class="nav-link" data-scroll-target="#outlier-detection">Outlier Detection</a>
   <ul class="collapse">
-  <li><a href="#generation-in-gui" id="toc-generation-in-gui" class="nav-link" data-scroll-target="#generation-in-gui">Generation in GUI</a></li>
-  <li><a href="#generation-in-r" id="toc-generation-in-r" class="nav-link" data-scroll-target="#generation-in-r">Generation in R</a></li>
-  <li><a href="#adding-outliers-to-specification" id="toc-adding-outliers-to-specification" class="nav-link" data-scroll-target="#adding-outliers-to-specification">adding outliers to specification</a></li>
-  <li><a href="#in-gui" id="toc-in-gui" class="nav-link" data-scroll-target="#in-gui">in GUI</a></li>
-  <li><a href="#in-r" id="toc-in-r" class="nav-link" data-scroll-target="#in-r">in R</a></li>
-  </ul></li>
-  <li><a href="#generating-ramp-regressors" id="toc-generating-ramp-regressors" class="nav-link" data-scroll-target="#generating-ramp-regressors">Generating ramp regressors</a>
-  <ul class="collapse">
-  <li><a href="#generation-in-gui-1" id="toc-generation-in-gui-1" class="nav-link" data-scroll-target="#generation-in-gui-1">Generation in GUI</a></li>
-  <li><a href="#generation-in-r-1" id="toc-generation-in-r-1" class="nav-link" data-scroll-target="#generation-in-r-1">Generation in R</a></li>
-  <li><a href="#adding-ramps-to-specification" id="toc-adding-ramps-to-specification" class="nav-link" data-scroll-target="#adding-ramps-to-specification">adding ramps to specification</a></li>
-  <li><a href="#in-gui-1" id="toc-in-gui-1" class="nav-link" data-scroll-target="#in-gui-1">in GUI</a></li>
-  <li><a href="#in-r-1" id="toc-in-r-1" class="nav-link" data-scroll-target="#in-r-1">in R</a></li>
-  </ul></li>
-  <li><a href="#generating-intervention-variable" id="toc-generating-intervention-variable" class="nav-link" data-scroll-target="#generating-intervention-variable">Generating intervention variable</a>
-  <ul class="collapse">
-  <li><a href="#generation-in-gui-2" id="toc-generation-in-gui-2" class="nav-link" data-scroll-target="#generation-in-gui-2">Generation in GUI</a></li>
-  <li><a href="#generation-in-r-2" id="toc-generation-in-r-2" class="nav-link" data-scroll-target="#generation-in-r-2">Generation in R</a></li>
-  <li><a href="#adding-intervention-variable-to-specification" id="toc-adding-intervention-variable-to-specification" class="nav-link" data-scroll-target="#adding-intervention-variable-to-specification">adding intervention variable to specification</a></li>
-  <li><a href="#in-gui-2" id="toc-in-gui-2" class="nav-link" data-scroll-target="#in-gui-2">in GUI</a></li>
-  <li><a href="#in-r-2" id="toc-in-r-2" class="nav-link" data-scroll-target="#in-r-2">in R</a></li>
-  </ul></li>
-  <li><a href="#generating-periodic-dummies-and-contrasts" id="toc-generating-periodic-dummies-and-contrasts" class="nav-link" data-scroll-target="#generating-periodic-dummies-and-contrasts">Generating periodic dummies and contrasts</a>
-  <ul class="collapse">
-  <li><a href="#in-r-3" id="toc-in-r-3" class="nav-link" data-scroll-target="#in-r-3">In R</a></li>
-  </ul></li>
-  <li><a href="#generating-trigonometric-variables" id="toc-generating-trigonometric-variables" class="nav-link" data-scroll-target="#generating-trigonometric-variables">Generating trigonometric variables</a>
-  <ul class="collapse">
-  <li><a href="#in-r-4" id="toc-in-r-4" class="nav-link" data-scroll-target="#in-r-4">in R</a></li>
-  </ul></li>
-  <li><a href="#adding-user-defined-variables-to-specification" id="toc-adding-user-defined-variables-to-specification" class="nav-link" data-scroll-target="#adding-user-defined-variables-to-specification">adding user defined variables to specification</a></li>
-  <li><a href="#outlier-detection-parameters-in-a-sa-processing" id="toc-outlier-detection-parameters-in-a-sa-processing" class="nav-link" data-scroll-target="#outlier-detection-parameters-in-a-sa-processing">Outlier detection Parameters in a SA processing</a></li>
-  <li><a href="#outlier-detection-with-reg-arima-models" id="toc-outlier-detection-with-reg-arima-models" class="nav-link" data-scroll-target="#outlier-detection-with-reg-arima-models">Outlier Detection With Reg Arima models</a>
-  <ul class="collapse">
-  <li><a href="#in-r-5" id="toc-in-r-5" class="nav-link" data-scroll-target="#in-r-5">In R</a></li>
-  </ul></li>
-  <li><a href="#specific-terror-tool" id="toc-specific-terror-tool" class="nav-link" data-scroll-target="#specific-terror-tool">Specific TERROR tool</a></li>
+  <li><a href="#with-reg-arima-models" id="toc-with-reg-arima-models" class="nav-link" data-scroll-target="#with-reg-arima-models">With Reg Arima models</a></li>
   <li><a href="#with-structural-models-bsm" id="toc-with-structural-models-bsm" class="nav-link" data-scroll-target="#with-structural-models-bsm">With structural models (BSM)</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -380,7 +348,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Outlier detection and Intervention variables</h1>
+<h1 class="title">Outlier detection and external regressors</h1>
 </div>
 
 
@@ -395,84 +363,70 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<p>Under construction.</p>
-<section id="overview" class="level2">
-<h2 class="anchored" data-anchor-id="overview">Overview</h2>
+<section id="chapters-overview" class="level2">
+<h2 class="anchored" data-anchor-id="chapters-overview">Chapter’s overview</h2>
+<p>The chapter describes</p>
 <ul>
-<li><p>External regressors and their use</p></li>
-<li><p>2 types of external regressors equations on allocation to components</p>
-<ul>
-<li>calendar very specific issue, specific chapter</li>
-<li>others : outliers,…</li>
-</ul></li>
+<li><p>how to easily generate useful external regressors for improving seasonal adjustment</p></li>
+<li><p>JDemetra+ solutions for outlier detection and in a time series.<br>
+These routines can be used stand alone or as part of a seasonal adjustment process. They can be accessed via GUI or R packages.</p></li>
 </ul>
-<p>Here construction of variables for quarterly and monthly data quid about HF ? bilan à faire</p>
-<p>in R once a regressor is defined, it can be used as an external regressor: more possibilities of allocation and fixing coeffs</p>
-<p>JDemetra+ provides outlier detection routines which can be used stand alone or as part of a seasonal adjustment process. They can be accessed via GUI or R packages.</p>
-</section>
-<section id="in-this-chapter" class="level2">
-<h2 class="anchored" data-anchor-id="in-this-chapter">In this chapter</h2>
+<p>How to use the generated regressors, or any user-defined variable, in a seasonal adjustment or reg-arima modelling process is discussed in the relevant chapters on <a href="./A-sa.html">SA</a> and <a href="./A-sa-hf.html">SA of High-frequency data</a>. There you will also find out how to fix the corresponding coefficients and how to allocate the effects to selected component.</p>
+<p>The external regressors described below are not meant for calendar correction which is detailed <a href="./A-calendar-correction.html">here</a></p>
+<p>Type of data in the scope of this chapter:<br>
+Here construction of variables for quarterly and monthly data quid about HF ? TABLE by data type</p>
+<p>ADD (to each chapter)</p>
 <ul>
-<li><p>generation</p></li>
-<li><p>plug in into algos : in relevant chapters : key = allocation to components ? automatic or not ? specify for each type</p></li>
-<li><p>detection</p></li>
+<li><p>scope by data type</p></li>
+<li><p>contrast differences R vs GUI</p></li>
 </ul>
 </section>
-<section id="generating-regressors-for-outliers" class="level2">
-<h2 class="anchored" data-anchor-id="generating-regressors-for-outliers">Generating regressors for outliers</h2>
-<section id="available-types-of-outiers" class="level3">
-<h3 class="anchored" data-anchor-id="available-types-of-outiers">Available types of outiers</h3>
-<p>if smth else needed (intervention variables or ramps) pull out from R doc + Sa chapter - names - equations - explanations</p>
+<section id="generating-external-regressors" class="level2">
+<h2 class="anchored" data-anchor-id="generating-external-regressors">Generating external regressors</h2>
+<section id="outliers" class="level3">
+<h3 class="anchored" data-anchor-id="outliers">Outliers</h3>
+<section id="outlier-types" class="level4">
+<h4 class="anchored" data-anchor-id="outlier-types">Outlier Types</h4>
+<p>The following outliers are available for automatic detection</p>
+<p><img src="All_images/SA_REGA_Outliers_AO_LS_TC.png" class="img-fluid"></p>
+<p><img src="All_images/SA_REGA_Outliers_SO.png" class="img-fluid"></p>
+<p>Allocation specified</p>
+<p>ADD: specifics for HF data</p>
 </section>
+<section id="pre-specifying-outliers" class="level4">
+<h4 class="anchored" data-anchor-id="pre-specifying-outliers">Pre-specifying outliers</h4>
+<p>Outliers are well-defined types of auxiliary variables, therefore when they are used (reg-arima or tramo modelling) they don’t need to be explicitly generated. This is detailed in chapters on <a href="./A-sa.html">SA</a> and <a href="./A-sa-hf.html">SA of High-frequency data</a>.</p>
+<p>check:</p>
+<ul>
+<li><p>in v2 fixing coefficients impossible? (window displayed as a calendar</p></li>
+<li><p>in v3 calendar window or different window, allowing to fix coefficients</p></li>
+</ul>
 </section>
-<section id="generating-regressors-for-outliers-1" class="level2">
-<h2 class="anchored" data-anchor-id="generating-regressors-for-outliers-1">Generating regressors for outliers</h2>
-<p>use cases allocation to components: pre-defined in the type, not user customizable</p>
-<section id="generation-in-gui" class="level3">
-<h3 class="anchored" data-anchor-id="generation-in-gui">Generation in GUI</h3>
-<p>regressors are notre really generated but pre-specified v2 calendar (fixing coefficients impossible ?)</p>
-<p>V3 calendar or different window, allowing to fix coefficients</p>
-</section>
-<section id="generation-in-r" class="level3">
-<h3 class="anchored" data-anchor-id="generation-in-r">Generation in R</h3>
-<p>v2 regressors couldn’t be generated but directly implemented in spec link to SA chap</p>
-<p>v3 outliers can be directly implemented in a spec link to SA chap</p>
-<p>but regressors can also be generated with rjd3toolkit(link to R pack chap) for an independent use</p>
+<section id="generating-regressors-for-outliers" class="level4">
+<h4 class="anchored" data-anchor-id="generating-regressors-for-outliers">Generating regressors for outliers</h4>
+<p>Nevertheless, explicit regressors corresponding to outliers can be generated with <code>rjd3toolkit</code> functions for further use.independent use</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Outliers in February 2002</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>ao <span class="ot">&lt;-</span> <span class="fu">ao_variable</span>(<span class="dv">12</span>, <span class="fu">c</span>(<span class="dv">2000</span>,<span class="dv">1</span>), <span class="at">length =</span> <span class="dv">12</span><span class="sc">*</span><span class="dv">4</span>, <span class="at">date =</span> <span class="st">"2002-02-01"</span>)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>ls <span class="ot">&lt;-</span> <span class="fu">ls_variable</span>(<span class="dv">12</span>, <span class="fu">c</span>(<span class="dv">2000</span>,<span class="dv">1</span>), <span class="at">length =</span> <span class="dv">12</span><span class="sc">*</span><span class="dv">4</span>, <span class="at">date =</span> <span class="st">"2002-02-01"</span>)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>tc <span class="ot">&lt;-</span> <span class="fu">tc_variable</span>(<span class="dv">12</span>, <span class="fu">c</span>(<span class="dv">2000</span>,<span class="dv">1</span>), <span class="at">length =</span> <span class="dv">12</span><span class="sc">*</span><span class="dv">4</span>, <span class="at">date =</span> <span class="st">"2002-02-01"</span>)</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>so <span class="ot">&lt;-</span> <span class="fu">so_variable</span>(<span class="dv">12</span>, <span class="fu">c</span>(<span class="dv">2000</span>,<span class="dv">1</span>), <span class="at">length =</span> <span class="dv">12</span><span class="sc">*</span><span class="dv">4</span>, <span class="at">date =</span> <span class="st">"2002-02-01"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rjd3toolkit)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>ao <span class="ot">&lt;-</span> <span class="fu">ao_variable</span>(<span class="dv">12</span>, <span class="fu">c</span>(<span class="dv">2000</span>,<span class="dv">1</span>), <span class="at">length =</span> <span class="dv">12</span><span class="sc">*</span><span class="dv">4</span>, <span class="at">date =</span> <span class="st">"2002-02-01"</span>)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>ls <span class="ot">&lt;-</span> <span class="fu">ls_variable</span>(<span class="dv">12</span>, <span class="fu">c</span>(<span class="dv">2000</span>,<span class="dv">1</span>), <span class="at">length =</span> <span class="dv">12</span><span class="sc">*</span><span class="dv">4</span>, <span class="at">date =</span> <span class="st">"2002-02-01"</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>tc <span class="ot">&lt;-</span> <span class="fu">tc_variable</span>(<span class="dv">12</span>, <span class="fu">c</span>(<span class="dv">2000</span>,<span class="dv">1</span>), <span class="at">length =</span> <span class="dv">12</span><span class="sc">*</span><span class="dv">4</span>, <span class="at">date =</span> <span class="st">"2002-02-01"</span>)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>so <span class="ot">&lt;-</span> <span class="fu">so_variable</span>(<span class="dv">12</span>, <span class="fu">c</span>(<span class="dv">2000</span>,<span class="dv">1</span>), <span class="at">length =</span> <span class="dv">12</span><span class="sc">*</span><span class="dv">4</span>, <span class="at">date =</span> <span class="st">"2002-02-01"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>More details rjd3toolkit help (how to set a link) pages and vignette</p>
-</section>
-<section id="adding-outliers-to-specification" class="level3">
-<h3 class="anchored" data-anchor-id="adding-outliers-to-specification">adding outliers to specification</h3>
-</section>
-<section id="in-gui" class="level3">
-<h3 class="anchored" data-anchor-id="in-gui">in GUI</h3>
-</section>
-<section id="in-r" class="level3">
-<h3 class="anchored" data-anchor-id="in-r">in R</h3>
-<p>v2</p>
-<p>V3 pb : add outlier and set outlier</p>
+<p>More details rjd3toolkit help pages and vignette.</p>
 </section>
 </section>
-<section id="generating-ramp-regressors" class="level2">
-<h2 class="anchored" data-anchor-id="generating-ramp-regressors">Generating ramp regressors</h2>
-<p>why ? what is different from outliers (and i variables ) how can they be allocated dans GUI ramp se voir dans reg_t, pas de choix d’allocation voir si idem en r</p>
-<p>can coefficient be fixed in GUI separated window</p>
-<section id="generation-in-gui-1" class="level3">
-<h3 class="anchored" data-anchor-id="generation-in-gui-1">Generation in GUI</h3>
-<p>v2 calendar (fixing coefficients impossible ?)</p>
-<p>V3 calendar or different window, allowing to fix coefficients</p>
+<section id="ramp-regressors" class="level3">
+<h3 class="anchored" data-anchor-id="ramp-regressors">Ramp regressors</h3>
+<p>What are ramps ? To which component they are allocated ?</p>
+<p>in R - step 1 generate - step 2 add as an external regressor to the estimation process (reg-arima modelling or full SA estimation)</p>
+<p>in GUI - generation and addition step are merged as one (cf sa ?) (sa chapter)</p>
+<p>Differences between R and GUI</p>
+<section id="adding-ramps-in-gui" class="level4">
+<h4 class="anchored" data-anchor-id="adding-ramps-in-gui">Adding ramps in GUI</h4>
 </section>
-<section id="generation-in-r-1" class="level3">
-<h3 class="anchored" data-anchor-id="generation-in-r-1">Generation in R</h3>
-<p>v2 regressors couldn’t be generated but directly implemented in spec link to SA chap</p>
-<p>v3 outliers can be directly implemented in a spec link to SA chap</p>
-<p>but regressors can also be generated with rjd3toolkit for an independent use</p>
+<section id="generating-ramp-regressors-in-r" class="level4">
+<h4 class="anchored" data-anchor-id="generating-ramp-regressors-in-r">Generating ramp regressors in R</h4>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Ramp variable from January 2001 to September 2001</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>rp <span class="ot">&lt;-</span> <span class="fu">ramp_variable</span>(<span class="dv">12</span>, <span class="fu">c</span>(<span class="dv">2000</span>,<span class="dv">1</span>), <span class="at">length =</span> <span class="dv">12</span><span class="sc">*</span><span class="dv">4</span>, <span class="at">range =</span> <span class="fu">c</span>(<span class="dv">13</span>, <span class="dv">21</span>))</span>
@@ -482,33 +436,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>More details rjd3toolkit help (how to set a link) pages and vignette</p>
 </section>
-<section id="adding-ramps-to-specification" class="level3">
-<h3 class="anchored" data-anchor-id="adding-ramps-to-specification">adding ramps to specification</h3>
-</section>
-<section id="in-gui-1" class="level3">
-<h3 class="anchored" data-anchor-id="in-gui-1">in GUI</h3>
-</section>
-<section id="in-r-1" class="level3">
-<h3 class="anchored" data-anchor-id="in-r-1">in R</h3>
-<p>v2</p>
-<p>V3</p>
+<section id="adding-ramps-in-r" class="level4">
+<h4 class="anchored" data-anchor-id="adding-ramps-in-r">Adding ramps in R</h4>
 </section>
 </section>
-<section id="generating-intervention-variable" class="level2">
-<h2 class="anchored" data-anchor-id="generating-intervention-variable">Generating intervention variable</h2>
+<section id="intervention-variables" class="level3">
+<h3 class="anchored" data-anchor-id="intervention-variables">Intervention variables</h3>
 <p>why ? what is different from outliers (and ramps) how can they be allocated details in component very important cf JP</p>
-<p>dans GUI intervention va dans reg_i</p>
+<p>dans GUI intervention va dans reg_i ? always? can be selected</p>
 <p>can coefficient be fixes je ne comprends pas fenetre dans GUI</p>
-<section id="generation-in-gui-2" class="level3">
-<h3 class="anchored" data-anchor-id="generation-in-gui-2">Generation in GUI</h3>
-<p>v2 calendar (fixing coefficients impossible ?)</p>
-<p>V3 calendar or different window, allowing to fix coefficients</p>
+<section id="adding-intervention-variables-in-gui" class="level4">
+<h4 class="anchored" data-anchor-id="adding-intervention-variables-in-gui">Adding intervention variables in GUI</h4>
 </section>
-<section id="generation-in-r-2" class="level3">
-<h3 class="anchored" data-anchor-id="generation-in-r-2">Generation in R</h3>
-<p>v2 regressors couldn’t be generated but directly implemented in spec link to SA chap</p>
-<p>v3 outliers can be directly implemented in a spec link to SA chap</p>
-<p>but regressors can also be generated with rjd3toolkit for an independent use</p>
+<section id="generating-intervention-variables-in-r" class="level4">
+<h4 class="anchored" data-anchor-id="generating-intervention-variables-in-r">Generating intervention variables in R</h4>
+<p>example</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>iv<span class="ot">&lt;-</span><span class="fu">intervention_variable</span>(<span class="at">frequency=</span><span class="dv">12</span>, <span class="at">start=</span><span class="fu">c</span>(<span class="dv">2000</span>, <span class="dv">1</span>), <span class="at">length=</span><span class="dv">60</span>,</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>                      <span class="at">starts =</span> <span class="st">"2001-01-01"</span>, <span class="at">ends =</span> <span class="st">"2001-12-01"</span>)</span>
@@ -528,24 +470,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>More details rjd3toolkit help (how to set a link) pages and vignette</p>
 </section>
-<section id="adding-intervention-variable-to-specification" class="level3">
-<h3 class="anchored" data-anchor-id="adding-intervention-variable-to-specification">adding intervention variable to specification</h3>
-</section>
-<section id="in-gui-2" class="level3">
-<h3 class="anchored" data-anchor-id="in-gui-2">in GUI</h3>
-</section>
-<section id="in-r-2" class="level3">
-<h3 class="anchored" data-anchor-id="in-r-2">in R</h3>
-<p>v2</p>
-<p>V3</p>
+<section id="adding-intervention-variables-in-r" class="level4">
+<h4 class="anchored" data-anchor-id="adding-intervention-variables-in-r">Adding intervention variables in R</h4>
 </section>
 </section>
-<section id="generating-periodic-dummies-and-contrasts" class="level2">
-<h2 class="anchored" data-anchor-id="generating-periodic-dummies-and-contrasts">Generating periodic dummies and contrasts</h2>
+<section id="periodic-dummies-and-contrasts" class="level3">
+<h3 class="anchored" data-anchor-id="periodic-dummies-and-contrasts">Periodic dummies and contrasts</h3>
 <p>why ? use case ?</p>
 <p>in GUI not possible</p>
-<section id="in-r-3" class="level3">
-<h3 class="anchored" data-anchor-id="in-r-3">In R</h3>
+<section id="generating-regressors-in-r" class="level4">
+<h4 class="anchored" data-anchor-id="generating-regressors-in-r">Generating regressors in R</h4>
 <p>dummies :as many time series as type of periods in a year (4,12) periodic contrasts; objectif</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="do">## periodic dummies : add explanations and examples</span></span>
@@ -557,32 +491,34 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>contrasts</p>
 </section>
+<section id="adding-to-estimation" class="level4">
+<h4 class="anchored" data-anchor-id="adding-to-estimation">Adding to estimation</h4>
 </section>
-<section id="generating-trigonometric-variables" class="level2">
-<h2 class="anchored" data-anchor-id="generating-trigonometric-variables">Generating trigonometric variables</h2>
+</section>
+<section id="trigonometric-variables" class="level3">
+<h3 class="anchored" data-anchor-id="trigonometric-variables">Trigonometric variables</h3>
 <p>use case: stable seaso in what kind of model ? allocation fixed coeff in GUI not possible (different algo)</p>
-<section id="in-r-4" class="level3">
-<h3 class="anchored" data-anchor-id="in-r-4">in R</h3>
+<section id="generating-trigonometric-regressors-in-r" class="level4">
+<h4 class="anchored" data-anchor-id="generating-trigonometric-regressors-in-r">Generating trigonometric regressors in R</h4>
 <p>More details rjd3toolkit help (how to set a link) pages and vignette</p>
 </section>
+<section id="adding-trigonometric-regressors-in-r" class="level4">
+<h4 class="anchored" data-anchor-id="adding-trigonometric-regressors-in-r">Adding trigonometric regressors in R</h4>
 </section>
-<section id="adding-user-defined-variables-to-specification" class="level2">
-<h2 class="anchored" data-anchor-id="adding-user-defined-variables-to-specification">adding user defined variables to specification</h2>
-<ul>
-<li>allocation to component</li>
-<li>coefficient</li>
-</ul>
 </section>
-<section id="outlier-detection-parameters-in-a-sa-processing" class="level2">
-<h2 class="anchored" data-anchor-id="outlier-detection-parameters-in-a-sa-processing">Outlier detection Parameters in a SA processing</h2>
+</section>
+<section id="outlier-detection" class="level2">
+<h2 class="anchored" data-anchor-id="outlier-detection">Outlier Detection</h2>
+<section id="with-reg-arima-models" class="level3">
+<h3 class="anchored" data-anchor-id="with-reg-arima-models">With Reg Arima models</h3>
+<section id="within-an-sa-processing" class="level4">
+<h4 class="anchored" data-anchor-id="within-an-sa-processing">Within an SA processing</h4>
 <p>cf function set outlier</p>
-</section>
-<section id="outlier-detection-with-reg-arima-models" class="level2">
-<h2 class="anchored" data-anchor-id="outlier-detection-with-reg-arima-models">Outlier Detection With Reg Arima models</h2>
 <p>here we are talking detection outside of an SA process</p>
-<section id="in-r-5" class="level3">
-<h3 class="anchored" data-anchor-id="in-r-5">In R</h3>
-<p>independent function in</p>
+</section>
+<section id="stand-alone" class="level4">
+<h4 class="anchored" data-anchor-id="stand-alone">Stand alone</h4>
+<p>available in R packages independent function in</p>
 <ul>
 <li>rjd3x13</li>
 </ul>
@@ -596,14 +532,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>rjd3tramoseats</li>
 </ul>
 </section>
+<section id="specific-terror-tool" class="level4">
+<h4 class="anchored" data-anchor-id="specific-terror-tool">Specific TERROR tool</h4>
 </section>
-<section id="specific-terror-tool" class="level2">
-<h2 class="anchored" data-anchor-id="specific-terror-tool">Specific TERROR tool</h2>
 </section>
-<section id="with-structural-models-bsm" class="level2">
-<h2 class="anchored" data-anchor-id="with-structural-models-bsm">With structural models (BSM)</h2>
+<section id="with-structural-models-bsm" class="level3">
+<h3 class="anchored" data-anchor-id="with-structural-models-bsm">With structural models (BSM)</h3>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -848,7 +785,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
   <div class="nav-page nav-page-next">
       <a href="./A-calendar-correction.html" class="pagination-link">
-        <span class="nav-page-text">Calendar and user-defined corrections</span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text">Calendar correction</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
