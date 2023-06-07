@@ -22,7 +22,7 @@ Regressors are corrected for deterministic seasonality through a long-term mean 
 
 How to add other types of regressors is described [here](A-outlier-detection.qmd)
 
-#### Calendar correction in R vs in GUI: quick contrasting
+#### Calendar correction using R packages vs GUI: quick contrasting
 
 - is group and reference day choice as flexible in GUI as in R ?
 
