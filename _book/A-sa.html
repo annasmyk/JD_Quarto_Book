@@ -328,10 +328,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a>
+  <li><a href="#chapters-overview" id="toc-chapters-overview" class="nav-link active" data-scroll-target="#chapters-overview">Chapter’s overview</a></li>
+  <li><a href="#seasonal-adjustment-algorithms" id="toc-seasonal-adjustment-algorithms" class="nav-link" data-scroll-target="#seasonal-adjustment-algorithms">Seasonal Adjustment Algorithms</a>
   <ul class="collapse">
-  <li><a href="#in-this-chapter" id="toc-in-this-chapter" class="nav-link" data-scroll-target="#in-this-chapter">In this chapter</a></li>
-  <li><a href="#seasonal-adjustment-algorithms" id="toc-seasonal-adjustment-algorithms" class="nav-link" data-scroll-target="#seasonal-adjustment-algorithms">Seasonal Adjustment Algorithms</a></li>
   <li><a href="#decomposition-in-unobserved-components" id="toc-decomposition-in-unobserved-components" class="nav-link" data-scroll-target="#decomposition-in-unobserved-components">Decomposition in unobserved components</a></li>
   <li><a href="#pre-treatment-principles" id="toc-pre-treatment-principles" class="nav-link" data-scroll-target="#pre-treatment-principles">Pre-treatment principles</a></li>
   <li><a href="#detecting-seasonal-patterns" id="toc-detecting-seasonal-patterns" class="nav-link" data-scroll-target="#detecting-seasonal-patterns">Detecting seasonal patterns</a></li>
@@ -390,22 +389,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<section id="overview" class="level2">
-<h2 class="anchored" data-anchor-id="overview">Overview</h2>
-<p>The goal of seasonal adjustment is to remove seasonal fluctuations a time series. Seasonal fluctuations are quasi-periodic infra-annual movements. They can mask evolution of greater interest for the user such as short term evolutions or long time trends.</p>
-<p>This chapter focuses on the <strong>practical step by step</strong> use of JDemetra+ algorithms, restricted to monthly and quarterly series. For intra-monthly data see the <a href="./A-sa-hf.html">following chapter</a>. The use of <a href="./T-graphical-user-interface.html">graphical user interface</a> and <a href="./T-r-packages.html">R packages</a> are described simultaneously whenever relevant.</p>
+<section id="chapters-overview" class="level2">
+<h2 class="anchored" data-anchor-id="chapters-overview">Chapter’s overview</h2>
+<p>The goal of seasonal adjustment is to remove seasonal fluctuations from a time series. Seasonal fluctuations are quasi-periodic infra-annual movements. They can mask evolution of greater interest for the user such as short term evolution or long time trends.</p>
+<p>This chapter focuses on the <strong>practical step by step</strong> use of JDemetra+ algorithms, restricted to monthly and quarterly series. For infra-monthly data see the <a href="./A-sa-hf.html">following chapter</a>. The use of <a href="./T-graphical-user-interface.html">graphical user interface</a> and <a href="./T-r-packages.html">R packages</a> are described simultaneously whenever relevant.</p>
 <p>In-depth methodological explanations of the algorithms are covered in separated chapters, in the <a href="./P_Methods.html">Methods</a> part.</p>
-<p>This chapter is under construction, missing parts will be updated in the coming months.</p>
 <p>More information on the steps and best practices of a seasonal adjustment process can be found in the <a href="https://ec.europa.eu/eurostat/documents/3859598/6830795/KS-GQ-15-001-EN-N.pdf">Eurostat guidelines on seasonal adjustment</a></p>
 <p>For an overview on the algorithms and methodological issues, please refer to the <a href="https://ec.europa.eu/eurostat/documents/3859598/8939616/KS-GQ-18-001-EN-N.pdf">Handbook on Seasonal Adjustment</a></p>
-<section id="in-this-chapter" class="level3">
-<h3 class="anchored" data-anchor-id="in-this-chapter">In this chapter</h3>
-<ul>
-<li>calendar correction steps</li>
-</ul>
 </section>
-<section id="seasonal-adjustment-algorithms" class="level3">
-<h3 class="anchored" data-anchor-id="seasonal-adjustment-algorithms">Seasonal Adjustment Algorithms</h3>
+<section id="seasonal-adjustment-algorithms" class="level2">
+<h2 class="anchored" data-anchor-id="seasonal-adjustment-algorithms">Seasonal Adjustment Algorithms</h2>
 <table class="table">
 <caption>X13-Arima and Tramo-Seats are two-step algorithms with a pre-treatment phase (Reg-Arima or Tramo) and a decomposition phase (X11 and Seats). STL is a local regression (Loess) based decomposition, without pre-treatment. In a Structural Time Series approach pre-treatment and decomposition are done simultaneously in a State Space Framework <a href="./M-state-space-framework.html">(SSF)</a>.</caption>
 <thead>
@@ -467,7 +460,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 </tbody>
 </table>
-</section>
 <section id="decomposition-in-unobserved-components" class="level3">
 <h3 class="anchored" data-anchor-id="decomposition-in-unobserved-components">Decomposition in unobserved components</h3>
 <p>To seasonally adjust a series, seasonal factors <span class="math inline">\(S_{t}\)</span> will be estimated and removed from the original raw series: <span class="math inline">\(Y_{sa}=Y_{t}/S_{t}\)</span> or <span class="math inline">\(Y_{sa}=Y_{t}-S_{t}\)</span>. To do so the series is first decomposed into unobservable components. Two decomposition models:</p>
@@ -1197,10 +1189,8 @@ Y_t = \sum \hat{\alpha}_i O_{it} + \sum\hat\beta_j C_{jt} + \sum\hat\gamma_k Reg
 </section>
 <section id="special-case-2-intervention-variables" class="level4">
 <h4 class="anchored" data-anchor-id="special-case-2-intervention-variables">Special case 2: Intervention variables</h4>
-<p>Intervention variables: Intervention variables are modeled as any possible sequence of ones and zeros, on which some operators may be applied. Intervention variables are built as combinations of the following basic structures[^16]: * Dummy variables[^17]; * Any possible sequence of ones and zeros; * <span class="math inline">\(\frac{1}{(1 - \delta B)}\)</span>, * <span class="math inline">\((0 &lt; \delta \leq 1)\)</span>; * <span class="math inline">\(\frac{1}{(1 - \delta_{s}B^{s })}\)</span>, * <span class="math inline">\((0 &lt; \delta_{s} \leq 1)\)</span>; * <span class="math inline">\(\frac{1}{(1 - B)(1 - B^{s})}\)</span>; where <span class="math inline">\(B\)</span> is backshift operator (i.e.&nbsp;<span class="math inline">\(B^{k}X_{t} = X_{t - k}\)</span>) and <span class="math inline">\(s\)</span> is frequency of the time series ($s = 12$for a monthly time series, $s = 4$for a quarterly time series).</p>
+<p>Intervention variables are modeled as any possible sequence of ones and zeros, on which some operators may be applied. They are built as combinations of the following basic structures: * Dummy variables[^17]; * Any possible sequence of ones and zeros; * <span class="math inline">\(\frac{1}{(1 - \delta B)}\)</span>, * <span class="math inline">\((0 &lt; \delta \leq 1)\)</span>; * <span class="math inline">\(\frac{1}{(1 - \delta_{s}B^{s })}\)</span>, * <span class="math inline">\((0 &lt; \delta_{s} \leq 1)\)</span>; * <span class="math inline">\(\frac{1}{(1 - B)(1 - B^{s})}\)</span>; where <span class="math inline">\(B\)</span> is backshift operator (i.e.&nbsp;<span class="math inline">\(B^{k}X_{t} = X_{t - k}\)</span>) and <span class="math inline">\(s\)</span> is frequency of the time series ($s = 12$for a monthly time series, $s = 4$for a quarterly time series).</p>
 <p>These basic structures enable the generation of not only AO, LS, TC, SO and RP outliers but also sophisticated intervention variables that are well-adjusted to the particular case.</p>
-<p>Ramp Effects:</p>
-<p>As they are the most common external regressors, JDemetra+ offers functionalities to build them directly</p>
 <section id="creation-in-gui-1" class="level6">
 <h6 class="anchored" data-anchor-id="creation-in-gui-1">Creation in GUI</h6>
 <p>step 1 <img src="All_images/SA_REGA_calendar_user_def_inter_var_1.png" class="img-fluid"></p>
