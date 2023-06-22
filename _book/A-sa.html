@@ -392,7 +392,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="chapters-overview" class="level2">
 <h2 class="anchored" data-anchor-id="chapters-overview">Chapter’s overview</h2>
 <p>The goal of seasonal adjustment is to remove seasonal fluctuations from a time series. Seasonal fluctuations are quasi-periodic infra-annual movements. They can mask evolution of greater interest for the user such as short term evolution or long time trends.</p>
-<p>This chapter focuses on the <strong>practical step by step</strong> use of JDemetra+ algorithms, restricted to monthly and quarterly series. For infra-monthly data see the <a href="./A-sa-hf.html">following chapter</a>. The use of <a href="./T-graphical-user-interface.html">graphical user interface</a> and <a href="./T-r-packages.html">R packages</a> are described simultaneously whenever relevant.</p>
+<p>This chapter focuses on the <strong>practical step by step</strong> use of JDemetra+ algorithms, restricted to monthly and quarterly series. For infra-monthly data see the <a href="./A-sa-hf.html">following chapter</a>. The use of <a href="./T-graphical-user-interface.html">graphical user interface</a> and <a href="./T-r-packages.html">R packages</a> is described simultaneously whenever relevant.</p>
 <p>In-depth methodological explanations of the algorithms are covered in separated chapters, in the <a href="./P_Methods.html">Methods</a> part.</p>
 <p>More information on the steps and best practices of a seasonal adjustment process can be found in the <a href="https://ec.europa.eu/eurostat/documents/3859598/6830795/KS-GQ-15-001-EN-N.pdf">Eurostat guidelines on seasonal adjustment</a></p>
 <p>For an overview on the algorithms and methodological issues, please refer to the <a href="https://ec.europa.eu/eurostat/documents/3859598/8939616/KS-GQ-18-001-EN-N.pdf">Handbook on Seasonal Adjustment</a></p>
@@ -441,18 +441,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td>rjd3tramoseats</td>
 </tr>
 <tr class="even">
-<td>Seats only</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-</tr>
-<tr class="odd">
 <td>STL</td>
 <td>no</td>
 <td>no</td>
 <td>rjd3stl</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>STS</td>
 <td>no</td>
 <td>no</td>
@@ -497,21 +491,18 @@ Y_t = \sum {\alpha}_i O_{it} + \sum\beta_j C_{jt} + \sum {\gamma}_i U_{it} + Y_{
 <p>In rjd3toolkit package:</p>
 <ul>
 <li>Canova-Hansen (<code>seasonality.canovahansen()</code>)</li>
-</ul>
-<p>In rjd3toolkit package:</p>
-<ul>
-<li><p>X-12 combined test (<code>seasonality.combined()</code>)</p></li>
-<li><p>F-test on seasonal dummies (<code>seasonality.f()</code>)</p></li>
-<li><p>Friedman Seasonality Test (<code>seasonality.friedman()</code>)</p></li>
-<li><p>Kruskall-Wallis Seasonality Test (<code>seasonality.kruskalwallis()</code>)</p></li>
-<li><p>Periodogram Seasonality Test (<code>seasonality.periodogram()</code>)</p></li>
-<li><p>QS Seasonality Test (<code>seasonality.qs()</code>)</p></li>
+<li>X-12 combined test (<code>seasonality.combined()</code>)</li>
+<li>F-test on seasonal dummies (<code>seasonality.f()</code>)</li>
+<li>Friedman Seasonality Test (<code>seasonality.friedman()</code>)</li>
+<li>Kruskall-Wallis Seasonality Test (<code>seasonality.kruskalwallis()</code>)</li>
+<li>Periodogram Seasonality Test (<code>seasonality.periodogram()</code>)</li>
+<li>QS Seasonality Test (<code>seasonality.qs()</code>)</li>
 </ul>
 </section>
 </section>
 <section id="pre-treatment-reg-arima-or-tramo" class="level2">
 <h2 class="anchored" data-anchor-id="pre-treatment-reg-arima-or-tramo">Pre-treatment: Reg-Arima or Tramo</h2>
-<p>The following sections cover how to perform pre-treatment with Reg-ARIMA (or Tramo) algorithms. Tramo and the Reg-Arima part of X13-Arima rely on very similar principles: <a href="./M-reg-arima-modelling.html">Reg-Arima modelling</a>. Thus Tramo will be mentioned only to highlight differences with the Reg-Arima part of X13-Arima. Reg-Arima modelling part can be of a seasonal adjustment process or run on its own, we focus first on launching pre-treatment as part of a SA processing.</p>
+<p>The following sections cover how to perform pre-treatment with Reg-ARIMA (or Tramo) algorithms. Tramo and the Reg-Arima part of X13-Arima rely on very similar principles: <a href="./M-reg-arima-modelling.html">Reg-Arima modelling</a>. Thus Tramo will be mentioned only to highlight differences with the Reg-Arima part of X13-Arima. Reg-Arima modelling part can be of a seasonal adjustment process or run on its own, we focus on performing pre-treatment as part of a SA processing.</p>
 <section id="default-specifications" class="level3">
 <h3 class="anchored" data-anchor-id="default-specifications">Default Specifications</h3>
 <p>Default specifications are set for the whole SA procedure, pre-treatment and decomposition. They are slightly different for X13-ARIMA and Tramo-Seats and can be modified with user defined parameters.</p>
@@ -876,7 +867,7 @@ Y_t = \sum {\alpha}_i O_{it} + \sum\beta_j C_{jt} + \sum {\gamma}_i U_{it} + Y_{
 </section>
 <section id="calendar-correction" class="level3">
 <h3 class="anchored" data-anchor-id="calendar-correction">Calendar correction</h3>
-<p>Some calendar correction options included in the starting specifications for X13-Arima or Tramo-Seats, they can be fine-tuned and user-defined by modifying specifications. The following section lists all the available options, illustrates how to set them in GUI or R and shows have to retrieve used parameters, regressors as well as results.</p>
+<p>Some calendar correction options included in the starting specifications for X13-Arima or Tramo-Seats, they can be fine-tuned by modifying specifications. The following section lists all the available options, illustrates how to set them in GUI or R and shows have to retrieve used parameters, regressors as well as results.</p>
 <p>JDemetra+ offers two default options for calendar correction working days regressors and trading days regressors, with Leap-year effect if needed. Those options don’t take into account national calendars (link) and their specific holidays. There are two ways to change this:</p>
 <ul>
 <li><p>user-defined regressors (link)</p></li>
@@ -906,7 +897,7 @@ Y_t = \sum {\alpha}_i O_{it} + \sum\beta_j C_{jt} + \sum {\gamma}_i U_{it} + Y_{
 <section id="leap-year-effect" class="level5">
 <h5 class="anchored" data-anchor-id="leap-year-effect">Leap Year effect</h5>
 <p><strong>Autoadjust</strong></p>
-<p>If enabled, the program corrects automatically for the leap year effect. when is the option available Modifications of this variable are taken into account only when transform.function is set to “Auto”.</p>
+<p>If enabled, the program corrects automatically for the leap year effect.. When is the option available Modifications of this variable are taken into account only when transform.function is set to “Auto”.</p>
 <p><strong>Leapyear</strong></p>
 <p>to specify whether or not to include the leap-year effect in the model: - “LeapYear”: leap year effect; - “LengthOfPeriod”: length of period, - “None” = no effect included.</p>
 <p>The leap-year effect can be pre-specified in the model only if the input series hasn’t been pre-adjusted (transform.adjust set to “None”) and if the automatic correction for the leap-year effect isn’t selected (tradingdays.autoadjust set to FALSE).</p>
@@ -1669,13 +1660,23 @@ Y_t = \sum \hat{\alpha}_i O_{it} + \sum\hat\beta_j C_{jt} + \sum\hat\gamma_k Reg
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(RJDemetra)</span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>model_sa<span class="ot">&lt;-</span><span class="fu">tramoseats</span>(raw_series, <span class="at">spec =</span><span class="st">"RSAfull"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>The model_sa R object (list of lists) contains all parameters and results. It will be progressively detailed below.</p>
 <p>In version 3</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rjd3tramoseats)</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>model_sa<span class="ot">&lt;-</span><span class="fu">tramoseats</span>(raw_series, <span class="at">spec =</span><span class="st">"RSAfull"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The model_sa R object (list of lists) contains all parameters and results. It will be progressively detailed below.</p>
+<p>More details on the functions are to be found in R help pages.</p>
 </section>
 </section>
 <section id="retrieve-series-1" class="level3">
 <h3 class="anchored" data-anchor-id="retrieve-series-1">Retrieve Series</h3>
-<p>This section outlines how to retrieve the different kids of output series via GUI or R. - final components (including reallocation of pre-adjustment effects) - components in level - components in level or log</p>
+<p>This section outlines how to retrieve the different kinds of output series from GUI or in R.</p>
+<ul>
+<li><p>final components (including reallocation of pre-adjustment effects)</p></li>
+<li><p>components in level</p></li>
+<li><p>components in level or log</p></li>
+</ul>
 <section id="stochastic-series" class="level4">
 <h4 class="anchored" data-anchor-id="stochastic-series">Stochastic series</h4>
 <p>Decomposition of the linearized series or of its logarithm (in case of a multiplicative model)</p>
@@ -1781,8 +1782,30 @@ Y_t = \sum \hat{\alpha}_i O_{it} + \sum\hat\beta_j C_{jt} + \sum\hat\gamma_k Reg
 </section>
 <section id="retrieve-in-r-5" class="level5">
 <h5 class="anchored" data-anchor-id="retrieve-in-r-5">Retrieve in R</h5>
-<p>(to be added) version 2</p>
-<p>version 3</p>
+<p>In version 2</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(RJDemetra)</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="co"># list of additional output objects</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="fu">user_defined_variables</span>(<span class="st">"TRAMO-SEATS"</span>)</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="co"># specify additional objects in estimation </span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>m <span class="ot">&lt;-</span> <span class="fu">tramoseats</span>(y,<span class="st">"RSAfull"</span>, <span class="at">userdefined=</span><span class="fu">c</span>( <span class="st">"decomposition.y_lin"</span>, <span class="st">"ycal"</span>,<span class="st">"variancedecomposition.seasonality"</span>))</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a><span class="co"># retrieve objects </span></span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>m<span class="sc">$</span>user_defined<span class="sc">$</span>decomposition.y_lin</span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>m<span class="sc">$</span>user_defined<span class="sc">$</span>ycal</span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>m<span class="sc">$</span>user_defined<span class="sc">$</span>variancedecomposition.seasonality</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>In version 3</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rjd3tramoseats)</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="co"># list of additional output objects</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="fu">userdefined_variables_tramoseats</span>(<span class="st">"tramoseats"</span>)</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="co"># specify additional objects in estimation </span></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>m <span class="ot">&lt;-</span> <span class="fu">tramoseats</span>(y,<span class="st">"RSAfull"</span>, <span class="at">userdefined=</span><span class="fu">c</span>(<span class="st">"decomposition.y_lin"</span>,<span class="st">"ycal"</span>,<span class="st">"variancedecomposition.seasonality"</span>))</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a><span class="co"># retrieve objects </span></span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>m<span class="sc">$</span>user_defined<span class="sc">$</span>decomposition.y_lin</span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>m<span class="sc">$</span>user_defined<span class="sc">$</span>ycal</span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>m<span class="sc">$</span>user_defined<span class="sc">$</span>variancedecomposition.seasonality</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
 </section>
 <section id="components-level" class="level4">
@@ -1886,11 +1909,10 @@ Y_t = \sum \hat{\alpha}_i O_{it} + \sum\hat\beta_j C_{jt} + \sum\hat\gamma_k Reg
 </section>
 <section id="retrieve-in-r-6" class="level5">
 <h5 class="anchored" data-anchor-id="retrieve-in-r-6">Retrieve in R</h5>
-<p>version 2</p>
-<p>version 3</p>
+<p>Same procedure as for stochastic series.</p>
 </section>
-<section id="bias-correction" class="level5">
-<h5 class="anchored" data-anchor-id="bias-correction">Bias correction</h5>
+<section id="bias-correction-to-be-added" class="level5">
+<h5 class="anchored" data-anchor-id="bias-correction-to-be-added">Bias correction to be added</h5>
 </section>
 </section>
 <section id="final-series" class="level4">
@@ -1966,11 +1988,10 @@ Y_t = \sum \hat{\alpha}_i O_{it} + \sum\hat\beta_j C_{jt} + \sum\hat\gamma_k Reg
 </figure>
 </div>
 <p>Forecasts are glued at the end it <em>italic</em></p>
-<p>What can be done with this table (exapandable note ?) - charts container (link) - single series contextual menu (link)</p>
 </section>
 <section id="retrieve-from-gui-2" class="level5">
 <h5 class="anchored" data-anchor-id="retrieve-from-gui-2">Retrieve from GUI</h5>
-<p>Generating outout from GUI (link) or from Cruncher (link), component series, their standard errors, forecasts and forecasts errors can be acessed with the following names</p>
+<p>Generating output from GUI (link) or from Cruncher (link), component series, their standard errors, forecasts and forecasts errors can be accessed with the following names</p>
 <table class="table">
 <thead>
 <tr class="header">
@@ -2024,8 +2045,22 @@ Y_t = \sum \hat{\alpha}_i O_{it} + \sum\hat\beta_j C_{jt} + \sum\hat\gamma_k Reg
 </section>
 <section id="retrieve-in-r-7" class="level5">
 <h5 class="anchored" data-anchor-id="retrieve-in-r-7">Retrieve in R</h5>
-<p>version 2</p>
-<p>version 3</p>
+<p>In version 2</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(RJDemetra)</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>sa_model<span class="ot">&lt;-</span>RJDemetra<span class="sc">::</span><span class="fu">tramoseats</span>(y,<span class="st">"RSAfull"</span>)</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>sa_model<span class="sc">$</span>final<span class="sc">$</span>series</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>sa_model<span class="sc">$</span>final<span class="sc">$</span>forecasts</span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a><span class="co"># for additional results call user-defined output as explained above </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>In version 3</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rjd3tramoseats)</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>sa_model <span class="ot">&lt;-</span> <span class="fu">tramoseats</span>(y,<span class="at">spec=</span><span class="st">"RSAfull"</span>)</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="co"># final series can be accessed here</span></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>sa<span class="sc">$</span>result<span class="sc">$</span>final<span class="sc">$</span>sa</span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a><span class="co"># for additional results call user-defined output as explained above </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
 </section>
 </section>
@@ -2045,12 +2080,9 @@ Y_t = \sum \hat{\alpha}_i O_{it} + \sum\hat\beta_j C_{jt} + \sum\hat\gamma_k Reg
 </section>
 <section id="retrieve-final-parameters-1" class="level3">
 <h3 class="anchored" data-anchor-id="retrieve-final-parameters-1">Retrieve Final Parameters</h3>
-<p>This section describes what is chosen automatically or default.</p>
-<p>Relevant if parameters not set manually, or any parameters automatically selected by the software without having a fixed default value. (The rest of the parameters is set in the spec) To manually set hose parameters and see all the fixed default values see Specifications / parameters section</p>
-<p>here all have a default value, nothing to be automatically selected ?</p>
+<p>Relevant if parameters not set manually, or any parameters automatically selected by the software without having a fixed default value. (The rest of the parameters is set in the specification) To manually set those parameters and see all the fixed default values see Specifications / parameters section</p>
 <section id="arima-models-for-components" class="level4">
 <h4 class="anchored" data-anchor-id="arima-models-for-components">Arima Models for components</h4>
-<p>brief description</p>
 <section id="display-in-gui-7" class="level5">
 <h5 class="anchored" data-anchor-id="display-in-gui-7">Display in GUI</h5>
 <p>Click on the <strong>Decomposition</strong> NODE</p>
@@ -2074,7 +2106,7 @@ Y_t = \sum \hat{\alpha}_i O_{it} + \sum\hat\beta_j C_{jt} + \sum\hat\gamma_k Reg
 </section>
 <section id="setting-user-defined-parameters" class="level3">
 <h3 class="anchored" data-anchor-id="setting-user-defined-parameters">Setting user-defined parameters</h3>
-<p>The section below explains how the user can fine-tune some seats parameters, which are put in context in <a href="./M-SEATS-decomposition.html">the corresponding method chapter</a>.the default value is indicated ().</p>
+<p>The section below explains how the user can fine-tune some seats parameters, which are put in context in <a href="./M-SEATS-decomposition.html">the corresponding method chapter</a>.the default value is indicated in ().</p>
 <ul>
 <li>Prediction length</li>
 </ul>
@@ -2088,19 +2120,19 @@ Y_t = \sum \hat{\alpha}_i O_{it} + \sum\hat\beta_j C_{jt} + \sum\hat\gamma_k Reg
 </ul>
 <p>Modulus threshold for resetteing MA “near-unit” roots [0,1] default (0.95)</p>
 <ul>
-<li><p>Trend Boundary Modulus thershold for assingning positive real AR Roots [0,1] default (0.5)</p></li>
+<li><p>Trend Boundary Modulus threshold for assigning positive real AR Roots [0,1] default (0.5)</p></li>
 <li><p>Seasonal Tolerance Degree threshold for assigning complex AR roots [0,10] default (2)</p></li>
 <li><p>Seasonal Boundary (unique) Modulus threshold for assigning negative real AR roots [0,1] default (0.8)</p></li>
 <li><p>Seasonal Boundary (unique) Same modulus threshold unique seasonal AR roots [0,1] default (0.8)</p></li>
 <li><p>Method</p></li>
 </ul>
-<p>Algorithm used for estimation of unobserved componements</p>
+<p>Algorithm used for estimation of unobserved components</p>
 <p>Burman (default)</p>
 <p>KalmanSmoother</p>
 <p>McEllroyMatrix</p>
 <section id="seting-parameters-in-gui" class="level5">
 <h5 class="anchored" data-anchor-id="seting-parameters-in-gui">Seting parameters in GUI</h5>
-<p>In specification window (link) corresponding to a given series:</p>
+<p>In specification window corresponding to a given series:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images\SA_SEATS_GUI_user_def_params.png" class="img-fluid figure-img"></p>
@@ -2112,18 +2144,18 @@ Y_t = \sum \hat{\alpha}_i O_{it} + \sum\hat\beta_j C_{jt} + \sum\hat\gamma_k Reg
 <h5 class="anchored" data-anchor-id="set-in-r">Set in R</h5>
 <p>version 2 (RJDemetra)</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tramoseats_spec</span>(</span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a> <span class="at">spec =</span> <span class="fu">c</span>(<span class="st">"RSAfull"</span>, <span class="st">"RSA0"</span>, <span class="st">"RSA1"</span>, <span class="st">"RSA2"</span>, <span class="st">"RSA3"</span>, <span class="st">"RSA4"</span>, <span class="st">"RSA5"</span>),</span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">fcst.horizon =</span> <span class="cn">NA_integer_</span>,</span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">seats.predictionLength =</span> <span class="cn">NA_integer_</span>,</span>
-<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">seats.approx =</span> <span class="fu">c</span>(<span class="cn">NA</span>, <span class="st">"None"</span>, <span class="st">"Legacy"</span>, <span class="st">"Noisy"</span>),</span>
-<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">seats.trendBoundary =</span> <span class="cn">NA_integer_</span>,</span>
-<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">seats.seasdBoundary =</span> <span class="cn">NA_integer_</span>,</span>
-<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">seats.seasdBoundary1 =</span> <span class="cn">NA_integer_</span>,</span>
-<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">seats.seasTol =</span> <span class="cn">NA_integer_</span>,</span>
-<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">seats.maBoundary =</span> <span class="cn">NA_integer_</span>,</span>
-<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">seats.method =</span> <span class="fu">c</span>(<span class="cn">NA</span>, <span class="st">"Burman"</span>, <span class="st">"KalmanSmoother"</span>, <span class="st">"McElroyMatrix"</span>)</span>
-<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tramoseats_spec</span>(</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a> <span class="at">spec =</span> <span class="fu">c</span>(<span class="st">"RSAfull"</span>, <span class="st">"RSA0"</span>, <span class="st">"RSA1"</span>, <span class="st">"RSA2"</span>, <span class="st">"RSA3"</span>, <span class="st">"RSA4"</span>, <span class="st">"RSA5"</span>),</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">fcst.horizon =</span> <span class="cn">NA_integer_</span>,</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">seats.predictionLength =</span> <span class="cn">NA_integer_</span>,</span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">seats.approx =</span> <span class="fu">c</span>(<span class="cn">NA</span>, <span class="st">"None"</span>, <span class="st">"Legacy"</span>, <span class="st">"Noisy"</span>),</span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">seats.trendBoundary =</span> <span class="cn">NA_integer_</span>,</span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">seats.seasdBoundary =</span> <span class="cn">NA_integer_</span>,</span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">seats.seasdBoundary1 =</span> <span class="cn">NA_integer_</span>,</span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">seats.seasTol =</span> <span class="cn">NA_integer_</span>,</span>
+<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">seats.maBoundary =</span> <span class="cn">NA_integer_</span>,</span>
+<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">seats.method =</span> <span class="fu">c</span>(<span class="cn">NA</span>, <span class="st">"Burman"</span>, <span class="st">"KalmanSmoother"</span>, <span class="st">"McElroyMatrix"</span>)</span>
+<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>in version 3 with {rjd3tramoseats} (to be added)</p>
 </section>
