@@ -206,7 +206,7 @@ Use the specification window for a given series and expand the nodes.
 x13 in version 2
 
 ```{r, EVAL=FALSE}
-library(RJDemetra)
+library("RJDemetra")
 # estimation interval: option with static dates
 user_spec_1<-x13_spec(spec = c("RSA5c", "RSA0", "RSA1", "RSA2c", 
                                "RSA3", "RSA4c", "X11"), 
@@ -1085,8 +1085,8 @@ In version 2
 
 ```{r,eval=FALSE}
 
-library(RJDemetra)
-model_sa<-x13(raw_series, spec ="RSA5c")
+library("RJDemetra")
+model_sa <- x13(raw_series, spec ="RSA5c")
 
 ```
 
@@ -1381,8 +1381,8 @@ In version 2
 
 ```{r,eval=FALSE}
 
-library(RJDemetra)
-model_sa<-tramoseats(raw_series, spec ="RSAfull")
+library("RJDemetra")
+model_sa <- tramoseats(raw_series, spec ="RSAfull")
 
 ```
 

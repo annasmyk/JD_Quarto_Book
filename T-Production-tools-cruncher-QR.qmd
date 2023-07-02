@@ -55,13 +55,13 @@ install.packages(c("XLConnect", "XML"))
 ### Loading
 
 ```{r, eval = FALSE}
-library(JDCruncheR)
+library("JDCruncheR")
 ```
 
 or
 
 ```{r, eval = FALSE}
-library(rjwsacruncher)
+library("rjwsacruncher")
 ```
 
 ### Connecting the cruncher module
