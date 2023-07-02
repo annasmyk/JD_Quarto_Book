@@ -1,4 +1,4 @@
-# Local Polynomials Methods for Trend Estimation {.unnumbered}
+# Trend Estimation {.unnumbered}
 
 Under construction.
 

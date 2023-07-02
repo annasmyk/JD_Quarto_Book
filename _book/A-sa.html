@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.313">
+<meta name="generator" content="quarto-1.3.353">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -17,9 +17,10 @@ div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
   width: 0.8em;
-  margin: 0 0.8em 0.2em -1.6em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -46,43 +47,13 @@ pre.numberSource code > span > a:first-child::before
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
     padding: 0 4px; width: 4em;
-    color: #aaaaaa;
   }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
 div.sourceCode
   {   }
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -124,6 +95,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   }
 }</script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <link rel="stylesheet" href="styles.css">
@@ -133,11 +105,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-    <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">Seasonal Adjustment</h1>
-      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
-        <i class="bi bi-chevron-right"></i>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./P_Algorithms.html">Algorithms</a></li><li class="breadcrumb-item"><a href="./A-sa.html">Seasonal Adjustment</a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
       </button>
     </div>
   </nav>
@@ -145,165 +122,198 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">JDemetra+ documentation</a> 
     </div>
       </div>
-      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
         <div id="quarto-search" class="" title="Search"></div>
         </div>
-      </div>
+        </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link">Preface</a>
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Preface</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./G-what-is-jd.html" class="sidebar-item-text sidebar-link">JDemetra+ Software</a>
+  <a href="./G-what-is-jd.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">JDemetra+ Software</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./G-jd-history.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">How JDemetra+ came to be</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./P_Algorithms.html" class="sidebar-item-text sidebar-link">Algorithms</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <a href="./P_Algorithms.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Algorithms</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./A-sa.html" class="sidebar-item-text sidebar-link active">Seasonal Adjustment</a>
+  <a href="./A-sa.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Seasonal Adjustment</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./A-sa-hf.html" class="sidebar-item-text sidebar-link">Seasonal adjustment of high-frequency data</a>
+  <a href="./A-sa-hf.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Seasonal adjustment of high-frequency data</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./A-outlier-detection.html" class="sidebar-item-text sidebar-link">Outlier detection</a>
+  <a href="./A-outlier-detection.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Outlier detection and external regressors</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./A-calendar-and-input.html" class="sidebar-item-text sidebar-link">Calendar and user-defined corrections</a>
+  <a href="./A-calendar-correction.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Calendar correction</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./A-benchmarking.html" class="sidebar-item-text sidebar-link">Benchmarking and temporal disagreggation</a>
+  <a href="./A-benchmarking.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Benchmarking and temporal disagreggation</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./A-trend-cycle-estimation.html" class="sidebar-item-text sidebar-link">Trend-cycle estimation</a>
+  <a href="./A-trend-cycle-estimation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Trend-cycle estimation</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./A-nowcasting.html" class="sidebar-item-text sidebar-link">Nowcasting</a>
+  <a href="./A-nowcasting.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Nowcasting</span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./P_Tools.html" class="sidebar-item-text sidebar-link">Tools</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <a href="./P_Tools.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Tools</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./T-graphical-user-interface.html" class="sidebar-item-text sidebar-link">Graphical User Interface</a>
+  <a href="./T-graphical-user-interface.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Graphical User Interface</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./T-r-packages.html" class="sidebar-item-text sidebar-link">Using JDemetra+ in R</a>
+  <a href="./T-r-packages.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Using JDemetra+ in R</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./T-Production-tools-cruncher-QR.html" class="sidebar-item-text sidebar-link">Production, Cruncher and quality report</a>
+  <a href="./T-Production-tools-cruncher-QR.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Production, Cruncher and quality report</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./T-rev-policies-production.html" class="sidebar-item-text sidebar-link">Production and revision policies</a>
+  <a href="./T-rev-policies-production.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Production and revision policies</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./T-plug-ins.html" class="sidebar-item-text sidebar-link">Plug-ins for JDemetra+</a>
+  <a href="./T-plug-ins.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Plug-ins for JDemetra+</span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./P_Methods.html" class="sidebar-item-text sidebar-link">Methods</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+            <a href="./P_Methods.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Methods</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./M-spectral-analysis.html" class="sidebar-item-text sidebar-link">Spectral Analysis Principles and Tools</a>
+  <a href="./M-spectral-analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Spectral Analysis Principles and Tools</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./M-reg-arima-modelling.html" class="sidebar-item-text sidebar-link">Reg-Arima models</a>
+  <a href="./M-reg-arima-modelling.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Reg-Arima models</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./M-X11-decomposition.html" class="sidebar-item-text sidebar-link">X-11 decomposition</a>
+  <a href="./M-X11-decomposition.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">X-11 decomposition</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./M-STL-decomposition.html" class="sidebar-item-text sidebar-link">STL: Local regression decomposition</a>
+  <a href="./M-STL-decomposition.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">STL: Local regression decomposition</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./M-SEATS-decomposition.html" class="sidebar-item-text sidebar-link">SEATS decomposition</a>
+  <a href="./M-SEATS-decomposition.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SEATS decomposition</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./M-Trend-Estimation-Local-Polynomials.html" class="sidebar-item-text sidebar-link">Local Polynomials Methods for Trend Estimation</a>
+  <a href="./M-Trend-Estimation-Local-Polynomials.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Trend Estimation</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./M-tests.html" class="sidebar-item-text sidebar-link">Tests</a>
+  <a href="./M-tests.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Tests</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./M-state-space-framework.html" class="sidebar-item-text sidebar-link">State space modelling</a>
+  <a href="./M-state-space-framework.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">State space modelling</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./M-Temp-Disagg-Bench.html" class="sidebar-item-text sidebar-link">Temporal disaggregation and benchmarking</a>
+  <a href="./M-Temp-Disagg-Bench.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Temporal disaggregation and benchmarking</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./references.html" class="sidebar-item-text sidebar-link">References</a>
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
   </div>
 </li>
       </ul>
@@ -311,16 +321,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     </ul>
     </div>
 </nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a>
+  <li><a href="#chapters-overview" id="toc-chapters-overview" class="nav-link active" data-scroll-target="#chapters-overview">Chapter’s overview</a></li>
+  <li><a href="#seasonal-adjustment-algorithms" id="toc-seasonal-adjustment-algorithms" class="nav-link" data-scroll-target="#seasonal-adjustment-algorithms">Seasonal Adjustment Algorithms</a>
   <ul class="collapse">
-  <li><a href="#in-this-chapter" id="toc-in-this-chapter" class="nav-link" data-scroll-target="#in-this-chapter">In this chapter</a></li>
-  <li><a href="#seasonal-adjustment-algorithms" id="toc-seasonal-adjustment-algorithms" class="nav-link" data-scroll-target="#seasonal-adjustment-algorithms">Seasonal Adjustment Algorithms</a></li>
   <li><a href="#decomposition-in-unobserved-components" id="toc-decomposition-in-unobserved-components" class="nav-link" data-scroll-target="#decomposition-in-unobserved-components">Decomposition in unobserved components</a></li>
   <li><a href="#pre-treatment-principles" id="toc-pre-treatment-principles" class="nav-link" data-scroll-target="#pre-treatment-principles">Pre-treatment principles</a></li>
   <li><a href="#detecting-seasonal-patterns" id="toc-detecting-seasonal-patterns" class="nav-link" data-scroll-target="#detecting-seasonal-patterns">Detecting seasonal patterns</a></li>
@@ -364,7 +374,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">Seasonal Adjustment</h1>
+<h1 class="title">Seasonal Adjustment</h1>
 </div>
 
 
@@ -379,22 +389,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 </header>
 
-<section id="overview" class="level2">
-<h2 class="anchored" data-anchor-id="overview">Overview</h2>
-<p>The goal of seasonal adjustment is to remove seasonal fluctuations a time series. Seasonal fluctuations are quasi-periodic infra-annual movements. They can mask evolution of greater interest for the user such as short term evolutions or long time trends.</p>
-<p>This chapter focuses on the <strong>practical step by step</strong> use of JDemetra+ algorithms, restricted to monthly and quarterly series. For intra-monthly data see the <a href="./A-sa-hf.html">following chapter</a>. The use of <a href="./T-graphical-user-interface.html">graphical user interface</a> and <a href="./T-r-packages.html">R packages</a> are described simultaneously whenever relevant.</p>
+<section id="chapters-overview" class="level2">
+<h2 class="anchored" data-anchor-id="chapters-overview">Chapter’s overview</h2>
+<p>The goal of seasonal adjustment is to remove seasonal fluctuations from a time series. Seasonal fluctuations are quasi-periodic infra-annual movements. They can mask evolution of greater interest for the user such as short term evolution or long time trends.</p>
+<p>This chapter focuses on the <strong>practical step by step</strong> use of JDemetra+ algorithms, restricted to monthly and quarterly series. For infra-monthly data see the <a href="./A-sa-hf.html">following chapter</a>. The use of <a href="./T-graphical-user-interface.html">graphical user interface</a> and <a href="./T-r-packages.html">R packages</a> is described simultaneously whenever relevant.</p>
 <p>In-depth methodological explanations of the algorithms are covered in separated chapters, in the <a href="./P_Methods.html">Methods</a> part.</p>
-<p>This chapter is under construction, missing parts will be updated in the coming months.</p>
 <p>More information on the steps and best practices of a seasonal adjustment process can be found in the <a href="https://ec.europa.eu/eurostat/documents/3859598/6830795/KS-GQ-15-001-EN-N.pdf">Eurostat guidelines on seasonal adjustment</a></p>
 <p>For an overview on the algorithms and methodological issues, please refer to the <a href="https://ec.europa.eu/eurostat/documents/3859598/8939616/KS-GQ-18-001-EN-N.pdf">Handbook on Seasonal Adjustment</a></p>
-<section id="in-this-chapter" class="level3">
-<h3 class="anchored" data-anchor-id="in-this-chapter">In this chapter</h3>
-<ul>
-<li>calendar correction steps</li>
-</ul>
 </section>
-<section id="seasonal-adjustment-algorithms" class="level3">
-<h3 class="anchored" data-anchor-id="seasonal-adjustment-algorithms">Seasonal Adjustment Algorithms</h3>
+<section id="seasonal-adjustment-algorithms" class="level2">
+<h2 class="anchored" data-anchor-id="seasonal-adjustment-algorithms">Seasonal Adjustment Algorithms</h2>
 <table class="table">
 <caption>X13-Arima and Tramo-Seats are two-step algorithms with a pre-treatment phase (Reg-Arima or Tramo) and a decomposition phase (X11 and Seats). STL is a local regression (Loess) based decomposition, without pre-treatment. In a Structural Time Series approach pre-treatment and decomposition are done simultaneously in a State Space Framework <a href="./M-state-space-framework.html">(SSF)</a>.</caption>
 <thead>
@@ -437,18 +441,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <td>rjd3tramoseats</td>
 </tr>
 <tr class="even">
-<td>Seats only</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-</tr>
-<tr class="odd">
 <td>STL</td>
 <td>no</td>
 <td>no</td>
 <td>rjd3stl</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td>STS</td>
 <td>no</td>
 <td>no</td>
@@ -456,7 +454,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </tr>
 </tbody>
 </table>
-</section>
 <section id="decomposition-in-unobserved-components" class="level3">
 <h3 class="anchored" data-anchor-id="decomposition-in-unobserved-components">Decomposition in unobserved components</h3>
 <p>To seasonally adjust a series, seasonal factors <span class="math inline">\(S_{t}\)</span> will be estimated and removed from the original raw series: <span class="math inline">\(Y_{sa}=Y_{t}/S_{t}\)</span> or <span class="math inline">\(Y_{sa}=Y_{t}-S_{t}\)</span>. To do so the series is first decomposed into unobservable components. Two decomposition models:</p>
@@ -494,21 +491,18 @@ Y_t = \sum {\alpha}_i O_{it} + \sum\beta_j C_{jt} + \sum {\gamma}_i U_{it} + Y_{
 <p>In rjd3toolkit package:</p>
 <ul>
 <li>Canova-Hansen (<code>seasonality.canovahansen()</code>)</li>
-</ul>
-<p>In rjd3toolkit package:</p>
-<ul>
-<li><p>X-12 combined test (<code>seasonality.combined()</code>)</p></li>
-<li><p>F-test on seasonal dummies (<code>seasonality.f()</code>)</p></li>
-<li><p>Friedman Seasonality Test (<code>seasonality.friedman()</code>)</p></li>
-<li><p>Kruskall-Wallis Seasonality Test (<code>seasonality.kruskalwallis()</code>)</p></li>
-<li><p>Periodogram Seasonality Test (<code>seasonality.periodogram()</code>)</p></li>
-<li><p>QS Seasonality Test (<code>seasonality.qs()</code>)</p></li>
+<li>X-12 combined test (<code>seasonality.combined()</code>)</li>
+<li>F-test on seasonal dummies (<code>seasonality.f()</code>)</li>
+<li>Friedman Seasonality Test (<code>seasonality.friedman()</code>)</li>
+<li>Kruskall-Wallis Seasonality Test (<code>seasonality.kruskalwallis()</code>)</li>
+<li>Periodogram Seasonality Test (<code>seasonality.periodogram()</code>)</li>
+<li>QS Seasonality Test (<code>seasonality.qs()</code>)</li>
 </ul>
 </section>
 </section>
 <section id="pre-treatment-reg-arima-or-tramo" class="level2">
 <h2 class="anchored" data-anchor-id="pre-treatment-reg-arima-or-tramo">Pre-treatment: Reg-Arima or Tramo</h2>
-<p>The following sections cover how to perform pre-treatment with Reg-ARIMA (or Tramo) algorithms. Tramo and the Reg-Arima part of X13-Arima rely on very similar principles: <a href="./M-reg-arima-modelling.html">Reg-Arima modelling</a>. Thus Tramo will be mentioned only to highlight differences with the Reg-Arima part of X13-Arima. Reg-Arima modelling part can be of a seasonal adjustment process or run on its own, we focus first on launching pre-treatment as part of a SA processing.</p>
+<p>The following sections cover how to perform pre-treatment with Reg-ARIMA (or Tramo) algorithms. Tramo and the Reg-Arima part of X13-Arima rely on very similar principles: <a href="./M-reg-arima-modelling.html">Reg-Arima modelling</a>. Thus Tramo will be mentioned only to highlight differences with the Reg-Arima part of X13-Arima. Reg-Arima modelling part can be of a seasonal adjustment process or run on its own, we focus on performing pre-treatment as part of a SA processing.</p>
 <section id="default-specifications" class="level3">
 <h3 class="anchored" data-anchor-id="default-specifications">Default Specifications</h3>
 <p>Default specifications are set for the whole SA procedure, pre-treatment and decomposition. They are slightly different for X13-ARIMA and Tramo-Seats and can be modified with user defined parameters.</p>
@@ -848,7 +842,7 @@ Y_t = \sum {\alpha}_i O_{it} + \sum\beta_j C_{jt} + \sum {\gamma}_i U_{it} + Y_{
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/SA_REGA_transfo.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Model span setting</figcaption><p></p>
+<figcaption class="figure-caption">Model span setting</figcaption>
 </figure>
 </div>
 <p><strong>Set and in R</strong></p>
@@ -873,7 +867,7 @@ Y_t = \sum {\alpha}_i O_{it} + \sum\beta_j C_{jt} + \sum {\gamma}_i U_{it} + Y_{
 </section>
 <section id="calendar-correction" class="level3">
 <h3 class="anchored" data-anchor-id="calendar-correction">Calendar correction</h3>
-<p>Some calendar correction options included in the starting specifications for X13-Arima or Tramo-Seats, they can be fine-tuned and user-defined by modifying specifications. The following section lists all the available options, illustrates how to set them in GUI or R and shows have to retrieve used parameters, regressors as well as results.</p>
+<p>Some calendar correction options included in the starting specifications for X13-Arima or Tramo-Seats, they can be fine-tuned by modifying specifications. The following section lists all the available options, illustrates how to set them in GUI or R and shows have to retrieve used parameters, regressors as well as results.</p>
 <p>JDemetra+ offers two default options for calendar correction working days regressors and trading days regressors, with Leap-year effect if needed. Those options don’t take into account national calendars (link) and their specific holidays. There are two ways to change this:</p>
 <ul>
 <li><p>user-defined regressors (link)</p></li>
@@ -903,7 +897,7 @@ Y_t = \sum {\alpha}_i O_{it} + \sum\beta_j C_{jt} + \sum {\gamma}_i U_{it} + Y_{
 <section id="leap-year-effect" class="level5">
 <h5 class="anchored" data-anchor-id="leap-year-effect">Leap Year effect</h5>
 <p><strong>Autoadjust</strong></p>
-<p>If enabled, the program corrects automatically for the leap year effect. when is the option available Modifications of this variable are taken into account only when transform.function is set to “Auto”.</p>
+<p>If enabled, the program corrects automatically for the leap year effect.. When is the option available Modifications of this variable are taken into account only when transform.function is set to “Auto”.</p>
 <p><strong>Leapyear</strong></p>
 <p>to specify whether or not to include the leap-year effect in the model: - “LeapYear”: leap year effect; - “LengthOfPeriod”: length of period, - “None” = no effect included.</p>
 <p>The leap-year effect can be pre-specified in the model only if the input series hasn’t been pre-adjusted (transform.adjust set to “None”) and if the automatic correction for the leap-year effect isn’t selected (tradingdays.autoadjust set to FALSE).</p>
@@ -918,7 +912,7 @@ Y_t = \sum {\alpha}_i O_{it} + \sum\beta_j C_{jt} + \sum {\gamma}_i U_{it} + Y_{
 <p>easter.Julian a logical. If TRUE, the program uses the Julian Easter (expressed in Gregorian calendar).</p>
 <p>easter.duration a numeric indicating the duration of the Easter effect (length in days, between 1 and 20).</p>
 <p>easter.test defines the pre-tests for the significance of the Easter effect based on the t-statistic (the Easter effect is considered as significant if the t-statistic is greater than 1.96): “Add” = the Easter effect variable is not included in the initial regression model but can be added to the RegARIMA model after the test; “Remove” = the Easter effect variable belongs to the initial regression model but can be removed from the RegARIMA model after the test; “None” = the Easter effect variable is not pre-tested and is included in the model.</p>
-<p>A user-defined regressor can also be used, see chapter on <a href="./A-calendar-and-input.html">calendar correction</a></p>
+<p>A user-defined regressor can also be used, see chapter on <a href="A-calendar-and-input.qmd">calendar correction</a></p>
 <p>(to be added: additional options in Tramo)</p>
 </section>
 </section>
@@ -1043,7 +1037,7 @@ Y_t = \sum {\alpha}_i O_{it} + \sum\beta_j C_{jt} + \sum {\gamma}_i U_{it} + Y_{
 <section id="customizing-calendars" class="level4">
 <h4 class="anchored" data-anchor-id="customizing-calendars">Customizing Calendars</h4>
 <p>The following describes how to take a national calendar into account.</p>
-<p>Solution 1: if working with GUI build a new calendar in GUI (<a href="./A-calendar-and-input.html###Customizing calendars">here</a></p>
+<p>Solution 1: if working with GUI build a new calendar in GUI (<a href="A-calendar-and-input.qmd###Customizing calendars">here</a></p>
 <p>(to be added: GUI: how to use it or customize HTML file structure explanation)</p>
 <p>set this option in GUI</p>
 <p>(to be added: image: spec window calendar / holidays / choice of calendars)</p>
@@ -1059,14 +1053,12 @@ Y_t = \sum {\alpha}_i O_{it} + \sum\beta_j C_{jt} + \sum {\gamma}_i U_{it} + Y_{
 </section>
 <section id="outliers" class="level3">
 <h3 class="anchored" data-anchor-id="outliers">Outliers</h3>
-<p>(to be added) overview: why use outliers and what happens ? Effects reallocation</p>
-<p>More in depth method outline will be available in <a href="./A-outlier-detection.html">outliers</a> chapter what will be available</p>
-<section id="available-outliers" class="level4">
-<h4 class="anchored" data-anchor-id="available-outliers">Available outliers</h4>
-<p>The following outliers are available for automatic detection</p>
-<p><img src="All_images/SA_REGA_Outliers_AO_LS_TC.png" class="img-fluid"></p>
-<p><img src="All_images/SA_REGA_Outliers_SO.png" class="img-fluid"></p>
-</section>
+<p>The sections below focus on</p>
+<ul>
+<li><p>outlier detection parameters (type and critical value)</p></li>
+<li><p>pre-specifying outliers in a seasonal adjustement (reg-arima modelling) process</p></li>
+</ul>
+<p>Additional information can be found in <a href="./A-outlier-detection.html">this chapter</a>.</p>
 <section id="options-for-automatic-detection" class="level4">
 <h4 class="anchored" data-anchor-id="options-for-automatic-detection">Options for automatic detection</h4>
 <p>*Is enabled**<br> <em>outliers; iatip</em></p>
@@ -1180,10 +1172,6 @@ Y_t = \sum \hat{\alpha}_i O_{it} + \sum\hat\beta_j C_{jt} + \sum\hat\gamma_k Reg
 <h6 class="anchored" data-anchor-id="creation-in-gui">Creation in GUI</h6>
 <p><img src="All_images/SA_REGA_user_def_regs_ramps_definition.png" class="img-fluid"></p>
 </section>
-<section id="creation-in-r" class="level6">
-<h6 class="anchored" data-anchor-id="creation-in-r">Creation in R</h6>
-<p>(to be added)</p>
-</section>
 <section id="allocation-to-components-1" class="level6">
 <h6 class="anchored" data-anchor-id="allocation-to-components-1">Allocation to components</h6>
 <p>allocation when intervention or ramps ? in test allocated to trend ? (reg)</p>
@@ -1192,10 +1180,8 @@ Y_t = \sum \hat{\alpha}_i O_{it} + \sum\hat\beta_j C_{jt} + \sum\hat\gamma_k Reg
 </section>
 <section id="special-case-2-intervention-variables" class="level4">
 <h4 class="anchored" data-anchor-id="special-case-2-intervention-variables">Special case 2: Intervention variables</h4>
-<p>Intervention variables: Intervention variables are modeled as any possible sequence of ones and zeros, on which some operators may be applied. Intervention variables are built as combinations of the following basic structures[^16]: * Dummy variables[^17]; * Any possible sequence of ones and zeros; * <span class="math inline">\(\frac{1}{(1 - \delta B)}\)</span>, * <span class="math inline">\((0 &lt; \delta \leq 1)\)</span>; * <span class="math inline">\(\frac{1}{(1 - \delta_{s}B^{s })}\)</span>, * <span class="math inline">\((0 &lt; \delta_{s} \leq 1)\)</span>; * <span class="math inline">\(\frac{1}{(1 - B)(1 - B^{s})}\)</span>; where <span class="math inline">\(B\)</span> is backshift operator (i.e.&nbsp;<span class="math inline">\(B^{k}X_{t} = X_{t - k}\)</span>) and <span class="math inline">\(s\)</span> is frequency of the time series ($s = 12$for a monthly time series, $s = 4$for a quarterly time series).</p>
+<p>Intervention variables are modeled as any possible sequence of ones and zeros, on which some operators may be applied. They are built as combinations of the following basic structures: * Dummy variables[^17]; * Any possible sequence of ones and zeros; * <span class="math inline">\(\frac{1}{(1 - \delta B)}\)</span>, * <span class="math inline">\((0 &lt; \delta \leq 1)\)</span>; * <span class="math inline">\(\frac{1}{(1 - \delta_{s}B^{s })}\)</span>, * <span class="math inline">\((0 &lt; \delta_{s} \leq 1)\)</span>; * <span class="math inline">\(\frac{1}{(1 - B)(1 - B^{s})}\)</span>; where <span class="math inline">\(B\)</span> is backshift operator (i.e.&nbsp;<span class="math inline">\(B^{k}X_{t} = X_{t - k}\)</span>) and <span class="math inline">\(s\)</span> is frequency of the time series ($s = 12$for a monthly time series, $s = 4$for a quarterly time series).</p>
 <p>These basic structures enable the generation of not only AO, LS, TC, SO and RP outliers but also sophisticated intervention variables that are well-adjusted to the particular case.</p>
-<p>Ramp Effects:</p>
-<p>As they are the most common external regressors, JDemetra+ offers functionalities to build them directly</p>
 <section id="creation-in-gui-1" class="level6">
 <h6 class="anchored" data-anchor-id="creation-in-gui-1">Creation in GUI</h6>
 <p>step 1 <img src="All_images/SA_REGA_calendar_user_def_inter_var_1.png" class="img-fluid"></p>
@@ -1203,8 +1189,8 @@ Y_t = \sum \hat{\alpha}_i O_{it} + \sum\hat\beta_j C_{jt} + \sum\hat\gamma_k Reg
 <p><img src="All_images/SA_REGA_calendar_user_def_inter_var_2.png" class="img-fluid"></p>
 <p>step 3: <img src="All_images/SA_REGA_calendar_user_def_inter_var_3.png" class="img-fluid"></p>
 </section>
-<section id="creation-in-r-1" class="level6">
-<h6 class="anchored" data-anchor-id="creation-in-r-1">Creation in R</h6>
+<section id="creation-in-r" class="level6">
+<h6 class="anchored" data-anchor-id="creation-in-r">Creation in R</h6>
 <p>(to be added)</p>
 </section>
 <section id="allocation-to-components-2" class="level6">
@@ -1409,7 +1395,7 @@ Y_t = \sum \hat{\alpha}_i O_{it} + \sum\hat\beta_j C_{jt} + \sum\hat\gamma_k Reg
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/RDimage41.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Text</figcaption><p></p>
+<figcaption class="figure-caption">Text</figcaption>
 </figure>
 </div>
 <p>Output series can be exported out of GUI by two means:</p>
@@ -1441,7 +1427,7 @@ Y_t = \sum \hat{\alpha}_i O_{it} + \sum\hat\beta_j C_{jt} + \sum\hat\gamma_k Reg
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/SA_MainResults_SI_ratios.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Text</figcaption><p></p>
+<figcaption class="figure-caption">Text</figcaption>
 </figure>
 </div>
 <p>In GUI all values cannot be retrieved</p>
@@ -1487,7 +1473,7 @@ Y_t = \sum \hat{\alpha}_i O_{it} + \sum\hat\beta_j C_{jt} + \sum\hat\gamma_k Reg
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/RDimage46.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Text</figcaption><p></p>
+<figcaption class="figure-caption">Text</figcaption>
 </figure>
 </div>
 </section>
@@ -1674,13 +1660,23 @@ Y_t = \sum \hat{\alpha}_i O_{it} + \sum\hat\beta_j C_{jt} + \sum\hat\gamma_k Reg
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(RJDemetra)</span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>model_sa<span class="ot">&lt;-</span><span class="fu">tramoseats</span>(raw_series, <span class="at">spec =</span><span class="st">"RSAfull"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>The model_sa R object (list of lists) contains all parameters and results. It will be progressively detailed below.</p>
 <p>In version 3</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rjd3tramoseats)</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>model_sa<span class="ot">&lt;-</span><span class="fu">tramoseats</span>(raw_series, <span class="at">spec =</span><span class="st">"RSAfull"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The model_sa R object (list of lists) contains all parameters and results. It will be progressively detailed below.</p>
+<p>More details on the functions are to be found in R help pages.</p>
 </section>
 </section>
 <section id="retrieve-series-1" class="level3">
 <h3 class="anchored" data-anchor-id="retrieve-series-1">Retrieve Series</h3>
-<p>This section outlines how to retrieve the different kids of output series via GUI or R. - final components (including reallocation of pre-adjustment effects) - components in level - components in level or log</p>
+<p>This section outlines how to retrieve the different kinds of output series from GUI or in R.</p>
+<ul>
+<li><p>final components (including reallocation of pre-adjustment effects)</p></li>
+<li><p>components in level</p></li>
+<li><p>components in level or log</p></li>
+</ul>
 <section id="stochastic-series" class="level4">
 <h4 class="anchored" data-anchor-id="stochastic-series">Stochastic series</h4>
 <p>Decomposition of the linearized series or of its logarithm (in case of a multiplicative model)</p>
@@ -1786,8 +1782,30 @@ Y_t = \sum \hat{\alpha}_i O_{it} + \sum\hat\beta_j C_{jt} + \sum\hat\gamma_k Reg
 </section>
 <section id="retrieve-in-r-5" class="level5">
 <h5 class="anchored" data-anchor-id="retrieve-in-r-5">Retrieve in R</h5>
-<p>(to be added) version 2</p>
-<p>version 3</p>
+<p>In version 2</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(RJDemetra)</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="co"># list of additional output objects</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="fu">user_defined_variables</span>(<span class="st">"TRAMO-SEATS"</span>)</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="co"># specify additional objects in estimation </span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>m <span class="ot">&lt;-</span> <span class="fu">tramoseats</span>(y,<span class="st">"RSAfull"</span>, <span class="at">userdefined=</span><span class="fu">c</span>( <span class="st">"decomposition.y_lin"</span>, <span class="st">"ycal"</span>,<span class="st">"variancedecomposition.seasonality"</span>))</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a><span class="co"># retrieve objects </span></span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>m<span class="sc">$</span>user_defined<span class="sc">$</span>decomposition.y_lin</span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>m<span class="sc">$</span>user_defined<span class="sc">$</span>ycal</span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>m<span class="sc">$</span>user_defined<span class="sc">$</span>variancedecomposition.seasonality</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>In version 3</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rjd3tramoseats)</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="co"># list of additional output objects</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="fu">userdefined_variables_tramoseats</span>(<span class="st">"tramoseats"</span>)</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="co"># specify additional objects in estimation </span></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>m <span class="ot">&lt;-</span> <span class="fu">tramoseats</span>(y,<span class="st">"RSAfull"</span>, <span class="at">userdefined=</span><span class="fu">c</span>(<span class="st">"decomposition.y_lin"</span>,<span class="st">"ycal"</span>,<span class="st">"variancedecomposition.seasonality"</span>))</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a><span class="co"># retrieve objects </span></span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>m<span class="sc">$</span>user_defined<span class="sc">$</span>decomposition.y_lin</span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>m<span class="sc">$</span>user_defined<span class="sc">$</span>ycal</span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>m<span class="sc">$</span>user_defined<span class="sc">$</span>variancedecomposition.seasonality</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
 </section>
 <section id="components-level" class="level4">
@@ -1891,11 +1909,10 @@ Y_t = \sum \hat{\alpha}_i O_{it} + \sum\hat\beta_j C_{jt} + \sum\hat\gamma_k Reg
 </section>
 <section id="retrieve-in-r-6" class="level5">
 <h5 class="anchored" data-anchor-id="retrieve-in-r-6">Retrieve in R</h5>
-<p>version 2</p>
-<p>version 3</p>
+<p>Same procedure as for stochastic series.</p>
 </section>
-<section id="bias-correction" class="level5">
-<h5 class="anchored" data-anchor-id="bias-correction">Bias correction</h5>
+<section id="bias-correction-to-be-added" class="level5">
+<h5 class="anchored" data-anchor-id="bias-correction-to-be-added">Bias correction to be added</h5>
 </section>
 </section>
 <section id="final-series" class="level4">
@@ -1967,15 +1984,14 @@ Y_t = \sum \hat{\alpha}_i O_{it} + \sum\hat\beta_j C_{jt} + \sum\hat\gamma_k Reg
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/SA_SEATS_GUI_final_series.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Text</figcaption><p></p>
+<figcaption class="figure-caption">Text</figcaption>
 </figure>
 </div>
 <p>Forecasts are glued at the end it <em>italic</em></p>
-<p>What can be done with this table (exapandable note ?) - charts container (link) - single series contextual menu (link)</p>
 </section>
 <section id="retrieve-from-gui-2" class="level5">
 <h5 class="anchored" data-anchor-id="retrieve-from-gui-2">Retrieve from GUI</h5>
-<p>Generating outout from GUI (link) or from Cruncher (link), component series, their standard errors, forecasts and forecasts errors can be acessed with the following names</p>
+<p>Generating output from GUI (link) or from Cruncher (link), component series, their standard errors, forecasts and forecasts errors can be accessed with the following names</p>
 <table class="table">
 <thead>
 <tr class="header">
@@ -2029,8 +2045,22 @@ Y_t = \sum \hat{\alpha}_i O_{it} + \sum\hat\beta_j C_{jt} + \sum\hat\gamma_k Reg
 </section>
 <section id="retrieve-in-r-7" class="level5">
 <h5 class="anchored" data-anchor-id="retrieve-in-r-7">Retrieve in R</h5>
-<p>version 2</p>
-<p>version 3</p>
+<p>In version 2</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(RJDemetra)</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>sa_model<span class="ot">&lt;-</span>RJDemetra<span class="sc">::</span><span class="fu">tramoseats</span>(y,<span class="st">"RSAfull"</span>)</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>sa_model<span class="sc">$</span>final<span class="sc">$</span>series</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>sa_model<span class="sc">$</span>final<span class="sc">$</span>forecasts</span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a><span class="co"># for additional results call user-defined output as explained above </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>In version 3</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rjd3tramoseats)</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>sa_model <span class="ot">&lt;-</span> <span class="fu">tramoseats</span>(y,<span class="at">spec=</span><span class="st">"RSAfull"</span>)</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="co"># final series can be accessed here</span></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>sa<span class="sc">$</span>result<span class="sc">$</span>final<span class="sc">$</span>sa</span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a><span class="co"># for additional results call user-defined output as explained above </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
 </section>
 </section>
@@ -2050,12 +2080,9 @@ Y_t = \sum \hat{\alpha}_i O_{it} + \sum\hat\beta_j C_{jt} + \sum\hat\gamma_k Reg
 </section>
 <section id="retrieve-final-parameters-1" class="level3">
 <h3 class="anchored" data-anchor-id="retrieve-final-parameters-1">Retrieve Final Parameters</h3>
-<p>This section describes what is chosen automatically or default.</p>
-<p>Relevant if parameters not set manually, or any parameters automatically selected by the software without having a fixed default value. (The rest of the parameters is set in the spec) To manually set hose parameters and see all the fixed default values see Specifications / parameters section</p>
-<p>here all have a default value, nothing to be automatically selected ?</p>
+<p>Relevant if parameters not set manually, or any parameters automatically selected by the software without having a fixed default value. (The rest of the parameters is set in the specification) To manually set those parameters and see all the fixed default values see Specifications / parameters section</p>
 <section id="arima-models-for-components" class="level4">
 <h4 class="anchored" data-anchor-id="arima-models-for-components">Arima Models for components</h4>
-<p>brief description</p>
 <section id="display-in-gui-7" class="level5">
 <h5 class="anchored" data-anchor-id="display-in-gui-7">Display in GUI</h5>
 <p>Click on the <strong>Decomposition</strong> NODE</p>
@@ -2079,7 +2106,7 @@ Y_t = \sum \hat{\alpha}_i O_{it} + \sum\hat\beta_j C_{jt} + \sum\hat\gamma_k Reg
 </section>
 <section id="setting-user-defined-parameters" class="level3">
 <h3 class="anchored" data-anchor-id="setting-user-defined-parameters">Setting user-defined parameters</h3>
-<p>The section below explains how the user can fine-tune some seats parameters, which are put in context in <a href="./M-SEATS-decomposition.html">the corresponding method chapter</a>.the default value is indicated ().</p>
+<p>The section below explains how the user can fine-tune some seats parameters, which are put in context in <a href="./M-SEATS-decomposition.html">the corresponding method chapter</a>.the default value is indicated in ().</p>
 <ul>
 <li>Prediction length</li>
 </ul>
@@ -2093,23 +2120,23 @@ Y_t = \sum \hat{\alpha}_i O_{it} + \sum\hat\beta_j C_{jt} + \sum\hat\gamma_k Reg
 </ul>
 <p>Modulus threshold for resetteing MA “near-unit” roots [0,1] default (0.95)</p>
 <ul>
-<li><p>Trend Boundary Modulus thershold for assingning positive real AR Roots [0,1] default (0.5)</p></li>
+<li><p>Trend Boundary Modulus threshold for assigning positive real AR Roots [0,1] default (0.5)</p></li>
 <li><p>Seasonal Tolerance Degree threshold for assigning complex AR roots [0,10] default (2)</p></li>
 <li><p>Seasonal Boundary (unique) Modulus threshold for assigning negative real AR roots [0,1] default (0.8)</p></li>
 <li><p>Seasonal Boundary (unique) Same modulus threshold unique seasonal AR roots [0,1] default (0.8)</p></li>
 <li><p>Method</p></li>
 </ul>
-<p>Algorithm used for estimation of unobserved componements</p>
+<p>Algorithm used for estimation of unobserved components</p>
 <p>Burman (default)</p>
 <p>KalmanSmoother</p>
 <p>McEllroyMatrix</p>
 <section id="seting-parameters-in-gui" class="level5">
 <h5 class="anchored" data-anchor-id="seting-parameters-in-gui">Seting parameters in GUI</h5>
-<p>In specification window (link) corresponding to a given series:</p>
+<p>In specification window corresponding to a given series:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images\SA_SEATS_GUI_user_def_params.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Text</figcaption><p></p>
+<figcaption class="figure-caption">Text</figcaption>
 </figure>
 </div>
 </section>
@@ -2117,18 +2144,18 @@ Y_t = \sum \hat{\alpha}_i O_{it} + \sum\hat\beta_j C_{jt} + \sum\hat\gamma_k Reg
 <h5 class="anchored" data-anchor-id="set-in-r">Set in R</h5>
 <p>version 2 (RJDemetra)</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tramoseats_spec</span>(</span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a> <span class="at">spec =</span> <span class="fu">c</span>(<span class="st">"RSAfull"</span>, <span class="st">"RSA0"</span>, <span class="st">"RSA1"</span>, <span class="st">"RSA2"</span>, <span class="st">"RSA3"</span>, <span class="st">"RSA4"</span>, <span class="st">"RSA5"</span>),</span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">fcst.horizon =</span> <span class="cn">NA_integer_</span>,</span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">seats.predictionLength =</span> <span class="cn">NA_integer_</span>,</span>
-<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">seats.approx =</span> <span class="fu">c</span>(<span class="cn">NA</span>, <span class="st">"None"</span>, <span class="st">"Legacy"</span>, <span class="st">"Noisy"</span>),</span>
-<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">seats.trendBoundary =</span> <span class="cn">NA_integer_</span>,</span>
-<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">seats.seasdBoundary =</span> <span class="cn">NA_integer_</span>,</span>
-<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">seats.seasdBoundary1 =</span> <span class="cn">NA_integer_</span>,</span>
-<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">seats.seasTol =</span> <span class="cn">NA_integer_</span>,</span>
-<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">seats.maBoundary =</span> <span class="cn">NA_integer_</span>,</span>
-<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">seats.method =</span> <span class="fu">c</span>(<span class="cn">NA</span>, <span class="st">"Burman"</span>, <span class="st">"KalmanSmoother"</span>, <span class="st">"McElroyMatrix"</span>)</span>
-<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tramoseats_spec</span>(</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a> <span class="at">spec =</span> <span class="fu">c</span>(<span class="st">"RSAfull"</span>, <span class="st">"RSA0"</span>, <span class="st">"RSA1"</span>, <span class="st">"RSA2"</span>, <span class="st">"RSA3"</span>, <span class="st">"RSA4"</span>, <span class="st">"RSA5"</span>),</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">fcst.horizon =</span> <span class="cn">NA_integer_</span>,</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">seats.predictionLength =</span> <span class="cn">NA_integer_</span>,</span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">seats.approx =</span> <span class="fu">c</span>(<span class="cn">NA</span>, <span class="st">"None"</span>, <span class="st">"Legacy"</span>, <span class="st">"Noisy"</span>),</span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">seats.trendBoundary =</span> <span class="cn">NA_integer_</span>,</span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">seats.seasdBoundary =</span> <span class="cn">NA_integer_</span>,</span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">seats.seasdBoundary1 =</span> <span class="cn">NA_integer_</span>,</span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">seats.seasTol =</span> <span class="cn">NA_integer_</span>,</span>
+<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">seats.maBoundary =</span> <span class="cn">NA_integer_</span>,</span>
+<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">seats.method =</span> <span class="fu">c</span>(<span class="cn">NA</span>, <span class="st">"Burman"</span>, <span class="st">"KalmanSmoother"</span>, <span class="st">"McElroyMatrix"</span>)</span>
+<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>in version 3 with {rjd3tramoseats} (to be added)</p>
 </section>
@@ -2174,9 +2201,23 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     icon: icon
   };
   anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
   const clipboard = new window.ClipboardJS('.code-copy-button', {
-    target: function(trigger) {
-      return trigger.previousElementSibling;
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
     }
   });
   clipboard.on('success', function(e) {
@@ -2241,6 +2282,92 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
   const findCites = (el) => {
     const parentEl = el.parentElement;
     if (parentEl) {

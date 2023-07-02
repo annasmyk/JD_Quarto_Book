@@ -12,17 +12,18 @@ book:
       url: https://github.com/TanguyBarthelemy
     - name: Karsten Webel
       url: https://github.com/webelk
-  date: "02/24/2023"
+  date: "6/1/2023"
   page-navigation: true
   chapters:
     - index.qmd
     - G-what-is-jd.qmd
+    - G-jd-history.qmd
     - part: P_Algorithms.qmd
       chapters:
         - A-sa.qmd
         - A-sa-hf.qmd
         - A-outlier-detection.qmd
-        - A-calendar-and-input.qmd
+        - A-calendar-correction.qmd
         - A-benchmarking.qmd
         - A-trend-cycle-estimation.qmd
         - A-nowcasting.qmd
