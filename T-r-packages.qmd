@@ -10,11 +10,18 @@ Core JDemetra Java algorithms can be accessed via several tools:
 
 -   R packages
 
-This chapter provides an overview of the packages linked to JDemetra core routines version 2.x and 3.x (under construction). More details on specific functions are available in the relevant chapters in the [Algorithms part](P_Algorithms.qmd) of this documentation. Help pages relative to each package in R are also very helpful.
+This chapter provides an overview of the packages linked to JDemetra core routines version 2.x and 3.x (under construction). More details on specific functions are available in the relevant chapters in the [Algorithms part](P_Algorithms.qmd) of this documentation. Help pages relative to each package, and also vignettes provide a detailed description for each available functions: purpose, arguments, output and examples.
 
-Useful resources, including examples, are also available in [this](https://github.com/annasmyk/Tsace_RJD_Webinar_Dec22) GitHub repository.
+Useful resources are also available in [this](https://github.com/annasmyk/Tsace_RJD_Webinar_Dec22) GitHub repository.
 
-### Scope of version 2
+### What you will find in this chapter
+
+(force this format even if provisional)
+What could be useful here ?
+In which cases look further here ? Links to other chapters 
+Q&A format 
+
+### Packages based on JDemetra+ version 2 algorithms
 
 Packages corresponding to version 2.x core routines:
 
@@ -24,61 +31,49 @@ Packages corresponding to version 2.x core routines:
 -   [**ggdemetra**](https://github.com/AQLT/ggdemetra) on <https://github.com/AQLT/ggdemetra>
 -   [**rjdqa**](https://github.com/AQLT/rjdqa) on <https://github.com/AQLT/rjdqa>
 
-### Scope of version 3
+### Packages based on JDemetra+ version 3 algorithms
 
-Packages corresponding to version 3.x core routines (still under construction, moving perimeters) are listed
+Packages corresponding to version 3.x core routines:
 
--   [**rjdemetra3**](https://github.com/palatej/rjdemetra3) on <https://github.com/palatej/rjdemetra3>
--   [**rjd3toolkit**](https://github.com/palatej/rjd3toolkit) on <https://github.com/palatej/rjd3toolkit>
--   [**rjd3x13**](https://github.com/palatej/rjd3x13) on <https://github.com/palatej/rjd3x13>
--   [**rjd3tramoseats**](https://github.com/palatej/rjd3tramoseats) on <https://github.com/palatej/rjd3tramoseats>
--   [**rjd3sts**](https://github.com/palatej/rjd3sts) on <https://github.com/palatej/rjd3sts>
--   [**rjd3stl**](https://github.com/palatej/rjd3stl) on <https://github.com/palatej/rjd3stl>
--   [**rjd3highfreq**](https://github.com/palatej/rjd3highfreq) on <https://github.com/palatej/rjd3highfreq>
--   [**rjd3bench**](https://github.com/palatej/rjd3bench) on <https://github.com/palatej/rjd3bench>
+-   [**rjd3toolkit**](https://github.com/rjdemetra/rjd3toolkit) at <https://github.com/rjdemetra/rjd3toolkit>
+-   [**rjd3x13**](https://github.com/rjdemetra/rjd3x13) on <https://github.com/rjdemetra/rjd3x13>
+-   [**rjd3tramoseats**](https://github.com/rjdemetra/rjd3tramoseats) at <https://github.com/rjdemetra/rjd3tramoseats>
+-   [**rjdemetra3**](https://github.com/rjdemetra/rjdemetra3) at <https://github.com/rjdemetra/rjdemetra3>
+-   [**rjdemetra3**](https://github.com/rjdemetra/rjd3revisions) at <https://github.com/rjdemetra/rjd3revisions>
+-   [**rjd3sts**](https://github.com/palatej/rjd3sts) at <https://github.com/palatej/rjd3sts>
+-   [**rjd3stl**](https://github.com/palatej/rjd3stl) at <https://github.com/palatej/rjd3stl>
+-   [**rjd3highfreq**](https://github.com/palatej/rjd3highfreq) at <https://github.com/palatej/rjd3highfreq>
+-   [**rjd3bench**](https://github.com/palatej/rjd3bench) at <https://github.com/palatej/rjd3bench>
+-   [**rjd3filters**](https://github.com/palatej/rjd3filters) at <https://github.com/palatej/rjd3filters>
 -   [**ggdemetra3**](https://github.com/AQLT/ggdemetra3) on <https://github.com/AQLT/ggdemetra3>
 
 
 ## Algorithms available in R
 
-### Seasonal adjustment in version 2
+### Seasonal adjustment 
+
+#### Using JDemetra+ version 2.x
 
 | Algorithm   | Package   | Comments                                                 |
 |-------------|-----------|----------------------------------------------------------|
 | X13-Arima   | RJDemetra | Reg-Arima and X-11 decomposition available independently |
 | Tramo-Seats | RJDemetra | Tramo available independently                            |
 
-More details on functions parameters and retrieving output in the chapter dedicated to [Seasonal Adjustment](A-sa.qmd)
-
-### Seasonal adjustment in version 3
+#### Using JDemetra+ version 3.x
 
 | Algorithm               | Package        | Comments                                                 |
 |-------------------------|----------------|----------------------------------------------------------|
 | X13-Arima               | rjd3x13        | Reg-Arima and X-11 decomposition available independently |
-| Extended X-11           | rjd3highfreq   | For high-frequency (intra-monthly) data                  |
+| Extended X-11           | rjd3highfreq   | For high-frequency (infra-monthly) data                  |
 | Tramo-Seats             | rjd3tramoseats | Tramo available independently                            |
 | Extended Tramo          | rjd3highfreq   | For high-frequency data                                  |
 | Extended Seats          | rjd3highfreq   | For high-frequency data                                  |
 | STL                     | rjd3stl        | Including high-frequency data                            |
-| Basic Structural Models | rjd3sts        | States space framework                                   |
+| Basic Structural Models | rjd3sts        | State space framework                                   |
 
-### Running the cruncher and generating a quality report
+Version 3.x includes [Revision Policies([T-rev-policies-production.qmd) in X-13 and Tramo-Seats.
 
-[JDemetra+ cruncher](T-Production-tools-cruncher-QR.qmd) is an executable module designed for mass production of seasonally adjusted series .
-
-| Package       | JD+ version | Comments                       |
-|---------------|-------------|--------------------------------|
-| rjwsacruncher | 2.x         | estimation update and output   |
-| JDCruncheR    | 2.x         | all the above + Quality Report |
-
-### Wrangling JD+ workspaces
-
-A workspace is a specific JDemetra+ data format (xml files) allowing to use the graphical user interface and the cruncher.
-
-| Package      | JD+ version | Comments                           |
-|--------------|-------------|------------------------------------|
-| rjdworkspace | 2.x         | update meta data, merge workspaces |
-| rjdemetra3   | 3.x         | under construction                 |
+More details on functions parameters and retrieving output in the chapter dedicated to [Seasonal Adjustment](A-sa.qmd)
 
 ### Filtering and Trend estimation
 
@@ -96,7 +91,31 @@ A workspace is a specific JDemetra+ data format (xml files) allowing to use the 
 | Cubic splines           | rjd3bench |         |
 | Temporal Disaggregation | rjd3bench |         |
 
-### Generating additional output in SA estimation
+
+## Utility functions available in R
+
+The packages listed below contain utility functions useful when running a production process with massive datasets.
+
+### Running the cruncher and generating a quality report
+
+[JDemetra+ cruncher](T-Production-tools-cruncher-QR.qmd) is an executable module designed for mass production of seasonally adjusted series .
+
+| Package       | JD+ version | Comments                       |
+|---------------|-------------|--------------------------------|
+| rjwsacruncher | 2.x         | estimation update and output   |
+| JDCruncheR    | 2.x         | all the above + Quality Report |
+
+### Wrangling JD+ workspaces
+
+A workspace is a specific JDemetra+ data format (xml files) allowing to use the graphical user interface (GUI) and the cruncher.
+
+| Package      | JD+ version | Comments                           |
+|--------------|-------------|------------------------------------|
+| rjdworkspace | 2.x         | update meta data, merge workspaces |
+| rjdemetra3   | 3.x         | idem but under construction                 |
+
+
+### Generating enhanced output in SA estimation
 
 This additional packages produce enhanced plots and diagnostic outputs.
 
@@ -107,7 +126,7 @@ This additional packages produce enhanced plots and diagnostic outputs.
 | ggdemetra3  | 3.x         | plots based on ggplot          |
 | rjdqa       | 2.x         | visual dashboard on one series |
 
-## General structure of the packages
+## General structure
 
 The R object resulting from an estimation is a list of lists containing raw data, parameters, output series and diagnostics.
 
@@ -148,108 +167,46 @@ remotes::install_github("InseeFr/JDCruncheR")
 ```{r, eval=FALSE}
 
 #install.packages("remotes")
-remotes::install_github("palatej/rjd3toolkit")
-remotes::install_github("palatej/rjd3x13")
-remotes::install_github("palatej/rjd3tramoseats")
-remotes::install_github("palatej/rjdemetra3")
+#install.packages("devtools")
+remotes::install_github("rjdemetra/rjd3toolkit")
+remotes::install_github("rjdemetra/rjd3x13")
+remotes::install_github("rjdemetra/rjd3tramoseats")
+remotes::install_github("rjdemetra/rjdemetra3")
+remotes::install_github("rjdemetra/rjd3revisions")
 remotes::install_github("palatej/rjd3filters")
 remotes::install_github("palatej/rjd3sts")
 remotes::install_github("palatej/rjd3highfreq")
 remotes::install_github("palatej/rjd3stl")
 remotes::install_github("palatej/rjd3bench")
 remotes::install_github("AQLT/ggdemetra3")
+devtools::install_github("palatej/rj3dfilters")
 ```
 
-## The rjd3 suite of packages
+## rjd3 suite of packages: overview
 
-The sections below provide an overview of the main functions by categories. For detailed description refer to each package's own R documentation pages.
+The sections below provide an overview of each package based on version 3.x of JDemetra+. For detailed description refer to the package's own R documentation pages and vignettes.
 
-### Utility packages: rjd3toolkit
+### rjd3toolkit
 
-Contains utility functions used in other `rjd` packages and several functions to perform tests.
+Contains utility functions used in other `rjd3` packages and has to be systematically installed before using any other rjd3 package. From a user point of view, it allows to:
 
-#### Tests
+- customized the pre-adjustment specification in X13-Arima and Tramo-Seats
 
--   Normality tests: Bowman-Shenton (`bowmanshenton()`), Doornik-Hansen (`doornikhansen()`), Jarque-Bera (`jarquebera()`)
+- generate user-defined regressors for calendar correction
 
--   Runs tests (randomness of data): mean or the median (`testofruns()`) or up and down runs test (`testofupdownruns()`)
+- generate auxiliary variables (outliers, ramps..)
 
--   autocorrelation functions (usual, inverse, partial)
+- run arima model estimations 
 
--   `aggregate()` to aggregate a time series to a higher frequency
+- perform tests 
 
-Example
+- access general functions such as autocorrelations, distributions...
 
-```{r, eval=FALSE}
-library("rjd3toolkit")
+More details for each part can be found in `rjd3toolkit``R help pages and related vignettes.
 
-set.seed(100)
+### rjd3x13
 
-x <- rnorm(1000)
-y <- rlnorm(1000)
-
-bowmanshenton(x) # normal distribution
-bowmanshenton(y) # log-normal distribution
-
-testofruns(x) # random data
-testofruns(y) # random data
-testofruns(1:1000) # non-random data
-
-autocorrelations(x)
-autocorrelations.inverse(x)
-autocorrelations.partial(x)
-```
-
-#### Input variables
-
-This package allows creating input variables (regressors) for to be used in Reg-Arima modelling step:
-
--   create user-defined calendar and trading-days regressors: `calendar.new()` (create a new calendar), `calendar.holiday()` (add a specific holiday, e.g. Christmas), `calendar.easter()` (easter related day) and `calendar.fixedday()`)
-
--   outliers regressors (AO, LS, TC, SO, Ramp, intervention variables), calendar related regressors (stock, leap year, periodic dummies and contrasts, trigonometric variables)
-
-#### Tests
-
--   Range-mean regression test (to choose log transformation), Canova-Hansen (`td.ch()`) and trading-days f-test (`td.f()`)
-
-#### Setting specification for Reg-Arima (Tramo) steps
-
-Specification functions for `rjd3x13` and `rjd3tramoseats`: `set_arima()`, `set_automodel()`, `set_basic()`, `set_easter()`, `set_estimate()`, `set_outlier()`, `set_tradingdays()`, `set_transform()`, `add_outlier()` and `remove_outlier()`, `add_ramp()` and `remove_ramp()`, `add_usrdefvar()`
-
-#### Seasonality tests
-
--   Canova-Hansen (`seasonality.canovahansen()`)
-
--   X-12 combined test (`seasonality.combined()`)
-
--   F-test on seasonal dummies (`seasonality.f()`)
-
--   Friedman Seasonality Test (`seasonality.friedman()`)
-
--   Kruskall-Wallis Seasonality Test (`seasonality.kruskalwallis()`)
-
--   Periodogram Seasonality Test (`seasonality.periodogram()`)
-
--   QS Seasonality Test (`seasonality.qs()`)
-
-```{r, eval=FALSE}
-library("rjd3toolkit")
-
-y <- diff(rjd3toolkit::ABS$X0.2.09.10.M, 1); y = y - mean(y)
-
-seasonality.f(y, 12)
-seasonality.friedman(y, 12)
-seasonality.kruskalwallis(y, 12)
-seasonality.combined(y, 12)
-```
-
-`rjd3toolkit` is also devoted to formatting the output of Arima related results
-
-### Seasonal adjustment packages
-
-#### rjd3x13
-
-Main functions:
+`rjd3x13` gives access to X13-Arima seasonal adjustment algorithm.
 
 -   Specification: created with `spec_x11_default()`, `spec_x13_default()`, `spec_regarima_default()` and customized with `rjd3toolkit` functions + `set_x11()`
 
@@ -259,7 +216,7 @@ Main functions:
 
 ### rjd3tramoseats
 
-Main functions:
+`rjd3tramoseats` gives access to TRAMO-SEATS seasonal adjustment algorithm.
 
 -   Specification: created with `spec_tramoseats_default()`, `spec_tramo_default()` and customized with `rjd3toolkit` functions + `set_seats()`
 
@@ -267,37 +224,30 @@ Main functions:
 
 -   Refresh policies: `tramo.refresh()` and `tramoseats.refresh()`
 
-### Example
-
-### rjdemetra3
-
-Functions to manipulate JDemetra+ workspaces:
-
--   Still in construction: you can load an existing workspace but not create a new one (use `jws.load()` for example)
-
--   Will contain all the functionalities of `rjdworkspace` (upgraded from version 2)
 
 ### rjd3highfreq
 
-Seasonal adjustment of high frequency data:
+Seasonal adjustment of high frequency (infra-monthly) data:
+
+-   fractional airline based reg-Arima pre-adjustment
 
 -   fractional and multi airline decomposition
 
 -   Extension of X-11 decomposition with non integer periodicity
 
+### rjd3sts
+
+Gives access to structural time series and state space models, has to be installed to use rjd3highfreq. Handles high-frequency data.
+
+Several examples available here https://github.com/palatej/test_rjd3sts
+
 ### rjd3stl
 
-`rjd3stl` : STL, MSTL, ISTL, loess
-
-### Add-in packages
-
-### ggdemetra
-
-Enhanced plots.
+`rjd3stl` contains usual STL functions but is also tailored to handle high-frequency data.
 
 ### ggdemetra3
 
-Like `ggdemetra` but compatible with `rjdemetra3`: ggplot2 to add seasonal adjustment statistics to your plot. Also compatible with high-frequency methods (WIP):
+ggdemetra3 uses ggplot2 to add seasonal adjustment statistics to your plot (Like `ggdemetra` but compatible with version 3.x.). Also compatible with high-frequency methods:
 
 ```{r ggdemetra3, out.height="85%", eval=FALSE,message = FALSE, warning = FALSE}
 library("ggdemetra3")
@@ -322,7 +272,9 @@ p_sa +
                  digits = 2)
 ```
 
-## rjd3filters
+### rjd3filters
+
+The rjd3filters package allows to: 
 
 -   easily create/combine/apply moving averages `moving_average()` (much more general than `stats::filter()`) and study their properties: plot coefficients (`plot_coef()`), gain (`plot_gain()`), phase-shift (`plot_phase()`) and different statics (`diagnostic_matrix()`)
 
@@ -342,7 +294,7 @@ p_sa +
 library("rjd3filters")
 ```
 
-### Create moving averages
+#### Create moving averages
 
 ```{r,eval=FALSE}
 library("rjd3filters")
@@ -405,7 +357,7 @@ plot_phase(tc_f)
 plot_phase(sa_2, col = "orange", add = TRUE)
 ```
 
-### Apply a moving average
+#### Apply a moving average
 
 ```{r, eval=FALSE, exApply,out.height="70%"}
 y <- retailsa$AllOtherGenMerchandiseStores
@@ -416,20 +368,23 @@ plot(window(ts.union(y, trend, sa), start = 2000),
      col = c("black", "orange", "lightblue"))
 ```
 
-## rjd3sts
 
-Interface to structural time series and state space models
+### rjd3bench
 
-Several examples available here https://github.com/palatej/test_rjd3sts
-
-## rjd3bench
-
-Benchmarking and temporal disaggregation
+Tailored for Benchmarking and temporal disaggregation
 
 Several examples [here](https://github.com/palatej/test_rjd3bench)
 
-## Wrangling workspaces in R
+### rjdemetra 3 
 
-Under construction
+This package allows to wrangle JDemetra+ workspaces in R with functions: 
 
-More [here](https://github.com/annasmyk/Tsace_RJD_Webinar_Dec22/blob/main/Presentations/P3_Wrangling_Workspaces.pdf)
+- `load_workspace`
+
+- `save_workspace`
+
+...
+
+Under construction, it Will contain all the functionalities of `rjdworkspace` (upgraded from version 2).
+
+More information [here](https://github.com/annasmyk/Tsace_RJD_Webinar_Dec22/blob/main/Presentations/P3_Wrangling_Workspaces.pdf)

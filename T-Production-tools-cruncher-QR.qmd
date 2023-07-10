@@ -1,12 +1,22 @@
 # Production, Cruncher and quality report {.unnumbered style="color:blue"}
 
-Under construction
-
 ## Overview
+
+In this chapter you will find how to
+
+- automate the Seasonal adjustment estimation process
+
+- update a workspace when new data is available
+
+- export output (series, diagnostics, parameters)
+
+- generate a quality report usable for selective editing (manual fine tuning)
+
+## Automate estimation with the cruncher
 
 The cruncher is an additional "executable" module. It can be launched via R or SAS for example.
 
-Objective of the cruncher:
+Objectives of the cruncher:
 
 -   update a JDemetra+ workspace (with a given [revision policy](T-rev-policies-production.qmd))
 
@@ -14,7 +24,7 @@ Objective of the cruncher:
 
 without having to open the graphical interface and operate manually. Suitable for a production process.
 
-## Installation procedure
+### Installation procedure
 
 -   Download the cruncher
 
@@ -24,11 +34,11 @@ Click on the zip code line of the latest release
 
 -   Unzip locally (or on server)
 
-## Help pages
+### Help pages
 
 Documentation is available here or click on the wiki icon on the Github page <https://github.com/jdemetra/jwsacruncher/wiki>
 
-## Running the cruncher in R
+### Running the cruncher in R
 
 Two R packages are currently available
 
@@ -36,7 +46,7 @@ Two R packages are currently available
 
 -   Cruncher (https://github.com/InseeFr/JDCruncheR): same functions as rjwsacruncher but adds a quality report
 
-### Installation
+#### Installation
 
 -   rjwsacruncher
 
@@ -52,19 +62,19 @@ Additional packages needed
 install.packages(c("XLConnect", "XML"))
 ```
 
-### Loading
+#### Loading
 
 ```{r, eval = FALSE}
-library(JDCruncheR)
+library("JDCruncheR")
 ```
 
 or
 
 ```{r, eval = FALSE}
-library(rjwsacruncher)
+library("rjwsacruncher")
 ```
 
-### Connecting the cruncher module
+#### Connecting the cruncher module
 
 To connect the cruncher to the R package, the path to the bin directory containing the **cruncher.bat** file must be specified. This directory is available once the zip file has been unzipped.
 
@@ -79,15 +89,25 @@ options(cruncher_bin_directory =
 getOption("cruncher_bin_directory")
 ```
 
-## Updating a workspace
+### Updating a workspace
 
 The functions described in this section are identical for both packages.
 
-### Running estimations
+#### Running estimations
 
-The general context - First estimation
+The general context: two use cases
 
--   Applying a [revision policy](T-rev-policies-production.qmd) to updated raw series
+-   Run first estimation of seasonally adjusted series (from raw series and parameters contained in the workspace)
+
+```{r, eval = FALSE}
+
+cruncher_and_param(workspace = "D:/my_folder/my_ws.xml",
+                   rename_multi_documents = FALSE,
+                   policy = "complete" #name of the revision policy
+                   log= my_log_file.txt)
+```
+
+-   Apply a [revision policy](T-rev-policies-production.qmd) to updated raw series
 
 The function `cruncher_and_param()` allows to do that
 
@@ -176,9 +196,9 @@ export_xlsx(QR,
             file_name = "U:/quality_report.xls")
 ```
 
-### Piling up results for several SAP's
+### Piling up results
 
-When working with several workspaces (or SAPs), quality reports can be piled up with the function `rbind()` or by creating a mQR_matrix object with the function `mQR_matrix()`
+When working with several workspaces or Seasonal adjustment processings (SAP) within a given workspace, quality reports can be piled up with the function `rbind()` or by creating a mQR_matrix object with the function `mQR_matrix()`
 
 ```{r, eval = FALSE}
 QR1 <- extract_QR()
@@ -229,7 +249,17 @@ Practical steps if you want to customize the score computation (see package docu
 
 -   rebuild your package
 
+## List of exportable series
+
+Some available output series will be different when using X13-Arima or Tramo-Seats.
+
+```{r, eval=FALSE}
+
+```
+
 ## List of exportable diagnostics and parameters
+
+Some parameters and available diagnostics will be different when using X13-Arima or Tramo-Seats.
 
 ```{r, eval=FALSE}
 
