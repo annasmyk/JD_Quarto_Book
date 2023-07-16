@@ -20,7 +20,7 @@ This part provides a step by step guidance for using of all the algorithms featu
 -   [Seasonal Adjustment of high-frequency data](A-sa-hf.qmd)
 -   [Reg-Arima modelling](A-sa.qmd)
 -   [Outlier detection and external regressors](A-outlier-detection.qmd)
--   [Calendar correction](A-calendar-and-input.qmd)
+-   [Calendar correction](A-calendar-correction.qmd)
 -   [Benchmarking and temporal disaggregation](A-benchmarking.qmd)
 -   [Trend-Cycle estimation](A-trend-cycle-estimation.qmd)
 -   [Nowcasting](A-nowcasting.qmd)
