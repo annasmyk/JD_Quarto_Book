@@ -150,6 +150,7 @@ low-frequency series must respectively match the aggregation function selected o
 4. **Differencing**: Number of regular differences. By default 1.
 
 5. **Default frequency**: fequency of the low frequency data. The options are: Yearly, HalfYearly, QuadriMonthly, Quarterly, Bimonthly and Monthly.
+Let see.
 
 
 ![Text](All_images/Image3_Bench.png)
