@@ -2,7 +2,7 @@
 
 ## Benchmarking overview
 
-Often one has two (or multiple) datasets of different frequency for the same target variable. Sometimes, however, these data sets are not coherent in the sense that they don't match up. Benchmarking\[\^1\] is a method to deal with this situation. An aggregate of a higher-frequency measurement variables is not necessarily equal to the corresponding lower-frequency less-aggregated measurement. Moreover, the sources of data may have different reliability levels. Usually, less frequent data are considered more trustworthy as they are based on larger samples and compiled more precisely. The more reliable measurements, hence often the less frequent, will serve as benchmark.
+Often one has two (or multiple) series of different frequency for the same target variable. Sometimes, however, these series are not coherent in the sense that they don't match up. Benchmarking\[\^1\] is a method to deal with this situation. An aggregate of a higher-frequency measurement variables is not necessarily equal to the corresponding lower-frequency less-aggregated measurement. Moreover, the sources of data may have different reliability levels. Usually, less frequent data are considered more trustworthy as they are based on larger samples and compiled more precisely. The more reliable measurements, hence often the less frequent, will serve as benchmark.
 
 In seasonal adjustment methods benchmarking is the procedure that ensures the consistency over the year between adjusted and non-seasonally adjusted data. It should be noted that the \[ESS Guidelines on Seasonal Adjustment (2015)\] (https://ec.europa.eu/eurostat/documents/3859598/6830795/KS-GQ-15-001-EN-N.pdf/d8f1e5f5-251b-4a69-93e3-079031b74bd3), do not recommend benchmarking as it introduces a bias in the seasonally adjusted data. The U.S. Census Bureau also points out that "*forcing the seasonal adjustment totals to be the same as the original series annual totals can degrade the quality of the seasonal adjustment, especially when the seasonal pattern is undergoing change. It is not natural if trading day adjustment is performed because the aggregate trading day effect over a year is variable and moderately different from zero*"\[\^2\]. Nevertheless, some users may need that the annual totals of the seasonally adjusted series match the annual totals of the original, non-seasonally adjusted series\[\^3\].
 
@@ -102,4 +102,55 @@ According to the \[ESS Guidelines on Seasonal Adjustment (2015)\] (https://ec.eu
 
 See package **rjd3bench** and its documentation pages in R.
 
+
+### Benchmarking and Temporal Disaggregation plugin
+
+See Tools Plug-ins for JDemetra+ to install Benchmarking plugin.
+
+Once the plugin is installed, it appears two more options in  the Workspace window: Benchmarking and Temporal Disaggregation.
+
+
+![Text](All_images/Image1_Bench.jpg)
+
+
+	
+
+## Benchmarking
+
+This methods provides a high-frequency series (input series) modified so that it fulfills a linear relation, with another of low frequency (benchmark), both series measure the same target variable. An example of the relation to be fulfilled could be that the
+low frequency series (quarterly frequency) coincides with the quarterly sum of the high frequency series (monthly frequency).
+
+Multivariate benchmarking also imposes contemporary linear relations,
+between high frequency series. If these relations do not exist, benchmarking could be carried out of each series separately. Normally contemporary relations are linear and the relations of aggregation is also linear and the same for all series, so low frequency series
+contemporary relations also meet.
+
+The benchmarking methods available in the benchmarking and time disaggregation plug-in are: Denton, Cholette, and Cholette multivariate.
+
+# Benchmarking: Denton and Cholette
+
+To execute Denton univariate case click on:
+
+Statistical Methods $\rightarrow$ Benchmarking $\rightarrow$ Denton or Cholette
+
+
+![Text](All_images/Image2_Bench.png)
+
+
+In both cases, a new window is displayed to launch one of the methods with the series selected. In the upper left side, it is necessary to drag the high frequency series from the  Providers window and drop it in **Drop Series here** and the low frequency series in **Drop Constraint here**.
+
+In the top right of the screen, click on the **Specifications** button to set the specifications to apply each method. Let see a description of the available options on Denton method:
+
+1. **Type**: Aggregation function (Sum, Average, Last or First). This impose that the
+low-frequency series must respectively match the aggregation function selected of the high frequency series.
+
+2. **Multiplicative**: if the checkbox is activated, the proportional Denton method is applied. Otherwise, additive Denton is applied.
+
+3. **Modified Denton**: if the checkbox is activated, the modified Denton method is applied. Otherwise, original Denton is applied. It is recomended to activate it, original Denton does a special treatment on the first observation.
+
+4. **Differencing**: Number of regular differences. By default 1.
+
+5. **Default frequency**: fequency of the low frequency data. The options are: Yearly, HalfYearly, QuadriMonthly, Quarterly, Bimonthly and Monthly.
+
+
+![Text](All_images/Image3_Bench.png)
 
