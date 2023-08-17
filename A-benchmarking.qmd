@@ -126,7 +126,7 @@ contemporary relations also meet.
 
 The benchmarking methods available in the benchmarking and time disaggregation plug-in are: Denton, Cholette, and Cholette multivariate.
 
-# Benchmarking: Denton and Cholette
+### Benchmarking: Denton and Cholette
 
 To execute Denton univariate case click on:
 
@@ -137,6 +137,8 @@ Statistical Methods $\rightarrow$ Benchmarking $\rightarrow$ Denton or Cholette
 
 
 In both cases, a new window is displayed to launch one of the methods with the series selected. In the upper left side, it is necessary to drag the high frequency series from the  Providers window and drop it in **Drop Series here** and the low frequency series in **Drop Constraint here**.
+
+#### Denton
 
 In the top right of the screen, click on the **Specifications** button to set the specifications to apply each method. Let see a description of the available options on Denton method:
 
@@ -149,9 +151,34 @@ low-frequency series must respectively match the aggregation function selected o
 
 4. **Differencing**: Number of regular differences. By default 1.
 
-5. **Default frequency**: fequency of the low frequency data. The options are: Yearly, HalfYearly, QuadriMonthly, Quarterly, Bimonthly and Monthly.
-Let see.
+5. **Default frequency**: periodicity of the low frequency data. The options are: Yearly, HalfYearly, QuadriMonthly, Quarterly, Bimonthly and Monthly.
 
 
-![Text](All_images/Image3_Bench.png)
+
+![Denton Specifications](All_images/Image3_Bench.png)
+
+#### Cholette
+
+Let see a description of the available options on Cholette method:
+
+1. **Type**: Aggregation function (Sum, Average, Last or First). This impose that the
+low-frequency series must respectively match the aggregation function selected of the high frequency series.
+2. **Aggregation frequency**: periodicity of the low frequency data. The options are: Yearly, HalfYearly, QuadriMonthly, Quarterly, Bimonthly and Monthly.
+3. **Rho**: value between $-1$ and $1$. It is the coefficient of an AR($1$) model that follows the error term. The default value is $1$, equivalent to a apply Denton.
+
+4. **Lambda**: value between $0$ and $1$. It is the parameter $\lambda$ of the following fucntion to be minimize in Cholette method:
+    $$
+    \sum_t \left( \frac{x_t - z_t}{\left| z_t \right|^{\lambda}} - \rho \frac{x_{t-1} - z_{t-1}}{\left| z_{t-1} \right|^{\lambda}}\right)^2
+    $$
+    Usually lambda is $0$ or $1$ equivalent to apply additive benchmarking and proportional benchmarking method respectively.
+
+![Cholette Specifications](All_images/Image4_Bench.png)
+
+In both cases, Denton and Cholette, the output is a graph with the original series and the bechmarked series. There is no table with the results, but it is very easy to create one from the graph. Do click on the graph and select copy option, then paste the values in excel (control-V).
+
+
+
+![Denton output](All_images/Image5_Bench.png)
+
+
 
