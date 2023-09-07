@@ -117,7 +117,7 @@ Once the plugin is installed, it appears two more options in  the Workspace wind
 
 ## Benchmarking
 
-This methods provides a high-frequency series (input series) modified so that it fulfills a linear relation, with another of low frequency (benchmark), both series measure the same target variable. An example of the relation to be fulfilled could be that the
+These methods provide a high-frequency series (input series) modified so that it fulfills a linear relation, with another of low frequency (benchmark), both series measure the same target variable. An example of the relation to be fulfilled could be that the
 low frequency series (quarterly frequency) coincides with the quarterly sum of the high frequency series (monthly frequency).
 
 Multivariate benchmarking also imposes contemporary linear relations,
@@ -126,7 +126,7 @@ contemporary relations also meet.
 
 The benchmarking methods available in the benchmarking and time disaggregation plug-in are: Denton, Cholette, and Cholette multivariate.
 
-### Benchmarking: Denton and Cholette
+### Benchmarking univariate: Denton and Cholette
 
 To execute Denton univariate case click on:
 
@@ -174,11 +174,15 @@ low-frequency series must respectively match the aggregation function selected o
 
 ![Cholette Specifications](All_images/Image4_Bench.png)
 
-In both cases, Denton and Cholette, the output is a graph with the original series and the bechmarked series. There is no table with the results, but it is very easy to create one from the graph. Do click on the graph and select copy option, then paste the values in excel (control-V).
+In both cases, Denton and Cholette methods, the output is a graph with the original series and the bechmarked series. There is no table with the results, but it is very easy to create one from the graph. Do click on the graph and select copy option, then paste the values in excel (control-V).
 
 
 
 ![Denton output](All_images/Image5_Bench.png)
 
+### Multi-variate Benchmarking : Cholette
 
+## Temporal Disaggregation 
 
+These methods provide a high-frequency series, introducing a low frequency series (input series), applying a regression model that relates the input series with p auxiliar series (proxy). 
+It is assumed that the high frequency observations of the series to be estimated satisfy a multiple regression relationship with p related series.
