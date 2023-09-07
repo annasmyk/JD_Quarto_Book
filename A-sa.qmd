@@ -1355,8 +1355,8 @@ model_sa <- tramoseats(raw_series, spec ="RSAfull")
 In version 3
 
 ```{r,eval=FALSE}
-library(rjd3tramoseats)
-model_sa<-tramoseats(raw_series, spec ="RSAfull")
+library("rjd3tramoseats")
+model_sa <- tramoseats(raw_series, spec ="RSAfull")
 ```
 
 The model_sa R object (list of lists) contains all parameters and results. It will be progressively detailed below.
@@ -1419,7 +1419,7 @@ Generating output from GUI (link) or from Cruncher (link), stochastic series, th
 In version 2
 
 ```{r,eval=FALSE}
-library(RJDemetra)
+library("RJDemetra")
 # list of additional output objects
 user_defined_variables("TRAMO-SEATS")
 # specify additional objects in estimation 
@@ -1433,7 +1433,7 @@ m$user_defined$variancedecomposition.seasonality
 In version 3
 
 ```{r,eval=FALSE}
-library(rjd3tramoseats)
+library("rjd3tramoseats")
 # list of additional output objects
 userdefined_variables_tramoseats("tramoseats")
 # specify additional objects in estimation 
@@ -1540,8 +1540,8 @@ Generating output from GUI (link) or from Cruncher (link), component series, the
 In version 2
 
 ```{r,eval=FALSE}
-library(RJDemetra)
-sa_model<-RJDemetra::tramoseats(y,"RSAfull")
+library("RJDemetra")
+sa_model <- RJDemetra::tramoseats(y,"RSAfull")
 sa_model$final$series
 sa_model$final$forecasts
 # for additional results call user-defined output as explained above 
@@ -1550,7 +1550,7 @@ sa_model$final$forecasts
 In version 3
 
 ```{r,eval=FALSE}
-library(rjd3tramoseats)
+library("rjd3tramoseats")
 sa_model <- tramoseats(y,spec="RSAfull")
 # final series can be accessed here
 sa$result$final$sa
