@@ -32,20 +32,16 @@ Packages corresponding to version 3.x core routines:
 -   [**rjd3x13**](https://github.com/rjdemetra/rjd3x13) on <https://github.com/rjdemetra/rjd3x13>
 -   [**rjd3tramoseats**](https://github.com/rjdemetra/rjd3tramoseats) at <https://github.com/rjdemetra/rjd3tramoseats>
 -   [**rjdemetra3**](https://github.com/rjdemetra/rjdemetra3) at <https://github.com/rjdemetra/rjdemetra3>
-<<<<<<< HEAD
 -   [**rjd3sts**](https://github.com/rjdemetra/rjd3sts) at <https://github.com/rjdemetra/rjd3sts>
 -   [**rjd3stl**](https://github.com/rjdemetra/rjd3stl) at <https://github.com/rjdemetra/rjd3stl>
 -   [**rjd3highfreq**](https://github.com/rjdemetra/rjd3highfreq) at <https://github.com/rjdemetra/rjd3highfreq>
+-   [**rjd3x11plus**](https://github.com/rjdemetra/rjd3x11plus) at <https://github.com/rjdemetra/rjd3x11plus>
 -   \[**rjd3x11plus**\] at <https://github.com/rjdemetra/rjd3x11plus>
 -   [**rjd3bench**](https://github.com/rjdemetra/rjd3bench) at <https://github.com/rjdemetra/rjd3bench>
--   [**rjd3revsions**](https://github.com/rjdemetra/rjd3revisions) at <https://github.com/rjdemetra/rjd3bench>
-=======
--   [**rjdemetra3**](https://github.com/rjdemetra/rjd3revisions) at <https://github.com/rjdemetra/rjd3revisions>
+-   [**rjd3revsions**](https://github.com/rjdemetra/rjd3revisions) at <https://github.com/rjdemetra/rjd3revisions>
 -   [**rjd3sts**](https://github.com/rjdemetra/rjd3sts) at <https://github.com/rjdemetra/rjd3sts>
 -   [**rjd3stl**](https://github.com/rjdemetra/rjd3stl) at <https://github.com/rjdemetra/rjd3stl>
--   [**rjd3highfreq**](https://github.com/rjdemetra/rjd3highfreq) at <https://github.com/rjdemetra/rjd3highfreq>
 -   [**rjd3bench**](https://github.com/rjdemetra/rjd3bench) at <https://github.com/rjdemetra/rjd3bench>
->>>>>>> 86a324e971dea668791bcfb00a39798e7f9ac253
 -   [**rjd3filters**](https://github.com/rjdemetra/rjd3filters) at <https://github.com/rjdemetra/rjd3filters>
 -   [**ggdemetra3**](https://github.com/AQLT/ggdemetra3) on <https://github.com/AQLT/ggdemetra3>
 
