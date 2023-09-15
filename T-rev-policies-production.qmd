@@ -105,7 +105,7 @@ The picture below presents the initial model (on the left) and the results of th
 
 ## Implementation with the cruncher 
 
-In a production process, it might be suitable to use the [cruncher](T-Prodcution-tools-cruncher-QR.qmd) in order to automatically update workspaces. When using an R package (`rjwsacruncher`` or `JDCruncher`) to do so, you will just need to specify the policy's name as shown below. Available policies and names are detailed in the #Overview section.
+In a production process, it might be suitable to use the [cruncher](T-Production-tools-cruncher-QR.qmd) in order to automatically update workspaces. When using an R package (`rjwsacruncher`` or `JDCruncher`) to do so, you will just need to specify the policy's name as shown below. Available policies and names are detailed in the #Overview section.
 
 ```{r, eval = FALSE}
 
