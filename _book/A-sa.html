@@ -726,7 +726,7 @@ Y_t = \sum {\alpha}_i O_{it} + \sum\beta_j C_{jt} + \sum {\gamma}_i U_{it} + Y_{
 <p><strong>Setting series span in R</strong></p>
 <p>x13 in version 2</p>
 <div class="cell" data-eval="false">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(RJDemetra)</span>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"RJDemetra"</span>)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># estimation interval: option with static dates</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>user_spec_1<span class="ot">&lt;-</span><span class="fu">x13_spec</span>(<span class="at">spec =</span> <span class="fu">c</span>(<span class="st">"RSA5c"</span>, <span class="st">"RSA0"</span>, <span class="st">"RSA1"</span>, <span class="st">"RSA2c"</span>, </span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>                               <span class="st">"RSA3"</span>, <span class="st">"RSA4c"</span>, <span class="st">"X11"</span>), </span>
@@ -912,7 +912,7 @@ Y_t = \sum {\alpha}_i O_{it} + \sum\beta_j C_{jt} + \sum {\gamma}_i U_{it} + Y_{
 <p>easter.Julian a logical. If TRUE, the program uses the Julian Easter (expressed in Gregorian calendar).</p>
 <p>easter.duration a numeric indicating the duration of the Easter effect (length in days, between 1 and 20).</p>
 <p>easter.test defines the pre-tests for the significance of the Easter effect based on the t-statistic (the Easter effect is considered as significant if the t-statistic is greater than 1.96): “Add” = the Easter effect variable is not included in the initial regression model but can be added to the RegARIMA model after the test; “Remove” = the Easter effect variable belongs to the initial regression model but can be removed from the RegARIMA model after the test; “None” = the Easter effect variable is not pre-tested and is included in the model.</p>
-<p>A user-defined regressor can also be used, see chapter on <a href="A-calendar-and-input.qmd">calendar correction</a></p>
+<p>A user-defined regressor can also be used, see chapter on <a href="./A-calendar-correction.html">calendar correction</a></p>
 <p>(to be added: additional options in Tramo)</p>
 </section>
 </section>
@@ -962,7 +962,7 @@ Y_t = \sum {\alpha}_i O_{it} + \sum\beta_j C_{jt} + \sum {\gamma}_i U_{it} + Y_{
 <section id="user-defined-regressors" class="level4">
 <h4 class="anchored" data-anchor-id="user-defined-regressors">User defined regressors</h4>
 <p>If <strong>User Defined</strong> options is used for trading days, regressors have to be provided by the user.</p>
-<p>Building Regressors The underlying methodology and implementation in JDemetra+ to build these regression variables are provided <a href="A-Calendar-and-input.qmd">here</a></p>
+<p>Building Regressors The underlying methodology and implementation in JDemetra+ to build these regression variables are provided <a href="./A-calendar-correction.html">here</a></p>
 <section id="adding-regressors-in-gui" class="level5">
 <h5 class="anchored" data-anchor-id="adding-regressors-in-gui">Adding Regressors in GUI</h5>
 <p>Step 1: import data set containing the regressors, general procedure explained here</p>
@@ -1037,7 +1037,7 @@ Y_t = \sum {\alpha}_i O_{it} + \sum\beta_j C_{jt} + \sum {\gamma}_i U_{it} + Y_{
 <section id="customizing-calendars" class="level4">
 <h4 class="anchored" data-anchor-id="customizing-calendars">Customizing Calendars</h4>
 <p>The following describes how to take a national calendar into account.</p>
-<p>Solution 1: if working with GUI build a new calendar in GUI (<a href="A-calendar-and-input.qmd###Customizing calendars">here</a></p>
+<p>Solution 1: if working with GUI build a new calendar in GUI (<a href="./A-calendar-correction.html##Generating Regressors for calendar correction">here</a></p>
 <p>(to be added: GUI: how to use it or customize HTML file structure explanation)</p>
 <p>set this option in GUI</p>
 <p>(to be added: image: spec window calendar / holidays / choice of calendars)</p>
@@ -1379,8 +1379,8 @@ Y_t = \sum \hat{\alpha}_i O_{it} + \sum\hat\beta_j C_{jt} + \sum\hat\gamma_k Reg
 <h4 class="anchored" data-anchor-id="in-r">In R</h4>
 <p>In version 2</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(RJDemetra)</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>model_sa<span class="ot">&lt;-</span><span class="fu">x13</span>(raw_series, <span class="at">spec =</span><span class="st">"RSA5c"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"RJDemetra"</span>)</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>model_sa <span class="ot">&lt;-</span> <span class="fu">x13</span>(raw_series, <span class="at">spec =</span><span class="st">"RSA5c"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The model_sa R object (list of lists) contains all parameters and results. It will be progressively detailed below.</p>
 </section>
@@ -1657,13 +1657,13 @@ Y_t = \sum \hat{\alpha}_i O_{it} + \sum\hat\beta_j C_{jt} + \sum\hat\gamma_k Reg
 <h4 class="anchored" data-anchor-id="in-r-1">In R</h4>
 <p>In version 2</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(RJDemetra)</span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>model_sa<span class="ot">&lt;-</span><span class="fu">tramoseats</span>(raw_series, <span class="at">spec =</span><span class="st">"RSAfull"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"RJDemetra"</span>)</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>model_sa <span class="ot">&lt;-</span> <span class="fu">tramoseats</span>(raw_series, <span class="at">spec =</span><span class="st">"RSAfull"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>In version 3</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rjd3tramoseats)</span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>model_sa<span class="ot">&lt;-</span><span class="fu">tramoseats</span>(raw_series, <span class="at">spec =</span><span class="st">"RSAfull"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"rjd3tramoseats"</span>)</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>model_sa <span class="ot">&lt;-</span> <span class="fu">tramoseats</span>(raw_series, <span class="at">spec =</span><span class="st">"RSAfull"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>The model_sa R object (list of lists) contains all parameters and results. It will be progressively detailed below.</p>
 <p>More details on the functions are to be found in R help pages.</p>
@@ -1784,7 +1784,7 @@ Y_t = \sum \hat{\alpha}_i O_{it} + \sum\hat\beta_j C_{jt} + \sum\hat\gamma_k Reg
 <h5 class="anchored" data-anchor-id="retrieve-in-r-5">Retrieve in R</h5>
 <p>In version 2</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(RJDemetra)</span>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"RJDemetra"</span>)</span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="co"># list of additional output objects</span></span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="fu">user_defined_variables</span>(<span class="st">"TRAMO-SEATS"</span>)</span>
 <span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="co"># specify additional objects in estimation </span></span>
@@ -1796,7 +1796,7 @@ Y_t = \sum \hat{\alpha}_i O_{it} + \sum\hat\beta_j C_{jt} + \sum\hat\gamma_k Reg
 </div>
 <p>In version 3</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rjd3tramoseats)</span>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"rjd3tramoseats"</span>)</span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="co"># list of additional output objects</span></span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="fu">userdefined_variables_tramoseats</span>(<span class="st">"tramoseats"</span>)</span>
 <span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="co"># specify additional objects in estimation </span></span>
@@ -2047,15 +2047,15 @@ Y_t = \sum \hat{\alpha}_i O_{it} + \sum\hat\beta_j C_{jt} + \sum\hat\gamma_k Reg
 <h5 class="anchored" data-anchor-id="retrieve-in-r-7">Retrieve in R</h5>
 <p>In version 2</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(RJDemetra)</span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>sa_model<span class="ot">&lt;-</span>RJDemetra<span class="sc">::</span><span class="fu">tramoseats</span>(y,<span class="st">"RSAfull"</span>)</span>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"RJDemetra"</span>)</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>sa_model <span class="ot">&lt;-</span> RJDemetra<span class="sc">::</span><span class="fu">tramoseats</span>(y,<span class="st">"RSAfull"</span>)</span>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>sa_model<span class="sc">$</span>final<span class="sc">$</span>series</span>
 <span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>sa_model<span class="sc">$</span>final<span class="sc">$</span>forecasts</span>
 <span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a><span class="co"># for additional results call user-defined output as explained above </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>In version 3</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rjd3tramoseats)</span>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"rjd3tramoseats"</span>)</span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>sa_model <span class="ot">&lt;-</span> <span class="fu">tramoseats</span>(y,<span class="at">spec=</span><span class="st">"RSAfull"</span>)</span>
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="co"># final series can be accessed here</span></span>
 <span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>sa<span class="sc">$</span>result<span class="sc">$</span>final<span class="sc">$</span>sa</span>
