@@ -14,13 +14,6 @@ This chapter provides an overview of the packages linked to JDemetra core routin
 
 Useful resources are also available in [this](https://github.com/annasmyk/Tsace_RJD_Webinar_Dec22) GitHub repository.
 
-### What you will find in this chapter
-
-(force this format even if provisional)
-What could be useful here ?
-In which cases look further here ? Links to other chapters 
-Q&A format 
-
 ### Packages based on JDemetra+ version 2 algorithms
 
 Packages corresponding to version 2.x core routines:
@@ -35,51 +28,52 @@ Packages corresponding to version 2.x core routines:
 
 Packages corresponding to version 3.x core routines:
 
--   [**rjd3toolkit**](https://github.com/palatej/rjd3toolkit) at <https://github.com/palatej/rjd3toolkit>
--   [**rjd3x13**](https://github.com/palatej/rjd3x13) on <https://github.com/palatej/rjd3x13>
--   [**rjd3tramoseats**](https://github.com/palatej/rjd3tramoseats) at <https://github.com/palatej/rjd3tramoseats>
--   [**rjdemetra3**](https://github.com/palatej/rjdemetra3) at <https://github.com/palatej/rjdemetra3>
--   [**rjd3sts**](https://github.com/palatej/rjd3sts) at <https://github.com/palatej/rjd3sts>
--   [**rjd3stl**](https://github.com/palatej/rjd3stl) at <https://github.com/palatej/rjd3stl>
--   [**rjd3highfreq**](https://github.com/palatej/rjd3highfreq) at <https://github.com/palatej/rjd3highfreq>
--   [**rjd3bench**](https://github.com/palatej/rjd3bench) at <https://github.com/palatej/rjd3bench>
--   [**rjd3filters**](https://github.com/palatej/rjd3filters) at <https://github.com/palatej/rjd3filters>
+-   [**rjd3toolkit**](https://github.com/rjdemetra/rjd3toolkit) at <https://github.com/rjdemetra/rjd3toolkit>
+-   [**rjd3x13**](https://github.com/rjdemetra/rjd3x13) on <https://github.com/rjdemetra/rjd3x13>
+-   [**rjd3tramoseats**](https://github.com/rjdemetra/rjd3tramoseats) at <https://github.com/rjdemetra/rjd3tramoseats>
+-   [**rjdemetra3**](https://github.com/rjdemetra/rjdemetra3) at <https://github.com/rjdemetra/rjdemetra3>
+-   [**rjd3sts**](https://github.com/rjdemetra/rjd3sts) at <https://github.com/rjdemetra/rjd3sts>
+-   [**rjd3stl**](https://github.com/rjdemetra/rjd3stl) at <https://github.com/rjdemetra/rjd3stl>
+-   [**rjd3highfreq**](https://github.com/rjdemetra/rjd3highfreq) at <https://github.com/rjdemetra/rjd3highfreq>
+-   \[**rjd3x11plus**\] at <https://github.com/rjdemetra/rjd3x11plus>
+-   [**rjd3bench**](https://github.com/rjdemetra/rjd3bench) at <https://github.com/rjdemetra/rjd3bench>
+-   [**rjd3revsions**](https://github.com/rjdemetra/rjd3revisions) at <https://github.com/rjdemetra/rjd3bench>
+-   [**rjd3filters**](https://github.com/rjdemetra/rjd3filters) at <https://github.com/rjdemetra/rjd3filters>
 -   [**ggdemetra3**](https://github.com/AQLT/ggdemetra3) on <https://github.com/AQLT/ggdemetra3>
-
 
 ## Algorithms available in R
 
-### Seasonal adjustment 
+### Seasonal adjustment
 
 #### Using JDemetra+ version 2.x
 
 | Algorithm   | Package   | Comments                                                 |
-|-------------|-----------|----------------------------------------------------------|
+|----------------|----------------|-----------------------------------------|
 | X13-Arima   | RJDemetra | Reg-Arima and X-11 decomposition available independently |
 | Tramo-Seats | RJDemetra | Tramo available independently                            |
 
 #### Using JDemetra+ version 3.x
 
 | Algorithm               | Package        | Comments                                                 |
-|-------------------------|----------------|----------------------------------------------------------|
+|------------------|------------------|-------------------------------------|
 | X13-Arima               | rjd3x13        | Reg-Arima and X-11 decomposition available independently |
-| Extended X-11           | rjd3highfreq   | For high-frequency (infra-monthly) data                  |
+| Extended X-11           | rjd3x11plus    | For high-frequency (infra-monthly) data                  |
 | Tramo-Seats             | rjd3tramoseats | Tramo available independently                            |
 | Extended Tramo          | rjd3highfreq   | For high-frequency data                                  |
 | Extended Seats          | rjd3highfreq   | For high-frequency data                                  |
 | STL                     | rjd3stl        | Including high-frequency data                            |
-| Basic Structural Models | rjd3sts        | State space framework                                   |
+| Basic Structural Models | rjd3sts        | State space framework                                    |
 
-Version 3.x includes [Revision Policies([T-rev-policies-production.qmd) in X-13 and Tramo-Seats.
+Version 3.x includes \[Revision Policies(\[T-rev-policies-production.qmd) in X-13 and Tramo-Seats.
 
 More details on functions parameters and retrieving output in the chapter dedicated to [Seasonal Adjustment](A-sa.qmd)
 
 ### Filtering and Trend estimation
 
-| Algorithm                         | Package                  | Comments |
-|-----------------------------------|--------------------------|----------|
-| Moving average functions          | rjd3filters               |          |
-| Local Polynomial Trend Estimation | rjd3filters, rjd3highfreq |          |
+| Algorithm                         | Package                 | Comments |
+|-----------------------------------|-------------------------|----------|
+| Moving average functions          | rjd3filters             |          |
+| Local Polynomial Trend Estimation | rjd3filters, rjd3x1plus |          |
 
 ### Benchmarking and Temporal disaggregation
 
@@ -89,7 +83,6 @@ More details on functions parameters and retrieving output in the chapter dedica
 | Cholette                | rjd3bench |         |
 | Cubic splines           | rjd3bench |         |
 | Temporal Disaggregation | rjd3bench |         |
-
 
 ## Utility functions available in R
 
@@ -111,8 +104,7 @@ A workspace is a specific JDemetra+ data format (xml files) allowing to use the 
 | Package      | JD+ version | Comments                           |
 |--------------|-------------|------------------------------------|
 | rjdworkspace | 2.x         | update meta data, merge workspaces |
-| rjdemetra3   | 3.x         | idem but under construction                 |
-
+| rjdemetra3   | 3.x         | idem but under construction        |
 
 ### Generating enhanced output in SA estimation
 
@@ -167,17 +159,19 @@ remotes::install_github("InseeFr/JDCruncheR")
 
 #install.packages("remotes")
 #install.packages("devtools")
-remotes::install_github("palatej/rjd3toolkit")
-remotes::install_github("palatej/rjd3x13")
-remotes::install_github("palatej/rjd3tramoseats")
-remotes::install_github("palatej/rjdemetra3")
-remotes::install_github("palatej/rjd3filters")
-remotes::install_github("palatej/rjd3sts")
-remotes::install_github("palatej/rjd3highfreq")
-remotes::install_github("palatej/rjd3stl")
-remotes::install_github("palatej/rjd3bench")
+remotes::install_github("rjdemetra/rjd3toolkit")
+remotes::install_github("rjdemetra/rjd3x13")
+remotes::install_github("rjdemetra/rjd3tramoseats")
+remotes::install_github("rjdemetra/rjdemetra3")
+remotes::install_github("rjdemetra/rjd3filters")
+remotes::install_github("rjdemetra/rjd3sts")
+remotes::install_github("rjdemetra/rjd3highfreq")
+remotes::install_github("rjdemetra/rjd3x11plus")
+remotes::install_github("rjdemetra/rjd3stl")
+remotes::install_github("rjdemetra/rjd3bench")
+remotes::install_github("rjdemetra/rjd3revisions")
 remotes::install_github("AQLT/ggdemetra3")
-devtools::install_github("palatej/rj3dfilters")
+devtools::install_github("rjdemetra/rj3dfilters")
 ```
 
 ## rjd3 suite of packages: overview
@@ -188,19 +182,19 @@ The sections below provide an overview of each package based on version 3.x of J
 
 Contains utility functions used in other `rjd3` packages and has to be systematically installed before using any other rjd3 package. From a user point of view, it allows to:
 
-- customized the pre-adjustment specification in X13-Arima and Tramo-Seats
+-   customized the pre-adjustment specification in X13-Arima and Tramo-Seats
 
-- generate user-defined regressors for calendar correction
+-   generate user-defined regressors for calendar correction
 
-- generate auxiliary variables (outliers, ramps..)
+-   generate auxiliary variables (outliers, ramps..)
 
-- run arima model estimations 
+-   run arima model estimations
 
-- perform tests 
+-   perform tests
 
-- access general functions such as autocorrelations, distributions...
+-   access general functions such as autocorrelations, distributions...
 
-More details for each part can be found in `rjd3toolkit``R help pages and related vignettes.
+More details for each part can be found in \`rjd3toolkit\`\`R help pages and related vignettes.
 
 ### rjd3x13
 
@@ -222,7 +216,6 @@ More details for each part can be found in `rjd3toolkit``R help pages and relate
 
 -   Refresh policies: `tramo.refresh()` and `tramoseats.refresh()`
 
-
 ### rjd3highfreq
 
 Seasonal adjustment of high frequency (infra-monthly) data:
@@ -231,13 +224,15 @@ Seasonal adjustment of high frequency (infra-monthly) data:
 
 -   fractional and multi airline decomposition
 
+### rjd3x11plus
+
 -   Extension of X-11 decomposition with non integer periodicity
 
 ### rjd3sts
 
 Gives access to structural time series and state space models, has to be installed to use rjd3highfreq. Handles high-frequency data.
 
-Several examples available here https://github.com/palatej/test_rjd3sts
+Several examples available here https://github.com/rjdemetra/test_rjd3sts
 
 ### rjd3stl
 
@@ -272,7 +267,7 @@ p_sa +
 
 ### rjd3filters
 
-The rjd3filters package allows to: 
+The rjd3filters package allows to:
 
 -   easily create/combine/apply moving averages `moving_average()` (much more general than `stats::filter()`) and study their properties: plot coefficients (`plot_coef()`), gain (`plot_gain()`), phase-shift (`plot_phase()`) and different statics (`diagnostic_matrix()`)
 
@@ -366,20 +361,23 @@ plot(window(ts.union(y, trend, sa), start = 2000),
      col = c("black", "orange", "lightblue"))
 ```
 
-
 ### rjd3bench
 
 Tailored for Benchmarking and temporal disaggregation
 
-Several examples [here](https://github.com/palatej/test_rjd3bench)
+Several examples [here](https://github.com/rjdemetra/test_rjd3bench)
 
-### rjdemetra 3 
+### rjd3revisions 
 
-This package allows to wrangle JDemetra+ workspaces in R with functions: 
+Revsion analysis. (See vignette in package)
 
-- `load_workspace`
+### rjdemetra 3
 
-- `save_workspace`
+This package allows to wrangle JDemetra+ workspaces in R with functions:
+
+-   `load_workspace`
+
+-   `save_workspace`
 
 ...
 
