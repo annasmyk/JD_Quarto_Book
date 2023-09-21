@@ -919,7 +919,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">special_day</span>(<span class="st">'ALLSAINTSDAY'</span>),</span>
 <span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">special_day</span>(<span class="st">'ARMISTICE'</span>)))</span>
 <span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(BE)</span>
-<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>lt<span class="ot">&lt;-</span><span class="fu">long_term_mean</span>(BE,<span class="dv">12</span>,</span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>lt <span class="ot">&lt;-</span> <span class="fu">long_term_mean</span>(BE,<span class="dv">12</span>,</span>
 <span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">groups =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>),</span>
 <span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">holiday =</span> <span class="dv">7</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -1000,7 +1000,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Create a regressor for modelling the easter effect:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Monthly regressor, five-year long, duration 8 days, effect finishing on Easter Monday</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>ee<span class="ot">&lt;-</span><span class="fu">easter_variable</span>(<span class="at">frequency=</span><span class="dv">12</span>, <span class="fu">c</span>(<span class="dv">2020</span>,<span class="dv">1</span>),<span class="at">length=</span><span class="dv">5</span><span class="sc">*</span><span class="dv">12</span>,<span class="at">duration=</span><span class="dv">8</span>, <span class="at">endpos=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>ee <span class="ot">&lt;-</span> <span class="fu">easter_variable</span>(<span class="at">frequency=</span><span class="dv">12</span>, <span class="fu">c</span>(<span class="dv">2020</span>,<span class="dv">1</span>),<span class="at">length=</span><span class="dv">5</span><span class="sc">*</span><span class="dv">12</span>,<span class="at">duration=</span><span class="dv">8</span>, <span class="at">endpos=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Display Easter Sunday dates in given period</p>
 <p>The function below allows to display the date of Easter Sunday for each year, in the defined period. Dates are displayed in “YYYY-MM-DD” format and as a number of days since January 1st 1970.</p>
@@ -1016,7 +1016,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h5 class="anchored" data-anchor-id="daily-data-dummies">Daily data (dummies)</h5>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="do">## dummies corresponding to holidays</span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>q<span class="ot">&lt;-</span><span class="fu">holidays</span>(BE, <span class="st">"2020-01-01"</span>,<span class="fl">365.25</span>, <span class="at">type=</span><span class="st">"All"</span>)</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>q <span class="ot">&lt;-</span> <span class="fu">holidays</span>(BE, <span class="st">"2020-01-01"</span>,<span class="fl">365.25</span>, <span class="at">type=</span><span class="st">"All"</span>)</span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span>(q)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <section id="weekly-data" class="level6">

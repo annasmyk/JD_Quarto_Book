@@ -555,7 +555,7 @@ BE <- national_calendar(list(
     special_day('ALLSAINTSDAY'),
     special_day('ARMISTICE')))
 class(BE)
-lt<-long_term_mean(BE,12,
+lt <- long_term_mean(BE,12,
     groups = c(1,1,1,1,1,0,0),
     holiday = 7)
 
@@ -648,7 +648,7 @@ Create a regressor for modelling the easter effect:
 
 ```{r, eval=FALSE}
 #Monthly regressor, five-year long, duration 8 days, effect finishing on Easter Monday
-ee<-easter_variable(frequency=12, c(2020,1),length=5*12,duration=8, endpos=1)
+ee <- easter_variable(frequency=12, c(2020,1),length=5*12,duration=8, endpos=1)
 ```
 
 Display Easter Sunday dates in given period
@@ -668,7 +668,7 @@ easter_dates(2018, 2023)
 
 ```{r,eval=FALSE}
 ## dummies corresponding to holidays
-q<-holidays(BE, "2020-01-01",365.25, type="All")
+q <- holidays(BE, "2020-01-01",365.25, type="All")
 tail(q)
 ```
 
