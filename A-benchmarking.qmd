@@ -184,5 +184,5 @@ In both cases, Denton and Cholette methods, the output is a graph with the origi
 
 ## Temporal Disaggregation 
 
-These methods are used to disaggregate a series from low frequency to high-frequency. Temporal disaggregaton methods, when there is a high frequency related indicators, provide estimations for a series, applying a regression model that relates low frequency series observed (input series) with p auxiliar series (proxy). This p auxiliar series are available on a high frequency basis.
+These methods are used to disaggregate a series from low frequency to high-frequency. Temporal disaggregaton methods, when there is a high frequency related indicators, provide estimations for a series, applying a regression model that relates high frequency series (input series) with p auxiliar series (proxy). This p auxiliar series are available on a high frequency basis.
 It is assumed that the high frequency observations of the series to be estimated satisfy a multiple regression relationship with p related series.
