@@ -34,13 +34,13 @@ HF data often display multiple seasonal patterns with potentially non-integer pe
 
 ## Tailored algorithms in JDemetra+
 
-| Col1          | Algorithm                               | GUI v 3.0 | R package    |
+| Col1          | Algorithm                             | GUI v 3.0 | R package    |
 |------------------|-------------------|------------------|------------------|
-| Pre-treatment | Extended Airline Model                  | yes       | rjd3highfreq |
-| Decomposition | Extended SEATS Extended Airline Model   | yes       | rjd3highfreq |
-|               | Extended X-11                           | yes       | rjd3highfreq |
-|               | Extended STL                            | no        | rjd3stl      |
-| One-Step      | SSF Framework                           | no        | rjd3sts      |
+| Pre-treatment | Extended Airline Model                | yes       | rjd3highfreq |
+| Decomposition | Extended SEATS Extended Airline Model | yes       | rjd3highfreq |
+|               | Extended X-11                         | yes       | rjd3x11plus  |
+|               | Extended STL                          | no        | rjd3stl      |
+| One-Step      | SSF Framework                         | no        | rjd3sts      |
 
 ## Unobserved Components
 
@@ -105,25 +105,24 @@ Calendar regressors can be defined with the rjd3toolkit package and added to pre
 
 ```{r, eval=FALSE}
 # Create a calendar with rjd3toolkit
+# Define a national calendar
 frenchCalendar <- national_calendar(days = list(
-  fixed_day(7, 14), # Bastille day
-  fixed_day(5, 8, validity = list(start = "1982-05-08")), # 2nd WW
+  fixed_day(7, 14), # Bastille Day
+  fixed_day(5, 8, validity = list(start = "1982-05-08")), # Victory Day
   special_day('NEWYEAR'), 
   special_day('CHRISTMAS'),
   special_day('MAYDAY'), 
   special_day('EASTERMONDAY'), 
   special_day('ASCENSION'),
-  special_day('WHITMONDAY'), 
+  special_day('WHITMONDAY'),
   special_day('ASSUMPTION'),
-  special_day('ALLSAINTSDAY'),
+  special_day('ALLSAINTSDAY'), 
   special_day('ARMISTICE')) 
 )
-# generate the matrix of egressors 
-q <- holidays(
-  frenchCalendar, 
-  start = start(raw_series), 
-  length = length(raw_series), 
-  type = "All", nonworking = 7L)
+# Generrate calendar regressors 
+q<-holidays(frenchCalendar, "1968-01-01", length = length(df_daily$births), type="All",
+            nonworking = as.integer(7))
+
 # Argument type = All : taking all holidays into account
 # Argument type = Skip : taking into account only the holidays falling on a week day
 ```
@@ -199,8 +198,13 @@ As seasonality has been removed in the first step, there is no non-integer perio
 Here the raw series is daily and displays two periodicities $p=7$ and $p=365.25$
 
 ```{r, eval= FALSE}
+<<<<<<< HEAD
+# extraction of day-of-the-week pattern (dow)
+x11.dow <- rjd3x11plus::x11plus(y_linearized,
+=======
 # extraction of day-of-the-week (DOW) pattern
 x11.dow <- rjd3highfreq::x11(y_linearized,
+>>>>>>> 86a324e971dea668791bcfb00a39798e7f9ac253
         period = 7,                 # DOW pattern
         mul = TRUE,                              
         trend.horizon = 9,  # 1/2 Filter length : not too long vs p
@@ -211,8 +215,14 @@ x11.dow <- rjd3highfreq::x11(y_linearized,
         extreme.lsig = 1.5, extreme.usig = 2.5)   # Sigma-limits
 
 
+<<<<<<< HEAD
+# extraction of day-of-the-week pattern (doy)
+
+x11.doy <- rjd3x11plus::x11plus(x11.dow$decomposition$sa,  # previous sa
+=======
 # extraction of day-of-the-year (DOY) pattern
 x11.doy <- rjd3highfreq::x11(x11.dow$decomposition$sa,  # previous sa
+>>>>>>> 86a324e971dea668791bcfb00a39798e7f9ac253
                     period = 365.2425,         # DOY pattern
                     mul = TRUE, 
                     trend.horizon = 371, # 1/2 final filter length 
@@ -267,5 +277,3 @@ Not currently available. Under construction.
 ### Residual seasonality
 
 JDemetra+ provides the Canova-Hansen test in rjd3toolkit package which allows to check for any remaining seasonal periodicity in the final SA data.
-
-
