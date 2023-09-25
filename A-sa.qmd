@@ -58,7 +58,9 @@ In general, the trend consists of 2 sub-components:
 
 ### Pre-treatment principles
 
-The goal of this step is to remove deterministic effects (calendar and outliers) in order to improve the decomposition. $$
+The goal of this step is to remove deterministic effects (calendar and outliers) in order to improve the decomposition.
+
+$$
 Y_t = \sum {\alpha}_i O_{it} + \sum\beta_j C_{jt} + \sum {\gamma}_i U_{it} + Y_{lin,t}
 $$
 
@@ -84,11 +86,11 @@ In rjd3toolkit package:
 -   Periodogram Seasonality Test (`seasonality.periodogram()`)
 -   QS Seasonality Test (`seasonality.qs()`)
 
-## Pre-treatment: Reg-Arima or Tramo
+## Pre-treatment: Reg-Arima or Tramo {#pre-pro-spec}
 
 The following sections cover how to perform pre-treatment with Reg-ARIMA (or Tramo) algorithms. Tramo and the Reg-Arima part of X13-Arima rely on very similar principles: [Reg-Arima modelling](M-reg-arima-modelling.qmd). Thus Tramo will be mentioned only to highlight differences with the Reg-Arima part of X13-Arima. Reg-Arima modelling part can be of a seasonal adjustment process or run on its own, we focus on performing pre-treatment as part of a SA processing.
 
-### Default Specifications
+### Default Specifications {#pre-def-spec}
 
 Default specifications are set for the whole SA procedure, pre-treatment and decomposition. They are slightly different for X13-ARIMA and Tramo-Seats and can be modified with user defined parameters.
 
@@ -148,7 +150,19 @@ calendar:
 | RSAfull         | automatic           | AO/LS/TC           | automatic        | automatic      |
 +-----------------+---------------------+--------------------+------------------+----------------+
 
-Principle of user setting parameters: can be done from one of the default specifications or any specification in a "save" as" mode very similar in GUI and R, see below.
+
+### User-defined specifications {#usr-def-spec}
+
+Principle of user setting parameters: can be done from one of the default specifications or any specification in a "Save as" mode very similar in GUI and R, see below.
+
+The user may add new seasonal adjustment specifications to the *Workspace* window. To do it, go to the *Seasonal adjustment* section, right click on the *tramoseats* or *x13* item in the *specifications* node and select *New* from the local menu.
+
+![**Creating a new specification in the *Seasonal adjustment* section**](All_images/RM_C_pic20.jpg)
+
+Next, double click on the newly created specification, change the settings accordingly and confirm with the **OK** button.
+
+![**Changing settings of seasonal adjustment specification**](All_images/RM_C_pic21.jpg)
+
 
 ### Spans
 
