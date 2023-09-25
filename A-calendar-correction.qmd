@@ -136,7 +136,7 @@ The use of different specifications of the trading days doesn't impact the final
 
 ### Stock series 
 
-## Generating Regressors for calendar correction
+## Generating Regressors for calendar correction {#usr_def_cal}
 
 The following parts details how to build customized regressors for calendar correction using
 

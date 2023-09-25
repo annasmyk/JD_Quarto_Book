@@ -1,4 +1,4 @@
-# Spectral Analysis Principles and Tools {.unnumbered}
+# Spectral Analysis Principles and Tools {#spectral-analysis}
 
 Under construction.
 
@@ -107,7 +107,7 @@ DAVIS, R.A. (2006).
 
 ## Spectral density estimation
 
-### Method 1: The periodogram
+### Method 1: The periodogram {#periodogram}
 
 For any given frequency $\omega$ the sample periodogram is the sample
 analog of the sample spectrum. In general, the periodogram is used to
@@ -876,7 +876,7 @@ Example of how results are displayed:
 Brockwell, P.J., and R.A. Davis (1991). Times Series: Theory and
 Methods. Springer Series in Statistics.
 
-## Spectral graphs
+## Spectral graphs {#spectral-graphs}
 
 probably moove this part to GUI (Tools), just leave a link
 

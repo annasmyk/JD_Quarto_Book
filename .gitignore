@@ -13,3 +13,5 @@ AUX-Chapter-Building-Companion.qmd
 AUX-Chapter-Building-Companion_files
 
 TO_DO
+_book
+*.html
