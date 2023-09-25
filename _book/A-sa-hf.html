@@ -328,8 +328,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#in-this-chapter" id="toc-in-this-chapter" class="nav-link active" data-scroll-target="#in-this-chapter">In this chapter</a></li>
-  <li><a href="#overview" id="toc-overview" class="nav-link" data-scroll-target="#overview">Overview</a></li>
+  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
   <li><a href="#data-specificities" id="toc-data-specificities" class="nav-link" data-scroll-target="#data-specificities">Data specificities</a></li>
   <li><a href="#tailored-algorithms-in-jdemetra" id="toc-tailored-algorithms-in-jdemetra" class="nav-link" data-scroll-target="#tailored-algorithms-in-jdemetra">Tailored algorithms in JDemetra+</a></li>
   <li><a href="#unobserved-components" id="toc-unobserved-components" class="nav-link" data-scroll-target="#unobserved-components">Unobserved Components</a>
@@ -379,15 +378,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<section id="in-this-chapter" class="level2">
-<h2 class="anchored" data-anchor-id="in-this-chapter">In this chapter</h2>
-</section>
 <section id="overview" class="level2">
 <h2 class="anchored" data-anchor-id="overview">Overview</h2>
-<p>This chapter provides guidance on seasonal adjustment of high-frequency (HF) data with JDemetra+ tailored algorithms.</p>
+<p>This chapter provides guidance on seasonal adjustment of infra-monthly, or high-frequency (HF), time-series data with JDemetra+ tailored algorithms.</p>
 <p>Currently available topics:</p>
 <ul>
-<li><p>description of high frequency data specificities</p></li>
+<li><p>description of HF data specificities</p></li>
 <li><p>R functions for pre-treatment, extended X-11 and extended Seats</p></li>
 </ul>
 <p>Topics under construction</p>
@@ -399,7 +395,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="data-specificities" class="level2">
 <h2 class="anchored" data-anchor-id="data-specificities">Data specificities</h2>
-<p>Intra-monthly data displays multiple and non-integer periodicities which cannot be dealt with classical versions of SA algorithms. JD+ provides tailored versions of these algorithms.</p>
+<p>HF data often display multiple seasonal patterns with potentially non-integer periodicities which cannot be modeled with classical SA algorithms. JD+ provides tailored versions of these algorithms.</p>
 <table class="table">
 <caption>Periodicities (number of observations per cycle)</caption>
 <thead>
@@ -490,7 +486,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td></td>
 <td>Extended X-11</td>
 <td>yes</td>
-<td>rjd3highfreq</td>
+<td>rjd3x11plus</td>
 </tr>
 <tr class="even">
 <td></td>
@@ -515,7 +511,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="multiple-seasonal-patterns" class="level3">
 <h3 class="anchored" data-anchor-id="multiple-seasonal-patterns">Multiple seasonal patterns</h3>
-<p>For HF data multiple seasonal patterns might be taken into account. <span class="math display">\[S_{t}= S_{t,7} \circ S_{t,30.44} \circ S_{t,365.25}\]</span></p>
+<p>HF data often contain multiple seasonal patterns. For example, daily economic time series often display strong infra-weekly and infra-yearly seasonality. An infra-monthly seasonal pattern may also be present, but its strength is usually less pronounced in practice. In theory, the full decomposition of the seasonal component in daily data is given by: <span class="math display">\[S_{t}= S_{t,7} \circ S_{t,30.44} \circ S_{t,365.25}\]</span></p>
 <p>The decomposition is done iteratively periodicity by periodicity starting with the smallest one (highest frequency) as:</p>
 <ul>
 <li><p>highest frequencies usually display the biggest and most stable variations</p></li>
@@ -525,7 +521,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="identifying-seasonal-patterns" class="level2">
 <h2 class="anchored" data-anchor-id="identifying-seasonal-patterns">Identifying seasonal patterns</h2>
-<p>JDemetra+ provides the Canova-Hansen test in rjd3toolkit package.</p>
+<p>JDemetra+ provides the Canova-Hansen test in the rjd3toolkit package.</p>
 </section>
 <section id="pre-adjustment" class="level2">
 <h2 class="anchored" data-anchor-id="pre-adjustment">Pre-adjustment</h2>
@@ -536,8 +532,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><span class="math display">\[
 (1-B)(1-B^{s})y_t=(1-\theta_1 B)(1-\theta_2 B^{s}) \epsilon_t \text{~~~~} \epsilon_t \sim \text{NID}(0,\sigma^2_{\epsilon})  
 \]</span></p>
-<p>For HF data potentially non-integer <span class="math inline">\(s\)</span> will be written: <span class="math inline">\(s=s' + \alpha\)</span>, with <span class="math inline">\(\alpha\)</span> real number i <span class="math inline">\(]0,1[\)</span> (for example <span class="math inline">\(52.18 = 52 +0.18\)</span> is the yearly periodicity for weekly data)</p>
-<p>Taylor development around 1 of <span class="math inline">\(f(x)=x^\alpha\)</span> <span class="math display">\[
+<p>For HF data, the potentially non-integer periodicity <span class="math inline">\(s\)</span> will be written: <span class="math inline">\(s=s' + \alpha\)</span>, with <span class="math inline">\(\alpha \in [0,1)\)</span> (for example <span class="math inline">\(52.18 = 52 +0.18\)</span> is the yearly periodicity for weekly data)</p>
+<p>Taylor series development around <span class="math inline">\(1\)</span> of <span class="math inline">\(f(x)=x^\alpha\)</span> <span class="math display">\[
 \begin{array}{lll}
 x^\alpha &amp;=&amp; 1 + \alpha (x-1) + \frac{\alpha (\alpha+1)}{2!} (x-1)^2 + \frac{\alpha (\alpha+1) (\alpha+2)}{3!} (x-1)^3 +\cdots \\
             B^\alpha &amp;\cong&amp; (1 - \alpha)+ \alpha B     
@@ -547,41 +543,40 @@ x^\alpha &amp;=&amp; 1 + \alpha (x-1) + \frac{\alpha (\alpha+1)}{2!} (x-1)^2 + \
 \begin{array}{lll}
 B^{s+\alpha} &amp;\cong&amp; (1 - \alpha)B^s+ \alpha B^{s+1}                
 \end{array}
-\]</span> Example for a daily series displaying two periodicities <span class="math inline">\(p_{1}=7\)</span> and <span class="math inline">\(p_{2}=365.25\)</span>:</p>
+\]</span> Example for a daily series displaying infra-weekly (<span class="math inline">\(p_{1}=7\)</span>) and infra-yearly (<span class="math inline">\(p_{2}=365.25\)</span>) seasonality:</p>
 <p><span class="math display">\[
 (1-B)(1-B^{7})(1-B^{365.25)}(Y_t - \sum {\alpha_i}X_{it})=(1-\theta_1 B)(1-\theta_2 B^{7})(1-\theta_3 B^{365.25}) \epsilon_t
 \]</span> <span class="math display">\[
-\epsilon_t \sim \text{NID}(0,\sigma^2_{\epsilon})
+\epsilon_t \overset{iid}{\sim} \text{N}(0,\sigma^2_{\epsilon})
 \]</span></p>
 <p>with <span class="math display">\[
-1-B^{365.25}=(1 - 0.75B^{365} - 0.25B^{366})
+1 - B^{365.25} = 1 - (0.75B^{365} + 0.25B^{366})
 \]</span></p>
 <section id="calendar-correction" class="level3">
 <h3 class="anchored" data-anchor-id="calendar-correction">Calendar correction</h3>
-<p>Calendar regressors can be defined with rjd3toolkit package and added to pre-treatment function as a matrix.</p>
+<p>Calendar regressors can be defined with the rjd3toolkit package and added to pre-treatment function as a matrix.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a calendar with rjd3toolkit</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>frenchCalendar <span class="ot">&lt;-</span> <span class="fu">national_calendar</span>(<span class="at">days =</span> <span class="fu">list</span>(</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fixed_day</span>(<span class="dv">7</span>, <span class="dv">14</span>), <span class="co"># Bastille day</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fixed_day</span>(<span class="dv">5</span>, <span class="dv">8</span>, <span class="at">validity =</span> <span class="fu">list</span>(<span class="at">start =</span> <span class="st">"1982-05-08"</span>)), <span class="co"># 2nd WW</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">special_day</span>(<span class="st">'NEWYEAR'</span>), </span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">special_day</span>(<span class="st">'CHRISTMAS'</span>),</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">special_day</span>(<span class="st">'MAYDAY'</span>), </span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">special_day</span>(<span class="st">'EASTERMONDAY'</span>), </span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">special_day</span>(<span class="st">'ASCENSION'</span>),</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">special_day</span>(<span class="st">'WHITMONDAY'</span>), </span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">special_day</span>(<span class="st">'ASSUMPTION'</span>),</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">special_day</span>(<span class="st">'ALLSAINTSDAY'</span>),</span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">special_day</span>(<span class="st">'ARMISTICE'</span>)) </span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="co"># generate the matrix of egressors </span></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>q <span class="ot">&lt;-</span> <span class="fu">holidays</span>(</span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>  frenchCalendar, </span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>  <span class="at">start =</span> <span class="fu">start</span>(raw_series), </span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>  <span class="at">length =</span> <span class="fu">length</span>(raw_series), </span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>  <span class="at">type =</span> <span class="st">"All"</span>, <span class="at">nonworking =</span> 7L)</span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Argument type = All : taking all holidays into account</span></span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Argument type = Skip : taking into account only the holidays falling on a week day</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Define a national calendar</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>frenchCalendar <span class="ot">&lt;-</span> <span class="fu">national_calendar</span>(<span class="at">days =</span> <span class="fu">list</span>(</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fixed_day</span>(<span class="dv">7</span>, <span class="dv">14</span>), <span class="co"># Bastille Day</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fixed_day</span>(<span class="dv">5</span>, <span class="dv">8</span>, <span class="at">validity =</span> <span class="fu">list</span>(<span class="at">start =</span> <span class="st">"1982-05-08"</span>)), <span class="co"># Victory Day</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">special_day</span>(<span class="st">'NEWYEAR'</span>), </span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">special_day</span>(<span class="st">'CHRISTMAS'</span>),</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">special_day</span>(<span class="st">'MAYDAY'</span>), </span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">special_day</span>(<span class="st">'EASTERMONDAY'</span>), </span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">special_day</span>(<span class="st">'ASCENSION'</span>),</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">special_day</span>(<span class="st">'WHITMONDAY'</span>),</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">special_day</span>(<span class="st">'ASSUMPTION'</span>),</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">special_day</span>(<span class="st">'ALLSAINTSDAY'</span>), </span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">special_day</span>(<span class="st">'ARMISTICE'</span>)) </span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Generrate calendar regressors </span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>q<span class="ot">&lt;-</span><span class="fu">holidays</span>(frenchCalendar, <span class="st">"1968-01-01"</span>, <span class="at">length =</span> <span class="fu">length</span>(df_daily<span class="sc">$</span>births), <span class="at">type=</span><span class="st">"All"</span>,</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>            <span class="at">nonworking =</span> <span class="fu">as.integer</span>(<span class="dv">7</span>))</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Argument type = All : taking all holidays into account</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Argument type = Skip : taking into account only the holidays falling on a week day</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="outliers-and-intervention-variables" class="level3">
@@ -593,8 +588,8 @@ B^{s+\alpha} &amp;\cong&amp; (1 - \alpha)B^s+ \alpha B^{s+1}
 <p>Example using rjd3highfreq::fractionalAirlineEstimation function:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>pre_adjustment<span class="ot">&lt;-</span> rjd3highfreq<span class="sc">::</span><span class="fu">fractionalAirlineEstimation</span>(y_raw,</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>                <span class="at">x =</span> q, <span class="co"># q= calendar regressors</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>                <span class="at">periods =</span> <span class="fu">c</span>(<span class="dv">7</span>,<span class="fl">365.25</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>                <span class="at">x =</span> q, <span class="co"># q = daily calendar regressors</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>                <span class="at">periods =</span> <span class="fu">c</span>(<span class="dv">7</span>, <span class="fl">365.25</span>),</span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>                <span class="at">ndiff =</span> <span class="dv">2</span>, <span class="at">ar =</span> <span class="cn">FALSE</span>, <span class="at">mean =</span> <span class="cn">FALSE</span>,</span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>                <span class="at">outliers =</span> <span class="fu">c</span>(<span class="st">"ao"</span>,<span class="st">"ls"</span>, <span class="st">"wo"</span>), </span>
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>                <span class="at">criticalValue =</span> <span class="dv">0</span>, <span class="co"># computed in the algorithm</span></span>
@@ -618,11 +613,11 @@ B^{s+\alpha} &amp;\cong&amp; (1 - \alpha)B^s+ \alpha B^{s+1}
 <p>The first trend estimation is thanks to a generalization of the centred and symmetrical moving averages with an order equal to the periodicity <span class="math inline">\(p\)</span>.</p>
 <ul>
 <li><p>filter length <span class="math inline">\(l\)</span>: smallest odd integer greater than <span class="math inline">\(p\)</span></p></li>
-<li><p>ex : p=7, l=7, p=12 l=13, p=365,25, l=367, p=52.18 l=53</p></li>
+<li><p>examples: <span class="math inline">\(p=7 \rightarrow l=7\)</span>, <span class="math inline">\(p=12 \rightarrow l=13\)</span>, <span class="math inline">\(p=365.25 \rightarrow l=367\)</span>, <span class="math inline">\(p=52.18 \rightarrow l=53\)</span></p></li>
 <li><p>central coefficients <span class="math inline">\(1/p\)</span> (1/12,1/7, 1/365.25)</p></li>
 <li><p>end-point coefficients <span class="math inline">\(\mathbb{I} \{\text{$E(p)$ even}\} +(p-E(p)) /2p\)</span></p></li>
-<li><p>example for p=12: (1/12 and 1/24) (we fall back on <span class="math inline">\(M_{2\times12}\)</span> of the monthly case</p></li>
-<li><p>example for p=365.25: (1/365.25 and 0.25/(2*365.25)</p></li>
+<li><p>example for <span class="math inline">\(p=12\)</span>: (<span class="math inline">\(1/12\)</span> and <span class="math inline">\(1/24\)</span>) (we fall back on <span class="math inline">\(M_{2\times12}\)</span> of the monthly case</p></li>
+<li><p>example for <span class="math inline">\(p=365.25\)</span>: (<span class="math inline">\(1/365.25\)</span> and <span class="math inline">\(0.25/(2*365.25)\)</span>)</p></li>
 </ul>
 </section>
 <section id="modification-of-seasonality-extraction-filters" class="level4">
@@ -637,35 +632,45 @@ M_{3\times3}X = \frac{1}{9}(X_{t-2p})+\frac{2}{9}(X_{t-p})+\frac{3}{9}(X_{t})+\f
 </section>
 <section id="modification-of-final-trend-estimation-filter" class="level4">
 <h4 class="anchored" data-anchor-id="modification-of-final-trend-estimation-filter">Modification of final trend estimation filter</h4>
-<p>As seasonality has been removed in the first step, there is no non-integer periodicity issue in the final trend estimation, but extended X-11 offers additional features vs genuine X-11, in which final trend is estimated with Henderson filters and Musgrave asymmetrical surrogates. In extended in X-11, a generalization of this method with local polynomial approximation is available.</p>
+<p>As seasonality has been removed in the first step, there is no non-integer periodicity issue in the final trend estimation, but extended X-11 offers additional features vs classic X-11, in which final trend is estimated with Henderson filters and Musgrave asymmetrical surrogates. In extended X-11, a generalization of this method with local polynomial approximation is available.</p>
 </section>
 <section id="example-of-decomposition" class="level4">
 <h4 class="anchored" data-anchor-id="example-of-decomposition">Example of decomposition</h4>
 <p>Here the raw series is daily and displays two periodicities <span class="math inline">\(p=7\)</span> and <span class="math inline">\(p=365.25\)</span></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># extraction of day-of-the-week pattern (dow)</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>x11.dow <span class="ot">&lt;-</span> rjd3highfreq<span class="sc">::</span><span class="fu">x11</span>(y_linearized,</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">period =</span> <span class="dv">7</span>,                 <span class="co"># DOW pattern</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">mul =</span> <span class="cn">TRUE</span>,                              </span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>        <span class="at">trend.horizon =</span> <span class="dv">9</span>,  <span class="co"># 1/2 Filter length : not too long vs p</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">trend.degree =</span> <span class="dv">3</span>,                         <span class="co"># Polynomial degree</span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>        <span class="at">trend.kernel =</span> <span class="st">"Henderson"</span>,               <span class="co"># Kernel function</span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>        <span class="at">trend.asymmetric =</span> <span class="st">"CutAndNormalize"</span>,     <span class="co"># Truncation method</span></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>        <span class="at">seas.s0 =</span> <span class="st">"S3X9"</span>, <span class="at">seas.s1 =</span> <span class="st">"S3X9"</span>,       <span class="co"># Seasonal filters</span></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>        <span class="at">extreme.lsig =</span> <span class="fl">1.5</span>, <span class="at">extreme.usig =</span> <span class="fl">2.5</span>)   <span class="co"># Sigma-limits</span></span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="co"># extraction of day-of-the-week pattern (doy)</span></span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>x11.doy <span class="ot">&lt;-</span> rjd3highfreq<span class="sc">::</span><span class="fu">x11</span>(x11.dow<span class="sc">$</span>decomposition<span class="sc">$</span>sa,  <span class="co"># previous sa</span></span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>                    <span class="at">period =</span> <span class="fl">365.2425</span>,         <span class="co"># DOY pattern</span></span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>                    <span class="at">mul =</span> <span class="cn">TRUE</span>, </span>
-<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>                    <span class="at">trend.horizon =</span> <span class="dv">371</span>, <span class="co"># 1/2 final filter length </span></span>
-<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>                    <span class="at">trend.degree =</span> <span class="dv">3</span>,</span>
-<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>                    <span class="at">trend.kernel =</span> <span class="st">"Henderson"</span>, </span>
-<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>                    <span class="at">trend.asymmetric =</span> <span class="st">"CutAndNormalize"</span>,</span>
-<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>                    <span class="at">seas.s0 =</span> <span class="st">"S3X15"</span>, <span class="at">seas.s1 =</span> <span class="st">"S3X5"</span>,</span>
-<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>                    <span class="at">extreme.lsig =</span> <span class="fl">1.5</span>, <span class="at">extreme.usig =</span> <span class="fl">2.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&lt;</span><span class="er">&lt;&lt;&lt;&lt;&lt;&lt;</span> HEAD</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># extraction of day-of-the-week pattern (dow)</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>x11.dow <span class="ot">&lt;-</span> rjd3x11plus<span class="sc">::</span><span class="fu">x11plus</span>(y_linearized,</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="sc">==</span><span class="er">=====</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co"># extraction of day-of-the-week (DOW) pattern</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>x11.dow <span class="ot">&lt;-</span> rjd3highfreq<span class="sc">::</span><span class="fu">x11</span>(y_linearized,</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span><span class="er">&gt;&gt;&gt;&gt;&gt;&gt;</span> 86a324e971dea668791bcfb00a39798e7f9ac253</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>        <span class="at">period =</span> <span class="dv">7</span>,                 <span class="co"># DOW pattern</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>        <span class="at">mul =</span> <span class="cn">TRUE</span>,                              </span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>        <span class="at">trend.horizon =</span> <span class="dv">9</span>,  <span class="co"># 1/2 Filter length : not too long vs p</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>        <span class="at">trend.degree =</span> <span class="dv">3</span>,                         <span class="co"># Polynomial degree</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>        <span class="at">trend.kernel =</span> <span class="st">"Henderson"</span>,               <span class="co"># Kernel function</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>        <span class="at">trend.asymmetric =</span> <span class="st">"CutAndNormalize"</span>,     <span class="co"># Truncation method</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>        <span class="at">seas.s0 =</span> <span class="st">"S3X9"</span>, <span class="at">seas.s1 =</span> <span class="st">"S3X9"</span>,       <span class="co"># Seasonal filters</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>        <span class="at">extreme.lsig =</span> <span class="fl">1.5</span>, <span class="at">extreme.usig =</span> <span class="fl">2.5</span>)   <span class="co"># Sigma-limits</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a><span class="sc">&lt;</span><span class="er">&lt;&lt;&lt;&lt;&lt;&lt;</span> HEAD</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a><span class="co"># extraction of day-of-the-week pattern (doy)</span></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>x11.doy <span class="ot">&lt;-</span> rjd3x11plus<span class="sc">::</span><span class="fu">x11plus</span>(x11.dow<span class="sc">$</span>decomposition<span class="sc">$</span>sa,  <span class="co"># previous sa</span></span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a><span class="sc">==</span><span class="er">=====</span></span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a><span class="co"># extraction of day-of-the-year (DOY) pattern</span></span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>x11.doy <span class="ot">&lt;-</span> rjd3highfreq<span class="sc">::</span><span class="fu">x11</span>(x11.dow<span class="sc">$</span>decomposition<span class="sc">$</span>sa,  <span class="co"># previous sa</span></span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a><span class="sc">&gt;</span><span class="er">&gt;&gt;&gt;&gt;&gt;&gt;</span> 86a324e971dea668791bcfb00a39798e7f9ac253</span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>                    <span class="at">period =</span> <span class="fl">365.2425</span>,         <span class="co"># DOY pattern</span></span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>                    <span class="at">mul =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>                    <span class="at">trend.horizon =</span> <span class="dv">371</span>, <span class="co"># 1/2 final filter length </span></span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>                    <span class="at">trend.degree =</span> <span class="dv">3</span>,</span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>                    <span class="at">trend.kernel =</span> <span class="st">"Henderson"</span>, </span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>                    <span class="at">trend.asymmetric =</span> <span class="st">"CutAndNormalize"</span>,</span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a>                    <span class="at">seas.s0 =</span> <span class="st">"S3X15"</span>, <span class="at">seas.s1 =</span> <span class="st">"S3X5"</span>,</span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a>                    <span class="at">extreme.lsig =</span> <span class="fl">1.5</span>, <span class="at">extreme.usig =</span> <span class="fl">2.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 </section>
@@ -673,14 +678,13 @@ M_{3\times3}X = \frac{1}{9}(X_{t-2p})+\frac{2}{9}(X_{t-p})+\frac{3}{9}(X_{t})+\f
 <h3 class="anchored" data-anchor-id="arima-model-based-amb-decomposition-extended-seats">Arima Model Based (AMB) Decomposition (Extended Seats)</h3>
 <p>Example</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># extracting doy pattern</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>amb.doy <span class="ot">&lt;-</span> rjd3highfreq<span class="sc">::</span><span class="fu">fractionalAirlineDecomposition</span>(</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  amb.dow<span class="sc">$</span>decomposition<span class="sc">$</span>sa,  <span class="co"># DOW-adjusted linearised data</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">period =</span> <span class="fl">365.2425</span>,         <span class="co"># DOY pattern</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">sn =</span> <span class="cn">FALSE</span>,                <span class="co"># Signal (SA)-noise decomposition </span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">stde =</span> <span class="cn">FALSE</span>,              <span class="co"># Calculate standard deviations</span></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">nbcasts =</span> <span class="dv">0</span>, <span class="at">nfcasts =</span> <span class="dv">0</span>)  <span class="co"># Numbers of back- and forecasts</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># extracting DOY pattern</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>amb.doy <span class="ot">&lt;-</span> rjd3highfreq<span class="sc">::</span><span class="fu">fractionalAirlineDecomposition</span>(</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  amb.dow<span class="sc">$</span>decomposition<span class="sc">$</span>sa,  <span class="co"># DOW-adjusted linearised data</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">period =</span> <span class="fl">365.2425</span>,         <span class="co"># DOY pattern</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">sn =</span> <span class="cn">FALSE</span>,                <span class="co"># Signal (SA)-noise decomposition </span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">stde =</span> <span class="cn">FALSE</span>,              <span class="co"># Calculate standard deviations</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">nbcasts =</span> <span class="dv">0</span>, <span class="at">nfcasts =</span> <span class="dv">0</span>)  <span class="co"># Numbers of back- and forecasts</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="summary-of-the-process" class="level3">
@@ -688,7 +692,7 @@ M_{3\times3}X = \frac{1}{9}(X_{t-2p})+\frac{2}{9}(X_{t-p})+\frac{3}{9}(X_{t})+\f
 <p>For the time being, seasonal adjustment processing in rjd3highfreq cannot be encompassed by one function like for lower frequency, e.g rjd3x13::x13(y_raw)</p>
 <p>The user has to run the steps one by one, here is an example with <span class="math inline">\(p=7\)</span> and <span class="math inline">\(p=365.25\)</span></p>
 <ul>
-<li><p>computation of the linearized series <span class="math inline">\(Y_{lin}=FracAirline(Y)\)</span></p></li>
+<li><p>computation of the linearized series <span class="math inline">\(Y_{lin}=ExtendedAirline(Y)\)</span></p></li>
 <li><p>computation of the calendar corrected series <span class="math inline">\(Y_{cal}\)</span></p></li>
 <li><p>computation of <span class="math inline">\(S_{7}\)</span> by decomposition of the linearized series</p></li>
 <li><p>computation of <span class="math inline">\(S_{365.25}\)</span> by decomposition of the seasonally adjusted series with <span class="math inline">\(p=7\)</span></p></li>
