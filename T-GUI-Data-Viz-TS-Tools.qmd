@@ -2,12 +2,15 @@
 
 ## In this chapter
 
+Time series generic tools 
+<!-- (independent from a special routine SA, Bench...) -->
 
-Contents
+- data visualization 
+- spectral analysis tools
+- aggregation 
+- differencing 
 
-
-
-#### Container {#container}
+## Data visualization
 
 *Container* includes basic tools to display the data. The following items are available: *Chart*, *Grid*, *Growth Chart* and *List*.
 
@@ -123,19 +126,19 @@ For a selected series a local menu offers an extended list of options. The expla
 
 ![**Options available for a selected series from the list**](All_images/A_Ref35.jpg)
 
-#### Spectral analysis {#spectral-analysis-windows}
+## Spectral analysis 
 
 The *Spectral analysis* section provides three spectral graphs that allows an in-depth analysis of a time series in the frequency domain. These graphs are the *Auto-regressive Spectrum*, the *Periodogram* and the *Tukey Spectrum*. For more information the user may study [a basic desription of spectral analysis](#spectral-analysis) and [a detailed presentation of the abovementioned tools](#spectral-graphs).
 
 ![**Tools for spectral analysis**](All_images/A_Ref36.jpg)
 
-#### Aggregation {#aggregation}
+## Aggregation {#aggregation}
 
 *Aggregation* calculates the sum of the selected series and provides basic information about the selected time series, including the start and end date, the number of observations and a sketch of the data graph, in the same way as in the *List* functionality. *Aggregation* opens an empty window. To sum the selected series, drag and drop them from the *Providers* window into the *Aggregation* window. Right click displays the local menu with the available options. The content of the local menu depends on the panel chosen (the panel on the left that contains the list of the series and the panel on the right that presents the graph of an aggregate). The local menu for the list of series offers the option *Select by frequency*, which marks all the series on the list that are yearly, half-yearly, quarterly or monthly (depending on the user's choice). The explanation of the other options can be found below in the '*Local menu options for chart*' figure in the [*Container*](#container) section. The local menu for the panel on the left offers functionalities that are analogous to the ones that are available for the *List* functionalities, while the options available for the local menu in the panel on the left are the same as the ones available in *Chart* (see [*Container*](#container)).
 
 ![**The *Aggregation* tool**](All_images/A_Ref37.jpg)
 
-#### Differencing {#differencing}
+##  Differencing {#differencing}
 
 The *Differencing* window displays the first regular differences for the selected time series together with the corresponding periodogram and the PACF function. By default, the window presents the results for non-seasonally and seasonally differenced series (( $d = 1,D = 1$)). These settings can be changed through the *Properties* window (*Tools* *→ Properties*). A description of a periodogram and the PACF function can be found [here](#periodogram).
 
