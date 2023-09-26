@@ -1,4 +1,4 @@
-# Spectral Analysis Principles and Tools {#spectral-analysis}
+# Spectral Analysis Principles and Tools {.unnumbered}
 
 Under construction.
 

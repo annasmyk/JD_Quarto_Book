@@ -217,8 +217,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./T-GUI-Overview.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Graphical User Interface Overview</span></a>
+  <a href="./T-graphical-user-interface.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Graphical User Interface</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -243,6 +243,77 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <div class="sidebar-item-container"> 
   <a href="./T-plug-ins.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Plug-ins for JDemetra+</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./P_Methods.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Methods</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./M-spectral-analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Spectral Analysis Principles and Tools</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./M-reg-arima-modelling.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Reg-Arima models</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./M-X11-decomposition.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">X-11 decomposition</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./M-STL-decomposition.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">STL: Local regression decomposition</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./M-SEATS-decomposition.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SEATS decomposition</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./M-Trend-Estimation-Local-Polynomials.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Trend Estimation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./M-tests.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Tests</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./M-state-space-framework.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">State space modelling</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./M-Temp-Disagg-Bench.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Temporal disaggregation and benchmarking</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
   </div>
 </li>
       </ul>
@@ -322,15 +393,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="chapters-overview" class="level2">
 <h2 class="anchored" data-anchor-id="chapters-overview">Chapter’s overview</h2>
 <p>The goal of seasonal adjustment is to remove seasonal fluctuations from a time series. Seasonal fluctuations are quasi-periodic infra-annual movements. They can mask evolution of greater interest for the user such as short term evolution or long time trends.</p>
-<p>This chapter focuses on the <strong>practical step by step</strong> use of JDemetra+ algorithms, restricted to monthly and quarterly series. For infra-monthly data see the <a href="./A-sa-hf.html">following chapter</a>. The use of <a href="T-graphical-user-interface.qmd">graphical user interface</a> and <a href="./T-r-packages.html">R packages</a> is described simultaneously whenever relevant.</p>
-<p>In-depth methodological explanations of the algorithms are covered in separated chapters, in the <a href="P_Methods.qmd">Methods</a> part.</p>
+<p>This chapter focuses on the <strong>practical step by step</strong> use of JDemetra+ algorithms, restricted to monthly and quarterly series. For infra-monthly data see the <a href="./A-sa-hf.html">following chapter</a>. The use of <a href="./T-graphical-user-interface.html">graphical user interface</a> and <a href="./T-r-packages.html">R packages</a> is described simultaneously whenever relevant.</p>
+<p>In-depth methodological explanations of the algorithms are covered in separated chapters, in the <a href="./P_Methods.html">Methods</a> part.</p>
 <p>More information on the steps and best practices of a seasonal adjustment process can be found in the <a href="https://ec.europa.eu/eurostat/documents/3859598/6830795/KS-GQ-15-001-EN-N.pdf">Eurostat guidelines on seasonal adjustment</a></p>
 <p>For an overview on the algorithms and methodological issues, please refer to the <a href="https://ec.europa.eu/eurostat/documents/3859598/8939616/KS-GQ-18-001-EN-N.pdf">Handbook on Seasonal Adjustment</a></p>
 </section>
 <section id="seasonal-adjustment-algorithms" class="level2">
 <h2 class="anchored" data-anchor-id="seasonal-adjustment-algorithms">Seasonal Adjustment Algorithms</h2>
 <table class="table">
-<caption>X13-Arima and Tramo-Seats are two-step algorithms with a pre-treatment phase (Reg-Arima or Tramo) and a decomposition phase (X11 and Seats). STL is a local regression (Loess) based decomposition, without pre-treatment. In a Structural Time Series approach pre-treatment and decomposition are done simultaneously in a State Space Framework <a href="M-state-space-framework.qmd">(SSF)</a>.</caption>
+<caption>X13-Arima and Tramo-Seats are two-step algorithms with a pre-treatment phase (Reg-Arima or Tramo) and a decomposition phase (X11 and Seats). STL is a local regression (Loess) based decomposition, without pre-treatment. In a Structural Time Series approach pre-treatment and decomposition are done simultaneously in a State Space Framework <a href="./M-state-space-framework.html">(SSF)</a>.</caption>
 <thead>
 <tr class="header">
 <th>Algorithm</th>
@@ -418,7 +489,7 @@ Y_t = \sum {\alpha}_i O_{it} + \sum\beta_j C_{jt} + \sum {\gamma}_i U_{it} + Y_{
 </section>
 <section id="detecting-seasonal-patterns" class="level3">
 <h3 class="anchored" data-anchor-id="detecting-seasonal-patterns">Detecting seasonal patterns</h3>
-<p>A large number of <a href="M-tests.qmd">seasonality tests</a> are available in JDemetra+. They can be accessed in the graphical user interface or via R.</p>
+<p>A large number of <a href="./M-tests.html">seasonality tests</a> are available in JDemetra+. They can be accessed in the graphical user interface or via R.</p>
 <p>In rjd3toolkit package:</p>
 <ul>
 <li>Canova-Hansen (<code>seasonality.canovahansen()</code>)</li>
@@ -433,7 +504,7 @@ Y_t = \sum {\alpha}_i O_{it} + \sum\beta_j C_{jt} + \sum {\gamma}_i U_{it} + Y_{
 </section>
 <section id="pre-pro-spec" class="level2">
 <h2 class="anchored" data-anchor-id="pre-pro-spec">Pre-treatment: Reg-Arima or Tramo</h2>
-<p>The following sections cover how to perform pre-treatment with Reg-ARIMA (or Tramo) algorithms. Tramo and the Reg-Arima part of X13-Arima rely on very similar principles: <a href="M-reg-arima-modelling.qmd">Reg-Arima modelling</a>. Thus Tramo will be mentioned only to highlight differences with the Reg-Arima part of X13-Arima. Reg-Arima modelling part can be of a seasonal adjustment process or run on its own, we focus on performing pre-treatment as part of a SA processing.</p>
+<p>The following sections cover how to perform pre-treatment with Reg-ARIMA (or Tramo) algorithms. Tramo and the Reg-Arima part of X13-Arima rely on very similar principles: <a href="./M-reg-arima-modelling.html">Reg-Arima modelling</a>. Thus Tramo will be mentioned only to highlight differences with the Reg-Arima part of X13-Arima. Reg-Arima modelling part can be of a seasonal adjustment process or run on its own, we focus on performing pre-treatment as part of a SA processing.</p>
 <section id="pre-def-spec" class="level3">
 <h3 class="anchored" data-anchor-id="pre-def-spec">Default Specifications</h3>
 <p>Default specifications are set for the whole SA procedure, pre-treatment and decomposition. They are slightly different for X13-ARIMA and Tramo-Seats and can be modified with user defined parameters.</p>
@@ -1298,7 +1369,7 @@ Y_t = \sum \hat{\alpha}_i O_{it} + \sum\hat\beta_j C_{jt} + \sum\hat\gamma_k Reg
 </section>
 <section id="x-11-decomposition" class="level2">
 <h2 class="anchored" data-anchor-id="x-11-decomposition">X-11 Decomposition</h2>
-<p>This part explains how to use X-11 decomposition algorithm, via R as well as via GUI. The algorithm itself is explained in more details <a href="M-X11-decomposition.qmd">here</a></p>
+<p>This part explains how to use X-11 decomposition algorithm, via R as well as via GUI. The algorithm itself is explained in more details <a href="./M-X11-decomposition.html">here</a></p>
 <p>In a nutshell, X-11 will de decompose the <strong>linearized series</strong> using iteratively different moving averages. The effects of pre-treatment will be reallocated at the end.</p>
 <p>The sections below (will) describe</p>
 <ul>
@@ -1438,7 +1509,7 @@ Y_t = \sum \hat{\alpha}_i O_{it} + \sum\hat\beta_j C_{jt} + \sum\hat\gamma_k Reg
 <h4 class="anchored" data-anchor-id="detailed-quality-measures">Detailed Quality measures</h4>
 <p>In GUI all the diagnostics below can be displayed expanding the NODE</p>
 <p>Decomposition(X-11) &gt; Quality Measures &gt; Details</p>
-<p>They are detailed in the <a href="M-X11-decomposition.qmd">X-11 method chapter</a></p>
+<p>They are detailed in the <a href="./M-X11-decomposition.html">X-11 method chapter</a></p>
 <p>In R (to be added)</p>
 </section>
 </section>
@@ -1577,7 +1648,7 @@ Y_t = \sum \hat{\alpha}_i O_{it} + \sum\hat\beta_j C_{jt} + \sum\hat\gamma_k Reg
 </section>
 <section id="seats-decomposition" class="level2">
 <h2 class="anchored" data-anchor-id="seats-decomposition">SEATS Decomposition</h2>
-<p><a href="M-SEATS-decomposition.qmd">SEATS algorithm</a> will decompose the linearized series, in level or in logarithm, using the Arima model fitted by Tramo in the pre-treatment phase.</p>
+<p><a href="./M-SEATS-decomposition.html">SEATS algorithm</a> will decompose the linearized series, in level or in logarithm, using the Arima model fitted by Tramo in the pre-treatment phase.</p>
 <p>The sections below will describe</p>
 <ul>
 <li><p>specifications needed to run SEATS</p></li>
@@ -2054,7 +2125,7 @@ Y_t = \sum \hat{\alpha}_i O_{it} + \sum\hat\beta_j C_{jt} + \sum\hat\gamma_k Reg
 </section>
 <section id="setting-user-defined-parameters" class="level3">
 <h3 class="anchored" data-anchor-id="setting-user-defined-parameters">Setting user-defined parameters</h3>
-<p>The section below explains how the user can fine-tune some seats parameters, which are put in context in <a href="M-SEATS-decomposition.qmd">the corresponding method chapter</a>.the default value is indicated in ().</p>
+<p>The section below explains how the user can fine-tune some seats parameters, which are put in context in <a href="./M-SEATS-decomposition.html">the corresponding method chapter</a>.the default value is indicated in ().</p>
 <ul>
 <li>Prediction length</li>
 </ul>

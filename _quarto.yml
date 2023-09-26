@@ -29,23 +29,23 @@ book:
     - A-nowcasting.qmd
     - part: P_Tools.qmd
       chapters:
-        - T-GUI-Overview.qmd
+        - T-graphical-user-interface.qmd
         - T-r-packages.qmd
         - T-Production-tools-cruncher-QR.qmd
         - T-rev-policies-production.qmd
         - T-plug-ins.qmd
-    # - part: P_Methods.qmd
-    #   chapters:
-        # - M-spectral-analysis.qmd
-        # - M-reg-arima-modelling.qmd
-        # - M-X11-decomposition.qmd
-        # - M-STL-decomposition.qmd
-        # - M-SEATS-decomposition.qmd
-        # - M-Trend-Estimation-Local-Polynomials.qmd
-        # - M-tests.qmd
-        # - M-state-space-framework.qmd
-        # - M-Temp-Disagg-Bench.qmd
-        # - references.qmd
+    - part: P_Methods.qmd
+      chapters:
+        - M-spectral-analysis.qmd
+        - M-reg-arima-modelling.qmd
+        - M-X11-decomposition.qmd
+        - M-STL-decomposition.qmd
+        - M-SEATS-decomposition.qmd
+        - M-Trend-Estimation-Local-Polynomials.qmd
+        - M-tests.qmd
+        - M-state-space-framework.qmd
+        - M-Temp-Disagg-Bench.qmd
+        - references.qmd
 
 
 bibliography: references.bib

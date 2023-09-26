@@ -4,7 +4,6 @@
 .Ruserdata
 nul
 /.quarto/
-_book/
 
 *.log
 *.tex
