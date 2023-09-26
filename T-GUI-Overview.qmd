@@ -193,23 +193,13 @@ The data sources can be restored after re-starting the application so that there
 
 add star ?
 
-## Workspace Structure {#workspace-window}
+## Workspace Structure
 
 Restructure: present all the nodes
 
 A workspace is a JD+ GUI specific data structure 
 
-Rephrase: Workspace is a JDemetra+ functionality that stores the work performed by the user in a coherent and structured way. By default, each workspace contains the pre-defined modelling and seasonal adjustment specifications and a basic calendar. A specification is a set of modelling and/or seasonal adjustment parameters. Within the workspace the following items can be saved:
-
--   [User-defined modelling specifications](#usr-def-spec) and [seasonal adjustment specifications](#pre-def-spec);
-
--   Documents that contain [results from time series modelling](../reference-manual/output-modelling.html) and [output from the seasonal adjustment process](../reference-manual/output.html);
-
--   [User-defined calendars](#usr_def_cal);
-
--   [User-defined regression variables](#usr-def-var).
-
-Together with the results from modelling and seasonal adjustment, the original data, paths to the input files and parameters of processes are all saved. These results can then be re-opened, updated, investigated and modified in further JDemetra+ sessions.
+It is generated when an SAP is created.
 
 The workspace saved by JDemetra+ includes:
 
@@ -231,7 +221,6 @@ but ALSO gives access to other peripheric routines, the results of which won't b
 
 Rephrase everything below
 
-NOT TRUE: "The content of the workspace is presented in the *Workspace* window. It is divided into three sections:"
 
 -   [Modelling](#modelling-window) (contains the default and user-defined specifications for modelling; and the output from the modelling process)
 
@@ -243,11 +232,13 @@ NOT TRUE: "The content of the workspace is presented in the *Workspace* window. 
 
 
 
-### Modelling {#modelling-window}
+### Modelling
 
-The algorithms implemented in JDemetra+ enable a modelling of the original time series with the RegARIMA model, 
-including estimation of the regression effects such as outliers and calendar effects. These procedures can be 
-used just for modelling and forecasting of the original time series but also as a  pre-treatment before performing a seasonal adjustment of the series. Hence, this pre-treatement will allow for a more reliable estimation of the time series components performed by the seasonal adjustment procedures.
+(I ll rewrite all this)
+access to RegArima or Tramo modelling routines 
+
+which are the same as the ones used for the pre-treatment phase of 
+seasonal adjustment with X13-Arima (Reg-Arima) and Tramoseats (Tramo) and thus described in the SA chapter.
 
 
 This section is divided into two parts: 
@@ -260,39 +251,22 @@ The specifications and output of the modelling procedure are displayed in the [*
 
 
 
-### Seasonal adjustment {#sa-window}
-
-The primary aim of the seasonal adjustment process is to remove seasonal fluctuations from the time series. To achieve this goal, seasonal adjustment methods decompose the original time series into components that capture specific movements. These components are: trend-cycle, seasonality and irregularity.
-The trend-cycle component includes long-term and medium-term movements in the data. For seasonal adjustment purposes there is no need to divide this component into two parts. JDemetra+ refers to the trend-cycle as trend and consequently this convention is used here.
-
-This section presents the options of the seasonal adjustment processes performed by the methods implemented in JDemetra+ (X-12-ARIMA/X-13ARIMA-SEATS and TRAMO/SEATS) and discusses the output displayed by JDemetra+. As these seasonal adjustment methods use different approach to the decomposition, the output produced for both of them has different structure and content. Therefore, the results for both methods are discussed separately. 
-However, in contrast to the original programs, in JDemetra+ some quality indicators have been implemented for both methods, allowing for an easier comparison of the results.
-
-This section is divided into two parts:
-
-* [Specifications](#pre-pro-spec), which presents parameters of the seasonal adjustment procedure.
-* [Output](#results-panel), which explains a typical output produced by the seasonal adjustment procedure.
-
-The specifications and output for the seasonal adjustment procedure are displayed in the *Workspace* window under the *Seasonal adjustment* item.
+### Seasonal adjustment 
 
 ![**The *Workspace* window with the nodes for the seasonal adjustment procedure marked**](All_images/A_Ref_d2.jpg)
 
+Brief presentation and or link ?
 
-## Results panel {#results-panel}
+Results Panel of seasonal adjustment will be presented in another chapter 
 
-(rephrase + compact)
-
-The blank zone in the figure above (on the right of the view) is the location where JDemetra+ displays various windows. More than one window can be displayed at the same time. Windows can overlap with each other with the foremost window being the one in focus or active. The active window has a darkened title bar. [The windows in the results panel can be arranged in many different ways](#window-menu), depending on the user's needs. The example below shows one of the possible views of this panel. The results of the user's analysis are displayed in an accompanying window. The picture below shows two panels -- a window containing seasonal adjustment results (upper panel) and another one containing an autoregressive spectrum (lower panel).
-
-![**The *Results* panel filled with two windows**](All_images/A_Ref9.jpg)
-
-
-## Top Bar Menus and options 
+## Top Bar Menu and options 
 
 
 ![**The Top bar menus**](All_images/top_bar_menu.png)
 
 The majority of functionalities are available from the main application menu, which is situated at the very top of the main window. If the user moves the cursor to an entry in the main menu and clicks on the left mouse button, a drop-down menu will appear. Clicking on an entry in the drop-down menu selects the highlighted item.
+
+CHANGE image: get the "X13-Doc1" out: state where nothing created yet 
 
 ![**The main menu with selected drop-down menu**](All_images/A_Ref10.jpg)
 
@@ -404,6 +378,8 @@ The *Spreadsheet profiler* offers an Excel-type view of the XLS file imported to
 Installation an functionalities of plugins are described in the related [chapter](T-plug-ins.qmd)
 
 #### Options {#options}
+
+<!-- very important to detail this in v2 and v3 -->
 
 The *Options* window includes five main panels: *Demetra*, *General*, *Keymap*, *Appearance* and *Miscellaneous*. They are visible in the very top of the *Options* window.
 

@@ -22,14 +22,14 @@ book:
       chapters:
         - A-sa.qmd
         - A-sa-hf.qmd
-    - A-outlier-detection.qmd
-    - A-calendar-correction.qmd
-    - A-benchmarking.qmd
-    - A-trend-cycle-estimation.qmd
-    - A-nowcasting.qmd
+        - A-outlier-detection.qmd
+        - A-calendar-correction.qmd
+        - A-benchmarking.qmd
+        - A-trend-cycle-estimation.qmd
+        - A-nowcasting.qmd
     - part: P_Tools.qmd
       chapters:
-        - T-graphical-user-interface.qmd
+        - T-GUI-Overview.qmd
         - T-r-packages.qmd
         - T-Production-tools-cruncher-QR.qmd
         - T-rev-policies-production.qmd
