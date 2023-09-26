@@ -422,7 +422,7 @@ The leap-year effect can be pre-specified in the model only if the input series 
 
 #### Test
 
-**Test**: defines the pre-tests for the significance of the trading day regression variables based on the AICC statistics: "Add" = the trading day variables are not included in the initial regression model but can be added to the RegARIMA model after the test; "Remove" = the trading day variables belong to the initial regression model but can be removed from the RegARIMA model after the test; "None" = the trading day variables are not pre-tested and are included in the model.
+**Test**: defines the pre-tests for the significance of the trading day regression variables based on the AICC statistics: "Add" = the trading day variables are not included in the initial regression model but can be added to the Reg-ARIMA model after the test; "Remove" = the trading day variables belong to the initial regression model but can be removed from the RegARIMA model after the test; "None" = the trading day variables are not pre-tested and are included in the model.
 
 ##### Easter
 
@@ -432,7 +432,7 @@ easter.Julian a logical. If TRUE, the program uses the Julian Easter (expressed 
 
 easter.duration a numeric indicating the duration of the Easter effect (length in days, between 1 and 20).
 
-easter.test defines the pre-tests for the significance of the Easter effect based on the t-statistic (the Easter effect is considered as significant if the t-statistic is greater than 1.96): "Add" = the Easter effect variable is not included in the initial regression model but can be added to the RegARIMA model after the test; "Remove" = the Easter effect variable belongs to the initial regression model but can be removed from the RegARIMA model after the test; "None" = the Easter effect variable is not pre-tested and is included in the model.
+easter.test defines the pre-tests for the significance of the Easter effect based on the t-statistic (the Easter effect is considered as significant if the t-statistic is greater than 1.96): "Add" = the Easter effect variable is not included in the initial regression model but can be added to the Reg-ARIMA model after the test; "Remove" = the Easter effect variable belongs to the initial regression model but can be removed from the RegARIMA model after the test; "None" = the Easter effect variable is not pre-tested and is included in the model.
 
 A user-defined regressor can also be used, see chapter on [calendar correction](A-calendar-correction.qmd)
 
@@ -460,7 +460,7 @@ STEP2: Calendar effects minus Easter are labeled **trading days**
 
 using a customized calendar just show how to fetch it building process in calendar chapter
 
-![](All_images/SA_REGA_calendar_custom.png)
+![**The list of calendars displayed under *Holidays* option corresponds to the calendars defined in the *Workspace* window**](All_images/SA_REGA_calendar_custom.png)
 
 Missing: stock td option, length-of-period
 
@@ -619,7 +619,7 @@ set this option in R version 2:
 
 version 3
 
-Once the calendar regressors are set, the RegArima (tramo) model will be estimated globally with all the other regression variables and taking into account Arima model specificities as well. That is why diagnostics are all jointly displayed at the end of the process. (link)
+Once the calendar regressors are set, the Reg-ARIMA (tramo) model will be estimated globally with all the other regression variables and taking into account Arima model specificities as well. That is why diagnostics are all jointly displayed at the end of the process. (link)
 
 (to be added: worked example: french calendar in R)
 
@@ -699,9 +699,28 @@ Automatic detection
 
 ![](All_images/SA_REGA_Outliers_automatic_detection_span.png)
 
-Pre-specified
+Pre-specified :
+
+- Click on **...**
+- Click on **+**
+- Fill the outlier's information
+- Click on **Ok**
 
 ![](All_images/SA_REGA_Outliers_set_pre_specified.png)
+
+To change the view to set the outliers, got to Tools --> Options
+
+![](All_images/SA_REGA_option_v3.png)
+
+Then to **Demetra** --> **Pre-specified Outliers** --> **Calendar-like Grid** --> **Ok**
+
+![](All_images/SA_REGA_option_calendar_view_v3.png)
+
+Then you have the calendar view (when selecting the pre-specified outliers) :
+
+![](All_images/SA_REGA_Outliers_set_pre_specified_grid.png)
+
+
 
 #### Setting in R
 
@@ -797,13 +816,17 @@ These basic structures enable the generation of not only AO, LS, TC, SO and RP o
 
 ###### Creation in GUI
 
-step 1 ![](All_images/SA_REGA_calendar_user_def_inter_var_1.png)
+Step 1 :
+
+![](All_images/SA_REGA_calendar_user_def_inter_var_1.png)
 
 Step 2:
 
 ![](All_images/SA_REGA_calendar_user_def_inter_var_2.png)
 
-step 3: ![](All_images/SA_REGA_calendar_user_def_inter_var_3.png)
+Step 3: 
+
+![](All_images/SA_REGA_calendar_user_def_inter_var_3.png)
 
 ###### Creation in R
 
@@ -899,7 +922,9 @@ Forecast horizon when using tramo seats Is set in the decomposition part of the 
 
 ![](All_images/SA_REGA_arima_forecast_horizon_tramo.png)
 
-Forecast horizon when using X13-ARIMA ![](All_images/SA_REGA_arima_forecast_horizon_X11.png)
+Forecast horizon when using X13-ARIMA 
+
+![](All_images/SA_REGA_arima_forecast_horizon_X11.png)
 
 **Setting in R** (first template, then worked example) X13-Arima template in version 2
 
@@ -1005,19 +1030,23 @@ More details in Pre-processing/Arima Node
 
 In residual Node
 
-![](All_images/SA_REGA_Arima_Model_residuals_node_1.png)
+![](All_images/SA_REGA_Arima_Model_Residuals_Node_1.png)
 
-![](All_images/SA_REGA_Arima_Model_residuals_node_2.png)
+![](All_images/SA_REGA_Arima_Model_Residuals_Node_2.png)
 
-![](All_images/SA_REGA_Arima_Model_residuals_node_3.png)
+![](All_images/SA_REGA_Arima_Model_Residuals_Node_3.png)
 
-![](All_images/SA_REGA_Arima_Model_residuals_node_4.png)
+![](All_images/SA_REGA_Arima_Model_Residuals_Node_4.png)
 
-![](All_images/SA_REGA_Arima_Model_residuals_node_5.png)
+![](All_images/SA_REGA_Arima_Model_Residuals_Node_5.png)
 
-![](All_images/SA_REGA_Arima_Model_residuals_node_6.png)
+![](All_images/SA_REGA_Arima_Model_Residuals_Node_6.png)
 
-![](All_images/SA_REGA_Arima_Model_Likelihood_Node.png) Seasonality tests on residuals in the **Diagnostics NODE**
+![](All_images/SA_REGA_Arima_Model_Residuals_Node_7.png)
+
+![](All_images/SA_REGA_Arima_Model_Likelihood_Node.png) 
+
+Seasonality tests on residuals in the **Diagnostics NODE**
 
 (link to test chapter for tests details)
 
@@ -1078,13 +1107,15 @@ The model_sa R object (list of lists) contains all parameters and results. It wi
 
 #### Display in GUI
 
-Main results ![Text](All_images/SA_MainResults_Series.png)
+Main results 
+
+![](All_images/SA_MainResults_Series.png)
 
 (forecasts glued, values in *italic*)
 
 X-11 Tables
 
-![Text](All_images/RDimage41.png)
+![](All_images/RDimage41.png)
 
 Output series can be exported out of GUI by two means:
 
@@ -1113,7 +1144,7 @@ X11 produces the following type diagnostics or quality measures
 
 ##### Display in GUI
 
-NODE Main Results \> SI-Ratios SA_MainResults_SI_ratios.png
+NODE Main Results \> SI-Ratios
 
 ![Text](All_images/SA_MainResults_SI_ratios.png)
 
@@ -1345,7 +1376,7 @@ The sections below will describe
 
 ### Default specifications
 
-The default specifications for SEATS must be chosen at the starting of the SA processing. They are detailed in the [RegArima part](A-sa.qmd#Pre-treatment:%20Reg-ARIMA%20(or%20TRAMO)) Starting point for Tramo-Seats
+The default specifications for SEATS must be chosen at the starting of the SA processing. They are detailed in the [Reg-ARIMA part](A-sa.qmd#Pre-treatment:%20Reg-ARIMA%20(or%20TRAMO)) Starting point for Tramo-Seats
 
 ### Quick Launch
 
@@ -1528,7 +1559,8 @@ Same procedure as for stochastic series.
 
 Final results are displayed for each series in the NODE MAIN\>Table
 
-![Text](All_images/SA_SEATS_GUI_final_series.png)
+![Text](All_images/SA_MainResults_Series.png)
+
 
 Forecasts are glued at the end it *italic*
 
@@ -1653,7 +1685,7 @@ McEllroyMatrix
 
 In specification window corresponding to a given series:
 
-![Text](All_images%5CSA_SEATS_GUI_user_def_params.png)
+![Text](All_images\SA_SEATS_GUI_user_def_params.png)
 
 ##### Set in R
 

@@ -122,9 +122,9 @@ We can define different sets of weights. The usual one consists in giving the sa
 
 After the removal of the deterministic seasonality, the variables computed using the two sets of weights considered above are very similar. In the case of the "trading days", the difference for the time $t$, belonging to the period $J$, and for the day $i$ with contrast $K$ is $(1-\frac{w_i}{w_K})(D_{tK}- \bar{D_{K, J}^y})$, which is usually small. By default, JD+ uses the first approach, which is simpler. The second approach is implemented in the algorithmic modules, but not available through the graphical interface.
 
-### Use in RegArima models
+### Use in Reg-ARIMA models
 
-In the context of RegArima modeling, we can also observe that the global effect of the trading days doesn't depend neither on the used weights (we project on the same space) nor on the contrasting group (see above) nor on the long term corrections (removed by differencing).
+In the context of Reg-ARIMA modeling, we can also observe that the global effect of the trading days doesn't depend neither on the used weights (we project on the same space) nor on the contrasting group (see above) nor on the long term corrections (removed by differencing).
 
 The estimated coefficients slightly change if we use different weights (not if we use a different contrasting group). It must also be noted that the choices affect the T-Stat of the different coefficients (not the joint F-Test), which can lead to other solutions when those T-Stats are used for selecting the regression variables (Tramo). Considering that the leap year/length of period variable is nearly independent of the other variables, the test on that variable is not very sensitive to the various specifications.
 
