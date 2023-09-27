@@ -16,7 +16,7 @@ book:
   page-navigation: true
   chapters:
     - index.qmd
-    - G-what-is-jd.qmd
+    - G-how-to-use-this-book.qmd
     - G-jd-history.qmd
     - part: P_Algorithms.qmd
       chapters:

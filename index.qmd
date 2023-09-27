@@ -1,8 +1,14 @@
-# Preface {.unnumbered}
+# What is JDemetra+ ? {.unnumbered}
 
-Welcome to the JDemetra+ on-line documentation.
+[JDemetra+](https://github.com/jdemetra) is an open-source software for **seasonal adjustment and time series analysis**, developed in the framework of Eurostat's "Centre of Excellence on Statistical Methods and Tools" by the National Bank of Belgium with the support of the Bundesbank and Insee.It has been officially recommended by Eurostat to the European Statistical System members since 2015. It is unique in its combination of very fast Java routines, a graphical user interface and a family of R packages. The graphical interface offers a structured and visual feedback, suitable for refined analysis and training. R tools allow the user to mix the capabilities of JDemetra+ with the versatility of the R world, be it for mathematical functions or data wrangling.
 
-[JDemetra+](https://github.com/jdemetra) is an open-source software for **seasonal adjustment and time series analysis**, developed in the framework of Eurostat's "Centre of Excellence on Statistical Methods and Tools" by the National Bank of Belgium with the support of the Bundesbank and Insee.
+**Version 2.2.4 and version 3.0.x
+
+The highest version currently recommended for production purposes is 2.2.4.
+
+Version 3 family released from spring 2023 (3.0.1 in May and 3.0.2 in June) provides extended features for seasonal adjustment and trend estimation, including **high frequency data** and production tools.
+
+## Resources
 
 To learn more about this project you can visit [Eurostat CROS Portal](https://ec.europa.eu/eurostat/cros/content/centre-excellence-statistical-methods-and-tools).
 
