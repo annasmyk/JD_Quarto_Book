@@ -1,4 +1,4 @@
-# Seasonal Adjustment {.unnumbered}
+# Seasonal Adjustment (SA) Overview {.unnumbered}
 
 ## Chapter's overview
 
