@@ -8,7 +8,7 @@
 
 - algorithm steps 
 
-- high frequency data (extended features)
+- high frequency data (extended features) linked to M-sa-hf.qmd chapter 
 
 ## X-11 in seasonal adjustment
 

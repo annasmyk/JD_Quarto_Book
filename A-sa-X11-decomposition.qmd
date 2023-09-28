@@ -1,42 +1,24 @@
 # SA: X-11 Decomposition {.unnumbered}
 
-## Context
+## Context of use
 
-- seasonal adjustment with X-13-Arima second step 
+-   seasonal adjustment with X-13-Arima second step
 
-- stand alone X-11 decomposition classical data 
+-   stand alone X-11 decomposition classical data
 
-- extended X11 for any frequency data (differences in access: no GUI, display and user-friendliness)
+-   extended X11 for any frequency data (differences in access: no GUI, display and user-friendliness)
 
+## Tools for X-11 decomposition
 
-## Tools for X-11 decomposition 
-
-+------------------------+---------------+------------------+----------------+
 | Algorithm              | Access in GUI | Access in R (v2) | Access in R v3 |
-+========================+===============+==================+================+
+|------------------------|---------------|------------------|----------------|
 | X-13 Arima             | yes           | RJDemetra        | rjd3x13        |
-+------------------------+---------------+------------------+----------------+
-| Reg-Arima only         | yes           | RJDemetra        | rjd3x13        |
-+------------------------+---------------+------------------+----------------+
 | X11 decomposition only | yes           | RJDemetra        | rjd3x13        |
-+------------------------+---------------+------------------+----------------+
-| Tramo-Seats            | yes           | RJDemetra        | rjd3tramoseats |
-+------------------------+---------------+------------------+----------------+
-| Tramo only             | yes           | RJDemetra        | rjd3tramoseats |
-+------------------------+---------------+------------------+----------------+
-| STL                    | no            | no               | rjd3stl        |
-+------------------------+---------------+------------------+----------------+
-| STS                    | no            | no               | rjd3sts        |
-+------------------------+---------------+------------------+----------------+
-
-: X13-Arima and Tramo-Seats are two-step algorithms with a pre-treatment phase (Reg-Arima or Tramo) and a decomposition phase (X11 and Seats). STL is a local regression (Loess) based decomposition, without pre-treatment. In a Structural Time Series approach pre-treatment and decomposition are done simultaneously in a State Space Framework [(SSF)](M-state-space-framework.qmd).
-
-
+| Extended X11           | no            | no               | rjd3x11plus    |
 
 ## X-11 Decomposition
 
-Here main module, not extended
-Extended in HF Chapter 
+Here main module, not extended Extended in HF Chapter (see this...)
 
 This part explains how to use X-11 decomposition algorithm, via R as well as via GUI. The algorithm itself is explained in more details [here](M-X11-decomposition.qmd)
 
@@ -77,29 +59,49 @@ In version 2
 ```{r,eval=FALSE}
 
 library("RJDemetra")
-model_sa <- x13(raw_series, spec ="RSA5c")
+model_sa_v2 <- x13(raw_series, spec ="RSA5c")
 
 ```
 
-The model_sa R object (list of lists) contains all parameters and results. It will be progressively detailed below.
+The model_sa_2 R object (list of lists) contains all parameters and results. Its structure is detailed here (R packages chapter, rjdemetra).
+
+In version 3
+
+```{r,eval=FALSE}
+
+library("rjd3toolkit")
+library("rjd3x13")
+model_sa <- rjd3x13::x13(y_raw, spec = "RSA5")
+
+```
+
+The model_sa_3 R object (list of lists) contains all parameters and results. Its structure is detailed here (R packages chapter, rjd3x13).
+
 
 ### Retrieve series
 
 #### Display in GUI
 
-Main results 
+Final components from the SA Process are displayed in Main results (link to gui chapter) Panel
+They contain the re-allocated pre-adjustment effects (link) of outliers (link) or external regressors (link).
 
 ![](All_images/SA_MainResults_Series.png)
 
-(forecasts glued, values in *italic*)
+(forecasts are added at the end of the ser, values in *italic*)
 
-X-11 Tables
+Detailed results from decomposition are displayed in Decomposition(X-11) node
+(link to output tables detail here)
 
 ![](All_images/RDimage41.png)
 
+They contain the re-allocated pre-adjustment effects (link) of outliers (link) or external regressors (link)
+
+specifically (write formulas)
+- D12...
+
 Output series can be exported out of GUI by two means:
 
--   generating output files
+-   generating [output files directly with interactive menus (T-GUI-Output.qmd)
 
 -   running the cruncher to generate those files as described [here](T-Production-tools-cruncher-QR.qmd)
 
@@ -115,6 +117,30 @@ model_sa$final$series
 model_sa$final$forecasts
 # from user defined output 
 ```
+
+Detailed X-11 tables have to be pre-specified by the user in user defined output.
+
+```{r,eval=FALSE}
+# from user defined output 
+```
+
+
+
+In version 3
+
+```{r,eval=FALSE}
+
+# final components
+model_sa$final$series
+# final forecasts y_f sa_f s_f t_f i_f
+model_sa$final$forecasts
+# from user defined output 
+```
+
+
+
+
+
 
 ### Retrieve Diagnostics
 
@@ -336,365 +362,5 @@ modified_sa_model<-x13(raw_series,modified_spec)
 
 ```
 
-## SEATS Decomposition
+how to retrieve all user defined params: done or not ?
 
-[SEATS algorithm](M-SEATS-decomposition.qmd) will decompose the linearized series, in level or in logarithm, using the Arima model fitted by Tramo in the pre-treatment phase.
-
-The sections below will describe
-
--   specifications needed to run SEATS
-
--   generated output
-
--   series
-
--   diagnostics
-
--   final parameters
-
--   user-defined parameters
-
-### Default specifications
-
-The default specifications for SEATS must be chosen at the starting of the SA processing. They are detailed in the [Reg-ARIMA part](A-sa.qmd#Pre-treatment:%20Reg-ARIMA%20(or%20TRAMO)) Starting point for Tramo-Seats
-
-### Quick Launch
-
-#### From GUI
-
-With a workspace open, an SAProcessing created and open data provider:
-
--   choose a default specification (link)
-
--   drop your data and press green arrow (link)
-
-#### In R
-
-In version 2
-
-```{r,eval=FALSE}
-library("RJDemetra")
-model_sa <- tramoseats(raw_series, spec ="RSAfull")
-```
-
-In version 3
-
-```{r,eval=FALSE}
-library("rjd3tramoseats")
-model_sa <- tramoseats(raw_series, spec ="RSAfull")
-```
-
-The model_sa R object (list of lists) contains all parameters and results. It will be progressively detailed below.
-
-More details on the functions are to be found in R help pages.
-
-### Retrieve Series
-
-This section outlines how to retrieve the different kinds of output series from GUI or in R.
-
--   final components (including reallocation of pre-adjustment effects)
-
--   components in level
-
--   components in level or log
-
-#### Stochastic series
-
-Decomposition of the linearized series or of its logarithm (in case of a multiplicative model)
-
-y_lin is split into components: t_lin, s_lin, i_lin
-
-suffixes: - \_f stands for forecast - \_e stands for - \_ef stands for
-
-##### Display in GUI
-
-NODE Decomposition\>Stochastic series - Table with series and its standard error image
-
--   Plot of Trend with confidence interval image
--   Plot of Seasonal component with confidence interval image
-
-##### Retrieve from GUI
-
-Generating output from GUI (link) or from Cruncher (link), stochastic series, their standard errors, forecasts and forecasts errors can be accessed with the following names
-
-| Series Name             | Meaning |
-|-------------------------|---------|
-| decomposition.y_lin     |         |
-| decomposition.y_lin_f   |         |
-| decomposition.y_lin_ef  |         |
-| decomposition.t_lin     |         |
-| decomposition.t_lin_f   |         |
-| decomposition.t_lin_e   |         |
-| decomposition.t_lin_f   |         |
-| decomposition.sa_lin    |         |
-| decomposition.sa_lin_f  |         |
-| decomposition.sa_lin_e  |         |
-| decomposition.sa_lin_ef |         |
-| decomposition.s_lin     |         |
-| decomposition.s_lin_f   |         |
-| decomposition.s_lin_e   |         |
-| decomposition.s_lin_ef  |         |
-| decomposition.i_lin     |         |
-| decomposition.i_lin_f   |         |
-| decomposition.i_lin_e   |         |
-| decomposition.i_lin_ef  |         |
-
-##### Retrieve in R
-
-In version 2
-
-```{r,eval=FALSE}
-library("RJDemetra")
-# list of additional output objects
-user_defined_variables("TRAMO-SEATS")
-# specify additional objects in estimation 
-m <- tramoseats(y,"RSAfull", userdefined=c( "decomposition.y_lin", "ycal","variancedecomposition.seasonality"))
-# retrieve objects 
-m$user_defined$decomposition.y_lin
-m$user_defined$ycal
-m$user_defined$variancedecomposition.seasonality
-```
-
-In version 3
-
-```{r,eval=FALSE}
-library("rjd3tramoseats")
-# list of additional output objects
-userdefined_variables_tramoseats("tramoseats")
-# specify additional objects in estimation 
-m <- tramoseats(y,"RSAfull", userdefined=c("decomposition.y_lin","ycal","variancedecomposition.seasonality"))
-# retrieve objects 
-m$user_defined$decomposition.y_lin
-m$user_defined$ycal
-m$user_defined$variancedecomposition.seasonality
-```
-
-#### Components (Level)
-
-Decomposition of the linearized series, back to level in case of a multiplicative model.
-
-y_lin is split into components: t_lin, s_lin, i_lin
-
-suffixes: - \_f stands for forecast - \_e stands for - \_ef stands for
-
-##### Displayed in GUI
-
-NODE Decomposition\>Components - Table with series and its standard error image
-
-##### Retrieve from GUI
-
-Generating output from GUI (link) or from Cruncher (link), component series, their standard errors, forecasts and forecasts errors can be accessed with the following names
-
-| Series Name             | Meaning |
-|-------------------------|---------|
-| decomposition.y_cmp     |         |
-| decomposition.y_cmp_f   |         |
-| decomposition.y_cmp_ef  |         |
-| decomposition.t_cmp     |         |
-| decomposition.t_cmp_f   |         |
-| decomposition.t_cmp_e   |         |
-| decomposition.t_cmp_f   |         |
-| decomposition.sa_cmp    |         |
-| decomposition.sa_cmp_f  |         |
-| decomposition.sa_cmp_e  |         |
-| decomposition.sa_cmp_ef |         |
-| decomposition.s_cmp     |         |
-| decomposition.s_cmp_f   |         |
-| decomposition.s_cmp_e   |         |
-| decomposition.s_cmp_ef  |         |
-| decomposition.i_cmp     |         |
-| decomposition.i_cmp_f   |         |
-| decomposition.i_cmp_e   |         |
-| decomposition.i_cmp_ef  |         |
-
-##### Retrieve in R
-
-Same procedure as for stochastic series.
-
-##### Bias correction to be added
-
-#### Final series
-
-+---------------------------+------------------------+---------------+----------------------------------------+
-| Series                    | Final SEATS components | Final Results | Reallocation of pre-adjustment effects |
-+===========================+========================+===============+========================================+
-| Raw series (forecasts)    |                        | y (y_f)       |                                        |
-+---------------------------+------------------------+---------------+----------------------------------------+
-| Linearized series         | B1                     |               | none                                   |
-+---------------------------+------------------------+---------------+----------------------------------------+
-| Final seasonal component  | D16                    | s (s_f)       |                                        |
-+---------------------------+------------------------+---------------+----------------------------------------+
-| Final trend               | D12                    | t (t_f)       |                                        |
-+---------------------------+------------------------+---------------+----------------------------------------+
-| Final irregular           | D13                    | i (i_f)       |                                        |
-+---------------------------+------------------------+---------------+----------------------------------------+
-| Calendar component        |                        |               |                                        |
-+---------------------------+------------------------+---------------+----------------------------------------+
-| Seasonal without calendar | D10                    |               |                                        |
-+---------------------------+------------------------+---------------+----------------------------------------+
-
-(to be added: reallocation of outliers effects)
-
-##### Display in GUI
-
-Final results are displayed for each series in the NODE MAIN\>Table
-
-![Text](All_images/SA_MainResults_Series.png)
-
-
-Forecasts are glued at the end it *italic*
-
-##### Retrieve from GUI
-
-Generating output from GUI (link) or from Cruncher (link), component series, their standard errors, forecasts and forecasts errors can be accessed with the following names
-
-| Series Name | Meaning |
-|-------------|---------|
-| y           |         |
-| y_f         |         |
-| t           |         |
-| t_f         |         |
-| sa          |         |
-| sa_f        |         |
-| s           |         |
-| s_f         |         |
-| i           |         |
-| i_f         |         |
-
-##### Retrieve in R
-
-In version 2
-
-```{r,eval=FALSE}
-library("RJDemetra")
-sa_model <- RJDemetra::tramoseats(y,"RSAfull")
-sa_model$final$series
-sa_model$final$forecasts
-# for additional results call user-defined output as explained above 
-```
-
-In version 3
-
-```{r,eval=FALSE}
-library("rjd3tramoseats")
-sa_model <- tramoseats(y,spec="RSAfull")
-# final series can be accessed here
-sa$result$final$sa
-# for additional results call user-defined output as explained above 
-```
-
-### Retrieve Diagnostics
-
--   WK analysis
-
-components final estimators
-
--   Error analysis autocorrelation of the errors (sa, trend) revisions of the errors
-
--   Growth rates
-
--   Model based tests
-
--   Significant seasonality
-
--   Stationary variance decomposition
-
-### Retrieve Final Parameters
-
-Relevant if parameters not set manually, or any parameters automatically selected by the software without having a fixed default value. (The rest of the parameters is set in the specification) To manually set those parameters and see all the fixed default values see Specifications / parameters section
-
-#### Arima Models for components
-
-##### Display in GUI
-
-Click on the **Decomposition** NODE
-
-![](All_images/SA_SEATS_GUI_components_models.png)
-
-##### Retrieve from GUI
-
-(add names for output and cruncher)
-
-##### Display in R
-
-(display or retrieve)
-
-version 2
-
-version 3
-
-#### Other final parameters
-
-Final parameters which can be fine-tuned be the user are described in User-defined specifications section below
-
-### Setting user-defined parameters
-
-The section below explains how the user can fine-tune some seats parameters, which are put in context in [the corresponding method chapter](M-SEATS-decomposition.qmd).the default value is indicated in ().
-
--   Prediction length
-
-Forecast span used in the decomposition default: one year (-1) (years are set in negative values, positive values indicate number of periods)
-
--   Approximation Mode
-
-Modification type for inadmissible models None (default) Legacy Noisy
-
--   MA unit root boundary
-
-Modulus threshold for resetteing MA "near-unit" roots \[0,1\] default (0.95)
-
--   Trend Boundary Modulus threshold for assigning positive real AR Roots \[0,1\] default (0.5)
-
--   Seasonal Tolerance Degree threshold for assigning complex AR roots \[0,10\] default (2)
-
--   Seasonal Boundary (unique) Modulus threshold for assigning negative real AR roots \[0,1\] default (0.8)
-
--   Seasonal Boundary (unique) Same modulus threshold unique seasonal AR roots \[0,1\] default (0.8)
-
--   Method
-
-Algorithm used for estimation of unobserved components
-
-Burman (default)
-
-KalmanSmoother
-
-McEllroyMatrix
-
-##### Seting parameters in GUI
-
-In specification window corresponding to a given series:
-
-![Text](All_images\SA_SEATS_GUI_user_def_params.png)
-
-##### Set in R
-
-version 2 (RJDemetra)
-
-```{r, eval=FALSE}
-tramoseats_spec(
- spec = c("RSAfull", "RSA0", "RSA1", "RSA2", "RSA3", "RSA4", "RSA5"),
-  fcst.horizon = NA_integer_,
-  seats.predictionLength = NA_integer_,
-  seats.approx = c(NA, "None", "Legacy", "Noisy"),
-  seats.trendBoundary = NA_integer_,
-  seats.seasdBoundary = NA_integer_,
-  seats.seasdBoundary1 = NA_integer_,
-  seats.seasTol = NA_integer_,
-  seats.maBoundary = NA_integer_,
-  seats.method = c(NA, "Burman", "KalmanSmoother", "McElroyMatrix")
-)
-
-```
-
-in version 3 with {rjd3tramoseats} (to be added)
-
-## STL
-
-Loess based decomposition algorithm used on linearized data data, no pre-adjustment.
-
-Not currently available. Under construction.
-
-## Basic Structural Models
-
-Not currently available. Under construction.
