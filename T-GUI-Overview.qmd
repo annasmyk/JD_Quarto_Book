@@ -6,17 +6,42 @@ This chapter provides general information about using the graphical interface (G
 
 Contents
 
-- installation and launch 
-- general window and menu structure 
-- importing data
-
+- Installation and launch 
+- General window and menu structure 
+- Importing data
 
 
 ### Available algorithms
 
+
+::: {.panel-tabset .content-visible when-format="html"}
+
+#### v2
+
 The graphical user interface in the 2.x family gives access to:
 
--   Seasonal adjustment [(SA) algorithms](A-sa.qmd)
+-   Seasonal adjustment [(SA) algorithms](#sa-chapter)
+
+    -   X13-Arima
+    -   Tramo-Seats
+    -   Direct-indirect SA comparisons
+
+-   Outlier detection (TERROR)
+
+-   Benchmarking
+
+#### v3
+
+The graphical user interface in the 3.x family gives access **in addition** to extended SA algorithms for [high-frequency data (HF)](A-sa-hf.qmd).
+
+:::
+
+
+::: {.content-visible when-format="pdf"}
+
+The graphical user interface in the 2.x family gives access to:
+
+-   Seasonal adjustment [(SA) algorithms](#sa-chapter)
 
     -   X13-Arima
     -   Tramo-Seats
@@ -27,6 +52,9 @@ The graphical user interface in the 2.x family gives access to:
 -   Benchmarking
 
 The graphical user interface in the 3.x family gives access **in addition** to extended SA algorithms for [high-frequency data (HF)](A-sa-hf.qmd).
+
+:::
+
 
 ### Available Time Series tools
 
@@ -43,13 +71,10 @@ The graphical user interface in the 2.x and 3.x family give access to generic ti
 
 ## Installation Procedure
 
-### Version 2.2.4
+The installation procedure is detailed in [this tutorial](https://github.com/TanguyBarthelemy/JD-Tutorials/blob/master/Sheets/Sheet_1_Tools_installation_EN.md).
 
-Latest release of version 2
+This tutorial allows you to install the tools (GUI and R packages) in version&nbsp;2 and in version&nbsp;3.
 
-JDemetra+ is a stand-alone application packed in a zip package.
-
-### Version 3
 
 ###  Launching JDemetra+
 
@@ -59,22 +84,46 @@ To open an application, double click on *nbdemetra.exe* or *nbdemetra64.exe* dep
 
 If the launching of JDemetra+ fails, you can try the following operations:
 
--   Check if Java SE Runtime Environment (JRE) is properly installed by typing in the following command in a terminal: *java --version*
+-   Check if Java SE Runtime Environment (JRE) is properly installed by typing in the following command in a terminal: 
+
+```
+java --version
+```
 
 -   Check the logs in your home directory:
 
-    -   %appdata%/.nbdemetra/dev/var/log/ for Windows;
+    -   [%appdata%/.nbdemetra/dev/var/log/]{.path} for Windows;
 
-    -   \~/.nbdemetra/dev/var/log/ for Linux and Solaris;
+    -   [~/.nbdemetra/dev/var/log/]{.path}` for Linux and Solaris;
 
-    -   \~/Library/Application Support/.nbdemetra/dev/var/log/ for Mac OS X.
+    -   [~/Library/Application Support/.nbdemetra/dev/var/log/]{.path} for Mac OS X.
 
 In order to remove a previously installed JDemetra+ version, the user should delete an appropriate JDemetra+ folder.
 
+
 ## Starting Window
 
+::: {.content-visible when-format="html"}
+
+<img src="All_images/Jd_mainwindow.png" usemap="#image_map">
+<map name="image_map">
+  <area alt="Providers" title="Providers" href="#providers-window" coords="4,71,76,101" shape="rect">
+  <area alt="Workspaces" title="Workspaces" href="#workspace-window" coords="86,70,167,100" shape="rect">
+  <area alt="Result" title="Result" href="#results-panel-overview" coords="211,68,806,359" shape="rect">
+  <area alt="Topbar menu" title="Topbar menu" href="#topbar-menu" coords="29,1,680,29" shape="rect">
+  <area alt="Closing" title="Closing" href="clos" coords="765,1,807,26" shape="rect">
+</map>
+
+:::
+
+
+::: {.content-visible when-format="pdf"}
+
+You can click on the image in the area that interests you:
 
 ![**JDemetra+ default window**](All_images/Jd_mainwindow.png)
+
+:::
 
 By default, on the left hand side of the window two panels are visible:
 
@@ -83,8 +132,10 @@ By default, on the left hand side of the window two panels are visible:
 
 The other key parts of the user interface are:
 
--   The [application menu](#application-menus).
--   A central empty zone for presenting the actual analyses further called the [Results](#results-panel) panel.
+-   The [application menu](#topbar-menu).
+-   A central empty zone for presenting the actual analyses further called the [Results](#results-panel-overview) panel.
+
+
 
 ## Providers window {#providers-window}
 
@@ -110,15 +161,18 @@ General remarks on file structure and series identification
 
 #### Spreadsheet
 
-**An example of importing process for the Excel file :**
-
 ::: {.content-visible when-format="html"}
 
-![](All_images/Import_spreadsheet.gif)
+![**An example of importing process for the Excel file :**](All_images/Import_spreadsheet.gif)
 
 ::: 
 
-To import data from a given data source, click on this data source in the *Providers* window shown below, choose *Open* option and specify the import details, such as a path to a data file. These details vary according to data providers. The example below show how to import the data from an Excel file.
+To import data from a given data source:
+
+- click on this data source in the *Providers* window shown below
+- choose *Open* option and specify the import details, such as a path to a data file. 
+
+These details vary according to data providers. The example below show how to import the data from an Excel file.
 
 1.  From the *Providers* window **right-click** on the *Spreadsheets* branch and choose *Open* option.
 
@@ -213,6 +267,8 @@ An example of the workspace is shown in the figure below.
 
 The workspace can be shared with other users, which eases the burden of work with defining specifications, modelling and seasonal adjustment processes.
 
+
+
 ## Workspace Window {#workspace-window}
 
 The workspace window displays the characteristics of a workspace 
@@ -257,10 +313,16 @@ The specifications and output of the modelling procedure are displayed in the [*
 
 Brief presentation and or link ?
 
+
+
+## Results Panel {#results-panel-overview}
+
+
 Results Panel of seasonal adjustment will be presented in another chapter 
 
-## Top Bar Menu and options 
 
+
+## Top Bar Menu and options {#topbar-menu}
 
 ![**The Top bar menus**](All_images/top_bar_menu.png)
 
