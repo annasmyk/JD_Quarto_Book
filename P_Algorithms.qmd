@@ -2,6 +2,8 @@
 
 This part describes the algorithms featured in JDemetra+:
 
+SA related algorithms are split into parts due volume 
+
 -   [Seasonal Adjustment](A-sa.qmd)
 -   [Seasonal Adjustment of high-frequency data](A-sa-hf.qmd)
 -   [Reg-Arima modelling](A-sa.qmd)

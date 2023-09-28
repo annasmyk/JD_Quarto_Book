@@ -1,0 +1,14 @@
+## SA with STL {.unnumbered}
+
+Loess based decomposition algorithm used on linearized data data, no pre-adjustment.
+
+Not currently available. Under construction.
+
+## Context 
+
+- classic stl
+
+- M-STL: for multiple periodicities but with rounded frequencies  
+
+
+## Tools for access

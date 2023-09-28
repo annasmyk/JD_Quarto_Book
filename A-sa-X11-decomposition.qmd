@@ -1,5 +1,5 @@
 
-# SA: X-11 Decomposition {#sa-chapter}
+# SA: X-11 Decomposition {.unnumbered}
 
 ## Context
 
