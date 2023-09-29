@@ -20,3 +20,14 @@ nav {
     background-color: #f2f6ff !important;
 }
 
+pre {
+    background-color: #EBEFF4;
+    padding: 10px;
+}
+
+.path {
+    color: #237116;
+    font-family: "Consolas";
+    font-size: 16px;
+}
+

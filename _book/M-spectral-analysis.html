@@ -140,38 +140,38 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Seasonal adjustment of high-frequency data</span></a>
   </div>
 </li>
-          <li class="sidebar-item">
+      </ul>
+  </li>
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./A-outlier-detection.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Outlier detection and external regressors</span></a>
   </div>
 </li>
-          <li class="sidebar-item">
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./A-calendar-correction.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Calendar correction</span></a>
   </div>
 </li>
-          <li class="sidebar-item">
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./A-benchmarking.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Benchmarking and temporal disagreggation</span></a>
   </div>
 </li>
-          <li class="sidebar-item">
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./A-trend-cycle-estimation.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Trend-cycle estimation</span></a>
   </div>
 </li>
-          <li class="sidebar-item">
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./A-nowcasting.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Nowcasting</span></a>
   </div>
 </li>
-      </ul>
-  </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./P_Tools.html" class="sidebar-item-text sidebar-link">
@@ -300,7 +300,7 @@ ul.task-list li input[type="checkbox"] {
   </ul></li>
   <li><a href="#spectral-density-estimation" id="toc-spectral-density-estimation" class="nav-link" data-scroll-target="#spectral-density-estimation">Spectral density estimation</a>
   <ul class="collapse">
-  <li><a href="#method-1-the-periodogram" id="toc-method-1-the-periodogram" class="nav-link" data-scroll-target="#method-1-the-periodogram">Method 1: The periodogram</a></li>
+  <li><a href="#periodogram" id="toc-periodogram" class="nav-link" data-scroll-target="#periodogram">Method 1: The periodogram</a></li>
   <li><a href="#method-2-autoregressive-spectrum-estimation" id="toc-method-2-autoregressive-spectrum-estimation" class="nav-link" data-scroll-target="#method-2-autoregressive-spectrum-estimation">Method 2: Autoregressive spectrum estimation</a></li>
   <li><a href="#method-3-tukey-spectrum" id="toc-method-3-tukey-spectrum" class="nav-link" data-scroll-target="#method-3-tukey-spectrum">Method 3: Tukey spectrum</a></li>
   </ul></li>
@@ -362,8 +362,8 @@ f(\omega) = \frac{1}{\pi}\lbrack \ \gamma(0) + 2\sum_{k = 1}^{\infty}{\ \gamma(k
 </section>
 <section id="spectral-density-estimation" class="level2">
 <h2 class="anchored" data-anchor-id="spectral-density-estimation">Spectral density estimation</h2>
-<section id="method-1-the-periodogram" class="level3">
-<h3 class="anchored" data-anchor-id="method-1-the-periodogram">Method 1: The periodogram</h3>
+<section id="periodogram" class="level3">
+<h3 class="anchored" data-anchor-id="periodogram">Method 1: The periodogram</h3>
 <p>For any given frequency <span class="math inline">\(\omega\)</span> the sample periodogram is the sample analog of the sample spectrum. In general, the periodogram is used to identify the periodic components of unknown frequency in the time series. X-13ARIMA-SEATS and TRAMO-SEATS use this tool for detecting seasonality in raw time series and seasonally adjusted series. Apart from this it is applied for checking randomness of the residuals from the ARIMA model.</p>
 <p>To define the periodogram, first consider the vector of complex numbers<a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a>:</p>
 <p><span class="math display">\[

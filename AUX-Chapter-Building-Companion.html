@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.313">
+<meta name="generator" content="quarto-1.3.353">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -17,7 +17,7 @@ div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
   width: 0.8em;
-  margin: 0 0.8em 0.2em -1.6em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
 </style>
@@ -34,6 +34,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="AUX-Chapter-Building-Companion_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="AUX-Chapter-Building-Companion_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 </head>
@@ -52,61 +53,142 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="quick-time-line">Quick time line</h2>
 <ul>
 <li>took over oct 2021</li>
+<li>start ref: January 2022</li>
+<li>started a structured quarto book: june 2022</li>
+<li>june 2023: ? obj newsletter june 16th</li>
 </ul>
+</section>
+<section id="mind-management-insights" class="level2">
+<h2 class="anchored" data-anchor-id="mind-management-insights">Mind management insights</h2>
+<ul>
+<li>starting the day with editing previous work ?! tto long ?</li>
+</ul>
+<section id="hf-pb-create-two-chapters" class="level3">
+<h3 class="anchored" data-anchor-id="hf-pb-create-two-chapters">HF pb create two chapters</h3>
+<ul>
+<li><p>methods</p></li>
+<li><p>practical methods</p></li>
+</ul>
+</section>
+<section id="what-you-will-find-in-this-chapter" class="level3">
+<h3 class="anchored" data-anchor-id="what-you-will-find-in-this-chapter">What you will find in this chapter</h3>
+<p>(force this format even if provisional) What could be useful here ? In which cases look further here ? Links to other chapters Q&amp;A format</p>
+</section>
+</section>
+<section id="tables-development" class="level2">
+<h2 class="anchored" data-anchor-id="tables-development">Tables development</h2>
+<ul>
+<li><p>synthetic vision</p></li>
+<li><p>Tab1: frequencies (TS) by algo by (R ro GUI)</p></li>
+</ul>
+</section>
+<section id="methodo-questions" class="level2">
+<h2 class="anchored" data-anchor-id="methodo-questions">Methodo questions</h2>
+<p>starting with old chapters</p>
+<ul>
+<li>spectral</li>
+<li>tests</li>
+<li>seats</li>
+</ul>
+</section>
+<section id="new-pbs" class="level2">
+<h2 class="anchored" data-anchor-id="new-pbs">NEW pbs</h2>
+<ul>
+<li><p>specify scope: example cruncher doesn’t work with stl: obvious ?</p></li>
+<li><p>are revision policies available for HF data ?</p></li>
+<li><p>can we generate calendar regressors for weekly data</p></li>
+<li><p>specify (+ more variety in examples) for which data frequency a function is available</p></li>
+</ul>
+</section>
+<section id="add-to-each-chapter" class="level2">
+<h2 class="anchored" data-anchor-id="add-to-each-chapter">ADD (to each chapter)</h2>
+<ul>
+<li><p>scope by data type</p></li>
+<li><p>contrast differences R vs GUI</p></li>
+</ul>
+<section id="harmonization-of-names" class="level3">
+<h3 class="anchored" data-anchor-id="harmonization-of-names">Harmonization of names</h3>
+<ul>
+<li>revision policies: fixed autoregressive parameters</li>
+</ul>
+</section>
 </section>
 <section id="next-steps" class="level2">
 <h2 class="anchored" data-anchor-id="next-steps">Next steps</h2>
-<p>added history chapter Slight shift : less “writing”, more tests and meth holes (as meetings: time for questions) - SA chap: finish up - enhance R code - add and test rdj3 code (aux file rjd3_tests_for_doc.R in 00_rjd3_dev repo/Code R) obj : set up a system for efficient OTG testing</p>
-<p>testing protocole framework type comp: rjd3 to rjd2 when possible type comp2 : rjd3 to GUI for refresh pex - doc framework</p>
+<p>…and time line for loop 1 (= showable)</p>
 <ul>
-<li><p>other frameworks</p></li>
-<li><p>take into account renaming functions post merge rjd3 (HF, R…)</p></li>
+<li>1 R packages (loop 1 ok : 29/05 next loop 2…)</li>
 </ul>
+<p>lacks for 2nd loop: cf chapter’s details</p>
+<ul>
+<li><p>1 Rev policies: easy</p></li>
+<li><p>1b production cruncher (loop 1: 30/05, loop 2: cf below )</p></li>
+<li><p>2 HF with GUI (includes testing)</p></li>
+<li><p>polish HF</p></li>
+<li><p>outliers</p></li>
+<li><p>3 GUI ?: tough as maj all links.. maybe much less description and more links (video for v3) keep a copy of this chapter in AUX and completely refactor it ?</p></li>
+<li><p>calendar chap + vignette</p></li>
+<li><p>outliers chap + vignette</p></li>
+<li><p>SA chap: finish up + vignette</p>
+<ul>
+<li>enhance R code</li>
+<li>add and test rdj3 code (aux file rjd3_tests_for_doc.R in 00_rjd3_dev repo/Code R) obj : set up a system for efficient OTG testing</li>
+<li>finish up seats part</li>
+</ul></li>
+<li><p>sA HF with KW</p></li>
+</ul>
+<p>Above = essentials (loop 1 spirit) Below: just brush up optional</p>
+<ul>
+<li><p>idea= maximum brush up clean up and structure setting (always easier to fill in than to start from scratch)</p></li>
+<li><p>STL with KW</p></li>
+</ul>
+<section id="chunks-for-mind-management" class="level3">
+<h3 class="anchored" data-anchor-id="chunks-for-mind-management">Chunks for mind management</h3>
+<section id="structure" class="level4">
+<h4 class="anchored" data-anchor-id="structure">Structure</h4>
+<p>next</p>
+</section>
+</section>
+<section id="writing-filling-in-easy-no-editing" class="level3">
+<h3 class="anchored" data-anchor-id="writing-filling-in-easy-no-editing">Writing, filling in (easy, no editing)</h3>
+<ul>
+<li><p>R version 3 chunks in SA chapter</p></li>
+<li><p>outlier detection functions in rjd3x13 and tramoseats (quick)</p></li>
+</ul>
+</section>
+<section id="filling-in-small-gaps-20-time-slots-ok" class="level3">
+<h3 class="anchored" data-anchor-id="filling-in-small-gaps-20-time-slots-ok">Filling in small gaps (20’ time slots ok)</h3>
+<section id="editing-and-testing" class="level4">
+<h4 class="anchored" data-anchor-id="editing-and-testing">Editing and testing</h4>
+<p>For all menu, graphical references:</p>
+<ul>
+<li><p>check validity in version 3 (step1) change if necessary</p></li>
+<li><p>update visuals (screen shots to version 3), not urgent if no functional incidence</p></li>
+</ul>
+<p>apply in</p>
+<p>-T plug-ins chapter</p>
+</section>
+</section>
+<section id="finishing-up" class="level3">
+<h3 class="anchored" data-anchor-id="finishing-up">Finishing up</h3>
+<p>low hanging fruit</p>
+</section>
 </section>
 <section id="journal" class="level2">
 <h2 class="anchored" data-anchor-id="journal">Journal</h2>
-<p>policy: - what is readable in GUI should be explained, even if shortly, adding links to relevant method chapter</p>
+</section>
+<section id="technical-choices" class="level2">
+<h2 class="anchored" data-anchor-id="technical-choices">Technical choices</h2>
 <ul>
-<li>the same does not apply to R packages as they have a documentation on their own</li>
+<li>links to R packages doc and vignettes</li>
 </ul>
-<p>vendredi 13 janvier: - reprise (branch pb to see with T) - sa chapter direct from main: objective identify next steps ! - stopped at calendar correction - next = keep on reading from there to spot missing parts</p>
-</section>
-<section id="lot-1-xmas-2022-first-release" class="level2">
-<h2 class="anchored" data-anchor-id="lot-1-xmas-2022-first-release">Lot 1: Xmas 2022 first Release</h2>
-<p>Algos - sa - sa HF</p>
-<p>Tools</p>
-</section>
-<section id="pdf-issues" class="level2">
-<h2 class="anchored" data-anchor-id="pdf-issues">Pdf issues</h2>
-<ul>
-<li><p>current</p></li>
-<li><p>print as pdf vs existing pdf format</p></li>
-<li><p>future permanent handling</p></li>
-</ul>
-</section>
-<section id="way-forward-with-git-and-deployment" class="level2">
-<h2 class="anchored" data-anchor-id="way-forward-with-git-and-deployment">Way forward with git and deployment</h2>
-<ul>
-<li>for first release big cuts in chapters</li>
-<li>previous state saved in branch…</li>
-</ul>
-<p>NOW: vademecum ?</p>
-</section>
-<section id="lot-2-ntts-second-release" class="level2">
-<h2 class="anchored" data-anchor-id="lot-2-ntts-second-release">Lot 2: NTTS second release</h2>
-<p>1 finish up SA chapters (sa and sa hf)</p>
-<p>1b finish up tools chapters - R packages - GUI</p>
-<p>2 For EACH chapter - curated INTRO - ref to tools - period of availability (??) - ref to current doc</p>
-<p>3 New chapters</p>
-<p>(the rest is saved in draft branch)</p>
-<p>Status of PDF doc</p>
-<p>Work for T</p>
 </section>
 <section id="principles" class="level2">
 <h2 class="anchored" data-anchor-id="principles">Principles</h2>
-<p>any output any param setting possibility</p>
-<p>from GUI: all panels have to be described</p>
-<p>R packages have their own doc - don’t detail all functions</p>
+<p>policy: - what is displayed in GUI should be explained, even if shortly, adding links to relevant method chapter from GUI: all panels have to be described</p>
+<ul>
+<li>the same does not apply to R packages as they have a documentation on their own any output any param setting possibility</li>
+</ul>
 </section>
 <section id="difference-with-training" class="level2">
 <h2 class="anchored" data-anchor-id="difference-with-training">Difference with training</h2>
@@ -120,31 +202,46 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="template-for-algo-parts-description">Template for algo (parts) description</h2>
 <p>default params (quick launch) INPUT (?) Output1: series Output2: Final Params Output3: Diagnostics User-defined parameters</p>
 </section>
-<section id="overview" class="level2">
-<h2 class="anchored" data-anchor-id="overview">Overview</h2>
-<p>ref like in training more reliance on my slides: default move even…</p>
+<section id="overview-at-the-beginning-of-each-chapter" class="level2">
+<h2 class="anchored" data-anchor-id="overview-at-the-beginning-of-each-chapter">Overview at the beginning of each chapter</h2>
 <p>SIMILAR Head of chapter and structure (allowing to easily move around)</p>
 <section id="split-info-into-3-categories" class="level3">
 <h3 class="anchored" data-anchor-id="split-info-into-3-categories">Split info into 3 categories</h3>
 </section>
 </section>
-<section id="preface" class="level2">
-<h2 class="anchored" data-anchor-id="preface">Preface</h2>
+<section id="preface-starting-chapter-by-chapter-notes" class="level2">
+<h2 class="anchored" data-anchor-id="preface-starting-chapter-by-chapter-notes">Preface (Starting chapter by chapter notes)</h2>
 </section>
 <section id="g-what-is-jd.qmd" class="level2">
 <h2 class="anchored" data-anchor-id="g-what-is-jd.qmd">G-what-is-jd.qmd</h2>
-<p>resources for description can be widely used - R tools WP - JD+ esp pdf</p>
-<p>Lot 2: -history of the project</p>
+<p>resources for description can be widely used</p>
+<ul>
+<li><p>R tools Doc</p></li>
+<li><p>JD+ esp pdf</p></li>
+</ul>
 </section>
 <section id="g-jd-history.qmd" class="level2">
 <h2 class="anchored" data-anchor-id="g-jd-history.qmd">G-jd-history.qmd</h2>
 <p>to be organized</p>
+<p>resources - small publi 4p insee/eurostat</p>
+<p>web explo stack</p>
 </section>
 <section id="a-sa.qmd" class="level2">
 <h2 class="anchored" data-anchor-id="a-sa.qmd">A-sa.qmd</h2>
+<section id="any-table-display" class="level3">
+<h3 class="anchored" data-anchor-id="any-table-display">(Any) table display</h3>
+<p>What can be done with this table (expandable note ?)</p>
+<ul>
+<li>charts container (link) - single series contextual menu (link)</li>
+</ul>
+</section>
 <section id="questions-and-meth-holes" class="level3">
 <h3 class="anchored" data-anchor-id="questions-and-meth-holes">questions and meth holes</h3>
-<p>Questions: - allocation to sa: done at the very end ? - allocated to undefined ?</p>
+<p>Questions:</p>
+<ul>
+<li><p>allocation to sa: done at the very end ?</p></li>
+<li><p>allocated to undefined ?</p></li>
+</ul>
 </section>
 <section id="global-tasks" class="level3">
 <h3 class="anchored" data-anchor-id="global-tasks">global tasks</h3>
@@ -155,14 +252,18 @@ ul.task-list li input[type="checkbox"] {
 <li>method details: to method chapters</li>
 <li>tools details in tools: GUI or R</li>
 </ul>
-<p>For second release, according to this template rationale: - why and when use this ? - default params (quick launch): some setting ? - INPUT (?) - Output1: series - Output2: Final Params - Output3: Diagnostics - fine tuning User-defined parameters</p>
+<p>For second release, according to this template rationale: - why and when use this ? - default params (quick launch): some settings ? - INPUT (?) - Output1: series - Output2: Final Params - Output3: Diagnostics - fine tuning User-defined parameters</p>
 <p>when describing parameters</p>
 <ul>
 <li>1 common description</li>
 <li>2 setting in GUI</li>
 <li>3 setting in R</li>
 </ul>
-<p>2 categories of work - missing parts - - parts to revamp or hone</p>
+<p>2 categories of work</p>
+<ul>
+<li><p>missing parts</p></li>
+<li><p>parts to revamp or hone</p></li>
+</ul>
 <p>Steps (loop : structure, flesh out, re-structure…)</p>
 <ul>
 <li><p>immediate steps</p></li>
@@ -191,17 +292,13 @@ ul.task-list li input[type="checkbox"] {
 </section>
 </section>
 </section>
-<section id="large-cuts" class="level3">
-<h3 class="anchored" data-anchor-id="large-cuts">large cuts</h3>
-<p>for first release get back to draft branch file</p>
-</section>
 </section>
 <section id="a-sa-hf.qmd" class="level2">
 <h2 class="anchored" data-anchor-id="a-sa-hf.qmd">A-sa-hf.qmd</h2>
 <section id="add-back-and-flesh-out" class="level3">
 <h3 class="anchored" data-anchor-id="add-back-and-flesh-out">add back and flesh out</h3>
-<section id="in-outliers-detection" class="level4">
-<h4 class="anchored" data-anchor-id="in-outliers-detection">In outliers detection</h4>
+<section id="in-outlier-detection" class="level4">
+<h4 class="anchored" data-anchor-id="in-outlier-detection">In outlier detection</h4>
 <p>user defined outliers, variables ?</p>
 </section>
 <section id="in-calendar" class="level4">
@@ -218,36 +315,58 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="a-outlier-detection.qmd" class="level2">
 <h2 class="anchored" data-anchor-id="a-outlier-detection.qmd">A-outlier-detection.qmd</h2>
-<p>part of SA process as well (cf work for NTTS)</p>
+<p>data type</p>
+<p>contrasting GUI and R packages</p>
+<p>small chunks on regressors to be added</p>
+<p>more info on detection</p>
 </section>
-<section id="a-calendar-and-input.qmd" class="level2">
-<h2 class="anchored" data-anchor-id="a-calendar-and-input.qmd">A-calendar-and-input.qmd</h2>
+<section id="a-calendar-correction.qmd" class="level2">
+<h2 class="anchored" data-anchor-id="a-calendar-correction.qmd">A-calendar-correction.qmd</h2>
+<p>remarks:</p>
 <ul>
 <li><p>less dense content, less text more tables, bullet points</p></li>
-<li><p>check and add documents new v3 features, rjd3 modelling</p></li>
+<li><p>check and add documents new v3 features</p></li>
 <li><p>cjo frequency explained by K they simulate calendar pattern…empirically fall here (cf refs papers)</p></li>
 </ul>
-<p>frequence 41 et 41 survival of 1/60 discrete step in X12 (cf sokup findley)</p>
+<p>frequency 41 et 41 survival of 1/60 discrete step in X12 (cf sokup findley)</p>
 <section id="to-do" class="level3">
 <h3 class="anchored" data-anchor-id="to-do">To do</h3>
+<p>On theory part:</p>
 <ul>
-<li><p>partir avec explcation bbk + moi estp ?</p></li>
-<li><p>explications JP (enlever explications actuelles)</p></li>
 <li><p>manque effet de paques (cf regressor and ICA: hole)</p></li>
-<li><p>add building customized calendars : ok in GUI</p></li>
+<li><p>length of period</p></li>
+<li><p>stock</p></li>
+</ul>
+<p>On practical part:</p>
+<ul>
+<li><p>HF in GUI ?</p></li>
 <li><p>add in R</p></li>
 <li><p>generating regressors from customized calendar : GUI and R</p></li>
+<li><p>Length of Period</p></li>
 </ul>
+<p>adjust param</p>
+<ul>
+<li>stcok series</li>
+</ul>
+<p>cf book x12 and SH</p>
+<p>The regressor will have the value -1 if the w-th day is a Sunday, 1 if it is a Monday as 0 otherwise.</p>
+<p>example lacking in the package</p>
 </section>
 </section>
 <section id="a-benchmarking.qmd" class="level2">
 <h2 class="anchored" data-anchor-id="a-benchmarking.qmd">A-benchmarking.qmd</h2>
 <p>clean up</p>
 <p>add rjd3 bench and link help pages</p>
-<p>ressources - corentin, beamer rome - maria, ine, beamer ocde</p>
+<p>resources</p>
+<ul>
+<li><p>corentin, beamer rome</p></li>
+<li><p>maria, ine, beamer ocde</p></li>
+</ul>
 </section>
 <section id="a-trend-cycle-estimation.qmd" class="level2">
 <h2 class="anchored" data-anchor-id="a-trend-cycle-estimation.qmd">A-trend-cycle-estimation.qmd</h2>
+<p>see alain</p>
+<p>see karsten paper on HF</p>
 </section>
 <section id="a-nowcasting.qmd" class="level2">
 <h2 class="anchored" data-anchor-id="a-nowcasting.qmd">A-nowcasting.qmd</h2>
@@ -255,8 +374,16 @@ ul.task-list li input[type="checkbox"] {
 <section id="t-graphical-user-interface.qmd" class="level2">
 <h2 class="anchored" data-anchor-id="t-graphical-user-interface.qmd">T-graphical-user-interface.qmd</h2>
 <p>why use the graphical user interface ? what is not directly available in R yet?</p>
-<p>objective: describe the general features (independent of algorithms) - general layout - import data - documents - workspaces - specifications - output</p>
-<p>old content can be recycled but - very heavy (trim from md or txt files) - check version 3 - see if we stick with pasted screen shots</p>
+<p>objective: describe the general features (independent of algorithms)</p>
+<ul>
+<li><p>general layout</p></li>
+<li><p>options !: like stats tools/ modifs good bad / look and feel</p></li>
+<li><p>import data</p></li>
+<li><p>documents</p></li>
+<li><p>workspaces</p></li>
+<li><p>specifications</p></li>
+<li><p>output</p></li>
+</ul>
 <section id="add-1" class="level3">
 <h3 class="anchored" data-anchor-id="add-1">Add</h3>
 <section id="list-of-output-items" class="level4">
@@ -266,29 +393,26 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="t-production-tools-cruncher-qr.qmd" class="level2">
 <h2 class="anchored" data-anchor-id="t-production-tools-cruncher-qr.qmd">T-Production-tools-cruncher-QR.qmd</h2>
-<section id="add-2" class="level3">
-<h3 class="anchored" data-anchor-id="add-2">add</h3>
-<section id="list-of-exportable-series" class="level4">
-<h4 class="anchored" data-anchor-id="list-of-exportable-series">List of exportable series</h4>
-</section>
-</section>
+<p>add - List of exportable series (tramo / x13 with names)</p>
+<ul>
+<li>link to option change for adjusting “good”, “bad”…</li>
+</ul>
 </section>
 <section id="t-r-packages.qmd" class="level2">
 <h2 class="anchored" data-anchor-id="t-r-packages.qmd">T-r-packages.qmd</h2>
 <ul>
-<li>take into account renaming functions post merge rjd3</li>
+<li><p>add a global descpription of rjd3toolkit cf aux txt file</p></li>
+<li><p>include details in rjdemetra3 (when ready)</p></li>
 </ul>
 </section>
 <section id="t-plug-ins.qmd" class="level2">
 <h2 class="anchored" data-anchor-id="t-plug-ins.qmd">T-plug-ins.qmd</h2>
+<p>ok for now, visuals to be checked</p>
 </section>
 <section id="t-rev-policies-production.qmd" class="level2">
 <h2 class="anchored" data-anchor-id="t-rev-policies-production.qmd">T-rev-policies-production.qmd</h2>
+<p>add - v3 visuals (progressive) - fixed auto reg param - inter chapter links : r packs, cruncher</p>
 <p>obj here: general explanations + examples ? here : explain voc discrepancies vs guidelines bbk controlled current link to plug in illustration links on covid</p>
-<p>JDemetra+ offers several options for refreshing the output, which are in line with the ESS Guidelines on Seasonal Adjustment (2015) (link) requirements.</p>
-<p>reprduce table cf.&nbsp;my pdf (xls) doc remark: rjwsa cruncher vignette is not up to date</p>
-<section id="add-3" class="level3">
-<h3 class="anchored" data-anchor-id="add-3">Add</h3>
 <section id="revision-policies" class="level4">
 <h4 class="anchored" data-anchor-id="revision-policies">Revision Policies</h4>
 <p>general concepts - identified vs estimated - linearization phase - X11 - seats</p>
@@ -296,20 +420,13 @@ ul.task-list li input[type="checkbox"] {
 <p>concurrent = first estimation or redo everything (never overrides user defined parameters)</p>
 </section>
 </section>
-</section>
 <section id="implemententing-revision-policies-in-r" class="level2">
 <h2 class="anchored" data-anchor-id="implemententing-revision-policies-in-r">Implemententing revision policies in R</h2>
-<p>built in function only in v3 (cf estp adv + alain’s bug)</p>
-</section>
-<section id="t-tool-selection.qmd" class="level2">
-<h2 class="anchored" data-anchor-id="t-tool-selection.qmd">T-tool-selection.qmd</h2>
-<p>might be integrated to another chapter</p>
-<p>objective : select wisely between GUI(+ cruncher and plug ins) and R packages</p>
 </section>
 <section id="m-spectral-analysis.qmd" class="level2">
 <h2 class="anchored" data-anchor-id="m-spectral-analysis.qmd">M-spectral-analysis.qmd</h2>
 <p>add: - R code or references to - rjd3sa (?) references to tests - more explanations on spectral analysis rationale</p>
-<p>Vocabulary precision and concise definitions - spectral density - periodgram - spectral density estimator - “spectrum” is used too ubiquitously</p>
+<p>Vocabulary precision and concise definitions - spectral density - periodogram - spectral density estimator - “spectrum” is used too ubiquitously</p>
 </section>
 <section id="m-reg-arima-modelling.qmd" class="level2">
 <h2 class="anchored" data-anchor-id="m-reg-arima-modelling.qmd">M-reg-arima-modelling.qmd</h2>
@@ -318,6 +435,9 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="m-x11-decomposition.qmd" class="level2">
 <h2 class="anchored" data-anchor-id="m-x11-decomposition.qmd">M-X11-decomposition.qmd</h2>
+<ul>
+<li>add more computation details ?</li>
+</ul>
 <p>Edit content goal of the chapter: details on X-11 which won’t be in the SA chapter</p>
 <p>see - my notes on X-11 - formulas from training yc estp - formulas from HF paper or beamer</p>
 </section>
@@ -376,9 +496,23 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     icon: icon
   };
   anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
   const clipboard = new window.ClipboardJS('.code-copy-button', {
-    target: function(trigger) {
-      return trigger.previousElementSibling;
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
     }
   });
   clipboard.on('success', function(e) {
@@ -443,6 +577,92 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
   const findCites = (el) => {
     const parentEl = el.parentElement;
     if (parentEl) {

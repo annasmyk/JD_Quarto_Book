@@ -1,0 +1,98 @@
+# How to use this book {.unnumbered}
+
+This book is meant to provide guidance to use all the algorithms offered in JDemetra+ with the different tools (...) giving access to them. It is also methodological background.
+
+## Structure 
+
+This book is divided in three parts, allowing the user to access the resources from different perspectives.
+
+### Algorithms
+
+This part provides a step by step guidance for using of all the algorithms featured in JDemetra+, when accessed through the graphical user interface or R packages.
+
+Seasonal adjustment algorithms are split into parts, after an overview chapter to improve readability in spite of a large volume of information.
+
+
+-   [Reg-Arima (Tramo) Modelling](A-RegArima-Tramo-Modelling-Overview.qmd)
+
+
+
+-   [Seasonal Adjustment (SA) Overview](A-sa-overview.qmd)
+
+
+
+
+-   [SA Pre-Treatment Phase](A-sa-pre-treatment.qmd)
+-   [SA X-11 Decomposition](A-sa-X11-decomposition.qmd)
+-   [SA SEATS Decomposition](A-sa-seats-decomposition.qmd)
+-   [SA STL decompostion](A-sa-stl-decomposition.qmd)
+-   [SA with Basic Structural](A-sa-bsm.qmd)
+-   [Seasonal Adjustment of high-frequency data](A-sa-hf.qmd)
+-   [Outlier detection and external regressors](A-outlier-detection.qmd)
+-   [Calendar correction](A-calendar-correction.qmd)
+-   [Benchmarking and temporal disaggregation](A-benchmarking.qmd)
+-   [Trend-Cycle estimation](A-trend-cycle-estimation.qmd)
+-   [Revision Analysis](A-revision-analysis.qmd)
+-   [Nowcasting](A-nowcasting.qmd)
+
+
+For each algorithm the way to output series, diagnostics, as well as parameters (automatically estimated or user-defined) is detailed.
+
+### Tools
+
+This part describes the tools allowing to access JDemetra+ algorithms. 
+
+-   [R packages](T-r-packages.qmd)
+
+-   [Graphical User Interface (GUI) overview](T-GUI-Overview.qmd)
+
+details...
+
+-   [GUI: data visualization and generic time series tools](T-GUI-Data-Viz-TS-Tools.qmd)
+
+details...
+
+-   [GUI: Seasonal adjustment and modelling specific features](T-GUI-SA-Modelling-Features.qmd)
+
+-   [GUI: generating output](T-GUI-Output.qmd)
+
+details...
+
+-  Graphical user interface can be enhanced with additional [plug-ins](T-plug-ins.qmd)
+
+-  and a [Cruncher](T-Production-tools-cruncher-QR.qmd) for mass production
+
+### Methods
+
+This part describes in greater detail the core algorithms and their underlying statistical methods:
+
+-   [Reg-Arima modelling](M-reg-arima-modelling.qmd)
+
+-   [X-11: moving average based decomposition](M-X11-decomposition.qmd)
+
+-   [SEATS: Arima model based decomposition](M-SEATS-decomposition.qmd)
+
+-   [STL: Loess based decomposition](M-STL-decomposition.qmd)
+
+-   [Benchmarking and temporal disaggregation](M-Temp-Disagg-Bench.qmd)
+
+-   [Spectral analysis tools](M-spectral-analysis.qmd)
+
+-   [Trend Estimation](M-Trend-Estimation-Local-Polynomials.qmd)
+
+-   [Tests for seasonality and residuals](M-tests.qmd)
+
+-   [Structural time series and state space framework](M-state-space-framework.qmd)
+
+## Quick Start
+
+links to additional chapters, enhanced by tutorials
+
+## Frequently asked questions 
+
+(ref = black book ?)
+
+## Troubleshooting 
+
+
+

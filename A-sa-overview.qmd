@@ -1,0 +1,90 @@
+# Seasonal Adjustment (SA) Overview {.unnumbered}
+
+## Chapter's overview
+
+The goal of seasonal adjustment is to remove seasonal fluctuations from a time series. Seasonal fluctuations are quasi-periodic infra-annual movements. They can mask evolution of greater interest for the user such as short term evolution or long time trends.
+
+This chapter focuses on the **practical step by step** use of JDemetra+ algorithms, restricted to monthly and quarterly series. For infra-monthly data see the [following chapter](A-sa-hf.qmd). The use of [graphical user interface](T-graphical-user-interface.qmd) and [R packages](T-r-packages.qmd) is described simultaneously whenever relevant.
+
+In-depth methodological explanations of the algorithms are covered in separated chapters, in the [Methods](P_Methods.qmd) part.
+
+More information on the steps and best practices of a seasonal adjustment process can be found in the [Eurostat guidelines on seasonal adjustment](https://ec.europa.eu/eurostat/documents/3859598/6830795/KS-GQ-15-001-EN-N.pdf)
+
+For an overview on the algorithms and methodological issues, please refer to the [Handbook on Seasonal Adjustment](https://ec.europa.eu/eurostat/documents/3859598/8939616/KS-GQ-18-001-EN-N.pdf)
+
+## Seasonal Adjustment Algorithms
+
++------------------------+---------------+------------------+----------------+
+| Algorithm              | Access in GUI | Access in R (v2) | Access in R v3 |
++========================+===============+==================+================+
+| X-13 Arima             | yes           | RJDemetra        | rjd3x13        |
++------------------------+---------------+------------------+----------------+
+| Reg-Arima only         | yes           | RJDemetra        | rjd3x13        |
++------------------------+---------------+------------------+----------------+
+| X11 decomposition only | yes           | RJDemetra        | rjd3x13        |
++------------------------+---------------+------------------+----------------+
+| Tramo-Seats            | yes           | RJDemetra        | rjd3tramoseats |
++------------------------+---------------+------------------+----------------+
+| Tramo only             | yes           | RJDemetra        | rjd3tramoseats |
++------------------------+---------------+------------------+----------------+
+| STL                    | no            | no               | rjd3stl        |
++------------------------+---------------+------------------+----------------+
+| STS                    | no            | no               | rjd3sts        |
++------------------------+---------------+------------------+----------------+
+
+: X13-Arima and Tramo-Seats are two-step algorithms with a pre-treatment phase (Reg-Arima or Tramo) and a decomposition phase (X11 and Seats). STL is a local regression (Loess) based decomposition, without pre-treatment. In a Structural Time Series approach pre-treatment and decomposition are done simultaneously in a State Space Framework [(SSF)](M-state-space-framework.qmd).
+
+## Admissible data frequencies 
+
+
+
+
+## Decomposition in unobserved components
+
+To seasonally adjust a series, seasonal factors $S_{t}$ will be estimated and removed from the original raw series: $Y_{sa}=Y_{t}/S_{t}$ or $Y_{sa}=Y_{t}-S_{t}$. To do so the series is first decomposed into unobservable components. Two decomposition models:
+
+-   The additive model: $X_{t} = T_{t} + S_{t} + I_{t}$;
+
+-   The multiplicative model: $X_{t} = T_{t} \times S_{t} \times I_{t}$.
+
+The main components, each representing the impact of certain types of phenomena on the time series ($X_{t}$), are:
+
+-   The trend ($T_{t}$) that captures long-term and medium-term behaviour;
+
+-   The seasonal component ($S_{t}$) representing intra-year fluctuations, monthly or quarterly, that are repeated more or less regularly year after year;
+
+-   The irregular component ($I_{t}$) combining all the other more or less erratic fluctuations not covered by the previous components.
+
+In general, the trend consists of 2 sub-components:
+
+-   The long-term evolution of the series;
+
+-   The cycle, that represents the smooth, almost periodic movement around the long-term evolution of the series. It reveals a succession of phases of growth and recession. Trend and cycle are not separated in SA algorithms.
+
+
+## Detecting seasonal patterns
+
+A large number of [seasonality tests](M-tests.qmd) are available in JDemetra+. They can be accessed in the graphical user interface or via R.
+
+### In R
+
+In rjd3toolkit package:
+
+-   Canova-Hansen (`seasonality.canovahansen()`)
+-   X-12 combined test (`seasonality.combined()`)
+-   F-test on seasonal dummies (`seasonality.f()`)
+-   Friedman Seasonality Test (`seasonality.friedman()`)
+-   Kruskall-Wallis Seasonality Test (`seasonality.kruskalwallis()`)
+-   Periodogram Seasonality Test (`seasonality.periodogram()`)
+-   QS Seasonality Test (`seasonality.qs()`)
+
+### In GUI 
+
+
+## Direct-Indirect seasonal adjustment
+
+### overview
+
+### GUI 
+
+### R 

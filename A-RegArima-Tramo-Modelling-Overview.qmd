@@ -1,0 +1,62 @@
+# RegArima (Tramo) Modelling {.unnumbered}
+
+## Chapter's overview
+
+I need to do modelling with arima residuals: what is in my toolbox ?
+
+JD+ offers modelling features which can be used stand alone or as pre-treatment
+
+-   reg arima
+-   tramo
+-   extended airline
+-   SSF framework
+
+what is where ?
+
+In-depth methodological explanations of the algorithms are covered in separated chapters, in the [Methods](P_Methods.qmd) part.
+
+## Modelling Algorithms
+
++--------------------+---------------+------------------+----------------+
+| Algorithm          | Access in GUI | Access in R (v2) | Access in R v3 |
++====================+===============+==================+================+
+| Reg-Arima          | yes           | RJDemetra        | rjd3x13        |
++--------------------+---------------+------------------+----------------+
+| Tramo              | yes           | RJDemetra        | rjd3tramoseats |
++--------------------+---------------+------------------+----------------+
+| Extended Airline   | no            | no               | rjd3stl        |
++--------------------+---------------+------------------+----------------+
+| STS                | no            | no               | rjd3sts        |
++--------------------+---------------+------------------+----------------+
+
+: X13-Arima and Tramo-Seats are two-step algorithms with a pre-treatment phase (Reg-Arima or Tramo) and a decomposition phase (X11 and Seats). STL is a local regression (Loess) based decomposition, without pre-treatment. In a Structural Time Series approach pre-treatment and decomposition are done simultaneously in a State Space Framework [(SSF)](M-state-space-framework.qmd).Pre-treatment principles
+
+The goal of this step is to remove deterministic effects (calendar and outliers) in order to improve the decomposition.
+
+$$
+Y_t = \sum {\alpha}_i O_{it} + \sum\beta_j C_{jt} + \sum {\gamma}_i U_{it} + Y_{lin,t}
+$$
+
+-   $O_{it}$ are the $i$ final outliers (AO, LS, TC)
+
+-   $C_{it}$ are the calendar regressors (automatic or user-defined) (link to calendar chap)
+
+-   $U_{it}$ are all the other user-defined regressors (link to outliers and regressors chap)
+
+-   $Y_{lin,t} \sim ARIMA(p,d,q)(P,D,Q)$
+
+## White noise tests 
+
+## Accessing tools 
+
+### In R
+
+- stand alone 
+- as pre-treatment 
+
+### GUI 
+
+- stand alone (methods documents and co)
+
+- as pre treatement 
+
