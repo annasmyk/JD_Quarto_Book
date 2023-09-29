@@ -6,10 +6,12 @@ book:
   author:
     - name: Anna Smyk
       url: https://github.com/annasmyk
-    - name: Alain Quartier-la-Tente
-      url: https://github.com/AQLT
     - name: Tanguy Barthelemy
       url: https://github.com/TanguyBarthelemy
+    - name: with the collaboration of
+    - name: Maria Novas Filgueira
+    - name: Alain Quartier-la-Tente
+      url: https://github.com/AQLT
     - name: Karsten Webel
       url: https://github.com/webelk
   date: "9/15/2023"
