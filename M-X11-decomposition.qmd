@@ -8,7 +8,7 @@
 
 - algorithm steps 
 
-- high frequency data (extended features)
+- high frequency data (extended features) linked to M-sa-hf.qmd chapter 
 
 ## X-11 in seasonal adjustment
 
@@ -20,7 +20,7 @@ The X-11 program is the result of a long tradition of non-parametric smoothing b
     asymmetric moving averages which introduce phase-shifts and delays
     in the detection of turning points.
 
-To overcome these flaws first the series are modelled with a RegARIMA model that removes deterministic effects (calendar, outliers) and computes forecasts.
+To overcome these flaws first the series are modelled with a Reg-ARIMA model that removes deterministic effects (calendar, outliers) and computes forecasts.
 
 ![The flow diagram for seasonal adjustment with X-13ARIMA-SEATS using
 the X-11 algorithm](All_images/UG_A_image13.png)
@@ -164,7 +164,7 @@ Source: Based upon training material from the Deutsche Bundesbank**
 -   **Part A: Pre-adjustments**
 
 This part, which is not obligatory, corresponds in X-13ARIMA-SEATS to
-the first cleaning of the series done using the RegARIMA facilities:
+the first cleaning of the series done using the Reg-ARIMA facilities:
 detection and estimation of outliers and calendar effects (trading day
 and Easter), forecasts and backcasts\[\^61\] of the series. Based on
 these results, the program calculates prior adjustment factors that are
@@ -394,7 +394,7 @@ averages.
 
 ## Extreme values: identification and replacement
 
-X-13ARIMA-SEATS detects and removes outliers in the RegARIMA part.
+X-13ARIMA-SEATS detects and removes outliers in the Reg-ARIMA part.
 However, if there is a seasonal heteroscedasticity in a time series i.e.
 the variance of the irregular component is different in different
 calendar months. Examples for this effect could be the weather and
@@ -463,7 +463,7 @@ identical to the output produced by the original X-11 program.
 **Part A -- Preliminary Estimation of Outliers and Calendar Effects.**
 
 This part includes prior modifications to the original data made in the
-RegARIMA part:
+Reg-ARIMA part:
 
 -   Table A1 -- Original series;
 
@@ -495,7 +495,7 @@ RegARIMA part:
 
 **Part B -- Preliminary Estimation of the Time Series Components:**
 
--   Table B1 -- Original series after adjustment by the RegARIMA model;
+-   Table B1 -- Original series after adjustment by the Reg-ARIMA model;
 
 -   Table B2 -- Unmodified Trend (preliminary estimation using composite
     moving average);

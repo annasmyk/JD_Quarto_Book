@@ -174,38 +174,38 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">Seasonal adjustment of high-frequency data</span></a>
   </div>
 </li>
-          <li class="sidebar-item">
+      </ul>
+  </li>
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./A-outlier-detection.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Outlier detection and external regressors</span></a>
   </div>
 </li>
-          <li class="sidebar-item">
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./A-calendar-correction.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Calendar correction</span></a>
   </div>
 </li>
-          <li class="sidebar-item">
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./A-benchmarking.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Benchmarking and temporal disagreggation</span></a>
   </div>
 </li>
-          <li class="sidebar-item">
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./A-trend-cycle-estimation.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Trend-cycle estimation</span></a>
   </div>
 </li>
-          <li class="sidebar-item">
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./A-nowcasting.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Nowcasting</span></a>
   </div>
 </li>
-      </ul>
-  </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./P_Tools.html" class="sidebar-item-text sidebar-link">
@@ -335,9 +335,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#pre-treatment-principles" id="toc-pre-treatment-principles" class="nav-link" data-scroll-target="#pre-treatment-principles">Pre-treatment principles</a></li>
   <li><a href="#detecting-seasonal-patterns" id="toc-detecting-seasonal-patterns" class="nav-link" data-scroll-target="#detecting-seasonal-patterns">Detecting seasonal patterns</a></li>
   </ul></li>
-  <li><a href="#pre-treatment-reg-arima-or-tramo" id="toc-pre-treatment-reg-arima-or-tramo" class="nav-link" data-scroll-target="#pre-treatment-reg-arima-or-tramo">Pre-treatment: Reg-Arima or Tramo</a>
+  <li><a href="#pre-pro-spec" id="toc-pre-pro-spec" class="nav-link" data-scroll-target="#pre-pro-spec">Pre-treatment: Reg-Arima or Tramo</a>
   <ul class="collapse">
-  <li><a href="#default-specifications" id="toc-default-specifications" class="nav-link" data-scroll-target="#default-specifications">Default Specifications</a></li>
+  <li><a href="#pre-def-spec" id="toc-pre-def-spec" class="nav-link" data-scroll-target="#pre-def-spec">Default Specifications</a></li>
+  <li><a href="#usr-def-spec" id="toc-usr-def-spec" class="nav-link" data-scroll-target="#usr-def-spec">User-defined specifications</a></li>
   <li><a href="#spans" id="toc-spans" class="nav-link" data-scroll-target="#spans">Spans</a></li>
   <li><a href="#decomposition-scheme" id="toc-decomposition-scheme" class="nav-link" data-scroll-target="#decomposition-scheme">Decomposition Scheme</a></li>
   <li><a href="#calendar-correction" id="toc-calendar-correction" class="nav-link" data-scroll-target="#calendar-correction">Calendar correction</a></li>
@@ -348,7 +349,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </ul></li>
   <li><a href="#x-11-decomposition" id="toc-x-11-decomposition" class="nav-link" data-scroll-target="#x-11-decomposition">X-11 Decomposition</a>
   <ul class="collapse">
-  <li><a href="#default-specifications-1" id="toc-default-specifications-1" class="nav-link" data-scroll-target="#default-specifications-1">Default specifications</a></li>
+  <li><a href="#default-specifications" id="toc-default-specifications" class="nav-link" data-scroll-target="#default-specifications">Default specifications</a></li>
   <li><a href="#quick-launch" id="toc-quick-launch" class="nav-link" data-scroll-target="#quick-launch">Quick Launch</a></li>
   <li><a href="#retrieve-series" id="toc-retrieve-series" class="nav-link" data-scroll-target="#retrieve-series">Retrieve series</a></li>
   <li><a href="#retrieve-diagnostics" id="toc-retrieve-diagnostics" class="nav-link" data-scroll-target="#retrieve-diagnostics">Retrieve Diagnostics</a></li>
@@ -357,7 +358,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </ul></li>
   <li><a href="#seats-decomposition" id="toc-seats-decomposition" class="nav-link" data-scroll-target="#seats-decomposition">SEATS Decomposition</a>
   <ul class="collapse">
-  <li><a href="#default-specifications-2" id="toc-default-specifications-2" class="nav-link" data-scroll-target="#default-specifications-2">Default specifications</a></li>
+  <li><a href="#default-specifications-1" id="toc-default-specifications-1" class="nav-link" data-scroll-target="#default-specifications-1">Default specifications</a></li>
   <li><a href="#quick-launch-1" id="toc-quick-launch-1" class="nav-link" data-scroll-target="#quick-launch-1">Quick Launch</a></li>
   <li><a href="#retrieve-series-1" id="toc-retrieve-series-1" class="nav-link" data-scroll-target="#retrieve-series-1">Retrieve Series</a></li>
   <li><a href="#retrieve-diagnostics-1" id="toc-retrieve-diagnostics-1" class="nav-link" data-scroll-target="#retrieve-diagnostics-1">Retrieve Diagnostics</a></li>
@@ -475,7 +476,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="pre-treatment-principles" class="level3">
 <h3 class="anchored" data-anchor-id="pre-treatment-principles">Pre-treatment principles</h3>
-<p>The goal of this step is to remove deterministic effects (calendar and outliers) in order to improve the decomposition. <span class="math display">\[
+<p>The goal of this step is to remove deterministic effects (calendar and outliers) in order to improve the decomposition.</p>
+<p><span class="math display">\[
 Y_t = \sum {\alpha}_i O_{it} + \sum\beta_j C_{jt} + \sum {\gamma}_i U_{it} + Y_{lin,t}
 \]</span></p>
 <ul>
@@ -500,11 +502,11 @@ Y_t = \sum {\alpha}_i O_{it} + \sum\beta_j C_{jt} + \sum {\gamma}_i U_{it} + Y_{
 </ul>
 </section>
 </section>
-<section id="pre-treatment-reg-arima-or-tramo" class="level2">
-<h2 class="anchored" data-anchor-id="pre-treatment-reg-arima-or-tramo">Pre-treatment: Reg-Arima or Tramo</h2>
+<section id="pre-pro-spec" class="level2">
+<h2 class="anchored" data-anchor-id="pre-pro-spec">Pre-treatment: Reg-Arima or Tramo</h2>
 <p>The following sections cover how to perform pre-treatment with Reg-ARIMA (or Tramo) algorithms. Tramo and the Reg-Arima part of X13-Arima rely on very similar principles: <a href="./M-reg-arima-modelling.html">Reg-Arima modelling</a>. Thus Tramo will be mentioned only to highlight differences with the Reg-Arima part of X13-Arima. Reg-Arima modelling part can be of a seasonal adjustment process or run on its own, we focus on performing pre-treatment as part of a SA processing.</p>
-<section id="default-specifications" class="level3">
-<h3 class="anchored" data-anchor-id="default-specifications">Default Specifications</h3>
+<section id="pre-def-spec" class="level3">
+<h3 class="anchored" data-anchor-id="pre-def-spec">Default Specifications</h3>
 <p>Default specifications are set for the whole SA procedure, pre-treatment and decomposition. They are slightly different for X13-ARIMA and Tramo-Seats and can be modified with user defined parameters.</p>
 <section id="starting-point-for-x13-arima" class="level4">
 <h4 class="anchored" data-anchor-id="starting-point-for-x13-arima">Starting point for X13-ARIMA</h4>
@@ -655,8 +657,25 @@ Y_t = \sum {\alpha}_i O_{it} + \sum\beta_j C_{jt} + \sum {\gamma}_i U_{it} + Y_{
 </tr>
 </tbody>
 </table>
-<p>Principle of user setting parameters: can be done from one of the default specifications or any specification in a “save” as” mode very similar in GUI and R, see below.</p>
 </section>
+</section>
+<section id="usr-def-spec" class="level3">
+<h3 class="anchored" data-anchor-id="usr-def-spec">User-defined specifications</h3>
+<p>Principle of user setting parameters: can be done from one of the default specifications or any specification in a “Save as” mode very similar in GUI and R, see below.</p>
+<p>The user may add new seasonal adjustment specifications to the <em>Workspace</em> window. To do it, go to the <em>Seasonal adjustment</em> section, right click on the <em>tramoseats</em> or <em>x13</em> item in the <em>specifications</em> node and select <em>New</em> from the local menu.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/RM_C_pic20.jpg" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption"><strong>Creating a new specification in the <em>Seasonal adjustment</em> section</strong></figcaption>
+</figure>
+</div>
+<p>Next, double click on the newly created specification, change the settings accordingly and confirm with the <strong>OK</strong> button.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/RM_C_pic21.jpg" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption"><strong>Changing settings of seasonal adjustment specification</strong></figcaption>
+</figure>
+</div>
 </section>
 <section id="spans" class="level3">
 <h3 class="anchored" data-anchor-id="spans">Spans</h3>
@@ -1361,8 +1380,8 @@ Y_t = \sum \hat{\alpha}_i O_{it} + \sum\hat\beta_j C_{jt} + \sum\hat\gamma_k Reg
 <li><p>final parameters</p></li>
 <li><p>user-defined parameters</p></li>
 </ul>
-<section id="default-specifications-1" class="level3">
-<h3 class="anchored" data-anchor-id="default-specifications-1">Default specifications</h3>
+<section id="default-specifications" class="level3">
+<h3 class="anchored" data-anchor-id="default-specifications">Default specifications</h3>
 <p>The default specifications for X-11 must be chosen at the starting of the SA processing. They are detailed in the <a href="./A-sa.html#Pre-treatment: Reg-ARIMA (or Tramo)">Reg-Arima part</a>. X-11 can be run without pre-treatment</p>
 </section>
 <section id="quick-launch" class="level3">
@@ -1639,8 +1658,8 @@ Y_t = \sum \hat{\alpha}_i O_{it} + \sum\hat\beta_j C_{jt} + \sum\hat\gamma_k Reg
 <li><p>final parameters</p></li>
 <li><p>user-defined parameters</p></li>
 </ul>
-<section id="default-specifications-2" class="level3">
-<h3 class="anchored" data-anchor-id="default-specifications-2">Default specifications</h3>
+<section id="default-specifications-1" class="level3">
+<h3 class="anchored" data-anchor-id="default-specifications-1">Default specifications</h3>
 <p>The default specifications for SEATS must be chosen at the starting of the SA processing. They are detailed in the <a href="./A-sa.html#Pre-treatment: Reg-ARIMA (or TRAMO)">RegArima part</a> Starting point for Tramo-Seats</p>
 </section>
 <section id="quick-launch-1" class="level3">

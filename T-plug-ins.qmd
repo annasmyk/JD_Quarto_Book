@@ -47,7 +47,7 @@ This list is displayed in the *Installed* panel. This panel is available from th
 
 -   [SDMX](https://github.com/nbbrd/jdemetra-dotstat): This plugin provides time series from [SDMX](https://sdmx.org) to JDemetra+ by querying [web services](https://github.com/nbbrd/jdemetra-dotstat/wiki/Supported-web-services%22) or parsing [files](https://github.com/nbbrd/jdemetra-dotstat/wiki/Supported-file-formats%22).
 
--   [SA Advanced](https://github.com/nbbrd/jdemetra-sa-advanced%22): This module provides some experimental seasonal adjustment methods (with RegArima preprocessing), basic structural models, generalized airline models and airline + seasonal noise models (called mixed airline).
+-   [SA Advanced](https://github.com/nbbrd/jdemetra-sa-advanced%22): This module provides some experimental seasonal adjustment methods (with Reg-ARIMA preprocessing), basic structural models, generalized airline models and airline + seasonal noise models (called mixed airline).
 
     -   gairline: generalized airline model
     -   mairline: mixed airline model

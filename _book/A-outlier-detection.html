@@ -110,7 +110,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./P_Algorithms.html">Algorithms</a></li><li class="breadcrumb-item"><a href="./A-outlier-detection.html">Outlier detection and external regressors</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./A-outlier-detection.html">Outlier detection and external regressors</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -174,38 +174,38 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">Seasonal adjustment of high-frequency data</span></a>
   </div>
 </li>
-          <li class="sidebar-item">
+      </ul>
+  </li>
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./A-outlier-detection.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Outlier detection and external regressors</span></a>
   </div>
 </li>
-          <li class="sidebar-item">
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./A-calendar-correction.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Calendar correction</span></a>
   </div>
 </li>
-          <li class="sidebar-item">
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./A-benchmarking.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Benchmarking and temporal disagreggation</span></a>
   </div>
 </li>
-          <li class="sidebar-item">
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./A-trend-cycle-estimation.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Trend-cycle estimation</span></a>
   </div>
 </li>
-          <li class="sidebar-item">
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./A-nowcasting.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Nowcasting</span></a>
   </div>
 </li>
-      </ul>
-  </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./P_Tools.html" class="sidebar-item-text sidebar-link">
@@ -336,6 +336,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#intervention-variables" id="toc-intervention-variables" class="nav-link" data-scroll-target="#intervention-variables">Intervention variables</a></li>
   <li><a href="#periodic-dummies-and-contrasts" id="toc-periodic-dummies-and-contrasts" class="nav-link" data-scroll-target="#periodic-dummies-and-contrasts">Periodic dummies and contrasts</a></li>
   <li><a href="#trigonometric-variables" id="toc-trigonometric-variables" class="nav-link" data-scroll-target="#trigonometric-variables">Trigonometric variables</a></li>
+  <li><a href="#usr-def-var" id="toc-usr-def-var" class="nav-link" data-scroll-target="#usr-def-var">User-defined variables</a></li>
   </ul></li>
   <li><a href="#outlier-detection" id="toc-outlier-detection" class="nav-link" data-scroll-target="#outlier-detection">Outlier Detection</a>
   <ul class="collapse">
@@ -534,6 +535,56 @@ These routines can be used stand alone or as part of a seasonal adjustment proce
 <section id="generating-in-r" class="level4">
 <h4 class="anchored" data-anchor-id="generating-in-r">Generating in R</h4>
 </section>
+</section>
+<section id="usr-def-var" class="level3">
+<h3 class="anchored" data-anchor-id="usr-def-var">User-defined variables</h3>
+<p>User defined variables are simply time series used as explanatory regressors in the RegARIMA and the TRAMO models. Although JDemetra+ allows the user to indicate any time series as a variable to avoid misleading or erroneous results, the following rules should be kept:</p>
+<ul>
+<li>User-defined regression variables are used for measuring abnormalities and therefore they should not contain a seasonal pattern.</li>
+<li>JDemetra+ assumes that user-defined regressors are already in an appropriately centred form.</li>
+</ul>
+<p>Therefore the mean of each user-defined regressor needs to be subtracted from the regressor or means for each calendar period (month or quarter) need to be subtracted from each of the user-defined regressors.</p>
+<p>JDemetra+ considers two kinds of user-defined regression variables:</p>
+<ul>
+<li><strong>Static variables</strong>, usually imported directly from external software (by drag/drop or copy/paste). The observations for static variables cannot be changed. The only way to update static series is to remove them from the list and to re-import them with the same names.</li>
+<li><strong>Dynamic variables</strong> that are imported into the <em>Variables</em> panel by dragging and dropping series from a browser of the application, available in the <em>Providers</em> window. Dynamic variables are automatically updated each time the application is re-opened. Therefore, it is a convenient solution for creating user-defined variables.</li>
+</ul>
+<p>To create a dynamic variable first right-click on the <em>Variables</em> node in the <em>Workspace</em> window and chose the option <strong>New</strong>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/A_Ref_d3.jpg" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption"><strong>Creating an empty dataset for the user-defined variables</strong></figcaption>
+</figure>
+</div>
+<p>Next, double click on the newly created <em>Vars-1</em> item to display it in the <em>Results</em> panel. By default, JDemetra+ uses the conventions Vars_#number to name the tabs under the <em>Variables</em> node.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/A_Ref_d4.jpg" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption"><strong>Activation of an empty dataset for the user-defined variables</strong></figcaption>
+</figure>
+</div>
+<p>Then, go to <em>Providers</em> window and open your file that contains external variables following the instructions provided <a href="../quick-start/datasources.html">here</a>. Drag and drop your external regressors from the <em>Providers</em> window to the <em>Vars-1</em> window.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/A_Ref_d5.jpg" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption"><strong>Importing the user-defined variables to JDemetra+</strong></figcaption>
+</figure>
+</div>
+<p>The original name of the series is recorded in the <em>Description</em> column of the <em>Variables</em> window.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/A_Ref_d6.jpg" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption"><strong>Assigning regressors from the <em>Providers</em> window to the user-defined variables</strong></figcaption>
+</figure>
+</div>
+<p>In order to rename the series in the <em>Variables</em> window, right click on the series and chose <strong>Rename</strong>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/A_Ref_d7.jpg" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption"><strong>A local menu for the user-defined variables</strong></figcaption>
+</figure>
+</div>
+<p>Once the variables are imported they can be used for further analysis (e.g.&nbsp;as regressors in the <a href="../reference-manual/modelling-specifications.html#user-definedSpec">specifications for RegArima and TRAMO</a>).</p>
 </section>
 </section>
 <section id="outlier-detection" class="level2">

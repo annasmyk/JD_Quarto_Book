@@ -140,38 +140,38 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Seasonal adjustment of high-frequency data</span></a>
   </div>
 </li>
-          <li class="sidebar-item">
+      </ul>
+  </li>
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./A-outlier-detection.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Outlier detection and external regressors</span></a>
   </div>
 </li>
-          <li class="sidebar-item">
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./A-calendar-correction.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Calendar correction</span></a>
   </div>
 </li>
-          <li class="sidebar-item">
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./A-benchmarking.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Benchmarking and temporal disagreggation</span></a>
   </div>
 </li>
-          <li class="sidebar-item">
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./A-trend-cycle-estimation.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Trend-cycle estimation</span></a>
   </div>
 </li>
-          <li class="sidebar-item">
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./A-nowcasting.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Nowcasting</span></a>
   </div>
 </li>
-      </ul>
-  </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./P_Tools.html" class="sidebar-item-text sidebar-link">
@@ -575,14 +575,14 @@ F = \frac{ {\widehat{\chi}}^{2}}{s - 1} \times \frac{n - d - k}{n - d}
 <section id="friedman-test-for-stable-seasonality-test" class="level3">
 <h3 class="anchored" data-anchor-id="friedman-test-for-stable-seasonality-test">Friedman test for stable seasonality test</h3>
 <p>The Friedman test is a non-parametric method for testing that samples are drawn from the same population or from populations with equal medians. The significance of the month (or quarter) effect is tested. The Friedman test requires no distributional assumptions. It uses the rankings of the observations. If the null hypothesis of no stable seasonality is rejected at the 0.10% significance level then the series is considered to be seasonal and the test’s outcome is displayed in green.</p>
-<p>The test statistic is constructed as follows. Consider first the matrix of data <span class="math inline">\(\left\{x_{ij}\right\}_{n \times k}\)</span> with <span class="math inline">\(n\)</span> rows (the blocks, i.e.&nbsp;number of years in the sample), <span class="math inline">\(k\)</span> columns (the treatments, i.e.&nbsp;either 12 months or 4 quarters, depending on the frequency of the data).<br>
-The data matrix needs to be replaced by a new matrix <span class="math inline">\(\left\{r_{ij}\right\}_{n \times k}\)</span>, where the entry <span class="math inline">\(r_{ij}\)</span> is the rank of <span class="math inline">\(x_{ij}\)</span> within block <span class="math inline">\(i\)</span> .</p>
+<p>The test statistic is constructed as follows. Consider first the matrix of data <span class="math inline">\(\left\{x_{ij}\right\}_{n \times k}\)</span> with <span class="math inline">\(n\)</span> rows (the blocks, i.e.&nbsp;number of years in the sample), <span class="math inline">\(k\)</span> columns (the treatments, i.e.&nbsp;either 12 months or 4 quarters, depending on the frequency of the data).</p>
+<p>The data matrix needs to be replaced by a new matrix <span class="math inline">\(\left\{r_{ij}\right\}_{n \times k}\)</span>, where the entry <span class="math inline">\(r_{ij}\)</span> is the rank of <span class="math inline">\(x_{ij}\)</span> within block <span class="math inline">\(i\)</span> .</p>
 <p>The test statistic is given by</p>
 <p><span class="math display">\[
 Q=\frac{SS_t}{SS_e}
 \]</span></p>
-<p>where <span class="math inline">\(SS_t=n \sum_{j=1}^{k}(\bar{r}_{.j}-\bar{r})^2\)</span> and <span class="math inline">\(SS_e=\frac{1}{n(k-1)} \sum*{i=1}^{n}*\sum{j=1}^{k}(r_{ij}-^\bar{r})2\)</span>. It represents the variance of the average ranking across treatments j relative to the total.</p>
-<p>Under the hypothesis of no seasonality, all months can be equally treated. For the sake of completeness: - <span class="math inline">\(\bar{r}*{.j}\)</span> is the average ranks of each treatment (month) j within each block (year) - The average rank is given by <span class="math inline">\(* \bar{r}=\frac{1}{nk}\sum{i=1}^{n}\sum*{j=1}^{k}(r*{ij})\)</span></p>
+<p>where <span class="math inline">\(SS_t=n \sum_{j=1}^{k}(\overline{r}_{.j}-\overline{r})^2\)</span> and <span class="math inline">\(SS_e=\frac{1}{n(k-1)} \sum_{i=1}^{n}\sum_{j=1}^{k}(r_{ij}-\overline{r})^2\)</span>. It represents the variance of the average ranking across treatments j relative to the total.</p>
+<p>Under the hypothesis of no seasonality, all months can be equally treated. For the sake of completeness: - <span class="math inline">\(\overline{r}*{.j}\)</span> is the average ranks of each treatment (month) j within each block (year) - The average rank is given by <span class="math inline">\(\overline{r}=\frac{1}{nk}\sum_{i=1}^{n}\sum_{j=1}^{k}r_{ij}\)</span></p>
 <p>For large <span class="math inline">\(n\)</span> or <span class="math inline">\(k\)</span> , i.e.&nbsp;<span class="math inline">\(n &gt; 15\)</span> or <span class="math inline">\(k &gt; 4\)</span>, the probability distribution of <span class="math inline">\(Q\)</span> can be approximated by that of a chi-squared distribution. Thus, the p-value is given by <span class="math inline">\(P( \chi^2_{k-1}&gt;Q)\)</span>.</p>
 <section id="use-1" class="level4">
 <h4 class="anchored" data-anchor-id="use-1">Use</h4>

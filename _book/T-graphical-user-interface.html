@@ -140,38 +140,38 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Seasonal adjustment of high-frequency data</span></a>
   </div>
 </li>
-          <li class="sidebar-item">
+      </ul>
+  </li>
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./A-outlier-detection.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Outlier detection and external regressors</span></a>
   </div>
 </li>
-          <li class="sidebar-item">
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./A-calendar-correction.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Calendar correction</span></a>
   </div>
 </li>
-          <li class="sidebar-item">
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./A-benchmarking.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Benchmarking and temporal disagreggation</span></a>
   </div>
 </li>
-          <li class="sidebar-item">
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./A-trend-cycle-estimation.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Trend-cycle estimation</span></a>
   </div>
 </li>
-          <li class="sidebar-item">
+        <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./A-nowcasting.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Nowcasting</span></a>
   </div>
 </li>
-      </ul>
-  </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./P_Tools.html" class="sidebar-item-text sidebar-link">
@@ -308,7 +308,11 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#spreadsheets" id="toc-spreadsheets" class="nav-link" data-scroll-target="#spreadsheets">Spreadsheets</a></li>
   <li><a href="#import-data" id="toc-import-data" class="nav-link" data-scroll-target="#import-data">Import data</a></li>
   </ul></li>
-  <li><a href="#workspace-window" id="toc-workspace-window" class="nav-link" data-scroll-target="#workspace-window">Workspace window</a></li>
+  <li><a href="#workspace-window" id="toc-workspace-window" class="nav-link" data-scroll-target="#workspace-window">Workspace window</a>
+  <ul class="collapse">
+  <li><a href="#modelling-window" id="toc-modelling-window" class="nav-link" data-scroll-target="#modelling-window">Modelling</a></li>
+  <li><a href="#sa-window" id="toc-sa-window" class="nav-link" data-scroll-target="#sa-window">Seasonal adjustment</a></li>
+  </ul></li>
   <li><a href="#results-panel" id="toc-results-panel" class="nav-link" data-scroll-target="#results-panel">Results panel</a></li>
   <li><a href="#widgets" id="toc-widgets" class="nav-link" data-scroll-target="#widgets">Widgets</a>
   <ul class="collapse">
@@ -330,7 +334,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#SAProcessingDoc" id="toc-SAProcessingDoc" class="nav-link" data-scroll-target="#SAProcessingDoc">SAProcessingDoc</a></li>
   </ul></li>
   <li><a href="#data-visualisation" id="toc-data-visualisation" class="nav-link" data-scroll-target="#data-visualisation">Data Visualisation</a></li>
-  <li><a href="#generating-output" id="toc-generating-output" class="nav-link" data-scroll-target="#generating-output">Generating Output</a>
+  <li><a href="#output-window" id="toc-output-window" class="nav-link" data-scroll-target="#output-window">Generating Output</a>
   <ul class="collapse">
   <li><a href="#steps" id="toc-steps" class="nav-link" data-scroll-target="#steps">Steps</a></li>
   </ul></li>
@@ -420,7 +424,7 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="closing-jdemetra" class="level2">
 <h2 class="anchored" data-anchor-id="closing-jdemetra">Closing JDemetra+</h2>
-<p>To close the application, select <em>File → Exit</em> from the <a href="http://localhost:4000/pages/reference-manual/file.html">File menu</a>.</p>
+<p>To close the application, select <em>File → Exit</em> from the <a href="#file-menus">File menu</a>.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/A_Ref2.jpg" class="img-fluid figure-img"></p>
@@ -491,7 +495,7 @@ ul.task-list li input[type="checkbox"] {
 <figcaption class="figure-caption"><strong>A structure of a dataset</strong></figcaption>
 </figure>
 </div>
-<p>Series uploaded to the <em>Providers</em> window can be <a href="#container">displayed</a>, modified and tested for seasonality and used in estimation routines (see <a href="modelling.html">Modelling</a> and <a href="A-sa.html">Seasonal adjustment</a>). The data sources can be restored after re-starting the application so that there is no need to get them again. This functionality can be set in the <em>Behaviour</em> tab available at the <a href="../reference-manual/tools.html#options"><em>Option</em></a> item from the <a href="../reference-manual/tools.html"><em>Tools</em></a> menu.</p>
+<p>Series uploaded to the <em>Providers</em> window can be <a href="#container">displayed</a>, modified and tested for seasonality and used in estimation routines (see <a href="modelling.html">Modelling</a> and <a href="A-sa.html">Seasonal adjustment</a>). The data sources can be restored after re-starting the application so that there is no need to get them again. This functionality can be set in the <em>Behaviour</em> tab available at the <a href="#options"><em>Option</em></a> item from the <a href="#tools-menu"><em>Tools</em></a> menu.</p>
 <section id="spreadsheets" class="level3">
 <h3 class="anchored" data-anchor-id="spreadsheets">Spreadsheets</h3>
 <p>We will now focus on the Spreadsheets data source, which corresponds to the series prepared in an Excel file. The file should have dates in Excel date format. Dates should be placed in the first column (or in the first row) and titles of the series in the corresponding cell of the first row (or in the first column). The top-left cell <span class="math inline">\(A1\)</span> can include text or it can be left empty. The empty cells are interpreted by JDemetra+ as missing values and they can appear at the beginning, in the middle and at the end of the time series. The example is shown below.</p>
@@ -538,10 +542,10 @@ ul.task-list li input[type="checkbox"] {
 <p>Restructure: present all the nodes</p>
 <p>Workspace is a JDemetra+ functionality that stores the work performed by the user in a coherent and structured way. By default, each workspace contains the pre-defined modelling and seasonal adjustment specifications and a basic calendar. A specification is a set of modelling and/or seasonal adjustment parameters. Within the workspace the following items can be saved:</p>
 <ul>
-<li><p><a href="../reference-manual/modelling-specifications.html#user-definedSpec">User-defined modelling specifications</a> and <a href="../reference-manual/sa-specifications.html">seasonal adjustment specifications</a>;</p></li>
+<li><p><a href="A-sa.html#usr-def-spec">User-defined modelling specifications</a> and <a href="A-sa.html#pre-def-spec">seasonal adjustment specifications</a>;</p></li>
 <li><p>Documents that contain <a href="../reference-manual/output-modelling.html">results from time series modelling</a> and <a href="../reference-manual/output.html">output from the seasonal adjustment process</a>;</p></li>
-<li><p><a href="../reference-manual/calendars.html">User-defined calendars</a>;</p></li>
-<li><p><a href="../reference-manual/user-defined-variables.html">User-defined regression variables</a>.</p></li>
+<li><p><a href="A-calendar-correction.html#usr_def_cal">User-defined calendars</a>;</p></li>
+<li><p><a href="A-outlier-detection.html#usr-def-var">User-defined regression variables</a>.</p></li>
 </ul>
 <p>Together with the results from modelling and seasonal adjustment, the original data, paths to the input files and parameters of processes are all saved. These results can then be re-opened, updated, investigated and modified in further JDemetra+ sessions.</p>
 <p>The workspace saved by JDemetra+ includes:</p>
@@ -559,9 +563,9 @@ ul.task-list li input[type="checkbox"] {
 <p>The workspace can be shared with other users, which eases the burden of work with defining specifications, modelling and seasonal adjustment processes.</p>
 <p>The content of the workspace is presented in the <em>Workspace</em> window. It is divided into three sections:</p>
 <ul>
-<li><p><a href="../reference-manual/modelling.html">Modelling</a> (contains the default and user-defined specifications for modelling; and the output from the modelling process)</p></li>
-<li><p><a href="../reference-manual/sa.html">Seasonal adjustment</a> (contains the default and user-defined specifications for seasonal adjustment and the output from the seasonal adjustment process),</p></li>
-<li><p>Utilities (<a href="calendars.html">calendars</a> and <a href="user-defined-variables.html">user defined variables</a>).</p></li>
+<li><p><a href="#modelling-window">Modelling</a> (contains the default and user-defined specifications for modelling; and the output from the modelling process)</p></li>
+<li><p><a href="#sa-window">Seasonal adjustment</a> (contains the default and user-defined specifications for seasonal adjustment and the output from the seasonal adjustment process),</p></li>
+<li><p>Utilities (<a href="#usr-def-cal">calendars</a> and <a href="A-outlier-detection.html#usr-def-var">user defined variables</a>).</p></li>
 </ul>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -569,10 +573,39 @@ ul.task-list li input[type="checkbox"] {
 <figcaption class="figure-caption"><strong>The <em>Workspace</em> window</strong></figcaption>
 </figure>
 </div>
+<section id="modelling-window" class="level3">
+<h3 class="anchored" data-anchor-id="modelling-window">Modelling</h3>
+<p>The algorithms implemented in JDemetra+ enable a modelling of the original time series with the RegARIMA model, including estimation of the regression effects such as outliers and calendar effects. These procedures can be used just for modelling and forecasting of the original time series but also as a pre-treatment before performing a seasonal adjustement of the series. Hence, this pre-treatement will allow for a more reliable estimation of the time series components performed by the seasonal adjustment procedures.</p>
+<p>This section is divided into two parts: * <a href="../reference-manual/modelling-specifications.html">Specifications</a>, which presents parameters of the modelling procedure. * <a href="../reference-manual/output-modelling.html">Output</a>, which details a typical output produced by the modelling procedure.</p>
+<p>The specifications and output of the modelling procedure are displayed in the <a href="#workspace-window"><em>Workspace</em> window</a>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/A_Ref_d1.jpg" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption"><strong>The <em>Workspace</em> window with the nodes for the modelling procedure marked</strong></figcaption>
+</figure>
+</div>
+</section>
+<section id="sa-window" class="level3">
+<h3 class="anchored" data-anchor-id="sa-window">Seasonal adjustment</h3>
+<p>The primary aim of the seasonal adjustment process is to remove seasonal fluctuations from the time series. To achieve this goal, seasonal adjustment methods decompose the original time series into components that capture specific movements. These components are: trend-cycle, seasonality and irregularity. The trend-cycle component includes long-term and medium-term movements in the data. For seasonal adjustment purposes there is no need to divide this component into two parts. JDemetra+ refers to the trend-cycle as trend and consequently this convention is used here.</p>
+<p>This section presents the options of the seasonal adjustment processes performed by the methods implemented in JDemetra+ (X-12-ARIMA/X-13ARIMA-SEATS and TRAMO/SEATS) and discusses the output displayed by JDemetra+. As these seasonal adjustment methods use different approach to the decomposition, the output produced for both of them has different structure and content. Therefore, the results for both methods are discussed separately. However, in contrast to the original programs, in JDemetra+ some quality indicators have been implemented for both methods, allowing for an easier comparison of the results.</p>
+<p>This section is divided into two parts:</p>
+<ul>
+<li><a href="A-sa.html#pre-pro-spec">Specifications</a>, which presents parameters of the seasonal adjustment procedure.</li>
+<li><a href="#results-panel">Output</a>, which explains a typical output produced by the seasonal adjustment procedure.</li>
+</ul>
+<p>The specifications and output for the seasonal adjustment procedure are displayed in the <em>Workspace</em> window under the <em>Seasonal adjustment</em> item.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/A_Ref_d2.jpg" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption"><strong>The <em>Workspace</em> window with the nodes for the seasonal adjustment procedure marked</strong></figcaption>
+</figure>
+</div>
+</section>
 </section>
 <section id="results-panel" class="level2">
 <h2 class="anchored" data-anchor-id="results-panel">Results panel</h2>
-<p>The blank zone in the figure above (on the right of the view) is the location where JDemetra+ displays various windows. More than one window can be displayed at the same time. Windows can overlap with each other with the foremost window being the one in focus or active. The active window has a darkened title bar. <a href="../reference-manual/window.html">The windows in the results panel can be arranged in many different ways</a>, depending on the user’s needs. The example below shows one of the possible views of this panel. The results of the user’s analysis are displayed in an accompanying window. The picture below shows two panels – a window containing seasonal adjustment results (upper panel) and another one containing an autoregressive spectrum (lower panel).</p>
+<p>The blank zone in the figure above (on the right of the view) is the location where JDemetra+ displays various windows. More than one window can be displayed at the same time. Windows can overlap with each other with the foremost window being the one in focus or active. The active window has a darkened title bar. <a href="#window-menu">The windows in the results panel can be arranged in many different ways</a>, depending on the user’s needs. The example below shows one of the possible views of this panel. The results of the user’s analysis are displayed in an accompanying window. The picture below shows two panels – a window containing seasonal adjustment results (upper panel) and another one containing an autoregressive spectrum (lower panel).</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/A_Ref9.jpg" class="img-fluid figure-img"></p>
@@ -659,7 +692,7 @@ ul.task-list li input[type="checkbox"] {
 </figure>
 </div>
 <ul>
-<li><a href="T-r-packages.html#seasonal-adjustment">Seasonal adjustment</a> – intended for the seasonal adjustment of a time series with the TRAMO-SEATS and X-13ARIMA-SEATS methods.</li>
+<li><a href="#seasonal-adjustment??">Seasonal adjustment</a> – intended for the seasonal adjustment of a time series with the TRAMO-SEATS and X-13ARIMA-SEATS methods.</li>
 </ul>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -670,22 +703,22 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="tools-menu" class="level3">
 <h3 class="anchored" data-anchor-id="tools-menu">Tools menu</h3>
-<p>The following functionalities are available from the <em>Tools</em> menu:</p>
-<ul>
-<li><a href="#container"><em>Container</em></a> – includes several tools for displaying data in a time domain;</li>
-<li><a href="#spectral-analysis"><em>Spectral analysis</em></a> – contains tools for the analysis of a time series in a frequency domain;</li>
-<li><a href="#aggregation"><em>Aggregation</em></a> – enables the user to investigate a graph of the sum of multiple time series;</li>
-<li><a href="#differencing"><em>Differencing</em></a> – allows for the inspection of the first regular differences of the time series;</li>
-<li><a href="#spreadsheet-profiler"><em>Spreadsheet profiler</em></a> – offers an Excel-type view of the XLS file imported to JDemetra+.</li>
-<li><a href="#plugins"><em>Plugins</em></a> – allows for the installation and activation of plugins, which extend JDemetra+ functionalities.</li>
-<li><a href="#options"><em>Options</em></a> – presents the default interface settings and allows for their modification.</li>
-</ul>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/Tools menu.jpg" class="img-fluid figure-img"></p>
 <figcaption class="figure-caption"><strong>The <em>Tools</em> menu</strong></figcaption>
 </figure>
 </div>
+<p>The following functionalities are available from the <em>Tools</em> menu:</p>
+<ul>
+<li><a href="#container"><em>Container</em></a> – includes several tools for displaying data in a time domain;</li>
+<li><a href="#spectral-analysis-windows"><em>Spectral analysis</em></a> – contains tools for the analysis of a time series in a frequency domain;</li>
+<li><a href="#aggregation"><em>Aggregation</em></a> – enables the user to investigate a graph of the sum of multiple time series;</li>
+<li><a href="#differencing"><em>Differencing</em></a> – allows for the inspection of the first regular differences of the time series;</li>
+<li><a href="#spreadsheet-profiler"><em>Spreadsheet profiler</em></a> – offers an Excel-type view of the XLS file imported to JDemetra+.</li>
+<li><a href="#plugins"><em>Plugins</em></a> – allows for the installation and activation of plugins, which extend JDemetra+ functionalities.</li>
+<li><a href="#options"><em>Options</em></a> – presents the default interface settings and allows for their modification.</li>
+</ul>
 <section id="container" class="level4">
 <h4 class="anchored" data-anchor-id="container">Container</h4>
 <p><em>Container</em> includes basic tools to display the data. The following items are available: <em>Chart</em>, <em>Grid</em>, <em>Growth Chart</em> and <em>List</em>.</p>
@@ -703,7 +736,7 @@ ul.task-list li input[type="checkbox"] {
 <figcaption class="figure-caption"><strong>Launching the <em>Chart</em> functionality</strong></figcaption>
 </figure>
 </div>
-<p>The series to be viewed can be also dragged from the other windows (e.g.&nbsp;from the <a href="../reference-manual/user-defined-variables.html"><em>Variables</em></a> window) or directly from the windows that display the results of the estimation procedure.</p>
+<p>The series to be viewed can be also dragged from the other windows (e.g.&nbsp;from the <a href="A-outlier-detection.html#usr-def-var"><em>Variables</em></a> window) or directly from the windows that display the results of the estimation procedure.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/A_Ref27.jpg" class="img-fluid figure-img"></p>
@@ -790,7 +823,7 @@ ul.task-list li input[type="checkbox"] {
 <li><p><strong>Edit last year</strong> – for clarity and readability purposes, only five of the last years of observations are shown by default. This setting can be adjusted in the <a href="#options"><em>Options</em></a> section, if required.</p></li>
 </ul>
 <p>The explanation of other options can be found below in the ‘<em>Local menu options for chart</em>’ figure in the <a href="#container"><em>Container</em></a> section.</p>
-<p>The <em>List</em> tab provides basic information about the chosen time series, such as; the start and end date, the number of observations and a sketch of the data graph. This function opens an empty window. To display information, drag and drop the series from the <a href="../reference-manual/data-providers.html"><em>Providers</em></a> window into the <em>List</em> window. A right click displays the local menu with all available options. Apart from the standard options, the local menu for <em>List</em> enables marking the series that match the selected frequency (yearly, half-yearly, quarterly, monthly) by using the <em>Select by frequency</em> option. An explanation of other options can be found below in the ‘<em>Local menu options for chart</em>’ figure in the <a href="#container"><em>Container</em></a> section.</p>
+<p>The <em>List</em> tab provides basic information about the chosen time series, such as; the start and end date, the number of observations and a sketch of the data graph. This function opens an empty window. To display information, drag and drop the series from the <a href="#providers-window"><em>Providers</em></a> window into the <em>List</em> window. A right click displays the local menu with all available options. Apart from the standard options, the local menu for <em>List</em> enables marking the series that match the selected frequency (yearly, half-yearly, quarterly, monthly) by using the <em>Select by frequency</em> option. An explanation of other options can be found below in the ‘<em>Local menu options for chart</em>’ figure in the <a href="#container"><em>Container</em></a> section.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/A_Ref34.jpg" class="img-fluid figure-img"></p>
@@ -805,9 +838,9 @@ ul.task-list li input[type="checkbox"] {
 </figure>
 </div>
 </section>
-<section id="spectral-analysis" class="level4">
-<h4 class="anchored" data-anchor-id="spectral-analysis">Spectral analysis</h4>
-<p>The <em>Spectral analysis</em> section provides three spectral graphs that allows an in-depth analysis of a time series in the frequency domain. These graphs are the <em>Auto-regressive Spectrum</em>, the <em>Periodogram</em> and the <em>Tukey Spectrum</em>. For more information the user may study <a href="../theory/spectral.html">a basic desription of spectral analysis</a> and <a href="../case-studies/spectralgraphs.html">a detailed presentation of the abovementioned tools</a>.</p>
+<section id="spectral-analysis-windows" class="level4">
+<h4 class="anchored" data-anchor-id="spectral-analysis-windows">Spectral analysis</h4>
+<p>The <em>Spectral analysis</em> section provides three spectral graphs that allows an in-depth analysis of a time series in the frequency domain. These graphs are the <em>Auto-regressive Spectrum</em>, the <em>Periodogram</em> and the <em>Tukey Spectrum</em>. For more information the user may study <a href="#spectral-analysis">a basic desription of spectral analysis</a> and <a href="M-spectral-analysis.html#spectral-graphs">a detailed presentation of the abovementioned tools</a>.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/A_Ref36.jpg" class="img-fluid figure-img"></p>
@@ -827,7 +860,7 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="differencing" class="level4">
 <h4 class="anchored" data-anchor-id="differencing">Differencing</h4>
-<p>The <em>Differencing</em> window displays the first regular differences for the selected time series together with the corresponding periodogram and the PACF function. By default, the window presents the results for non-seasonally and seasonally differenced series (( <span class="math inline">\(d = 1,D = 1\)</span>)). These settings can be changed through the <em>Properties</em> window (<em>Tools</em> <em>→ Properties</em>). A description of a periodogram and the PACF function can be found <a href="../theory/spectral_periodogram.html">here</a>.</p>
+<p>The <em>Differencing</em> window displays the first regular differences for the selected time series together with the corresponding periodogram and the PACF function. By default, the window presents the results for non-seasonally and seasonally differenced series (( <span class="math inline">\(d = 1,D = 1\)</span>)). These settings can be changed through the <em>Properties</em> window (<em>Tools</em> <em>→ Properties</em>). A description of a periodogram and the PACF function can be found <a href="M-spectral-analysis.html#periodogram">here</a>.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/A_Ref38.jpg" class="img-fluid figure-img"></p>
@@ -918,7 +951,7 @@ ul.task-list li input[type="checkbox"] {
 </div>
 <p>An explanation of the list of the series and diagnostics components that are displayed in the <em>Default components</em> section can be found <a href="../theory/output.html">here</a>.</p>
 <p>To modify the settings for a particular measure, double click on a selected row (select the test’s name from the list and click on the working tools button), introduce changes in the pop-up window and click the <strong>OK</strong> button.</p>
-<p>To reset the default settings for a given test, select this test from the list and click on the backspace button situated below the working tools button. The description of the parameters for each quality measure and test used in a diagnostic procedure can be found in the <a href="../reference-manual/output-modelling.html">output from modelling</a> and the <a href="../reference-manual/output.html">output from seasonal adjustement</a> nodes.</p>
+<p>To reset the default settings for a given test, select this test from the list and click on the backspace button situated below the working tools button. The description of the parameters for each quality measure and test used in a diagnostic procedure can be found in the <a href="#results-panel">output from modelling</a> and the <a href="#results-panel">output from seasonal adjustement</a> nodes.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/A_Ref45.jpg" class="img-fluid figure-img"></p>
@@ -992,9 +1025,9 @@ ul.task-list li input[type="checkbox"] {
 <ul>
 <li><p><strong>Preview Time Series</strong> – opens a window that plots any of the series the user selects from <em>Providers</em>.</p></li>
 <li><p><strong>Debug</strong> – opens a <em>Preview Time Series</em> window that enables a fast display of the graphs for time series from a large dataset. To display the graph click on the series in the <em>Providers</em> window.</p></li>
-<li><p><a href="../reference-manual/data-providers.html"><strong>Providers</strong></a> – opens (if closed) and activates the <em>Providers</em> window.</p></li>
-<li><p><a href="../reference-manual/user-defined-variables.html"><strong>Variables</strong></a> – opens (if closed) and activates the <em>Variable</em> window.</p></li>
-<li><p><a href="../reference-manual/workspace.html"><strong>Workspace</strong></a> – opens (if closed) and activates the <em>Workspace</em> window.</p></li>
+<li><p><a href="#providers-window"><strong>Providers</strong></a> – opens (if closed) and activates the <em>Providers</em> window.</p></li>
+<li><p><a href="A-outlier-detection.html#usr-def-var"><strong>Variables</strong></a> – opens (if closed) and activates the <em>Variable</em> window.</p></li>
+<li><p><a href="#workspace-window"><strong>Workspace</strong></a> – opens (if closed) and activates the <em>Workspace</em> window.</p></li>
 <li><p><strong>Output</strong> – a generic window to display outputs in the form of text; useful with certain plug-ins (e.g.&nbsp;tutorial descriptive statistics).</p></li>
 <li><p><strong>Editor</strong> – activates the editor panel (and update the main menu consequently).</p></li>
 <li><p><strong>Configure Window</strong> – enables the user to change the way that the window is displayed (maximise, float, float group, minimise, minimise group). This option is active when some window is displayed in the JD+ interface.</p></li>
@@ -1177,8 +1210,8 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="data-visualisation">Data Visualisation</h2>
 <p>Everything is in <a href="#container">Tools -&gt; container</a></p>
 </section>
-<section id="generating-output" class="level2">
-<h2 class="anchored" data-anchor-id="generating-output">Generating Output</h2>
+<section id="output-window" class="level2">
+<h2 class="anchored" data-anchor-id="output-window">Generating Output</h2>
 <p>add : some explanations + link to cruncher (production chapter)</p>
 <section id="steps" class="level3">
 <h3 class="anchored" data-anchor-id="steps">Steps</h3>
