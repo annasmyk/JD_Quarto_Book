@@ -105,9 +105,9 @@ See package **rjd3bench** and its documentation pages in R.
 
 ### Benchmarking and Temporal Disaggregation plugin
 
-See Tools Plug-ins for JDemetra+ to install Benchmarking plugin.
+Select Tools $\rightarrow$ Plug-ins for JDemetra+ to install Benchmarking plugin.
 
-Once the plugin is installed, it appears two more options in  the Workspace window: Benchmarking and Temporal Disaggregation.
+Once the plugin is installed, two more options appear in the Workspace window: Benchmarking and Temporal Disaggregation.
 
 
 ![Text](All_images/Image1_Bench.jpg)
@@ -117,7 +117,7 @@ Once the plugin is installed, it appears two more options in  the Workspace wind
 
 ## Benchmarking
 
-These methods provide a high-frequency series (input series) modified so that it fulfills a linear relation, with another of low frequency (benchmark), both series measure the same target variable. An example of the relation to be fulfilled could be that the
+These methods provide a high-frequency series (input series) modified so that it fulfills a linear relationship, with another series of low frequency (benchmark), both series measure the same target variable. An example of the relation to be fulfilled could be that the
 low frequency series (quarterly frequency) coincides with the quarterly sum of the high frequency series (monthly frequency).
 
 Multivariate benchmarking also imposes contemporary linear relations,
@@ -128,7 +128,7 @@ The benchmarking methods available in the benchmarking and time disaggregation p
 
 ### Benchmarking univariate: Denton and Cholette
 
-To execute Denton univariate case click on:
+To run Denton univariate case select:
 
 Statistical Methods $\rightarrow$ Benchmarking $\rightarrow$ Denton or Cholette
 
@@ -136,18 +136,18 @@ Statistical Methods $\rightarrow$ Benchmarking $\rightarrow$ Denton or Cholette
 ![Text](All_images/Image2_Bench.png)
 
 
-In both cases, a new window is displayed to launch one of the methods with the series selected. In the upper left side, it is necessary to drag the high frequency series from the  Providers window and drop it in **Drop Series here** and the low frequency series in **Drop Constraint here**.
+In both cases, a new window is displayed to launch one of the methods with the series selected. In the upper left side, drag the high frequency series from the Providers window and drop it in **Drop Series here** and the low frequency series in **Drop Constraint here**.
 
 #### Denton
 
-In the top right of the screen, click on the **Specifications** button to set the specifications to apply each method. Let see a description of the available options on Denton method:
+In the top right of the screen, select the **Specifications** button to set the specifications to apply each method. See below for a description of the available options on Denton method:
 
-1. **Type**: Aggregation function (Sum, Average, Last or First). This impose that the
-low-frequency series must respectively match the aggregation function selected of the high frequency series.
+1. **Type**: Aggregation function (Sum, Average, Last or First). This forces the
+low-frequency series to match the aggregation function selected of the high frequency series.
 
-2. **Multiplicative**: if the checkbox is activated, the proportional Denton method is applied. Otherwise, additive Denton is applied.
+2. **Multiplicative**: if the checkbox is selected, the proportional Denton method is applied. Otherwise, additive Denton is applied.
 
-3. **Modified Denton**: if the checkbox is activated, the modified Denton method is applied. Otherwise, original Denton is applied. It is recomended to activate it, original Denton does a special treatment on the first observation.
+3. **Modified Denton**: if the checkbox is selected, the modified Denton method is applied. Otherwise, original Denton is applied. It is recommended to select it; as original Denton does a special treatment on the first observation.
 
 4. **Differencing**: Number of regular differences. By default 1.
 
@@ -159,14 +159,14 @@ low-frequency series must respectively match the aggregation function selected o
 
 #### Cholette
 
-Let see a description of the available options on Cholette method:
+See below for a description of the available options on Cholette method:
 
-1. **Type**: Aggregation function (Sum, Average, Last or First). This impose that the
-low-frequency series must respectively match the aggregation function selected of the high frequency series.
+1. **Type**: Aggregation function (Sum, Average, Last or First). This forces the
+low-frequency series to match the aggregation function selected of the high frequency series.
 2. **Aggregation frequency**: periodicity of the low frequency data. The options are: Yearly, HalfYearly, QuadriMonthly, Quarterly, Bimonthly and Monthly.
-3. **Rho**: value between $-1$ and $1$. It is the coefficient of an AR($1$) model that follows the error term. The default value is $1$, equivalent to a apply Denton.
+3. **Rho**: value between $-1$ and $1$. It is the coefficient of an AR($1$) model that follows the error term. The default value is $1$, equivalent to applying Denton.
 
-4. **Lambda**: value between $0$ and $1$. It is the parameter $\lambda$ of the following fucntion to be minimize in Cholette method:
+4. **Lambda**: value between $0$ and $1$. It is the parameter $\lambda$ of the following function to be minimized in Cholette method:
     $$
     \sum_t \left( \frac{x_t - z_t}{\left| z_t \right|^{\lambda}} - \rho \frac{x_{t-1} - z_{t-1}}{\left| z_{t-1} \right|^{\lambda}}\right)^2
     $$
@@ -174,7 +174,7 @@ low-frequency series must respectively match the aggregation function selected o
 
 ![Cholette Specifications](All_images/Image4_Bench.png)
 
-In both cases, Denton and Cholette methods, the output is a graph with the original series and the bechmarked series. There is no table with the results, but it is very easy to create one from the graph. Do click on the graph and select copy option, then paste the values in excel (control-V).
+In both cases, Denton and Cholette methods, the output is a graph with the original series and the benchmarked series. There is no table with the results, but it is very easy to create one from the graph. Select the graph and select copy, then paste the values in excel (control-V).
 
 
 
@@ -184,5 +184,70 @@ In both cases, Denton and Cholette methods, the output is a graph with the origi
 
 ## Temporal Disaggregation 
 
-These methods are used to disaggregate a series from low frequency to high-frequency. Temporal disaggregaton methods, when there is a high frequency related indicators, provide estimations for a series, applying a regression model that relates high frequency series (input series) with p auxiliar series (proxy). This p auxiliar series are available on a high frequency basis.
-It is assumed that the high frequency observations of the series to be estimated satisfy a multiple regression relationship with p related series.
+These methods are used to disaggregate a series from low frequency to high-frequency. Temporal disaggregaton methods.
+The methods developed in the plug-in are Chow-Lin, Fernández and Litterman.
+These methods define a high-frequency model that linearly relates a high frequency series (unobserved, input series) with p auxiliar series (indicators).
+See Methods$\rightarrow$Temporal disaggregation for more theoretical detail.
+
+### Temporal Disaggregation in the GUI
+To run Temporal Disaggregation methods click on:
+
+![Temporal Disggregation](All_images/Image6_TD.png)
+
+A new window is displayed to launch one of the methods with the series selected. In the upper left side, it is necessary to drag the low frequency series from the Providers window and drop it in **Y box** and the proxy series or indicator frequency series in **X box**.
+In the top right of the screen, select the **Specifications** button to set the specifications to apply each method. Let see a description of the available options on Temporal Disaggregation methods:
+
+1. **Estimation span**: Specifies the span (data interval) of the time series to be used in the temporal disaggregation process. The user can restrict the span.
+Common settings
+
++-------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------+
+| Option            | Description (expected format)                                                                                                                                               |        |
++===================+=============================================================================================================================================================================+========+
+| All               | default                                                                                                                                                                     |        |
++-------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------+
+| From              | first observation included (yyyy-mm-dd)                                                                                                                                     |        |
++-------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------+
+| To                | last observation included (yyyy-mm-dd)                                                                                                                                      |        |
++-------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------+
+| Between           | interval \[from ; to\] included (yyyy-mm-dd to yyyy-mm-dd)                                                                                                                  |        |
++-------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------+
+| First             | number of obs from the beginning of the series included (dynamic) (integer)                                                                                                 |        |
++-------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------+
+| Last              | number of obs from the end of the series (dynamic)(integer)                                                                                                                 |        |
++-------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------+
+| Excluding         | excluding N first obs and P last obs from the computation,dynamic) (integer)                                                                                                |        |
++-------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------+
+| Preliminary check | check to exclude highly problematic series e.g. the series with a number of identical observations and/or missing values above pre-specified threshold values. (True/False) |        |
++-------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------+
+
+2. **Error**: determines the method to be aplied.
+
+
+
++-------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------+
+| Option            | Description                                                                                                                                                                 |        |
++===================+=============================================================================================================================================================================+========+
+| Ar1               | Chow-Lin method (default)                                                                                                                                                   |        |
++-------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------+
+| Wn                | Classical Regression model                                                                            
+                                                                      |        |
++-------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------+
+| Rw                | Fernández                                                                                                                                                                   |        |
++-------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------+
+| RwAr1             | Litterman                                                                                                                                                                   |        |
++-------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------+
+| I2                | Integrated order 2                                                                                                                                                          |        |
++-------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------+
+| I3                | Integrated order 3                                                                                                                                                          |        |
++-------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------+
+
+
+3. **Parameter**: Coefficient of the Autorregresive of order 1 model.
+
+
+
+![Temporal Disggregation](All_Images/Image7_TDSpec.png)
+
+
+### Chow-Lin
+
