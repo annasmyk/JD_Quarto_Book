@@ -31,3 +31,13 @@ pre {
     font-size: 16px;
 }
 
+.image {
+    max-width: 100%; /* Largeur maximale de l'image en pourcentage de l'espace disponible */
+    height: auto; /* Hauteur automatique pour conserver les proportions d'origine */
+    display: block; /* Pour centrer l'image horizontalement */
+    margin: 0 auto; /* Pour centrer l'image horizontalement */
+}
+
+.figure-caption {
+    text-align: center; /* Centrer le texte horizontalement */
+}
