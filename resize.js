@@ -38,7 +38,7 @@ function adjustImageMapCoordinates(mapName, originalImageWidth, originalCoordina
 
 // Fonction pour appeler la fonction d'ajustement lors de l'initialisation et du redimensionnement
 function initializeAndAdjust(mapName) {
-    var imageMap = document.querySelector('map[name="image_map"]');
+    var imageMap = document.querySelector(`map[name="${mapName}"]`);
     var imageOrigin = imageMap.previousElementSibling; // Récupérer l'élément img précédent (l'image)
     
     const originalImageWidth = imageOrigin.width;
