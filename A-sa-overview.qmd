@@ -2,6 +2,10 @@
 
 ## Chapter's overview
 
+[ici pour aller à SA chapter X11](#sa-x11)
+
+[ici pour aller à tools X11 chapter X11](#tools-x11)
+
 The goal of seasonal adjustment is to remove seasonal fluctuations from a time series. Seasonal fluctuations are quasi-periodic infra-annual movements. They can mask evolution of greater interest for the user such as short term evolution or long time trends.
 
 This chapter focuses on the **practical step by step** use of JDemetra+ algorithms, restricted to monthly and quarterly series. For infra-monthly data see the [following chapter](A-sa-hf.qmd). The use of [graphical user interface](T-graphical-user-interface.qmd) and [R packages](T-r-packages.qmd) is described simultaneously whenever relevant.
@@ -11,6 +15,10 @@ In-depth methodological explanations of the algorithms are covered in separated 
 More information on the steps and best practices of a seasonal adjustment process can be found in the [Eurostat guidelines on seasonal adjustment](https://ec.europa.eu/eurostat/documents/3859598/6830795/KS-GQ-15-001-EN-N.pdf)
 
 For an overview on the algorithms and methodological issues, please refer to the [Handbook on Seasonal Adjustment](https://ec.europa.eu/eurostat/documents/3859598/8939616/KS-GQ-18-001-EN-N.pdf)
+
+## SA process descripition
+
+(flow charts to add, on preT - decomp- reallocation- diagnostics)
 
 ## Seasonal Adjustment Algorithms
 
