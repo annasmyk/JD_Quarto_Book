@@ -1,4 +1,4 @@
-# Graphical User Interface Overview {.unnumbered}
+# Graphical User Interface Overview {.unnumbered #tools-GUI}
 
 ## In this chapter
 
@@ -32,7 +32,7 @@ The graphical user interface in the 2.x family gives access to:
 
 #### v3
 
-The graphical user interface in the 3.x family gives access **in addition** to extended SA algorithms for [high-frequency data (HF)](A-sa-hf.qmd).
+The graphical user interface in the 3.x family gives access **in addition** to extended SA algorithms for [high-frequency data (HF)](#sa-hf).
 
 :::
 
@@ -103,16 +103,22 @@ In order to remove a previously installed JDemetra+ version, the user should del
 
 ## Starting Window
 
+
 ::: {.content-visible when-format="html"}
 
 <img src="All_images/Jd_mainwindow.png" usemap="#image_map">
 <map name="image_map">
-  <area alt="Providers" title="Providers" href="#providers-window" coords="4,71,76,101" shape="rect">
-  <area alt="Workspaces" title="Workspaces" href="#workspace-window" coords="86,70,167,100" shape="rect">
-  <area alt="Result" title="Result" href="#results-panel-overview" coords="211,68,806,359" shape="rect">
-  <area alt="Topbar menu" title="Topbar menu" href="#topbar-menu" coords="29,1,680,29" shape="rect">
-  <area alt="Closing" title="Closing" href="clos" coords="765,1,807,26" shape="rect">
+  <area alt="providers" title="Providers" href="#providers-window" coords="4,71,76,101" shape="rect">
+  <area alt="workspaces" title="Workspaces" href="#workspace-window" coords="86,70,167,100" shape="rect">
+  <area alt="result" title="Result" href="#results-panel-overview" coords="211,68,806,359" shape="rect">
+  <area alt="topbar" title="Topbar menu" href="#topbar-menu" coords="29,1,680,29" shape="rect">
+  <area alt="closing" title="Closing" href="close" coords="765,1,807,26" shape="rect">
 </map>
+
+<script src="resize.js"></script>
+<script> initializeAndAdjust("image_map") </script>
+
+[**JDemetra+ default window**]{.figure-caption}
 
 :::
 
@@ -139,7 +145,7 @@ The other key parts of the user interface are:
 
 ## Providers window {#providers-window}
 
-![**The *Providers* window**](All_images/A_Ref5.jpg)
+![**The *Providers* window**](All_images/A_Ref5.jpg){.image}
 
 By default, JDemetra+ supports the following data sources:
 

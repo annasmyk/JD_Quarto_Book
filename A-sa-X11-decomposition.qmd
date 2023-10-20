@@ -1,5 +1,5 @@
 
-# SA: X-11 Decomposition {.unnumbered}
+# SA: X-11 Decomposition {.unnumbered #sa-x11}
 
 ## Context of use
 
@@ -9,7 +9,7 @@
 
 -   extended X11 for any frequency data (differences in access: no GUI, display and user-friendliness)
 
-## Tools for X-11 decomposition
+## Tools for X-11 decomposition {#tools-x11}
 
 | Algorithm              | Access in GUI | Access in R (v2) | Access in R v3 |
 |------------------------|---------------|------------------|----------------|
