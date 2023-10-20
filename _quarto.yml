@@ -6,61 +6,123 @@ book:
   author:
     - name: Anna Smyk (Insee)
       url: https://github.com/annasmyk
+      affiliations:
+        - name: Insee
+          country: France
+          city: Paris
+          url: "https://www.insee.fr/fr/accueil"
+      role: "Author"
     - name: Tanguy Barthelemy (Insee)
       url: https://github.com/TanguyBarthelemy
-    - name: with the collaboration of
+      affiliations:
+        - name: Insee
+          country: France
+          city: Paris
+          url: "https://www.insee.fr/fr/accueil"
+      role: "Author"
     - name: Maria Novas Filgueira (Ine)
+      affiliations:
+        - name: Ine
+          country: Spain
+          city: Madrid
+          url: "https://www.ine.es/"
+      role: "Collaborator"
     - name: Alain Quartier-la-Tente (Insee)
       url: https://github.com/AQLT
+      affiliations:
+        - name: Insee
+          country: France
+          city: Paris
+          url: "https://www.insee.fr/fr/accueil"
+      role: "Collaborator"
     - name: Karsten Webel (Bbk)
       url: https://github.com/webelk
+      affiliations:
+        - name: BundesBank
+          country: Germany
+          city: Frankfurt
+          url: "https://www.bundesbank.de"
+      role: "Collaborator"
   date: "9/15/2023"
   page-navigation: true
   chapters:
     - index.qmd
     - G-how-to-use-this-book.qmd
     - G-jd-history.qmd
+    
     - part: P_Algorithms.qmd
       chapters:
-        # - A-RegArima-Tramo-Modelling-Overview.qmd
+        - A-RegArima-Tramo-Modelling-Overview.qmd
         - A-sa-overview.qmd
         - A-sa-pre-treatment.qmd
         - A-sa-X11-decomposition.qmd
-        # - A-sa-seats-decomposition.qmd
-        # - A-sa-stl-decomposition.qmd
-        # - A-sa-bsm.qmd
-        # - A-sa-hf.qmd
-        # - A-outlier-detection.qmd
-        # - A-calendar-correction.qmd
-        # - A-benchmarking.qmd
-        # - A-trend-cycle-estimation.qmd
-        # - A-revision-analysis.qmd
-        # - A-nowcasting.qmd
+        - A-sa-seats-decomposition.qmd
+        - A-sa-stl-decomposition.qmd
+        - A-sa-bsm.qmd
+        - A-sa-hf.qmd
+        - A-outlier-detection.qmd
+        - A-calendar-correction.qmd
+        - A-benchmarking.qmd
+        - A-trend-cycle-estimation.qmd
+        - A-revision-analysis.qmd
+        - A-nowcasting.qmd
     - part: P_Tools.qmd
       chapters:
         - T-GUI-Overview.qmd
-    #     - T-GUI-Data-Viz-TS-Tools.qmd
-    #     - T-GUI-SA-Modelling-Features.qmd
-    #     - T-GUI-Output.qmd
-    #     - T-r-packages.qmd
-    #     - T-Production-tools-cruncher-QR.qmd
-    #     - T-rev-policies-production.qmd
-    #     - T-plug-ins.qmd
+        - T-GUI-Data-Viz-TS-Tools.qmd
+        - T-GUI-SA-Modelling-Features.qmd
+        - T-GUI-Output.qmd
+        - T-r-packages.qmd
+        - T-Production-tools-cruncher-QR.qmd
+        - T-rev-policies-production.qmd
+        - T-plug-ins.qmd
     - part: P_Methods.qmd
       chapters:
-    #     - M-spectral-analysis.qmd
-    #     - M-reg-arima-modelling.qmd
+        - M-spectral-analysis.qmd
+        - M-reg-arima-modelling.qmd
         - M-X11-decomposition.qmd
-    #     - M-STL-decomposition.qmd
-    #     - M-SEATS-decomposition.qmd
-    #     - M-sa-hf.qmd
-    #     - M-Trend-Estimation-Local-Polynomials.qmd
-    #     - M-tests.qmd
-    #     - M-state-space-framework.qmd
-    #     - M-Temp-Disagg-Bench.qmd
-    #     - references.qmd
-
-
+        - M-STL-decomposition.qmd
+        - M-SEATS-decomposition.qmd
+        - M-sa-hf.qmd
+        - M-Trend-Estimation-Local-Polynomials.qmd
+        - M-tests.qmd
+        - M-state-space-framework.qmd
+        - M-Temp-Disagg-Bench.qmd
+        - references.qmd
+        - A-sa-seats-decomposition.qmd
+        - A-sa-stl-decomposition.qmd
+        - A-sa-bsm.qmd
+        - A-sa-hf.qmd
+        - A-outlier-detection.qmd
+        - A-calendar-correction.qmd
+        - A-benchmarking.qmd
+        - A-trend-cycle-estimation.qmd
+        - A-revision-analysis.qmd
+        - A-nowcasting.qmd
+    - part: P_Tools.qmd
+      chapters:
+        - T-GUI-Overview.qmd
+        - T-GUI-Data-Viz-TS-Tools.qmd
+        - T-GUI-SA-Modelling-Features.qmd
+        - T-GUI-Output.qmd
+        - T-r-packages.qmd
+        - T-Production-tools-cruncher-QR.qmd
+        - T-rev-policies-production.qmd
+        - T-plug-ins.qmd
+        
+    - part: P_Methods.qmd
+      chapters:
+        - M-spectral-analysis.qmd
+        - M-reg-arima-modelling.qmd
+        - M-X11-decomposition.qmd
+        - M-STL-decomposition.qmd
+        - M-SEATS-decomposition.qmd
+        - M-sa-hf.qmd
+        - M-Trend-Estimation-Local-Polynomials.qmd
+        - M-tests.qmd
+        - M-state-space-framework.qmd
+        - M-Temp-Disagg-Bench.qmd
+        - references.qmd
 bibliography: references.bib
 
 format:
@@ -73,4 +135,3 @@ format:
     documentclass: scrreprt
 
 editor: source
-
