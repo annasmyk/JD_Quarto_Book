@@ -10,25 +10,26 @@
 
 - high frequency data (extended features) linked to M-sa-hf.qmd chapter 
 
-## X-11 in seasonal adjustment
+Reference: Book on the  X-11 method.
 
-The X-11 program is the result of a long tradition of non-parametric smoothing based on moving averages which have two important drawbacks:
+Pay attention to:
+- comprehensive output description
 
--   They are not resistant and might be deeply impacted by outliers;
+## X-11 key steps
 
--   The smoothing of the ends of the series cannot be done except with
-    asymmetric moving averages which introduce phase-shifts and delays
-    in the detection of turning points.
+The X-11 program is the result of a long tradition of non-parametric smoothing based on moving averages.
 
-To overcome these flaws first the series are modelled with a Reg-ARIMA model that removes deterministic effects (calendar, outliers) and computes forecasts.
+Key steps:
 
-![The flow diagram for seasonal adjustment with X-13ARIMA-SEATS using
-the X-11 algorithm](All_images/UG_A_image13.png)
+- removing locally stable seasonality 
 
+- extracting seasonality 
+
+- estimating Trend on non seasonal series 
+
+To better understand this steps, some concepts on moving averages (MA) are necessary
 
 ## Moving averages
-
-To understand the decomposition process, some concepts on moving averages (MA) are necessary
 
 A moving average of *order* $p+f+1$ and coefficients $(\theta_i)$ is the operator $M$ defined as:
 $$
@@ -93,7 +94,7 @@ Applying a moving average of an order equal to the periodicity of the raw series
 A moving average of order, 12 will remove a locally stable monthly seasonality: $M_{1\times 12}(S)=0$ and also $M_{2\times 12}(S)=0$ with linear trend preservation.
 
 
-## X-11 algorithm basic steps
+## X-11 algorithm steps
 
 The seasonal adjustment algorithm can has eight steps. They are outlined below for a monthly time series. (For a quarterly time series a $2\times 4$
 moving average would be used, instead of $2\times 12$)
@@ -122,7 +123,7 @@ Xsa_t^{(1)}= (TC_t+I_t)^{(1)} = X_t - Snorm_t^{(1)}
 $$
 
 
-Step 5: Refined estimation of the **trend-cycle** with a Henderson filter, which yields a better approximation fo trends than $2\times 12$ MA, but cannot be applied on seasonal series:
+Step 5: Refined estimation of the **trend-cycle** with a Henderson filter, which yields a better approximation fo trends than $2\times 12$ MA, but cannot be applied on a seasonal series:
 $$
 TC_t^{(2)}=H_{13}(Xsa_t^{(1)})
 $$
@@ -455,7 +456,7 @@ Thanks to this weights, a new value of $S+I$ will be computed:
 [Weight distribution](All_images/MX11_extreme_values_weights)
 
 
-##### X-11 output tables
+##X-11 output tables
 
 The list of tables produced by JDemetra+ is presented below. It is not
 identical to the output produced by the original X-11 program.
