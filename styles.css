@@ -39,5 +39,13 @@ pre {
 }
 
 .figure-caption {
-    text-align: center; /* Centrer le texte horizontalement */
+    text-align: center;
+    color: gray; /* Vous pouvez ajuster la couleur en fonction de vos préférences */
+    font-size: 15px;
+}
+
+figcaption {
+    text-align: center;
+    color: gray;
+    font-size: 15px;
 }
