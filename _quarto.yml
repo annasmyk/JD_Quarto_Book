@@ -49,7 +49,6 @@ book:
     - index.qmd
     - G-how-to-use-this-book.qmd
     - G-jd-history.qmd
-    
     - part: P_Algorithms.qmd
       chapters:
         - A-RegArima-Tramo-Modelling-Overview.qmd
