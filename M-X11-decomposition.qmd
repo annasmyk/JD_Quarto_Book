@@ -1,35 +1,33 @@
-# X-11 decomposition {.unnumbered}
+# X-11 decomposition {.unnumbered #m-x11}
 
-## In this chapter 
+## In this chapter {#m-x11-intro}
 
-- context 
+- context: when and why this algo is used ? (ref to sa overview + pre t)
++ some histo 
 
-- moving averages 
+originally developed by the US Census Bureau 
+
+- moving averages: building blocks 
 
 - algorithm steps 
 
-- high frequency data (extended features) linked to M-sa-hf.qmd chapter 
+    - removing locally stable seasonality 
+    
+    - extracting seasonality 
+    
+    - estimating Trend on non seasonal series
 
-Reference: Book on the  X-11 method.
+- high frequency data (extended features) linked to M-sa-hf.qmd chapter (not detailed here)
+
+Reference: Book on the X-11 method.
 
 Pay attention to:
+
 - comprehensive output description
 
-## X-11 key steps
-
-The X-11 program is the result of a long tradition of non-parametric smoothing based on moving averages.
-
-Key steps:
-
-- removing locally stable seasonality 
-
-- extracting seasonality 
-
-- estimating Trend on non seasonal series 
-
-To better understand this steps, some concepts on moving averages (MA) are necessary
-
 ## Moving averages
+
+### Definitions
 
 A moving average of *order* $p+f+1$ and coefficients $(\theta_i)$ is the operator $M$ defined as:
 $$
@@ -47,13 +45,13 @@ $$
 
 A moving average is a **linear operator**, $M(X_t+Y_t) = M(X_t)+M(Y_t)$.
 
-#### Combined moving averages
+### Combined moving averages
 
-Centered and symmetrical moving averages preserve linear trends, which is a desirable propriety. They cannot have an even order,  thus for even orders they are obtained by combining simple MAs as arithmetic means of p moving averages of same order (ie. length): $M_{p\times order}$
+Centred and symmetrical moving averages preserve linear trends, which is a desirable propriety. They cannot have an even order, thus for even orders they are obtained by combining simple moving averages as arithmetic means of p moving averages of the same order (ie. length): $M_{p\times order}$
 
 Combination example for order 12:
 
-There a are two intuitive ways to create a MA of order 12:
+There are two intuitive ways to create a Moving Average of order 12:
 
 $$
 M1X_t = \frac{1}{12}(X_{t-6}+X_{t-5}+ X_{t-4}+ X_{t-3}+ X_{t-2}+ X_{t-1}
@@ -69,7 +67,7 @@ $$
 + X_{t+1}+ X_{t+2}+ X_{t+3}+ X_{t+4}+X_{t+5}+X_{t+6})
 $$
 
-**Combining** MAs enables us to create a centered and symmetrical MA with an **even order**:
+A centred and symmetrical MA with an **even order** (here 12) can be created:
 
 $$
 M_{2\times 12}= \frac{1}{2}(M1X_t+M2X_t)
@@ -87,59 +85,59 @@ $$
 $$
 
 
-#### Supressing locally constant seasonality 
+### Supressing locally constant seasonality 
 
 Applying a moving average of an order equal to the periodicity of the raw series removes a locally stable seasonality ($\sum_{i=1}^{12}S_{t+i} = 0$)
 
 A moving average of order, 12 will remove a locally stable monthly seasonality: $M_{1\times 12}(S)=0$ and also $M_{2\times 12}(S)=0$ with linear trend preservation.
 
 
-## X-11 algorithm steps
+## X-11 algorithm steps {#X-11-steps}
 
-The seasonal adjustment algorithm can has eight steps. They are outlined below for a monthly time series. (For a quarterly time series a $2\times 4$
+The X-11 decomposition algorithm has eight main steps, outlined below for a monthly time series. (For a quarterly time series a $2\times 4$
 moving average would be used, instead of $2\times 12$)
 
 
-Step 1: Estimation of the **trend-cycle** with a $2\times 12$ MA:
+Step 1: Estimation of the **trend-cycle** with a $2\times 12$ MA
 $$
 TC_t^{(1)}=M_{2\times 12}(X_t)
 $$
 
-Step 2: Estimation of the **seasonal+irregular** component: 
+Step 2: Estimation of the **seasonal+irregular** component
 $$
 (S_t+I_t)^{(1)}= X_t - TC_t^{(1)}
 $$
 
-Step 3: Estimation of the **seasonal** component by applying a $3\times 3$ MA to **each month**:
+Step 3: Estimation of the **seasonal** component by applying a $3\times 3$ MA to **each month**
 $$
 S_t^{(1)}= M_{3\times 3}\left[(S_t+I_t)^{(1)}\right]
 \text{ and normalisation }
 Snorm_t^{(1)}=S_t^{(1)} - M_{2\times 12}\left(S_t^{(1)}\right)
 $$
 
-Step 4 :First estimation of the seasonally adjusted series: 
+Step 4: First estimation of the seasonally adjusted series
 $$
-Xsa_t^{(1)}= (TC_t+I_t)^{(1)} = X_t - Snorm_t^{(1)}
+Xsa_t^{(1)}= (TC_t+I_t)^{(1)} = X_t-Snorm_t^{(1)}
 $$
 
 
-Step 5: Refined estimation of the **trend-cycle** with a Henderson filter, which yields a better approximation fo trends than $2\times 12$ MA, but cannot be applied on a seasonal series:
+Step 5: Refined estimation of the **trend-cycle** with a Henderson filter, which yields a better approximation fo trends than $2\times 12$ MA, but cannot be applied on a seasonal series
 $$
 TC_t^{(2)}=H_{13}(Xsa_t^{(1)})
 $$
-Step 6: Refined estimation of the **seasonal+irregular** part: 
+Step 6: Refined estimation of the **seasonal+irregular** part
 $$
 (S_t+I_t)^{(2)}= X_t - TC_t^{(2)}
 $$
 
-Step 7: Refined estimation of the **seasonal** component by applying a $3\times 5$ MA (generally) to **each month/quarter**:
+Step 7: Refined estimation of the **seasonal** component by applying a $3\times 5$ MA (generally) to **each month/quarter**
 $$
 S_t^{(2)}= M_{3\times 5}\left[(S_t+I_t)^{(2)}\right]
 \text{ and normalisation }
 Snorm_t^{(2)}=S_t^{(2)} - M_{2\times 12}\left(S_t^{(2)}\right)
 $$
 
-Step 8: Final estimation of the seasonally adjusted series: 
+Step 8: Final estimation of the seasonally adjusted series
 $$
 Xsa_t^{(2)}= X_t - Snorm_t^{(2)}
 $$
@@ -149,49 +147,39 @@ $$
 
 To evaluate the different components of a series, while taking into
 account the possible presence of extreme observations, X-11 will proceed
-iteratively: estimation of components, search for disruptive effects in
-the irregular component, estimation of components over a corrected
-series, search for disruptive effects in the irregular component, and so
-on.
+iteratively: 
+- estimation of components
+- search for disruptive effects in the irregular component
+- estimation of components over a corrected series
+- search for disruptive effects in the irregular component
+- ...
 
-The Census X-11 program presents four processing stages (A, B, C, and
-D), plus 3 stages, E, F, and G, that propose statistics and charts and
-are not part of the decomposition per se. In stages B, C and D the basic
-algorithm is used as is indicated in the figure below.
+The steps described above  will be run six times, at least.
 
-**A workflow diagram for the X-11 algorithm implemented in JDemetra+.
-Source: Based upon training material from the Deutsche Bundesbank**
+The algorithm is split into 
 
--   **Part A: Pre-adjustments**
+- four processing stages called A, B, C and D
 
-This part, which is not obligatory, corresponds in X-13ARIMA-SEATS to
-the first cleaning of the series done using the Reg-ARIMA facilities:
-detection and estimation of outliers and calendar effects (trading day
-and Easter), forecasts and backcasts\[\^61\] of the series. Based on
-these results, the program calculates prior adjustment factors that are
-applied to the raw series. The series thus corrected, Table B1 of the
-printouts, then proceeds to part B.
+- two diagnostics parts: E tables and Quality Measures (Summary and Detailed )    
 
--   **Part B: First automatic correction of the series**
+### Stage A: Pre-adjustment
 
-This stage consists of a first estimation and down-weighting of the
-extreme observations and, if requested, a first estimation of the
-calendar effects. This stage is performed by applying the basic
-algorithm detailed earlier. These operations lead to Table B20,
-adjustment values for extreme observations, used to correct the
-unadjusted series and result in the series from Table C1.
+If a [pre-treatment](#sa-pre-t) is performed using X-13-Arima algorithm is A step is not used, results in A tables appearing in JDemetra+ output are a copy of pre-treatment results. 
 
--   **Part C: Second automatic correction of the series**
+### Stage B: First automatic correction of the series
 
-Applying the basic algorithm once again, this part leads to a more
-precise estimation of replacement values of the extreme observations
-(Table C20). The series, finally "cleaned up", is shown in Table D1 of
-the printouts.
+This stage consists of a first estimation and [down-weighting of
+extreme observations](#X-11_I-correc). This stage is performed by applying twice the algorithm [steps](#X-11-steps) outlined above. It starts with the linearised or raw series copied in table B1 lead to table B20, containing adjustment values for extreme observations. B1 corrected with weights from B20 allows to compute the series C1 which will start the next stage.
 
--   **Part D: Seasonal adjustment**
+### Part C: Second automatic correction of the series**
 
-This part, at which our basic algorithm is applied for the last time, is
-that of the seasonal adjustment, as it leads to final estimates:
+Following the same steps as Stage B, this stage leads to table C20, which allows to compute the final "cleaned up" series shown in D1.
+
+### Part D: Final decomposition and seasonal adjustment
+
+In this part, all algorithm steps are applied one last time, finally leading to the computation of the final components 
+
+HERE 
 
 -   of the seasonal component (Table D10);
 
@@ -200,6 +188,8 @@ that of the seasonal adjustment, as it leads to final estimates:
 -   of the trend component (Table D12);
 
 -   of the irregular component (Table D13).
+
+Including pre-adjustement effects (check versions, quick test)
 
 -   **Part E: Components modified for large extreme values**
 
@@ -393,7 +383,7 @@ averages.
 
 **Moving average selection procedure, source: DAGUM, E. B.(1999)**
 
-## Extreme values: identification and replacement
+## Extreme values: identification and replacement {#X-11_I-correc}
 
 X-13ARIMA-SEATS detects and removes outliers in the Reg-ARIMA part.
 However, if there is a seasonal heteroscedasticity in a time series i.e.
