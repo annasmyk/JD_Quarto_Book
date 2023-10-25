@@ -1,5 +1,6 @@
-
 # SA: X-11 Decomposition {.unnumbered #sa-x11}
+
+Chapter focused on practical use with GUI and R, more explanations on underlying methods ans statistics [here](#m-x11).
 
 ## Context of use
 

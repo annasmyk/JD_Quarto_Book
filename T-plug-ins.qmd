@@ -1,4 +1,4 @@
-# Plug-ins for JDemetra+ {.unnumbered}
+# Plug-ins for JDemetra+ {.unnumbered #plugins}
 
 JDemetra+ is an application that supports plug-ins, which are components adding specific features to the existing software.
 
@@ -20,6 +20,12 @@ JDemetra+ is an application that supports plug-ins, which are components adding 
 | NbDemetra -- SA                | SA core algorithms | Default SA framework, including TRAMO-SEATS and X-13ARIMA-SEATS. This implementation can lead to small differences in comparison with the original programs. |
 
 This list is displayed in the *Installed* panel. This panel is available from the *Plugin* functionality and it is activated from the *Tools* menu (Figure *Activation of the Plugin functionality from the Tools menu* in [Plugins](#plugins) section).
+
+
+
+??? où ça mène plugins ici ?
+
+
 
 ![](All_images/UG_A_image36.png)
 
