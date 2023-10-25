@@ -8,7 +8,7 @@ The highest version currently recommended for production purposes is 2.2.4.
 
 Version 3 family released from spring 2023 (3.0.1 in May and 3.0.2 in June) provides extended features for seasonal adjustment and trend estimation, including **high frequency data** and production tools.
 
-## Resources
+## Useful links
 
 To learn more about this project you can visit [Eurostat CROS Portal](https://ec.europa.eu/eurostat/cros/content/centre-excellence-statistical-methods-and-tools).
 

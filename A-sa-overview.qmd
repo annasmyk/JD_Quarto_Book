@@ -16,6 +16,10 @@ More information on the steps and best practices of a seasonal adjustment proces
 
 For an overview on the algorithms and methodological issues, please refer to the [Handbook on Seasonal Adjustment](https://ec.europa.eu/eurostat/documents/3859598/8939616/KS-GQ-18-001-EN-N.pdf)
 
+## SA process descripition
+
+(flow charts to add, on preT - decomp- reallocation- diagnostics)
+
 ## Seasonal Adjustment Algorithms
 
 +------------------------+---------------+------------------+----------------+
