@@ -21,6 +21,7 @@ book:
           url: "https://www.insee.fr/fr/accueil"
       role: "Author"
     - name: Maria Novas Filgueira (Ine)
+      url: https://github.com/maria-novas
       affiliations:
         - name: Ine
           country: Spain
