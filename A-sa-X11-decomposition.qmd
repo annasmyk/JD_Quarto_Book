@@ -2,6 +2,8 @@
 
 Chapter focused on practical use with GUI and R, more explanations on underlying methods ans statistics [here](#m-x11).
 
+key: add links to github pages
+
 ## Context of use
 
 -   seasonal adjustment with X-13-Arima second step
@@ -314,7 +316,7 @@ Allows to set different **LSigma** and **USigma** for each period
     -   ticked: forecasts and backcasts from the Reg-Arima model not used in Irregular Correction
     -   unticked (default): forecasts and backcasts used
 
-##### Seasonality extraction filters choice
+##### Seasonality extraction filters choice {#a-x11-seaso-filters}
 
 -   **Seasonal filter**
 
