@@ -338,7 +338,7 @@ Sets different seasonal filters by period in order to account for [seasonal hete
 
 -   default value: empty, same filter for all periods
 
-##### Trend estimation filters
+##### Trend estimation filters {#a-x11-trend-filters}
 
 -   **Automatic Henderson filter** or user-defined
 

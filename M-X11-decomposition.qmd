@@ -1,32 +1,41 @@
 # X-11 decomposition {.unnumbered #m-x11}
 
+X-11 is the decomposition part of X13-Arima seasonal adjustment algorithm originally developed by the US Census Bureau. It is a non parametric algorithm based on [moving averages](#m-x11-ma).
+
+The genuine X-11 algorithm was meant to decompose monthly ($p=12$) and quarterly series ($p=4$). In JDemetra+ half-yearly data ($p=2$), quadri-monthly ($p=3$) and bi-monthly data ($p=6$) can also be handled. ($p=3$ and $p=6$ only in version 3.x)
+
+In the following chapter, explanations and examples are based on monthly and quarterly data, but the principles can be extended to other supra-monthly frequencies.
+
+In recent years, X-11 implementation in JDemetra+ v 3.x has been extended to infra-monthly data (weekly, daily, hourly...). Handling this kind of data gave way to a tailored X-11 algorithm whose peculiarities are described in [this chapter](#m-sa-hf).
+
+
+
+
 ## In this chapter {#m-x11-intro}
 
-- context: when and why this algo is used ? (ref to sa overview + pre t)
-+ some histo 
+This chapter provides details on 
+    - [algorithm steps](#X-11-steps)
+    - [computation stages and detailed output series](#m-x11-stages-output)
+    - [quality measures](#m-x11-qm)
+    - [filter length choices](#m-x11-filters-length-choice)
+    - [extreme values correction](#X-11-I-correc)
 
-originally developed by the US Census Bureau 
+The practical implementation as well as all the options, using the graphical user interface or R packages are described in [this chapter](#sa-x11)
 
-- moving averages: building blocks 
+ref to add: the X-11 method
 
-- algorithm steps 
+## Moving averages {#m-x11-ma}
 
-    - removing locally stable seasonality 
+Moving averages (MA) are the building blocks of X-11. They will be used successively to accomplish three goals:
+
+    - removing seasonality 
     
     - extracting seasonality 
     
     - estimating Trend on non seasonal series
-
-- high frequency data (extended features) linked to M-sa-hf.qmd chapter (not detailed here)
-
-Reference: Book on the X-11 method.
-
-Pay attention to:
-
-- comprehensive output description
-
-## Moving averages
-
+    
+The type of MA used for each of these tasks and the computation steps are described in the sections below.
+    
 ### Definitions
 
 A moving average of *order* $p+f+1$ and coefficients $(\theta_i)$ is the operator $M$ defined as:
@@ -143,7 +152,7 @@ Xsa_t^{(2)}= X_t - Snorm_t^{(2)}
 $$
 
 
-## Processing stages and output
+## Processing stages and output {#m-x11-stages-output}
 
 To evaluate the different components of a series, while taking into
 account the possible presence of extreme observations, X-11 will proceed
@@ -160,7 +169,12 @@ The algorithm is split into
 
 - four processing stages called A, B, C and D
 
-- two diagnostics parts: E tables and Quality Measures (Summary and Detailed )    
+- two diagnostics parts: E tables and Quality Measures (Summary and Detailed )   
+
+![](All_images/ESTP_bbk_X11_basic_principle.png)
+
+![](All_images/ESTP_bbk_X11_detailed_computation.png)
+
 
 ### Stage A: Pre-adjustment
 
@@ -339,7 +353,7 @@ Detailed series produced at the end of stage E:
 
 (Up coming here: computation steps for E Tables)
 
-## Quality Measures 
+## Quality Measures {#m-x11-qm}
 
 All the diagnostics below can be displayed in the GUI by expanding the NODES
 
@@ -533,7 +547,7 @@ A Cochran test on equal variances within each period is performed in the extreme
 
 ![Text](All_images/RDimage55.png)
 
-#### Moving seasonality ratios (MSR)
+#### Moving seasonality ratios (MSR) {#m-x11-msr}
 
 For each $i^{\text{th}}$ month we will be looking at the mean annual changes for each component by calculating:
 
@@ -551,153 +565,28 @@ The Moving Seasonality Ratio (MSR) is used to measure the amount of noise in the
 
 ![Text](All_images/RDimage56.png)
 
-#### Filter length choice
+## Filter length choice {#m-x11-filters-length-choice}
 
-A seasonal filter is a weighted average of a moving span of fixed length
-within a time series that can be used to remove a fixed seasonal
-pattern. X-13ARIMA-SEATS uses several of these filters, according to the
-needs of the different stages of the program. As only X-13ARIMA-SEATS
-allows the user to manually select seasonal filters, this case study can
-be applied only to the X-13ARIMA-SEATS specifications.
-
-The automatic seasonal adjustment procedure uses the default options to
-select the most appropriate moving average. However there are occasions
-when the user will need to specify a different seasonal moving\
-average to that identified by the program. For example, if the SI values
-do not closely follow the seasonal component, it may be appropriate to
-use a shorter moving average. Also the presence of sudden breaks in the
-seasonal pattern: e.g. due to changes in the methodology: can
-negatively impact on the automatic selection of the most appropriate
-seasonal filter. In such cases the usage of short seasonal filters in
-the selected months or quarters can be considered. Usually, a shorter
-seasonal filter $(3 \times 1)$ allows seasonality to change very rapidly
-over time. However, a very short seasonal filter should not normally be
-used, as it might often lead to large revisions as new data becomes
-available. If a short filter is to be used it will usually be limited to
-one month/quarter with a known reason for wanting to capture a rapidly
-changing seasonality.
-
-In the standard situation one seasonal filter is applied to all
-individual months/quarters. The estimation of seasonal movements is
-therefore based on the sample windows of equal lengths for each
-individual month/quarter (i.e. for each month/quarter the seasonal
-filter length or the number of years representing the major part of the
-seasonal filter weights is identical). This approach relies on the
-assumption that the number of past periods in which the conditions
-causing seasonal behaviour are sufficiently homogenous is the same in
-all months/quarters. However, this assumption does not always hold.
-Seasonal causes may change in one month, while staying the same in
-others[^m-x11-decomposition-1]. For instance, seasonal
-heteroskedasticity might require different filter lengths in different
-months or quarters.
-
-[^m-x11-decomposition-1]: When the series are non-stationary
-    differentiation is performed before the seasonality tests.
-
-Another interesting example is industrial production in Germany. It can
-be influenced by school holidays, since many employees have school-age
-children, which interrupt their working pattern during these school
-holidays. Consequently, businesses may temporarily suspend or lower
-production during these periods. Since school holidays do not occur at
-the same time throughout Germany and their timing varies from year to
-year in the individual federal states, the effect is not completely
-captured by seasonal adjustment. And since school holidays are treated
-as usual working days, these effects are not captured by calendar
-adjustment either. The majority of school holidays in Germany can take
-place either in July or in August. This yields higher variances in the
-irregular component for these months compared to the rest of the year.
-Therefore, in this case a longer seasonal filter is used for these
-months to account for this.
-
-Another example might be given by German retail trade. Due to changes in
-the consumers' behaviour around Christmas: possibly more gifts of
-money: the seasonal peak in December has become steadily less
-pronounced. To account for this moving seasonality, shorter seasonal
-filters in December than during the rest of the year need to be applied.
-
-JDemetra+ offers the options to assign a different seasonal filter
-length to each period (month or quarter). The program offers these
-options in the *single spec* mode as well as in the *multispec* mode,
-albeit they are available only in the *Specifications* window, after a
-document is created.
-
-### The Henderson moving average and the trend estimation**
+### Trend estimation with Henderson Moving average {#m-x11-trend-filters}
 
 In iteration B (Table B7), iteration C (Table C7) and iteration D (Table
 D7 and Table D12) the trend component is extracted from an estimate of
-the seasonally adjusted series using Henderson moving averages. The
-length of the Henderson filter is chosen automatically by
-X-13ARIMA-SEATS in a two-step procedure.
+the seasonally adjusted series using Henderson moving averages. 
 
-It is possible to specify the length of the Henderson moving average to
-be used. X-13ARIMA-SEATS provides an automatic choice between a 9-term,
-a 13-term or a 23-term moving average. The automatic choice of the order
-of the moving average is based on the value of an indicator called
-$\frac{\overline{I}}{\overline{C}}$ ratio which compares the magnitude
-of period-on-period movements in the irregular component with those in
-the trend. The larger the ratio, the higher the order of the moving
-average selected. Moreover, X-13ARIMA-SEATS allows the user to choose
-manually any odd‑numbered Henderson moving average. The procedure used
-in each part is very similar; the only differences are the number of
-options available and the treatment of the observations in the both ends
-of the series. The procedure below is applied for a monthly time series.
+The algorithm chooses between different filter lengths automatically according to the $I/C$ ratio, the user can modify this choice (first step is computed with $H_{13}$)
 
-In order to calculate $\frac{\overline{I}}{\overline{C}}$ ratio a first
-decomposition of the SA series (seasonally adjusted) is computed using a
-13-term Henderson moving average.
+![Text](All_images/ESTP_bbk_X11_Henderson_choice_formula.png)
 
-For both the trend ($C$) and irregular ($I$) components, the average of
-the absolute values for monthly growth rates (multiplicative model) or
-for monthly growth (additive model) are computed. They are denoted as
-$\overline{C}$ and $\overline{I}$, receptively, where:
 
-- $\overline{C} = \frac{1}{n - 1}\sum_{t = 2}^{n}\left| C_{t} - C_{t - 1} \right|$ ;
-
-- $\overline{I} = \frac{1}{n - 1}\sum_{t = 2}^{n}\left| I_{t} - I_{t - 1} \right|$.
-
-Then the value of $\frac{\overline{I}}{\overline{C}}$ ratio is checked
-and in iteration B:
-
--   If the ratio is smaller than 1, a 9-term Henderson moving average is
-    selected;
-
--   Otherwise, a 13-term Henderson moving average is selected.
-
-Then the trend is computed by applying the selected Henderson filter to
-the seasonally adjusted series from Table B6. The observations at the
-beginning and at the end of the time series that cannot be computed by
-means of symmetric Henderson filters are estimated by ad hoc asymmetric
-moving averages.
-
-In iterations C and D:
-
--   If the ratio is smaller than 1, a 9-term Henderson moving average is
-    selected;
-
--   If the ratio is greater than 3.5, a 23-term Henderson moving average
-    is selected.
-
--   Otherwise, a 13-term Henderson moving average is selected.
-
-The trend is computed by applying selected Henderson filter to the
-seasonally adjusted series from Table C6, Table D7 or Table D12,
-accordingly. At the both ends of the series, where a central Henderson
-filter cannot be applied, the asymmetric ends weights for the 7 term
-Henderson filter are used.
-
-##### **Choosing the composite moving averages when estimating the seasonal component**
+### Seasonality extraction filters {#m-x11-seaso-filters}
 
 In iteration D, Table D10 shows an estimate of the seasonal factors
 implemented on the basis of the modified SI (Seasonal: Irregular)
 factors estimated in Tables D4 and D9bis. This component will have to be
 smoothed to estimate the seasonal component; depending on the importance
-of the irregular in the SI component, we will have to use moving
-averages of varying length as in the estimate of the Trend/Cycle where
-the $\frac{\overline{I}}{\overline{C}}$ ratio was used to select the
-length of the Henderson moving average. The estimation includes several
-steps.
+of the irregular in the SI component
 
-***Step 1: Estimating the irregular and seasonal components***
+#### Step 1: Estimating the irregular and seasonal components
 
 An estimate of the seasonal component is obtained by smoothing, month by
 month and therefore column by column, Table D9bis using a simple 7-term
@@ -714,7 +603,7 @@ $x_{N + 1} = x_{N + 2} = x_{N + 3} = \frac{x_{N} + x_{N - 1} + x_{N - 2}}{3}$.
 We then have the required estimates: $S = M_{7}(D9bis)$ and
 $I = D9bis - S$.
 
-***Step 2: Calculating the Moving Seasonality Ratios***
+#### Step 2: Calculating the Moving Seasonality Ratios
 
 For each $i^{\text{th}}$ month the mean annual changes for each
 component is obtained by calculating 
@@ -735,26 +624,18 @@ $$
 MSR_{i} = \frac{\ {\overline{I}}_{i}}{ {\overline{S}}_{i}}
 $$
 
-These ratios are presented in *Details* of the *Quality Measures*
-node under the *Decomposition (X11)* section. These ratios are used to
-compare the year-on-year changes in the irregular component with those
-in the seasonal component. The idea is to obtain, for each month, an
-indicator capable of selecting the appropriate moving average for the
-removal of any noise and providing a good estimate of the seasonal
-factor. The higher the ratio, the more erratic the series, and the
-greater the order of the moving average should be used. As for the rest,
-by default the program selects the same moving average for each month,
-but the user can select different moving averages for each month.
+These ratios are presented in [Detailed Quality Measures](#m-x11-msr)
 
-***Step 3: Calculating the overall Moving Seasonality Ratio***
+#### Step 3: Calculating the overall Moving Seasonality Ratio
 
 The overall Moving Seasonality Ratio is calculated as follows:
 
 $$
 \text{MSR}_{i} = \frac{\sum_{i}^{}{N_{i}\ }\ {\overline{I}}_{i}}{\sum_{i}^{}N_{i}{\overline{S}}_{i}}
 $$
-***Step 4: Selecting a moving average and estimating the seasonal
-component***
+
+#### Step 4: Selecting a moving average and estimating the seasonal
+component
 
 Depending on the value of the ratio, the program automatically selects a
 moving average that is applied, column by column (i.e. month by month)
@@ -783,7 +664,6 @@ seasonal factors in the first 2 (or 3 or 5) and the last 2 (or 3 or 5)
 years. These are then calculated using associated asymmetric moving
 averages.
 
-**Moving average selection procedure, source: DAGUM, E. B.(1999)**
 
 ## Extreme values: identification and replacement {#X-11-I-correc}
 
@@ -791,7 +671,7 @@ Though it is recommended rely on the pre-adjustment stage to correct for outlier
 
 Stages B and C aim only at correcting for extreme values and contain several iterations of the following steps.
 
-==== add heteroskedastik case 
+If the irregular is heteroskedastic the standard deviations used for identifying outliers will be computed separately period by period or for distinct groups of several periods.
 
 **Step 1:** $I$ is estimated once $S$ has been extracted from $S+I$
 
@@ -815,13 +695,14 @@ $$\lvert I_t - m\rvert >2,5 \sigma_y \Rightarrow w_t=0$$
 
 
 **Step3:**
-Thanks to this weights, a new value of $S+I$ will be computed: 
+
+Using this weights, a new value of $S+I$ will be computed: 
 
 - if $w_{t}=1$, $S+I$ remains unchanged for point {t}
 
-- if $w_{t}<1$ then the new value of $S+I$ will be an average of $w_{t}*(S+I)_{t}$ and the values of $(S+I)$ of the two closest neighbors in the future and in the past with $w=1$
+- if $w_{t}<1$ then the new value of $S+I$ will be an average of $w_{t}*(S+I)_{t}$ and the values of $(S+I)$ of the two closest neighbours in the future and in the past with $w=1$
 
-[Weight distribution](All_images/MX11_extreme_values_weights)
+
 
 
 
