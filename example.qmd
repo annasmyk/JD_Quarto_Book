@@ -1,0 +1,10 @@
+# page d'exemple
+
+Ici je souhaite faire une référence vers @knuth84.
+
+
+Voici comment Faire une note de bas de page.[^1]
+
+
+[^1]: Voir la page 42 pour plus d'informations sur ce concept.
+
