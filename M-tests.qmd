@@ -163,7 +163,7 @@ The test can be applied to the input series before any seasonal adjustment metho
 #### References
 
 -   LJUNG G. M. and G. E. P. BOX (1978). "On a Measure of a Lack of Fit in Time Series Models". Biometrika 65 (2): 297--303. doi:10.1093/biomet/65.2.297
--   MARAVALL, A. (2011). "Seasonality Tests and Automatic Model Identification in Tramo-Seats". Manuscript
+-   MARAVALL, A. (2011). "Seasonality Tests and Automatic Model Identification in TRAMO-SEATS". Manuscript
 -   MARAVALL, A. (2012). "Update of Seasonality Tests and Automatic Model Identification in TRAMO-SEATS". Bank of Spain (November 2012)
 
 ### F-test on seasonal dummies

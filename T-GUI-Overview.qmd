@@ -2,7 +2,7 @@
 
 ## In this chapter
 
-This chapter provides general information about using the graphical interface (GUI). Specific indications related to a given algorithm (X13-Arima, Tramo-seats, Benchmarking...) are displayed in the relevant chapters.
+This chapter provides general information about using the graphical interface (GUI). Specific indications related to a given algorithm (X13-ARIMA, Tramo-seats, Benchmarking...) are displayed in the relevant chapters.
 
 Contents:
 
@@ -22,8 +22,8 @@ The graphical user interface in the 2.x family gives access to:
 
 -   Seasonal adjustment [(SA) algorithms](#sa-chapter)
 
-    -   X13-Arima
-    -   Tramo-Seats
+    -   X13-ARIMA
+    -   TRAMO-SEATS
     -   Direct-indirect SA comparisons
 
 -   Outlier detection (TERROR)
@@ -43,8 +43,8 @@ The graphical user interface in the 2.x family gives access to:
 
 -   Seasonal adjustment [(SA) algorithms](#sa-chapter)
 
-    -   X13-Arima
-    -   Tramo-Seats
+    -   X13-ARIMA
+    -   TRAMO-SEATS
     -   Direct-indirect SA comparisons
 
 -   Outlier detection (TERROR)
@@ -152,7 +152,7 @@ By default, JDemetra+ supports the following data sources:
 -   ODBC;
 -   SDMX;
 -   Excel spreadsheets;
--   TSW (input files for the [Tramo-Seats-Windows application](https://www.bde.es/bde/en/secciones/servicios/Profesionales/Programas_estadi/Programas.html) by the Bank of Spain);
+-   TSW (input files for the [TRAMO-SEATS-Windows application](https://www.bde.es/bde/en/secciones/servicios/Profesionales/Programas_estadi/Programas.html) by the Bank of Spain);
 -   TXT;
 -   USCB (input files for the [X-13-ARIMA-SEATS application](https://www.census.gov/srd/www/winx13/) by the U.S. Census Bureau);
 -   XML.
@@ -472,7 +472,7 @@ You can find:
 access to RegArima or Tramo modelling routines 
 
 which are the same as the ones used for the pre-treatment phase of 
-seasonal adjustment with X13-Arima (Reg-Arima) and Tramoseats (Tramo) and thus described in the SA chapter.
+seasonal adjustment with X13-ARIMA (Reg-Arima) and TRAMO-SEATS (Tramo) and thus described in the SA chapter.
 
 
 This section is divided into two parts: 

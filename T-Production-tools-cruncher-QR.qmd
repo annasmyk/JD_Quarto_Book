@@ -251,7 +251,7 @@ Practical steps if you want to customize the score computation (see package docu
 
 ## List of exportable series
 
-Some available output series will be different when using X13-Arima or Tramo-Seats.
+Some available output series will be different when using X13-ARIMA or TRAMO-SEATS.
 
 ```{r, eval=FALSE}
 
@@ -259,7 +259,7 @@ Some available output series will be different when using X13-Arima or Tramo-Sea
 
 ## List of exportable diagnostics and parameters
 
-Some parameters and available diagnostics will be different when using X13-Arima or Tramo-Seats.
+Some parameters and available diagnostics will be different when using X13-ARIMA or TRAMO-SEATS.
 
 ```{r, eval=FALSE}
 

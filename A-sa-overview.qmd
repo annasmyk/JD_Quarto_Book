@@ -31,7 +31,7 @@ For an overview on the algorithms and methodological issues, please refer to the
 +------------------------+---------------+------------------+----------------+
 | X11 decomposition only | yes           | RJDemetra        | rjd3x13        |
 +------------------------+---------------+------------------+----------------+
-| Tramo-Seats            | yes           | RJDemetra        | rjd3tramoseats |
+| TRAMO-SEATS            | yes           | RJDemetra        | rjd3tramoseats |
 +------------------------+---------------+------------------+----------------+
 | Tramo only             | yes           | RJDemetra        | rjd3tramoseats |
 +------------------------+---------------+------------------+----------------+
@@ -40,7 +40,7 @@ For an overview on the algorithms and methodological issues, please refer to the
 | STS                    | no            | no               | rjd3sts        |
 +------------------------+---------------+------------------+----------------+
 
-: X13-Arima and Tramo-Seats are two-step algorithms with a pre-treatment phase (Reg-Arima or Tramo) and a decomposition phase (X11 and Seats). STL is a local regression (Loess) based decomposition, without pre-treatment. In a Structural Time Series approach pre-treatment and decomposition are done simultaneously in a State Space Framework [(SSF)](M-state-space-framework.qmd).
+: X13-ARIMA and TRAMO-SEATS are two-step algorithms with a pre-treatment phase (Reg-Arima or Tramo) and a decomposition phase (X11 and Seats). STL is a local regression (Loess) based decomposition, without pre-treatment. In a Structural Time Series approach pre-treatment and decomposition are done simultaneously in a State Space Framework [(SSF)](M-state-space-framework.qmd).
 
 ## Admissible data frequencies 
 

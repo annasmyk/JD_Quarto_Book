@@ -2,7 +2,7 @@
 
 ## Overview
 
-This chapter provides general information about using the graphical interface (GUI). Specific indications related to a given algorithm (X13-Arima, Tramo-seats, Benchmarking...) are displayed in the relevant chapters.
+This chapter provides general information about using the graphical interface (GUI). Specific indications related to a given algorithm (X13-ARIMA, Tramo-seats, Benchmarking...) are displayed in the relevant chapters.
 
 ### Available algorithms
 
@@ -10,8 +10,8 @@ The graphical user interface in the 2.x family gives access to:
 
 -   Seasonal adjustment [(SA) algorithms](A-sa.qmd)
 
-    -   X13-Arima
-    -   Tramo-Seats
+    -   X13-ARIMA
+    -   TRAMO-SEATS
     -   Direct-indirect SA comparisons
 
 -   Outlier detection (TERROR)
@@ -106,7 +106,7 @@ By default, JDemetra+ supports the following data sources:
 -   ODBC;
 -   SDMX;
 -   Excel spreadsheets;
--   TSW (input files for the [Tramo-Seats-Windows application](https://www.bde.es/bde/en/secciones/servicios/Profesionales/Programas_estadi/Programas.html) by the Bank of Spain);
+-   TSW (input files for the [TRAMO-SEATS-Windows application](https://www.bde.es/bde/en/secciones/servicios/Profesionales/Programas_estadi/Programas.html) by the Bank of Spain);
 -   TXT;
 -   USCB (input files for the [X-13-ARIMA-SEATS application](https://www.census.gov/srd/www/winx13/) by the U.S. Census Bureau);
 -   XML.

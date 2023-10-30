@@ -153,7 +153,7 @@ X11 produces the following type diagnostics or quality measures
 
 NODE Main Results \> SI-Ratios
 
-![Text](All_images/SA_MainResults_SI_ratios.png)
+![**S-I Ratio**](All_images/SA_MainResults_SI_ratios.png)
 
 In GUI all values cannot be retrieved
 
@@ -267,7 +267,7 @@ The following parameters have default values, which will not be changed in the e
 
 -   **Mode**
 
-    - Undefined: autoimatically chosen between Multiplicative and Additive
+    - Undefined: automatically chosen between Multiplicative and Additive
 Options available only if no pre-processing:
     - Additive: $Y=T+S+I$
     - Multiplicative $Y=T*S*I$ 
@@ -360,9 +360,9 @@ All the parameters above can be set with in the [specification box](T-GUI-SA-Mod
 ![Text](All_images/SA_X11_GUI_param_setting.png)
 
 
-Setting details on seasonal filters$
+Setting details on seasonal filters
 
-![Text](All_images/SA_X11_GUI_details_seaso_filter1.png)
+![**Seasonnal filters**](All_images/SA_X11_GUI_details_seaso_filter1.png)
 
 The previously set values are displayed for each type of period, here they are all to default MSR choice.
 
