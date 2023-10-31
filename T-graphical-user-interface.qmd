@@ -2,7 +2,7 @@
 
 ## Overview
 
-This chapter provides general information about using the graphical interface (GUI). Specific indications related to a given algorithm (X13-Arima, Tramo-seats, Benchmarking...) are displayed in the relevant chapters.
+This chapter provides general information about using the graphical interface (GUI). Specific indications related to a given algorithm (X13-ARIMA, Tramo-seats, Benchmarking...) are displayed in the relevant chapters.
 
 ### Available algorithms
 
@@ -10,8 +10,8 @@ The graphical user interface in the 2.x family gives access to:
 
 -   Seasonal adjustment [(SA) algorithms](A-sa.qmd)
 
-    -   X13-Arima
-    -   Tramo-Seats
+    -   X13-ARIMA
+    -   TRAMO-SEATS
     -   Direct-indirect SA comparisons
 
 -   Outlier detection (TERROR)
@@ -106,7 +106,7 @@ By default, JDemetra+ supports the following data sources:
 -   ODBC;
 -   SDMX;
 -   Excel spreadsheets;
--   TSW (input files for the [Tramo-Seats-Windows application](https://www.bde.es/bde/en/secciones/servicios/Profesionales/Programas_estadi/Programas.html) by the Bank of Spain);
+-   TSW (input files for the [TRAMO-SEATS-Windows application](https://www.bde.es/bde/en/secciones/servicios/Profesionales/Programas_estadi/Programas.html) by the Bank of Spain);
 -   TXT;
 -   USCB (input files for the [X-13-ARIMA-SEATS application](https://www.census.gov/srd/www/winx13/) by the U.S. Census Bureau);
 -   XML.
@@ -119,7 +119,7 @@ The picture below presents how JDemetra+ visualises the imported spreadsheet fil
 
 ![**A structure of a dataset**](All_images/A_Ref6.jpg)
 
-Series uploaded to the *Providers* window can be [displayed](#container), modified and tested for seasonality and used in estimation routines (see [Modelling](modelling.html) and [Seasonal adjustment](A-sa.html)). The data sources can be restored after re-starting the application so that there is no need to get them again. This functionality can be set in the *Behaviour* tab available at the [*Option*](#options) item from the [*Tools*](#tools-menu) menu.
+Series uploaded to the *Providers* window can be [displayed](#container), modified and tested for seasonality and used in estimation routines (see [Modelling](modelling.html) and [Seasonal adjustment](A-sa.html)). The data sources can be restored after re-starting the application so that there is no need to get them again. This functionality can be set in the *Behaviour* tab available at the [*Option*](#options-window) item from the [*Tools*](#tools-menu) menu.
 
 ### Spreadsheets {#spreadsheets}
 
@@ -341,7 +341,7 @@ The following functionalities are available from the *Tools* menu:
 -   [*Differencing*](#differencing) -- allows for the inspection of the first regular differences of the time series;
 -   [*Spreadsheet profiler*](#spreadsheet-profiler) -- offers an Excel-type view of the XLS file imported to JDemetra+.
 -   [*Plugins*](#plugins) -- allows for the installation and activation of plugins, which extend JDemetra+ functionalities.
--   [*Options*](#options) -- presents the default interface settings and allows for their modification.
+-   [*Options*](#options-window) -- presents the default interface settings and allows for their modification.
 
 
 #### Container {#container}
@@ -444,7 +444,7 @@ A left click displays a local menu with the available options. Those that are ch
 
 -   **Kind** -- displays m/m (or q/q) and y/y growth rates for all time series in the chart (previous period and previous year options respectively). By default, the period-over-period growth rates are shown.
 
--   **Edit last year** -- for clarity and readability purposes, only five of the last years of observations are shown by default. This setting can be adjusted in the [*Options*](#options) section, if required.
+-   **Edit last year** -- for clarity and readability purposes, only five of the last years of observations are shown by default. This setting can be adjusted in the [*Options*](#options-window) section, if required.
 
 The explanation of other options can be found below in the '*Local menu options for chart*' figure in the [*Container*](#container) section.
 
@@ -490,7 +490,7 @@ The *Spreadsheet profiler* offers an Excel-type view of the XLS file imported to
 
 Installation an functionalities of plugins are described in the related [chapter](T-plug-ins.qmd)
 
-#### Options {#options}
+#### Options {#options-window}
 
 The *Options* window includes five main panels: *Demetra*, *General*, *Keymap*, *Appearance* and *Miscellaneous*. They are visible in the very top of the *Options* window.
 

@@ -29,11 +29,11 @@ $$
 
 ## Pre-treatment: Reg-Arima or Tramo {#pre-pro-spec}
 
-The following sections cover how to perform pre-treatment with Reg-ARIMA (or Tramo) algorithms. Tramo and the Reg-Arima part of X13-Arima rely on very similar principles: [Reg-Arima modelling](M-reg-arima-modelling.qmd). Thus Tramo will be mentioned only to highlight differences with the Reg-Arima part of X13-Arima. Reg-Arima modelling part can be of a seasonal adjustment process or run on its own, we focus on performing pre-treatment as part of a SA processing.
+The following sections cover how to perform pre-treatment with Reg-ARIMA (or Tramo) algorithms. Tramo and the Reg-Arima part of X13-ARIMA rely on very similar principles: [Reg-Arima modelling](M-reg-arima-modelling.qmd). Thus Tramo will be mentioned only to highlight differences with the Reg-Arima part of X13-ARIMA. Reg-Arima modelling part can be of a seasonal adjustment process or run on its own, we focus on performing pre-treatment as part of a SA processing.
 
 ### Default Specifications {#a-pre-t-def-spec}
 
-Default specifications are set for the whole SA procedure, pre-treatment and decomposition. They are slightly different for X13-ARIMA and Tramo-Seats and can be modified with user defined parameters.
+Default specifications are set for the whole SA procedure, pre-treatment and decomposition. They are slightly different for X13-ARIMA and TRAMO-SEATS and can be modified with user defined parameters.
 
 #### Starting point for X13-ARIMA {#a-pre-t-def-spec-x13}
 
@@ -71,9 +71,9 @@ calendar:
 
 -   always tested
 
--   easter tested (default length = 6 days in Tramo, 8 days in X13-Arima)
+-   easter tested (default length = 6 days in Tramo, 8 days in X13-ARIMA)
 
-#### Starting point for Tramo-Seats
+#### Starting point for TRAMO-SEATS
 
 +-----------------+---------------------+--------------------+------------------+----------------+
 | Spec identifier | Log/level detection | Outliers detection | Calendar effects | ARIMA          |
@@ -173,7 +173,7 @@ estimate.exclLast = 36)
 
 For comprehensive details about x13_spec function see RJDemetra R help pages.
 
-Tramo-Seats in version 2
+TRAMO-SEATS in version 2
 
 ```{r, eval=FALSE}
 
@@ -303,7 +303,7 @@ transform.aicdiff = -3)
 #Retrieve settings: to complete*
 ```
 
-Tramo-Seats settings
+TRAMO-SEATS settings
 
 ```{r, eval=FALSE}
 #transfo
@@ -315,7 +315,7 @@ transform.fct = 0.5)
 
 ### Calendar correction
 
-Some calendar correction options included in the starting specifications for X13-Arima or Tramo-Seats, they can be fine-tuned by modifying specifications. The following section lists all the available options, illustrates how to set them in GUI or R and shows have to retrieve used parameters, regressors as well as results.
+Some calendar correction options included in the starting specifications for X13-ARIMA or TRAMO-SEATS, they can be fine-tuned by modifying specifications. The following section lists all the available options, illustrates how to set them in GUI or R and shows have to retrieve used parameters, regressors as well as results.
 
 JDemetra+ offers two default options for calendar correction working days regressors and trading days regressors, with Leap-year effect if needed. Those options don't take into account national calendars (link) and their specific holidays. There are two ways to change this:
 
@@ -590,7 +590,7 @@ Additional information can be found in [this chapter](A-outlier-detection.qmd).
 
     The critical value used in the outlier detection procedure. The option is active once **Use default critical value** is disabled. By default, it is set to 3.5.
 
--   **Detection span** \$\rightarrow \$ **type**<br> *outliers; int1, int2\**
+-   **Detection span** $\rightarrow $ **type**<br> *outliers; int1, int2\**
 
     A span of the time series to be searched for outliers. The possible values of the parameter are:
 
@@ -675,13 +675,13 @@ Then you have the calendar view (when selecting the pre-specified outliers) :
 
 In main results NODE (same info at top of pre-processing NODE)
 
-![](All_images/SA_REGA_Outliers_Retrieve_params1.png)
+![**Main results in GUI**](All_images/SA_REGA_Outliers_Retrieve_params1.png)
 
 ##### Regressors
 
 **In GUI**
 
-![](All_images/SA_REGA_Outliers_Retrieve_Regressors.png)
+![**Regressors in GUI**](All_images/SA_REGA_Outliers_Retrieve_Regressors.png)
 
 **In R**
 
@@ -691,7 +691,7 @@ In main results NODE (same info at top of pre-processing NODE)
 
 **In GUI**
 
-![](All_images/SA_REGA_Outliers_Retrieve_Regression_Results.png)
+![**Regression details in GUI**](All_images/SA_REGA_Outliers_Retrieve_Regression_Results.png)
 
 **In R**
 
@@ -729,7 +729,7 @@ Step 3: Modify specifications via window
 
 Modifications are done the same way in a global specification (whole SAP) or series by series.
 
-![](All_images/SA_REGA_User_def_Regressors_1.png)
+![**Creation of user-defined variables in GUI**](All_images/SA_REGA_User_def_Regressors_1.png)
 
 #### Setting in R
 
@@ -741,7 +741,7 @@ A ramp effect means a linear increase or decrease in the level of the series ove
 
 ###### Creation in GUI
 
-![](All_images/SA_REGA_user_def_regs_ramps_definition.png)
+![**Creation of ramp variable in GUI**](All_images/SA_REGA_user_def_regs_ramps_definition.png)
 
 ###### Allocation to components
 
@@ -751,23 +751,29 @@ impossible (?) to create several intervention variables
 
 #### Special case 2: Intervention variables
 
-Intervention variables are modeled as any possible sequence of ones and zeros, on which some operators may be applied. They are built as combinations of the following basic structures: \* Dummy variables\[\^17\]; \* Any possible sequence of ones and zeros; \* $\frac{1}{(1 - \delta B)}$, \* $(0 < \delta \leq 1)$; \* $\frac{1}{(1 - \delta_{s}B^{s })}$, \* $(0 < \delta_{s} \leq 1)$; \* $\frac{1}{(1 - B)(1 - B^{s})}$; where $B$ is backshift operator (i.e. $B^{k}X_{t} = X_{t - k}$) and $s$ is frequency of the time series (\$s = 12\$for a monthly time series, \$s = 4\$for a quarterly time series).
+Intervention variables are modeled as any possible sequence of ones and zeros, on which some operators may be applied. They are built as combinations of the following basic structures: 
+
+* Dummy variables \[\^17\]; 
+* Any possible sequence of ones and zeros;
+* $\frac{1}{(1 - \delta B)}$,
+* $(0 < \delta \leq 1)$
+* $\frac{1}{(1 - \delta_{s}B^{s })}$, 
+* $(0 < \delta_{s} \leq 1)$; 
+* $\frac{1}{(1 - B)(1 - B^{s})}$; 
+
+where $B$ is backshift operator (i.e. $B^{k}X_{t} = X_{t - k}$) and $s$ is frequency of the time series ($s = 12$ for a monthly time series, $s = 4$ for a quarterly time series).
 
 These basic structures enable the generation of not only AO, LS, TC, SO and RP outliers but also sophisticated intervention variables that are well-adjusted to the particular case.
 
 ###### Creation in GUI
 
-Step 1 :
+![**Step 1**](All_images/SA_REGA_calendar_user_def_inter_var_1.png)
 
-![](All_images/SA_REGA_calendar_user_def_inter_var_1.png)
 
-Step 2:
+![**Step 2**](All_images/SA_REGA_calendar_user_def_inter_var_2.png)
 
-![](All_images/SA_REGA_calendar_user_def_inter_var_2.png)
 
-Step 3: 
-
-![](All_images/SA_REGA_calendar_user_def_inter_var_3.png)
+![**Step 3**](All_images/SA_REGA_calendar_user_def_inter_var_3.png)
 
 ###### Creation in R
 
@@ -801,7 +807,7 @@ For all types of external regressors: user-defined, ramps or intervention variab
 
 To retrieve regressors that were actually used, expand pre-processing NODE and click on Regressors pane.
 
-![](All_images/SA_REGA_user_vars_retrieving_regressors.png)
+![**Regressors in GUI**](All_images/SA_REGA_user_vars_retrieving_regressors.png)
 
 **In R**
 
@@ -813,7 +819,7 @@ To retrieve regressors that were actually used, expand pre-processing NODE and c
 
 Regression details are in the pre-processing pane.
 
-![](All_images/SA_REGA_user_vars_regression_details.png)
+![**Regression details**](All_images/SA_REGA_user_vars_regression_details.png)
 
 **IN R**
 
@@ -857,17 +863,37 @@ Control variables for the automatic modelling of the ARIMA model (when automdl.e
 
 (for both options) *fcst.horizon* the forecasting horizon (numeric). The forecast length generated by the Reg-Arima model in periods (positive values) or years (negative values). By default, the program generates a two-year forecast (fcst.horizon set to -2). Defaults different in GUI and R.
 
-**Setting in GUI** ![](All_images/SA_REGA_arima_auto_params.png)
 
-Forecast horizon when using tramo seats Is set in the decomposition part of the specification in GUI.
+::: {.panel-tabset .content-visible when-format="html"}
 
-![](All_images/SA_REGA_arima_forecast_horizon_tramo.png)
+#### v2
 
-Forecast horizon when using X13-ARIMA 
+![**Setting in GUI**](All_images/SA_REGA_arima_auto_params_v2.png)
 
-![](All_images/SA_REGA_arima_forecast_horizon_X11.png)
+#### v3
 
-**Setting in R** (first template, then worked example) X13-Arima template in version 2
+![**Setting in GUI**](All_images/SA_REGA_arima_auto_params_v3.png)
+
+:::
+
+
+::: {.content-visible when-format="pdf"}
+
+![**Setting in GUI in v2**](All_images/SA_REGA_arima_auto_params_v2.png)
+
+![**Setting in GUI in v3**](All_images/SA_REGA_arima_auto_params_v3.png)
+
+:::
+
+
+
+Forecast horizon when using TRAMO-SEATS Is set in the decomposition part of the specification in GUI.
+
+![**Forecast horizon when using TRAMO-SEATS**](All_images/SA_REGA_arima_forecast_horizon_tramo.png)
+
+![**Forecast horizon when using X13-ARIMA**](All_images/SA_REGA_arima_forecast_horizon_X11.png)
+
+**Setting in R** (first template, then worked example) X13-ARIMA template in version 2
 
 ```{r,eval=FALSE}
 spec_2 <- x13_spec(spec = spec_1,
@@ -917,13 +943,15 @@ Control variables for the user-defined ARMA coefficients. Coefficients can be de
 
 *arima.coefType* a vector defining the ARMA coefficients estimation procedure. Possible procedures are: "Undefined" = no use of any user-defined input (i.e. coefficients are estimated), "Fixed" = the coefficients are fixed at the value provided by the user, "Initial" = the value defined by the user is used as the initial condition. For orders for which the coefficients shall not be defined, the arima.coef can be set to NA or 0, or the arima.coefType can be set to "Undefined". E.g.: arima.coef = c(-0.8,-0.6,NA), arima.coefType = c("Fixed","Fixed","Undefined").
 
-**Setting in GUI** ![](All_images/SA_REGA_Arima_user_params_1.png)
+**Setting in GUI**
 
-Fixing coefficients ![](All_images/SA_REGA_Arima_user_params_2.png)
+![**Manual ARIMA modeling**](All_images/SA_REGA_Arima_user_params_1.png)
+
+![**Fixing coefficients**](All_images/SA_REGA_Arima_user_params_2.png)
 
 **Setting in R**
 
-X13-Arima template in version 2
+X13-ARIMA template in version 2
 
 ```{r,eval=FALSE}
 spec_2 <- x13_spec(spec = spec_1, 
@@ -963,35 +991,51 @@ Type of results (including Tramo addenda)
 
 #### Display in GUI
 
-Reg-Arima model detail with other regression results in pre-processing pane. with number of observations.. parameters ![](All_images/SA_REGA_Arima_model_results_1.png)
+Reg-Arima model detail with other regression results in pre-processing pane. with number of observations.. parameters 
+
+![**Final model**](All_images/SA_REGA_Arima_model_results_1.png)
 
 More details in Pre-processing/Arima Node
 
-![](All_images/SA_REGA_Arima_model_results_2.png)
+![**Arima details**](All_images/SA_REGA_Arima_model_results_2.png)
 
 In residual Node
 
-![](All_images/SA_REGA_Arima_Model_Residuals_Node_1.png)
+::: {.content-visible when-format="html"}
 
-![](All_images/SA_REGA_Arima_Model_Residuals_Node_2.png)
+![**Residuals**](All_images/SA_REGA_Arima_Model_Residuals_Node.png)
 
-![](All_images/SA_REGA_Arima_Model_Residuals_Node_3.png)
+:::
 
-![](All_images/SA_REGA_Arima_Model_Residuals_Node_4.png)
 
-![](All_images/SA_REGA_Arima_Model_Residuals_Node_5.png)
+::: {.content-visible when-format="pdf"}
 
-![](All_images/SA_REGA_Arima_Model_Residuals_Node_6.png)
+![**Residuals**](All_images/SA_REGA_Arima_Model_Residuals_Node_1.png)
 
-![](All_images/SA_REGA_Arima_Model_Residuals_Node_7.png)
+![**Residuals**](All_images/SA_REGA_Arima_Model_Residuals_Node_2.png)
 
-![](All_images/SA_REGA_Arima_Model_Likelihood_Node.png) 
+![**Residuals**](All_images/SA_REGA_Arima_Model_Residuals_Node_3.png)
+
+![**Residuals**](All_images/SA_REGA_Arima_Model_Residuals_Node_4.png)
+
+![**Residuals**](All_images/SA_REGA_Arima_Model_Residuals_Node_5.png)
+
+![**Residuals**](All_images/SA_REGA_Arima_Model_Residuals_Node_6.png)
+
+:::
+
+
+![**Distribution**](All_images/SA_REGA_Arima_Model_Residuals_Node_7.png)
+
+![**Likelihood**](All_images/SA_REGA_Arima_Model_Likelihood_Node.png) 
+
 
 Seasonality tests on residuals in the **Diagnostics NODE**
 
 (link to test chapter for tests details)
 
-![](All_images/SA_REGA_Arima_Model_residuals_seaso_tests.png)
+![**Residuals**](All_images/SA_REGA_Arima_Model_residuals_seaso_tests.png)
+
 
 #### Retrieve in R
 

@@ -150,7 +150,7 @@ X11 produces the following type diagnostics or quality measures
 
 NODE Main Results \> SI-Ratios
 
-![Text](All_images/SA_MainResults_SI_ratios.png)
+![**S-I Ratio**](All_images/SA_MainResults_SI_ratios.png)
 
 For each period (month, quarter) the final value of the seasonal factors (without calendar factors, Table D10) is plotted (blue line). The dots represent $S+I$ or $S*I$ in the multiplicative case, where I The red straight line is the average of the factors over the decomposition (estimation) span.
 
@@ -275,13 +275,13 @@ model_sa_v3$result$decomposition$final_henderson
 
 ### User-defined parameters
 
-The following parameters have default values, which will not be changed in the estimation process. They can be set by the user ina given range of admissible values.
+The following parameters have default values, which will not be changed in the estimation process. They can be set by the user in a given range of admissible values.
 
 #### General settings
 
 -   **Mode**
 
-    -   Undefined: autoimatically chosen between Multiplicative and Additive Options available only if no pre-processing:
+    -   Undefined: automatically chosen between Multiplicative and Additive Options available only if no pre-processing:
     -   Additive: $Y=T+S+I$
     -   Multiplicative $Y=T*S*I$
     -   LogAdditive
@@ -362,9 +362,10 @@ All the parameters above can be set with in the [specification box](T-GUI-SA-Mod
 
 ![Text](All_images/SA_X11_GUI_param_setting.png)
 
-Setting details on seasonal filters\$
 
-![Text](All_images/SA_X11_GUI_details_seaso_filter1.png)
+Setting details on seasonal filters
+
+![**Seasonnal filters**](All_images/SA_X11_GUI_details_seaso_filter1.png)
 
 The previously set values are displayed for each type of period, here they are all to default MSR choice.
 

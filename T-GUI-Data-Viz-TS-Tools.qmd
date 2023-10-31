@@ -114,7 +114,7 @@ A left click displays a local menu with the available options. Those that are ch
 
 -   **Kind** -- displays m/m (or q/q) and y/y growth rates for all time series in the chart (previous period and previous year options respectively). By default, the period-over-period growth rates are shown.
 
--   **Edit last year** -- for clarity and readability purposes, only five of the last years of observations are shown by default. This setting can be adjusted in the [*Options*](#options) section, if required.
+-   **Edit last year** -- for clarity and readability purposes, only five of the last years of observations are shown by default. This setting can be adjusted in the [*Options*](#options-window) section, if required.
 
 The explanation of other options can be found below in the '*Local menu options for chart*' figure in the [*Container*](#container) section.
 
