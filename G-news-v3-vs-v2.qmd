@@ -1,0 +1,34 @@
+# New Features in v 3.x family {.unnumbered}
+
+
+## In this chapter
+
+A contextualized view of new features of v 3.x 
+
+their degree of maturity 
+
+testing performed or not 
+
+
+## Resources 
+
+- slides JP march and june 
+
+- notes (?)
+
+obj: very specific point check with JP in bxls in dec 
+
+## Battle Plan 
+
+doc and test 
+
+## GUI
+
+tests to prepare
+
+## R
+
+
+
+
+
