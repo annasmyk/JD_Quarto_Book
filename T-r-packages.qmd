@@ -1,4 +1,4 @@
-# Using JDemetra+ in R {.unnumbered}
+# Using JDemetra+ in R {.unnumbered #t-r-packs}
 
 ## Overview
 
@@ -121,7 +121,7 @@ This additional packages produce enhanced plots and diagnostic outputs.
 
 The R object resulting from an estimation is a list of lists containing raw data, parameters, output series and diagnostics.
 
-### Output structure for RJDemetra package
+### Output structure for RJDemetra package {#t-r-packs-rjdv2-structure}
 
 Organised by domain:
 
@@ -129,7 +129,7 @@ Organised by domain:
 
 To retrieve any element just navigate this list of lists.
 
-### Output structure for rjd3x13 package
+### Output structure for rjd3x13 package {#t-r-packs-rjd3x13-structure}
 
 Results and specification are separated first and then organised by domain.
 

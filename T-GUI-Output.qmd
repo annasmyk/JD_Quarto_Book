@@ -1,4 +1,4 @@
-# Generating output from GUI {.unnumbered}
+# Generating output from GUI {.unnumbered #t-gui-output}
 
 ## Overview
 

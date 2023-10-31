@@ -1,6 +1,6 @@
 # SA: Pre-Treatment {.unnumbered #sa-pre-t}
 
-## Chapter's overview
+## In this chapter
 
 Case of two step seasonal adjustment algorithms
 
@@ -24,16 +24,18 @@ $$
 
 -   $Y_{lin,t} \sim ARIMA(p,d,q)(P,D,Q)$
 
+## Reallocation of pre-treatment effect {#sa-pre-t-realloc}
+
 
 ## Pre-treatment: Reg-Arima or Tramo {#pre-pro-spec}
 
 The following sections cover how to perform pre-treatment with Reg-ARIMA (or Tramo) algorithms. Tramo and the Reg-Arima part of X13-ARIMA rely on very similar principles: [Reg-Arima modelling](M-reg-arima-modelling.qmd). Thus Tramo will be mentioned only to highlight differences with the Reg-Arima part of X13-ARIMA. Reg-Arima modelling part can be of a seasonal adjustment process or run on its own, we focus on performing pre-treatment as part of a SA processing.
 
-### Default Specifications {#pre-def-spec}
+### Default Specifications {#a-pre-t-def-spec}
 
 Default specifications are set for the whole SA procedure, pre-treatment and decomposition. They are slightly different for X13-ARIMA and TRAMO-SEATS and can be modified with user defined parameters.
 
-#### Starting point for X13-ARIMA
+#### Starting point for X13-ARIMA {#a-pre-t-def-spec-x13}
 
 +-----------------+---------------------+--------------------+------------------+----------------+
 | Spec identifier | Log/level detection | Outliers detection | Calendar effects | ARIMA          |
