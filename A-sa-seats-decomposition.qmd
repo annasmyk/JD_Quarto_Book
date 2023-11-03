@@ -1,63 +1,64 @@
-# SA: SEATS Decomposition {.unnumbered}
+# SA: SEATS Decomposition {#a-sa-seats .unnumbered}
+
+left to be modified
+
+-   complete code
+
+-   small tweaks
+
+-   references
+
+to be checked: can be done later
+
+## In this chapter
+
+This chapter focuses on practical implementation of a SEATS decomposition using the graphical user interface [GUI](#tools-GUI) and R using [R packages](#t-r-packs) in version 2.x and 3.x. More explanations on SEATS algorithm can be found [here](#m-seats).
+
+In recent years SEATS has been tailored in JDemetra+ to handle high-frequency (infra-monthly) data, which is described [here](#sa-hf) with more methodological details [here](#m-sa-hf).
+
+The sections below will describe
+
+-   [specifications](#a-sa-SEATS-default-specs) needed to run SEATS 
+
+-   generated output
+
+-   [series](#a-sa-SEATS-out-series)
+
+-   [diagnostics](#a-sa-SEATS-diags)
+
+-   [final parameters](#a-sa-SEATS-final-p)
+
+-   [user-defined parameters](#a-sa-SEATS-user-def)
 
 ## Context
 
-SEATS 
-
-
-- seasonal adjustment with Tramo-Seats second step 
-
-- extended AMB  for any frequency data, post extended airline pre-treatment 
-
+SEATS is the second (decomposition) step in a seasonal adjustment processing with [Tramo-Seats](#sa-overview), once a [pre-treatment with Tramo](#sa-pre-t) has been performed. SEATS is an [Arima Model Based (AMB)](#m-seats) algorithm and will decompose the linearized series using the arima model fit in Tramo.
 
 ## Tools for Seats decomposition
 
-+------------------------+---------------+------------------+----------------+
-| Algorithm              | Access in GUI | Access in R (v2) | Access in R v3 |
-+========================+===============+==================+================+
-| X-13 Arima             | yes           | RJDemetra        | rjd3x13        |
-+------------------------+---------------+------------------+----------------+
-| Reg-Arima only         | yes           | RJDemetra        | rjd3x13        |
-+------------------------+---------------+------------------+----------------+
-| X11 decomposition only | yes           | RJDemetra        | rjd3x13        |
-+------------------------+---------------+------------------+----------------+
-| Tramo-Seats            | yes           | RJDemetra        | rjd3tramoseats |
-+------------------------+---------------+------------------+----------------+
-| Tramo only             | yes           | RJDemetra        | rjd3tramoseats |
-+------------------------+---------------+------------------+----------------+
-| STL                    | no            | no               | rjd3stl        |
-+------------------------+---------------+------------------+----------------+
-| STS                    | no            | no               | rjd3sts        |
-+------------------------+---------------+------------------+----------------+
+| Algorithm   | Access in GUI | Access in R (v2) | Access in R v3 |
+|-------------|---------------|------------------|----------------|
+| Tramo-Seats | yes           | RJDemetra        | rjd3tramoseats |
+| Tramo only  | yes           | RJDemetra        | rjd3tramoseats |
 
-: X13-Arima and Tramo-Seats are two-step algorithms with a pre-treatment phase (Reg-Arima or Tramo) and a decomposition phase (X11 and Seats). STL is a local regression (Loess) based decomposition, without pre-treatment. In a Structural Time Series approach pre-treatment and decomposition are done simultaneously in a State Space Framework [(SSF)](M-state-space-framework.qmd).
+Available frequencies in version 2 and version 3
 
+| Version | GUI and R          |
+|---------|--------------------|
+| v 2.x   | $p=12, 6, 4, 2$    |
+| v 3.x   | $p=12, 6, 4, 3, 2$ |
 
 ## SEATS Decomposition
 
 [SEATS algorithm](M-SEATS-decomposition.qmd) will decompose the linearized series, in level or in logarithm, using the Arima model fitted by Tramo in the pre-treatment phase.
 
-The sections below will describe
+## Default specifications {#a-sa-SEATS-default-specs}
 
--   specifications needed to run SEATS
+The default specifications for SEATS must be chosen at the starting of the SA processing. They are detailed in the [Tramo](#sa-pre-t-ts-specs)
 
--   generated output
+## Quick Launch
 
--   series
-
--   diagnostics
-
--   final parameters
-
--   user-defined parameters
-
-### Default specifications
-
-The default specifications for SEATS must be chosen at the starting of the SA processing. They are detailed in the [Reg-ARIMA part](A-sa.qmd#Pre-treatment:%20Reg-ARIMA%20(or%20TRAMO)) Starting point for Tramo-Seats
-
-### Quick Launch
-
-#### From GUI
+### From GUI
 
 With a workspace open, an SAProcessing created and open data provider:
 
@@ -65,27 +66,44 @@ With a workspace open, an SAProcessing created and open data provider:
 
 -   drop your data and press green arrow (link)
 
-#### In R
+### In R
 
-In version 2
+#### In version 2 using [RJDemetra](https://jdemetra.github.io/rjdemetra/)
 
 ```{r,eval=FALSE}
 library("RJDemetra")
-model_sa <- tramoseats(raw_series, spec ="RSAfull")
+# the input series has to be a Time Series (TS) object
+# specification RSAfull including pre-treatment
+model_sa_v2 <- tramoseats(raw_series, spec ="RSAfull")
 ```
 
-In version 3
+Full documentation of 'RJDemetra::tramoseats' function can be found [here](https://jdemetra.github.io/rjdemetra/reference/tramoseats.html)
+
+The model_sa_v2 R object (list of lists) contains all parameters and results. Its structure is detailed [here](#t-r-packs-rjdv2-structure). It can be printed giving access to selected parameters, series and diagnostics.
+
+```{r,eval=FALSE}
+print(model_sa_v2)
+```
+
+#### In version 3 using [rjd3tramoseats](https://rjdemetra.github.io/rjd3tramoseats/)
 
 ```{r,eval=FALSE}
 library("rjd3tramoseats")
-model_sa <- tramoseats(raw_series, spec ="RSAfull")
+model_sa_v3 <- tramoseats(raw_series, spec ="RSAfull")
+# the input series has to be a Time Series (TS) object
 ```
 
-The model_sa R object (list of lists) contains all parameters and results. It will be progressively detailed below.
+Full documentation of 'rjd3tramoseats::tramoseats' function can be found [here](https://rjdemetra.github.io/rjd3tramoseats/reference/tramoseats.html).
 
-More details on the functions are to be found in R help pages.
+The model_sa_v3 R object (list of lists) contains all parameters and results. Its structure is detailed [here](#t-r-packs-rjd3tramoseats-structure).
 
-### Retrieve Series
+It can be printed giving access to selected parameters, series and diagnostics.
+
+```{r,eval=FALSE}
+print(model_sa_v3)
+```
+
+### Retrieve Series {#a-sa-SEATS-out-series}
 
 This section outlines how to retrieve the different kinds of output series from GUI or in R.
 
@@ -208,27 +226,21 @@ Generating output from GUI (link) or from Cruncher (link), component series, the
 
 Same procedure as for stochastic series.
 
-##### Bias correction to be added
+##### Bias correction 
+
+to be added
 
 #### Final series
 
-+---------------------------+------------------------+---------------+----------------------------------------+
 | Series                    | Final SEATS components | Final Results | Reallocation of pre-adjustment effects |
-+===========================+========================+===============+========================================+
+|-----------------|-----------------|-----------------|----------------------|
 | Raw series (forecasts)    |                        | y (y_f)       |                                        |
-+---------------------------+------------------------+---------------+----------------------------------------+
 | Linearized series         | B1                     |               | none                                   |
-+---------------------------+------------------------+---------------+----------------------------------------+
 | Final seasonal component  | D16                    | s (s_f)       |                                        |
-+---------------------------+------------------------+---------------+----------------------------------------+
 | Final trend               | D12                    | t (t_f)       |                                        |
-+---------------------------+------------------------+---------------+----------------------------------------+
 | Final irregular           | D13                    | i (i_f)       |                                        |
-+---------------------------+------------------------+---------------+----------------------------------------+
 | Calendar component        |                        |               |                                        |
-+---------------------------+------------------------+---------------+----------------------------------------+
 | Seasonal without calendar | D10                    |               |                                        |
-+---------------------------+------------------------+---------------+----------------------------------------+
 
 (to be added: reallocation of outliers effects)
 
@@ -237,7 +249,6 @@ Same procedure as for stochastic series.
 Final results are displayed for each series in the NODE MAIN\>Table
 
 ![Text](All_images/SA_MainResults_Series.png)
-
 
 Forecasts are glued at the end it *italic*
 
@@ -280,7 +291,7 @@ sa$result$final$sa
 # for additional results call user-defined output as explained above 
 ```
 
-### Retrieve Diagnostics
+### Retrieve Diagnostics {a-sa-SEATS-diags}
 
 -   WK analysis
 
@@ -296,7 +307,7 @@ components final estimators
 
 -   Stationary variance decomposition
 
-### Retrieve Final Parameters
+### Retrieve Final Parameters {#a-sa-SEATS-final-p}
 
 Relevant if parameters not set manually, or any parameters automatically selected by the software without having a fixed default value. (The rest of the parameters is set in the specification) To manually set those parameters and see all the fixed default values see Specifications / parameters section
 
@@ -324,7 +335,7 @@ version 3
 
 Final parameters which can be fine-tuned be the user are described in User-defined specifications section below
 
-### Setting user-defined parameters
+### Setting user-defined parameters {#a-sa-SEATS-user-def}
 
 The section below explains how the user can fine-tune some seats parameters, which are put in context in [the corresponding method chapter](M-SEATS-decomposition.qmd).the default value is indicated in ().
 
@@ -385,5 +396,3 @@ tramoseats_spec(
 ```
 
 in version 3 with {rjd3tramoseats} (to be added)
-
-

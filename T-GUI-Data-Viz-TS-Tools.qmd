@@ -1,4 +1,4 @@
-# Graphical User Interface: data visualization and time series tools {.unnumbered}
+# Graphical User Interface: data visualization and time series tools {.unnumbered #t-GUI-tstools}
 
 ## In this chapter
 
@@ -149,4 +149,34 @@ The typical results are shown below. The bottom left graph presents the partial 
 ![**The *Differencing* tool**](All_images/A_Ref39.jpg)
 
 For the *Partial autocorrelation* and the *Periodogram* panels the right-button menu offers "a copy series" option that allows data to be exported to another application and a graph to be printed and saved to a clipboard or as a jpg file. Information about the partial autocorrelation function is given [here](../theory/ACF_and_PACF.html). The description of a periodogram is presented in [the Spectral graphs scenario](../case-studies/spectralgraphs.html).
+
+## Tests {#t-GUI-tstools-tests}
+
+Here we describe the GUI access to tests, which underlying method is detailed in M-tests chapter (link)
+
+### Seasonality Tests
+
+#### QS test
+
+The test can be applied directly to any series by selecting the option *Statistical Methods \>\> Seasonal Adjustment \>\> Tools \>\> Seasonality Tests*. This is an example of how results are displayed for the case of a monthly series:
+
+![qs](All_images/qs.png)
+
+It is also visible in Main results panel and in diagnostics node.
+
+#### Friedman test for stable seasonality
+
+
+The test can be applied directly to any series by selecting the option *Statistical Methods \>\> Seasonal Adjustment \>\> Tools \>\> Seasonality Tests*. This is an example of how results are displayed for the case of a monthly series:
+
+![friedman](All_images/friedman.png)
+
+If the null hypothesis of no stable seasonality is rejected at the 1% significance level, then the series is considered to be seasonal and the outcome of the test is displayed in green.
+
+It is also visible in Main results panel and in diagnostics node. (to be checked)
+
+### Tests on residuals
+
+
+
 

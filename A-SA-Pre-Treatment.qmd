@@ -1,19 +1,17 @@
-# SA: Pre-Treatment {.unnumbered #sa-pre-t}
+# SA: Pre-Treatment {#sa-pre-t .unnumbered}
 
 ## In this chapter
 
 Case of two step seasonal adjustment algorithms
 
-
 In-depth methodological explanations of the algorithms are covered in separated chapters, in the [Methods](P_Methods.qmd) part.
-
 
 ## Pre-treatment principles
 
 The goal of this step is to remove deterministic effects (calendar and outliers) in order to improve the decomposition.
 
 $$
-Y_t = \sum {\alpha}_i O_{it} + \sum\beta_j C_{jt} + \sum {\gamma}_i U_{it} + Y_{lin,t}
+Y_t = \sum{\alpha}_i O_{it} + \sum\beta_j C_{jt} + \sum {\gamma}_i U_{it} + Y_{lin,t}
 $$
 
 -   $O_{it}$ are the $i$ final outliers (AO, LS, TC)
@@ -26,7 +24,6 @@ $$
 
 ## Reallocation of pre-treatment effect {#sa-pre-t-realloc}
 
-
 ## Pre-treatment: Reg-Arima or Tramo {#pre-pro-spec}
 
 The following sections cover how to perform pre-treatment with Reg-ARIMA (or Tramo) algorithms. Tramo and the Reg-Arima part of X13-Arima rely on very similar principles: [Reg-Arima modelling](M-reg-arima-modelling.qmd). Thus Tramo will be mentioned only to highlight differences with the Reg-Arima part of X13-Arima. Reg-Arima modelling part can be of a seasonal adjustment process or run on its own, we focus on performing pre-treatment as part of a SA processing.
@@ -37,23 +34,15 @@ Default specifications are set for the whole SA procedure, pre-treatment and dec
 
 #### Starting point for X13-ARIMA {#a-pre-t-def-spec-x13}
 
-+-----------------+---------------------+--------------------+------------------+----------------+
 | Spec identifier | Log/level detection | Outliers detection | Calendar effects | ARIMA          |
-+=================+=====================+====================+==================+================+
+|-----------------|---------------------|--------------------|------------------|----------------|
 | RSA0            | *NA*                | *NA*               | *NA*             | Airline(+mean) |
-+-----------------+---------------------+--------------------+------------------+----------------+
 | RSA1            | automatic           | AO/LS/TC           | *NA*             | Airline(+mean) |
-+-----------------+---------------------+--------------------+------------------+----------------+
 | RSA2c           | automatic           | AO/LS/TC           | 2 TD vars+Easter | Airline(+mean) |
-+-----------------+---------------------+--------------------+------------------+----------------+
 | RSA3            | automatic           | AO/LS/TC           | *NA*             | automatic      |
-+-----------------+---------------------+--------------------+------------------+----------------+
 | RSA4c           | automatic           | AO/LS/TC           | 2 TD vars+Easter | automatic      |
-+-----------------+---------------------+--------------------+------------------+----------------+
 | RSA5            | automatic           | AO/LS/TC           | 7 TD vars+Easter | automatic      |
-+-----------------+---------------------+--------------------+------------------+----------------+
 | X-11            | *NA*                | *NA*               | *NA*             | *NA*           |
-+-----------------+---------------------+--------------------+------------------+----------------+
 
 explanations:
 
@@ -73,24 +62,16 @@ calendar:
 
 -   easter tested (default length = 6 days in Tramo, 8 days in X13-Arima)
 
-#### Starting point for Tramo-Seats
+#### Starting point for Tramo-Seats {#sa-pre-t-ts-specs}
 
-+-----------------+---------------------+--------------------+------------------+----------------+
 | Spec identifier | Log/level detection | Outliers detection | Calendar effects | ARIMA          |
-+=================+=====================+====================+==================+================+
+|-----------------|---------------------|--------------------|------------------|----------------|
 | RSA0            | *NA*                | *NA*               | *NA*             | Airline(+mean) |
-+-----------------+---------------------+--------------------+------------------+----------------+
 | RSA1            | automatic           | AO/LS/TC           | *NA*             | Airline(+mean) |
-+-----------------+---------------------+--------------------+------------------+----------------+
 | RSA2            | automatic           | AO/LS/TC           | 2 TD vars+Easter | Airline(+mean) |
-+-----------------+---------------------+--------------------+------------------+----------------+
 | RSA3            | automatic           | AO/LS/TC           | *NA*             | automatic      |
-+-----------------+---------------------+--------------------+------------------+----------------+
 | RSA5            | automatic           | AO/LS/TC           | 6 TD vars+Easter | automatic      |
-+-----------------+---------------------+--------------------+------------------+----------------+
 | RSAfull         | automatic           | AO/LS/TC           | automatic        | automatic      |
-+-----------------+---------------------+--------------------+------------------+----------------+
-
 
 ### User-defined specifications {#usr-def-spec}
 
@@ -104,8 +85,7 @@ Next, double click on the newly created specification, change the settings accor
 
 ![**Changing settings of seasonal adjustment specification**](All_images/RM_C_pic21.jpg)
 
-
-### Spans
+### Spans {#sa-pre-t-spans}
 
 #### Estimation span
 
@@ -113,25 +93,16 @@ Specifies the span (data interval) of the time series to be used in the seasonal
 
 Common settings
 
-+-------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------+
-| Option            | Description (expected format)                                                                                                                                               |        |
-+===================+=============================================================================================================================================================================+========+
-| All               | default                                                                                                                                                                     |        |
-+-------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------+
-| From              | first observation included (yyyy-mm-dd)                                                                                                                                     |        |
-+-------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------+
-| To                | last observation included (yyyy-mm-dd)                                                                                                                                      |        |
-+-------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------+
-| Between           | interval \[from ; to\] included (yyyy-mm-dd to yyyy-mm-dd)                                                                                                                  |        |
-+-------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------+
-| First             | number of obs from the beginning of the series included (dynamic) (integer)                                                                                                 |        |
-+-------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------+
-| Last              | number of obs from the end of the series (dynamic)(integer)                                                                                                                 |        |
-+-------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------+
-| Excluding         | excluding N first obs and P last obs from the computation,dynamic) (integer)                                                                                                |        |
-+-------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------+
-| Preliminary check | check to exclude highly problematic series e.g. the series with a number of identical observations and/or missing values above pre-specified threshold values. (True/False) |        |
-+-------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------+
+| Option            | Description (expected format)                                                                                                                                               |     |
+|-------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----|
+| All               | default                                                                                                                                                                     |     |
+| From              | first observation included (yyyy-mm-dd)                                                                                                                                     |     |
+| To                | last observation included (yyyy-mm-dd)                                                                                                                                      |     |
+| Between           | interval \[from ; to\] included (yyyy-mm-dd to yyyy-mm-dd)                                                                                                                  |     |
+| First             | number of obs from the beginning of the series included (dynamic) (integer)                                                                                                 |     |
+| Last              | number of obs from the end of the series (dynamic)(integer)                                                                                                                 |     |
+| Excluding         | excluding N first obs and P last obs from the computation,dynamic) (integer)                                                                                                |     |
+| Preliminary check | check to exclude highly problematic series e.g. the series with a number of identical observations and/or missing values above pre-specified threshold values. (True/False) |     |
 
 **Setting series span in GUI**
 
@@ -642,26 +613,24 @@ Automatic detection
 
 Pre-specified :
 
-- Click on **...**
-- Click on **+**
-- Fill the outlier's information
-- Click on **Ok**
+-   Click on **...**
+-   Click on **+**
+-   Fill the outlier's information
+-   Click on **Ok**
 
 ![](All_images/SA_REGA_Outliers_set_pre_specified.png)
 
-To change the view to set the outliers, got to Tools --> Options
+To change the view to set the outliers, got to Tools --\> Options
 
 ![](All_images/SA_REGA_option_v3.png)
 
-Then to **Demetra** --> **Pre-specified Outliers** --> **Calendar-like Grid** --> **Ok**
+Then to **Demetra** --\> **Pre-specified Outliers** --\> **Calendar-like Grid** --\> **Ok**
 
 ![](All_images/SA_REGA_option_calendar_view_v3.png)
 
 Then you have the calendar view (when selecting the pre-specified outliers) :
 
 ![](All_images/SA_REGA_Outliers_set_pre_specified_grid.png)
-
-
 
 #### Setting in R
 
@@ -765,7 +734,7 @@ Step 2:
 
 ![](All_images/SA_REGA_calendar_user_def_inter_var_2.png)
 
-Step 3: 
+Step 3:
 
 ![](All_images/SA_REGA_calendar_user_def_inter_var_3.png)
 
@@ -863,7 +832,7 @@ Forecast horizon when using tramo seats Is set in the decomposition part of the 
 
 ![](All_images/SA_REGA_arima_forecast_horizon_tramo.png)
 
-Forecast horizon when using X13-ARIMA 
+Forecast horizon when using X13-ARIMA
 
 ![](All_images/SA_REGA_arima_forecast_horizon_X11.png)
 
@@ -985,7 +954,7 @@ In residual Node
 
 ![](All_images/SA_REGA_Arima_Model_Residuals_Node_7.png)
 
-![](All_images/SA_REGA_Arima_Model_Likelihood_Node.png) 
+![](All_images/SA_REGA_Arima_Model_Likelihood_Node.png)
 
 Seasonality tests on residuals in the **Diagnostics NODE**
 
@@ -997,11 +966,8 @@ Seasonality tests on residuals in the **Diagnostics NODE**
 
 (to be added)
 
-
-
 Output series can be exported out of GUI by two means:
 
 -   generating output files
 
 -   running the cruncher to generate those files as described [here](T-Production-tools-cruncher-QR.qmd)
-

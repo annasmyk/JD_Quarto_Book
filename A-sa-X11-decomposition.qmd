@@ -1,30 +1,54 @@
-# SA: X-11 Decomposition {#sa-x11 .unnumbered}
+# SA: X-11 Decomposition {#a-sa-X-11 .unnumbered}
+
+left to be modified
+
+-   complete code
+
+-   small tweaks
+
+-   references
+
+to be checked: can be done later
 
 ## In this chapter
 
-This chapter focuses on practical implementation of an X-11 decomposition using the graphical user interface [GUI](#tools-GUI) and R using [R packages](#t-r-packs) in version 2.x and 3.x. More explanations on X-11 algorithm can be found [here](#m-x11).
+This chapter focuses on practical implementation of an X-11 decomposition using the graphical user interface [GUI](#tools-GUI) and R using [R packages](#t-r-packs) in version 2.x and 3.x. More explanations on X-11 algorithm can be found [here](#m-X-11).
 
 In recent years X-11 has been tailored in JDemetra+ to handle high-frequency (infra-monthly) data, which is described [here](#sa-hf) with more methodological details [here](#m-sa-hf).
+
+The sections below will describe
+
+-   [specifications](#a-sa-X-11-default-specs) needed to run X-11 
+
+-   generated output
+
+-   [series](#a-sa-X-11-out-series)
+
+-   [diagnostics](#a-sa-X-11-diags)
+
+-   [final parameters](#a-sa-X-11-final-p)
+
+-   [user-defined parameters](#a-sa-X-11-user-def)
 
 ## Context of use
 
 X-11 algorithm is generally the second (decomposition) step in a seasonal adjustment processing with [X-13-Arima](#sa-overview), once a [pre-treatment phase](#sa-pre-t) has been performed. In this case X-11 will decompose the linearized series using iteratively different moving averages. The effects of pre-treatment will be [reallocated](#sa-pre-t-realloc) at the end the the relevant components. X-11 can also be used [without pre-treatment](#a-pre-t-def-spec-x13), choosing and will decompose the raw series.
 
-## Tools for X-11 decomposition {#tools-x11}
+## Tools for X-11 decomposition {#a-sa-X-11-tools-X-11}
 
 | Algorithm              | Access in GUI (v2 and v3) | Access in R (v2) | Access in R (v3) |
-|----------------------|--------------|-----------------|-----------------|
+|---------------------|-----------------|-----------------|-----------------|
 | X-13 Arima             | yes                       | RJDemetra        | rjd3x13          |
-| X11 decomposition only | yes                       | RJDemetra        | rjd3x13          |
+| X-11 decomposition only | yes                       | RJDemetra        | rjd3x13          |
 
-Available frequencies v2 and v3
+Available frequencies in version 2 and version 3
 
-| Version  | GUI                | R                  |
-|----------|--------------------|--------------------|
-| v 2.x    | $p=12, 4, 2$       | $p=12, 4, 2$       |
-| v 3.x    | $p=12, 6, 4, 3, 2$ | $p=12, 6, 4, 3, 2$ |
+| Version | GUI and R          |
+|---------|--------------------|
+| v 2.x   | $p=12, 4, 2$       |
+| v 3.x   | $p=12, 6, 4, 3, 2$ |
 
-## Default specifications {#a-x11-default_specs}
+## Default specifications {#a-sa-X-11-default-specs}
 
 The default specifications for X-11 must be chosen at the start of the SA processing, one of the options available there is to run a X-11 decomposition without pre-treatment.
 
@@ -43,25 +67,23 @@ With a workspace open, an SAProcessing created and an open data provider: (link 
 ### In R
 
 #### In version 2 using [RJDemetra](https://jdemetra.github.io/rjdemetra/)
+
 ```{r,eval=FALSE}
 library("RJDemetra")
 # the input series has to be a Time Series (TS) object
 # specification RSA5c including pre-treatment
 model_sa_v2 <- x13(raw_series, spec ="RSA5c")
-# specification X11 without pre-treatment
-model_sa_v2 <- x13(raw_series, spec ="X11")
+# specification X-11 without pre-treatment
+model_sa_v2 <- x13(raw_series, spec ="X-11")
 ```
 
 Full documentation of 'RJDemetra::x13' function can be found [here](https://jdemetra.github.io/rjdemetra/reference/x13.html)
 
-The model_sa_v2 R object (list of lists) contains all parameters and results. Its structure is detailed [here](#t-r-packs-rjdv2-structure). 
-It can be printed giving access to selected parameters, series and diagnostics.
+The model_sa_v2 R object (list of lists) contains all parameters and results. Its structure is detailed [here](#t-r-packs-rjdv2-structure). It can be printed giving access to selected parameters, series and diagnostics.
 
 ```{r,eval=FALSE}
 print(model_sa_v2)
 ```
-
-
 
 #### In version 3 using [rjd3x13](https://rjdemetra.github.io/rjd3x13/)
 
@@ -72,8 +94,7 @@ library("rjd3x13")
 model_sa_v3 <- rjd3x13::x13(y_raw, spec = "RSA5")
 ```
 
-Full documentation of 'rjd3x13::x13' function can be found [here](https://rjdemetra.github.io/rjd3x13/reference/x13.html) and of 'rjd3x13::x11'
-[here](https://rjdemetra.github.io/rjd3x13/reference/x11.html).
+Full documentation of 'rjd3x13::x13' function can be found [here](https://rjdemetra.github.io/rjd3x13/reference/x13.html) and of 'rjd3x13::X-11' [here](https://rjdemetra.github.io/rjd3x13/reference/X-11.html).
 
 The model_sa_v3 R object (list of lists) contains all parameters and results. Its structure is detailed [here](#t-r-packs-rjd3x13-structure).
 
@@ -83,7 +104,7 @@ It can be printed giving access to selected parameters, series and diagnostics.
 print(model_sa_v3)
 ```
 
-### Retrieve series
+### Retrieve series {#a-sa-X-11-out-series}
 
 #### Display in GUI
 
@@ -93,7 +114,7 @@ Final components from the SA Processing are displayed in [Main results](#gui-sa)
 
 (forecasts are added at the end of the series, values in *italic*)
 
-[Detailed results](#m-x11-stages-output) from decomposition are displayed in Decomposition (X-11) node.
+[Detailed results](#m-X-11-stages-output) from decomposition are displayed in Decomposition (X-11) node.
 
 ![](All_images/RDimage41.png)
 
@@ -131,7 +152,8 @@ sa_x13_v2 <- RJDemetra::x13(myseries, myspec,
 sa_x13_v2$user_defined
 ```
 
-In version 3
+to be modified In version 3
+
 ```{r,eval=FALSE}
 # final components
 model_sa$final$series
@@ -140,9 +162,9 @@ model_sa$final$forecasts
 # from user defined output 
 ```
 
-### Diagnostics
+### Diagnostics {#a-sa-X-11-diags}
 
-X11 produces the following type diagnostics or quality measures 
+X-11 produces the following type diagnostics or quality measures
 
 #### SI-ratios
 
@@ -152,16 +174,16 @@ NODE Main Results \> SI-Ratios
 
 ![Text](All_images/SA_MainResults_SI_ratios.png)
 
-For each period (month, quarter) the final value of the seasonal factors (without calendar factors, Table D10) is plotted (blue line). The dots represent $S+I$ or $S*I$ in the multiplicative case, where I The red straight line is the average of the factors over the decomposition (estimation) span.
+For each period (month, quarter) the final value of the seasonal factors (without calendar factors, Table D10) is plotted (blue line). The dots represent $S+I$ or $S*I$ in the multiplicative case, where I= Table D8. The red straight line is the average of the factors over the decomposition (estimation) [span](#sa-pre-t-spans).
 
 In GUI all values cannot be retrieved.
 
-(to be checked: I=D8 or I = D13 ?)
-(D8 doesn't contain pre-treatment effects and D13 does)
+(to be checked: I=D8 or I = D13 ?) (D8 doesn't contain pre-treatment effects and D13 does)
 
 ##### Retrieve in R
 
-All the values and the same plot as descibed above can be generated in R, the span can be customized. 
+All the values and the same plot as described above can be generated in R, the span can be customized.
+
 (to be checked the average of the seasonal factors is not recalculated if span modified )
 
 In version 2
@@ -177,7 +199,7 @@ plot(model_sa, type= "cal-seas-irr",first_date = c(2015, 1))
 
 ```
 
-In version 2
+In version 3
 
 ```{r, eval=FALSE}
 # data frame with values 
@@ -190,11 +212,9 @@ plot(model_sa, type= "cal-seas-irr",first_date = c(2015, 1))
 
 ```
 
+#### M-statistics {#a-sa-X-11-m-stats}
 
-
-#### M-statistics
-
-X-11 algorithm provides quality measures of the decomposition called "M statistics" (detailed [here](M-X11-decomposition-M)
+X-11 algorithm provides quality measures of the decomposition called "M statistics" (detailed [here](M-X-11-decomposition-M)
 
 -   11 statistics (M1 to M11)
 
@@ -228,17 +248,17 @@ In version 3
 model_sa$decomposition$mstats
 ```
 
-#### Detailed Quality measures
+#### Detailed Quality measures {#a-sa-X-11-q-meas}
 
 In GUI all the diagnostics below can be displayed expanding the NODE
 
 Decomposition(X-11) \> Quality Measures \> Details
 
-They are detailed in the [X-11 method chapter](M-X11-decomposition.qmd)
+They are detailed in the [X-11 method chapter](M-X-11-decomposition.qmd)
 
 In R (to be added): not directly available ?!
 
-### Retrieve final filters
+### Retrieve final filters {#a-sa-X-11-final-p}
 
 The following parameters are automatically chosen by the software as a result of the estimation process. They have no default value but can be set by the user.
 
@@ -248,9 +268,9 @@ The following parameters are automatically chosen by the software as a result of
 
 #### Display in GUI
 
-Node Decomposition(X11) \> Final Filters
+Node Decomposition(X-11) \> Final Filters
 
-![Text](All_images/SA_X11_GUI_final_filters.png)
+![Text](All_images/SA_X-11_GUI_final_filters.png)
 
 #### Retrieve in R
 
@@ -273,9 +293,9 @@ model_sa_v3$result$decomposition$final_seasonal
 model_sa_v3$result$decomposition$final_henderson
 ```
 
-### User-defined parameters
+### User-defined parameters {#a-sa-X-11-user-def}
 
-The following parameters have default values, which will not be changed in the estimation process. They can be set by the user ina given range of admissible values.
+The following parameters have default values, which will not be changed in the estimation process. They can be set by the user in a given range of admissible values.
 
 #### General settings
 
@@ -287,7 +307,7 @@ The following parameters have default values, which will not be changed in the e
     -   LogAdditive
     -   PseudoAdditive
 
-If X11 decomposition comes after a pre-processing, **mode** is set to undefined and will correspond to decomposition choice (link) made in the pre-treatment: multiplicative if series log- transformed, additive otherwise.
+If X-11 decomposition comes after a pre-processing, **mode** is set to undefined and will correspond to decomposition choice (link) made in the pre-treatment: multiplicative if series log- transformed, additive otherwise.
 
 -   **Seasonal component**
 
@@ -320,13 +340,13 @@ Allows to set different **LSigma** and **USigma** for each period - None (defaul
     -   ticked: forecasts and backcasts from the Reg-Arima model not used in Irregular Correction
     -   unticked (default): forecasts and backcasts used
 
-##### Seasonality extraction filters choice {#a-x11-seaso-filters}
+##### Seasonality extraction filters choice {#a-X-11-seaso-filters}
 
 -   **Seasonal filter**
 
 Specifies which filters will be used to estimate the seasonal factors for the entire series.
 
--   default value: *MSR* [Moving seasonality ratio](M-X11-decomposition.qmd), automatic choice of final seasonal filter, initial filters are $3\times 3$
+-   default value: *MSR* [Moving seasonality ratio](M-X-11-decomposition.qmd), automatic choice of final seasonal filter, initial filters are $3\times 3$
 
 -   choices: $3\times 1$, $3\times 3$, $3\times 5$, $3\times 9$, $3\times 15$ or Stable
 
@@ -338,11 +358,11 @@ The seasonal filters can be selected for the entire series, or for a particular 
 
 -   **Details on seasonal filters**
 
-Sets different seasonal filters by period in order to account for [seasonal heteroskedasticity](M-X11-decomposition.qmd)
+Sets different seasonal filters by period in order to account for [seasonal heteroskedasticity](M-X-11-decomposition.qmd)
 
 -   default value: empty, same filter for all periods
 
-##### Trend estimation filters {#a-x11-trend-filters}
+##### Trend estimation filters {#a-X-11-trend-filters}
 
 -   **Automatic Henderson filter** or user-defined
 
@@ -358,80 +378,81 @@ Check: will user choice be applied to all steps or only to final phase D step
 
 #### Parameter setting in GUI
 
-All the parameters above can be set with in the [specification box](T-GUI-SA-Modelling-Features.qmd)
+All the parameters above can be set with in the [specification box](#gui-sa)
 
-![Text](All_images/SA_X11_GUI_param_setting.png)
+![Text](All_images/SA_X-11_GUI_param_setting.png)
 
-Setting details on seasonal filters\$
+Setting details on seasonal filters
 
-![Text](All_images/SA_X11_GUI_details_seaso_filter1.png)
+![Text](All_images/SA_X-11_GUI_details_seaso_filter1.png)
 
-The previously set values are displayed for each type of period, here they are all to default MSR choice.
+Previously set values are displayed for each type of period, here they are all to default MSR choice.
 
 Click on the right top button (show on image)
 
 Another window appears in the top-left corner allowing to chose the filter period by period.
 
-![Text](All_images/SA_X11_GUI_details_seaso_filter2.png)
+![Text](All_images/SA_X-11_GUI_details_seaso_filter2.png)
 
 #### Parameter setting in R packages
 
-In version 2
+In version 2 using RJDemetra
 
 ```{r eval=FALSE}
-#Creating a modified specification, customizing all available X11 parameters
+current_sa_model <- x13(raw_series, spec = current_spec)
+#Creating a modified specification, customizing all available X-11 parameters
 modified_spec<- x13_spec(current_sa_model,
-    #x11.mode="?",
-    #x11.seasonalComp = "?",
-    x11.fcasts = -2,
-    x11.bcasts = -1,
-    x11.lsigma = 1.2,
-    x11.usigma = 2.8,
-    x11.calendarSigma = NA, 
-      x11.sigmaVector = NA,
-    x11.excludeFcasts = NA
+    #X-11.mode="?",
+    #X-11.seasonalComp = "?",
+    X-11.fcasts = -2,
+    X-11.bcasts = -1,
+    X-11.lsigma = 1.2,
+    X-11.usigma = 2.8,
+    X-11.calendarSigma = NA, 
+    X-11.sigmaVector = NA,
+    X-11.excludeFcasts = NA
     # filters 
-    x11.trendAuto = NA, 
-    x11.trendma = 23,
-    x11.seasonalma = "S3X9)
+    X-11.trendAuto = NA, 
+    X-11.trendma = 23,
+    X-11.seasonalma = "S3X9)
 
-#New SA estimation: apply modified_spec
+# New SA estimation: apply modified_spec
 
 modified_sa_model<-x13(raw_series,modified_spec)
 
 ```
 
-In version 3
+In version 3 using rjd3x13 MODIF HERE
 
 ```{r eval=FALSE}
-#Creating a modified specification, customizing all available X11 parameters
+#Creating a modified specification, customizing all available X-11 parameters
 library("RJDemetra")
 model_sa_v2 <- x13(raw_series, spec ="RSA5c")
 # Creating a modified specification from the current estimation model
-# Customizing all available X11 parameters
+# Customizing all available X-11 parameters
 modified_spec<- x13_spec(model_sa_v2,
-    x11.fcasts = -2,
-    x11.bcasts = -1,
-    x11.lsigma = 1.2,
-    x11.usigma = 2.8,
-    x11.calendarSigma = NA, 
-    x11.sigmaVector = NA,
-    x11.excludeFcasts = NA
+    X-11.fcasts = -2,
+    X-11.bcasts = -1,
+    X-11.lsigma = 1.2,
+    X-11.usigma = 2.8,
+    X-11.calendarSigma = NA, 
+    X-11.sigmaVector = NA,
+    X-11.excludeFcasts = NA
     # filters 
-    x11.trendAuto = NA, 
-    x11.trendma = 23,
-    x11.seasonalma = "S3X9)
+    X-11.trendAuto = NA, 
+    X-11.trendma = 23,
+    X-11.seasonalma = "S3X9)
 
 #New SA estimation: apply modified_spec
 
 modified_sa_model<-x13(raw_series,modified_spec)
 
 
-# For options available only in X11 mode 
+# For options available only in X-11 mode 
 modified_spec<- x13_spec(model_sa_v2,
-    #x11.mode="?",
-    #x11.seasonalComp = "?",
-    x11.fcasts = -2)
+    #X-11.mode="?",
+    #X-11.seasonalComp = "?",
+    X-11.fcasts = -2)
 
 ```
 
@@ -441,4 +462,4 @@ How to see what parameters have actually been used.
 
 In GUI: just open the [specification box](#sa-window) and navigate the options.
 
-In R
+In R, print your model or navigate its elements.

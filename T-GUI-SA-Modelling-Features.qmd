@@ -16,12 +16,6 @@
 
 <!-- Structure under construction  -->
 
-
-## Seasonality Tests
-
-here we describe the GUI access to tests, which underlying method is detailed in M-tests chapter (link)
-
-
 ## Workspace Window detailed
 
 (generic description in GUI overview)
