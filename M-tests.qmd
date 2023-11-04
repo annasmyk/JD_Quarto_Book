@@ -147,7 +147,23 @@ Under H0, which states that the data are independently distributed, the statisti
 
 Maravall (2012) proposes approximate the correct distribution (p-values) of the QS statistic using simulation techniques. Using 1000K replications of sample size 240, the correct critical values would be 3.83 and 7.09 with confidence levels of $95\%$ and $99\%$, respectively (lower than the 5.99146 and 9.21034 shown above). For each of the simulated series, he obtains the distribution by assuming $QS=0$ when $\hat\gamma_{12}$, so in practice this test will detect seasonality only when any of these conditions hold:
 
+<<<<<<< HEAD
 - Statistically significant positive autocorrelation at lag 12-Non-negative sample autocorrelation at lag 12 and statistically significant positive autocorrelation at lag 24
+=======
+#### Use
+
+The test can be applied directly to any series by selecting the option *Statistical Methods \>\> Seasonal Adjustment \>\> Tools \>\> Seasonality Tests*. This is an example of how results are displayed for the case of a monthly series:
+
+![qs](All_images/qs.png)
+
+The test can be applied to the input series before any seasonal adjustment method has been applied. It can also be applied to the seasonally adjusted series or to the irregular component.
+
+#### References
+
+-   LJUNG G. M. and G. E. P. BOX (1978). "On a Measure of a Lack of Fit in Time Series Models". Biometrika 65 (2): 297--303. doi:10.1093/biomet/65.2.297
+-   MARAVALL, A. (2011). "Seasonality Tests and Automatic Model Identification in TRAMO-SEATS". Manuscript
+-   MARAVALL, A. (2012). "Update of Seasonality Tests and Automatic Model Identification in TRAMO-SEATS". Bank of Spain (November 2012)
+>>>>>>> 1a4297f10d537c24c1f7a2d238407c52058a2c4f
 
 ### F-test on seasonal dummies
 

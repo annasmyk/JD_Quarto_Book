@@ -172,7 +172,7 @@ X-11 produces the following type diagnostics or quality measures
 
 NODE Main Results \> SI-Ratios
 
-![Text](All_images/SA_MainResults_SI_ratios.png)
+![**S-I Ratio**](All_images/SA_MainResults_SI_ratios.png)
 
 For each period (month, quarter) the final value of the seasonal factors (without calendar factors, Table D10) is plotted (blue line). The dots represent $S+I$ or $S*I$ in the multiplicative case, where I= Table D8. The red straight line is the average of the factors over the decomposition (estimation) [span](#sa-pre-t-spans).
 
@@ -301,7 +301,7 @@ The following parameters have default values, which will not be changed in the e
 
 -   **Mode**
 
-    -   Undefined: autoimatically chosen between Multiplicative and Additive Options available only if no pre-processing:
+    -   Undefined: automatically chosen between Multiplicative and Additive Options available only if no pre-processing:
     -   Additive: $Y=T+S+I$
     -   Multiplicative $Y=T*S*I$
     -   LogAdditive
@@ -382,9 +382,16 @@ All the parameters above can be set with in the [specification box](#gui-sa)
 
 ![Text](All_images/SA_X-11_GUI_param_setting.png)
 
+<<<<<<< HEAD
 Setting details on seasonal filters
 
 ![Text](All_images/SA_X-11_GUI_details_seaso_filter1.png)
+=======
+
+Setting details on seasonal filters
+
+![**Seasonnal filters**](All_images/SA_X11_GUI_details_seaso_filter1.png)
+>>>>>>> 1a4297f10d537c24c1f7a2d238407c52058a2c4f
 
 Previously set values are displayed for each type of period, here they are all to default MSR choice.
 

@@ -49,22 +49,26 @@ Packages corresponding to version 3.x core routines:
 
 | Algorithm   | Package   | Comments                                                 |
 |----------------|----------------|-----------------------------------------|
-| X13-Arima   | RJDemetra | Reg-Arima and X-11 decomposition available independently |
-| Tramo-Seats | RJDemetra | Tramo available independently                            |
+| X13-ARIMA   | RJDemetra | Reg-Arima and X-11 decomposition available independently |
+| TRAMO-SEATS | RJDemetra | Tramo available independently                            |
 
 #### Using JDemetra+ version 3.x
 
 | Algorithm               | Package        | Comments                                                 |
 |------------------|------------------|-------------------------------------|
-| X13-Arima               | rjd3x13        | Reg-Arima and X-11 decomposition available independently |
+| X13-ARIMA               | rjd3x13        | Reg-Arima and X-11 decomposition available independently |
 | Extended X-11           | rjd3x11plus    | For high-frequency (infra-monthly) data                  |
-| Tramo-Seats             | rjd3tramoseats | Tramo available independently                            |
+| TRAMO-SEATS             | rjd3tramoseats | Tramo available independently                            |
 | Extended Tramo          | rjd3highfreq   | For high-frequency data                                  |
 | Extended Seats          | rjd3highfreq   | For high-frequency data                                  |
 | STL                     | rjd3stl        | Including high-frequency data                            |
 | Basic Structural Models | rjd3sts        | State space framework                                    |
 
+<<<<<<< HEAD
 Version 3.x includes [Revision Policies][T-rev-policies-production.qmd) in X-13 and Tramo-Seats.
+=======
+Version 3.x includes \[Revision Policies(\[T-rev-policies-production.qmd) in X-13 and TRAMO-SEATS.
+>>>>>>> 1a4297f10d537c24c1f7a2d238407c52058a2c4f
 
 More details on functions parameters and retrieving output in the chapter dedicated to [Seasonal Adjustment](A-sa.qmd)
 
@@ -189,7 +193,7 @@ The sections below provide an overview of each package based on version 3.x of J
 
 Contains utility functions used in other `rjd3` packages and has to be systematically installed before using any other rjd3 package. From a user point of view, it allows to:
 
--   customized the pre-adjustment specification in X13-Arima and Tramo-Seats
+-   customized the pre-adjustment specification in X13-ARIMA and TRAMO-SEATS
 
 -   generate user-defined regressors for calendar correction
 
@@ -205,7 +209,7 @@ More details for each part can be found in \`rjd3toolkit\`\`R help pages and rel
 
 ### rjd3x13
 
-`rjd3x13` gives access to X13-Arima seasonal adjustment algorithm.
+`rjd3x13` gives access to X13-ARIMA seasonal adjustment algorithm.
 
 -   Specification: created with `spec_x11_default()`, `spec_x13_default()`, `spec_regarima_default()` and customized with `rjd3toolkit` functions + `set_x11()`
 

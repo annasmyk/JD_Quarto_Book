@@ -126,7 +126,7 @@ For a selected series a local menu offers an extended list of options. The expla
 
 ![**Options available for a selected series from the list**](All_images/A_Ref35.jpg)
 
-## Spectral analysis 
+## Spectral analysis {.unnumbered #t-GUI-tstools-spectral}
 
 The *Spectral analysis* section provides three spectral graphs that allows an in-depth analysis of a time series in the frequency domain. These graphs are the *Auto-regressive Spectrum*, the *Periodogram* and the *Tukey Spectrum*. For more information the user may study [a basic desription of spectral analysis](#spectral-analysis) and [a detailed presentation of the abovementioned tools](#spectral-graphs).
 
