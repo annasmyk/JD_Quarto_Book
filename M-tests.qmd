@@ -143,27 +143,11 @@ where $k=2$, so only the first and second seasonal lags are considered. Thus, th
 
 Under H0, which states that the data are independently distributed, the statistics follows a $\chi(k)$ distribution. However, the elimination of negative correlations makes it a bad approximation. The p-values would be given by $P(\chi^{2}(k) > Q)$ for $k=2$. As ${P(\chi}^{2}(2)) > 0.05=5.99146$ and ${P(\chi}^{2}(2)) > 0.01=9.21034$, $QS > 5.99146$ and $QS > 9.21034$ would suggest rejecting the null hypothesis at $95\%$ and $99\%$ significance levels, respectively.
 
-#### Modification
-
 Maravall (2012) proposes approximate the correct distribution (p-values) of the QS statistic using simulation techniques. Using 1000K replications of sample size 240, the correct critical values would be 3.83 and 7.09 with confidence levels of $95\%$ and $99\%$, respectively (lower than the 5.99146 and 9.21034 shown above). For each of the simulated series, he obtains the distribution by assuming $QS=0$ when $\hat\gamma_{12}$, so in practice this test will detect seasonality only when any of these conditions hold:
 
-<<<<<<< HEAD
-- Statistically significant positive autocorrelation at lag 12-Non-negative sample autocorrelation at lag 12 and statistically significant positive autocorrelation at lag 24
-=======
-#### Use
+- Statistically significant positive autocorrelation at lag 12
 
-The test can be applied directly to any series by selecting the option *Statistical Methods \>\> Seasonal Adjustment \>\> Tools \>\> Seasonality Tests*. This is an example of how results are displayed for the case of a monthly series:
-
-![qs](All_images/qs.png)
-
-The test can be applied to the input series before any seasonal adjustment method has been applied. It can also be applied to the seasonally adjusted series or to the irregular component.
-
-#### References
-
--   LJUNG G. M. and G. E. P. BOX (1978). "On a Measure of a Lack of Fit in Time Series Models". Biometrika 65 (2): 297--303. doi:10.1093/biomet/65.2.297
--   MARAVALL, A. (2011). "Seasonality Tests and Automatic Model Identification in TRAMO-SEATS". Manuscript
--   MARAVALL, A. (2012). "Update of Seasonality Tests and Automatic Model Identification in TRAMO-SEATS". Bank of Spain (November 2012)
->>>>>>> 1a4297f10d537c24c1f7a2d238407c52058a2c4f
+- Non-negative sample autocorrelation at lag 12 and statistically significant positive autocorrelation at lag 24
 
 ### F-test on seasonal dummies
 
@@ -220,9 +204,6 @@ where $n$ is the sample size, $d$ is the degree of differencing, s is time serie
 
 This statistic follows a $F_{s-1,n-d-k}$ distribution under the null hypothesis.
 
-### Identification of spectral peaks
-
-coming up
 
 ### Friedman test for stable seasonality
 
@@ -294,3 +275,7 @@ which follows an $F$-distribution with $k-1$ and $n-k$ degrees of freedom.
 This test combines the Kruskal-Wallis test along with test for the presence of seasonality assuming stability ($F_{S}$), and evaluative seasonality test for detecting the presence of identifiable seasonality ($F_{M}$). Those three tests are calculated using the final unmodified SI component. The main purpose of the combined seasonality test is to check whether the seasonality of the series is identifiable. For example, the identification of the seasonal pattern is problematic if the process is dominated by highly moving seasonality (DAGUM, E.B. (1987)). The testing procedure is shown in the figure below.
 
 ![**Combined seasonality test, source: LADIRAY, D., QUENNEVILLE, B. (2001)**](All_images/UG_A_image18.png)
+
+### Identification of spectral peaks 
+
+Tests related to identification of spectral peaks in a [periodogram](#m-spectrum-periodogram), [autoregressive spectrum](#m-spectrum-ar-est) or [Tuckey spectrum](#m-spectrum-tuckey) are detailed [here](#m-spectrum-id-peaks) in the chapter dedicated to spectral analysis.
