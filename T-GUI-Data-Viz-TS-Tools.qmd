@@ -1,4 +1,4 @@
-# Graphical User Interface: data visualization and time series tools {.unnumbered #t-GUI-tstools}
+# GUI: data visualization and time series tools {.unnumbered #t-GUI-tstools}
 
 ## In this chapter
 

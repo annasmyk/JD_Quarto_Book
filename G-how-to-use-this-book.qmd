@@ -1,6 +1,6 @@
-# How to use this book {.unnumbered}
+# How to use this book {.unnumbered #G-use-book}
 
-This book is meant to provide guidance to use all the algorithms offered in JDemetra+ with the different tools (...) giving access to them. It is also methodological background.
+This book is meant to provide guidance on all the algorithms provided in JDemetra+ with the different tools (...) giving access to them. It is also methodological background.
 
 ## Structure 
 
@@ -8,7 +8,7 @@ This book is divided in three parts, allowing the user to access the resources f
 
 ### Algorithms
 
-This part provides a step by step guidance for using of all the algorithms featured in JDemetra+, when accessed through the graphical user interface or R packages.
+This part provides a step by step guidance for using of all the algorithms featured in JDemetra+, when accessed through the Graphical User Interface or R packages.
 
 Seasonal adjustment algorithms are split into parts, after an overview chapter to improve readability in spite of a large volume of information.
 
@@ -87,6 +87,16 @@ This part describes in greater detail the core algorithms and their underlying s
 ## Quick Start
 
 links to additional chapters, enhanced by tutorials
+
+## Features MAP
+
+provisional 
+
+### R vs GUI in v2
+
+### R vs GUI in V3
+
+v2 vs v3 special chapter
 
 ## Frequently asked questions 
 

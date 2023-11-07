@@ -1,14 +1,34 @@
-# Algorithms {.unnumbered}
+# Algorithms {.unnumbered #part-A}
 
-This part describes the algorithms featured in JDemetra+:
+This part provides practical guidance for using all the algorithms featured in JDemetra+, be it with the [Graphical User Interface](#t-gui-overview) or [R packages](#t-r-packs). Further methodological insights on each algorithm can be found in the [Methods](#part-M) part of this book, whereas detailed description of all the available tools allowing to access the algorithms can be found in the [Tools](#part-M) part.
 
-SA related algorithms are split into parts due volume 
+Modelling and Auxiliary Variables
+[Reg-Arima modelling](#a_reg-a)
+[Outlier detection and external regressors](#a-out-reg-ext)
+[Calendar correction](#a-cal)
 
--   [Seasonal Adjustment](A-sa.qmd)
--   [Seasonal Adjustment of high-frequency data](A-sa-hf.qmd)
--   [Reg-Arima modelling](A-sa.qmd)
--   [Outlier detection and external regressors](A-outlier-detection.qmd)
--   [Calendar correction](A-calendar-correction.qmd)
--   [Benchmarking and temporal disaggregation](A-benchmarking.qmd)
--   [Trend-Cycle estimation](A-trend-cycle-estimation.qmd)
--   [Nowcasting](A-nowcasting.qmd)
+Seasonal Adjustment (SA)
+
+- [Seasonal Adjsutment overview](#sa-overview)
+- [SA: pre-treatment](#sa-pre-t)
+- [SA: X11 decomposition](a-sa-X11)
+- [SA: Seats-decomposition](#a-sa-seats)
+- [SA: STL decomposition](#a-sa-stl)
+- [SA of Hig-Frequency Data](#a-sa-hf)
+- [SA with Basic Stuctural Models (BSM)](#a-sa-bsm)
+
+
+Other Algorithms
+
+-   [Benchmarking and temporal disaggregation]((#a-bench))
+-   [Trend-Cycle estimation](#a-trend)
+-   [Revision analysis](#a-revs)
+-   [Nowcasting](#a-now)
+
+      
+     
+        
+        
+        
+        - 
+        

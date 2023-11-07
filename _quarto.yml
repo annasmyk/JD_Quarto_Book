@@ -48,47 +48,48 @@ book:
   page-navigation: true
   chapters:
     - index.qmd
-    - example.qmd
-    - G-how-to-use-this-book.qmd
-    # - G-jd-history.qmd
-    - part: P_Algorithms.qmd
+    - example.qmd 
+    - G-how-to-use-this-book.qmd ## (#G-use-book)
+    - G-news-v3-vs-v2.qmd ##(#v3-vs-V2)
+    - G-jd-history.qmd ##(#g-jd-hist)
+    - part: P_Algorithms.qmd ##(#part-A)
       chapters:
-        # - A-RegArima-Tramo-Modelling-Overview.qmd
-        # - A-sa-overview.qmd
-        # - A-sa-pre-treatment.qmd
-        # - A-sa-X11-decomposition.qmd
-        - A-sa-seats-decomposition.qmd
-        # - A-sa-stl-decomposition.qmd
-        # - A-sa-bsm.qmd
-        # - A-sa-hf.qmd
-        # - A-outlier-detection.qmd
-        # - A-calendar-correction.qmd
-        # - A-benchmarking.qmd
-        # - A-trend-cycle-estimation.qmd
-        # - A-revision-analysis.qmd
-        # - A-nowcasting.qmd
-    - part: P_Tools.qmd
+        - A-RegArima-Tramo-Modelling-Overview.qmd ## (#a_reg-a)
+        - A-sa-overview.qmd ##(#sa-overview)
+        - A-sa-pre-treatment.qmd ##(#sa-pre-t)
+        - A-sa-X11-decomposition.qmd ##(a-sa-X11)
+        - A-sa-seats-decomposition.qmd ##(#a-sa-seats)
+        - A-sa-stl-decomposition.qmd ##(#a-sa-stl)
+        - A-sa-bsm.qmd ##(#a-sa-bsm)
+        - A-sa-hf.qmd ##(#a-sa-hf)
+        - A-outlier-detection.qmd ##(#a-out-reg-ext)
+        - A-calendar-correction.qmd ##(#a-cal)
+        - A-benchmarking.qmd ##(#a-bench)
+        - A-trend-cycle-estimation.qmd ##(#a-trend)
+        - A-revision-analysis.qmd ##(#a-revs)
+        - A-nowcasting.qmd ##(#a-now)
+    - part: P_Tools.qmd ##(#part-T)
       chapters:
-        # - T-GUI-Overview.qmd
-        - T-GUI-Data-Viz-TS-Tools.qmd
-        # - T-GUI-SA-Modelling-Features.qmd
-        # - T-GUI-Output.qmd
-        # - T-r-packages.qmd
-        # - T-Production-tools-cruncher-QR.qmd
-        # - T-rev-policies-production.qmd
-        # - T-plug-ins.qmd
-    - part: P_Methods.qmd
+        - T-GUI-Overview.qmd ##(#t-gui-overview)
+        - T-GUI-Data-Viz-TS-Tools.qmd ##(#t-GUI-tstools)
+        - T-GUI-SA-Modelling-Features.qmd ##(#t-gui-sa)
+        - T-GUI-Output.qmd ##(#t-gui-output)
+        - T-r-packages.qmd ##(#t-r-packs)
+        - T-Production-tools-cruncher-QR.qmd ##(#t-r-packs)
+        - T-rev-policies-production.qmd ##(#t-prod)
+        - T-plug-ins.qmd ##(#t-plug-ins)
+    - part: P_Methods.qmd ##(#part-T)
       chapters:
-        - M-spectral-analysis.qmd
-        # - M-reg-arima-modelling.qmd
-        # - M-X11-decomposition.qmd
-        # - M-SEATS-decomposition.qmd
-        # - M-sa-hf.qmd
-        # - M-Trend-Estimation-Local-Polynomials.qmd
-        - M-tests.qmd
-        # - M-STL-decomposition.qmd
-        # - M-state-space-framework.qmd
-        # - M-Temp-Disagg-Bench.qmd
+        - M-spectral-analysis.qmd ##(#m-spectrum)
+        - M-reg-arima-modelling.qmd ##(#m-reg-a)
+        - M-X11-decomposition.qmd ##(#m-X11)
+        - M-SEATS-decomposition.qmd ##(#m-seats)
+        - M-sa-hf.qmd ##(#m-sa-hf)
+        - M-Trend-Estimation-Local-Polynomials.qmd ##(#m-trend)
+        - M-tests.qmd ##(#m-trend)
+        - M-STL-decomposition.qmd ##(#m-stl)
+        - M-state-space-framework.qmd ##(#m-ssf)
+        - M-Temp-Disagg-Bench.qmd ##(m-bench)
         - references.qmd
 bibliography: references.bib
 

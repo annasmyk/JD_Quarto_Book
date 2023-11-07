@@ -1,4 +1,4 @@
-# Graphical User Interface Overview {.unnumbered #tools-GUI}
+# Graphical User Interface Overview (GUI) {.unnumbered #t-gui-overview}
 
 ## In this chapter
 
