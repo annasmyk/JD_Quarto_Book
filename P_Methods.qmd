@@ -1,21 +1,35 @@
 # Methods {.unnumbered #part-M}
 
-This part describes in greater detail:
+This part provides underlying methodological background on all the algorithms featured in JDemetra+. 
 
--   [Reg-Arima modelling](M-reg-arima-modelling.qmd)
+Practical guidance on how to use these algorithms can be found [here](#part-A), whereas detailed description of all the available tools allowing to access the algorithms can be found in the [Tools](#part-T) part of this book.
 
--   [X-11: moving average based decomposition](M-X11-decomposition.qmd)
+In this part: 
 
--   [SEATS: Arima model based decomposition](M-SEATS-decomposition.qmd)
-
--   [STL: Loess based decomposition](M-STL-decomposition.qmd)
-
--   [Benchmarking and temporal disaggregation](M-Temp-Disagg-Bench.qmd)
-
--   [Spectral analysis tools](M-spectral-analysis.qmd)
-
--   [Trend Estimation](M-Trend-Estimation-Local-Polynomials.qmd)
+-   [Spectral analysis tools](#m-spectrum)
 
 -   [Tests for seasonality and residuals](M-tests.qmd)
 
--   [Structural time series and state space framework](M-state-space-framework.qmd)
+-   [Reg-Arima modelling](#m-reg-a)
+
+-   [X-11: moving average based decomposition](#m-X11)
+
+-   [SEATS: Arima model based decomposition](#m-seats)
+
+-   [STL: Loess based decomposition](#m-stl)
+
+-   [Structural time series and state space framework](#m-ssf)
+
+-   [Seasonal Adjustment of High-Frequency Data](#m-sa-hf)
+
+-   [Trend Estimation](#m-trend)
+
+-   [Benchmarking and temporal disaggregation](m-bench)
+
+
+
+
+
+
+
+

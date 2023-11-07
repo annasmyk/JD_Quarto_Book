@@ -1,13 +1,25 @@
 # Tools {.unnumbered #part-T}
 
-This part provides practical guidance for using all the algorithms featured in JDemetra+, be it with the [Graphical User Interface](#t-gui-overview) or [R packages](#t-r-packs). Further methodological insights on each algorithm can be found in the [Methods](#part-M) part of this book, whereas detailed description of all the available tools allowing to access the algorithms can be found in the [Tools](#part-M) part.
+This part describes all the available [Tools](#part-T) allowing to access JDemetra+ algorithms.
 
-The different tools described in this part:
+Practical guidance for using all the algorithms is provided [here](#part-A).
 
--   Graphical User Interface [GUI](T-graphical-user-interface.qmd)
+Whereas, further methodological insights on each algorithm can be found in the [Methods](#part-M) part of this book.
 
--   ...enhanced with additional [plug-ins](T-plug-ins.qmd)
+In this part: 
 
--   ..and a [Cruncher](T-Production-tools-cruncher-QR.qmd) for mass production
+Graphical User Interface (GUI)
 
--   [R packages](T-r-packages.qmd)
+- [Overview](#t-gui-overview)
+- [Data visualization and time series tools](#t-GUI-tstools)
+- [Seasonal Adjustement and Modelling features](#t-gui-sa)
+- [Output: series, parameters and diagnostics](#t-gui-output)
+
+Other tools: 
+
+- [R ecosystem](#t-r-packs)
+- [Production tools: Cruncher and quality report](#t-r-packs)
+- [Revision policies](#t-rev-pol)
+- [Plug-ins for the GUI](#t-plug-ins)
+
+
