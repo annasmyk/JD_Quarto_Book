@@ -1,4 +1,4 @@
-# Graphical User Interface Overview (GUI) {.unnumbered #t-gui-overview}
+# Graphical User Interface Overview {.unnumbered #tools-GUI}
 
 ## In this chapter
 
@@ -868,7 +868,6 @@ The *Demetra UI* tab enables the setting of:
 
 
 
-
 #### Demetra path tab
 
 *Demetra Paths* allows the user to specify the relative location of the folders where the data can be found. In this way, the application can access data from different computers. Otherwise, the user would need to have access to the exact path where the data is located. To add a location, select the data provider, click the "**+**" button and specify the location.
@@ -891,8 +890,6 @@ The *Demetra UI* tab enables the setting of:
 ![**The content of the *Demetra Paths* tab in v3**](All_images/options-demetra-demetra_paths_v3.png)
 
 :::
-
-
 
 
 

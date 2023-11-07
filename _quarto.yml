@@ -44,6 +44,15 @@ book:
           city: Frankfurt
           url: "https://www.bundesbank.de"
       role: "Collaborator"
+  # collaborator:
+  #   - name: Karsten Webel (Bbk)
+  #     url: https://github.com/webelk
+  #     affiliations:
+  #       - name: BundesBank
+  #         country: Germany
+  #         city: Frankfurt
+  #         url: "https://www.bundesbank.de"
+  #     role: "Collaborator"
   date: "9/15/2023"
   page-navigation: true
   chapters:

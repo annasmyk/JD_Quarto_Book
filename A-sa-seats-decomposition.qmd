@@ -32,48 +32,17 @@ The sections below will describe
 
 ## Context
 
-<<<<<<< HEAD
 SEATS is the second (decomposition) step in a seasonal adjustment processing with [Tramo-Seats](#sa-overview), once a [pre-treatment with Tramo](#sa-pre-t) has been performed. SEATS is an [Arima Model Based (AMB)](#m-seats) algorithm and will decompose the linearized series using the arima model fit in Tramo.
 
 ## Tools for Seats decomposition
 
 | Algorithm   | Access in GUI | Access in R (v2) | Access in R v3 |
 |-------------|---------------|------------------|----------------|
-| Tramo-Seats | yes           | RJDemetra        | rjd3tramoseats |
-| Tramo only  | yes           | RJDemetra        | rjd3tramoseats |
+| Tramo-Seats | ✅            | RJDemetra        | rjd3tramoseats |
+| Tramo only  | ✅            | RJDemetra        | rjd3tramoseats |
 
 Available frequencies in version 2 and version 3
-=======
-SEATS 
 
-
-- seasonal adjustment with TRAMO-SEATS second step 
-
-- extended AMB  for any frequency data, post extended airline pre-treatment 
-
-
-## Tools for Seats decomposition
-
-+------------------------+---------------+------------------+----------------+
-| Algorithm              | Access in GUI | Access in R (v2) | Access in R v3 |
-+========================+===============+==================+================+
-| X-13 Arima             | yes           | RJDemetra        | rjd3x13        |
-+------------------------+---------------+------------------+----------------+
-| Reg-Arima only         | yes           | RJDemetra        | rjd3x13        |
-+------------------------+---------------+------------------+----------------+
-| X11 decomposition only | yes           | RJDemetra        | rjd3x13        |
-+------------------------+---------------+------------------+----------------+
-| TRAMO-SEATS            | yes           | RJDemetra        | rjd3tramoseats |
-+------------------------+---------------+------------------+----------------+
-| Tramo only             | yes           | RJDemetra        | rjd3tramoseats |
-+------------------------+---------------+------------------+----------------+
-| STL                    | no            | no               | rjd3stl        |
-+------------------------+---------------+------------------+----------------+
-| STS                    | no            | no               | rjd3sts        |
-+------------------------+---------------+------------------+----------------+
-
-: X13-ARIMA and TRAMO-SEATS are two-step algorithms with a pre-treatment phase (Reg-Arima or Tramo) and a decomposition phase (X11 and Seats). STL is a local regression (Loess) based decomposition, without pre-treatment. In a Structural Time Series approach pre-treatment and decomposition are done simultaneously in a State Space Framework [(SSF)](M-state-space-framework.qmd).
->>>>>>> 1a4297f10d537c24c1f7a2d238407c52058a2c4f
 
 | Version | GUI and R          |
 |---------|--------------------|
@@ -90,7 +59,6 @@ The default specifications for SEATS must be chosen at the starting of the SA pr
 
 ## Quick Launch
 
-<<<<<<< HEAD
 ### From GUI
 =======
 -   series
@@ -107,8 +75,6 @@ The default specifications for SEATS must be chosen at the starting of the SA pr
 
 ### Quick Launch
 
-#### From GUI
->>>>>>> 1a4297f10d537c24c1f7a2d238407c52058a2c4f
 
 With a workspace open, an SAProcessing created and open data provider:
 

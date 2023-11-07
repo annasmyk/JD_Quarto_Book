@@ -64,11 +64,8 @@ Packages corresponding to version 3.x core routines:
 | STL                     | rjd3stl        | Including high-frequency data                            |
 | Basic Structural Models | rjd3sts        | State space framework                                    |
 
-<<<<<<< HEAD
 Version 3.x includes [Revision Policies][T-rev-policies-production.qmd) in X-13 and Tramo-Seats.
-=======
-Version 3.x includes \[Revision Policies(\[T-rev-policies-production.qmd) in X-13 and TRAMO-SEATS.
->>>>>>> 1a4297f10d537c24c1f7a2d238407c52058a2c4f
+
 
 More details on functions parameters and retrieving output in the chapter dedicated to [Seasonal Adjustment](A-sa.qmd)
 

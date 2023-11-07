@@ -35,12 +35,12 @@ HF data often display multiple seasonal patterns with potentially non-integer pe
 ## Tailored algorithms in JDemetra+
 
 | Col1          | Algorithm                             | GUI v 3.0 | R package    |
-|------------------|-------------------|------------------|------------------|
-| Pre-treatment | Extended Airline Model                | yes       | rjd3highfreq |
-| Decomposition | Extended SEATS Extended Airline Model | yes       | rjd3highfreq |
-|               | Extended X-11                         | yes       | rjd3x11plus  |
-|               | Extended STL                          | no        | rjd3stl      |
-| One-Step      | SSF Framework                         | no        | rjd3sts      |
+|---------------|---------------------------------------|-----------|--------------|
+| Pre-treatment | Extended Airline Model                | ✅        | rjd3highfreq |
+| Decomposition | Extended SEATS Extended Airline Model | ✅        | rjd3highfreq |
+|               | Extended X-11                         | ✅        | rjd3x11plus  |
+|               | Extended STL                          | ❌        | rjd3stl      |
+| One-Step      | SSF Framework                         | ❌        | rjd3sts      |
 
 ## Unobserved Components
 

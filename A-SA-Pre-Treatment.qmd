@@ -62,11 +62,8 @@ calendar:
 
 -   easter tested (default length = 6 days in Tramo, 8 days in X13-ARIMA)
 
-<<<<<<< HEAD
+
 #### Starting point for Tramo-Seats {#sa-pre-t-ts-specs}
-=======
-#### Starting point for TRAMO-SEATS
->>>>>>> 1a4297f10d537c24c1f7a2d238407c52058a2c4f
 
 | Spec identifier | Log/level detection | Outliers detection | Calendar effects | ARIMA          |
 |-----------------|---------------------|--------------------|------------------|----------------|
@@ -746,13 +743,7 @@ These basic structures enable the generation of not only AO, LS, TC, SO and RP o
 ![**Step 2**](All_images/SA_REGA_calendar_user_def_inter_var_2.png)
 
 
-<<<<<<< HEAD
-Step 3:
-
-![](All_images/SA_REGA_calendar_user_def_inter_var_3.png)
-=======
 ![**Step 3**](All_images/SA_REGA_calendar_user_def_inter_var_3.png)
->>>>>>> 1a4297f10d537c24c1f7a2d238407c52058a2c4f
 
 ###### Creation in R
 
@@ -847,15 +838,11 @@ Control variables for the automatic modelling of the ARIMA model (when automdl.e
 
 #### v2
 
-<<<<<<< HEAD
-Forecast horizon when using X13-ARIMA
-=======
-![**Setting in GUI**](All_images/SA_REGA_arima_auto_params_v2.png)
->>>>>>> 1a4297f10d537c24c1f7a2d238407c52058a2c4f
+![**Setting in GUI in v2**](All_images/SA_REGA_arima_auto_params_v2.png)
 
 #### v3
 
-![**Setting in GUI**](All_images/SA_REGA_arima_auto_params_v3.png)
+![**Setting in GUI in v3**](All_images/SA_REGA_arima_auto_params_v3.png)
 
 :::
 
@@ -1012,10 +999,7 @@ In residual Node
 
 ![**Likelihood**](All_images/SA_REGA_Arima_Model_Likelihood_Node.png) 
 
-<<<<<<< HEAD
 ![](All_images/SA_REGA_Arima_Model_Likelihood_Node.png)
-=======
->>>>>>> 1a4297f10d537c24c1f7a2d238407c52058a2c4f
 
 Seasonality tests on residuals in the **Diagnostics NODE**
 

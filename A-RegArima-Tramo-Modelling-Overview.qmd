@@ -20,13 +20,13 @@ In-depth methodological explanations of the algorithms are covered in separated 
 +--------------------+---------------+------------------+----------------+
 | Algorithm          | Access in GUI | Access in R (v2) | Access in R v3 |
 +====================+===============+==================+================+
-| Reg-Arima          | yes           | RJDemetra        | rjd3x13        |
+| Reg-Arima          | ✅            | RJDemetra        | rjd3x13        |
 +--------------------+---------------+------------------+----------------+
-| Tramo              | yes           | RJDemetra        | rjd3tramoseats |
+| Tramo              | ✅            | RJDemetra        | rjd3tramoseats |
 +--------------------+---------------+------------------+----------------+
-| Extended Airline   | no            | no               | rjd3stl        |
+| Extended Airline   | ❌            | ❌               | rjd3stl        |
 +--------------------+---------------+------------------+----------------+
-| STS                | no            | no               | rjd3sts        |
+| STS                | ❌            | ❌               | rjd3sts        |
 +--------------------+---------------+------------------+----------------+
 
 : X13-ARIMA and TRAMO-SEATS are two-step algorithms with a pre-treatment phase (Reg-Arima or Tramo) and a decomposition phase (X11 and Seats). STL is a local regression (Loess) based decomposition, without pre-treatment. In a Structural Time Series approach pre-treatment and decomposition are done simultaneously in a State Space Framework [(SSF)](M-state-space-framework.qmd).Pre-treatment principles
