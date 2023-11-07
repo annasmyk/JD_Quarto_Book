@@ -50,7 +50,11 @@ HF data often display multiple seasonal patterns with potentially non-integer pe
 
 ### Multiple seasonal patterns
 
-HF data often contain multiple seasonal patterns. For example, daily economic time series often display strong infra-weekly and infra-yearly seasonality. An infra-monthly seasonal pattern may also be present, but its strength is usually less pronounced in practice. In theory, the full decomposition of the seasonal component in daily data is given by: $$S_{t}= S_{t,7} \circ S_{t,30.44} \circ S_{t,365.25}$$
+HF data often contain multiple seasonal patterns. For example, daily economic time series often display strong infra-weekly and infra-yearly seasonality. An infra-monthly seasonal pattern may also be present, but its strength is usually less pronounced in practice. In theory, the full decomposition of the seasonal component in daily data is given by:
+
+$$
+S_{t}= S_{t,7} \circ S_{t,30.44} \circ S_{t,365.25}
+$$
 
 The decomposition is done iteratively periodicity by periodicity starting with the smallest one (highest frequency) as:
 
@@ -66,9 +70,13 @@ JDemetra+ provides the Canova-Hansen test in the rjd3toolkit package.
 
 In classical X13-ARIMA and TRAMO-SEATS, a pre-adjustment step is performed to remove deterministic effects, such as outliers and calendar effects, with a Reg-Arima model. In the extended version for HF data, it is also the case with an **extended Airline model**.
 
-A general Reg-ARIMA model is written as follows: $$
+A general Reg-ARIMA model is written as follows:
+
+$$
 \left(Y_t - \sum {\alpha_i}X_{it}\right) \sim ARIMA(p,d,q)(P,D,Q)
-$$ These models contain seasonal backshift operators $B^{s}(y_t)=y_{t-s}$. Here $s$ can be non-integer. JDemetra+ will rely on a modified version of a frequently used Arima model: the "Airline" model:
+$$
+
+These models contain seasonal backshift operators $B^{s}(y_t)=y_{t-s}$. Here $s$ can be non-integer. JDemetra+ will rely on a modified version of a frequently used Arima model: the "Airline" model:
 
 $$
 (1-B)(1-B^{s})y_t=(1-\theta_1 B)(1-\theta_2 B^{s}) \epsilon_t \text{~~~~} \epsilon_t \sim \text{NID}(0,\sigma^2_{\epsilon})  
@@ -76,26 +84,36 @@ $$
 
 For HF data, the potentially non-integer periodicity $s$ will be written: $s=s' + \alpha$, with $\alpha \in [0,1)$ (for example $52.18 = 52 +0.18$ is the yearly periodicity for weekly data)
 
-Taylor series development around $1$ of $f(x)=x^\alpha$ $$
+Taylor series development around $1$ of $f(x)=x^\alpha$
+
+$$
 \begin{array}{lll}
 x^\alpha &=& 1 + \alpha (x-1) + \frac{\alpha (\alpha+1)}{2!} (x-1)^2 + \frac{\alpha (\alpha+1) (\alpha+2)}{3!} (x-1)^3 +\cdots \\
             B^\alpha &\cong& (1 - \alpha)+ \alpha B     
 \end{array}
-$$ Approximation of $B^{s+\alpha}$ in an extended Airline model
+$$
+
+Approximation of $B^{s+\alpha}$ in an extended Airline model
 
 $$
 \begin{array}{lll}
 B^{s+\alpha} &\cong& (1 - \alpha)B^s+ \alpha B^{s+1}                
 \end{array}
-$$ Example for a daily series displaying infra-weekly ($p_{1}=7$) and infra-yearly ($p_{2}=365.25$) seasonality:
+$$
+
+Example for a daily series displaying infra-weekly ($p_{1}=7$) and infra-yearly ($p_{2}=365.25$) seasonality:
 
 $$
 (1-B)(1-B^{7})(1-B^{365.25)}(Y_t - \sum {\alpha_i}X_{it})=(1-\theta_1 B)(1-\theta_2 B^{7})(1-\theta_3 B^{365.25}) \epsilon_t
-$$ $$
+$$
+
+$$
 \epsilon_t \overset{iid}{\sim} \text{N}(0,\sigma^2_{\epsilon}) 
 $$
 
-with $$
+with 
+
+$$
 1 - B^{365.25} = 1 - (0.75B^{365} + 0.25B^{366})
 $$
 

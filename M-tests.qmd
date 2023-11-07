@@ -161,10 +161,9 @@ This test refers to Model-Based \$\chi\^{2}\$ and F-tests for Fixed Seasonal Eff
 
 For a monthly time series the Reg-Arima model structure is as follows:
 
-Equation 1
 $$
 (1-B)(y_{t}-\beta_{1}M_{1,t}-\ldots-\beta_{11}M_{11,t}-\gamma X_{t})=\mu+(1-B)a_{t}
-$$ 
+$$ {#eq-1}
 
 where:
 
@@ -182,10 +181,9 @@ where:
 
 In the case of a quarterly series the estimated model has this form:
 
-Equation 2
 $$
 (1-B)(y_{t}-\beta_{1}M_{1,t}-\ldots-\beta_{3}M_{3,t}-\gamma X_{t})=\mu+(1-B)a_{t}
-$$
+$$ {#eq-2}
 
 where:
 
@@ -231,7 +229,7 @@ For large $n$ or $k$ , i.e. $n > 15$ or $k > 4$, the probability distribution of
 
 ### Moving seasonality test
 
-The evolutive seasonality test is based on a two-way analysis of variance model. The model uses the values from complete years only. Depending on the decomposition type for the Seasonal/Irregular component it uses Equation 1 (in the case of a multiplicative model) or Equation 2 (in the case of an additive model):
+The evolutive seasonality test is based on a two-way analysis of variance model. The model uses the values from complete years only. Depending on the decomposition type for the Seasonal/Irregular component it uses @eq-1 (in the case of a multiplicative model) or @eq-2 (in the case of an additive model):
 
 $$
 |\text{SI}_{\text{ij}}-1|=X_{\text{ij}}=b_{i}+m_{j}+e_{\text{ij}}
@@ -251,10 +249,9 @@ where:
 
 The test is based on the following decomposition:
 
-Equation 3
 $$
 S^{2}=S_{A}^{2}+S_{B}^{2}+S_{R}^{2},
-$$
+$$ {#eq-3}
 
 where:
 

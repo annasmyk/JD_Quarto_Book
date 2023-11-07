@@ -36,7 +36,8 @@ In JDemetra+ the input for the model based signal extraction procedure is always
 
 One of the fundamental assumptions made by SEATS is that the linearized time series $x_{t}$ follows the ARIMA model
 
-Equation 1 $$
+Equation 1
+$$
 \phi(B)\delta(B)x_{t} = \theta(B)a_{t}
 $$
 
@@ -56,7 +57,8 @@ It should be noted that the stochastic time series can be predicted using its pa
 
 Denoting $\varphi(B) = \phi(B)\delta(B)$,can be written in a more concise form as
 
-Equation 2 $$
+Equation 2
+$$
 \varphi(B)x_{t} = \theta(B)a_{t}
 $$
 
@@ -66,7 +68,8 @@ where $\varphi(B)$ contains both the stationary and the nonstationary roots.
 
 Let us consider the additive decomposition model
 
-Equation 3 $$
+Equation 3
+$$
 x_{t} = \sum_{i = 1}^{k}x_{\text{it}}
 $$
 
@@ -93,19 +96,22 @@ For description of the spectrum see chapter on [Spectral Analysis](#m-spectrum).
 
 Since aggregation of ARIMA models yields ARIMA models, the series $x_{t}$ will also follow an ARIMA model, as in Equation 2, and consequently the following identity can be derived:
 
-Equation 5: $$
+Equation 5:
+$$
 \frac{\theta(B)}{\varphi(B)}a_{t} = \sum_{i = 1}^{k}{\frac{\theta_{i}(B)}{\varphi_{i}(B)}a_{\text{it}}}
 $$
 
 In the ARIMA model based approach implemented in SEATS, the ARIMA model identified and estimated for the observed series $x_{t}$ is decomposed to derive the models for the components. In particular, the AR polynomials for the components, $\varphi_{i}(B)$, are easily derived through the factorization of the AR polynomial $\varphi(B)$:
 
-Equation 6 $$
+Equation 6
+$$
 \varphi(B) = \prod_{i = 1}^{k}{\varphi_{i}(B)}
 $$
 
 while the MA polynomials for the components, together with the innovation variances $V(a_{i})$, cannot simply be obtained through the relationship:
 
-Equation 7: $$
+Equation 7:
+$$
 \theta(B)a_{t} = \sum_{i= 1}^{k}{\varphi_{\text{ni}}(B)}\theta_{i}(B)a_{\text{it}}
 $$
 
@@ -115,19 +121,22 @@ To understand how SEATS factorizes the AR polynomials, first a concept of a root
 
 Equation 2 can be expressed as:
 
-Equation 8: $$
+Equation 8:
+$$
 \psi^{- 1}(B)x_{t} = a_{t}(1+\varphi_{1}B + \ldots\varphi_{p}B^{p})x_{t} =(1+\theta_{1}B + \ldots\theta_{q}B^{q})a_{t}
 $$
 
 Let us now consider Equation 2 in the inverted form:
 
-Equation 9: $$
+Equation 9:
+$$
 \theta(B)y_{t} = \varphi(B)a_{t}
 $$
 
 If both sides of Equation 8 multiplied by $x_{t-k}$ with $k > q$, and expectations are taken, the right hand side of the equation vanishes and the left hand side becomes:
 
-Equation 10 $$
+Equation 10
+$$
 \varphi(B)\gamma_{k} = \gamma_{k} + \varphi_{1}\gamma_{k-1} + \ldots\varphi_{p}\gamma_{k-p} = 0
 $$
 
@@ -135,21 +144,26 @@ where $B$ operates on the subindex $k$.
 
 The autocorrelation function $\gamma_{k}$ is a solution of Equation 10 with the characteristic equation:
 
-Equation 11: $$
+Equation 11:
+$$
 z^{p} +\varphi_{1}z^{p-1} + \ldots\varphi_{p-1}z + \varphi_{p} = 0
 $$
 
 If $z_{1}$,...,$\ z_{p}$ are the roots of Equation 11, the solutions of Equation 10 can be expressed as:
 
-Equation 12: $$
+Equation 12:
+$$
 \gamma_{k} = \sum_{i = 1}^{p}z_{i}^{k}
 $$
 
 and will converge to zero as $karrow \infty$ when $|r_{i}| < 1,\ i = 1,\ldots,p$. From Equation 10 and Equation 12 it can be noticed that $z_{1} = B_{i}^{-1}$, meaning that $z_{1}$,...,$\ z_{p}$ are the inverses of the roots $B_{1},\ldots,B_{p}$ of the polynomial $\varphi(B)$. The convergence of $\gamma_{k}$ implies that the roots of the $\varphi(B)$ are larger than 1 in modulus (lie outside the unit circle). Therefore, from the equation 13.
 
-Equation 13 $$
+Equation 13 
+$$
 {\varphi(B)}^{- 1} = \frac{1}{(1-z_{1})\ldots(1-z_{1})}
-$$ it can be derived that ${\varphi(B)}^{- 1}$ is convergent and all its inverse roots are less than 1 in modulus.
+$$ 
+
+it can be derived that ${\varphi(B)}^{- 1}$ is convergent and all its inverse roots are less than 1 in modulus.
 
 Equation 11 has real and complex roots (solutions). Complex number $x = a + bi$, with $a$ and $\text{b}$ both real numbers, can be represented as $x = r(cos(\omega) + i\ sin(\omega))$, where $i$ is the imaginary unit ${i}^{2}=-1)$, $r$ is the modulus of $x$, that is $r=|x| = \sqrt{a^{2} + b^{2}}$ and $\omega$ is the argument (frequency). When roots are complex, they are always in pairs of complex conjugates. The representation of the complex number $x = a + bi$ has a geometric interpretation in the complex plane established by the real axis and the orthogonal imaginary axis.
 
@@ -165,7 +179,8 @@ For the seasonal differencing operator $(1-B^{12})$ applied to the monthly time 
 
 The complex conjugates roots generate the periodic movements of the type:
 
-Equation 14 $$
+Equation 14
+$$
 z_{t} = A^{t}\cos(\omega t + W)
 $$
 

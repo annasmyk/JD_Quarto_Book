@@ -81,13 +81,17 @@ The effect of one day of the group $i$ is measured by $\alpha_i$, so that the gl
 
 The global effect of all the days for the period $t$ is
 
-$$\sum_{i=1}^K{\alpha_i D_{ti}} = \bar\alpha N_t + \sum_{i=1}^K{(\alpha_i-\bar\alpha) D_{ti}}$$
+$$
+\sum_{i=1}^K{\alpha_i D_{ti}} = \bar\alpha N_t + \sum_{i=1}^K{(\alpha_i-\bar\alpha) D_{ti}}
+$$
 
 where $\bar\alpha=\sum_{i=1}^K{w_i \alpha_i}$ with $\sum_{i=1}^Kw_i=1$
 
 So,
 
-$$\sum_{i=1}^K{(\alpha_i-\bar\alpha) w_i} = \sum_{i=1}^K{\alpha_iw_i}-\bar\alpha\sum_{i=1}^K w_i=0 $$
+$$
+\sum_{i=1}^K{(\alpha_i-\bar\alpha) w_i} = \sum_{i=1}^K{\alpha_iw_i}-\bar\alpha\sum_{i=1}^K w_i=0
+$$
 
 LEAP YEAR part to comment
 
@@ -95,15 +99,21 @@ We focus now on $\sum_{i=1}^K{(\alpha_i-\bar\alpha) D_{ti}}$, the actual trading
 
 Writing $\alpha_i-\bar\alpha = \beta_i$ and using that $\sum_{i=1}^K{\beta_i w_i} = 0$, we have that
 
-$$\sum_{i=1}^K{\beta_i D_{ti}}=\sum_{i=1}^K{\beta_i(D_{ti} - \frac{w_i}{w_K}}D_{tK})= \sum_{i=1}^{K-1}{\beta_i(D_{ti} - \frac{w_i}{w_K}}D_{tK})$$
+$$
+\sum_{i=1}^K{\beta_i D_{ti}}=\sum_{i=1}^K{\beta_i(D_{ti} - \frac{w_i}{w_K}}D_{tK})= \sum_{i=1}^{K-1}{\beta_i(D_{ti} - \frac{w_i}{w_K}}D_{tK})
+$$
 
 Note that the relationship is valid for any set of weights $w_i$. It is also clear that the contrasting group of days can be any group:
 
-$$\sum_{i=1}^{K-1}{\beta_i(D_{ti} - \frac{w_i}{w_K}}D_{tK}) = \sum_{i=1}^{K, i \neq J}{\beta_i(D_{ti} - \frac{w_i}{w_J}}D_{tJ})$$
+$$
+\sum_{i=1}^{K-1}{\beta_i(D_{ti} - \frac{w_i}{w_K}}D_{tK}) = \sum_{i=1}^{K, i \neq J}{\beta_i(D_{ti} - \frac{w_i}{w_J}}D_{tJ})
+$$
 
 The "missing" coefficient is easily derived from the others:
 
-$$\beta_K = -\frac{1}{w_K}\sum_{i=1}^{K-1}{\beta_i w_i}  $$
+$$
+\beta_K = -\frac{1}{w_K}\sum_{i=1}^{K-1}{\beta_i w_i}
+$$
 
 ### Correction for deterministic seasonality
 
@@ -111,7 +121,9 @@ In the case of seasonal adjustment, we further impose that the regression variab
 
 The corrected contrast for the time t belonging to the period J is:
 
-$$C_{ti}=D_{ti}-\bar{D_{i, J}^y}-\frac{w_i}{w_K}(D_{tK}- \bar{D_{K, J}^y})$$
+$$
+C_{ti}=D_{ti}-\bar{D_{i, J}^y}-\frac{w_i}{w_K}(D_{tK}- \bar{D_{K, J}^y})
+$$
 
 How is the long term mean computed? Probabilistic approach
 (more on this soon)
@@ -711,13 +723,17 @@ The test is the usual joint F-test on the TD coefficients, computed on the follo
 
 We compute by OLS:
 
-$$y_t=\mu + \alpha y_{t-1} + \beta TD_t + \epsilon_t $$
+$$
+y_t=\mu + \alpha y_{t-1} + \beta TD_t + \epsilon_t
+$$
 
 ##### Difference model
 
 We compute by OLS:
 
-$$\Delta y_t - \overline{\Delta y_t}=\beta TD_t + \epsilon_t $$
+$$
+\Delta y_t - \overline{\Delta y_t}=\beta TD_t + \epsilon_t
+$$
 
 So, the latter model is a restriction of the first one ($\alpha =1, \mu =μ=\overline{\Delta y_t}$)
 

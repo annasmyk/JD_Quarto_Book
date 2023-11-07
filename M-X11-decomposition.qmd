@@ -422,7 +422,7 @@ statistics.
 $$
 \small
 Q = \frac{10M1 + 11M2 + 10M3 + 8M4 + 11M5 + 10M6 + 18M7 + 7M8 + 7M9 + 4M10 + 4M11}{100}
-$$ 
+$$
 
 $Q = Q - M2$ (also called $Q2$) is the $Q$ statistic for which the $M2$
 statistics was excluded from the formula, i.e.:
@@ -430,7 +430,7 @@ statistics was excluded from the formula, i.e.:
 $$
 \small
 Q - M2 = \frac{10M1 + 10M3 + 8M4 + 11M5 + 10M6 + 18M7 + 7M8 + 7M9 + 4M10 + 4M11}{89}
-$$ 
+$$
 
 If a time series does not cover at least 6 years, the $M8$, $M9$, $M10$
 and $M11$ statistics cannot be calculated. In this case the $Q$
@@ -469,7 +469,9 @@ The first table presents the average percent change without regard to sign of th
 
 In the case of an additive decomposition, for each component the average absolute changes over several periods are calculated as:
 
-$$\text{Component}_{d} = \frac{1}{n - d}\sum_{t = d + 1}^{n}|Table_{t} - Table_{t - d}|$$
+$$
+\text{Component}_{d} = \frac{1}{n - d}\sum_{t = d + 1}^{n}|Table_{t} - Table_{t - d}|
+$$
 
 where:
 
@@ -483,17 +485,26 @@ $\text{Table}$: the name of the table that corresponds to the component.
 
 ![](All_images/RDimage48.png)
 
-For the multiplicative decomposition the following formula is used: $$\text{Component}_{d} = \frac{1}{n - d}\sum_{t = d+1}^{n}{|\frac{\text{Tabl}e_{t}}{\text{Table}_{t - d}} - 1|}$$.
+For the multiplicative decomposition the following formula is used: 
+
+$$
+\text{Component}_{d} = \frac{1}{n - d}\sum_{t = d+1}^{n}{|\frac{\text{Tabl}e_{t}}{\text{Table}_{t - d}} - 1|}
+$$
+.
 
 #### Relative contribution to the variance of the differences in the components of the original series
 
 Relative contributions of the different components to the differences (additive model) or percent changes (multiplicative model) in the original series is displayed express the relative importance of the changes in each component. Assuming that the components are independent, the following relation is valid:
 
-$$O_{d}^{2} \approx C_{d}^{2} + S_{d}^{2} + I_{d}^{2} + P_{d}^{2} + {TD\& H}_{d}^{2}$$
+$$
+O_{d}^{2} \approx C_{d}^{2} + S_{d}^{2} + I_{d}^{2} + P_{d}^{2} + {TD\& H}_{d}^{2}
+$$
 
 In order to simplify the analysis, the approximation can be replaced by the following equation:
 
-$$O_{d}^{*2} = C_{d}^{2} + S_{d}^{2} + I_{d}^{2} + P_{d}^{2} + {TD\& H}_{d}^{2}$$
+$$
+O_{d}^{*2} = C_{d}^{2} + S_{d}^{2} + I_{d}^{2} + P_{d}^{2} + {TD\& H}_{d}^{2}
+$$
 
 The column $\text{Total}$ denotes total changes in the raw time series.
 
@@ -535,9 +546,17 @@ The trend is made stationary by by extracting a linear trend from the trend comp
 
 The last table shows the autocorrelogram of the irregular component from Table D13. In the case of multiplicative decomposition it is calculated for time lags between 1 and the number of periods per year +2 using the formula:
 
-$$\text{Corr}_{k}I = \frac{\sum_{t = k + 1}^{N}{(I_{t} - 1)(I_{t - k} - 1)}}{\sum_{t = 1}^{N}{(I_{t} - 1)}^{2}}$$ where $N$ is number of observations in the time series and $k$ the lag.
+$$
+\text{Corr}_{k}I = \frac{\sum_{t = k + 1}^{N}{(I_{t} - 1)(I_{t - k} - 1)}}{\sum_{t = 1}^{N}{(I_{t} - 1)}^{2}}
+$$
 
-For the additive decomposition the formula is: $$Corr_{k}I_{t} = \frac{\sum_{t = k + 1}^{N}{(I_{t} \times I_{t - k})}}{\sum_{t = 1}^{N}{(I_{t})}^{2}}$$
+where $N$ is number of observations in the time series and $k$ the lag.
+
+For the additive decomposition the formula is: 
+
+$$
+Corr_{k}I_{t} = \frac{\sum_{t = k + 1}^{N}{(I_{t} \times I_{t - k})}}{\sum_{t = 1}^{N}{(I_{t})}^{2}}
+$$
 
 ![](All_images/RDimage54.png)
 
@@ -551,15 +570,21 @@ A Cochran test on equal variances within each period is performed in the extreme
 
 For each $i^{\text{th}}$ month we will be looking at the mean annual changes for each component by calculating:
 
-$${\overline{S}}_{i} = \frac{1}{N_{i} - 1}\sum_{t = 2}^{N_{i}}|S_{i,t} - S_{i,t - 1}|$$
+$$
+{\overline{S}}_{i} = \frac{1}{N_{i} - 1}\sum_{t = 2}^{N_{i}}|S_{i,t} - S_{i,t - 1}|
+$$
 
 and
 
-$${\overline{I}}_{i} = \frac{1}{N_{i} - 1}\sum_{t = 2}^{N_{i}}| I_{i,t} - I_{i,t - 1}|$$,
+$$
+{\overline{I}}_{i} = \frac{1}{N_{i} - 1}\sum_{t = 2}^{N_{i}}| I_{i,t} - I_{i,t - 1}|
+$$
 
 where $N_{i}$ refers to the number of months $\text{i}$ in the data, and the moving seasonality ratio of month $i$:
 
-$$MSR_{i} = \frac{\overline{I}_{i}}{\overline{S}_{i}}$$
+$$
+MSR_{i} = \frac{\overline{I}_{i}}{\overline{S}_{i}}
+$$
 
 The Moving Seasonality Ratio (MSR) is used to measure the amount of noise in the Seasonal-Irregular component. By studying these values, the user can [select for each period the seasonal filter](#a-X11-seaso-filters) that is the most suitable given the noisiness of the series.
 
@@ -607,6 +632,7 @@ $I = D9bis - S$.
 
 For each $i^{\text{th}}$ month the mean annual changes for each
 component is obtained by calculating 
+
 $$
 {\overline{S}}_{i} = \frac{1}{N_{i} - 1}\sum_{t = 2}^{N_{i}}\left| S_{i,t} - S_{i,t - 1} \right|
 $$
@@ -687,11 +713,22 @@ If the irregular is heteroskedastic the standard deviations used for identifying
 **Step 2:** The distance $\lvert I_t - m\rvert$ is computed for each point and evaluated with $\sigma_{y}$ as a benchmark, a weight $w_t$ is then assigned to each point, 3 cases: 
 
 1) value unchanged 
-$$\lvert I_t - m\rvert <1.5 \sigma_y \Rightarrow  w_t=1$$
+
+$$
+\lvert I_t - m\rvert <1.5 \sigma_y \Rightarrow  w_t=1
+$$
+
 2) value downsized 
-$$1,5 \sigma_y<\lvert I_t - m\rvert <2,5 \sigma_y \Rightarrow w_t=\frac{2.5 \sigma_y -\lvert I_t - m\rvert}{2.5 \sigma_y-1.5 \sigma_y}$$
+
+$$
+1,5 \sigma_y<\lvert I_t - m\rvert <2,5 \sigma_y \Rightarrow w_t=\frac{2.5 \sigma_y -\lvert I_t - m\rvert}{2.5 \sigma_y-1.5 \sigma_y}
+$$
+
 3) value removed and replaced 
-$$\lvert I_t - m\rvert >2,5 \sigma_y \Rightarrow w_t=0$$
+
+$$
+\lvert I_t - m\rvert >2,5 \sigma_y \Rightarrow w_t=0
+$$
 
 
 **Step3:**
@@ -701,12 +738,4 @@ Using this weights, a new value of $S+I$ will be computed:
 - if $w_{t}=1$, $S+I$ remains unchanged for point {t}
 
 - if $w_{t}<1$ then the new value of $S+I$ will be an average of $w_{t}*(S+I)_{t}$ and the values of $(S+I)$ of the two closest neighbours in the future and in the past with $w=1$
-
-
-
-
-
-
-
-
 

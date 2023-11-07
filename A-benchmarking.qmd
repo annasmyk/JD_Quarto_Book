@@ -160,9 +160,11 @@ low-frequency series to match the aggregation function selected of the high freq
 3. **Rho**: value between $-1$ and $1$. It is the coefficient of an AR($1$) model that follows the error term. The default value is $1$, equivalent to applying Denton.
 
 4. **Lambda**: value between $0$ and $1$. It is the parameter $\lambda$ of the following function to be minimized in Cholette method:
+
     $$
     \sum_t \left( \frac{x_t - z_t}{\left| z_t \right|^{\lambda}} - \rho \frac{x_{t-1} - z_{t-1}}{\left| z_{t-1} \right|^{\lambda}}\right)^2
     $$
+    
     Usually lambda is $0$ or $1$ equivalent to applying additive benchmarking and proportional benchmarking method respectively.
 
 ![Cholette Specifications](All_images/Image4_Bench.png)
