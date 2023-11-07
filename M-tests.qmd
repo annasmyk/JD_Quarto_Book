@@ -10,9 +10,9 @@ The procedure to apply these tests in context is described when their use is rel
 
 | Test           | Purpose         | GUI  | R package  |
 |----------------|-----------------|------|------------|
-| Ljung-Box      | autocorrelation | yes  |            |
-| Box-Pierce     | autocorrelation | yes  |            |
-| Doornik-Hansen | normality       | yes  | rjd3tookit |
+| Ljung-Box      | autocorrelation | ✅   |            |
+| Box-Pierce     | autocorrelation | ✅   |            |
+| Doornik-Hansen | normality       | ✅   | rjd3tookit |
 
 ### Ljung-Box
 
@@ -126,13 +126,13 @@ $$
 
 table with all tests by purpose and accessibility
 
-| Test                             | Purpose                          | GUI | R package |
-|-------------------|------------------|------------------|------------------|
-| QS test                          | Autocorrelation at seasonal lags | yes |           |
-| F-test with seasonal dummies     | Stable seasonality               | yes | rjd3sa    |
-| Identification of spectral peaks | Seasonal frequencies             | yes | rjd3sa    |
-| Friedman test                    | Stable seasonality               | yes | rjd3sa    |
-| Two-way variance analysis        | Moving seasonality               | yes |           |
+| Test | Purpose | GUI | R package |
+|------|------|--|---|
+| QS test                          | Autocorrelation at seasonal lags | ✅  |           |
+| F-test with seasonal dummies     | Stable seasonality               | ✅  | rjd3sa    |
+| Identification of spectral peaks | Seasonal frequencies             | ✅  | rjd3sa    |
+| Friedman test                    | Stable seasonality               | ✅  | rjd3sa    |
+| Two-way variance analysis        | Moving seasonality               | ✅  |           |
 
 #### QS Test on autocorrelation at seasonal lags
 
