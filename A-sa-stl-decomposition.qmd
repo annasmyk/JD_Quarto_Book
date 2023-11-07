@@ -1,4 +1,4 @@
-## SA with STL {.unnumbered}
+## SA with STL {.unnumbered #a-sa-stl}
 
 Loess based decomposition algorithm used on linearized data data, no pre-adjustment.
 

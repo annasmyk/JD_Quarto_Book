@@ -1,4 +1,4 @@
-# Graphical User Interface: data visualization and time series tools {.unnumbered}
+# GUI: data visualization and time series tools {.unnumbered #t-GUI-tstools}
 
 ## In this chapter
 
@@ -114,7 +114,7 @@ A left click displays a local menu with the available options. Those that are ch
 
 -   **Kind** -- displays m/m (or q/q) and y/y growth rates for all time series in the chart (previous period and previous year options respectively). By default, the period-over-period growth rates are shown.
 
--   **Edit last year** -- for clarity and readability purposes, only five of the last years of observations are shown by default. This setting can be adjusted in the [*Options*](#options-window) section, if required.
+-   **Edit last year** -- for clarity and readability purposes, only five of the last years of observations are shown by default. This setting can be adjusted in the [*Options*](#options) section, if required.
 
 The explanation of other options can be found below in the '*Local menu options for chart*' figure in the [*Container*](#container) section.
 
@@ -126,11 +126,83 @@ For a selected series a local menu offers an extended list of options. The expla
 
 ![**Options available for a selected series from the list**](All_images/A_Ref35.jpg)
 
-## Spectral analysis 
+## Spectral Analysis {#t-GUI-tstools-spec-graphs}
 
-The *Spectral analysis* section provides three spectral graphs that allows an in-depth analysis of a time series in the frequency domain. These graphs are the *Auto-regressive Spectrum*, the *Periodogram* and the *Tukey Spectrum*. For more information the user may study [a basic desription of spectral analysis](#spectral-analysis) and [a detailed presentation of the abovementioned tools](#spectral-graphs).
+Spectral graphs are available from: *Tools* → *Spectral analysis.
 
-![**Tools for spectral analysis**](All_images/A_Ref36.jpg)
+ ![**Tools for spectral analysis**](All_images/A_Ref36.jpg)
+
+ ![Tools for spectral analysis](All_images/image1_342.jpeg)
+
+### Auto-regressive spectrum
+
+When the first option is chosen JDemetra+ displays an empty *Auto-regressive spectrum* window. To start an analysis drag a single time series from the *Providers* window and drop it into the *Drop data here* area.
+
+![Launching an auto-regressive spectrum](All_images/image2_342.jpeg)
+
+When displaying an [Auto-regressive spectrum](#m-spectrum-ar-est) the number of observations, data transformations and other options such as the specification of the frequency grid and the order of the autoregressive polynomial (30 by default) can be specified by opening the *Window* → *Properties* from the main menu.
+
+![**Auto-regressive spectrum's properties**](All_images/image3_342.jpeg)
+
+The *Auto-regressive-Properties* window contains the following options:
+
+-   **Log** - log transformation of a time series;
+
+-   **Differencing**-transforms a data by calculating a regular (order 1,2..) or seasonal (order 4, 12, depending on the time series frequency) differences;
+
+-   **Differencing lag**-the number of lags that the program will use to take differences. For example, if *Differencing lag=3* then the differencing filter does not apply to the first lag (default) but to the third lag.
+
+-   **Last years**-a number of years at the end of the time series taken to produce autoregressive spectrum. By default, it is 0, which means that the whole time series is considered.
+
+-   **Auto-regressive polynomial order**-the number of lags in the AR model that is used to estimate the spectral density. By default, the order of the autoregressive polynomial is set to 30 lags.
+
+-   **Resolution**-the value 1 plots the spectral density estimate for the frequencies $\omega_{j}=\frac{2\pi j}{n}$, where $n \in (-\pi;\pi)$ is the size of the sample used to estimate the AR model. Increasing this value, which is set to 5 by default, will increase the precision of this grid.
+
+### Periodogram
+
+Choose *Tools* →*Spectral analysis* → *Periodogram* and drag and drop a series from the *Providers* window to the empty *Periodogram* window.
+
+    ![Launching a periodogram](All_images/image5_342.jpeg)
+
+The sample size and data transformations can be specified by opening the *Window* → *Properties*, in the main menu. The *Periodogram- Properties* window contains the following options:
+
+-   **Log** - log transformation of a time series;
+
+-   **Differencing**-transforms the data by calculating regular (order 1,2..) or seasonal (order 4, 12, depending on the time series frequency) differences;
+
+-   **Differencing lag**-the number of lags that you will use to take differences. For example, if *Differencing lag=3* then the differencing filter does not apply to the first lag (default) but to the third lag.
+
+-   **Last years**-the number of years at the end of the time series taken to produce periodogram. By default it is 0, which means that the whole time series is considered.
+
+    ![An example of a periodogram](All_images/image7_342.jpeg)
+    
+    ![Periodogram's properties](All_images/image6_342.jpeg)
+
+### Tukey spectrum
+
+Choose *Tools* → *Spectral analysis* → *Tukey spectrum* and drag and drop a single series from the *Providers* window to the empty *Periodogram* window*.*
+
+    ![Launching a Tukey spectrum](All_images//image8_342.jpeg)
+
+The Tukey spectrum estimates the spectral density by smoothing the periodogram.
+
+    ![An example of a Tukey spectrum](All_images/image9_342.jpeg)
+
+Options for the Tuckey window can be specified by opening the *Window* → *Properties* from the main menu. The *Periodogram- Properties* window contains the following options:
+
+-   **Log** - log transformation of a time series.
+
+-   **Differencing** -transforms the data by calculating regular (order 1, 2..) or seasonal (order 4, 12, depending on the time series frequency) differences.
+
+-   **Differencing lag**-the number of lags that you will use to take differences. For example, if *Differencing lag=3* then the differencing filter does not apply to the first lag (default) but to the third lag.
+
+-   **Taper part**--parameter larger than 0 and smaller or equal to one that shapes the curvature of the smoothing function that is applied to the auto-covariance function.
+
+-   **Window length**--the size of the window that is used to smooth the auto-covariance function. A value of zero includes the whole series.
+
+-   **Window type**--it refers to the weighting scheme that it is used to smooth the auto-covariance function. The available windows types (*Square*, *Welch*, *Tukey*, *Barlett*, *Hamming*, *Parzen*) are suitable to estimate the spectral density.
+
+![Tukey spectrum's properties](All_images/image10_342.jpeg)
 
 ## Aggregation {#aggregation}
 
@@ -149,4 +221,58 @@ The typical results are shown below. The bottom left graph presents the partial 
 ![**The *Differencing* tool**](All_images/A_Ref39.jpg)
 
 For the *Partial autocorrelation* and the *Periodogram* panels the right-button menu offers "a copy series" option that allows data to be exported to another application and a graph to be printed and saved to a clipboard or as a jpg file. Information about the partial autocorrelation function is given [here](../theory/ACF_and_PACF.html). The description of a periodogram is presented in [the Spectral graphs scenario](../case-studies/spectralgraphs.html).
+
+## Tests {#t-GUI-tstools-tests}
+
+Here we describe the GUI access to tests, which underlying method is detailed in M-tests chapter (link)
+
+### Seasonality Tests
+
+#### QS test
+
+The test can be applied directly to any series by selecting the option *Statistical Methods \>\> Seasonal Adjustment \>\> Tools \>\> Seasonality Tests*. This is an example of how results are displayed for the case of a monthly series:
+
+![qs](All_images/qs.png)
+
+It is also visible in Main results panel and in diagnostics node.
+
+#### Friedman test for stable seasonality
+
+
+The test can be applied directly to any series by selecting the option *Statistical Methods \>\> Seasonal Adjustment \>\> Tools \>\> Seasonality Tests*. This is an example of how results are displayed for the case of a monthly series:
+
+![friedman](All_images/friedman.png)
+
+If the null hypothesis of no stable seasonality is rejected at the 1% significance level, then the series is considered to be seasonal and the outcome of the test is displayed in green.
+
+It is also visible in Main results panel and in diagnostics node. (to be checked)
+
+#### Identification of spectral peaks 
+
+##### In a Tukey spectrum {#t-GUI-tstools-id-p-tuckey}
+
+The test can be applied directly to any series by selecting the option *Statistical Methods \>\> Seasonal Adjustment \>\> Tools \>\> Seasonality Tests*. This is an example of how results are displayed for the case of a monthly series:
+
+![tktest](All_images/spectrum.png)
+
+JDemetra+ considers critical values for $\alpha=1\%$ (code "T") and $\alpha=5\%$ (code "t") at each one of the seasonal frequencies represented in the table below, e.g. frequencies $\frac{\pi}{6}, \frac{\pi}{3}, \frac{\pi}{2}, \frac{2\pi}{3}\text{and} \frac{5\pi}{6}$ corresponding to 1, 2, 3, 4, 5 and 6 cycles per year in this example, since we are dealing with monthly data.
+
+##### In AR Spectrum definition {#t-GUI-tstools-id-p-ar}
+
+The test can be applied directly to any series by selecting the option *Statistical Methods \>\> Seasonal Adjustment \>\> Tools \>\> Seasonality Tests*. This is an example of how results are displayed for the case of a monthly series:
+
+![artest](All_images/spectrum.png)
+
+JDemetra+ considers critical values for $\alpha=1\%$ (code "A") and $\alpha=5\%$ (code "a") at each one of the seasonal frequencies represented in the table below, e.g. frequencies $\frac{\pi}{6}, \frac{\pi}{3}, \frac{\pi}{2}, \frac{2\pi}{3}\text{ and } \frac{5\pi}{6}$ corresponding to 1, 2, 3, 4, 5 and 6 cycles per year in this example, since we are dealing with monthly data. 
+
+##### In a Periodogram {#t-GUI-tstools-id-p-per}
+
+The test can be applied directly to any series by selecting the option *Statistical Methods \>\> Seasonal Adjustment \>\> Tools \>\> Seasonality Tests*.
+
+![periodtest](All_images/periodogram.png)
+
+### Tests on residuals
+
+
+
 

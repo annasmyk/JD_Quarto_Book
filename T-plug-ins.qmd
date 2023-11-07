@@ -1,4 +1,4 @@
-# Plug-ins for JDemetra+ {.unnumbered #plugins}
+# Plug-ins for JDemetra+ {.unnumbered #t-plug-ins}
 
 JDemetra+ is an application that supports plug-ins, which are components adding specific features to the existing software.
 

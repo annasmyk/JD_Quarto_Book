@@ -1,32 +1,32 @@
-# X-11 decomposition {.unnumbered #m-x11}
+# X11 decomposition {.unnumbered #m-X11}
 
-X-11 is the decomposition part of X13-ARIMA seasonal adjustment algorithm originally developed by the US Census Bureau. It is a non parametric algorithm based on [moving averages](#m-x11-ma).
+X11 is the decomposition part of X13-ARIMA seasonal adjustment algorithm originally developed by the US Census Bureau. It is a non parametric algorithm based on [moving averages](#m-x11-ma).
 
-The genuine X-11 algorithm was meant to decompose monthly ($p=12$) and quarterly series ($p=4$). In JDemetra+ half-yearly data ($p=2$), quadri-monthly ($p=3$) and bi-monthly data ($p=6$) can also be handled. ($p=3$ and $p=6$ only in version 3.x)
+The genuine X11 algorithm was meant to decompose monthly ($p=12$) and quarterly series ($p=4$). In JDemetra+ half-yearly data ($p=2$), quadri-monthly ($p=3$) and bi-monthly data ($p=6$) can also be handled. ($p=3$ and $p=6$ only in version 3.x)
 
 In the following chapter, explanations and examples are based on monthly and quarterly data, but the principles can be extended to other supra-monthly frequencies.
 
-In recent years, X-11 implementation in JDemetra+ v 3.x has been extended to infra-monthly data (weekly, daily, hourly...). Handling this kind of data gave way to a tailored X-11 algorithm whose peculiarities are described in [this chapter](#m-sa-hf).
+In recent years, X11 implementation in JDemetra+ v 3.x has been extended to infra-monthly data (weekly, daily, hourly...). Handling this kind of data gave way to a tailored X11 algorithm whose peculiarities are described in [this chapter](#m-sa-hf).
 
 
 
 
-## In this chapter {#m-x11-intro}
+## In this chapter {#m-X11-intro}
 
 This chapter provides details on 
-    - [algorithm steps](#X-11-steps)
-    - [computation stages and detailed output series](#m-x11-stages-output)
-    - [quality measures](#m-x11-qm)
-    - [filter length choices](#m-x11-filters-length-choice)
-    - [extreme values correction](#X-11-I-correc)
+    - [algorithm steps](#X11-steps)
+    - [computation stages and detailed output series](#m-X11-stages-output)
+    - [quality measures](#m-X11-qm)
+    - [filter length choices](#m-X11-filters-length-choice)
+    - [extreme values correction](#X11-I-correc)
 
-The practical implementation as well as all the options, using the graphical user interface or R packages are described in [this chapter](#sa-x11)
+The practical implementation as well as all the options, using the graphical user interface or R packages are described in [this chapter](#sa-X11)
 
-ref to add: the X-11 method
+ref to add: the X11 method
 
-## Moving averages {#m-x11-ma}
+## Moving averages in X11 {#m-X11-ma}
 
-Moving averages (MA) are the building blocks of X-11. They will be used successively to accomplish three goals:
+Moving averages (MA) are the building blocks of X11. They will be used successively to accomplish three goals:
 
     - removing seasonality 
     
@@ -101,9 +101,9 @@ Applying a moving average of an order equal to the periodicity of the raw series
 A moving average of order, 12 will remove a locally stable monthly seasonality: $M_{1\times 12}(S)=0$ and also $M_{2\times 12}(S)=0$ with linear trend preservation.
 
 
-## X-11 algorithm steps {#X-11-steps}
+## X11 algorithm steps {#X11-steps}
 
-The X-11 decomposition algorithm has eight main steps, outlined below for a monthly time series. (For a quarterly time series a $2\times 4$
+The X11 decomposition algorithm has eight main steps, outlined below for a monthly time series. (For a quarterly time series a $2\times 4$
 moving average would be used, instead of $2\times 12$)
 
 
@@ -152,10 +152,10 @@ Xsa_t^{(2)}= X_t - Snorm_t^{(2)}
 $$
 
 
-## Processing stages and output {#m-x11-stages-output}
+## Processing stages and output {#m-X11-stages-output}
 
 To evaluate the different components of a series, while taking into
-account the possible presence of extreme observations, X-11 will proceed
+account the possible presence of extreme observations, X11 will proceed
 iteratively: 
 - estimation of components
 - search for disruptive effects in the irregular component
@@ -216,7 +216,7 @@ Detailed series produced at the end of stage A, including estimated effect from 
 ### Stage B: First automatic correction of the series
 
 This stage consists of a first estimation and [down-weighting of
-extreme observations](#X-11-I-correc). This stage is performed by applying twice the algorithm [steps](#X-11-steps) outlined above. It starts with the linearised or raw series copied in table B1 lead to table B20, containing adjustment values for extreme observations. B1 corrected with weights from B20 allows to compute the series C1 which will start the next stage.
+extreme observations](#X11-I-correc). This stage is performed by applying twice the algorithm [steps](#X11-steps) outlined above. It starts with the linearised or raw series copied in table B1 lead to table B20, containing adjustment values for extreme observations. B1 corrected with weights from B20 allows to compute the series C1 which will start the next stage.
 
 Detailed series produced at the end of stage B:
 
@@ -353,13 +353,13 @@ Detailed series produced at the end of stage E:
 
 (Up coming here: computation steps for E Tables)
 
-## Quality Measures {#m-x11-qm}
+## Quality Measures {#m-X11-qm}
 
 All the diagnostics below can be displayed in the GUI by expanding the NODES
 
-Decomposition(X-11) \> Quality Measures \> Summary 
+Decomposition(X11) \> Quality Measures \> Summary 
 
-Decomposition(X-11) \> Quality Measures \> Details
+Decomposition(X11) \> Quality Measures \> Details
 
 ### M-statisctics
 
@@ -405,7 +405,7 @@ Detailed description:
 
 -   $M7$ is the combined test for the presence of an identifiable
     seasonality. The test compares the relative contribution of stable
-    and moving seasonality[^m-x11-decomposition-2].
+    and moving seasonality[^m-X11-decomposition-2].
 
 -   $M8$ to $M11$ measure if the movements due to the short-term
     quasi-random variations and movements due to the long-term changes
@@ -547,7 +547,7 @@ A Cochran test on equal variances within each period is performed in the extreme
 
 ![Text](All_images/RDimage55.png)
 
-#### Moving seasonality ratios (MSR) {#m-x11-msr}
+#### Moving seasonality ratios (MSR) {#m-X11-msr}
 
 For each $i^{\text{th}}$ month we will be looking at the mean annual changes for each component by calculating:
 
@@ -561,13 +561,13 @@ where $N_{i}$ refers to the number of months $\text{i}$ in the data, and the mov
 
 $$MSR_{i} = \frac{\overline{I}_{i}}{\overline{S}_{i}}$$
 
-The Moving Seasonality Ratio (MSR) is used to measure the amount of noise in the Seasonal-Irregular component. By studying these values, the user can [select for each period the seasonal filter](#a-x11-seaso-filters) that is the most suitable given the noisiness of the series.
+The Moving Seasonality Ratio (MSR) is used to measure the amount of noise in the Seasonal-Irregular component. By studying these values, the user can [select for each period the seasonal filter](#a-X11-seaso-filters) that is the most suitable given the noisiness of the series.
 
 ![Text](All_images/RDimage56.png)
 
-## Filter length choice {#m-x11-filters-length-choice}
+## Filter length choice {#m-X11-filters-length-choice}
 
-### Trend estimation with Henderson Moving average {#m-x11-trend-filters}
+### Trend estimation with Henderson Moving average {#m-X11-trend-filters}
 
 In iteration B (Table B7), iteration C (Table C7) and iteration D (Table
 D7 and Table D12) the trend component is extracted from an estimate of
@@ -578,7 +578,7 @@ The algorithm chooses between different filter lengths automatically according t
 ![Text](All_images/ESTP_bbk_X11_Henderson_choice_formula.png)
 
 
-### Seasonality extraction filters {#m-x11-seaso-filters}
+### Seasonality extraction filters {#m-X11-seaso-filters}
 
 In iteration D, Table D10 shows an estimate of the seasonal factors
 implemented on the basis of the modified SI (Seasonal: Irregular)
@@ -624,7 +624,7 @@ $$
 MSR_{i} = \frac{\ {\overline{I}}_{i}}{ {\overline{S}}_{i}}
 $$
 
-These ratios are presented in [Detailed Quality Measures](#m-x11-msr)
+These ratios are presented in [Detailed Quality Measures](#m-X11-msr)
 
 #### Step 3: Calculating the overall Moving Seasonality Ratio
 
@@ -665,7 +665,7 @@ years. These are then calculated using associated asymmetric moving
 averages.
 
 
-## Extreme values: identification and replacement {#X-11-I-correc}
+## Extreme values: identification and replacement {#X11-I-correc}
 
 Though it is recommended rely on the pre-adjustment stage to correct for outliers (transparent method with explicit modelling), X11 has its own (historical) module for identification and treatment of extreme values based on a comparison between the actual and the theoretical value of $I$. 
 

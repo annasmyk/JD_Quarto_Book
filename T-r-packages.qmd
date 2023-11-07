@@ -64,7 +64,8 @@ Packages corresponding to version 3.x core routines:
 | STL                     | rjd3stl        | Including high-frequency data                            |
 | Basic Structural Models | rjd3sts        | State space framework                                    |
 
-Version 3.x includes \[Revision Policies(\[T-rev-policies-production.qmd) in X-13 and TRAMO-SEATS.
+Version 3.x includes [Revision Policies][T-rev-policies-production.qmd) in X-13 and Tramo-Seats.
+
 
 More details on functions parameters and retrieving output in the chapter dedicated to [Seasonal Adjustment](A-sa.qmd)
 
@@ -116,6 +117,14 @@ This additional packages produce enhanced plots and diagnostic outputs.
 | ggdemetra   | 3.x         | plots based on ggplot          |
 | ggdemetra3  | 3.x         | plots based on ggplot          |
 | rjdqa       | 2.x         | visual dashboard on one series |
+
+## Time series tools {#t-r-packs-tstools}
+
+### Tests {#t-r-packs-tests}
+
+#### Seasonality tests 
+
+#### Tests on residuals
 
 ## General structure
 
@@ -368,7 +377,7 @@ Several examples [here](https://github.com/rjdemetra/test_rjd3bench)
 
 ### rjd3revisions 
 
-Revsion analysis. (See vignette in package)
+## Revsion analysis. (See vignette in package)
 
 ### rjdemetra 3
 
