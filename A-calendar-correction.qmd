@@ -1,5 +1,8 @@
 # Calendar correction {.unnumbered #a-cal}
 
+
+att : calendar regressors by frequency, wht is available
+
 ## Chapter's overview
 
 This chapter is divided in two parts. The first one (theory) outlines the rationale for correcting calendar correction and the underlying modelling. The second part (practice) describes how relevant regressors for calendar correction are built in JDemetra+.

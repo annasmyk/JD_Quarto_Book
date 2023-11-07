@@ -90,7 +90,9 @@ links to additional chapters, enhanced by tutorials
 
 ## Features MAP
 
-provisional 
+provide and overview of the documentation as well as an overview of the tools 
+
+provisional
 
 ### R vs GUI in v2
 
