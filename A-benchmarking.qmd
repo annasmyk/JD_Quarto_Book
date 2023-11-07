@@ -15,7 +15,7 @@ According to the \[ESS Guidelines on Seasonal Adjustment (2015)\] (https://ec.eu
 ### Benchmarking with GUI 
 1.  With the [pre-defined specifcations](../reference-manual/sa-specifications.html) the benchmarking functionality is not
     applied by default following the *ESS Guidelines on Seasonal Adjustment* (2015)
-    recommendations. It means that once the user has seasonally adjustd the series with a pre-defined specifcation the *Benchmarking* node is empty.
+    recommendations. It means that once the user has seasonally adjusted the series with a pre-defined specification the *Benchmarking* node is empty.
 	To execute benchmarking click on
     the *Specifications* button and activate the checkbox in the
     *Benchmarking* section.
@@ -216,11 +216,11 @@ In the top right of the screen, select **Specifications** to set the specificati
 +-------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------+
 | Between           | interval \[from ; to\] included (yyyy-mm-dd to yyyy-mm-dd)                                                                                                                  |        |
 +-------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------+
-| First             | number of observtions from the beginning of the series included (dynamic) (integer)                                                                                                 |        |
+| First             | number of observtions from the beginning of the series included (dynamic) (integer)                                                                                         |        |
 +-------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------+
-| Last              | number of observations from the end of the series (dynamic)(integer)                                                                                                                 |        |
+| Last              | number of observations from the end of the series (dynamic)(integer)                                                                                                        |        |
 +-------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------+
-| Excluding         | excluding N first observation and P last observation from the computation,dynamic) (integer)                                                                                                |        |
+| Excluding         | excluding N first observation and P last observation from the computation,dynamic) (integer)                                                                                |        |
 +-------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------+
 | Preliminary check | check to exclude highly problematic series e.g. the series with a number of identical observations and/or missing values above pre-specified threshold values. (True/False) |        |
 +-------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------+
@@ -229,22 +229,21 @@ In the top right of the screen, select **Specifications** to set the specificati
 
 
 
-+-------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------+
-| Option            | Description                                                                                                                                                                 |        |
-+===================+=============================================================================================================================================================================+========+
-| Ar1               | Chow-Lin method (default)                                                                                                                                                   |        |
-+-------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------+
-| Wn                | Classical Regression model    
-                                                                  |        |
-+-------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------+
-| Rw                | Fernández                                                                                                                                                                   |        |
-+-------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------+
-| RwAr1             | Litterman                                                                                                                                                                   |        |
-+-------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------+
-| I2                | Integrated order 2                                                                                                                                                          |        |
-+-------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------+
-| I3                | Integrated order 3                                                                                                                                                          |        |
-+-------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------+
++--------+----------------------------+--------+
+| Option | Description                |        |
++========+============================+========+
+| Ar1    | Chow-Lin method (default)  |        |
++--------+----------------------------+--------+
+| Wn     | Classical Regression model |        |
++--------+----------------------------+--------+
+| Rw     | Fernández                  |        |
++--------+----------------------------+--------+
+| RwAr1  | Litterman                  |        |
++--------+----------------------------+--------+
+| I2     | Integrated order 2         |        |
++--------+----------------------------+--------+
+| I3     | Integrated order 3         |        |
++--------+----------------------------+--------+
 
 
 3. **Parameter**: Coefficient of the AR(1) of the innovations model. It has a value between -1 and 1. This parameter exists only if RWar1 or Ar1 is selected in the error parameter.
