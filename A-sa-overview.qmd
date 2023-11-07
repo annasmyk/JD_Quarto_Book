@@ -1,4 +1,4 @@
-# Seasonal Adjustment (SA) Overview {.unnumbered #sa-overview}
+# Seasonal Adjustment (SA) Overview {#sa-overview .unnumbered}
 
 ## In this chapter
 
@@ -22,30 +22,19 @@ For an overview on the algorithms and methodological issues, please refer to the
 
 ## Seasonal Adjustment Algorithms
 
-+------------------------+---------------+------------------+----------------+
 | Algorithm              | Access in GUI | Access in R (v2) | Access in R v3 |
-+========================+===============+==================+================+
-| X-13 Arima             | ✅            | RJDemetra        | rjd3x13        |
-+------------------------+---------------+------------------+----------------+
-| Reg-Arima only         | ✅            | RJDemetra        | rjd3x13        |
-+------------------------+---------------+------------------+----------------+
-| X11 decomposition only | ✅            | RJDemetra        | rjd3x13        |
-+------------------------+---------------+------------------+----------------+
-| TRAMO-SEATS            | ✅            | RJDemetra        | rjd3tramoseats |
-+------------------------+---------------+------------------+----------------+
-| Tramo only             | ✅            | RJDemetra        | rjd3tramoseats |
-+------------------------+---------------+------------------+----------------+
-| STL                    | ❌            | ❌               | rjd3stl        |
-+------------------------+---------------+------------------+----------------+
-| STS                    | ❌            | ❌               | rjd3sts        |
-+------------------------+---------------+------------------+----------------+
+|------------------------|---------------|------------------|----------------|
+| X-13 Arima             | ✔️            | RJDemetra        | rjd3x13        |
+| Reg-Arima only         | ✔️            | RJDemetra        | rjd3x13        |
+| X11 decomposition only | ✔️            | RJDemetra        | rjd3x13        |
+| TRAMO-SEATS            | ✔️            | RJDemetra        | rjd3tramoseats |
+| Tramo only             | ✔️            | RJDemetra        | rjd3tramoseats |
+| STL                    | ✖             | ✖                | rjd3stl        |
+| STS                    | ✖             | ✖                | rjd3sts        |
 
 : X13-ARIMA and TRAMO-SEATS are two-step algorithms with a pre-treatment phase (Reg-Arima or Tramo) and a decomposition phase (X11 and Seats). STL is a local regression (Loess) based decomposition, without pre-treatment. In a Structural Time Series approach pre-treatment and decomposition are done simultaneously in a State Space Framework [(SSF)](M-state-space-framework.qmd).
 
-## Admissible data frequencies 
-
-
-
+## Admissible data frequencies
 
 ## Decomposition in unobserved components
 
@@ -69,7 +58,6 @@ In general, the trend consists of 2 sub-components:
 
 -   The cycle, that represents the smooth, almost periodic movement around the long-term evolution of the series. It reveals a succession of phases of growth and recession. Trend and cycle are not separated in SA algorithms.
 
-
 ## Detecting seasonal patterns
 
 A large number of [seasonality tests](M-tests.qmd) are available in JDemetra+. They can be accessed in the graphical user interface or via R.
@@ -86,13 +74,12 @@ In rjd3toolkit package:
 -   Periodogram Seasonality Test (`seasonality.periodogram()`)
 -   QS Seasonality Test (`seasonality.qs()`)
 
-### In GUI 
-
+### In GUI
 
 ## Direct-Indirect seasonal adjustment
 
 ### overview
 
-### GUI 
+### GUI
 
-### R 
+### R
