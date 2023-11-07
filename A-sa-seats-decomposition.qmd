@@ -18,7 +18,7 @@ In recent years SEATS has been tailored in JDemetra+ to handle high-frequency (i
 
 The sections below will describe
 
--   [specifications](#a-sa-SEATS-default-specs) needed to run SEATS 
+-   [specifications](#a-sa-SEATS-default-specs) needed to run SEATS
 
 -   generated output
 
@@ -42,7 +42,6 @@ SEATS is the second (decomposition) step in a seasonal adjustment processing wit
 | Tramo only  | ✔️            | RJDemetra        | rjd3tramoseats |
 
 Available frequencies in version 2 and version 3
-
 
 | Version | GUI and R          |
 |---------|--------------------|
@@ -74,7 +73,6 @@ The default specifications for SEATS must be chosen at the starting of the SA pr
 The default specifications for SEATS must be chosen at the starting of the SA processing. They are detailed in the [Reg-ARIMA part](A-sa.qmd#Pre-treatment:%20Reg-ARIMA%20(or%20TRAMO)) Starting point for TRAMO-SEATS
 
 ### Quick Launch
-
 
 With a workspace open, an SAProcessing created and open data provider:
 
@@ -256,14 +254,14 @@ Generating output from GUI (link) or from Cruncher (link), component series, the
 
 Same procedure as for stochastic series.
 
-##### Bias correction 
+##### Bias correction
 
 to be added
 
 #### Final series
 
 | Series                    | Final SEATS components | Final Results | Reallocation of pre-adjustment effects |
-|-----------------|-----------------|-----------------|----------------------|
+|-----------------|-----------------|-----------------|--------------------|
 | Raw series (forecasts)    |                        | y (y_f)       |                                        |
 | Linearized series         | B1                     |               | none                                   |
 | Final seasonal component  | D16                    | s (s_f)       |                                        |

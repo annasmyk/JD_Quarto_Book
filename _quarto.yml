@@ -85,7 +85,7 @@ book:
         - T-GUI-Output.qmd ##(#t-gui-output)
         - T-r-packages.qmd ##(#t-r-packs)
         - T-Production-tools-cruncher-QR.qmd ##(#t-r-packs)
-        - T-rev-policies-production.qmd ##(#t-prod)
+        - T-rev-policies-production.qmd ##(#t-rev-pol)
         - T-plug-ins.qmd ##(#t-plug-ins)
     - part: P_Methods.qmd ##(#part-T)
       chapters:
