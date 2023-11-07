@@ -26,7 +26,8 @@ In JDemetra+ the input for the model based signal extraction procedure is always
 
 One of the fundamental assumptions made by SEATS is that the linearized time series $x_{t}$ follows the ARIMA model
 
-Equation 1 $$
+Equation 1
+$$
 \phi(B)\delta(B)x_{t} = \theta(B)a_{t}
 $$
 
@@ -46,7 +47,8 @@ It should be noted that the stochastic time series can be predicted using its pa
 
 Denoting $\varphi(B) = \phi(B)\delta(B)$,can be written in a more concise form as
 
-Equation 2 $$
+Equation 2
+$$
 \varphi(B)x_{t} = \theta(B)a_{t}
 $$
 
@@ -63,7 +65,8 @@ $$
 
 where *i* refers to the orthogonal components: trend, seasonal, transitory or irregular. Apart from the irregular component, supposed to be a white noise, it is assumed that each component follows the ARIMA model which can be represented, using the notation of equation 2 as:
 
-Equation 4 $$
+Equation 4
+$$
 \varphi_{i}(B)\ x_{\text{it}} = \theta_{i}(B)a_{\text{it}}
 $$
 
@@ -83,19 +86,22 @@ For description of the spectrum see chapter on [Spectral Analysis](#m-spectrum).
 
 Since aggregation of ARIMA models yields ARIMA models, the series $x_{t}$ will also follow an ARIMA model, as in Equation 2, and consequently the following identity can be derived:
 
-Equation 5: $$
+Equation 5
+$$
 \frac{\theta(B)}{\varphi(B)}a_{t} = \sum_{i = 1}^{k}{\frac{\theta_{i}(B)}{\varphi_{i}(B)}a_{\text{it}}}
 $$
 
 In the ARIMA model based approach implemented in SEATS, the ARIMA model identified and estimated for the observed series $x_{t}$ is decomposed to derive the models for the components. In particular, the AR polynomials for the components, $\varphi_{i}(B)$, are easily derived through the factorization of the AR polynomial $\varphi(B)$:
 
-Equation 6 $$
+Equation 6
+$$
 \varphi(B) = \prod_{i = 1}^{k}{\varphi_{i}(B)}
 $$
 
 while the MA polynomials for the components, together with the innovation variances $V(a_{i})$, cannot simply be obtained through the relationship:
 
-Equation 7: $$
+Equation 7
+$$
 \theta(B)a_{t} = \sum_{i= 1}^{k}{\varphi_{\text{ni}}(B)}\theta_{i}(B)a_{\text{it}}
 $$
 
@@ -105,19 +111,22 @@ To understand how SEATS factorizes the AR polynomials, first a concept of a root
 
 Equation 2 can be expressed as:
 
-Equation 8: $$
+Equation 8
+$$
 \psi^{- 1}(B)x_{t} = a_{t}(1 + \varphi_{1}B + \ldots\varphi_{p}B^{p})x_{t} =(1 + \theta_{1}B + \ldots\theta_{q}B^{q})a_{t}
 $$
 
 Let us now consider Equation 2 in the inverted form:
 
-Equation 9: $$
+Equation 9
+$$
 \theta(B)y_{t} = \varphi(B)a_{t}
 $$
 
 If both sides of Equation 8 multiplied by $x_{t-k}$ with $k > q$, and expectations are taken, the right hand side of the equation vanishes and the left hand side becomes:
 
-Equation 10 $$
+Equation 10
+$$
 \varphi(B)\gamma_{k} = \gamma_{k} + \varphi_{1}\gamma_{k-1} + \ldots\varphi_{p}\gamma_{k-p} = 0
 $$
 
@@ -125,21 +134,25 @@ where $B$ operates on the subindex $k$.
 
 The autocorrelation function $\gamma_{k}$ is a solution of Equation 10 with the characteristic equation:
 
-Equation 11: $$
+Equation 11
+$$
 z^{p} +\varphi_{1}z^{p-1} + \ldots\varphi_{p-1}z + \varphi_{p} = 0
 $$
 
 If $z_{1}$,...,$\ z_{p}$ are the roots of Equation 11, the solutions of Equation 10 can be expressed as:
 
-Equation 12: $$
+Equation 12
+$$
 \gamma_{k} = \sum_{i = 1}^{p}z_{i}^{k}
 $$
 
 and will converge to zero as $karrow \infty$ when $|r_{i}| < 1,\ i = 1,\ldots,p$. From Equation 10 and Equation 12 it can be noticed that $z_{1} = B_{i}^{-1}$, meaning that $z_{1}$,...,$\ z_{p}$ are the inverses of the roots $B_{1},\ldots,B_{p}$ of the polynomial $\varphi(B)$. The convergence of $\gamma_{k}$ implies that the roots of the $\varphi(B)$ are larger than 1 in modulus (lie outside the unit circle). Therefore, from the equation 13.
 
-Equation 13 $$
+Equation 13
+$$
 {\varphi(B)}^{- 1} = \frac{1}{(1-z_{1})\ldots(1-z_{1})}
-$$ it can be derived that ${\varphi(B)}^{- 1}$ is convergent and all its inverse roots are less than 1 in modulus.
+$$
+it can be derived that ${\varphi(B)}^{- 1}$ is convergent and all its inverse roots are less than 1 in modulus.
 
 Equation 11 has real and complex roots (solutions). Complex number $x = a + bi$, with $a$ and $\text{b}$ both real numbers, can be represented as $x = r(cos(\omega) + i\ sin(\omega))$, where $i$ is the imaginary unit ${i}^{2}=-1)$, $r$ is the modulus of $x$, that is $r=|x| = \sqrt{a^{2} + b^{2}}$ and $\omega$ is the argument (frequency). When roots are complex, they are always in pairs of complex conjugates. The representation of the complex number $x = a + bi$ has a geometric interpretation in the complex plane established by the real axis and the orthogonal imaginary axis.
 
@@ -155,7 +168,8 @@ For the seasonal differencing operator $(1-B^{12})$ applied to the monthly time 
 
 The complex conjugates roots generate the periodic movements of the type:
 
-Equation 14 $$
+Equation 14
+$$
 z_{t} = A^{t}\cos(\omega t + W)
 $$
 
@@ -215,23 +229,28 @@ Then with the partial fraction expansion the spectrum of the final components ar
 
 For example, the Airline model for a monthly time series:
 
-Equation 15 $$
+Equation 15
+$$
 (1-B)(1-B^{12})x_{t} = (1+\theta_{1}B)(1+\Theta_{1}B^{12})\ a_{t}
 $$
 
 is decomposed by SEATS into the model for the trend component:
 
-Equation 16 $$
+Equation 16
+$$
 (1-B)(1-B)c_{t} =(1+\theta_{c,1}B + \theta_{c,2}B^{2})a_{c,t}
 $$
 
 and the model for the seasonal component:
 
-Equation 17 $$
+Equation 17
+$$
 (1+B + \ldots + B^{11})s_{t} = (1+\theta_{s,1}B + \ldots + {\theta_{s,11}B}^{11})a_{s,t},
 $$
 
-As a result, the Airline model is decomposed as follows: Equation 18 $$
+As a result, the Airline model is decomposed as follows: 
+Equation 18
+$$
 \small
 \frac{(1+\theta_{1}B)(1+\Theta_{1}B^{12})}{(1-B)(1-B)}a_{t} = \frac{(1+\theta_{s,1}B + \ldots + {\theta_{s,11}B}^{11})}{(1+B + \ldots + B^{11})}a_{s,t} + \frac{(1+\theta_{c,1}B + \theta_{c,2}B^{2})}{(1-B)(1-B)}a_{c,t} + u_{t}
 $$
@@ -262,7 +281,8 @@ The figure below represents the pseudo-spectrum for the canonical trend and an a
 
 A pseudo-spectrum is denoted by$g_{i}(\omega)$, where $\omega$ represents the angular frequency. The pseudo-spectrum of $x_{\text{it}}$ is defined as the Fourier transform of ACGF of $x_{t}$ which is expressed as:
 
-Equation 19 $$
+Equation 19
+$$
 \frac{\psi_{i}(B)\psi_{i}(F)}{\delta_{i}(B)\delta_{i}(F)}V(a_{i})
 $$
 
@@ -288,7 +308,8 @@ The various components are estimated using Wiener-Kolmogorow (WK) filters. JDeme
 
 The estimation procedure and the properties of the WK filter are easier to explain with a two-component model. Let the seasonally adjusted series ($s_{t}$) be the signal of interest and the seasonal component ($n_{t}$) be the remainder, "the noise". The series is given by the model in Equation 2 and from Equation 4 the models for theoretical components are:
 
-Equation 20 $$
+Equation 20 
+$$
 \varphi_{s}(B)s_{t} = \theta_{s}(B)a_{\text{st}}
 $$
 
@@ -303,8 +324,9 @@ From Equation 6 and Equation 7 it is clear that $\varphi(B) = \varphi_{s}(B)\var
 
 As the time series components are never observed, their estimators have to be used. Let us note $X_{T}$ an infinite realization of the time series $x_{t}$. SEATS computes the Minimum Mean Square Error (MMSE) estimator of $s_{t}$, e.g. the estimator $\widehat{s}_{t}$ that minimizes $E\lbrack({s_{t}-\widehat{s}_{t})}^{2}|X_{T})\rbrack$. Under the normality assumption $\widehat{s}_{t|T}$ is also equal to the conditional expectation $E(s_{t}|X_{T})$, so it can be presented as a linear function of the elements in $X_{T}$.WHITTLE (1963) shows that the MMSE estimator of $\widehat{s}_{t}$ is:
 
-Equation 22 $$
-\widehat{s}}_{t} = k_{s}\frac{\psi_{s}(B)\psi_{s}(F)}{\psi(B)\psi(F)}x_{t}
+Equation 22 
+$$
+{\widehat{s}}_{t} = k_{s}\frac{\psi_{s}(B)\psi_{s}(F)}{\psi(B)\psi(F)}x_{t}
 $$
 
 where
@@ -317,7 +339,8 @@ $V(a_{s})$ is the variance of $a_{st}$ and $V(a)$ is the variance of $a_{t}$.
 
 Expressing the $\psi(B)$ polynomials as functions of the AR and MA polynomials, after cancellation of roots, the estimator of $s_{t}$ can be expressed as:
 
-Equation 23 $$
+Equation 23 
+$$
 \widehat{s}_{t} = 
 k_{s}\frac{\theta_{s}(B)\theta_{s}(F)\varphi_{n}(B)\delta_{n}(B)\varphi_{n}(F)\delta_{n}(F)}
 {\theta(B)\theta(F)}x_{t}
@@ -335,7 +358,8 @@ Equation 24 shows that the WK filter is two-sided (uses observations both from t
 
 The estimator can be presented as
 
-Equation 25 $$
+Equation 25
+$$
 \widehat{s}_{t} = \nu_{i}(B,F)x_{t}
 $$
 
@@ -347,13 +371,16 @@ The example of the WK filters obtained for the pseudo-spectra of the series illu
 
 The WK filter from Equation 24 can also be expressed as a ratio of two pseudo-autocovariance generating functions (p-ACGF). The p-ACGF function summarizes the sequence of absolutely summable autocovariances of a stationary process $x_{t}$ (see [Spectral Analysis](#m-spectrum)).
 
-The ACGF function of an ARIMA process is expressed as: Equation 26 $$
+The ACGF function of an ARIMA process is expressed as: 
+Equation 26
+$$
 acgf(B) = \frac{\theta(B)\theta(F)}{\phi(B)\delta(B)\phi(F)\delta(F)}V(a)
 $$
 
 And, the WK filter can be rewritten as:
 
-Equation 27 $$
+Equation 27
+$$
 \nu_{s}(B,F) = \frac{\gamma_{s}(B,F)}{\gamma(B,F)}
 $$
 
@@ -371,7 +398,8 @@ This adaptability, if the model has been correctly determined, avoids the danger
 
 The derivation of the components requires an infinite realization of $x_{t}$ in the direction of the past and of the future. However, the convergence of the WK filter guarantees that, in practice, it could be approximated by a truncated (finite) filter and, in most applications, for large $k$ the estimator for the central periods of the series can be safely seen as generated by the WK filter (MARAVALL, A., and PLANAS, C. (1999)).
 
-Equation 28 $$
+Equation 28
+$$
 \widehat{s}_{t}=\nu_{k}x_{t-k} + \ldots + \nu_{0}x_{t} + \ldots + \nu_{k}x_{t+k}
 $$
 
@@ -394,7 +422,7 @@ The spectrum of the estimator of the seasonal component is expressed as:
 
 Equation 30
 $$
-g_\widehat{s}(\omega) = \lbrack \frac{g_{s}(\omega)}{g_{x}(\omega)}\rbrack^{2}g_{x}(\omega)
+g_{\widehat{s}}(\omega) = \lbrack \frac{g_{s}(\omega)}{g_{x}(\omega)}\rbrack^{2}g_{x}(\omega)
 $$
 
 where
@@ -402,7 +430,7 @@ where
 -   $\ \lbrack \widetilde{\nu}(\omega)\rbrack^{2} = \lbrack \frac{g_{s}(\omega)}{g_{x}(\omega)}\rbrack^{2} = \lbrack \frac{g_{s}(\omega)}{g_{s}(\omega) + g_{n}(\omega)}\rbrack^{2} = \lbrack \frac{1}{1+\frac{1}{r(\omega)}}\rbrack^{2}$ is the squared gain of the filter ;
 -   $r(\omega) = \frac{g_{s}(\omega)}{g_{n}(\omega)}$ represents the signal-to-noise ratio.
 
-For each $\omega$, the MMSE estimation gives the signal-to-noise ratio. If this ratio is high, then the contribution of that frequency to the estimation of the signal will be also high. Assume that the trend is a signal that needs to be extracted from a seasonal time series. Then $R(0) = 1$ and the frequency $\omega = 0$ will only be used for trend estimations. For seasonal frequencies $R(\omega) = 0$, so that these frequencies are ignored in computing the trend resulting in spectral zeros in $g_\widehat{s}(\omega)$. For this reason, unlike the spectrum of the component, the component spectrum contains dips as it can be seen on the figure below: Component spectrum and estimator spectrum for trend.
+For each $\omega$, the MMSE estimation gives the signal-to-noise ratio. If this ratio is high, then the contribution of that frequency to the estimation of the signal will be also high. Assume that the trend is a signal that needs to be extracted from a seasonal time series. Then $R(0) = 1$ and the frequency $\omega = 0$ will only be used for trend estimations. For seasonal frequencies $R(\omega) = 0$, so that these frequencies are ignored in computing the trend resulting in spectral zeros in $g_{\widehat{s}}(\omega)$. For this reason, unlike the spectrum of the component, the component spectrum contains dips as it can be seen on the figure below: Component spectrum and estimator spectrum for trend.
 
 ![**Component spectrum and estimator spectrum for trend**](All_images/UG_A_image10.png)
 
@@ -410,9 +438,9 @@ From the Equation 29 it is clear that the squared gain of the filter determines 
 
 ![**The squared gain of the WK filter for stable and stochastic seasonal components.**](All_images/UG_A_image11.png)
 
-Since $r(\omega) \geq 0$, then $\widetilde{\nu}(\omega) \leq 1$ and from Equation 29 it can be derived that $g_\widehat{s}(\omega) = \widetilde{\nu}(\omega)g_{s}(\omega)$. As a result, the estimator will always underestimate the component, i.e. it will be always more stable that the component.
+Since $r(\omega) \geq 0$, then $\widetilde{\nu}(\omega) \leq 1$ and from Equation 29 it can be derived that $g_{\widehat{s}}(\omega) = \widetilde{\nu}(\omega)g_{s}(\omega)$. As a result, the estimator will always underestimate the component, i.e. it will be always more stable that the component.
 
-Since $g_\widehat{n}(\omega) < g_{n}(\omega)$ and$\ g_\widehat{s}(\omega) < g_{s}(\omega)$ the expression: $g_{x}(\omega) - \lbrack g_\widehat{n}(\omega) + g_\widehat{s}(\omega)\rbrack \geq 0$ is the cross-spectrum. As it is positive, the MMSE yields correlated estimators. This effect emerges since variance of estimator is smaller than the variance of component. Nevertheless, if at least one non-stationary component exists, cross-correlations estimated by TRAMO-SEATS will tend to zero as cross-covariances between estimators of the components are finite. In practice, the inconvenience caused by this property will likely be of little relevance.
+Since $g_{\widehat{n}}(\omega) < g_{n}(\omega)$ and $g_{\widehat{s}}(\omega) < g_{s}(\omega)$ the expression: $g_{x}(\omega) - \lbrack g_{\widehat{n}}(\omega) + g_{\widehat{s}}(\omega)\rbrack \geq 0$ is the cross-spectrum. As it is positive, the MMSE yields correlated estimators. This effect emerges since variance of estimator is smaller than the variance of component. Nevertheless, if at least one non-stationary component exists, cross-correlations estimated by TRAMO-SEATS will tend to zero as cross-covariances between estimators of the components are finite. In practice, the inconvenience caused by this property will likely be of little relevance.
 
 **Preliminary estimators for the components**
 

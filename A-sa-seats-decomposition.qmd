@@ -38,8 +38,8 @@ SEATS is the second (decomposition) step in a seasonal adjustment processing wit
 
 | Algorithm   | Access in GUI | Access in R (v2) | Access in R v3 |
 |-------------|---------------|------------------|----------------|
-| Tramo-Seats | ✅            | RJDemetra        | rjd3tramoseats |
-| Tramo only  | ✅            | RJDemetra        | rjd3tramoseats |
+| Tramo-Seats | ✔️            | RJDemetra        | rjd3tramoseats |
+| Tramo only  | ✔️            | RJDemetra        | rjd3tramoseats |
 
 Available frequencies in version 2 and version 3
 

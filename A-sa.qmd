@@ -15,19 +15,19 @@
 +------------------------+---------------+------------------+----------------+
 | Algorithm              | Access in GUI | Access in R (v2) | Access in R v3 |
 +========================+===============+==================+================+
-| X-13 Arima             | ✅            | RJDemetra        | rjd3x13        |
+| X-13 Arima             | ✔️            | RJDemetra        | rjd3x13        |
 +------------------------+---------------+------------------+----------------+
-| Reg-Arima only         | ✅            | RJDemetra        | rjd3x13        |
+| Reg-Arima only         | ✔️            | RJDemetra        | rjd3x13        |
 +------------------------+---------------+------------------+----------------+
-| X11 decomposition only | ✅            | RJDemetra        | rjd3x13        |
+| X11 decomposition only | ✔️            | RJDemetra        | rjd3x13        |
 +------------------------+---------------+------------------+----------------+
-| TRAMO-SEATS            | ✅            | RJDemetra        | rjd3tramoseats |
+| TRAMO-SEATS            | ✔️            | RJDemetra        | rjd3tramoseats |
 +------------------------+---------------+------------------+----------------+
-| Tramo only             | ✅            | RJDemetra        | rjd3tramoseats |
+| Tramo only             | ✔️            | RJDemetra        | rjd3tramoseats |
 +------------------------+---------------+------------------+----------------+
-| STL                    | ❌            | ❌               | rjd3stl        |
+| STL                    | ✖            | ✖               | rjd3stl        |
 +------------------------+---------------+------------------+----------------+
-| STS                    | ❌            | ❌               | rjd3sts        |
+| STS                    | ✖            | ✖               | rjd3sts        |
 +------------------------+---------------+------------------+----------------+
 
 : X13-ARIMA and TRAMO-SEATS are two-step algorithms with a pre-treatment phase (Reg-Arima or Tramo) and a decomposition phase (X11 and Seats). STL is a local regression (Loess) based decomposition, without pre-treatment. In a Structural Time Series approach pre-treatment and decomposition are done simultaneously in a State Space Framework [(SSF)](M-state-space-framework.qmd).
