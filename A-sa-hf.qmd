@@ -120,9 +120,12 @@ frenchCalendar <- national_calendar(days = list(
     special_day("ARMISTICE")
 ))
 # Generrate calendar regressors
-q <- holidays(frenchCalendar, "1968-01-01",
-    length = length(df_daily$births), type = "All",
-    nonworking = as.integer(7)
+q <- holidays(
+    calendar = frenchCalendar, 
+    start = "1968-01-01",
+    length = length(df_daily$births), 
+    type = "All",
+    nonworking = 7L
 )
 
 # Argument type = All : taking all holidays into account
