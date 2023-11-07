@@ -115,30 +115,40 @@ Use the specification window for a given series and expand the nodes.
 
 x13 in version 2
 
-```{r, EVAL=FALSE}
+```{r, echo = TRUE, eval = FALSE}
 library("RJDemetra")
 # estimation interval: option with static dates
-user_spec_1<-x13_spec(spec = c("RSA5c", "RSA0", "RSA1", "RSA2c", 
-                               "RSA3", "RSA4c", "X11"), 
-preliminary.check = TRUE, 
-estimate.from = "2012-06-01", 
-estimate.to = "2019-12-01") 
+user_spec_1 <- x13_spec(
+    spec = c(
+        "RSA5c", "RSA0", "RSA1", "RSA2c",
+        "RSA3", "RSA4c", "X11"
+    ),
+    preliminary.check = TRUE,
+    estimate.from = "2012-06-01",
+    estimate.to = "2019-12-01"
+)
 
 # estimation interval: option with dynamic numbers of observations
 
-# 
+#
 # spec can be applied on different series and therefore exclude different dates
-user_spec_2<-x13_spec(spec = c("RSA5c", "RSA0", "RSA1", "RSA2c", "RSA3", "RSA4c", "X11"), 
-estimate.first = 12) 
+user_spec_2 <- x13_spec(
+    spec = c("RSA5c", "RSA0", "RSA1", "RSA2c", "RSA3", "RSA4c", "X11"),
+    estimate.first = 12
+)
 
 # eestimation on the last 120 obs
-user_spec_3<-x13_spec(spec = c("RSA5c", "RSA0", "RSA1", "RSA2c", "RSA3", "RSA4c", "X11"), 
-estimate.last = 120)
+user_spec_3 <- x13_spec(
+    spec = c("RSA5c", "RSA0", "RSA1", "RSA2c", "RSA3", "RSA4c", "X11"),
+    estimate.last = 120
+)
 
-#excluding first 24 and last 36 observations
-user_spec_4<-x13_spec(spec = c("RSA5c", "RSA0", "RSA1", "RSA2c", "RSA3", "RSA4c", "X11"), 
-estimate.exclFirst = 24, 
-estimate.exclLast = 36)
+# excluding first 24 and last 36 observations
+user_spec_4 <- x13_spec(
+    spec = c("RSA5c", "RSA0", "RSA1", "RSA2c", "RSA3", "RSA4c", "X11"),
+    estimate.exclFirst = 24,
+    estimate.exclLast = 36
+)
 
 # Retrieve settings
 ```
@@ -147,13 +157,13 @@ For comprehensive details about x13_spec function see RJDemetra R help pages.
 
 TRAMO-SEATS in version 2
 
-```{r, eval=FALSE}
-
-#excluding first 24 and last 36 observations
-user_spec_1<-tramoseats_spec( spec = c("RSAfull", "RSA0", "RSA1", "RSA2", "RSA3", "RSA4", "RSA5"),  
-estimate.exclFirst = 24, 
-estimate.exclLast = 36)
-
+```{r, echo = TRUE, eval = FALSE}
+# excluding first 24 and last 36 observations
+user_spec_1 <- tramoseats_spec(
+    spec = c("RSAfull", "RSA0", "RSA1", "RSA2", "RSA3", "RSA4", "RSA5"),
+    estimate.exclFirst = 24,
+    estimate.exclLast = 36
+)
 ```
 
 For comprehensive details about tramoseats_spec function see RJDemetra R help pages.
@@ -194,14 +204,14 @@ Use the specification window
 
 Tramo example in version 2
 
-```{r, eval=FALSE}
-
-#excluding first 24 and last 36 observations
-user_spec_1<-tramoseats_spec( spec = c("RSAfull", "RSA0", "RSA1", "RSA2", "RSA3", "RSA4", "RSA5"),  
-estimate.tol = 0.0000001, 
-estimate.eml = FALSE, 
-estimate.urfinal = 0.98)
-
+```{r, echo = TRUE, eval = FALSE}
+# excluding first 24 and last 36 observations
+user_spec_1 <- tramoseats_spec(
+    spec = c("RSAfull", "RSA0", "RSA1", "RSA2", "RSA3", "RSA4", "RSA5"),
+    estimate.tol = 0.0000001,
+    estimate.eml = FALSE,
+    estimate.urfinal = 0.98
+)
 ```
 
 ### Decomposition Scheme
@@ -265,24 +275,27 @@ Controls the bias in the log/level pre-test (the function is active when **Funct
 
 X13
 
-```{r, eval=FALSE}
-
-#excluding first 24 and last 36 observations
-user_spec <-x13_spec(spec = c("RSA5c", "RSA0", "RSA1", "RSA2c", "RSA3", "RSA4c", "X11"), 
-transform.function ="Log", # choose from: c(NA, "Auto", "None", "Log"),
-transform.adjust = "LeapYear", #c(NA, "None", "LeapYear", "LengthOfPeriod"),
-transform.aicdiff = -3)
-#Retrieve settings: to complete*
+```{r, echo = TRUE, eval = FALSE}
+# excluding first 24 and last 36 observations
+user_spec <- x13_spec(
+    spec = c("RSA5c", "RSA0", "RSA1", "RSA2c", "RSA3", "RSA4c", "X11"),
+    transform.function = "Log", # choose from: c(NA, "Auto", "None", "Log"),
+    transform.adjust = "LeapYear", # c(NA, "None", "LeapYear", "LengthOfPeriod"),
+    transform.aicdiff = -3
+)
+# Retrieve settings: to complete*
 ```
 
 TRAMO-SEATS settings
 
-```{r, eval=FALSE}
-#transfo
-user_spec_1<-tramoseats_spec( spec = c("RSAfull", "RSA0", "RSA1", "RSA2", "RSA3", "RSA4", "RSA5"),  
-transform.function = "Auto", #c(NA, "Auto", "None", "Log"), 
-transform.fct = 0.5)
-# Retrieve settings: to complete 
+```{r, echo = TRUE, eval = FALSE}
+# transfo
+user_spec_1 <- tramoseats_spec(
+    spec = c("RSAfull", "RSA0", "RSA1", "RSA2", "RSA3", "RSA4", "RSA5"),
+    transform.function = "Auto", # c(NA, "Auto", "None", "Log"),
+    transform.fct = 0.5
+)
+# Retrieve settings: to complete
 ```
 
 ### Calendar correction
@@ -389,18 +402,18 @@ Link to Import data Once data imported: here explain how to link variables
 
 In version 2
 
-```{r, eval=FALSE}
+```{r, echo = TRUE, eval = FALSE}
 # Parameter choice NA=...
-  tradingdays.option = c(NA, "TradingDays", "WorkingDays", "UserDefined", "None"),
-  tradingdays.autoadjust = NA,
-  tradingdays.leapyear = c(NA, "LeapYear", "LengthOfPeriod", "None"),
-  tradingdays.stocktd = NA_integer_,
-  tradingdays.test = c(NA, "Remove", "Add", "None"),
-  easter.enabled = NA,
-  easter.julian = NA,
-  easter.duration = NA_integer_,
-  easter.test = c(NA, "Add", "Remove", "None"),
-# example 
+tradingdays.option <- c(NA, "TradingDays", "WorkingDays", "UserDefined", "None")
+tradingdays.autoadjust <- NA
+tradingdays.leapyear <- c(NA, "LeapYear", "LengthOfPeriod", "None")
+tradingdays.stocktd <- NA_integer_
+tradingdays.test <- c(NA, "Remove", "Add", "None")
+easter.enabled <- NA
+easter.julian <- NA
+easter.duration <- NA_integer_
+easter.test <- c(NA, "Add", "Remove", "None")
+# example
 ```
 
 In version 3 (Under construction)
@@ -437,15 +450,16 @@ Move right the chosen regressors
 
 "UserDefined" = user-defined trading days regressors (regressors must be defined by the usrdef.var argument with usrdef.varType set to "Calendar" and usrdef.varEnabled = TRUE).
 
-```{r, eval=FALSE}
-
-# example 
-spec_4 <- x13_spec(spec = spec_1, 
-                   tradingdays.option = "UserDefined", 
-                   tradingdays.test = "None", 
-                   usrdef.varEnabled = TRUE, 
-                   usrdef.varType = "Calendar", 
-                   usrdef.var = reg3) # set of regressors in TS format
+```{r, echo = TRUE, eval = FALSE}
+# example
+spec_4 <- x13_spec(
+    spec = spec_1,
+    tradingdays.option = "UserDefined",
+    tradingdays.test = "None",
+    usrdef.varEnabled = TRUE,
+    usrdef.varType = "Calendar",
+    usrdef.var = reg3
+) # set of regressors in TS format
 ```
 
 #### Retrieving Results
@@ -865,20 +879,21 @@ Forecast horizon when using TRAMO-SEATS Is set in the decomposition part of the 
 
 **Setting in R** (first template, then worked example) X13-ARIMA template in version 2
 
-```{r,eval=FALSE}
-spec_2 <- x13_spec(spec = spec_1,
-automdl.enabled = NA,
-  automdl.acceptdefault = NA,
-  automdl.cancel = NA_integer_,
-  automdl.ub1 = NA_integer_,
-  automdl.ub2 = NA_integer_,
-  automdl.mixed = NA,
-  automdl.balanced = NA,
-  automdl.armalimit = NA_integer_,
-  automdl.reducecv = NA_integer_,
-  automdl.ljungboxlimit = NA_integer_,
-  automdl.ubfinal = NA_integer_)
-
+```{r, echo = TRUE, eval = FALSE}
+spec_2 <- x13_spec(
+    spec = spec_1,
+    automdl.enabled = NA,
+    automdl.acceptdefault = NA,
+    automdl.cancel = NA_integer_,
+    automdl.ub1 = NA_integer_,
+    automdl.ub2 = NA_integer_,
+    automdl.mixed = NA,
+    automdl.balanced = NA,
+    automdl.armalimit = NA_integer_,
+    automdl.reducecv = NA_integer_,
+    automdl.ljungboxlimit = NA_integer_,
+    automdl.ubfinal = NA_integer_
+)
 ```
 
 add worked example in version 2
@@ -923,22 +938,22 @@ Control variables for the user-defined ARMA coefficients. Coefficients can be de
 
 X13-ARIMA template in version 2
 
-```{r,eval=FALSE}
-spec_2 <- x13_spec(spec = spec_1, 
-automdl.enabled = FALSE,
-
-  arima.mu = NA,
-  arima.p = NA_integer_,
-  arima.d = NA_integer_,
-  arima.q = NA_integer_,
-  arima.bp = NA_integer_,
-  arima.bd = NA_integer_,
-  arima.bq = NA_integer_,
-  arima.coefEnabled = NA,
-  arima.coef = NA,
-  arima.coefType = NA,
-  fcst.horizon = NA_integer_)
-
+```{r, echo = TRUE, eval = FALSE}
+spec_2 <- x13_spec(
+    spec = spec_1,
+    automdl.enabled = FALSE,
+    arima.mu = NA,
+    arima.p = NA_integer_,
+    arima.d = NA_integer_,
+    arima.q = NA_integer_,
+    arima.bp = NA_integer_,
+    arima.bd = NA_integer_,
+    arima.bq = NA_integer_,
+    arima.coefEnabled = NA,
+    arima.coef = NA,
+    arima.coefType = NA,
+    fcst.horizon = NA_integer_
+)
 ```
 
 in version 3

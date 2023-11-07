@@ -4,45 +4,43 @@
 
 This chapter provides some guidance on spectral analysis, which will allow to understand the principle of various spectral analysis tools available in JDemetra+, via [Graphical User Interface](#t-GUI-tstools-spectral) and [R packages](#t-r-packs).
 
-- explanation of spectral graphs here, but description in GUI chap
+-   explanation of spectral graphs here, but description in GUI chap
 
-- outputs of tests ?
+-   outputs of tests ?
 
-- description of spectral graphs in GUI can be found here 
+-   description of spectral graphs in GUI can be found here
 
 ## Spectral analysis concepts
 
 A time series $x_{t}$ with stationary covariance, mean $μ$ and $k^{th}$ autocovariance $E((x_{t}-\mu)(x_{t-k}\mu))=\gamma(k)$ can be described as a weighted sum of periodic trigonometric functions: $sin(\omega t)$ and $cos(\omega t)$, where $\omega=\frac{2*pi}{T}$ denotes frequency. Spectral analysis investigates this frequency domain representation of $x_{t}$ to determine how important cycles of different frequencies are in accounting for the behaviour of $x_{t}$.
 
-Assuming that the autocovariances $\gamma(k)$ are absolutely summable($\sum_{k=-\infty}^{\infty}|\gamma(k)|<\infty$), the autocovariance generating function, which summarizes these autocovariances through a scalar valued function, is given by equation 1 (HAMILTON, J.D. (1994)).
+Assuming that the autocovariances $\gamma(k)$ are absolutely summable($\sum_{k=-\infty}^{\infty}|\gamma(k)|<\infty$), the autocovariance generating function, which summarizes these autocovariances through a scalar valued function, is given by @eq-1 (HAMILTON, J.D. (1994)).
 
-Equation 1 $$
-acgf(z)=\sum_{k=-\infty}^{\infty}{z^{k}\gamma(k)}
 $$
+acgf(z)=\sum_{k=-\infty}^{\infty}{z^{k}\gamma(k)}
+$$ {#eq-1}
 
 where $z$ denotes a complex scalar.
 
-Once the equation 1 is divided by $\pi$ and evaluated at some $z{=e}^{-i\omega}=cos\omega-isin\omega$, where $i=\sqrt{-1}$ and $\omega$ is a real scalar, $-\infty < \ \omega < \infty$, the result of this transformation is called a population spectrum $f(\omega)$for $\ x_{t}$, given in equation 2 (HAMILTON, J.D. (1994)).
+Once the @eq-1 is divided by $\pi$ and evaluated at some $z{=e}^{-i\omega}=cos\omega-isin\omega$, where $i=\sqrt{-1}$ and $\omega$ is a real scalar, $-\infty < \ \omega < \infty$, the result of this transformation is called a population spectrum $f(\omega)$for $\ x_{t}$, given in @eq-2 (HAMILTON, J.D. (1994)).
 
-Equation 2: $$
-f(\omega)=\frac{1}{\pi}\sum_{k=-\infty}^{\infty}{e^{-ik\omega}\gamma(k)}
 $$
+f(\omega)=\frac{1}{\pi}\sum_{k=-\infty}^{\infty}{e^{-ik\omega}\gamma(k)}
+$$ {#eq-2}
 
 Therefore, the analysis of the population spectrum in the frequency domain is equivalent to the examination of the autocovariance function in the time domain analysis; however it provides an alternative way of inspecting the process. Because $f(\omega)\text{dω}$ is interpreted as a contribution to the variance of components with frequencies in the range $(\omega,\ \omega+d\omega)$, a peak in the spectrum indicates an important contribution to the variance at frequencies near the value that corresponds to this peak.
 
-As $e^{-i\omega}=cos\omega-isin\omega$, the spectrum can be also expressed as in equation 3.
+As $e^{-i\omega}=cos\omega-isin\omega$, the spectrum can be also expressed as in @eq-3.
 
-Equation 3: $$
-f(\omega)=\frac{1}{\pi}\sum_{k=-\infty}^{\infty}{(cos\omega k-isin\omega k)\gamma(k)}
 $$
+f(\omega)=\frac{1}{\pi}\sum_{k=-\infty}^{\infty}{(cos\omega k-isin\omega k)\gamma(k)}
+$$ {#eq-3}
 
-Since $\gamma(k)=\gamma(-k)$ (i.e. $\gamma(k)$ is an even function of $k$) and $\sin{(-x)}\ =\operatorname{-sin}x$
-
-Equation 3 can be presented as
+@eq-3 can be presented as:
 
 $$
 f(\omega)=\frac{1}{\pi}[\ \gamma(0)+2\sum_{k=1}^{\infty}{\ \gamma(k)}cos\text{ωk}]
-$$
+$$ {#eq-4}
 
 This implies that if autocovariances are absolutely summable the population spectrum exists and is a continuous, real-valued function of $\omega$. Due to the properties of trigonometric functions $(\cos(-\omega k)=\cos(\text{ωk})$ and $\cos(\omega+2\pi j)k=cos(\omega k))$ the spectrum is a periodic, even function of $\omega$, symmetric around $\omega=0$. Therefore, the analysis of the spectrum can be reduced to the interval $(-\pi,\pi)$. The spectrum is non-negative for all $\omega \in (-\pi,\pi)$.
 
@@ -60,7 +58,7 @@ The explanations given in the subsections of this node derive mainly from DE ANT
 
 ### Estimation
 
-#### Method 1: Periodogram {#m-spectrum-periodogram}
+#### Method 1: Periodogram {#m-spectral-analysis-m-spectrum-periodogram}
 
 For any given frequency $\omega$ the sample periodogram is the sample analog of the sample spectrum. In general, the periodogram is used to identify the periodic components of unknown frequency in the time series. X-13ARIMA-SEATS and TRAMO-SEATS use this tool for detecting seasonality in raw time series and seasonally adjusted series. Apart from this it is applied for checking randomness of the residuals from the ARIMA model.
 
@@ -75,7 +73,7 @@ $$
   . \\
   x_{n} \\
   \end{bmatrix} \in \mathbb{C}^{n}
-$$
+$$ {#eq-5}
 
 where $\mathbb{C}^{n}$ is the set of all column vectors with complex-valued components.
 
@@ -88,33 +86,33 @@ $$
 1,\ if\ j=k \\
 0,\ if\ j \neq k \\
 \end{matrix}}
-$$
+$$ {#eq-6}
 
 where $\mathbf{e}_{j}^{*}$ denotes the row vector, which $k^{th}$ component is the complex conjugate of the $k^{th}$ component of $\mathbf{e}_{j}$. These vectors are a basis of $F_{n}$, so that any $\mathbf{x}\in\mathbb{C}^{n}$ can be expressed as a sum of $n$ components:
 
 $$
 \mathbf{x}=\sum_{j=-[\frac{n-1}{2}]}^{[\frac{n}{2}]}{a_{j}\mathbf{e}_{j}}
-$$
+$$ {#eq-7}
 
-where the coefficients $a_{j}=\mathbf{e}_{j}^{*}\mathbf{x}=n^{-\frac{1}{2}}\sum_{t=1}^{n}x_{t}e^{-it\omega_{j}}$ are derived from @eq-3 by multiplying the equation on the left by $\mathbf{e}_{j}^{*}$ and using @eq-1.
+where the coefficients $a_{j}=\mathbf{e}_{j}^{*}\mathbf{x}=n^{-\frac{1}{2}}\sum_{t=1}^{n}x_{t}e^{-it\omega_{j}}$ are derived from @eq-7 by multiplying the equation on the left by $\mathbf{e}_{j}^{*}$ and using @eq-5.
 
 The sequence of $\{a_{j},j\in F_{n}\}$ is referred as a discrete Fourier transform of $\mathbf{x}\mathbb{\in C}^{n}$ and the periodogram $I(\omega_{j})$ of $\mathbf{x}$ at Fourier frequency $\omega_{j}=\frac{2\pi j}{n}$ is defined as the square of the Fourier transform $\{a_{j}\}$ of $\mathbf{x}$:
 
 $$
 {I(\omega_{j})\mathbf{=}{|a_{j} |^{2}}_{\ }=n^{-\ 1}|\sum_{t=1}^{n}x_{t}e^{-it\omega_{j}} |^{2}}_{\mathbf{\ }}
-$$
+$$ {#eq-8}
 
-From Equation 2 and Equation 3 it can be shown that a periodogram decomposes the total sum of squares $\sum_{t=1}^{n}|x_{t} |^{2}$ into a sum of components associated with the Fourier frequencies $ω_{j}$:
+From @eq-6 and @eq-7 it can be shown that a periodogram decomposes the total sum of squares $\sum_{t=1}^{n}|x_{t} |^{2}$ into a sum of components associated with the Fourier frequencies $ω_{j}$:
 
 $$
 \sum_{t=1}^{n}{|x_{t}|}^{2}=\sum_{j=-[\frac{n-1}{2}]}^{[\frac{n}{2}]}|a_{j}|^{2}=\sum_{j=-[\frac{n-1}{2}]}^{[\frac{n}{2}]}{I(\omega_{j})}
-$$
+$$ {#eq-9}
 
-If $\ \mathbf{x\  \in}\ {R}^{n}$, $\omega_{j}$ and ${-\omega}_{j}$ are both in $[-\pi,-\pi]$ and $a_{j}$ is presented in its polar form (i.e. $a_{j}=r_{j}\exp(i\theta_{j})$), where $r_{j}$ is the modulus of $a_{j}$, then Equation 3 can be rewritten in the form:
+If $\ \mathbf{x\  \in}\ {R}^{n}$, $\omega_{j}$ and ${-\omega}_{j}$ are both in $[-\pi,-\pi]$ and $a_{j}$ is presented in its polar form (i.e. $a_{j}=r_{j}\exp(i\theta_{j})$), where $r_{j}$ is the modulus of $a_{j}$, then @eq-7 can be rewritten in the form:
 
 $$
 \mathbf{x}=a_{0}\mathbf{e}_{0}+\sum_{j=1}^{[\frac{n-1}{2}]}{ {2^{1/2}r}_{j}{(\mathbf{c}}_{j}\cos\theta_{j}{-\mathbf{s}}_{j}\sin\theta_{j})+a_{n/2}\mathbf{e}_{n/2}}
-$$
+$${#eq-10}
 
 The orthonormal basis for ${R}^{n}$ is $\{\mathbf{e}_{0},\mathbf{c}_{1},\mathbf{s}_{1},\ldots,\mathbf{c}_{[\frac{n-1}{2}]},\mathbf{s}_{[\frac{n-1}{2}]},\mathbf{e}_{\frac{n}{2}(excluded\ if\ n\ is\ odd)}\}$, where:
 
@@ -132,37 +130,41 @@ $$
 \mathbf{e}_{n/2}={(-(n^{-\frac{1}{2}}),n^{-\frac{1}{2}},\ldots,{-(n)}^{-\frac{1}{2}}),n^{-\frac{1}{2}})}^{'}
 $$
 
-Equation 5 can be seen as an OLS regression of $x_{t}$ on a constant and the trigonometric terms. As the vector of explanatory variables includes $n$ elements, the number of explanatory variables in @eq-5 is equal to the number of observations. HAMILTON, J.D. (1994) shows that the explanatory variables are linearly independent, which implies that an OLS regression yields a perfect fit (i.e. without an error term). The coefficients have the form of a simple OLS projection of the data on the orthonormal basis:
+@eq-9 can be seen as an OLS regression of $x_{t}$ on a constant and the trigonometric terms. As the vector of explanatory variables includes $n$ elements, the number of explanatory variables in @eq-9 is equal to the number of observations. HAMILTON, J.D. (1994) shows that the explanatory variables are linearly independent, which implies that an OLS regression yields a perfect fit (i.e. without an error term). The coefficients have the form of a simple OLS projection of the data on the orthonormal basis:
 
-Equation 7 $$
+$$
 \widehat{a}_{0}=\frac{1}{\sqrt{n}}\sum_{t=1}^{n}x_{t}
-$$ Equation 8 $$
+$$ {#eq-11}
+
+$$
 \widehat{a}_{n/2}=\frac{1}{\sqrt{n}}\sum_{t=1}^{n}{(-1)}^{t}x_{t}(  \text{only when n is even})
-$$
+$$ {#eq-12}
 
-Equation 9 $$
+$$
 \widehat{a}_{0}=\frac{1}{\sqrt{n}}\sum_{t=1}^{n}x_{t}
-$$
+$$ {#eq-13}
 
-Equation 10 $$
+$$
 {\widehat{\alpha}}_{j}=2^{1/2}r_{j}\cos{\theta_{j}}={(\frac{n}{2})}^{-1/2}\sum_{t=1}^{n}x_{t}\cos{(t\frac{2\pi j}{n})}, j  =1,\ldots,[\frac{n-1}{2}]
-$$ Equation 11 $$
-{\widehat{\beta}}_{j}=2^{1/2}r_{j}\sin{\theta_{j}}={(\frac{n}{2})}^{-1/2}\sum_{t=1}^{n}x_{t}\sin{(t\frac{2\pi j}{n})}, j=1,\ldots,[\frac{n-1}{2}]
-$$
+$$ {#eq-14}
 
-With Equation 5 the total sum of squares $\sum_{t=1}^{n}|x_{t} |^{2}$ can be decomposed into $2 \times [\frac{n-1}{2}]$ components corresponding to $\mathbf{c}_{j}$ and $\mathbf{s}_{j}$, which are grouped to produce the "frequency $ω_{j}$" component for $1 \geq j \geq [\frac{n-1}{2}]$. As it is shown in the table below, the value of the periodogram at the frequency $\omega_{j}$ is the contribution of the $j^{\text{th}}$ harmonic to the total sum of squares $\sum_{t=1}^{n}|x_{t} |^{2}$.
+$$
+{\widehat{\beta}}_{j}=2^{1/2}r_{j}\sin{\theta_{j}}={(\frac{n}{2})}^{-1/2}\sum_{t=1}^{n}x_{t}\sin{(t\frac{2\pi j}{n})}, j=1,\ldots,[\frac{n-1}{2}]
+$$ {#eq-15}
+
+With @eq-9 the total sum of squares $\sum_{t=1}^{n}|x_{t} |^{2}$ can be decomposed into $2 \times [\frac{n-1}{2}]$ components corresponding to $\mathbf{c}_{j}$ and $\mathbf{s}_{j}$, which are grouped to produce the "frequency $ω_{j}$" component for $1 \geq j \geq [\frac{n-1}{2}]$. As it is shown in the table below, the value of the periodogram at the frequency $\omega_{j}$ is the contribution of the $j^{\text{th}}$ harmonic to the total sum of squares $\sum_{t=1}^{n}|x_{t} |^{2}$.
 
 **Decomposition of sum of squares into components corresponding to the harmonics**
 
-|**Frequency**                               |**Degrees of freedom** |**Sum of squares decomposition**                                       |
+| **Frequency**                               | **Degrees of freedom** | **Sum of squares decomposition**                                       |
 |------------------------|------------------|------------------------------|
-|$\omega_{0}$ (mean)                         |1                      |${a_{0}^{2}}_{\ }=n^{-1}(\sum_{t=1}^{n}x_{t})^{2}=I(0)$                |
-|$\omega_{1}$                                |2                      |${2r_{1}^{2}}_{\ }=2{|a_{1}|}^{2}=2I(\omega_{1})$                      |
-|$\vdots$                                    |$\vdots$               |$\vdots$                                                               |
-|$\omega_{k}$                                |2                      |${2r_{k}^{2}}_{\ }=2{|a_{k}|}^{2}=2I(\omega_{k})$                      |
-|$\vdots$                                    |$\vdots$               |$\vdots$                                                               |
-|$\omega_{n/2}=\pi$ (excluded if $n$ is odd) |1                      |$a_{n/2}^{2}=I(\pi)$                                                   |
-|**Total**                                   |$\mathbf{n}$           |$\sum_{\mathbf{t=1}}^{\mathbf{n}}\mathbf{x}_{\mathbf{t}}^{\mathbf{2}}$ |
+| $\omega_{0}$ (mean)                         | 1                      | ${a_{0}^{2}}_{\ }=n^{-1}(\sum_{t=1}^{n}x_{t})^{2}=I(0)$                |
+| $\omega_{1}$                                | 2                      | ${2r_{1}^{2}}_{\ }=2{|a_{1}|}^{2}=2I(\omega_{1})$                      |
+| $\vdots$                                    | $\vdots$               | $\vdots$                                                               |
+| $\omega_{k}$                                | 2                      | ${2r_{k}^{2}}_{\ }=2{|a_{k}|}^{2}=2I(\omega_{k})$                      |
+| $\vdots$                                    | $\vdots$               | $\vdots$                                                               |
+| $\omega_{n/2}=\pi$ (excluded if $n$ is odd) | 1                      | $a_{n/2}^{2}=I(\pi)$                                                   |
+| **Total**                                   | $\mathbf{n}$           | $\sum_{\mathbf{t=1}}^{\mathbf{n}}\mathbf{x}_{\mathbf{t}}^{\mathbf{2}}$ |
 
 Source: DE ANTONIO, D., and PALATE, J. (2015).
 
@@ -172,53 +174,53 @@ Note that in JDemetra+ the periodogram object corresponds exactly to the contrib
 
 Using the decomposition presented in table above the periodogram can be expressed as:
 
-Equation 12 $$
+$$
 I(\omega_{j})\mathbf{=}\begin{matrix}r_{j}^{2}=\frac{1}{2}{(\alpha}_{j}^{2}+\beta_{j}^{2})=\ {\frac{1}{n}(\sum_{t=1}^{n}{x_{t}\cos{({t\frac{2\pi j}{n}}_{\ })\ }})}^{2}+\frac{1}{n}(\sum_{t=1}^{n}{x_{t}\sin(t\frac{2\pi j}{n})_{\ }})^{2} \\
 \end{matrix}
-$$
+$$ {#eq-16}
 
 where $j=0,\ldots,[\frac{n}{2}]$.
 
-Since $\mathbf{x}-\overline{\mathbf{x}}$ are generated by an orthonormal basis, and $\overline{\mathbf{x}}\mathbf{=}a_{0}\mathbf{e}_{0}$ Equation 5 can be rearranged to show that the sum of squares is equal to the sum of the squared coefficients:
+Since $\mathbf{x}-\overline{\mathbf{x}}$ are generated by an orthonormal basis, and $\overline{\mathbf{x}}\mathbf{=}a_{0}\mathbf{e}_{0}$ @eq-9 can be rearranged to show that the sum of squares is equal to the sum of the squared coefficients:
 
-Equation 13 $$
-\mathbf{x}-a_{0}\mathbf{e}_{0}=\sum_{j=1}^{[(n-1)/2]}(\alpha_{j}\mathbf{c}_{j}+\beta_{j}\mathbf{s}_{j})+a_{n/2}\mathbf{e}_{n/2}
 $$
+\mathbf{x}-a_{0}\mathbf{e}_{0}=\sum_{j=1}^{[(n-1)/2]}(\alpha_{j}\mathbf{c}_{j}+\beta_{j}\mathbf{s}_{j})+a_{n/2}\mathbf{e}_{n/2}
+$$ {#eq-17}
 
 Thus the sample variance of $x_{t}$ can be expressed as:
 
-Equation 14 $$
+$$
 n^{-1}\sum_{t=1}^{n}{(x_{t}-\overline{x})}^{2}=n^{-1}(\sum_{k=1}^{[(n-1)/2]}2{r_{j}}^{2}
 +{a_{n/2}}^{2})
-$$
+$$ {#eq-18}
 
 where $a_{n/2}^{2}$ is excluded if $n$ is odd.
 
-The term $2{r_{j}}^{2}$ in Equation 14 is then the contribution of the $j^{\text{th}}$ harmonic to the variance and @eq-14 shows then how the total variance is partitioned.
+The term $2{r_{j}}^{2}$ in @eq-18 is then the contribution of the $j^{\text{th}}$ harmonic to the variance and @eq-18 shows then how the total variance is partitioned.
 
 The periodogram ordinate $I(\omega_{j})$ and the autocovariance coefficient $\gamma(k)$ are both quadratic forms of $x_{t}$. It can be shown that the periodogram and autocovariance function are related and the periodogram can be written in terms of the sample autocovariance function for any non-zero Fourier frequency $ω_{j}$ (The proof is given in BROCKWELL, P.J., and DAVIS, R.A. (2006)).
 
 $$
 I(\omega_{j})=\sum_{|k |< n}^{\ }{\widehat{\gamma}(k)}_{\ }e^{-ik\omega_{j}}={\widehat{\gamma}(0)}_{\ }+2\sum_{k=1}^{n-1}{\widehat{\gamma}(k)\cos{(k\omega_{j})}}_{\ }
-$$
+$$ {#eq-19}
 
 and for the zero frequency $\ I(0)=n|\overline{x}|^{2}$.
 
-Once comparing Equation 15 with an expression of the spectral density of a stationary process:
+Once comparing @eq-19 with an expression of the spectral density of a stationary process:
 
 $$
 f(\omega_{\ })=\frac{1}{2\pi}\sum_{k <-\infty}^{\infty}{\gamma(k)}_{\ }e^{-ik\omega_{\ }}=\frac{1}{2\pi}[{\gamma(0)}_{\ }+2(\sum_{k=1}^{\infty}{\gamma(k)\cos{(k\omega_{\ })}})]
-$$
+$$ {#eq-20}
 
 It can be noticed that a periodogram is a sample analogue of the population spectrum. In fact, it can be shown that the periodogram is asymptotically unbiased but inconsistent estimator of the population spectrum $f(\omega)$. Therefore, the periodogram is a wildly fluctuating, with high variance, estimate of the spectrum. However, the consistent estimator can be achieved by applying the different linear smoothing filters to the periodogram, called lag-window estimators. The lag-window estimators implemented in JDemetra+ includes square, Welch, Tukey, Barlett, Hanning and Parzen. They are described in DE ANTONIO, D., and PALATE, J. (2015). Alternatively, the model-based consistent estimation procedure, resulting in autoregressive spectrum estimator, can be applied.
 
-#### Method 2: Autoregressive spectrum estimation {#m-spectrum-ar-est}
+#### Method 2: Autoregressive spectrum estimation {#m-spectral-analysis-m-spectrum-ar-est}
 
 BROCKWELL, P.J., and DAVIS, R.A. (2006) point out that for any real-valued stationary process $(x_{t})$ with continuous spectral density $f(\omega)$ it is possible to find both $AR(p)$ and $MA(q)$ processes which spectral densities are arbitrarily close to $f(\omega)$. For this reason, in some sense, $(x_{t})$ can be approximated by either $AR(p)$ or $MA(q)$ process. This fact is a basis of one of the methods of achieving a consistent estimator of the spectrum, which is called an autoregressive spectrum estimation. It is based on the approximation of the stochastic process $(x_{t})$ by an autoregressive process of sufficiently high order $p$:
 
 $$
 x_{t}=\mu+(\phi_{1}B+\ldots+\phi_{p}B^{p})x_{t}+\varepsilon_{t}
-$$
+$$ {#eq-21}
 
 where $\varepsilon_{t}$ is a white-noise variable with mean zero and a constant variance.
 
@@ -226,7 +228,7 @@ The autoregressive spectrum estimator for the series $x_{t}$ is defined as (Defi
 
 $$
 \widehat{s}(\omega)=10\operatorname{\times}{\log_{10}\frac{\sigma_{x}^{2}}{2\pi{|1-\sum_{k=1}^{p}{\widehat{\phi}}_{k}e^{-ik\omega}|}^{2}}}
-$$
+$$ {#eq-22}
 
 where:
 
@@ -246,7 +248,7 @@ The model order can also be selected based on the AIC criterion (in practice it 
 
 SOUKUP, R.J., and FINDLEY, D.F. (1999) also explain that the periodogram can be used in the *visual significance* test as it has as good as those of the AR(30) spectrum abilities to detect trading day effect, but also has a greater false alarm rate, which is defined as the fraction of the 50 replicates for which a visually significant spectral peak occurred at one of the trading day frequencies being considered in the designated output spectra (SOUKUP, R.J., and FINDLEY, D.F. (1999)).
 
-#### Method 3: Tukey spectrum {#m-spectrum-tuckey}
+#### Method 3: Tukey spectrum {#m-spectral-analysis-m-spectrum-tuckey}
 
 The Tukey spectrum belongs to the class of lag-window estimators. A lag window estimator of the spectral density $f(\omega)=\frac{1}{2\pi}\sum_{k<-\infty}^{\infty}\gamma(k)e^{i k \omega}$ is defined as follows:
 
@@ -262,9 +264,9 @@ The choice of large truncation lags $r$ decreases the bias, of course, but it al
 
 JDemetra+ allows the user to modify all the parameters of this estimator, including the window function.
 
-## Identification of spectral peaks {#m-spectrum-id-peaks}
+## Identification of spectral peaks {#m-spectral-analysis-m-spectrum-id-peaks}
 
-The sections below describe the test, their practical implementation in the Graphical User interface can be found [here]() 
+The sections below describe the test, their practical implementation in the Graphical User interface can be found [here]()
 
 In order to decide whether a series has a seasonal component that is predictable (stable) enough, these tests use visual criteria and formal tests for the periodogram. The periodogram is calculated using complete years, so that the set of Fourier frequencies contains exactly all seasonal frequencies.
 
@@ -278,20 +280,20 @@ JDemetra+ performs this test on the original series. If these two requirements a
 
 **The seasonal and trading day frequencies by time series frequency**
 
-|**Number of months per period (year)** |**Seasonal frequency**                                                              |**Trading day frequency (radians)** |
+| **Number of months per period (year)** | **Seasonal frequency**                                                              | **Trading day frequency (radians)** |
 |------------------------|------------------------|-------------------------|
-|12                                     |$\frac{\pi}{6},\frac{\pi}{3},\ \frac{\pi}{2},\frac{2\pi}{3},\ \frac{5\pi}{6},\ \pi$ |$d$,2.714                           |
-|4                                      |$\frac{\pi}{2}$, $\pi$                                                              |$d$, 1.292, 1.850, 2.128            |
-|3                                      |$\pi$                                                                               |$d$                                 |
-|2                                      |$\pi$                                                                               |$d$                                 |
+| 12                                     | $\frac{\pi}{6},\frac{\pi}{3},\ \frac{\pi}{2},\frac{2\pi}{3},\ \frac{5\pi}{6},\ \pi$ | $d$,2.714                           |
+| 4                                      | $\frac{\pi}{2}$, $\pi$                                                              | $d$, 1.292, 1.850, 2.128            |
+| 3                                      | $\pi$                                                                               | $d$                                 |
+| 2                                      | $\pi$                                                                               | $d$                                 |
 
 The calendar (trading day or working day) effects, related to the variation in the number of different days of the week per period, can induce periodic patterns in the data that can be similar to those resulting from pure seasonal effects. From the theoretical point of view, trading day variability is mainly due to the fact that the average number of days in the months or quarters is not equal to a multiple of 7 (the average number of days of a month in the year of 365.25 days is equal to $\frac{365.25}{12}=30.4375$ days). This effect occurs $\frac{365.25}{12} \times \frac{1}{7}=4.3482$ times per month: one time for each one of the four complete weeks of each month, and a residual of 0.3482 cycles per month, i.e. $0.3482 \times 2\pi=2.1878$ radians. This turns out to be a fundamental frequency for the effects associated with monthly data. In JDemetra+ the fundamental frequency corresponding to 0.3482 cycles per month is used in place of the closest frequency $\frac{\text{πk}}{60}$. Thus, the quantity $\frac{\pi \times 42}{60}$ is replaced by $\omega_{42}=0.3482 \times 2\pi=2.1878$. The frequencies neighbouring $\omega_{42}$, i.e. $\omega_{41}$ and $\omega_{43}$ are set to, respectively, $2.1865-\frac{1}{60}$ and $2.1865+\frac{1}{60}$.
 
 The default frequencies ($d$) for calendar effect are: 2.188 (monthly series) and 0.280 (quarterly series). They are computed as:
 
-Equation 1 $$
-\omega_{\text{ce}}=\frac{2\pi}{7}(n-7 \times [\frac{n}{7}])
 $$
+\omega_{\text{ce}}=\frac{2\pi}{7}(n-7 \times [\frac{n}{7}])
+$$ {#eq-23}
 
 where $n=\frac{365.25}{s}$, $s=4$ for quarterly series and $s=12$ for monthly series.
 
@@ -302,7 +304,6 @@ In particular, the calendar frequency in monthly data (marked in red on the figu
 ![**Periodogram with seasonal (grey) and calendar (red) frequencies highlighted**](All_images/UG_A_image19.png)
 
 This implies that it may be hard to disentangle both effects using the frequency domain techniques.
-
 
 ### In a Tukey spectrum
 
@@ -320,7 +321,6 @@ As opposed to the AR spectrum test, which is computed on the basis of the last $
 
 Practical implementation in GUI is detailed [here](#t-GUI-tstools-id-p-tuckey)
 
- 
 ### In AR Spectrum definition
 
 The estimator of the spectral density at frequency $\lambda \in [0,\pi]$ will be given by the assumption that the series will follow an AR(p) process with large $p$. The spectral density of such model, with an innovation variance $var(x_{t})=\sigma^2_x$, is expressed as follows:
@@ -353,14 +353,13 @@ The first condition implies that if we divide the range $\max_{k}f_{x}(\lambda_{
 
 **Seasonal and trading day frequencies by time series frequency**
 
-
-|**Number of months per full period** |**Seasonal frequency**                                                              |**Trading day frequency (radians)** |
+| **Number of months per full period** | **Seasonal frequency**                                                              | **Trading day frequency (radians)** |
 |------------------------|------------------------|------------------------|
-|12                                   |$\frac{\pi}{6},\frac{\pi}{3},\ \frac{\pi}{2},\frac{2\pi}{3},\ \frac{5\pi}{6},\ \pi$ |$d$, 2.714                          |
-|6                                    |$\frac{\pi}{3},\frac{2\pi}{3}$, $\pi$                                               |$d$                                 |
-|4                                    |$\frac{\pi}{2}$, $\pi$                                                              |$d$, 1.292, 1.850, 2.128            |
-|3                                    |$\pi$                                                                               |$d$                                 |
-|2                                    |$\pi$                                                                               |$d$                                 |
+| 12                                   | $\frac{\pi}{6},\frac{\pi}{3},\ \frac{\pi}{2},\frac{2\pi}{3},\ \frac{5\pi}{6},\ \pi$ | $d$, 2.714                          |
+| 6                                    | $\frac{\pi}{3},\frac{2\pi}{3}$, $\pi$                                               | $d$                                 |
+| 4                                    | $\frac{\pi}{2}$, $\pi$                                                              | $d$, 1.292, 1.850, 2.128            |
+| 3                                    | $\pi$                                                                               | $d$                                 |
+| 2                                    | $\pi$                                                                               | $d$                                 |
 
 Currently, only seasonal frequencies are tested, but the program allows you to manually plot the AR spectrum and focus your attention on both seasonal and trading day frequencies. Agustin Maravall has conducted a simulation experiment to calculate $CV(\lambda_{42})$ (trading day frequency) and proposes to set for all $j$ equal to the critical value associated to the trading frequency, but this is currently not part of the current automatic testing procedure of JDemetra+.
 
@@ -392,17 +391,17 @@ can be used to project the data and obtain the spectral decomposition
 
 Thus, the periodogram is given by the projection coefficients and represents the contribution of the jth harmonic to the total sum of squares, as illustrated by Brockwell and Davis (1991):
 
-|Source                       |Degrees of freedom |
+| Source                       | Degrees of freedom |
 |------------------------------|:------------------:|
-|Frequency $\omega_{0}$       |        1          |
-|Frequency $\omega_{1}$       |        2          |
-|$\vdots$                     |     $\vdots$      |
-|Frequency $\omega_{k}$       |        2          |
-|$\vdots$                     |     $\vdots$      |
-|Frequency $\omega_{n/2}=\pi$ |        1          |
-|(excluded if $n$ is odd)     |                   |
-|$=========$                  |     $======$      |
-|Total                        |        n          |
+| Frequency $\omega_{0}$       |         1          |
+| Frequency $\omega_{1}$       |         2          |
+| $\vdots$                     |      $\vdots$      |
+| Frequency $\omega_{k}$       |         2          |
+| $\vdots$                     |      $\vdots$      |
+| Frequency $\omega_{n/2}=\pi$ |         1          |
+| (excluded if $n$ is odd)     |                    |
+| $=========$                  |      $======$      |
+| Total                        |         n          |
 
 $$
 ~~~~
@@ -442,7 +441,7 @@ In small samples, the test performs better when the periodogram is evaluated as 
 
 Practical implementation in GUI is detailed [here](#t-GUI-tstools-id-p-per)
 
-## Spectral graphs {#m-spectrum-graphs}
+## Spectral graphs {#m-spectral-analysis-m-spectrum-graphs}
 
 The section below provides guidance on interpretation of spectral graphs, the display of which in the Graphical User Interface can be found [here](#t-GUI-tstools-spec-graphs)
 

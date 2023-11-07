@@ -75,11 +75,9 @@ With a workspace open, an SAProcessing created and open data provider:
 
 In version 2
 
-```{r,eval=FALSE}
-
+```{r, echo = TRUE, eval = FALSE}
 library("RJDemetra")
-model_sa <- x13(raw_series, spec ="RSA5c")
-
+model_sa <- x13(raw_series, spec = "RSA5c")
 ```
 
 The model_sa R object (list of lists) contains all parameters and results. It will be progressively detailed below.
@@ -108,13 +106,12 @@ Output series can be exported out of GUI by two means:
 
 In version 2
 
-```{r,eval=FALSE}
-
+```{r, echo = TRUE, eval = FALSE}
 # final components
 model_sa$final$series
 # final forecasts y_f sa_f s_f t_f i_f
 model_sa$final$forecasts
-# from user defined output 
+# from user defined output
 ```
 
 ### Retrieve Diagnostics
@@ -135,12 +132,11 @@ In GUI all values cannot be retrieved
 
 In version 2
 
-```{r, eval=FALSE}
-# data frame with values 
+```{r, echo = TRUE, eval = FALSE}
+# data frame with values
 model_sa$decomposition$si_ratio
 # customizable plot
-plot(model_sa, type= "cal-seas-irr",first_date = c(2015, 1))
-
+plot(model_sa, type = "cal-seas-irr", first_date = c(2015, 1))
 ```
 
 #### M-statistics
@@ -160,15 +156,21 @@ At the end of the decomposition, X-11 algorithm provides quality measure of the 
 
 The $Q$ statistic is a composite indicator calculated from the $M$ statistics.
 
-$$Q = \frac{10M1 + 11M2 + 10M3 + 8M4 + 11M5 + 10M6 + 18M7 + 7M8 + 7M9 + 4M10 + 4M11}{100}$$
+$$
+Q = \frac{10M1 + 11M2 + 10M3 + 8M4 + 11M5 + 10M6 + 18M7 + 7M8 + 7M9 + 4M10 + 4M11}{100}
+$$
 
 $Q = Q - M2$ (also called $Q2$) is the $Q$ statistic for which the $M2$ statistics was excluded from the formula, i.e.:
 
-$$Q - M2 = \frac{10M1 + 10M3 + 8M4 + 11M5 + 10M6 + 18M7 + 7M8 + 7M9 + 4M10 + 4M11}{89}$$
+$$
+Q - M2 = \frac{10M1 + 10M3 + 8M4 + 11M5 + 10M6 + 18M7 + 7M8 + 7M9 + 4M10 + 4M11}{89}
+$$
 
 If a time series does not cover at least 6 years, the $M8$, $M9$, $M10$ and $M11$ statistics cannot be calculated. In this case the $Q$ statistic is computed as:
 
-$$Q = \frac{14M1 + 15M2 + 10M3 + 8M4 + 11M5 + 10M6 + 32M7}{100}$$
+$$
+Q = \frac{14M1 + 15M2 + 10M3 + 8M4 + 11M5 + 10M6 + 32M7}{100}
+$$
 
 The model has a satisfactory quality if the $Q$ statistic is lower than 1.
 
@@ -186,8 +188,8 @@ Results displayed in red indicate that the test failed.
 
 In version 2
 
-```{r, eval=FALSE}
-# this code snippet is not self-sufficient 
+```{r, echo = TRUE, eval = FALSE}
+# this code snippet is not self-sufficient
 model_sa$decomposition$mstats
 ```
 
@@ -217,11 +219,9 @@ Node Decomposition(X11) \> Final Filters
 
 In version 2
 
-```{r, eval=FALSE}
-
+```{r, echo = TRUE, eval = FALSE}
 model_sa$decomposition$s_filter
 model_sa$decomposition$t_filter
-
 ```
 
 ### User-defined parameters
@@ -314,27 +314,27 @@ All the parameters above can be set with in the specification box.
 
 In version 2
 
-```{r eval=FALSE}
-#Creating a modified specification, customizing all available X11 parameters
-modified_spec<- x13_spec(current_sa_model,
-    #x11.mode="?",
-    #x11.seasonalComp = "?",
+```{r, echo = TRUE, eval = FALSE}
+# Creating a modified specification, customizing all available X11 parameters
+modified_spec <- x13_spec(current_sa_model,
+    # x11.mode="?",
+    # x11.seasonalComp = "?",
     x11.fcasts = -2,
     x11.bcasts = -1,
     x11.lsigma = 1.2,
     x11.usigma = 2.8,
-    x11.calendarSigma = NA, 
-      x11.sigmaVector = NA,
-    x11.excludeFcasts = NA
-    # filters 
-    x11.trendAuto = NA, 
+    x11.calendarSigma = NA,
+    x11.sigmaVector = NA,
+    x11.excludeFcasts = NA,
+    # filters
+    x11.trendAuto = NA,
     x11.trendma = 23,
-    x11.seasonalma = "S3X9)
+    x11.seasonalma = "S3X9"
+)
 
-#New SA estimation: apply modified_spec
+# New SA estimation: apply modified_spec
 
-modified_sa_model<-x13(raw_series,modified_spec)
-
+modified_sa_model <- x13(raw_series, modified_spec)
 ```
 
 ## SEATS Decomposition
@@ -373,16 +373,16 @@ With a workspace open, an SAProcessing created and open data provider:
 
 In version 2
 
-```{r,eval=FALSE}
+```{r, echo = TRUE, eval = FALSE}
 library("RJDemetra")
-model_sa <- tramoseats(raw_series, spec ="RSAfull")
+model_sa <- tramoseats(raw_series, spec = "RSAfull")
 ```
 
 In version 3
 
-```{r,eval=FALSE}
+```{r, echo = TRUE, eval = FALSE}
 library("rjd3tramoseats")
-model_sa <- tramoseats(raw_series, spec ="RSAfull")
+model_sa <- tramoseats(raw_series, spec = "RSAfull")
 ```
 
 The model_sa R object (list of lists) contains all parameters and results. It will be progressively detailed below.
@@ -444,13 +444,13 @@ Generating output from GUI (link) or from Cruncher (link), stochastic series, th
 
 In version 2
 
-```{r,eval=FALSE}
+```{r, echo = TRUE, eval = FALSE}
 library("RJDemetra")
 # list of additional output objects
 user_defined_variables("TRAMO-SEATS")
-# specify additional objects in estimation 
-m <- tramoseats(y,"RSAfull", userdefined=c( "decomposition.y_lin", "ycal","variancedecomposition.seasonality"))
-# retrieve objects 
+# specify additional objects in estimation
+m <- tramoseats(y, "RSAfull", userdefined = c("decomposition.y_lin", "ycal", "variancedecomposition.seasonality"))
+# retrieve objects
 m$user_defined$decomposition.y_lin
 m$user_defined$ycal
 m$user_defined$variancedecomposition.seasonality
@@ -458,13 +458,13 @@ m$user_defined$variancedecomposition.seasonality
 
 In version 3
 
-```{r,eval=FALSE}
+```{r, echo = TRUE, eval = FALSE}
 library("rjd3tramoseats")
 # list of additional output objects
 userdefined_variables_tramoseats("tramoseats")
-# specify additional objects in estimation 
-m <- tramoseats(y,"RSAfull", userdefined=c("decomposition.y_lin","ycal","variancedecomposition.seasonality"))
-# retrieve objects 
+# specify additional objects in estimation
+m <- tramoseats(y, "RSAfull", userdefined = c("decomposition.y_lin", "ycal", "variancedecomposition.seasonality"))
+# retrieve objects
 m$user_defined$decomposition.y_lin
 m$user_defined$ycal
 m$user_defined$variancedecomposition.seasonality
@@ -566,22 +566,22 @@ Generating output from GUI (link) or from Cruncher (link), component series, the
 
 In version 2
 
-```{r,eval=FALSE}
+```{r, echo = TRUE, eval = FALSE}
 library("RJDemetra")
-sa_model <- RJDemetra::tramoseats(y,"RSAfull")
+sa_model <- RJDemetra::tramoseats(y, "RSAfull")
 sa_model$final$series
 sa_model$final$forecasts
-# for additional results call user-defined output as explained above 
+# for additional results call user-defined output as explained above
 ```
 
 In version 3
 
-```{r,eval=FALSE}
+```{r, echo = TRUE, eval = FALSE}
 library("rjd3tramoseats")
-sa_model <- tramoseats(y,spec="RSAfull")
+sa_model <- tramoseats(y, spec = "RSAfull")
 # final series can be accessed here
 sa$result$final$sa
-# for additional results call user-defined output as explained above 
+# for additional results call user-defined output as explained above
 ```
 
 ### Retrieve Diagnostics
@@ -672,20 +672,19 @@ In specification window corresponding to a given series:
 
 version 2 (RJDemetra)
 
-```{r, eval=FALSE}
+```{r, echo = TRUE, eval = FALSE}
 tramoseats_spec(
- spec = c("RSAfull", "RSA0", "RSA1", "RSA2", "RSA3", "RSA4", "RSA5"),
-  fcst.horizon = NA_integer_,
-  seats.predictionLength = NA_integer_,
-  seats.approx = c(NA, "None", "Legacy", "Noisy"),
-  seats.trendBoundary = NA_integer_,
-  seats.seasdBoundary = NA_integer_,
-  seats.seasdBoundary1 = NA_integer_,
-  seats.seasTol = NA_integer_,
-  seats.maBoundary = NA_integer_,
-  seats.method = c(NA, "Burman", "KalmanSmoother", "McElroyMatrix")
+    spec = c("RSAfull", "RSA0", "RSA1", "RSA2", "RSA3", "RSA4", "RSA5"),
+    fcst.horizon = NA_integer_,
+    seats.predictionLength = NA_integer_,
+    seats.approx = c(NA, "None", "Legacy", "Noisy"),
+    seats.trendBoundary = NA_integer_,
+    seats.seasdBoundary = NA_integer_,
+    seats.seasdBoundary1 = NA_integer_,
+    seats.seasTol = NA_integer_,
+    seats.maBoundary = NA_integer_,
+    seats.method = c(NA, "Burman", "KalmanSmoother", "McElroyMatrix")
 )
-
 ```
 
 in version 3 with {rjd3tramoseats} (to be added)

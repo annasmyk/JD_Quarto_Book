@@ -69,26 +69,26 @@ With a workspace open, an SAProcessing created and an open data provider: (link 
 
 #### In version 2 using [RJDemetra](https://jdemetra.github.io/rjdemetra/)
 
-```{r,eval=FALSE}
+```{r, echo = TRUE, eval = FALSE}
 library("RJDemetra")
 # the input series has to be a Time Series (TS) object
 # specification RSA5c including pre-treatment
-model_sa_v2 <- x13(raw_series, spec ="RSA5c")
+model_sa_v2 <- x13(raw_series, spec = "RSA5c")
 # specification X11 without pre-treatment
-model_sa_v2 <- x13(raw_series, spec ="X11")
+model_sa_v2 <- x13(raw_series, spec = "X11")
 ```
 
 Full documentation of 'RJDemetra::x13' function can be found [here](https://jdemetra.github.io/rjdemetra/reference/x13.html)
 
 The model_sa_v2 R object (list of lists) contains all parameters and results. Its structure is detailed [here](#t-r-packs-rjdv2-structure). It can be printed giving access to selected parameters, series and diagnostics.
 
-```{r,eval=FALSE}
+```{r, echo = TRUE, eval = FALSE}
 print(model_sa_v2)
 ```
 
 #### In version 3 using [rjd3x13](https://rjdemetra.github.io/rjd3x13/)
 
-```{r,eval=FALSE}
+```{r, echo = TRUE, eval = FALSE}
 library("rjd3toolkit")
 library("rjd3x13")
 # the input series has to be a Time Series (TS) object
@@ -101,7 +101,7 @@ The model_sa_v3 R object (list of lists) contains all parameters and results. It
 
 It can be printed giving access to selected parameters, series and diagnostics.
 
-```{r,eval=FALSE}
+```{r, echo = TRUE, eval = FALSE}
 print(model_sa_v3)
 ```
 
@@ -133,8 +133,8 @@ Output series can be exported out of GUI by two means:
 
 In version 2
 
-```{r,eval=FALSE}
-model_sa <- x13(raw_series, spec ="RSA3") # user's spec choice
+```{r, echo = TRUE, eval = FALSE}
+model_sa <- x13(raw_series, spec = "RSA3") # user's spec choice
 # final components
 model_sa$final$series
 # final forecasts y_f sa_f s_f t_f i_f
@@ -143,24 +143,25 @@ model_sa$final$forecasts
 
 Detailed X11 tables have to be pre-specified from the [user-defined output list](https://jdemetra.github.io/rjdemetra/reference/user_defined_variables.html).
 
-```{r,eval=FALSE}
+```{r, echo = TRUE, eval = FALSE}
 # display the list of available objects (series, diagnostics, parameters)
-user_defined_variables("X13-ARIMA") 
+user_defined_variables("X13-ARIMA")
 # add selected object to estimation
 sa_x13_v2 <- RJDemetra::x13(myseries, myspec,
-             userdefined = c("decomposition.c20", "decomposition.d1"))
+    userdefined = c("decomposition.c20", "decomposition.d1")
+)
 # retrieve in the user-defined sub-list
 sa_x13_v2$user_defined
 ```
 
 to be modified In version 3
 
-```{r,eval=FALSE}
+```{r, echo = TRUE, eval = FALSE}
 # final components
 model_sa$final$series
 # final forecasts y_f sa_f s_f t_f i_f
 model_sa$final$forecasts
-# from user defined output 
+# from user defined output
 ```
 
 ### Diagnostics {#a-sa-X11-diags}
@@ -189,28 +190,26 @@ All the values and the same plot as described above can be generated in R, the s
 
 In version 2
 
-```{r, eval=FALSE}
-# data frame with values 
+```{r, echo = TRUE, eval = FALSE}
+# data frame with values
 model_sa_v2$decomposition$si_ratio
 
 # customizable plot
 plot(mysa2$decomposition)
 
-plot(model_sa, type= "cal-seas-irr",first_date = c(2015, 1))
-
+plot(model_sa, type = "cal-seas-irr", first_date = c(2015, 1))
 ```
 
 In version 3
 
-```{r, eval=FALSE}
-# data frame with values 
+```{r, echo = TRUE, eval = FALSE}
+# data frame with values
 model_sa_v2$decomposition$si_ratio
 
 # customizable plot
 plot(mysa2$decomposition)
 
-plot(model_sa, type= "cal-seas-irr",first_date = c(2015, 1))
-
+plot(model_sa, type = "cal-seas-irr", first_date = c(2015, 1))
 ```
 
 #### M-statistics {#a-sa-X11-m-stats}
@@ -237,15 +236,15 @@ Results displayed in red indicate that the test failed.
 
 In version 2
 
-```{r, eval=FALSE}
-# this code snippet is not self-sufficient 
+```{r, echo = TRUE, eval = FALSE}
+# this code snippet is not self-sufficient
 model_sa$decomposition$mstats
 ```
 
 In version 3
 
-```{r, eval=FALSE}
-# this code snippet is not self-sufficient 
+```{r, echo = TRUE, eval = FALSE}
+# this code snippet is not self-sufficient
 model_sa$decomposition$mstats
 ```
 
@@ -277,16 +276,16 @@ Node Decomposition(X11) \> Final Filters
 
 In version 2
 
-```{r, eval=FALSE}
+```{r, echo = TRUE, eval = FALSE}
 library("RJDemetra")
-model_sa_v2 <- x13(raw_seriesa, spec ="RSA5c")
+model_sa_v2 <- x13(raw_seriesa, spec = "RSA5c")
 model_sa$decomposition$s_filter
 model_sa$decomposition$t_filter
 ```
 
 In version 3
 
-```{r,eval=FALSE}
+```{r, echo = TRUE, eval = FALSE}
 library("rjd3toolkit")
 library("rjd3x13")
 model_sa_v3 <- rjd3x13::x13(y_raw, spec = "RSA5")
@@ -399,62 +398,62 @@ Another window appears in the top-left corner allowing to chose the filter perio
 
 In version 2 using RJDemetra
 
-```{r eval=FALSE}
+```{r, echo = TRUE, eval = FALSE}
 current_sa_model <- x13(raw_series, spec = current_spec)
-#Creating a modified specification, customizing all available X11 parameters
-modified_spec<- x13_spec(current_sa_model,
-    #X11.mode="?",
-    #X11.seasonalComp = "?",
+# Creating a modified specification, customizing all available X11 parameters
+modified_spec <- x13_spec(current_sa_model,
+    # X11.mode="?",
+    # X11.seasonalComp = "?",
     X11.fcasts = -2,
     X11.bcasts = -1,
     X11.lsigma = 1.2,
     X11.usigma = 2.8,
-    X11.calendarSigma = NA, 
+    X11.calendarSigma = NA,
     X11.sigmaVector = NA,
-    X11.excludeFcasts = NA
-    # filters 
-    X11.trendAuto = NA, 
+    X11.excludeFcasts = NA,
+    # filters
+    X11.trendAuto = NA,
     X11.trendma = 23,
-    X11.seasonalma = "S3X9)
+    X11.seasonalma = "S3X9"
+)
 
 # New SA estimation: apply modified_spec
-
-modified_sa_model<-x13(raw_series,modified_spec)
-
+modified_sa_model <- x13(raw_series, modified_spec)
 ```
 
 In version 3 using rjd3x13 MODIF HERE
 
-```{r eval=FALSE}
-#Creating a modified specification, customizing all available X11 parameters
+```{r, echo = TRUE, eval = FALSE}
+# Creating a modified specification, customizing all available X11 parameters
 library("RJDemetra")
-model_sa_v2 <- x13(raw_series, spec ="RSA5c")
+model_sa_v2 <- x13(raw_series, spec = "RSA5c")
 # Creating a modified specification from the current estimation model
 # Customizing all available X11 parameters
-modified_spec<- x13_spec(model_sa_v2,
+modified_spec <- x13_spec(model_sa_v2,
     X11.fcasts = -2,
     X11.bcasts = -1,
     X11.lsigma = 1.2,
     X11.usigma = 2.8,
-    X11.calendarSigma = NA, 
+    X11.calendarSigma = NA,
     X11.sigmaVector = NA,
-    X11.excludeFcasts = NA
-    # filters 
-    X11.trendAuto = NA, 
+    X11.excludeFcasts = NA,
+    # filters
+    X11.trendAuto = NA,
     X11.trendma = 23,
-    X11.seasonalma = "S3X9)
+    X11.seasonalma = "S3X9"
+)
 
-#New SA estimation: apply modified_spec
+# New SA estimation: apply modified_spec
 
-modified_sa_model<-x13(raw_series,modified_spec)
+modified_sa_model <- x13(raw_series, modified_spec)
 
 
-# For options available only in X11 mode 
-modified_spec<- x13_spec(model_sa_v2,
-    #X11.mode="?",
-    #X11.seasonalComp = "?",
-    X11.fcasts = -2)
-
+# For options available only in X11 mode
+modified_spec <- x13_spec(model_sa_v2,
+    # X11.mode="?",
+    # X11.seasonalComp = "?",
+    X11.fcasts = -2
+)
 ```
 
 #### Retrieving Parameters
