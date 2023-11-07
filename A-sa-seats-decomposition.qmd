@@ -60,7 +60,7 @@ The default specifications for SEATS must be chosen at the starting of the SA pr
 ## Quick Launch
 
 ### From GUI
-=======
+
 -   series
 
 -   diagnostics
@@ -86,26 +86,26 @@ With a workspace open, an SAProcessing created and open data provider:
 
 #### In version 2 using [RJDemetra](https://jdemetra.github.io/rjdemetra/)
 
-```{r,eval=FALSE}
+```{r, echo = TRUE, eval = FALSE}
 library("RJDemetra")
 # the input series has to be a Time Series (TS) object
 # specification RSAfull including pre-treatment
-model_sa_v2 <- tramoseats(raw_series, spec ="RSAfull")
+model_sa_v2 <- tramoseats(raw_series, spec = "RSAfull")
 ```
 
 Full documentation of 'RJDemetra::tramoseats' function can be found [here](https://jdemetra.github.io/rjdemetra/reference/tramoseats.html)
 
 The model_sa_v2 R object (list of lists) contains all parameters and results. Its structure is detailed [here](#t-r-packs-rjdv2-structure). It can be printed giving access to selected parameters, series and diagnostics.
 
-```{r,eval=FALSE}
+```{r, echo = TRUE, eval = FALSE}
 print(model_sa_v2)
 ```
 
 #### In version 3 using [rjd3tramoseats](https://rjdemetra.github.io/rjd3tramoseats/)
 
-```{r,eval=FALSE}
+```{r, echo = TRUE, eval = FALSE}
 library("rjd3tramoseats")
-model_sa_v3 <- tramoseats(raw_series, spec ="RSAfull")
+model_sa_v3 <- tramoseats(raw_series, spec = "RSAfull")
 # the input series has to be a Time Series (TS) object
 ```
 
@@ -115,7 +115,7 @@ The model_sa_v3 R object (list of lists) contains all parameters and results. It
 
 It can be printed giving access to selected parameters, series and diagnostics.
 
-```{r,eval=FALSE}
+```{r, echo = TRUE, eval = FALSE}
 print(model_sa_v3)
 ```
 
@@ -174,13 +174,20 @@ Generating output from GUI (link) or from Cruncher (link), stochastic series, th
 
 In version 2
 
-```{r,eval=FALSE}
+```{r, echo = TRUE, eval = FALSE}
 library("RJDemetra")
 # list of additional output objects
 user_defined_variables("TRAMO-SEATS")
-# specify additional objects in estimation 
-m <- tramoseats(y,"RSAfull", userdefined=c( "decomposition.y_lin", "ycal","variancedecomposition.seasonality"))
-# retrieve objects 
+# specify additional objects in estimation
+m <- tramoseats(
+    series = y,
+    spec = "RSAfull",
+    userdefined = c(
+        "decomposition.y_lin", "ycal",
+        "variancedecomposition.seasonality"
+    )
+)
+# retrieve objects
 m$user_defined$decomposition.y_lin
 m$user_defined$ycal
 m$user_defined$variancedecomposition.seasonality
@@ -188,13 +195,20 @@ m$user_defined$variancedecomposition.seasonality
 
 In version 3
 
-```{r,eval=FALSE}
+```{r, echo = TRUE, eval = FALSE}
 library("rjd3tramoseats")
 # list of additional output objects
 userdefined_variables_tramoseats("tramoseats")
-# specify additional objects in estimation 
-m <- tramoseats(y,"RSAfull", userdefined=c("decomposition.y_lin","ycal","variancedecomposition.seasonality"))
-# retrieve objects 
+# specify additional objects in estimation
+m <- tramoseats(
+    ts = y,
+    spec = "RSAfull",
+    userdefined = c(
+        "decomposition.y_lin", "ycal",
+        "variancedecomposition.seasonality"
+    )
+)
+# retrieve objects
 m$user_defined$decomposition.y_lin
 m$user_defined$ycal
 m$user_defined$variancedecomposition.seasonality
@@ -289,22 +303,22 @@ Generating output from GUI (link) or from Cruncher (link), component series, the
 
 In version 2
 
-```{r,eval=FALSE}
+```{r, echo = TRUE, eval = FALSE}
 library("RJDemetra")
-sa_model <- RJDemetra::tramoseats(y,"RSAfull")
+sa_model <- RJDemetra::tramoseats(y, "RSAfull")
 sa_model$final$series
 sa_model$final$forecasts
-# for additional results call user-defined output as explained above 
+# for additional results call user-defined output as explained above
 ```
 
 In version 3
 
-```{r,eval=FALSE}
+```{r, echo = TRUE, eval = FALSE}
 library("rjd3tramoseats")
-sa_model <- tramoseats(y,spec="RSAfull")
+sa_model <- tramoseats(y, spec = "RSAfull")
 # final series can be accessed here
 sa$result$final$sa
-# for additional results call user-defined output as explained above 
+# for additional results call user-defined output as explained above
 ```
 
 ### Retrieve Diagnostics {a-sa-SEATS-diags}
@@ -395,20 +409,19 @@ In specification window corresponding to a given series:
 
 version 2 (RJDemetra)
 
-```{r, eval=FALSE}
+```{r, echo = TRUE, eval = FALSE}
 tramoseats_spec(
- spec = c("RSAfull", "RSA0", "RSA1", "RSA2", "RSA3", "RSA4", "RSA5"),
-  fcst.horizon = NA_integer_,
-  seats.predictionLength = NA_integer_,
-  seats.approx = c(NA, "None", "Legacy", "Noisy"),
-  seats.trendBoundary = NA_integer_,
-  seats.seasdBoundary = NA_integer_,
-  seats.seasdBoundary1 = NA_integer_,
-  seats.seasTol = NA_integer_,
-  seats.maBoundary = NA_integer_,
-  seats.method = c(NA, "Burman", "KalmanSmoother", "McElroyMatrix")
+    spec = c("RSAfull", "RSA0", "RSA1", "RSA2", "RSA3", "RSA4", "RSA5"),
+    fcst.horizon = NA_integer_,
+    seats.predictionLength = NA_integer_,
+    seats.approx = c(NA, "None", "Legacy", "Noisy"),
+    seats.trendBoundary = NA_integer_,
+    seats.seasdBoundary = NA_integer_,
+    seats.seasdBoundary1 = NA_integer_,
+    seats.seasTol = NA_integer_,
+    seats.maBoundary = NA_integer_,
+    seats.method = c(NA, "Burman", "KalmanSmoother", "McElroyMatrix")
 )
-
 ```
 
 in version 3 with {rjd3tramoseats} (to be added)

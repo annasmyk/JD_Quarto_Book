@@ -103,25 +103,27 @@ $$
 
 Calendar regressors can be defined with the rjd3toolkit package and added to pre-treatment function as a matrix.
 
-```{r, eval=FALSE}
+```{r, echo = TRUE, eval = FALSE}
 # Create a calendar with rjd3toolkit
 # Define a national calendar
 frenchCalendar <- national_calendar(days = list(
-  fixed_day(7, 14), # Bastille Day
-  fixed_day(5, 8, validity = list(start = "1982-05-08")), # Victory Day
-  special_day('NEWYEAR'), 
-  special_day('CHRISTMAS'),
-  special_day('MAYDAY'), 
-  special_day('EASTERMONDAY'), 
-  special_day('ASCENSION'),
-  special_day('WHITMONDAY'),
-  special_day('ASSUMPTION'),
-  special_day('ALLSAINTSDAY'), 
-  special_day('ARMISTICE')) 
+    fixed_day(7, 14), # Bastille Day
+    fixed_day(5, 8, validity = list(start = "1982-05-08")), # Victory Day
+    special_day("NEWYEAR"),
+    special_day("CHRISTMAS"),
+    special_day("MAYDAY"),
+    special_day("EASTERMONDAY"),
+    special_day("ASCENSION"),
+    special_day("WHITMONDAY"),
+    special_day("ASSUMPTION"),
+    special_day("ALLSAINTSDAY"),
+    special_day("ARMISTICE")
+))
+# Generrate calendar regressors
+q <- holidays(frenchCalendar, "1968-01-01",
+    length = length(df_daily$births), type = "All",
+    nonworking = as.integer(7)
 )
-# Generrate calendar regressors 
-q<-holidays(frenchCalendar, "1968-01-01", length = length(df_daily$births), type="All",
-            nonworking = as.integer(7))
 
 # Argument type = All : taking all holidays into account
 # Argument type = Skip : taking into account only the holidays falling on a week day
@@ -135,14 +137,15 @@ Outliers detection is available in the pre-treatment function. Detected outliers
 
 Example using rjd3highfreq::fractionalAirlineEstimation function:
 
-```{r, eval= FALSE}
-pre_adjustment<- rjd3highfreq::fractionalAirlineEstimation(y_raw,
-                x = q, # q = daily calendar regressors
-                periods = c(7, 365.25),
-                ndiff = 2, ar = FALSE, mean = FALSE,
-                outliers = c("ao","ls", "wo"), 
-                criticalValue = 0, # computed in the algorithm
-                precision = 1e-9, approximateHessian = TRUE)
+```{r, echo = TRUE, eval = FALSE}
+pre_adjustment <- rjd3highfreq::fractionalAirlineEstimation(y_raw,
+    x = q, # q = daily calendar regressors
+    periods = c(7, 365.25),
+    ndiff = 2, ar = FALSE, mean = FALSE,
+    outliers = c("ao", "ls", "wo"),
+    criticalValue = 0, # computed in the algorithm
+    precision = 1e-9, approximateHessian = TRUE
+)
 ```
 
 "pre_adjustment" R object is a list of lists in which the user can retrieve input series, parameters and output series. For more details see chapter on [R packages](T-r-packages.qmd) and rjd3highfreq help pages R, where all parameters are listed.
@@ -197,43 +200,45 @@ As seasonality has been removed in the first step, there is no non-integer perio
 
 Here the raw series is daily and displays two periodicities $p=7$ and $p=365.25$
 
-```{r, eval= FALSE}
+```{r, echo = TRUE, eval = FALSE}
 # extraction of day-of-the-week pattern (dow)
 x11.dow <- rjd3x11plus::x11plus(y_linearized,
-        period = 7,                 # DOW pattern
-        mul = TRUE,                              
-        trend.horizon = 9,  # 1/2 Filter length : not too long vs p
-        trend.degree = 3,                         # Polynomial degree
-        trend.kernel = "Henderson",               # Kernel function
-        trend.asymmetric = "CutAndNormalize",     # Truncation method
-        seas.s0 = "S3X9", seas.s1 = "S3X9",       # Seasonal filters
-        extreme.lsig = 1.5, extreme.usig = 2.5)   # Sigma-limits
+    period = 7, # DOW pattern
+    mul = TRUE,
+    trend.horizon = 9, # 1/2 Filter length : not too long vs p
+    trend.degree = 3, # Polynomial degree
+    trend.kernel = "Henderson", # Kernel function
+    trend.asymmetric = "CutAndNormalize", # Truncation method
+    seas.s0 = "S3X9", seas.s1 = "S3X9", # Seasonal filters
+    extreme.lsig = 1.5, extreme.usig = 2.5
+) # Sigma-limits
 
 # extraction of day-of-the-week pattern (doy)
-x11.doy <- rjd3x11plus::x11plus(x11.dow$decomposition$sa,  # previous sa
-                    period = 365.2425,         # DOY pattern
-                    mul = TRUE, 
-                    trend.horizon = 371, # 1/2 final filter length 
-                    trend.degree = 3,
-                    trend.kernel = "Henderson", 
-                    trend.asymmetric = "CutAndNormalize",
-                    seas.s0 = "S3X15", seas.s1 = "S3X5",
-                    extreme.lsig = 1.5, extreme.usig = 2.5)
-
+x11.doy <- rjd3x11plus::x11plus(x11.dow$decomposition$sa, # previous sa
+    period = 365.2425, # DOY pattern
+    mul = TRUE,
+    trend.horizon = 371, # 1/2 final filter length
+    trend.degree = 3,
+    trend.kernel = "Henderson",
+    trend.asymmetric = "CutAndNormalize",
+    seas.s0 = "S3X15", seas.s1 = "S3X5",
+    extreme.lsig = 1.5, extreme.usig = 2.5
+)
 ```
 
 ### Arima Model Based (AMB) Decomposition (Extended Seats)
 
 Example
 
-```{r, eval=FALSE}
+```{r, echo = TRUE, eval = FALSE}
 # extracting DOY pattern
 amb.doy <- rjd3highfreq::fractionalAirlineDecomposition(
-  amb.dow$decomposition$sa,  # DOW-adjusted linearised data
-  period = 365.2425,         # DOY pattern
-  sn = FALSE,                # Signal (SA)-noise decomposition 
-  stde = FALSE,              # Calculate standard deviations
-  nbcasts = 0, nfcasts = 0)  # Numbers of back- and forecasts
+    amb.dow$decomposition$sa, # DOW-adjusted linearised data
+    period = 365.2425, # DOY pattern
+    sn = FALSE, # Signal (SA)-noise decomposition
+    stde = FALSE, # Calculate standard deviations
+    nbcasts = 0, nfcasts = 0
+) # Numbers of back- and forecasts
 ```
 
 ### Summary of the process
