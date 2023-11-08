@@ -14,12 +14,12 @@ Modelling and Auxiliary Variables
 
 Seasonal Adjustment (SA)
 
-- [Seasonal Adjsutment overview](#sa-overview)
+- [Seasonal Adjustment overview](#sa-overview)
 - [SA: pre-treatment](#sa-pre-t)
 - [SA: X11 decomposition](a-sa-X11)
 - [SA: Seats-decomposition](#a-sa-seats)
 - [SA: STL decomposition](#a-sa-stl)
-- [SA of Hig-Frequency Data](#a-sa-hf)
+- [SA of High-Frequency Data](#a-sa-hf)
 - [SA with Basic Stuctural Models (BSM)](#a-sa-bsm)
 
 Other Algorithms

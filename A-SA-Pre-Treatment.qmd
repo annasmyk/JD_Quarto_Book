@@ -2,9 +2,11 @@
 
 ## In this chapter
 
-Case of two step seasonal adjustment algorithms
+The following sections cover pre-treatment with Reg-ARIMA (or Tramo) algorithms. Tramo and the Reg-Arima part of X13-ARIMA rely on very similar [principles](#m-reg-a). Thus Tramo will be mentioned only to highlight differences with the Reg-Arima part of X13-ARIMA. 
 
-In-depth methodological explanations of the algorithms are covered in separated chapters, in the [Methods](P_Methods.qmd) part.
+Reg-Arima modelling part can be of a seasonal adjustment process or run on its [own](#a-reg-a). Below we focus on performing reg-arima modelling as pre-treatment in a SA processing.
+
+More in-depth methodological explanations of the algorithms can be found in [this part](#part-M) of the documentation.
 
 ## Pre-treatment principles
 
@@ -22,11 +24,10 @@ $$
 
 -   $Y_{lin,t} \sim ARIMA(p,d,q)(P,D,Q)$
 
-## Reallocation of pre-treatment effect {#sa-pre-t-realloc}
 
-## Pre-treatment: Reg-Arima or Tramo {#pre-pro-spec}
+## Reallocation of pre-treatment effects {#sa-pre-t-realloc}
 
-The following sections cover how to perform pre-treatment with Reg-ARIMA (or Tramo) algorithms. Tramo and the Reg-Arima part of X13-ARIMA rely on very similar principles: [Reg-Arima modelling](M-reg-arima-modelling.qmd). Thus Tramo will be mentioned only to highlight differences with the Reg-Arima part of X13-ARIMA. Reg-Arima modelling part can be of a seasonal adjustment process or run on its own, we focus on performing pre-treatment as part of a SA processing.
+Up coming content.
 
 ### Default Specifications {#a-pre-t-def-spec}
 
@@ -1018,17 +1019,5 @@ In residual Node
 
 Seasonality tests on residuals in the **Diagnostics NODE**
 
-(link to test chapter for tests details)
-
 ![**Residuals**](All_images/SA_REGA_Arima_Model_residuals_seaso_tests.png)
 
-
-#### Retrieve in R
-
-(to be added)
-
-Output series can be exported out of GUI by two means:
-
--   generating output files
-
--   running the cruncher to generate those files as described [here](T-Production-tools-cruncher-QR.qmd)

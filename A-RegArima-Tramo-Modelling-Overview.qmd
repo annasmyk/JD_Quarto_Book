@@ -22,7 +22,7 @@ Steps to use Reg-Arima and Tramo in a pre-treatment context are described [here]
 
 [Extended Airline Model](#a-sa-hf) allows to handle infra monthly series in a restricted reg-Arima framework.
 
-[State Space Framework (SSF)](#a-sa-bsm) allows another kind of modelling using Basic Structural Models.
+[Strucural time series (STS)](#a-sa-bsm) allow another kind of modelling using state space framework.
 
 ## Practical Reg-Arima modelling 
 
