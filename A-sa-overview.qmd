@@ -1,14 +1,24 @@
 # Seasonal Adjustment (SA) Overview {#sa-overview .unnumbered}
 
+The goal of seasonal adjustment is to remove seasonal fluctuations from a time series. Seasonal fluctuations are quasi-periodic infra-annual movements. They can mask evolutions of greater interest for the user such as short term evolution or long time trends.
+
 ## In this chapter
 
-[ici pour aller à SA chapter X11](#sa-x11)
+This chapter is a first of a series focusing on the practical step by step use of JDemetra+ Seasonal Adjustment (SA) algorithms, restricted to monthly and quarterly series. For infra-monthly data see the [following chapter](#a-sa-hf). 
 
-[ici pour aller à tools X11 chapter X11](#tools-x11)
+In the section below an overview of the seasonal adjustment process is provided. The most widely used SA algorithms have two steps: a pre-treatment to remove (temporarily) deterministic effects and decompositions allowing to estimate the seasonal factors to be removed from the series.  
 
-The goal of seasonal adjustment is to remove seasonal fluctuations from a time series. Seasonal fluctuations are quasi-periodic infra-annual movements. They can mask evolution of greater interest for the user such as short term evolution or long time trends.
+The following chapters get into the specifics of each algorithm. 
 
-This chapter focuses on the **practical step by step** use of JDemetra+ algorithms, restricted to monthly and quarterly series. For infra-monthly data see the [following chapter](A-sa-hf.qmd). The use of [graphical user interface](T-graphical-user-interface.qmd) and [R packages](T-r-packages.qmd) is described simultaneously whenever relevant.
+- [SA: pre-treatment](#sa-pre-t)
+- [SA: X11 decomposition](a-sa-X11)
+- [SA: Seats-decomposition](#a-sa-seats)
+- [SA: STL decomposition](#a-sa-stl)
+- [SA of High-Frequency Data](#a-sa-hf)
+- [SA with Basic Stuctural Models (BSM)](#a-sa-bsm)
+
+
+The use of [graphical user interface](T-graphical-user-interface.qmd) and [R packages](T-r-packages.qmd) is described simultaneously whenever relevant.
 
 In-depth methodological explanations of the algorithms are covered in separated chapters, in the [Methods](P_Methods.qmd) part.
 
@@ -16,9 +26,9 @@ More information on the steps and best practices of a seasonal adjustment proces
 
 For an overview on the algorithms and methodological issues, please refer to the [Handbook on Seasonal Adjustment](https://ec.europa.eu/eurostat/documents/3859598/8939616/KS-GQ-18-001-EN-N.pdf)
 
-## SA process descripition
+## SA process description
 
-(flow charts to add, on preT - decomp- reallocation- diagnostics)
+Upcoming content
 
 ## Seasonal Adjustment Algorithms
 
@@ -32,9 +42,12 @@ For an overview on the algorithms and methodological issues, please refer to the
 | STL                    | ✖             | ✖                | rjd3stl        |
 | STS                    | ✖             | ✖                | rjd3sts        |
 
-: X13-ARIMA and TRAMO-SEATS are two-step algorithms with a pre-treatment phase (Reg-Arima or Tramo) and a decomposition phase (X11 and Seats). STL is a local regression (Loess) based decomposition, without pre-treatment. In a Structural Time Series approach pre-treatment and decomposition are done simultaneously in a State Space Framework [(SSF)](M-state-space-framework.qmd).
+
+X13-ARIMA and TRAMO-SEATS are two-step algorithms with a pre-treatment phase (Reg-Arima or Tramo) and a decomposition phase (X11 and Seats). STL is a local regression (Loess) based decomposition, without pre-treatment. In a [Structural Time Series](#a-sa-bsm) approach pre-treatment and decomposition are done simultaneously in a State Space Framework.
 
 ## Admissible data frequencies
+
+Up coming content
 
 ## Decomposition in unobserved components
 
@@ -60,7 +73,7 @@ In general, the trend consists of 2 sub-components:
 
 ## Detecting seasonal patterns
 
-A large number of [seasonality tests](M-tests.qmd) are available in JDemetra+. They can be accessed in the graphical user interface or via R.
+A large number of [seasonality tests](#m-tests) are available in JDemetra+. They can be accessed in the graphical user interface or via R.
 
 ### In R
 
@@ -76,9 +89,11 @@ In rjd3toolkit package:
 
 ### In GUI
 
+How to generate test in GUI is described [here](#t-GUI-tstools-tests).
+
 ## Direct-Indirect seasonal adjustment
 
-### overview
+Up coming content
 
 ### GUI
 

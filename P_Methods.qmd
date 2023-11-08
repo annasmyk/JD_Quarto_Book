@@ -2,7 +2,7 @@
 
 This part provides underlying methodological background on all the algorithms featured in JDemetra+. 
 
-Practical guidance on how to use these algorithms can be found [here](#part-A), whereas detailed description of all the available tools allowing to access the algorithms can be found in the [Tools](#part-T) part of this book.
+Practical guidance on how to use these algorithms can be found [here](#part-A), whereas detailed description of all the available tools allowing to use them can be found in the [Tools](#part-T) part of this book.
 
 In this part: 
 
