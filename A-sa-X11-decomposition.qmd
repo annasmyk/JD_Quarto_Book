@@ -111,13 +111,13 @@ print(model_sa_v3)
 
 Final components from the SA Processing are displayed in [Main results](#gui-sa). They contain the re-allocated [pre-adjustment effects](#sa-pre-t-realloc) of outliers (link) or external regressors (link). The final seasonal components contains the calendar effects, if any.
 
-![](All_images/SA_MainResults_Series.png)
+![**Final components in GUI**](All_images/SA_MainResults_Series.png)
 
 (forecasts are added at the end of the series, values in *italic*)
 
 [Detailed results](#m-X11-stages-output) from decomposition are displayed in Decomposition (X11) node.
 
-![](All_images/RDimage41.png)
+![**Detailed results**](All_images/RDimage41.png)
 
 The final D Tables contain the re-allocated [pre-adjustment effects](#sa-pre-t-realloc).
 

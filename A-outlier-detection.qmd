@@ -28,9 +28,9 @@ The external regressors described below are not meant for calendar correction wh
 
 The following outliers are available for automatic detection
 
-![](All_images/SA_REGA_Outliers_AO_LS_TC.png)
+![**Outliers type**](All_images/SA_REGA_Outliers_AO_LS_TC.png)
 
-![](All_images/SA_REGA_Outliers_SO.png)
+![**Seasonal outlier**](All_images/SA_REGA_Outliers_SO.png)
 
 ADD:
 - specifics for HF data (wo outiler)
@@ -71,7 +71,7 @@ Adding ramps to a seasonal adjustment (or reg-arima/tramo) specification happens
 
 In the specification window
 
-![](All_images/SA_REGA_user_def_regs_ramps_definition.png)
+![**Add ramp in GUI**](All_images/SA_REGA_user_def_regs_ramps_definition.png)
 
 The effect of the ramps is stored in reg_t pre-adjustment series. 
 

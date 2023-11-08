@@ -345,7 +345,7 @@ Relevant if parameters not set manually, or any parameters automatically selecte
 
 Click on the **Decomposition** NODE
 
-![](All_images/SA_SEATS_GUI_components_models.png)
+![**Decomposition Node**](All_images/SA_SEATS_GUI_components_models.png)
 
 ##### Retrieve from GUI
 

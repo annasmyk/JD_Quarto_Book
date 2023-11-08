@@ -110,9 +110,7 @@ Common settings
 
 Use the specification window for a given series and expand the nodes.
 
-![](All_images/SA_REGA_Spans.png)
-
-**Setting series span in R**
+![**Setting series span in R**](All_images/SA_REGA_Spans.png)
 
 x13 in version 2
 
@@ -199,9 +197,7 @@ Additional (vs series span setting) parameters are described below:
 
 Use the specification window
 
-![](All_images/SA_REGA_model_spans.png)
-
-**Setting in R**
+![**Setting in R**](All_images/SA_REGA_model_spans.png)
 
 Tramo example in version 2
 
@@ -373,15 +369,9 @@ A user-defined regressor can also be used, see chapter on [calendar correction](
 
 Calendar effects
 
-STEP 1: Selection from JDemetra+ Default...or User_defined
+![**STEP 1: Selection from JDemetra+ Default...or User_defined**](All_images/SA_REGA_calendar_options.png)
 
-![](All_images/SA_REGA_calendar_options.png)
-
-SA_REGA_calendar_options.png
-
-STEP2: Calendar effects minus Easter are labeled **trading days**
-
-![](All_images/SA_REGA_calendar_default_options.png)
+![**STEP2: Calendar effects minus Easter are labeled *trading days* **](All_images/SA_REGA_calendar_default_options.png)
 
 ##### Holidays option
 
@@ -397,7 +387,7 @@ Link to Import data Once data imported: here explain how to link variables
 
 ##### Easter
 
-![](All_images/SA_REGA_easter_options.png)
+![**easter Options**](All_images/SA_REGA_easter_options.png)
 
 #### Setting Calendar correction in R
 
@@ -519,7 +509,7 @@ Residual calendar effects are tested with A F-Test 7 regressors and no national 
 
 F-Test results are displayed at the bottom of **Main Results** NODE in the SAProcessing panel
 
-![](All_images/SA_REGA_Calendar_EJOR_Test.png)
+![**F-Test results in GUI**](All_images/SA_REGA_Calendar_EJOR_Test.png)
 
 **In R**
 
@@ -621,11 +611,11 @@ User-defined outliers are used when prior knowledge suggests that certain effect
 
 #### Setting in GUI
 
-Automatic detection
 
-![](All_images/SA_REGA_Outliers_Automatic_detection.png)
 
-![](All_images/SA_REGA_Outliers_automatic_detection_span.png)
+![**Automatic detection of outliers in GUI**](All_images/SA_REGA_Outliers_Automatic_detection.png)
+
+![**Outliers types in GUI**](All_images/SA_REGA_Outliers_automatic_detection_span.png)
 
 Pre-specified :
 
@@ -634,19 +624,19 @@ Pre-specified :
 -   Fill the outlier's information
 -   Click on **Ok**
 
-![](All_images/SA_REGA_Outliers_set_pre_specified.png)
+![**Pre-specified outliers in GUI**](All_images/SA_REGA_Outliers_set_pre_specified.png)
 
 To change the view to set the outliers, got to Tools --\> Options
 
-![](All_images/SA_REGA_option_v3.png)
+![Options in GUI](All_images/SA_REGA_option_v3.png)
 
 Then to **Demetra** --\> **Pre-specified Outliers** --\> **Calendar-like Grid** --\> **Ok**
 
-![](All_images/SA_REGA_option_calendar_view_v3.png)
+![**Change view to calendar**](All_images/SA_REGA_option_calendar_view_v3.png)
 
 Then you have the calendar view (when selecting the pre-specified outliers) :
 
-![](All_images/SA_REGA_Outliers_set_pre_specified_grid.png)
+![**Calendar view in GUI](All_images/SA_REGA_Outliers_set_pre_specified_grid.png)
 
 #### Setting in R
 
