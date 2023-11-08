@@ -2,6 +2,15 @@
 
 ## Chapter's overview
 
+## In this chapter
+
+This chapter focuses on practical implementation of an X11 decomposition using the graphical user interface [GUI](#tools-GUI) and R using [R packages](#t-r-packs) in version 2.x and 3.x. More explanations on X11 algorithm can be found [here](#m-X11).
+
+In recent years X11 has been tailored in JDemetra+ to handle high-frequency (infra-monthly) data, which is described [here](#sa-hf) with more methodological details [here](#m-sa-hf).
+
+The sections below will describe
+
+
 I need to do modelling with arima residuals: what is in my toolbox ?
 
 JD+ offers modelling features which can be used stand alone or as pre-treatment

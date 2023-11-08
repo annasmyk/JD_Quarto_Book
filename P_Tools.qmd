@@ -2,7 +2,7 @@
 
 This part describes all the available [Tools](#part-T) allowing to access JDemetra+ algorithms.
 
-Practical guidance for using all the algorithms is provided [here](#part-A).
+Practical guidance for using them is provided [here](#part-A).
 
 Whereas, further methodological insights on each algorithm can be found in the [Methods](#part-M) part of this book.
 

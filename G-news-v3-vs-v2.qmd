@@ -1,33 +1,15 @@
-# New Features in v 3.x family {.unnumbered #v3-vs-V2}
+# New Features in v 3.x family {.unnumbered #v3-vs-v2}
 
 
 ## In this chapter
 
-A contextualized view of new features of v 3.x 
+Up coming content. 
 
-their degree of maturity 
+This chapter will provide a contextualized view of new features of v 3.x  as well as modification of display or content for existing features. We will report on their degree of maturity 
+and testing.
 
-testing performed or not 
 
 
-## Resources 
-
-- slides JP march and june 
-
-- notes (?)
-
-obj: very specific point check with JP in bxls in dec 
-
-## Battle Plan 
-
-out of here to AUX (as this will be publised)
-doc and test 
-
-## GUI
-
-tests to prepare
-
-## R
 
 
 

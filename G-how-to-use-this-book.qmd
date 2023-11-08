@@ -1,110 +1,53 @@
 # How to use this book {.unnumbered #G-use-book}
 
-This book is meant to provide guidance on all the algorithms provided in JDemetra+ with the different tools (...) giving access to them. It is also methodological background.
+JDemetra+ on-line documentation is meant to provide a step-by-step guidance on how to use all the algorithms featured JDemetra+, highlighting all the available options and outputs. It also describes the different tools giving access to these algorithms and provides a concise methodological background.
 
 ## Structure 
 
 This book is divided in three parts, allowing the user to access the resources from different perspectives.
 
-### Algorithms
+- [Algorithms](#part-A)
 
-This part provides a step by step guidance for using of all the algorithms featured in JDemetra+, when accessed through the Graphical User Interface or R packages.
+- [Tools](#part-T)
 
-Seasonal adjustment algorithms are split into parts, after an overview chapter to improve readability in spite of a large volume of information.
+- [Methods](#part-M)
 
-
--   [Reg-Arima (Tramo) Modelling](A-RegArima-Tramo-Modelling-Overview.qmd)
-
-
-
--   [Seasonal Adjustment (SA) Overview](A-sa-overview.qmd)
-
-
-
-
--   [SA Pre-Treatment Phase](A-sa-pre-treatment.qmd)
--   [SA X-11 Decomposition](A-sa-X11-decomposition.qmd)
--   [SA SEATS Decomposition](A-sa-seats-decomposition.qmd)
--   [SA STL decompostion](A-sa-stl-decomposition.qmd)
--   [SA with Basic Structural](A-sa-bsm.qmd)
--   [Seasonal Adjustment of high-frequency data](A-sa-hf.qmd)
--   [Outlier detection and external regressors](A-outlier-detection.qmd)
--   [Calendar correction](A-calendar-correction.qmd)
--   [Benchmarking and temporal disaggregation](A-benchmarking.qmd)
--   [Trend-Cycle estimation](A-trend-cycle-estimation.qmd)
--   [Revision Analysis](A-revision-analysis.qmd)
--   [Nowcasting](A-nowcasting.qmd)
-
-
-For each algorithm the way to output series, diagnostics, as well as parameters (automatically estimated or user-defined) is detailed.
-
-### Tools
-
-This part describes the tools allowing to access JDemetra+ algorithms. 
-
--   [R packages](T-r-packages.qmd)
-
--   [Graphical User Interface (GUI) overview](T-GUI-Overview.qmd)
-
-details...
-
--   [GUI: data visualization and generic time series tools](T-GUI-Data-Viz-TS-Tools.qmd)
-
-details...
-
--   [GUI: Seasonal adjustment and modelling specific features](T-GUI-SA-Modelling-Features.qmd)
-
--   [GUI: generating output](T-GUI-Output.qmd)
-
-details...
-
--  Graphical user interface can be enhanced with additional [plug-ins](T-plug-ins.qmd)
-
--  and a [Cruncher](T-Production-tools-cruncher-QR.qmd) for mass production
-
-### Methods
-
-This part describes in greater detail the core algorithms and their underlying statistical methods:
-
--   [Reg-Arima modelling](M-reg-arima-modelling.qmd)
-
--   [X-11: moving average based decomposition](M-X11-decomposition.qmd)
-
--   [SEATS: Arima model based decomposition](M-SEATS-decomposition.qmd)
-
--   [STL: Loess based decomposition](M-STL-decomposition.qmd)
-
--   [Benchmarking and temporal disaggregation](M-Temp-Disagg-Bench.qmd)
-
--   [Spectral analysis tools](M-spectral-analysis.qmd)
-
--   [Trend Estimation](M-Trend-Estimation-Local-Polynomials.qmd)
-
--   [Tests for seasonality and residuals](M-tests.qmd)
-
--   [Structural time series and state space framework](M-state-space-framework.qmd)
 
 ## Quick Start
 
-links to additional chapters, enhanced by tutorials
+(up coming content here)
 
 ## Features MAP
 
-provide and overview of the documentation as well as an overview of the tools 
+Up coming content: here an overview of all the existing tools will be provided, highlighted what specific features can (or cannot) be accessed with each of them.
 
-provisional
+### What is new in version 3.x
 
-### R vs GUI in v2
+[Seasonal adjustment of high frequency](#a-sa-hf) data is the main functionality upgrade brought by version 3 but there are many others. They will be extensively pointed out in [this chapter](#v3-vs-v2)
 
-### R vs GUI in V3
+### R ecosytem vs GUI in v2
 
-v2 vs v3 special chapter
+The vast majority of functions have identical options and output when used via R or GUI, but there are some exceptions. Data structure and visualization can also differ. This will be described in the sections below.
+
+#### In version 2.2.4
+
+up coming content
+
+#### In version 3.x
+
+up coming content
+
 
 ## Frequently asked questions 
 
-(ref = black book ?)
+up coming content
 
 ## Troubleshooting 
 
+up coming content
+
+### Software Installation 
+
+### Reporting bugs 
 
 
