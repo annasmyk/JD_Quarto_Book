@@ -162,6 +162,13 @@ All standard databases (Oracle, SQLServer, DB2, MySQL) are supported by JDemetra
 
 ### Import data {#import-data}
 
+To import data from a given data source:
+
+- click on this data source in the *Providers* window shown below
+- choose *Open* option and specify the import details, such as a path to a data file. 
+
+These details vary according to data providers. 
+
 {{< video https://www.youtube.com/watch?v=KYBcKx1e8ys&pp=ygUUaW1wb3J0IGRhdGEgamRlbWV0cmE%3D >}}
 
 
@@ -175,12 +182,7 @@ All standard databases (Oracle, SQLServer, DB2, MySQL) are supported by JDemetra
 
 ::: 
 
-To import data from a given data source:
-
-- click on this data source in the *Providers* window shown below
-- choose *Open* option and specify the import details, such as a path to a data file. 
-
-These details vary according to data providers. The example below show how to import the data from an Excel file.
+The example below show how to import the data from an Excel file.
 
 1.  From the *Providers* window **right-click** on the *Spreadsheets* branch and choose *Open* option.
 
@@ -190,7 +192,7 @@ These details vary according to data providers. The example below show how to im
 
     + **Spreadsheet file** -- a path to access the Excel file.
 
-    + **Data format** -- the data format used to read dates and values. It includes three fields: *locale* (country), *date pattern* (data format, e.g. *yyyy-mm-dd*), *number pattern* (a metaformat of numeric value, e.g. 0.## represents two digit number).
+    + **Data format** (or **Observartion format** in v3) -- the data format used to read dates and values. It includes three fields: *locale* (country), *date pattern* (data format, e.g. *yyyy-mm-dd*), *number pattern* (a metaformat of numeric value, e.g. 0.## represents two digit number).
 
     + **Frequency** -- time series frequency. This can be undefined, yearly, half-yearly, four-monthly, quarterly, bi-monthly, or monthly. When the frequency is set to undefined, JDemetra+ determines the time series frequency by analysing the sequence of dates in the file.
 
@@ -222,7 +224,7 @@ Once imported, your spread sheet is visible as a "node" structure
 
 In v2, the formats `.xls` and `.xlsx` are accepted.
 
-In v3, only the format `.xlsx` is accepted. `.xls` files are no longer supported.
+In v3, only the format `.xlsx` is accepted (`.xls` files are no longer supported).
 
 :::
 
@@ -243,6 +245,49 @@ In Excel files, series are identified by their names (colnames) in the file.
 
 
 #### Text or csv file
+
+The example below show how to import the data from an Excel file.
+
+1.  From the *Providers* window **right-click** on the *Txt files* branch and choose *Open* option.
+
+    ![**Data provider available by default**](All_images/provider-txt-files.png)
+
+2.  The *Open data source* window contains the following options:
+
+    + **Text file** -- a path to access the file.
+    
+    + **Charset** -- the encoding used to encode the file
+    
+    + **Lines to skip** -- the number of lines to skip before reading the data
+    
+    + **Delimiter** -- the character used to separate fields in the file
+    
+    + **Text qualifier** -- the characters used to retrieve text fileds
+    
+    + **Has header** -- check tu use the first line as header
+    
+    + **Data format** (or **Observartion format** in v3) -- the data format used to read dates and values. It includes three fields: *locale* (country), *date pattern* (data format, e.g. *yyyy-mm-dd*), *number pattern* (a metaformat of numeric value, e.g. 0.## represents two digit number).
+
+    + **Frequency** -- time series frequency. This can be undefined, yearly, half-yearly, four-monthly, quarterly, bi-monthly, or monthly. When the frequency is set to undefined, JDemetra+ determines the time series frequency by analysing the sequence of dates in the file.
+
+    + **Aggregation type** -- the type of aggregation (over time for each time series in the dataset) for the imported time series. This can be *None*, *Sum*, *Average*, *First*, *Last*, *Min* or *Max*. The aggregation can be performed only if the *frequency* parameter is specified. For example, when frequency is set to *Quarterly* and aggregation type is set to *Average*, a monthly time series is transformed to quarterly one with values that are equal to the one third of the sum of the monthly values that belong to the corresponding calendar quarter.
+
+    + **Clean missing** -- erases the missing values of the series.
+    
+    + **Partial aggregation** -- Allow partial aggregation (only with average and sum aggregation).
+
+    Next, in the *Source* section click the grey "..." button to open the file.
+
+    ![**Data source window**](All_images/provider-open-txt-files.png)
+
+3.  Choose a file and click *OK*.
+
+    ![**Choice of an Excel spreadsheet**](All_images/provider-open-file.png)
+
+4.  The data are organized in a tree structure.
+
+    ![**Options for importing data**](All_images/provider-txt-file-structure.png)
+
 
 ::: {.callout-note collapse="true" title="How to set up you text or csv file"}
 
@@ -266,12 +311,7 @@ In text files, series are identified by their position in the file.
 
 #### Spreadsheet
 
-To import data from a given data source:
-
-- click on this data source in the *Providers* window shown below
-- choose *Open* option and specify the import details, such as a path to a data file. 
-
-These details vary according to data providers. The example below show how to import the data from an Excel file.
+The example below show how to import the data from an Excel file.
 
 1.  From the *Providers* window **right-click** on the *Spreadsheets* branch and choose *Open* option.
 
@@ -281,7 +321,7 @@ These details vary according to data providers. The example below show how to im
 
     + **Spreadsheet file** -- a path to access the Excel file.
 
-    + **Data format** -- the data format used to read dates and values. It includes three fields: *locale* (country), *date pattern* (data format, e.g. *yyyy-mm-dd*), *number pattern* (a metaformat of numeric value, e.g. 0.## represents two digit number).
+    + **Data format** (or **Observartion format** in v3) -- the data format used to read dates and values. It includes three fields: *locale* (country), *date pattern* (data format, e.g. *yyyy-mm-dd*), *number pattern* (a metaformat of numeric value, e.g. 0.## represents two digit number).
 
     + **Frequency** -- time series frequency. This can be undefined, yearly, half-yearly, four-monthly, quarterly, bi-monthly, or monthly. When the frequency is set to undefined, JDemetra+ determines the time series frequency by analysing the sequence of dates in the file.
 
@@ -333,6 +373,49 @@ In Excel files, series are identified by their names (colnames) in the file.
 :::
 
 #### Text or csv file
+
+The example below show how to import the data from an Excel file.
+
+1.  From the *Providers* window **right-click** on the *Txt files* branch and choose *Open* option.
+
+    ![**Data provider available by default**](All_images/provider-txt-files.png)
+
+2.  The *Open data source* window contains the following options:
+
+    + **Text file** -- a path to access the file.
+    
+    + **Charset** -- the encoding used to encode the file
+    
+    + **Lines to skip** -- the number of lines to skip before reading the data
+    
+    + **Delimiter** -- the character used to separate fields in the file
+    
+    + **Text qualifier** -- the characters used to retrieve text fileds
+    
+    + **Has header** -- check tu use the first line as header
+    
+    + **Data format** (or **Observartion format** in v3) -- the data format used to read dates and values. It includes three fields: *locale* (country), *date pattern* (data format, e.g. *yyyy-mm-dd*), *number pattern* (a metaformat of numeric value, e.g. 0.## represents two digit number).
+
+    + **Frequency** -- time series frequency. This can be undefined, yearly, half-yearly, four-monthly, quarterly, bi-monthly, or monthly. When the frequency is set to undefined, JDemetra+ determines the time series frequency by analysing the sequence of dates in the file.
+
+    + **Aggregation type** -- the type of aggregation (over time for each time series in the dataset) for the imported time series. This can be *None*, *Sum*, *Average*, *First*, *Last*, *Min* or *Max*. The aggregation can be performed only if the *frequency* parameter is specified. For example, when frequency is set to *Quarterly* and aggregation type is set to *Average*, a monthly time series is transformed to quarterly one with values that are equal to the one third of the sum of the monthly values that belong to the corresponding calendar quarter.
+
+    + **Clean missing** -- erases the missing values of the series.
+    
+    + **Partial aggregation** -- Allow partial aggregation (only with average and sum aggregation).
+
+    Next, in the *Source* section click the grey "..." button to open the file.
+
+    ![**Data source window**](All_images/provider-open-txt-files.png)
+
+3.  Choose a file and click *OK*.
+
+    ![**Choice of an Excel spreadsheet**](All_images/provider-open-file.png)
+
+4.  The data are organized in a tree structure.
+
+    ![**Data structure**](All_images/provider-txt-file-structure.png)
+
 
 ::: {.callout-note collapse="true" title="How to set up you text or csv file"}
 
@@ -847,7 +930,7 @@ The *Demetra UI* tab enables the setting of:
 ![**The option Charts**](All_images/options-demetra-commonUI-charts.png)
 
 
-- The data format (uses MS Excel conventions). For example, ###,###.#### implies the numbers in the tables and the y-axis of the graphs will be rounded up to four decimals after the decimal point (**Data format**).
+- The data format (uses MS Excel conventions). For example, ###,###.#### implies the numbers in the tables and the y-axis of the graphs will be rounded up to four decimals after the decimal point (**Data format** (or **Observartion format** in v3)).
 
 ![**The option Data format**](All_images/options-demetra-commonUI-data_format.png)
 

@@ -86,15 +86,11 @@ The model_sa R object (list of lists) contains all parameters and results. It wi
 
 #### Display in GUI
 
-Main results 
-
-![](All_images/SA_MainResults_Series.png)
+![**Main results**](All_images/SA_MainResults_Series.png)
 
 (forecasts glued, values in *italic*)
 
-X-11 Tables
-
-![](All_images/RDimage41.png)
+![**X-11 Tables**](All_images/RDimage41.png)
 
 Output series can be exported out of GUI by two means:
 
@@ -610,7 +606,7 @@ Relevant if parameters not set manually, or any parameters automatically selecte
 
 Click on the **Decomposition** NODE
 
-![](All_images/SA_SEATS_GUI_components_models.png)
+![**Decomposition NODE**](All_images/SA_SEATS_GUI_components_models.png)
 
 ##### Retrieve from GUI
 

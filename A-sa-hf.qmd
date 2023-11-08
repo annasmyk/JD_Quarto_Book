@@ -46,7 +46,7 @@ HF data often display multiple seasonal patterns with potentially non-integer pe
 
 ### Raw series decomposition
 
-![](All_images/SA_HF_unobs_comps.png)
+![**Decomposition diagram**](All_images/SA_HF_unobs_comps.png)
 
 ### Multiple seasonal patterns
 
