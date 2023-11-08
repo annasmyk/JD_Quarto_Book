@@ -1,71 +1,38 @@
-# RegArima (Tramo) Modelling {.unnumbered #a-reg-a}
-
-## Chapter's overview
+# RegArima (Tramo) Modelling {#a-reg-a .unnumbered}
 
 ## In this chapter
 
-This chapter focuses on practical implementation of an X11 decomposition using the graphical user interface [GUI](#tools-GUI) and R using [R packages](#t-r-packs) in version 2.x and 3.x. More explanations on X11 algorithm can be found [here](#m-X11).
+This chapter focuses on practical implementation of modelling of a time series (with arima residuals) .
 
-In recent years X11 has been tailored in JDemetra+ to handle high-frequency (infra-monthly) data, which is described [here](#sa-hf) with more methodological details [here](#m-sa-hf).
+The sections below will describe modelling features which can be used stand alone or as [pre-treatment](#sa-pre-t) (first step of [seasonal adjustment](#sa-overview)).
 
-The sections below will describe
-
-
-I need to do modelling with arima residuals: what is in my toolbox ?
-
-JD+ offers modelling features which can be used stand alone or as pre-treatment
-
--   reg arima
--   tramo
--   extended airline
--   SSF framework
-
-what is where ?
-
-In-depth methodological explanations of the algorithms are covered in separated chapters, in the [Methods](P_Methods.qmd) part.
+In-depth methodological explanations of the algorithms are covered in separated chapters, in the [Methods](#part-M) part.
 
 ## Modelling Algorithms
 
-+--------------------+---------------+------------------+----------------+
-| Algorithm          | Access in GUI | Access in R (v2) | Access in R v3 |
-+====================+===============+==================+================+
-| Reg-Arima          | ✔️            | RJDemetra        | rjd3x13        |
-+--------------------+---------------+------------------+----------------+
-| Tramo              | ✔️            | RJDemetra        | rjd3tramoseats |
-+--------------------+---------------+------------------+----------------+
-| Extended Airline   | ✖            | ✖               | rjd3stl        |
-+--------------------+---------------+------------------+----------------+
-| STS                | ✖            | ✖               | rjd3sts        |
-+--------------------+---------------+------------------+----------------+
+| Algorithm        | Access in GUI | Access in R (v2) | Access in R (v3) |
+|------------------|---------------|------------------|------------------|
+| Reg-Arima        | ✔️            | RJDemetra        |                  |
+| Tramo            | ✔️            | RJDemetra        | rjd3tramoseats   |
+| Extended Airline | ✔️ (v3 only)  | ✔                | rjd3highfreq     |
+| STS              | ✖             | ✔                | rjd3sts          |
 
-: X13-ARIMA and TRAMO-SEATS are two-step algorithms with a pre-treatment phase (Reg-Arima or Tramo) and a decomposition phase (X11 and Seats). STL is a local regression (Loess) based decomposition, without pre-treatment. In a Structural Time Series approach pre-treatment and decomposition are done simultaneously in a State Space Framework [(SSF)](M-state-space-framework.qmd).Pre-treatment principles
 
-The goal of this step is to remove deterministic effects (calendar and outliers) in order to improve the decomposition.
+Steps to use Reg-Arima and Tramo in a pre-treatment context are described [here](#sa-pre-t). Options and outputs are the same as when modelling is done as pre-treatment or stand alone. Specification differ slightly and the possibility of saving parameters and generating output in the GUI is also different.
 
-$$
-Y_t = \sum {\alpha}_i O_{it} + \sum\beta_j C_{jt} + \sum {\gamma}_i U_{it} + Y_{lin,t}
-$$
+[Extended Airline Model](#a-sa-hf) allows to handle infra monthly series in a restricted reg-Arima framework.
 
--   $O_{it}$ are the $i$ final outliers (AO, LS, TC)
+[State Space Framework (SSF)](#a-sa-bsm) allows another kind of modelling using Basic Structural Models.
 
--   $C_{it}$ are the calendar regressors (automatic or user-defined) (link to calendar chap)
+## Practical Reg-Arima modelling 
 
--   $U_{it}$ are all the other user-defined regressors (link to outliers and regressors chap)
+For the user not needing seasonal adjustment, the sections below highlight the functions or steps allowing to perform reg-Arima (or Tramo) as a stand alone goal, outside of a seasonal adjustment process. 
 
--   $Y_{lin,t} \sim ARIMA(p,d,q)(P,D,Q)$
-
-## White noise tests 
-
-## Accessing tools 
 
 ### In R
 
-- stand alone 
-- as pre-treatment 
+Up coming content
 
-### GUI 
+### GUI
 
-- stand alone (methods documents and co)
-
-- as pre treatement 
-
+Up coming content
