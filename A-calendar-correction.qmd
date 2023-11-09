@@ -1,13 +1,10 @@
 # Calendar correction {.unnumbered #a-cal}
 
+## In this Chapter
 
-att : calendar regressors by frequency, wht is available
+This chapter is divided in two parts. The first one (theory) outlines the rationale for calendar correction and the underlying modelling. The second part (practice) describes how relevant regressors for calendar correction are built in JDemetra+.
 
-## Chapter's overview
-
-This chapter is divided in two parts. The first one (theory) outlines the rationale for correcting calendar correction and the underlying modelling. The second part (practice) describes how relevant regressors for calendar correction are built in JDemetra+.
-
-As calendar effects are deterministic, they can be corrected with a regression model. In the algorithms X13-ARIMA and TRAMO-SEATS it boils down to adding suitable regressors to the reg-arima modelling (pre-adjustment) phase. This chapter will describe how to generate a set of regressors corresponding to the desired correction, which will happen according to the following steps:  
+As calendar effects are deterministic, they can be corrected with a regression model. In the algorithms X13-ARIMA and TRAMO-SEATS it boils down to adding suitable regressors to the [pre-treatment phase](#sa-pre-t)). This chapter will describe how to generate a set of regressors corresponding to the desired correction, which will happen according to the following steps:  
 
 - step 1: generate a calendar (usually national calendar of interest). If this step is skipped a default calendar, not taking into account country-specific holidays will be used.
 
@@ -15,25 +12,19 @@ As calendar effects are deterministic, they can be corrected with a regression m
 
 Regressors will have the same frequency as the raw data, thus an aggregation process will be defined unless the data is daily.
 
-- step 2b: a specific variable for modelling the easter effect (or any other moving holiday effect like Ramadan) can also be defined
+- step 2b: a specific variable for modelling the easter effect (or any other moving holiday effect like ramadan) can also be defined
 
 Most of the functions are designed for quarterly and monthly data. What applies to daily and weekly data will be highlighted.
 
-Regressors are corrected for deterministic seasonality through a long-term mean correction (see below)
+Regressors are corrected for deterministic seasonality through a long-term mean correction 
 
-- step 3: these regressors have to be plugged-in in pre-adjustment phase of a seasonal adjustment estimation. How to do this is detailed in chapters on [SA](A-sa.qmd) or [SA of HF data](A-sa-hf.qmd).
+- step 3: these regressors have to be plugged-in in pre-adjustment phase of a seasonal adjustment estimation. How to do this is detailed in chapters on [pre-treatment](#sa-pre-t) and [SA of High-Frenquency data](#a-sa-hf).
 
-How to add other types of regressors is described [here](A-outlier-detection.qmd)
+How to generate other types of regressors is described [here](#a-out-reg-ext) and how to plug them into reg-arima models is detailed [here](#sa-pre-t)
 
-#### Calendar correction using R packages vs GUI: quick contrasting
+## Tools Map
 
-- is group and reference day choice as flexible in GUI as in R ?
-
-- in GUI (v3) automatic detection, what in R ?
-
-- are the same data frequencies available in R and in GUI (divisors of 12 and...)
-
-- calendar correction HF data: R vs GUI ? including weekly data
+up coming content
 
 ## Rationale for Calendar correction
 
@@ -139,7 +130,7 @@ After the removal of the deterministic seasonality, the variables computed using
 
 ### Use in Reg-ARIMA models
 
-In the context of Reg-ARIMA modeling, we can also observe that the global effect of the trading days doesn't depend neither on the used weights (we project on the same space) nor on the contrasting group (see above) nor on the long term corrections (removed by differencing).
+In the context of Reg-ARIMA modelling, we can also observe that the global effect of the trading days doesn't depend neither on the used weights (we project on the same space) nor on the contrasting group (see above) nor on the long term corrections (removed by differencing).
 
 The estimated coefficients slightly change if we use different weights (not if we use a different contrasting group). It must also be noted that the choices affect the T-Stat of the different coefficients (not the joint F-Test), which can lead to other solutions when those T-Stats are used for selecting the regression variables (Tramo). Considering that the leap year/length of period variable is nearly independent of the other variables, the test on that variable is not very sensitive to the various specifications.
 

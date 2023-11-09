@@ -1,14 +1,23 @@
-# Trend-cycle estimation {.unnumbered #a-tend}
+# Trend-cycle estimation {.unnumbered #a-trend}
 
-Under construction 
+## In this Chapter
 
-## Overview 
+This chapter will cover the implementation of trend estimation methods available in JDemetra+ v 3.
 
-## Estimation Methods
+More methodological details will be provided [here](#m-trend)
 
-## Tools
+## Tools for access
 
-### rjd3highfeq package 
+For the time being this algorithms are available in two R packages.
 
-### rjdfilters package
 
+### rjd3filters
+
+rjd3filters is available [here](https://github.com/rjdemetra/rjd3filters), with useful information in the Readme file and function documentation.
+
+### rjd3x11plus
+
+rjd3x11plus is available [here](https://github.com/rjdemetra/rjd3x11plus), with (up coming) useful information in the Readme file and function documentation.
+
+
+(Up coming content)
