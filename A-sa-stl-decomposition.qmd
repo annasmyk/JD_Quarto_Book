@@ -1,14 +1,14 @@
 ## SA with STL {.unnumbered #a-sa-stl}
 
-Loess based decomposition algorithm used on linearized data data, no pre-adjustment.
+STL is a Loess (Weighted local regression) based decomposition algorithm used on linearized data, no integrated [pre-adjustment](#sa-pre-t).
 
-Not currently available. Under construction.
 
-## Context 
+## In this Chapter
 
-- classic stl
+We will cover how to use classic STL JDemetra+. M-STL functions for tackling multiple periodicities (with rounded frequencies) in infra-monthly data will be described in the [high-frequency]((#a-sa-hf)) data related chapter.  
 
-- M-STL: for multiple periodicities but with rounded frequencies  
-
+More methodological details will be provided [here](#m-stl)
 
 ## Tools for access
+
+In JDemetra+ STL is only available through [rjd3stl](https://github.com/rjdemetra/rjd3stl) package.

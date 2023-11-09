@@ -560,7 +560,7 @@ $$
 
 ![**Autocorrelations in the irregular**](All_images/RDimage54.png)
 
-#### Heteroskedasticity
+#### Heteroskedasticity{#m-X11-hetero}
 
 A Cochran test on equal variances within each period is performed in the extreme value detection procedure to check if the irregular component is heteroskedastic. In this procedure the standard errors of the irregular component are used for an identification of extreme values. If the null hypothesis (for all the periods (months, quarters) the variances of the irregular component are identical) is rejected, the standard errors will be computed separately for each period. This will happen only if in the option *Calendarsigma*=**signif** has been selected.
 

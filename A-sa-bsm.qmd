@@ -1,4 +1,14 @@
 ## SA with Basic Structural Models {.unnumbered #a-sa-bsm}
 
-Under construction..
+Basic Structural models allow to decompose the series with explicit models for its components ($S$,$T$,$I$) while running pre-treatment in one single step. It also allows to integrate time varying trading-day correction.
 
+
+## In this Chapter
+
+We will cover how to perform seasonal adjustment using BSM in JDemetra+. How to tackling multiple periodicities (with rounded frequencies) in infra-monthly data will be described in the [high-frequency]((#a-sa-hf)) data related chapter.  
+
+More methodological details will be provided [here](#m-ssf)
+
+## Tools for access
+
+In JDemetra+ Basic Structural Models are only available through [rjd3sts](https://github.com/rjdemetra/rjd3sts) package.

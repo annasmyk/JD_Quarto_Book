@@ -211,7 +211,7 @@ user_spec_1 <- tramoseats_spec(
 )
 ```
 
-### Decomposition Scheme
+### Decomposition Scheme {#sa-pre-t-mode}
 
 #### Parameters
 
