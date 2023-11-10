@@ -80,7 +80,7 @@ The packages listed below contain utility functions useful when running a produc
 
 ### Running the cruncher and generating a quality report
 
-[JDemetra+ cruncher](T-Production-tools-cruncher-QR.qmd) is an executable module designed for mass production of seasonally adjusted series .
+[JDemetra+ cruncher](#t-prod) is an executable module designed for mass production of seasonally adjusted series .
 
 | Package       | JD+ version | Comments                       |
 |---------------|-------------|--------------------------------|
@@ -178,7 +178,7 @@ The sections below provide an overview of each package based on version 3.x of J
 
 Contains utility functions used in other `rjd3` packages and has to be systematically installed before using any other rjd3 package. From a user point of view, it allows to:
 
--   customized the pre-adjustment specification in X13-ARIMA and TRAMO-SEATS
+-   customize specifications in X13-ARIMA and TRAMO-SEATS
 
 -   generate user-defined regressors for calendar correction
 
@@ -222,13 +222,13 @@ Seasonal adjustment of high frequency (infra-monthly) data:
 
 ### rjd3x11plus
 
--   Extension of X-11 decomposition with non integer periodicity
+-   Extension of X-11 decomposition with multiple non integer periodicities.
 
 ### rjd3sts
 
 Gives access to structural time series and state space models, has to be installed to use rjd3highfreq. Handles high-frequency data.
 
-Several examples available here https://github.com/rjdemetra/test_rjd3sts
+Several examples available [here](https://github.com/rjdemetra/test_rjd3sts)
 
 ### rjd3stl
 
@@ -374,7 +374,7 @@ Several examples [here](https://github.com/rjdemetra/test_rjd3bench)
 
 ### rjd3revisions
 
-## Revsion analysis. (See vignette in package)
+Revision analysis, more info [here](#a-revs) 
 
 ### rjdemetra 3
 
@@ -384,8 +384,4 @@ This package allows to wrangle JDemetra+ workspaces in R with functions:
 
 -   `save_workspace`
 
-...
-
-Under construction, it Will contain all the functionalities of `rjdworkspace` (upgraded from version 2).
-
-More information [here](https://github.com/annasmyk/Tsace_RJD_Webinar_Dec22/blob/main/Presentations/P3_Wrangling_Workspaces.pdf)
+Up coming content.

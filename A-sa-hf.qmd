@@ -1,8 +1,8 @@
 # SA of high-frequency data {.unnumbered #a-sa-hf}
 
-## Overview
+## In this chapter 
 
-This chapter provides guidance on seasonal adjustment of infra-monthly, or high-frequency (HF), time-series data with JDemetra+ tailored algorithms.
+The sections below provide guidance on seasonal adjustment of infra-monthly, or high-frequency (HF), time-series data with JDemetra+ tailored algorithms.
 
 Currently available topics:
 
@@ -10,7 +10,7 @@ Currently available topics:
 
 -   R functions for pre-treatment, extended X-11 and extended Seats
 
-Topics under construction
+Up coming content:
 
 -   graphical user interface 3.0 functionalities for HF data
 
@@ -169,13 +169,13 @@ pre_adjustment <- rjd3highfreq::fractionalAirlineEstimation(y_raw,
 )
 ```
 
-"pre_adjustment" R object is a list of lists in which the user can retrieve input series, parameters and output series. For more details see chapter on [R packages](T-r-packages.qmd) and rjd3highfreq help pages R, where all parameters are listed.
+"pre_adjustment" R object is a list of lists in which the user can retrieve input series, parameters and output series. For more details see chapter on [R packages](#t-r-packs) and rjd3highfreq help pages R, where all parameters are listed.
 
 ## Decomposition
 
 ### Extended X-11
 
-X-11 is the decomposition module of [X-13-Arima](A-sa.qmd), the linearized series from the pre-adjustment step is split into seasonal ($S$), trend ($T$) and irregular ($I$) components. In case of multiple periodicities the decomposition is done periodicity by periodicity starting with the smallest one. Global structure of the iterations is the same as in "classical" X-11 but modifications were introduced for tackling non-integer periodicities. They rely on the Taylor approximation for the seasonal backshift operator:
+X-11 is the decomposition module of [X-13-Arima](#sa-overview), the linearized series from the pre-adjustment step is split into seasonal ($S$), trend ($T$) and irregular ($I$) components. In case of multiple periodicities the decomposition is done periodicity by periodicity starting with the smallest one. Global structure of the iterations is the same as in "classical" X-11 but modifications were introduced for tackling non-integer periodicities. They rely on the Taylor approximation for the seasonal backshift operator:
 
 $$
 \begin{array}{lll}

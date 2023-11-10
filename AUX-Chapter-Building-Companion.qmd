@@ -1,0 +1,680 @@
+# Doc building companion
+
+## Principles and Policy 
+
+policy: - what is displayed in GUI should be explained, even if shortly, adding links to relevant method chapter from GUI: all panels have to be described
+
+-   the same does not apply to R packages as they have a documentation on their own any output any param setting possibility
+
+### Difference with training
+
+-   rationale for params
+-   diagnostics
+-   what can be changed, but not why !
+
+
+## Book Production Management
+
+## Structure PBS
+
+- revsion policies might be misplaced (not a tool, a piece of algo): later 
+
+## Display PBS
+
+Equations ? re-check ? tanguy ? 
+
+## Help
+
+non urgent (= finish up a to of stuff before..)
+now just a clean page
+- seats : redo step by step (with help of spanish doc) and submit to karsten
+
+
+
+## Chapters from scratch 
+
+like stl or ssf 
+paste a well known structure like X-11 and try to fill it in 
+
+## Added value 
+
+see overleaf fort start, but master file here
+
+### New features 
+
+
+
+### New content 
+
+Not explained in old doc 
+- reallocation (get back to JP's doc)
+
+
+### Quick time line
+
+-   took over oct 2021
+-   start ref: January 2022
+-   started a structured quarto book: june 2022
+-   june 2023: ? obj newsletter june 16th
+
+### Mind management 
+
+here how to suffer less by 
+
+- doing one kind of thing at a time: very hard
+
+have a look a the book (kindle for the different categories of tasks)
+
+## New features to document: battle plan
+
+### Resources 
+
+- slides JP march and june 
+
+- notes (?)
+
+obj: very specific point check with JP in bxls in dec 
+
+### Battle Plan 
+
+out of here to AUX (as this will be publised)
+doc and test 
+
+### GUI
+
+tests to prepare
+
+### R
+
+## Methodo holes to fill in 
+
+for doc, they are listed in craft book 
+
+chap : JD+ GUI and R Holes
+
+part: Pending questions in doc 
+
+if ever, stack to configure here 
+
+### A X11
+
+- SI ratios, I=D8 
+
+(to be checked: I=D8 or I = D13 ?) (D8 doesn't contain pre-treatment effects and D13 does)
+
+-  mode
+
+
+
+### Next steps 
+
+#### Docathon n°1
+week du L 25 sept
+
+moi 
+- GUI chap split: ok 
+- SA et SA HF chap split: ok 
+- big missing pieces (state of mind = sheer writing)
+    - general chapters 
+    
+Tanguy 
+- SA images 
+- GUI from overview to...(v3 as reference, testing along the way)
+
+
+#### Docathon n°2: obj release 9 nov
+
+(then "final release on Friday December 8th, before the meetings)
+doc release 9/11: obj = being able to release with new split
+- all what is written is clean, especially titles 
+- known code is written 
+- missing parts are cleanly signalled (cf signals)
+- all chap START an structure 
+- soin on R pack chap
+
+moi (max, spped race in asturias)
+- make sure GUI chaps are specified enough for T 
+- X11 chap (A et M) 
+- seats (a and m) (harmonize with level of info given in x11): seats m is tough
+needs printing ..and some understanding not prio 
+BUT: try to push practical seats (cf JP and my estp)
+- pre-t 
+- cal 
+- out
+- edit gui 
+- edit, fill in as much as possible, but always clean 
+- edit and improve PART separation pages
+
+key are:
+- split between A and M 
+- clearly identify missing points (message for later)
+
+- then HF chaps (A et M) 
+- then Seats champ (A et M) 
+- then all sa realm progressively 
+
+Moi voir avec Tanguy 
+- x11 quick GUI launch 
+
+#### When stuck 
+
+(acknowledge (cf cal) that writing IS hard)
+- simplify first, and leave a clean slate, be it with notes "up coming here"
+
+- come back and expand 
+
+- check 
+
+- edit 
+
+#### For "final" Dec release
+
+obj (phase 2)
+
+- all novelties are ok 
+- among which: all r packages (with read me and essential doc: here and linked)
+- HF is roughly ok as well 
+- gui v3 highlights (att: presenter test gui v3 hf)
+- tables v2 vs v3
+- gui vs r 
+- tough points like mode and co 
+
+
+Tanguy
+- in SA chapters (especially A-sa): images 
+    - in X11-a 
+- GUI from overview to...(v3 as reference, testing along the way)
+
+
+
+#### Global task list
+
+- SA tackle by blocs (grouping review of corresponding M chapter)
+    - ------- first full focus
+    - Tables to insert (even if annexes first)
+    - X11: A+M : HERE
+    - -------------------
+    - Seats: A+M (attention: structure as close as possible)
+    - SA Pre T + outliers + calendars + reg arima M + gui specifics = 1 big bloc
+    - SA STL + M : unambitious  
+    - SA ssf + M : unambitious
+    - SA overview 
+
+-   1 R packages: add info on output structure general (list of lists)
+
+#### Ine
+
+
+## Overlapping Issues 
+
+Above chapter level 
+
+### key phrases for missing or non tested parts 
+
+- under construction... if related to a whole part
+
+- to be checked
+
+- up coming content (here): ..a few words...
+
+- ref to add
+
+### package fisrt time in a chapter 
+
+when mentioned the first time: some additional links 
+
+cf RJDemetrai in A-X11
+
+add references to prints ?
+
+### visual tools 
+
+- expand collapse 
+
+- panels (v2/v3)
+
+- dynamic images 
+
+- 
+
+
+
+
+### Tables development 
+
+draw first, then table for JP
+
+- synthetic vision 
+
+- Tab1: frequencies (TS) by algo by (R ro GUI)
+
+- R vs GUi for all algos
+
+- what is "integrated vs no"
+
+- images of GUI output (cf my pdfs with R comments voir T)
+
+### Links management 
+
+- links to R packages doc and vignettes
+
+- references and biography 
+
+### Structure Changes 
+
+#### HF chapter to split in 2
+
+- methods
+
+- practical methods 
+
+#### What you will find in this chapter
+
+Overview at the beginning of each chapter
+SIMILAR Head of chapter and structure (allowing to easily move around)
+
+(force this format even if provisional)
+What could be useful here ?
+In which cases look further here ? Links to other chapters 
+Q&A format
+
+#### Scope
+
+-   scope by data type
+
+-   contrast differences R vs GUI
+
+-   specify scope: example cruncher doesn't work with stl: obvious ?
+
+-   are revision policies available for HF data ?
+
+-   can we generate calendar regressors for weekly data
+
+-   specify (+ more variety in examples) for which data frequency a function is available
+
+#### Harmonization of names
+
+-   revision policies: fixed autoregressive parameters
+
+### Methodo questions
+
+starting with old chapters
+
+-   spectral
+-   tests
+-   seats
+
+
+
+
+
+
+
+
+
+
+### Templates for Algo chapter description
+
+- default params (quick launch) 
+
+- INPUT (?) 
+
+- Output 1: series 
+- Output2: Final Params 
+- Output3: Diagnostics 
+- User-defined parameters
+- 
+
+## Chapter Specific Issues 
+
+### Preface
+
+### How to Use this Book.qmd
+
+provide a map = orga 
+
+quick start
+    - 
+    
+FAQ and trouble shooting
+
+
+
+### G-jd-history.qmd
+
+to be organized
+
+resources - small publi 4p insee/eurostat
+
+web explo stack
+
+### A-sa.qmd
+
+#### (Any) table display: explandable note ?
+
+a la Bea Milz
+
+What can be done with this table (expandable note ?)
+
+-   charts container (link) - single series contextual menu (link)
+
+### questions and meth holes
+
+Questions:
+
+-   allocation to sa: done at the very end ?
+
+-   allocated to undefined ?
+
+### global tasks
+
+-   R version 3 code to be added
+-   remove theory related parts
+-   much less text than current doc (too long)
+-   method details: to method chapters
+-   tools details in tools: GUI or R
+
+For second release, according to this template rationale: - why and when use this ? - default params (quick launch): some settings ? - INPUT (?) - Output1: series - Output2: Final Params - Output3: Diagnostics - fine tuning User-defined parameters
+
+when describing parameters
+
+-   1 common description
+-   2 setting in GUI
+-   3 setting in R
+
+2 categories of work
+
+-   missing parts
+
+-   parts to revamp or hone
+
+Steps (loop : structure, flesh out, re-structure...)
+
+-   immediate steps
+
+-   further steps
+
+### add
+
+in unobserved components In the Reg-Arima (link) or Tramo(link) modelling the the multiplicative model is estimated in logs; $log(X_{t}) = log(T_{t}) + log(S_{t}) + log(I_{t})$; Seats decomposition also relies on logs where X-11 decomp operates...
+
+### ramps part
+
+test: several
+
+see if here: ? The graph and formula are available in [Linearisation with the TRAMO and RegARIMA models](../theory/SA_lin.html).
+
+explain params - differentiation orders D1DS: if ticked: 1 1 automatically (pb differentiation before the real differentiation ??)
+
+#### in reg arima results
+
+-   seasonality tests on residuals (Highlight differences: - in gui - in R v2: retrieve object in output, v3 run test)
+
+###### Allocation to components
+
+allocation when intervention or ramps ? in test allocated to trend ? (reg)
+
+impossible (?) to create several intervention variables
+
+Remaining topics
+
+New split
+
+
+## A-sa-overview
+
+## A-sa-pre-treatment
+
+## A-sa-x11-decomposition
+
+## A-sa-seats-decomposition
+
+## A-sa-hf.qmd
+
+### add back and flesh out
+
+#### In outlier detection
+
+user defined outliers, variables ?
+
+#### In calendar
+
+explain problems and mixing with seasonality ...
+
+##### Spectral analysis
+
+##### Seasonality tests
+
+## A-outlier-detection.qmd
+
+data type
+
+contrasting GUI and R packages
+
+small chunks on regressors to be added
+
+more info on detection
+
+## A-calendar-correction.qmd
+
+ADD tool map Calendar correction using R packages vs GUI: quick contrasting
+
+- is group and reference day choice as flexible in GUI as in R ?
+
+- in GUI (v3) automatic detection, what in R ?
+
+- are the same data frequencies available in R and in GUI (divisors of 12 and...)
+
+- calendar correction HF data: R vs GUI ? including weekly data
+
+
+
+remarks:
+
+-   less dense content, less text more tables, bullet points
+
+-   check and add documents new v3 features
+
+-   cjo frequency explained by K they simulate calendar pattern...empirically fall here (cf refs papers)
+
+frequency 41 et 41 survival of 1/60 discrete step in X12 (cf sokup findley)
+
+### To do
+
+On theory part:
+
+-   manque effet de paques (cf regressor and ICA: hole)
+
+-   length of period
+
+-   stock
+
+On practical part:
+
+-   HF in GUI ?
+
+-   add in R
+
+-   generating regressors from customized calendar : GUI and R
+
+-   Length of Period
+
+adjust param
+
+-   stcok series
+
+cf book x12 and SH
+
+The regressor will have the value -1 if the w-th day is a Sunday, 1 if it is a Monday as 0 otherwise.
+
+example lacking in the package
+
+## A-benchmarking.qmd
+
+clean up
+
+add rjd3 bench and link help pages
+
+resources
+
+-   corentin, beamer rome
+
+-   maria, ine, beamer ocde
+
+## A-trend-cycle-estimation.qmd
+
+see alain
+
+see karsten paper on HF
+
+## A-nowcasting.qmd
+
+## T-graphical-user-interface.qmd
+
+why use the graphical user interface ? what is not directly available in R yet?
+
+objective: describe the general features (independent of algorithms)
+
+-   general layout
+
+-   options !: like stats tools/ modifs good bad / look and feel
+
+-   import data
+
+-   documents
+
+-   workspaces
+
+-   specifications
+
+-   output
+
+
+### To config 
+
+what is that (below graphs in data viz chap)
+Information about the partial autocorrelation function is given [here](../theory/ACF_and_PACF.html). The description of a periodogram is presented in [the Spectral graphs scenario](../case-studies/spectralgraphs.html)...
+
+### Restructuring GUI Chapters
+
+- overview 
+
+### GUI output 
+
+- link to an output list in an additional chapter (X..)
+
+### GUI: SA and Modelling Features
+
+very weak 
+
+lacks new links 
+
+Topics voir what should be tackled here 
+
+- Modelling process new document
+<!-- very short explanations, as the same as in pre-adjustment  -->
+
+- Anomaly detection (just structure link to outlier chapter)
+
+- SAP detailed (but not algo specific), just structure 
+
+- Seasonality tests 
+
+- direct indirect seasonal adjustment 
+
+ 
+
+### Add
+
+#### List of Output items
+
+## T-Production-tools-cruncher-QR.qmd
+
+add - List of exportable series (tramo / x13 with names)
+
+-   link to option change for adjusting "good", "bad"...
+
+## T-r-packages.qmd
+
+-   add a global descpription of rjd3toolkit cf aux txt file
+
+-   include details in rjdemetra3 (when ready)
+
+## T-plug-ins.qmd
+
+ok for now, visuals to be checked
+
+## T-rev-policies-production.qmd
+
+add - v3 visuals (progressive) - fixed auto reg param - inter chapter links : r packs, cruncher
+
+obj here: general explanations + examples ? here : explain voc discrepancies vs guidelines bbk controlled current link to plug in illustration links on covid
+
+#### Revision Policies
+
+general concepts - identified vs estimated - linearization phase - X11 - seats
+
+here concepts of domain spec, point spec
+
+concurrent = first estimation or redo everything (never overrides user defined parameters)
+
+ADD use in R !!
+
+## Implemententing revision policies in R
+
+## M-spectral-analysis.qmd
+
+add: - R code or references to - rjd3sa (?) references to tests - more explanations on spectral analysis rationale
+
+Vocabulary precision and concise definitions - spectral density - periodogram - spectral density estimator - "spectrum" is used too ubiquitously
+
+## M-reg-arima-modelling.qmd
+
+In the chapter on SA, in the pre-adjustment section, we tackle: - purpose, principles and results of reg-arima models (tramo or reg-arima)
+
+Here we tackle : - more in depth presentation - details on model estimation (not your typical box and Jenkins)
+
+## M-X11-decomposition.qmd
+
+Questions
+
+- is the A part really used in X-11 model
+
+- in step B: "and, if requested, a first estimation of the
+calendar effects" (from old doc: true ?)"
+
+
+- final tables and effects of pre adjustement 
+
+-   add more computation details: cf my notes on X-11, yes, but not urgent
+
+Edit content goal of the chapter: details on X-11 which won't be in the SA chapter
+
+see - my notes on X-11 - formulas from training yc estp - formulas from HF paper or beamer
+
+## M-STL-decomposition.qmd
+
+goal of the chapter : details on STL which are not in the SA chapter
+
+res: - papier HF - papier Daniel on dsa
+
+## M-SEATS-decomposition.qmd
+
+## M-Trend-Estimation-Local-Polynomials.qmd
+
+## M-tests.qmd
+
+check NBB aux doc for any missing formulas
+JP estp adv
+
+LooP 1: sheer toilettage
+
+## M-state-space-framework.qmd
+
+beamer - dms moi - koopman
+
+books - durbin - shumway stoffer
+
+edit - change notations to shumway style
+
+## references.qmd

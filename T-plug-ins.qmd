@@ -61,7 +61,9 @@ The Quality Report (QR) Eurostat plug-in is available [here](https://github.com/
     -   sssts: Seasonal specific structural time series
     -   sts: Structural time series
 
--   [Benchmarking](https://github.com/nbbrd/jdemetra-benchmarking%22): This module provides some experimental methods for temporal disaggregation and multi-variate benchmarking:<br/>Chow-Lin, Fernandez, Litterman, Cholette, Calendarization.
+-   [Benchmarking](https://github.com/nbbrd/jdemetra-benchmarking%22): This module provides some experimental methods for temporal disaggregation and multi-variate benchmarking:Chow-Lin, Fernandez, Litterman, Cholette, Calendarization.
+
+
 
 -   [Nowcasting](https://github.com/nbbrd/jdemetra-nowcasting): Nowcasting is often defined as the prediction of the present, the very near future and the very recent past. The plug-in developed at the National Bank of Belgium helps to operationalize the process of nowcasting. It can be used to specify and estimate dynamic factor models and visualize how the real-time dataflow updates expectations, as for instance in Banbura and Modugno (2010). The software can also be used to perform pseudo out-of-sample forecasting evaluations that consider the calendar of data releases, contributing to the formalization of the nowcasting problem originally proposed by Giannone, et al. (2008) or Evans (2005).
 

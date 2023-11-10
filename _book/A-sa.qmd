@@ -1,0 +1,696 @@
+
+# SA: X-11 Decomposition {#sa-chapter}
+
+## Context
+
+- seasonal adjustment with X-13-Arima second step 
+
+- stand alone X-11 decomposition classical data 
+
+- extended X11 for any frequency data (differences in access: no GUI, display and user-friendliness)
+
+
+## Tools for X-11 decomposition 
+
++------------------------+---------------+------------------+----------------+
+| Algorithm              | Access in GUI | Access in R (v2) | Access in R v3 |
++========================+===============+==================+================+
+| X-13 Arima             | ✔️            | RJDemetra        | rjd3x13        |
++------------------------+---------------+------------------+----------------+
+| Reg-Arima only         | ✔️            | RJDemetra        | rjd3x13        |
++------------------------+---------------+------------------+----------------+
+| X11 decomposition only | ✔️            | RJDemetra        | rjd3x13        |
++------------------------+---------------+------------------+----------------+
+| TRAMO-SEATS            | ✔️            | RJDemetra        | rjd3tramoseats |
++------------------------+---------------+------------------+----------------+
+| Tramo only             | ✔️            | RJDemetra        | rjd3tramoseats |
++------------------------+---------------+------------------+----------------+
+| STL                    | ✖            | ✖               | rjd3stl        |
++------------------------+---------------+------------------+----------------+
+| STS                    | ✖            | ✖               | rjd3sts        |
++------------------------+---------------+------------------+----------------+
+
+: X13-ARIMA and TRAMO-SEATS are two-step algorithms with a pre-treatment phase (Reg-Arima or Tramo) and a decomposition phase (X11 and Seats). STL is a local regression (Loess) based decomposition, without pre-treatment. In a Structural Time Series approach pre-treatment and decomposition are done simultaneously in a State Space Framework [(SSF)](M-state-space-framework.qmd).
+
+
+
+## X-11 Decomposition
+
+Here main module, not extended
+Extended in HF Chapter 
+
+This part explains how to use X-11 decomposition algorithm, via R as well as via GUI. The algorithm itself is explained in more details [here](M-X11-decomposition.qmd)
+
+In a nutshell, X-11 will de decompose the **linearized series** using iteratively different moving averages. The effects of pre-treatment will be reallocated at the end.
+
+The sections below (will) describe
+
+-   specifications needed to run X-11
+
+-   generated output
+
+-   series
+
+-   diagnostics
+
+-   final parameters
+
+-   user-defined parameters
+
+### Default specifications
+
+The default specifications for X-11 must be chosen at the starting of the SA processing. They are detailed in the [Reg-Arima part](A-sa.qmd#Pre-treatment:%20Reg-ARIMA%20(or%20Tramo)). X-11 can be run without pre-treatment
+
+### Quick Launch
+
+#### From GUI
+
+With a workspace open, an SAProcessing created and open data provider:
+
+-   choose a default specification
+
+-   drop your data and press green arrow
+
+#### In R
+
+In version 2
+
+```{r, echo = TRUE, eval = FALSE}
+library("RJDemetra")
+model_sa <- x13(raw_series, spec = "RSA5c")
+```
+
+The model_sa R object (list of lists) contains all parameters and results. It will be progressively detailed below.
+
+### Retrieve series
+
+#### Display in GUI
+
+![**Main results**](All_images/SA_MainResults_Series.png)
+
+(forecasts glued, values in *italic*)
+
+![**X-11 Tables**](All_images/RDimage41.png)
+
+Output series can be exported out of GUI by two means:
+
+-   generating output files
+
+-   running the cruncher to generate those files as described [here](T-Production-tools-cruncher-QR.qmd)
+
+#### Retrieve in R
+
+In version 2
+
+```{r, echo = TRUE, eval = FALSE}
+# final components
+model_sa$final$series
+# final forecasts y_f sa_f s_f t_f i_f
+model_sa$final$forecasts
+# from user defined output
+```
+
+### Retrieve Diagnostics
+
+X11 produces the following type diagnostics or quality measures
+
+#### SI-ratios
+
+##### Display in GUI
+
+NODE Main Results \> SI-Ratios
+
+![Text](All_images/SA_MainResults_SI_ratios.png)
+
+In GUI all values cannot be retrieved
+
+##### Retrieve in R
+
+In version 2
+
+```{r, echo = TRUE, eval = FALSE}
+# data frame with values
+model_sa$decomposition$si_ratio
+# customizable plot
+plot(model_sa, type = "cal-seas-irr", first_date = c(2015, 1))
+```
+
+#### M-statistics
+
+At the end of the decomposition, X-11 algorithm provides quality measure of the decomposition called "M statistics": 11 statistics (M1 to M11) and 2 summary indicators (Q et Q-M2). By design $0<M_x<3$ and acceptance region is $M_x \leq 1$
+
+-   **M1** The relative contribution of the irregular over three months span
+-   **M2** The relative contribution of the irregular component to the stationary portion of the variance
+-   **M3** The amount of month to month change in the irregular component as compared to the amount of month to month change in the trend-cycle (I/C-ratio)
+-   **M5** MCD (Months for Cyclical Dominance): The number of months it takes the change in the trend-cycle to surpass the amount of change in the irregular
+-   **M6** The amount of year to year change in the irregular as compared to the amount of year to year change in the seasonal (only valid for 3x5 seasonal filter)
+-   **M7** The amount of moving seasonality present relative to the amount of stable seasonality
+-   **M8** The size of the fluctuations in the seasonal component throughout the whole series
+-   **M9** The average linear movement in the seasonal component throughout the whole series
+-   **M10** Same as 8, calculated for recent years only (4 years, N-2 to N-5)
+-   **M11** Same as 9, calculated for recent years only
+
+The $Q$ statistic is a composite indicator calculated from the $M$ statistics.
+
+$$
+Q = \frac{10M1 + 11M2 + 10M3 + 8M4 + 11M5 + 10M6 + 18M7 + 7M8 + 7M9 + 4M10 + 4M11}{100}
+$$
+
+$Q = Q - M2$ (also called $Q2$) is the $Q$ statistic for which the $M2$ statistics was excluded from the formula, i.e.:
+
+$$
+Q - M2 = \frac{10M1 + 10M3 + 8M4 + 11M5 + 10M6 + 18M7 + 7M8 + 7M9 + 4M10 + 4M11}{89}
+$$
+
+If a time series does not cover at least 6 years, the $M8$, $M9$, $M10$ and $M11$ statistics cannot be calculated. In this case the $Q$ statistic is computed as:
+
+$$
+Q = \frac{14M1 + 15M2 + 10M3 + 8M4 + 11M5 + 10M6 + 32M7}{100}
+$$
+
+The model has a satisfactory quality if the $Q$ statistic is lower than 1.
+
+##### Display in GUI
+
+To display results in GUI, expand NODE
+
+Decomposition(X-11) \> Quality Measures \> Summary
+
+Results displayed in red indicate that the test failed.
+
+![Text](All_images/RDimage46.png)
+
+##### Retrieve in R
+
+In version 2
+
+```{r, echo = TRUE, eval = FALSE}
+# this code snippet is not self-sufficient
+model_sa$decomposition$mstats
+```
+
+#### Detailed Quality measures
+
+In GUI all the diagnostics below can be displayed expanding the NODE
+
+Decomposition(X-11) \> Quality Measures \> Details
+
+They are detailed in the [X-11 method chapter](M-X11-decomposition.qmd)
+
+In R (to be added)
+
+### Retrieve final parameters
+
+This section describes the parameters which are automatically chosen by the software as a result of the estimation process. They have no default value.
+
+Final trend filter: length of Henderson filter applied for final estimation (in the second part of the D step).
+
+Final seasonal filer: length of Henderson filter applied for final estimation (in the second part of the D step).
+
+#### Display in GUI
+
+Node Decomposition(X11) \> Final Filters
+
+#### Retrieve in R
+
+In version 2
+
+```{r, echo = TRUE, eval = FALSE}
+model_sa$decomposition$s_filter
+model_sa$decomposition$t_filter
+```
+
+### User-defined parameters
+
+The following sections describe how to change default values or automatic choices.
+
+##### General settings
+
+-   **Mode**
+
+-   **Seasonal component**
+
+-   **Forecasts horizon**
+
+Length of the forecasts generated by the Reg-Arima model - in months (positive values) - years (negative values) - if set to is set to 0, the X-11 procedure does not use any model-based forecasts but the original X-11 type forecasts for one year. - default value: -1, thus one year from the Arima model
+
+-   **Backcasts horizon**
+
+Length of the backcasts generated by the Reg-Arima model - in months (positive values) - years (negative values) - default value: 0
+
+##### Irregular correction
+
+-   **LSigma**
+
+    -   sets lower sigma (standard deviation) limit used to down-weight the extreme irregular values in the internal seasonal adjustment iterations
+    -   values in $[0,Usigma]$
+    -   default value is 1.5
+
+-   **USigma**
+
+    -   sets upper sigma (standard deviation)
+    -   values in $[Lsigma,+\infty]$
+    -   default value is 2.5
+
+-   **Calendarsigma**
+
+    -   allows to set different **LSigma** and **USigma** for each period
+    -   values
+        -   None (default)
+        -   All: standard errors used for the extreme values detection and adjustment computed separately for each calendar month/quarter
+        -   Signif: groups determined by Cochran test (check)
+        -   Sigmavec: set two customized groups of periods
+
+-   **Excludeforecasts**
+
+    -   ticked: forecasts and backcasts from the Reg-Arima model not used in Irregular Correction
+    -   unticked (default): forecasts and backcasts used
+
+##### Seasonality extraction filters choice
+
+Specifies which be used to estimate the seasonal factors for the entire series.
+
+-   **Seasonal filter**
+
+-   default value: *MSR* (Moving seasonality ratio), automatic choice of final seasonal filter, initial filters are $3\times 3$
+
+-   choices: $3\times 1$, $3\times 3$, $3\times 5$, $3\times 9$, $3\times 15$ or Stable
+
+-   "Stable": constant factor for each calendar period (simple moving average of a all $S+I$ values for each period)
+
+User choices will be applied to final phase D step.
+
+The seasonal filters can be selected for the entire series, or for a particular month or quarter.
+
+-   **Details on seasonal filters**
+
+Sets different seasonal filters by period in order to account for seasonal heteroskedasticity (link to M chapter)
+
+-   default value: empty
+
+##### Trend estimation filters
+
+-   **Automatic Henderson filter** our user-defined
+
+    -   default: length 13
+    -   unticked: user defined length choice
+
+-   **Henderson filter** length choice
+
+    -   values: odd number in $[3,101]$
+    -   default value: 13
+
+Check: will user choice be applied to all steps or only to final phase D step
+
+#### Parameter setting in GUI
+
+All the parameters above can be set with in the specification box.
+
+#### Parameter setting in R packages
+
+In version 2
+
+```{r, echo = TRUE, eval = FALSE}
+# Creating a modified specification, customizing all available X11 parameters
+modified_spec <- x13_spec(current_sa_model,
+    # x11.mode="?",
+    # x11.seasonalComp = "?",
+    x11.fcasts = -2,
+    x11.bcasts = -1,
+    x11.lsigma = 1.2,
+    x11.usigma = 2.8,
+    x11.calendarSigma = NA,
+    x11.sigmaVector = NA,
+    x11.excludeFcasts = NA,
+    # filters
+    x11.trendAuto = NA,
+    x11.trendma = 23,
+    x11.seasonalma = "S3X9"
+)
+
+# New SA estimation: apply modified_spec
+
+modified_sa_model <- x13(raw_series, modified_spec)
+```
+
+## SEATS Decomposition
+
+[SEATS algorithm](M-SEATS-decomposition.qmd) will decompose the linearized series, in level or in logarithm, using the Arima model fitted by Tramo in the pre-treatment phase.
+
+The sections below will describe
+
+-   specifications needed to run SEATS
+
+-   generated output
+
+-   series
+
+-   diagnostics
+
+-   final parameters
+
+-   user-defined parameters
+
+### Default specifications
+
+The default specifications for SEATS must be chosen at the starting of the SA processing. They are detailed in the [Reg-ARIMA part](A-sa.qmd#Pre-treatment:%20Reg-ARIMA%20(or%20TRAMO)) Starting point for TRAMO-SEATS
+
+### Quick Launch
+
+#### From GUI
+
+With a workspace open, an SAProcessing created and open data provider:
+
+-   choose a default specification (link)
+
+-   drop your data and press green arrow (link)
+
+#### In R
+
+In version 2
+
+```{r, echo = TRUE, eval = FALSE}
+library("RJDemetra")
+model_sa <- tramoseats(raw_series, spec = "RSAfull")
+```
+
+In version 3
+
+```{r, echo = TRUE, eval = FALSE}
+library("rjd3tramoseats")
+model_sa <- tramoseats(raw_series, spec = "RSAfull")
+```
+
+The model_sa R object (list of lists) contains all parameters and results. It will be progressively detailed below.
+
+More details on the functions are to be found in R help pages.
+
+### Retrieve Series
+
+This section outlines how to retrieve the different kinds of output series from GUI or in R.
+
+-   final components (including reallocation of pre-adjustment effects)
+
+-   components in level
+
+-   components in level or log
+
+#### Stochastic series
+
+Decomposition of the linearized series or of its logarithm (in case of a multiplicative model)
+
+y_lin is split into components: t_lin, s_lin, i_lin
+
+suffixes: - \_f stands for forecast - \_e stands for - \_ef stands for
+
+##### Display in GUI
+
+NODE Decomposition\>Stochastic series - Table with series and its standard error image
+
+-   Plot of Trend with confidence interval image
+-   Plot of Seasonal component with confidence interval image
+
+##### Retrieve from GUI
+
+Generating output from GUI (link) or from Cruncher (link), stochastic series, their standard errors, forecasts and forecasts errors can be accessed with the following names
+
+| Series Name             | Meaning |
+|-------------------------|---------|
+| decomposition.y_lin     |         |
+| decomposition.y_lin_f   |         |
+| decomposition.y_lin_ef  |         |
+| decomposition.t_lin     |         |
+| decomposition.t_lin_f   |         |
+| decomposition.t_lin_e   |         |
+| decomposition.t_lin_f   |         |
+| decomposition.sa_lin    |         |
+| decomposition.sa_lin_f  |         |
+| decomposition.sa_lin_e  |         |
+| decomposition.sa_lin_ef |         |
+| decomposition.s_lin     |         |
+| decomposition.s_lin_f   |         |
+| decomposition.s_lin_e   |         |
+| decomposition.s_lin_ef  |         |
+| decomposition.i_lin     |         |
+| decomposition.i_lin_f   |         |
+| decomposition.i_lin_e   |         |
+| decomposition.i_lin_ef  |         |
+
+##### Retrieve in R
+
+In version 2
+
+```{r, echo = TRUE, eval = FALSE}
+library("RJDemetra")
+# list of additional output objects
+user_defined_variables("TRAMO-SEATS")
+# specify additional objects in estimation
+m <- tramoseats(y, "RSAfull", userdefined = c("decomposition.y_lin", "ycal", "variancedecomposition.seasonality"))
+# retrieve objects
+m$user_defined$decomposition.y_lin
+m$user_defined$ycal
+m$user_defined$variancedecomposition.seasonality
+```
+
+In version 3
+
+```{r, echo = TRUE, eval = FALSE}
+library("rjd3tramoseats")
+# list of additional output objects
+userdefined_variables_tramoseats("tramoseats")
+# specify additional objects in estimation
+m <- tramoseats(y, "RSAfull", userdefined = c("decomposition.y_lin", "ycal", "variancedecomposition.seasonality"))
+# retrieve objects
+m$user_defined$decomposition.y_lin
+m$user_defined$ycal
+m$user_defined$variancedecomposition.seasonality
+```
+
+#### Components (Level)
+
+Decomposition of the linearized series, back to level in case of a multiplicative model.
+
+y_lin is split into components: t_lin, s_lin, i_lin
+
+suffixes: - \_f stands for forecast - \_e stands for - \_ef stands for
+
+##### Displayed in GUI
+
+NODE Decomposition\>Components - Table with series and its standard error image
+
+##### Retrieve from GUI
+
+Generating output from GUI (link) or from Cruncher (link), component series, their standard errors, forecasts and forecasts errors can be accessed with the following names
+
+| Series Name             | Meaning |
+|-------------------------|---------|
+| decomposition.y_cmp     |         |
+| decomposition.y_cmp_f   |         |
+| decomposition.y_cmp_ef  |         |
+| decomposition.t_cmp     |         |
+| decomposition.t_cmp_f   |         |
+| decomposition.t_cmp_e   |         |
+| decomposition.t_cmp_f   |         |
+| decomposition.sa_cmp    |         |
+| decomposition.sa_cmp_f  |         |
+| decomposition.sa_cmp_e  |         |
+| decomposition.sa_cmp_ef |         |
+| decomposition.s_cmp     |         |
+| decomposition.s_cmp_f   |         |
+| decomposition.s_cmp_e   |         |
+| decomposition.s_cmp_ef  |         |
+| decomposition.i_cmp     |         |
+| decomposition.i_cmp_f   |         |
+| decomposition.i_cmp_e   |         |
+| decomposition.i_cmp_ef  |         |
+
+##### Retrieve in R
+
+Same procedure as for stochastic series.
+
+##### Bias correction to be added
+
+#### Final series
+
++---------------------------+------------------------+---------------+----------------------------------------+
+| Series                    | Final SEATS components | Final Results | Reallocation of pre-adjustment effects |
++===========================+========================+===============+========================================+
+| Raw series (forecasts)    |                        | y (y_f)       |                                        |
++---------------------------+------------------------+---------------+----------------------------------------+
+| Linearized series         | B1                     |               | none                                   |
++---------------------------+------------------------+---------------+----------------------------------------+
+| Final seasonal component  | D16                    | s (s_f)       |                                        |
++---------------------------+------------------------+---------------+----------------------------------------+
+| Final trend               | D12                    | t (t_f)       |                                        |
++---------------------------+------------------------+---------------+----------------------------------------+
+| Final irregular           | D13                    | i (i_f)       |                                        |
++---------------------------+------------------------+---------------+----------------------------------------+
+| Calendar component        |                        |               |                                        |
++---------------------------+------------------------+---------------+----------------------------------------+
+| Seasonal without calendar | D10                    |               |                                        |
++---------------------------+------------------------+---------------+----------------------------------------+
+
+(to be added: reallocation of outliers effects)
+
+##### Display in GUI
+
+Final results are displayed for each series in the NODE MAIN\>Table
+
+![Text](All_images/SA_MainResults_Series.png)
+
+
+Forecasts are glued at the end it *italic*
+
+##### Retrieve from GUI
+
+Generating output from GUI (link) or from Cruncher (link), component series, their standard errors, forecasts and forecasts errors can be accessed with the following names
+
+| Series Name | Meaning |
+|-------------|---------|
+| y           |         |
+| y_f         |         |
+| t           |         |
+| t_f         |         |
+| sa          |         |
+| sa_f        |         |
+| s           |         |
+| s_f         |         |
+| i           |         |
+| i_f         |         |
+
+##### Retrieve in R
+
+In version 2
+
+```{r, echo = TRUE, eval = FALSE}
+library("RJDemetra")
+sa_model <- RJDemetra::tramoseats(y, "RSAfull")
+sa_model$final$series
+sa_model$final$forecasts
+# for additional results call user-defined output as explained above
+```
+
+In version 3
+
+```{r, echo = TRUE, eval = FALSE}
+library("rjd3tramoseats")
+sa_model <- tramoseats(y, spec = "RSAfull")
+# final series can be accessed here
+sa$result$final$sa
+# for additional results call user-defined output as explained above
+```
+
+### Retrieve Diagnostics
+
+-   WK analysis
+
+components final estimators
+
+-   Error analysis autocorrelation of the errors (sa, trend) revisions of the errors
+
+-   Growth rates
+
+-   Model based tests
+
+-   Significant seasonality
+
+-   Stationary variance decomposition
+
+### Retrieve Final Parameters
+
+Relevant if parameters not set manually, or any parameters automatically selected by the software without having a fixed default value. (The rest of the parameters is set in the specification) To manually set those parameters and see all the fixed default values see Specifications / parameters section
+
+#### Arima Models for components
+
+##### Display in GUI
+
+Click on the **Decomposition** NODE
+
+![**Decomposition NODE**](All_images/SA_SEATS_GUI_components_models.png)
+
+##### Retrieve from GUI
+
+(add names for output and cruncher)
+
+##### Display in R
+
+(display or retrieve)
+
+version 2
+
+version 3
+
+#### Other final parameters
+
+Final parameters which can be fine-tuned be the user are described in User-defined specifications section below
+
+### Setting user-defined parameters
+
+The section below explains how the user can fine-tune some seats parameters, which are put in context in [the corresponding method chapter](M-SEATS-decomposition.qmd).the default value is indicated in ().
+
+-   Prediction length
+
+Forecast span used in the decomposition default: one year (-1) (years are set in negative values, positive values indicate number of periods)
+
+-   Approximation Mode
+
+Modification type for inadmissible models None (default) Legacy Noisy
+
+-   MA unit root boundary
+
+Modulus threshold for resetteing MA "near-unit" roots \[0,1\] default (0.95)
+
+-   Trend Boundary Modulus threshold for assigning positive real AR Roots \[0,1\] default (0.5)
+
+-   Seasonal Tolerance Degree threshold for assigning complex AR roots \[0,10\] default (2)
+
+-   Seasonal Boundary (unique) Modulus threshold for assigning negative real AR roots \[0,1\] default (0.8)
+
+-   Seasonal Boundary (unique) Same modulus threshold unique seasonal AR roots \[0,1\] default (0.8)
+
+-   Method
+
+Algorithm used for estimation of unobserved components
+
+Burman (default)
+
+KalmanSmoother
+
+McEllroyMatrix
+
+##### Seting parameters in GUI
+
+In specification window corresponding to a given series:
+
+![Text](All_images\SA_SEATS_GUI_user_def_params.png)
+
+##### Set in R
+
+version 2 (RJDemetra)
+
+```{r, echo = TRUE, eval = FALSE}
+tramoseats_spec(
+    spec = c("RSAfull", "RSA0", "RSA1", "RSA2", "RSA3", "RSA4", "RSA5"),
+    fcst.horizon = NA_integer_,
+    seats.predictionLength = NA_integer_,
+    seats.approx = c(NA, "None", "Legacy", "Noisy"),
+    seats.trendBoundary = NA_integer_,
+    seats.seasdBoundary = NA_integer_,
+    seats.seasdBoundary1 = NA_integer_,
+    seats.seasTol = NA_integer_,
+    seats.maBoundary = NA_integer_,
+    seats.method = c(NA, "Burman", "KalmanSmoother", "McElroyMatrix")
+)
+```
+
+in version 3 with {rjd3tramoseats} (to be added)
+
+## STL
+
+Loess based decomposition algorithm used on linearized data data, no pre-adjustment.
+
+Not currently available. Under construction.
+
+## Basic Structural Models
+
+Not currently available. Under construction.

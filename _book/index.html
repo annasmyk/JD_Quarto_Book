@@ -6,11 +6,11 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Anna Smyk">
-<meta name="author" content="Alain Quartier-la-Tente">
+<meta name="author" content="Anna Smyk (Coordinator)">
 <meta name="author" content="Tanguy Barthelemy">
+<meta name="author" content="Maria Novas Filgueira">
 <meta name="author" content="Karsten Webel">
-<meta name="dcterms.date" content="2023-09-15">
+<meta name="dcterms.date" content="2023-11-10">
 
 <title>JDemetra+ documentation</title>
 <style>
@@ -35,7 +35,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./G-what-is-jd.html" rel="next">
+<link href="./G-how-to-use-this-book.html" rel="next">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -78,7 +78,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Preface</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">What is JDemetra+ ?</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -106,19 +106,19 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Preface</span></a>
+ <span class="menu-text">What is JDemetra+ ?</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./G-what-is-jd.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">JDemetra+ Software</span></a>
+  <a href="./G-how-to-use-this-book.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">How to use this book</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./G-jd-history.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">How JDemetra+ came to be</span></a>
+  <a href="./G-news-v3-vs-v2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">New Features in v 3.x family</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -132,14 +132,50 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./A-sa.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Seasonal Adjustment</span></a>
+  <a href="./A-RegArima-Tramo-Modelling-Overview.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">RegArima (Tramo) Modelling</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A-sa-overview.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Seasonal Adjustment (SA) Overview</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A-sa-pre-treatment.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SA: Pre-Treatment</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A-sa-X11-decomposition.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SA: X11 Decomposition</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A-sa-seats-decomposition.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SA: SEATS Decomposition</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A-sa-stl-decomposition.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SA with STL</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A-sa-bsm.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SA with Basic Structural Models</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./A-sa-hf.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Seasonal adjustment of high-frequency data</span></a>
+ <span class="menu-text">SA of high-frequency data</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -168,6 +204,12 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./A-revision-analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Revision Analysis</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./A-nowcasting.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Nowcasting</span></a>
   </div>
@@ -186,7 +228,25 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./T-GUI-Overview.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Graphical User Interface Overview</span></a>
+ <span class="menu-text">Graphical User Interface (GUI): Overview</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./T-GUI-Data-Viz-TS-Tools.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">GUI: data visualization and time series tools</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./T-GUI-SA-Modelling-Features.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">GUI: SA and Modelling Features</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./T-GUI-Output.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">GUI: Generating output</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -210,7 +270,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./T-plug-ins.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Plug-ins for JDemetra+</span></a>
+ <span class="menu-text">Plug-ins GUI</span></a>
   </div>
 </li>
       </ul>
@@ -239,13 +299,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./M-X11-decomposition.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">X-11 decomposition</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./M-STL-decomposition.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">STL: Local regression decomposition</span></a>
+ <span class="menu-text">X11 decomposition</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -268,20 +322,20 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./M-STL-decomposition.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">STL: Local regression decomposition</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./M-state-space-framework.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">State space modelling</span></a>
+ <span class="menu-text">State space framework</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./M-Temp-Disagg-Bench.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Temporal disaggregation and benchmarking</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./references.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">References</span></a>
   </div>
 </li>
       </ul>
@@ -296,7 +350,11 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#preface" id="toc-preface" class="nav-link active" data-scroll-target="#preface">Preface</a></li>
+  <li><a href="#what-is-jdemetra" id="toc-what-is-jdemetra" class="nav-link active" data-scroll-target="#what-is-jdemetra">What is JDemetra+ ?</a>
+  <ul class="collapse">
+  <li><a href="#curently-available-versions" id="toc-curently-available-versions" class="nav-link" data-scroll-target="#curently-available-versions">Curently available versions</a></li>
+  <li><a href="#useful-links" id="toc-useful-links" class="nav-link" data-scroll-target="#useful-links">Useful links</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -309,23 +367,59 @@ ul.task-list li input[type="checkbox"] {
 </div>
 
 
+<div class="quarto-title-meta-author">
+  <div class="quarto-title-meta-heading">Authors</div>
+  <div class="quarto-title-meta-heading">Affiliations</div>
+  
+    <div class="quarto-title-meta-contents">
+    <p class="author"><a href="https://github.com/annasmyk">Anna Smyk (Coordinator)</a> </p>
+  </div>
+    <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            <a href="https://www.insee.fr/fr/accueil">
+            Insee
+            </a>
+          </p>
+      </div>
+      <div class="quarto-title-meta-contents">
+    <p class="author"><a href="https://github.com/TanguyBarthelemy">Tanguy Barthelemy</a> </p>
+  </div>
+    <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            <a href="https://www.insee.fr/fr/accueil">
+            Insee
+            </a>
+          </p>
+      </div>
+      <div class="quarto-title-meta-contents">
+    <p class="author"><a href="https://github.com/maria-novas">Maria Novas Filgueira</a> </p>
+  </div>
+    <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            <a href="https://www.ine.es/">
+            Ine
+            </a>
+          </p>
+      </div>
+      <div class="quarto-title-meta-contents">
+    <p class="author"><a href="https://github.com/webelk">Karsten Webel</a> </p>
+  </div>
+    <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            <a href="https://www.bundesbank.de">
+            Deutsche Bundesbank
+            </a>
+          </p>
+      </div>
+    </div>
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Authors</div>
-    <div class="quarto-title-meta-contents">
-             <p><a href="https://github.com/annasmyk">Anna Smyk</a> </p>
-             <p><a href="https://github.com/AQLT">Alain Quartier-la-Tente</a> </p>
-             <p><a href="https://github.com/TanguyBarthelemy">Tanguy Barthelemy</a> </p>
-             <p><a href="https://github.com/webelk">Karsten Webel</a> </p>
-          </div>
-  </div>
-    
+      
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">September 15, 2023</p>
+      <p class="date">November 10, 2023</p>
     </div>
   </div>
   
@@ -335,13 +429,20 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="preface" class="level1 unnumbered">
-<h1 class="unnumbered">Preface</h1>
-<p>Welcome to the JDemetra+ on-line documentation.</p>
-<p><a href="https://github.com/jdemetra">JDemetra+</a> is an open-source software for <strong>seasonal adjustment and time series analysis</strong>, developed in the framework of Eurostat’s “Centre of Excellence on Statistical Methods and Tools” by the National Bank of Belgium with the support of the Bundesbank and Insee.</p>
-<p>To learn more about this project you can visit <a href="https://ec.europa.eu/eurostat/cros/content/centre-excellence-statistical-methods-and-tools">Eurostat CROS Portal</a>.</p>
+<section id="what-is-jdemetra" class="level1 unnumbered">
+<h1 class="unnumbered">What is JDemetra+ ?</h1>
+<p><a href="https://github.com/jdemetra">JDemetra+</a> is an open-source software for <strong>seasonal adjustment and time series analysis</strong>, developed in the framework of Eurostat’s “Centre of Excellence on Statistical Methods and Tools” by the National Bank of Belgium with the support of the Bundesbank and Insee. It has been officially recommended by Eurostat to the European Statistical System members since 2015. It is unique in its combination of very fast Java routines, a graphical user interface and an ecosystem of R packages. The graphical interface offers a structured and visual feedback, suitable for refined analysis and training. R tools allow the user to mix the capabilities of JDemetra+ with the versatility of the R world, be it for mathematical functions or data wrangling.</p>
+<section id="curently-available-versions" class="level2">
+<h2 class="anchored" data-anchor-id="curently-available-versions">Curently available versions</h2>
+<p>The highest version currently recommended for production purposes is 2.2.4.</p>
+<p>Version 3 family released from spring 2023 (3.0.1 in May and 3.0.2 in June) provides extended features for seasonal adjustment and trend estimation, including <strong>high frequency data</strong> and production tools.</p>
+</section>
+<section id="useful-links" class="level2">
+<h2 class="anchored" data-anchor-id="useful-links">Useful links</h2>
+<p>To install the software and get started, you can <a href="https://github.com/TanguyBarthelemy/JD_Tutorials">browse</a> and <a href="https://www.youtube.com/@TSwithJDemetraandR">watch</a> tutorials for JDemetra+. On this <a href="https://www.youtube.com/@TSwithJDemetraandR">YouTube channel</a> you will also find many JDemetra+ related webinars.</p>
 <p>To keep up with all JDemetra+ related news head to the <a href="https://jdemetra-universe-blog.netlify.app/"><strong>JDemetra+ Universe Blog</strong></a></p>
-<p>This website is under construction, in the meantime you can fill a large number of the gaps by referring to the <a href="https://jdemetradocumentation.github.io/JDemetra-documentation">previous version</a> of the on-line documentation, coordinated by Sylwia Grudkowska-Kubik(National Bank of Poland).</p>
+<p>To learn more about the JDemetra+ development project you can visit <a href="https://ec.europa.eu/eurostat/cros/content/centre-excellence-statistical-methods-and-tools">Eurostat CROS Portal</a>.</p>
+<p>This website is under construction, in the meantime you can fill a large number of the gaps by referring to the <a href="https://jdemetradocumentation.github.io/JDemetra-documentation">previous version</a> of the on-line documentation, coordinated by Sylwia Grudkowska-Kubik (National Bank of Poland).</p>
 <p>Eurostat’s recommendations on the statistical processes described in this documentation are outlined in:</p>
 <ul>
 <li><p><a href="https://ec.europa.eu/eurostat/documents/3859598/6830795/KS-GQ-15-001-EN-N.pdf">Eurostat’s Guidelines on seasonal adjustment (2015)</a></p></li>
@@ -355,6 +456,7 @@ ul.task-list li input[type="checkbox"] {
 <p><img src="All_images/jdemetra+.png" class="img-fluid"></p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -595,8 +697,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   <div class="nav-page nav-page-previous">
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./G-what-is-jd.html" class="pagination-link">
-        <span class="nav-page-text">JDemetra+ Software</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./G-how-to-use-this-book.html" class="pagination-link">
+        <span class="nav-page-text">How to use this book</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

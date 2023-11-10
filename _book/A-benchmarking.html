@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -61,6 +95,8 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -74,7 +110,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./A-benchmarking.html">Benchmarking and temporal disagreggation</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./P_Algorithms.html">Algorithms</a></li><li class="breadcrumb-item"><a href="./A-benchmarking.html">Benchmarking and temporal disagreggation</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -102,19 +138,19 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Preface</span></a>
+ <span class="menu-text">What is JDemetra+ ?</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./G-what-is-jd.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">JDemetra+ Software</span></a>
+  <a href="./G-how-to-use-this-book.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">How to use this book</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./G-jd-history.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">How JDemetra+ came to be</span></a>
+  <a href="./G-news-v3-vs-v2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">New Features in v 3.x family</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -128,48 +164,90 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./A-sa.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Seasonal Adjustment</span></a>
+  <a href="./A-RegArima-Tramo-Modelling-Overview.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">RegArima (Tramo) Modelling</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A-sa-overview.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Seasonal Adjustment (SA) Overview</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A-sa-pre-treatment.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SA: Pre-Treatment</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A-sa-X11-decomposition.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SA: X11 Decomposition</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A-sa-seats-decomposition.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SA: SEATS Decomposition</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A-sa-stl-decomposition.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SA with STL</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A-sa-bsm.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SA with Basic Structural Models</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./A-sa-hf.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Seasonal adjustment of high-frequency data</span></a>
+ <span class="menu-text">SA of high-frequency data</span></a>
   </div>
 </li>
-      </ul>
-  </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./A-outlier-detection.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Outlier detection and external regressors</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./A-calendar-correction.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Calendar correction</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./A-benchmarking.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Benchmarking and temporal disagreggation</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./A-trend-cycle-estimation.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Trend-cycle estimation</span></a>
   </div>
 </li>
-        <li class="sidebar-item">
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A-revision-analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Revision Analysis</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./A-nowcasting.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Nowcasting</span></a>
   </div>
 </li>
+      </ul>
+  </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./P_Tools.html" class="sidebar-item-text sidebar-link">
@@ -181,8 +259,26 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./T-graphical-user-interface.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Graphical User Interface</span></a>
+  <a href="./T-GUI-Overview.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Graphical User Interface (GUI): Overview</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./T-GUI-Data-Viz-TS-Tools.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">GUI: data visualization and time series tools</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./T-GUI-SA-Modelling-Features.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">GUI: SA and Modelling Features</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./T-GUI-Output.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">GUI: Generating output</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -206,7 +302,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./T-plug-ins.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Plug-ins for JDemetra+</span></a>
+ <span class="menu-text">Plug-ins GUI</span></a>
   </div>
 </li>
       </ul>
@@ -235,13 +331,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./M-X11-decomposition.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">X-11 decomposition</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./M-STL-decomposition.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">STL: Local regression decomposition</span></a>
+ <span class="menu-text">X11 decomposition</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -264,20 +354,20 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./M-STL-decomposition.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">STL: Local regression decomposition</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./M-state-space-framework.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">State space modelling</span></a>
+ <span class="menu-text">State space framework</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./M-Temp-Disagg-Bench.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Temporal disaggregation and benchmarking</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./references.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">References</span></a>
   </div>
 </li>
       </ul>
@@ -292,12 +382,25 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#benchmarking-overview" id="toc-benchmarking-overview" class="nav-link active" data-scroll-target="#benchmarking-overview">Benchmarking overview</a></li>
+  <li><a href="#in-this-chapter" id="toc-in-this-chapter" class="nav-link active" data-scroll-target="#in-this-chapter">In this chapter</a></li>
+  <li><a href="#benchmarking-overview" id="toc-benchmarking-overview" class="nav-link" data-scroll-target="#benchmarking-overview">Benchmarking overview</a></li>
   <li><a href="#tools" id="toc-tools" class="nav-link" data-scroll-target="#tools">Tools</a>
   <ul class="collapse">
-  <li><a href="#benchmarking-with-gui" id="toc-benchmarking-with-gui" class="nav-link" data-scroll-target="#benchmarking-with-gui">Benchmarking with GUI</a></li>
-  <li><a href="#benchmarking-in-r" id="toc-benchmarking-in-r" class="nav-link" data-scroll-target="#benchmarking-in-r">Benchmarking in R</a></li>
+  <li><a href="#gui" id="toc-gui" class="nav-link" data-scroll-target="#gui">GUI</a></li>
+  <li><a href="#benchmarking-and-temporal-disaggregation-plugin-version-2.x" id="toc-benchmarking-and-temporal-disaggregation-plugin-version-2.x" class="nav-link" data-scroll-target="#benchmarking-and-temporal-disaggregation-plugin-version-2.x">Benchmarking and Temporal Disaggregation plugin (version 2.x)</a></li>
   </ul></li>
+  <li><a href="#benchmarking-with-different-frequencies" id="toc-benchmarking-with-different-frequencies" class="nav-link" data-scroll-target="#benchmarking-with-different-frequencies">Benchmarking with different frequencies</a>
+  <ul class="collapse">
+  <li><a href="#univariate-denton-and-cholette" id="toc-univariate-denton-and-cholette" class="nav-link" data-scroll-target="#univariate-denton-and-cholette">Univariate: Denton and Cholette</a></li>
+  <li><a href="#multi-variate-cholette" id="toc-multi-variate-cholette" class="nav-link" data-scroll-target="#multi-variate-cholette">Multi-variate: Cholette</a></li>
+  </ul></li>
+  <li><a href="#a-bench-tempd" id="toc-a-bench-tempd" class="nav-link" data-scroll-target="#a-bench-tempd">Temporal Disaggregation</a>
+  <ul class="collapse">
+  <li><a href="#temporal-disaggregation-in-the-gui" id="toc-temporal-disaggregation-in-the-gui" class="nav-link" data-scroll-target="#temporal-disaggregation-in-the-gui">Temporal Disaggregation in the GUI</a></li>
+  <li><a href="#benchmarking-and-temporal-disaggregation-in-r-version-3.x" id="toc-benchmarking-and-temporal-disaggregation-in-r-version-3.x" class="nav-link" data-scroll-target="#benchmarking-and-temporal-disaggregation-in-r-version-3.x">Benchmarking and Temporal Disaggregation in R (version 3.x)</a></li>
+  </ul></li>
+  <li><a href="#benchmarking" id="toc-benchmarking" class="nav-link" data-scroll-target="#benchmarking">Benchmarking</a></li>
+  <li><a href="#temporal-disaggregation" id="toc-temporal-disaggregation" class="nav-link" data-scroll-target="#temporal-disaggregation">Temporal Disaggregation</a></li>
   </ul>
 </nav>
     </div>
@@ -306,7 +409,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Benchmarking and temporal disagreggation</h1>
+<h1 class="title"><span id="a-bench" class="quarto-section-identifier">Benchmarking and temporal disagreggation</span></h1>
 </div>
 
 
@@ -321,18 +424,27 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
+<section id="in-this-chapter" class="level2">
+<h2 class="anchored" data-anchor-id="in-this-chapter">In this chapter</h2>
+<p>The sections below provide guidance on how to implement algortihms on</p>
+<ul>
+<li><p>benchmarking</p></li>
+<li><p><a href="#a-bench-tempd">temporal disaggregation</a></p></li>
+</ul>
+<p>Using the <a href="">GUI</a> with a <a href="">plug-in</a> or <a href="">rjd3bench</a> package.</p>
+</section>
 <section id="benchmarking-overview" class="level2">
 <h2 class="anchored" data-anchor-id="benchmarking-overview">Benchmarking overview</h2>
-<p>Often one has two (or multiple) datasets of different frequency for the same target variable. Sometimes, however, these data sets are not coherent in the sense that they don’t match up. Benchmarking[^1] is a method to deal with this situation. An aggregate of a higher-frequency measurement variables is not necessarily equal to the corresponding lower-frequency less-aggregated measurement. Moreover, the sources of data may have different reliability levels. Usually, less frequent data are considered more trustworthy as they are based on larger samples and compiled more precisely. The more reliable measurements, hence often the less frequent, will serve as benchmark.</p>
-<p>In seasonal adjustment methods benchmarking is the procedure that ensures the consistency over the year between adjusted and non-seasonally adjusted data. It should be noted that the [ESS Guidelines on Seasonal Adjustment (2015)] (https://ec.europa.eu/eurostat/documents/3859598/6830795/KS-GQ-15-001-EN-N.pdf/d8f1e5f5-251b-4a69-93e3-079031b74bd3), do not recommend benchmarking as it introduces a bias in the seasonally adjusted data. The U.S. Census Bureau also points out that “<em>forcing the seasonal adjustment totals to be the same as the original series annual totals can degrade the quality of the seasonal adjustment, especially when the seasonal pattern is undergoing change. It is not natural if trading day adjustment is performed because the aggregate trading day effect over a year is variable and moderately different from zero</em>”[^2]. Nevertheless, some users may need that the annual totals of the seasonally adjusted series match the annual totals of the original, non-seasonally adjusted series[^3].</p>
-<p>According to the [ESS Guidelines on Seasonal Adjustment (2015)] (https://ec.europa.eu/eurostat/documents/3859598/6830795/KS-GQ-15-001-EN-N.pdf/d8f1e5f5-251b-4a69-93e3-079031b74bd3), the only benefit of this approach is that there is consistency over the year between adjusted and the non-seasonally adjusted data; this can be of particular interest when low-frequency (e.g.&nbsp;annual) benchmarking figures officially exist (e.g.&nbsp;National Accounts, Balance of Payments, External Trade, etc.) and where users’ needs for time consistency are stronger.</p>
+<p>Often one has two (or multiple) series of different frequency for the same target variable. Sometimes, however, these series are not coherent in the sense that they don’t match up. Benchmarking[^1] is a method to deal with this situation. An aggregate of a higher-frequency measurement variables is not necessarily equal to the corresponding lower-frequency less-aggregated measurement. Moreover, the sources of data may have different reliability levels. Usually, less frequent data are considered more trustworthy as they are based on larger samples and compiled more precisely. The more reliable measurements, hence often the less frequent, will serve as benchmark.</p>
+<p>In seasonal adjustment methods benchmarking is the procedure that ensures the consistency over the year between adjusted and non-seasonally adjusted data. It should be noted that the <a href="https://ec.europa.eu/eurostat/documents/3859598/6830795/KS-GQ-15-001-EN-N.pdf/d8f1e5f5-251b-4a69-93e3-079031b74bd3">ESS Guidelines on Seasonal Adjustment (2015)</a>, do not recommend benchmarking as it introduces a bias in the seasonally adjusted data. The U.S. Census Bureau also points out that “<em>forcing the seasonal adjustment totals to be the same as the original series annual totals can degrade the quality of the seasonal adjustment, especially when the seasonal pattern is undergoing change. It is not natural if trading day adjustment is performed because the aggregate trading day effect over a year is variable and moderately different from zero</em>”[^2]. Nevertheless, some users may need that the annual totals of the seasonally adjusted series match the annual totals of the original, non-seasonally adjusted series[^3].</p>
+<p>According to the <a href="https://ec.europa.eu/eurostat/documents/3859598/6830795/KS-GQ-15-001-EN-N.pdf/d8f1e5f5-251b-4a69-93e3-079031b74bd3">ESS Guidelines on Seasonal Adjustment (2015)</a>, the only benefit of this approach is that there is consistency over the year between adjusted and the non-seasonally adjusted data; this can be of particular interest when low-frequency (e.g.&nbsp;annual) benchmarking figures officially exist (e.g.&nbsp;National Accounts, Balance of Payments, External Trade, etc.) and where users’ needs for time consistency are stronger.</p>
 </section>
 <section id="tools" class="level2">
 <h2 class="anchored" data-anchor-id="tools">Tools</h2>
-<section id="benchmarking-with-gui" class="level3">
-<h3 class="anchored" data-anchor-id="benchmarking-with-gui">Benchmarking with GUI</h3>
+<section id="gui" class="level3">
+<h3 class="anchored" data-anchor-id="gui">GUI</h3>
 <ol type="1">
-<li><p>With the <a href="../reference-manual/sa-specifications.html">pre-defined specifcations</a> the benchmarking functionality is not applied by default following the <em>ESS Guidelines on Seasonal Adjustment</em> (2015) recommendations. It means that once the user has seasonally adjustd the series with a pre-defined specifcation the <em>Benchmarking</em> node is empty. To execute benchmarking click on the <em>Specifications</em> button and activate the checkbox in the <em>Benchmarking</em> section.</p>
+<li><p>With the pre-defined specifications the benchmarking functionality is not applied by default following the <em>ESS Guidelines on Seasonal Adjustment</em> (2015) recommendations. It means that once the user has seasonally adjusted the series with a pre-defined specification the <em>Benchmarking</em> node is empty. To execute benchmarking click on the <em>Specifications</em> button and activate the checkbox in the <em>Benchmarking</em> section.</p>
 <img src="All_images/UDimage1.jpg" class="img-fluid" alt="Text">
 <p><strong>Benchmarking option – a default view</strong></p></li>
 <li><p>Three parameters can be set here. <em>Target</em> specifies the target variable for the benchmarking procedure. It can be either the <em>Original</em> (the raw time series) or the <em>Calendar Adjusted</em> (the time series adjusted for calendar effects). <em>Rho</em> is a value of the AR(1) parameter (set between 0 and 1). By default it is set to 1. Finally, <em>Lambda</em> is a parameter that relates to the weights in the regression equation. It is typically equal to 0 (for an additive decomposition), 0.5 (for a proportional decomposition) or 1 (for a multiplicative decomposition). The default value is 1.</p></li>
@@ -342,7 +454,7 @@ ul.task-list li input[type="checkbox"] {
 <li><p>Both pictures and the table can be copied the usual way (see the <a href="../case-studies/simplesa-single.html"><em>Simple seasonal adjustment of a single time series</em></a> scenario).</p>
 <img src="All_images/UDimage3.jpg" class="img-fluid" alt="Text">
 <p><strong>Options for benchmarking results</strong></p></li>
-<li><p>To export the result of the benchmarking procedure (<em>benchmarking.result</em>) and the target data (<em>benchmarking.target</em>) one needs to once execute the seasonal adjustment with benchmarking using the muli-processing option (see the <a href="../case-studies/simplesa-muliple.html"><em>Simple seasonal adjustment of multiple time series</em></a> scenario. Once the muli-processing is executed, select the <em>Output</em> item from the <em>SAProcessing</em> menu.</p>
+<li><p>To export the result of the benchmarking procedure (<em>benchmarking.result</em>) and the target data (<em>benchmarking.target</em>) one needs to once execute the seasonal adjustment with benchmarking</p>
 <img src="All_images/UG_SSA_image28.jpg" class="img-fluid" alt="Text">
 <p><strong>The <em>SAProcessing</em> menu</strong></p></li>
 <li><p>Expand the "+" menu and choose an appropriate data format (here Excel has been chosen). It is possible to save the results in TXT, XLS, CSV, and CSV matrix formats. Note that the <a href="../theory/output.html">available content of the output depends on the output type</a>.</p>
@@ -353,12 +465,278 @@ ul.task-list li input[type="checkbox"] {
 <p><strong>Exporting the results of the benchmarking procedure</strong></p></li>
 </ol>
 </section>
-<section id="benchmarking-in-r" class="level3">
-<h3 class="anchored" data-anchor-id="benchmarking-in-r">Benchmarking in R</h3>
-<p>See package <strong>rjd3bench</strong> and its documentation pages in R.</p>
-
-
+<section id="benchmarking-and-temporal-disaggregation-plugin-version-2.x" class="level3">
+<h3 class="anchored" data-anchor-id="benchmarking-and-temporal-disaggregation-plugin-version-2.x">Benchmarking and Temporal Disaggregation plugin (version 2.x)</h3>
+<p>Select <strong>Tools <span class="math inline">\(\rightarrow\)</span> Plug-ins</strong> for JDemetra+ to install Benchmarking plug-in.</p>
+<p>Once the plugin is installed, two more options appear in the Workspace window: Benchmarking and Temporal Disaggregation.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/Image1_Bench.jpg" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Text</figcaption>
+</figure>
+</div>
 </section>
+</section>
+<section id="benchmarking-with-different-frequencies" class="level2">
+<h2 class="anchored" data-anchor-id="benchmarking-with-different-frequencies">Benchmarking with different frequencies</h2>
+<p>These methods provide a high-frequency series (input series) modified so that it fulfils a linear relationship, with another series of low frequency (benchmark), both series measure the same target variable. An example of the relation to be fulfilled could be that the low frequency series (quarterly frequency) coincides with the quarterly sum of the high frequency series (monthly frequency).</p>
+<p>Multivariate benchmarking also forces contemporary linear relations between high frequency series. If these relations do not exist, benchmarking could be carried out for each series separately. Normally contemporary relations are linear and the relations of aggregation are also linear and the same for all series, so the contemporary relations between low frequency series are fulfilled.</p>
+<p>The benchmarking methods available in the benchmarking and time disaggregation plug-in are: Denton, Cholette, and Cholette multivariate.</p>
+<section id="univariate-denton-and-cholette" class="level3">
+<h3 class="anchored" data-anchor-id="univariate-denton-and-cholette">Univariate: Denton and Cholette</h3>
+<p>To run Denton univariate case select:</p>
+<p>Statistical <strong>Methods <span class="math inline">\(\rightarrow\)</span> Benchmarking <span class="math inline">\(\rightarrow\)</span> Denton or Cholette</strong></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/Image2_Bench.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Text</figcaption>
+</figure>
+</div>
+<p>In both cases, a new window is displayed to launch one of the methods with the series selected. In the upper left side, drag the high frequency series from the Providers window and drop it in <strong>Drop Series here</strong> and the low frequency series in <strong>Drop Constraint here</strong>.</p>
+<section id="denton" class="level4">
+<h4 class="anchored" data-anchor-id="denton">Denton</h4>
+<p>In the top right of the screen, select the <strong>Specifications</strong> button to set the specifications to apply each method. See below for a description of the available options on Denton method:</p>
+<ol type="1">
+<li><p><strong>Type</strong>: Aggregation function (Sum, Average, Last or First). This forces the low-frequency series to match the aggregation function selected of the high frequency series.</p></li>
+<li><p><strong>Multiplicative</strong>: if the checkbox is selected, the proportional Denton method is applied. Otherwise, additive Denton is applied.</p></li>
+<li><p><strong>Modified Denton</strong>: if the checkbox is selected, the modified Denton method is applied. Otherwise, original Denton is applied. It is recommended to select it; as original Denton perform a special treatment on the first observation.</p></li>
+<li><p><strong>Differencing</strong>: Number of regular differences. By default 1.</p></li>
+<li><p><strong>Default frequency</strong>: periodicity of the low frequency data. The options are: Yearly, HalfYearly, QuadriMonthly, Quarterly, Bimonthly and Monthly.</p></li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/Image3_Bench.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Denton Specifications</figcaption>
+</figure>
+</div>
+</section>
+<section id="cholette" class="level4">
+<h4 class="anchored" data-anchor-id="cholette">Cholette</h4>
+<p>See below for a description of the available options on Cholette method:</p>
+<ol type="1">
+<li><p><strong>Type</strong>: Aggregation function (Sum, Average, Last or First). This forces the low-frequency series to match the aggregation function selected of the high frequency series.</p></li>
+<li><p><strong>Aggregation frequency</strong>: periodicity of the low frequency data. The options are: Yearly, HalfYearly, QuadriMonthly, Quarterly, Bimonthly and Monthly.</p></li>
+<li><p><strong>Rho</strong>: value between <span class="math inline">\(-1\)</span> and <span class="math inline">\(1\)</span>. It is the coefficient of an AR(<span class="math inline">\(1\)</span>) model that follows the error term. The default value is <span class="math inline">\(1\)</span>, equivalent to applying Denton.</p></li>
+<li><p><strong>Lambda</strong>: value between <span class="math inline">\(0\)</span> and <span class="math inline">\(1\)</span>. It is the parameter <span class="math inline">\(\lambda\)</span> of the following function to be minimized in Cholette method:</p>
+<p><span class="math display">\[
+\sum_t \left( \frac{x_t - z_t}{\left| z_t \right|^{\lambda}} - \rho \frac{x_{t-1} - z_{t-1}}{\left| z_{t-1} \right|^{\lambda}}\right)^2
+\]</span></p>
+<p>Usually lambda is <span class="math inline">\(0\)</span> or <span class="math inline">\(1\)</span> equivalent to applying additive benchmarking and proportional benchmarking method respectively.</p></li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/Image4_Bench.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Cholette Specifications</figcaption>
+</figure>
+</div>
+<p>In both cases, Denton and Cholette methods, the output is a graph with the original series and the benchmarked series. There is no table with the results, but it is very easy to create one from the graph. Select the graph and select copy, then paste the values in excel (control-V).</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/Image5_Bench.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Denton output</figcaption>
+</figure>
+</div>
+</section>
+</section>
+<section id="multi-variate-cholette" class="level3">
+<h3 class="anchored" data-anchor-id="multi-variate-cholette">Multi-variate: Cholette</h3>
+<p>Up coming content.</p>
+</section>
+</section>
+<section id="a-bench-tempd" class="level2">
+<h2 class="anchored" data-anchor-id="a-bench-tempd">Temporal Disaggregation</h2>
+<p>These methods are used to disaggregate a series from low frequency to high frequency. Temporal disaggregation methods developed in the plug-in are Chow-Lin, Fernández and Litterman.</p>
+<p>When there are high frequency related indicators, these methods provide high frequency estimations for a series whose sums, averages,first or last values are consistent with the observed low frequency series, applying a regression model where it is assumed that the high frequency series to be estimated follows a multiple regression with p related series (indicators).</p>
+<p>See Methods<span class="math inline">\(\rightarrow\)</span>Temporal disaggregation for more theoretical detail.</p>
+<section id="temporal-disaggregation-in-the-gui" class="level3">
+<h3 class="anchored" data-anchor-id="temporal-disaggregation-in-the-gui">Temporal Disaggregation in the GUI</h3>
+<p>To run Temporal Disaggregation methods select Temporal disaggregation<span class="math inline">\(\rightarrow\)</span> Regression Model:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/Image6_TD.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Temporal Disggregation</figcaption>
+</figure>
+</div>
+<p>A new window is displayed to launch one of the methods with the series selected. In the upper left side drag the low frequency series from the Providers window and drop it in <strong>Y box</strong> and the proxy series or indicator with high frequency series in <strong>X box</strong>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/Image7_TD.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Temporal Disggregation</figcaption>
+</figure>
+</div>
+<p>In the top right of the screen, select <strong>Specifications</strong> to set the specifications to apply each method. Here is a description of the available options on Temporal Disaggregation methods:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/Image8_TD.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Temporal Disggregation</figcaption>
+</figure>
+</div>
+<ol type="1">
+<li><strong>Estimation span</strong>: Specifies the span (data interval) of the time series to be used in the temporal disaggregation process. The user can restrict the span. The common settings are:</li>
+</ol>
+<table class="table">
+<colgroup>
+<col style="width: 9%">
+<col style="width: 85%">
+<col style="width: 4%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Option</th>
+<th>Description (expected format)</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>All</td>
+<td>default</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>From</td>
+<td>first observation included (yyyy-mm-dd)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>To</td>
+<td>last observation included (yyyy-mm-dd)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Between</td>
+<td>interval [from ; to] included (yyyy-mm-dd to yyyy-mm-dd)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>First</td>
+<td>number of observtions from the beginning of the series included (dynamic) (integer)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Last</td>
+<td>number of observations from the end of the series (dynamic)(integer)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Excluding</td>
+<td>excluding N first observation and P last observation from the computation,dynamic) (integer)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Preliminary check</td>
+<td>check to exclude highly problematic series e.g.&nbsp;the series with a number of identical observations and/or missing values above pre-specified threshold values. (True/False)</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<ol start="2" type="1">
+<li><strong>Error</strong>: determines the method to be applied and it refers to the model that follows the error term.</li>
+</ol>
+<table class="table">
+<colgroup>
+<col style="width: 12%">
+<col style="width: 40%">
+<col style="width: 12%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Option</th>
+<th>Description</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Ar1</td>
+<td>Chow-Lin method (default)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Wn</td>
+<td>Classical Regression model</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Rw</td>
+<td>Fernández</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>RwAr1</td>
+<td>Litterman</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>I2</td>
+<td>Integrated order 2</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>I3</td>
+<td>Integrated order 3</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<ol start="3" type="1">
+<li><p><strong>Parameter</strong>: Coefficient of the AR(1) of the innovations model. It has a value between -1 and 1. This parameter exists only if RWar1 or Ar1 is selected in the error parameter.</p></li>
+<li><p><strong>Constant</strong>: a constant is included in the model if it is selected.</p></li>
+<li><p><strong>Trend</strong>: a linear trend is included in the model if it is selected.</p></li>
+<li><p><strong>Type</strong>: Aggregation function (Sum, Average, Last or First). This forces the low-frequency series to match the aggregation function selected of the high frequency series.</p></li>
+<li><p><strong>Default frequency</strong>: it is the frequency of the output series.</p></li>
+<li><p><strong>Advanced options</strong>: These parameters are related to state space model and the algorithm used to obtain the estimations.</p>
+<p>8.1. <strong>Diffuse regression coefficient</strong>: Indicates if the coefficients of the regression model are diffuse (T) or fixed unknown (F, default).</p></li>
+</ol>
+<p>Here are the results:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/Image9_TD.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Temporal Disggregation</figcaption>
+</figure>
+</div>
+<p>Select <strong>Model<span class="math inline">\(\rightarrow\)</span>Summary</strong> to see the estimation of <span class="math inline">\(rho\)</span> (coefficient of the AR(1) model) and the coefficient of the regression model. Additionally the BIC, AIC and AICC.</p>
+<p>To confirm that the model works well, select <strong>Model<span class="math inline">\(\rightarrow\)</span>Residuals<span class="math inline">\(\rightarrow\)</span>Statistics</strong> and see the tests on the residuals of the model:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/Image10_TD.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Temporal Disggregation</figcaption>
+</figure>
+</div>
+<p>Select MainResults<span class="math inline">\(\rightarrow\)</span>Table to obtain the disaggregated series and standard deviation.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/Image11_TD.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Temporal Disggregation</figcaption>
+</figure>
+</div>
+<p>Select <strong>MainResults<span class="math inline">\(\rightarrow\)</span>Chart</strong> to see a graph of the disaggregated series and the confidence interval.</p>
+</section>
+<section id="benchmarking-and-temporal-disaggregation-in-r-version-3.x" class="level3">
+<h3 class="anchored" data-anchor-id="benchmarking-and-temporal-disaggregation-in-r-version-3.x">Benchmarking and Temporal Disaggregation in R (version 3.x)</h3>
+<p>Use the [rjd3bench]((https://github.com/rjdemetra/rjd3bench) package and see its documentation pages.</p>
+</section>
+</section>
+<section id="benchmarking" class="level2">
+<h2 class="anchored" data-anchor-id="benchmarking">Benchmarking</h2>
+<p>Up coming content</p>
+</section>
+<section id="temporal-disaggregation" class="level2">
+<h2 class="anchored" data-anchor-id="temporal-disaggregation">Temporal Disaggregation</h2>
+<p>To perform Temporal Disaggregation methods use the function <strong>temporaldisaggregation</strong>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>output <span class="ot">&lt;-</span> rjd3bench<span class="sc">::</span><span class="fu">temporaldisaggregation</span>(</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">series =</span> y, <span class="at">indicators =</span> x, <span class="at">model =</span> <span class="st">"Rw"</span>, <span class="at">freq =</span> <span class="dv">12</span>,</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">conversion =</span> <span class="st">"Average"</span>, <span class="at">diffuse.algorithm =</span> <span class="st">"Diffuse"</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The output is a list containing:</p>
+<p>To obtain <span class="math inline">\(rho\)</span> estimation:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>output<span class="sc">$</span>estimation<span class="sc">$</span>parameter</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+
+
 </section>
 
 </main> <!-- /main -->
