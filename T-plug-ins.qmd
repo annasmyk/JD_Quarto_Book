@@ -1,4 +1,4 @@
-# Plug-ins for JDemetra+ {.unnumbered #t-plug-ins}
+# Plug-ins GUI {.unnumbered #t-plug-ins}
 
 JDemetra+ is an application that supports plug-ins, which are components adding specific features to the existing software.
 
@@ -19,17 +19,17 @@ JDemetra+ is an application that supports plug-ins, which are components adding 
 | NbDemetra -- Branding          | SA core algorithms |                                                                                                                                                              |
 | NbDemetra -- SA                | SA core algorithms | Default SA framework, including TRAMO-SEATS and X-13ARIMA-SEATS. This implementation can lead to small differences in comparison with the original programs. |
 
-This list is displayed in the *Installed* panel. This panel is available from the *Plugin* functionality and it is activated from the *Tools* menu (Figure *Activation of the Plugin functionality from the Tools menu* in [Plugins](#plugins) section).
-
-
-
-??? où ça mène plugins ici ?
+This list is displayed in the *Installed* panel. This panel is available from the *Plugin* functionality and it is activated from the *Tools* menu.
 
 
 
 ![](All_images/UG_A_image36.png)
 
 ## Plugins-list
+
+### Eurostat plug-ins
+
+The Quality Report (QR) Eurostat plug-in is available [here](https://github.com/Sace2015/EurostatQR) and can be installed as indicated [below](#t-plug-ins-inst)
 
 ### Bundesbank plug-ins
 
@@ -65,7 +65,7 @@ This list is displayed in the *Installed* panel. This panel is available from th
 
 -   [Nowcasting](https://github.com/nbbrd/jdemetra-nowcasting): Nowcasting is often defined as the prediction of the present, the very near future and the very recent past. The plug-in developed at the National Bank of Belgium helps to operationalize the process of nowcasting. It can be used to specify and estimate dynamic factor models and visualize how the real-time dataflow updates expectations, as for instance in Banbura and Modugno (2010). The software can also be used to perform pseudo out-of-sample forecasting evaluations that consider the calendar of data releases, contributing to the formalization of the nowcasting problem originally proposed by Giannone, et al. (2008) or Evans (2005).
 
-## Installation procedure
+## Installation procedure {#t-plug-ins-inst}
 
 Installation from GUI
 

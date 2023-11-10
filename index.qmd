@@ -2,7 +2,7 @@
 
 [JDemetra+](https://github.com/jdemetra) is an open-source software for **seasonal adjustment and time series analysis**, developed in the framework of Eurostat's "Centre of Excellence on Statistical Methods and Tools" by the National Bank of Belgium with the support of the Bundesbank and Insee. It has been officially recommended by Eurostat to the European Statistical System members since 2015. It is unique in its combination of very fast Java routines, a graphical user interface and an ecosystem of R packages. The graphical interface offers a structured and visual feedback, suitable for refined analysis and training. R tools allow the user to mix the capabilities of JDemetra+ with the versatility of the R world, be it for mathematical functions or data wrangling.
 
-\*\*Version 2.2.4 and version 3.0.x
+## Curently available versions
 
 The highest version currently recommended for production purposes is 2.2.4.
 
@@ -10,9 +10,13 @@ Version 3 family released from spring 2023 (3.0.1 in May and 3.0.2 in June) prov
 
 ## Useful links
 
-To learn more about this project you can visit [Eurostat CROS Portal](https://ec.europa.eu/eurostat/cros/content/centre-excellence-statistical-methods-and-tools).
+To install the software and get started, you can [browse](https://github.com/TanguyBarthelemy/JD_Tutorials) and [watch](https://www.youtube.com/@TSwithJDemetraandR) tutorials for JDemetra+. On this [YouTube channel](https://www.youtube.com/@TSwithJDemetraandR) you will also find many JDemetra+ related webinars.
 
 To keep up with all JDemetra+ related news head to the [**JDemetra+ Universe Blog**](https://jdemetra-universe-blog.netlify.app/)
+
+
+To learn more about the JDemetra+ development project you can visit [Eurostat CROS Portal](https://ec.europa.eu/eurostat/cros/content/centre-excellence-statistical-methods-and-tools).
+
 
 This website is under construction, in the meantime you can fill a large number of the gaps by referring to the [previous version](https://jdemetradocumentation.github.io/JDemetra-documentation) of the on-line documentation, coordinated by Sylwia Grudkowska-Kubik (National Bank of Poland).
 

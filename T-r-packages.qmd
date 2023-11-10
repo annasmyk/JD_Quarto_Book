@@ -1,18 +1,8 @@
-# Using JDemetra+ in R {.unnumbered #t-r-packs}
+# Using JDemetra+ in R {#t-r-packs .unnumbered}
 
-## Overview
+## In this chapter
 
-Core JDemetra Java algorithms can be accessed via several tools:
-
--   Graphical User Interface [GUI](T-graphical-user-interface.qmd)
-
--   ...enhanced with additional [plug-ins](T-plug-ins.qmd)
-
--   R packages
-
-This chapter provides an overview of the packages linked to JDemetra core routines version 2.x and 3.x (under construction). More details on specific functions are available in the relevant chapters in the [Algorithms part](P_Algorithms.qmd) of this documentation. Help pages relative to each package, and also vignettes provide a detailed description for each available functions: purpose, arguments, output and examples.
-
-Useful resources are also available in [this](https://github.com/annasmyk/Tsace_RJD_Webinar_Dec22) GitHub repository.
+Core JDemetra+ Java algorithms can be accessed in R.This chapter provides an overview of the R ecosystem related to JDemetra+ version 2.x and 3.x (under construction). More details on specific functions are available in the relevant chapters in the [Algorithms part](#part-A) of this documentation. Help pages (and vignettes) relative to each package provide a detailed description of all available functions, stating purpose, arguments, output and examples. Whenever possible there are directly linked in this documentation when their use in a selected algorithm is mentioned.
 
 ### Packages based on JDemetra+ version 2 algorithms
 
@@ -48,14 +38,14 @@ Packages corresponding to version 3.x core routines:
 #### Using JDemetra+ version 2.x
 
 | Algorithm   | Package   | Comments                                                 |
-|----------------|----------------|-----------------------------------------|
+|-----------------|-----------------|--------------------------------------|
 | X13-ARIMA   | RJDemetra | Reg-Arima and X-11 decomposition available independently |
 | TRAMO-SEATS | RJDemetra | Tramo available independently                            |
 
 #### Using JDemetra+ version 3.x
 
 | Algorithm               | Package        | Comments                                                 |
-|------------------|------------------|-------------------------------------|
+|------------------|------------------|------------------------------------|
 | X13-ARIMA               | rjd3x13        | Reg-Arima and X-11 decomposition available independently |
 | Extended X-11           | rjd3x11plus    | For high-frequency (infra-monthly) data                  |
 | TRAMO-SEATS             | rjd3tramoseats | Tramo available independently                            |
@@ -64,26 +54,25 @@ Packages corresponding to version 3.x core routines:
 | STL                     | rjd3stl        | Including high-frequency data                            |
 | Basic Structural Models | rjd3sts        | State space framework                                    |
 
-Version 3.x includes [Revision Policies][T-rev-policies-production.qmd) in X-13 and Tramo-Seats.
+Version 3.x includes [Revision Policies](#t-rev-pol) in X-13 and Tramo-Seats.
 
-
-More details on functions parameters and retrieving output in the chapter dedicated to [Seasonal Adjustment](A-sa.qmd)
+More details on functions parameters and retrieving output in the chapter dedicated to [Seasonal Adjustment](#sa-overview)
 
 ### Filtering and Trend estimation
 
-| Algorithm                         | Package                 | Comments |
-|-----------------------------------|-------------------------|----------|
-| Moving average functions          | rjd3filters             |          |
-| Local Polynomial Trend Estimation | rjd3filters, rjd3x1plus |          |
+| Algorithm                         | Package                  |
+|-----------------------------------|--------------------------|
+| Moving average functions          | rjd3filters              |
+| Local Polynomial Trend Estimation | rjd3filters, rjd3x11plus |
 
 ### Benchmarking and Temporal disaggregation
 
-| Algorithm               | Package   | Comment |
-|-------------------------|-----------|---------|
-| Denton                  | rjd3bench |         |
-| Cholette                | rjd3bench |         |
-| Cubic splines           | rjd3bench |         |
-| Temporal Disaggregation | rjd3bench |         |
+| Algorithm               | Package   |
+|-------------------------|-----------|
+| Denton                  | rjd3bench |
+| Cholette                | rjd3bench |
+| Cubic splines           | rjd3bench |
+| Temporal Disaggregation | rjd3bench |
 
 ## Utility functions available in R
 
@@ -122,7 +111,7 @@ This additional packages produce enhanced plots and diagnostic outputs.
 
 ### Tests {#t-r-packs-tests}
 
-#### Seasonality tests 
+#### Seasonality tests
 
 #### Tests on residuals
 
@@ -298,7 +287,6 @@ The rjd3filters package allows to:
 
 -   change the filter used in X-11 for TC extraction
 
-
 #### Create moving averages
 
 ```{r, echo = TRUE, eval = FALSE}
@@ -384,7 +372,7 @@ Tailored for Benchmarking and temporal disaggregation
 
 Several examples [here](https://github.com/rjdemetra/test_rjd3bench)
 
-### rjd3revisions 
+### rjd3revisions
 
 ## Revsion analysis. (See vignette in package)
 

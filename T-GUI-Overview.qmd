@@ -1,14 +1,21 @@
-# Graphical User Interface Overview {.unnumbered #tools-GUI}
+# Graphical User Interface (GUI): Overview {.unnumbered #t-gui-overview}
 
 ## In this chapter
 
-This chapter provides general information about using the graphical interface (GUI). Specific indications related to a given algorithm (X13-ARIMA, Tramo-seats, Benchmarking...) are displayed in the relevant chapters.
+This chapter provides general information about using the Graphical User Interface (GUI). Specific indications related to a given algorithm (X13-ARIMA, Tramo-seats, Benchmarking...) are displayed in the relevant chapters, listed [here](#part-A).
 
 Contents:
 
+- Available algorithms
 - Installation and launch 
-- General window and menu structure 
 - Importing data
+- General window and menu structure 
+
+Additional chapters related to GUI features, provide information on:
+
+- [Data visualization and generic time series tools](#t-GUI-tstools)
+- [Specific Seasonal Adjustement and Modelling features](#t-gui-sa)
+- [Output: series, parameters and diagnostics](#t-gui-output)
 
 
 ### Available algorithms
@@ -18,7 +25,7 @@ Contents:
 
 #### v2
 
-The graphical user interface in the 2.x family gives access to:
+The Graphical User Interface in the 2.x family gives access to:
 
 - Seasonal adjustment [(SA) algorithms](#sa-chapter)
 
@@ -32,14 +39,14 @@ The graphical user interface in the 2.x family gives access to:
 
 #### v3
 
-The graphical user interface in the 3.x family gives access **in addition** to extended SA algorithms for [high-frequency data (HF)](#sa-hf).
+The Graphical User Interface in the 3.x family gives access **in addition** to extended SA algorithms for [high-frequency data (HF)](#sa-hf).
 
 :::
 
 
 ::: {.content-visible when-format="pdf"}
 
-The graphical user interface in the 2.x family gives access to:
+The Graphical User Interface in the 2.x family gives access to:
 
 - Seasonal adjustment [(SA) algorithms](#sa-chapter)
 
@@ -51,14 +58,14 @@ The graphical user interface in the 2.x family gives access to:
 
 - Benchmarking
 
-The graphical user interface in the 3.x family gives access **in addition** to extended SA algorithms for [high-frequency data (HF)](A-sa-hf.qmd).
+The Graphical User Interface in the 3.x family gives access **in addition** to extended SA algorithms for [high-frequency data (HF)](#a-sa-hf).
 
 :::
 
 
 ### Available Time Series tools
 
-The graphical user interface in the 2.x and 3.x family give access to generic time series tools:
+The Graphical User Interface in the 2.x and 3.x family give access to generic time series tools:
 
 - Graphics
     + time domain
@@ -198,7 +205,7 @@ The example below show how to import the data from an Excel file.
 
     + **Aggregation type** -- the type of aggregation (over time for each time series in the dataset) for the imported time series. This can be *None*, *Sum*, *Average*, *First*, *Last*, *Min* or *Max*. The aggregation can be performed only if the *frequency* parameter is specified. For example, when frequency is set to *Quarterly* and aggregation type is set to *Average*, a monthly time series is transformed to quarterly one with values that are equal to the one third of the sum of the monthly values that belong to the corresponding calendar quarter.
 
-    + **Clean missing** <a id="clean-missing"></a> -- erases the missing values of the series.
+    + **Clean missing** <a id="clean-missing"></a> -- erases missing values at the start of the series.
 
     Next, in the *Source* section click the grey "..." button to open the file.
 
@@ -216,7 +223,7 @@ The example below show how to import the data from an Excel file.
 
     ![**Dataset structure**](All_images/Aimage10.jpeg)
 
-Once imported, your spread sheet is visible as a "node" structure
+Once imported, your s is visible as a "node" structure
 
 ![**A structure of a dataset**](All_images/A_Ref6.jpg)
 
@@ -345,7 +352,7 @@ The example below show how to import the data from an Excel file.
 
     ![**Dataset structure**](All_images/Aimage10.jpeg)
 
-Once imported, your spread sheet is visible as a "node" structure
+Once imported, your spreadsheet is visible as a "node" structure
 
 ![**A structure of a dataset**](All_images/A_Ref6.jpg)
 
@@ -700,7 +707,7 @@ detailed in data visualization part (link to set up)
 
 The *Spectral analysis* section provides three spectral graphs that allows an in-depth analysis of a time series in the frequency domain. These graphs are the *Auto-regressive Spectrum*, the *Periodogram* and the *Tukey Spectrum*. 
 
-For more information the user may study [a basic desription of spectral analysis](#spectral-analysis) and [a detailed presentation of the abovementioned tools](#spectral-graphs).
+For more information the user may refer to the [spectral analysis chapter](#spectral-analysis) and to the [sprectral graphs section](#t-GUI-tstools-spec-graphs).
 
 ![**Tools for spectral analysis**](All_images/A_Ref36.jpg)
 
@@ -774,11 +781,11 @@ The *Window* menu offers several functions that facilitate the analysis of data 
 
 - **Close All Documents** -- closes all documents that are open.
 
-- **Close Other Documents** -- closes all documents that are open except for the one that is active (which is the last activated one).
+- **Close Other Documents** -- closes all open documents except for the one that is active (which is the last activated one).
 
-- **Document Groups** -- enables the user to create and manage the document groups.
+- **Document Groups** -- enables the user to create and manage document groups.
 
-- **Documents** -- lists all documents that are active.
+- **Documents** -- lists all active documents.
 
 ### Help menu {#help-menu}
 
@@ -801,7 +808,7 @@ The *Options* window includes five main panels:
 
 They are visible in the very top of the *Options* window.
 
-![**The main sections of the *Options* window**](All_images/A_Ref41.jpg)
+![**Main sections of the *Options* window**](All_images/A_Ref41.jpg)
 
 
 ### Demetra panel {#options-demetra-panel}
@@ -1078,7 +1085,7 @@ An explanation of the list of the series and diagnostics components that are dis
 
 To modify the settings for a particular measure, double click on a selected row (select the test's name from the list and click on the working tools button), introduce changes in the pop-up window and click the **OK** button.
 
-To reset the default settings for a given test, select this test from the list and click on the backspace button situated below the working tools button. The description of the parameters for each quality measure and test used in a diagnostic procedure can be found in the [output from modelling](#results-panel) and the [output from seasonal adjustement](#results-panel) nodes.
+To reset the default settings for a given test, select this test from the list and click on the backspace button situated below the working tools button. The description of the parameters for each quality measure and test used in a diagnostic procedure can be found in the [output from modelling](#results-panel) and the [output from seasonal adjustment](#results-panel) nodes.
 
 ![**The panel for modification of the settings for the tests in the *Basic checks* section**](All_images/A_Ref45.jpg)
 

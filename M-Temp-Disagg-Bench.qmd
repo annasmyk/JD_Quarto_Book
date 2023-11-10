@@ -1,6 +1,6 @@
 # Temporal disaggregation and benchmarking {.unnumbered #m-bench}
 
-Under construction
+Up coming content 
 
 ## Benchmarking Underlying Theory
 
@@ -10,11 +10,7 @@ Benchmarking[^m-temp-disagg-bench-1] is a procedure widely used when for the sam
 
 Benchmarking also occurs in the context of seasonal adjustment. Seasonal adjustment causes discrepancies between the annual totals of the seasonally unadjusted (raw) and the corresponding annual totals of the seasonally adjusted series. Therefore, seasonally adjusted series are benchmarked to the annual totals of the raw time series[^m-temp-disagg-bench-2]. Therefore, in such a case benchmarking means the procedure that ensures the consistency over the year between adjusted and non-seasonally adjusted data. It should be noted that the '*ESS Guidelines on Seasonal Adjustment*' (2015) do not recommend benchmarking as it introduces a bias in the seasonally adjusted data. Also the U.S. Census Bureau points out that: *Forcing the seasonal adjustment totals to be the same as the original series annual totals can degrade the quality of the seasonal adjustment, especially when the seasonal pattern is undergoing change. It is not natural if trading day adjustment is performed because the aggregate trading day effect over a year is variable and moderately different from zero*.[^m-temp-disagg-bench-3] Nevertheless, some users may prefer the annual totals for the seasonally adjusted series to match the annual totals for the original, non-seasonally adjusted series[^m-temp-disagg-bench-4]. According to the '*ESS Guidelines on Seasonal Adjustment*' (2015), the only benefit of this approach is that there is consistency over the year between adjusted and non-seasonally adjusted data; this can be of particular interest when low-frequency (e.g. annual) benchmarking figures officially exist (e.g. National Accounts, Balance of Payments, External Trade, etc.) where user needs for time consistency are stronger.
 
-[^m-temp-disagg-bench-2]: DAGUM, B.E., and CHOLETTE, P.A. (2006).
 
-[^m-temp-disagg-bench-3]: '*X-12-ARIMA Reference Manual'* (2011).
-
-[^m-temp-disagg-bench-4]: HOOD, C.C.H. (2005).
 
 The benchmarking procedure in JDemetra+ is available for a single seasonally adjusted series and for an indirect seasonal adjustment of an aggregated series. In the first case, univariate benchmarking ensures consistency between the raw and seasonally adjusted series. In the second case, the multivariate benchmarking aims for consistency between the seasonally adjusted aggregate and its seasonally adjusted components.
 

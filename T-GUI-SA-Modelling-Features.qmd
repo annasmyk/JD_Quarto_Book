@@ -1,32 +1,23 @@
-# Graphical User Interface: SA and Modelling Features {.unnumbered #t-gui-sa}
+# GUI: SA and Modelling Features {.unnumbered #t-gui-sa}
 
 ## In this chapter
 
-- Modelling process new document
-<!-- very short explanations, as the same as in pre-adjustment  -->
-
-- Anomaly detection (just structure link to outlier chapter)
-
-- SAP detailed (but not algo specific), just structure 
-
-- Seasonality tests 
-
-- direct indirect seasonal adjustment 
+This chapter covers specific Seasonal Adjustment and Modelling features. Modelling refers to reg-Arima or Tramo when used stand alone and not as the first (pre-adjustment) step in seasonal adjustment. Note that the menu and window structure as well as options and results are almost identical in both cases.
 
 
-<!-- Structure under construction  -->
+Additional chapters related to GUI features, provide information on:
 
-## Workspace Window detailed
+- [Overview](#t-gui-overview)
+- [Data visualization and generic time series tools](#t-GUI-tstools)
+- [Output: series, parameters and diagnostics](#t-gui-output)
 
-(generic description in GUI overview)
+Currently, this chapter is widely incomplete, additional content will be uploaded in the coming weeks.
 
-The workspace window displays the characteristics of a workspace 
+## Workspace Window
 
-but ALSO gives access to other peripheric routines, the results of which won't be stored in a workspace (as data structure)
+The workspace window displays the characteristics of a workspace but gives also access to other peripheric routines, the results of which won't be stored in a workspace (as data structure)
 
-Rephrase everything below
-
-NOT TRUE: "The content of the workspace is presented in the *Workspace* window. It is divided into three sections:"
+Content of *Workspace* window, divided into three sections:
 
 -   [Modelling](#modelling-window) (contains the default and user-defined specifications for modelling; and the output from the modelling process)
 
@@ -40,25 +31,19 @@ NOT TRUE: "The content of the workspace is presented in the *Workspace* window. 
 
 ### Modelling {#modelling-window}
 
-The algorithms implemented in JDemetra+ enable a modelling of the original time series with the RegARIMA model, 
-including estimation of the regression effects such as outliers and calendar effects. These procedures can be 
-used just for modelling and forecasting of the original time series but also as a  pre-treatment before performing a seasonal adjustment of the series. Hence, this pre-treatement will allow for a more reliable estimation of the time series components performed by the seasonal adjustment procedures.
-
+When using reg-Arima or Tramo stand alone.
 
 This section is divided into two parts: 
-* [Specifications](../reference-manual/modelling-specifications.html), which presents parameters of the modelling procedure.
-* [Output](../reference-manual/output-modelling.html), which details a typical output produced by the modelling procedure.
 
-The specifications and output of the modelling procedure are displayed in the [*Workspace* window](#workspace-window).
+- Specifications: parameters of the modelling procedure.
+
+- Output
+
 
 ![**The *Workspace* window with the nodes for the modelling procedure marked**](All_images/A_Ref_d1.jpg)
 ### Seasonal adjustment {#sa-window}
 
-The primary aim of the seasonal adjustment process is to remove seasonal fluctuations from the time series. To achieve this goal, seasonal adjustment methods decompose the original time series into components that capture specific movements. These components are: trend-cycle, seasonality and irregularity.
-The trend-cycle component includes long-term and medium-term movements in the data. For seasonal adjustment purposes there is no need to divide this component into two parts. JDemetra+ refers to the trend-cycle as trend and consequently this convention is used here.
-
-This section presents the options of the seasonal adjustment processes performed by the methods implemented in JDemetra+ (X-12-ARIMA/X-13ARIMA-SEATS and TRAMO/SEATS) and discusses the output displayed by JDemetra+. As these seasonal adjustment methods use different approach to the decomposition, the output produced for both of them has different structure and content. Therefore, the results for both methods are discussed separately. 
-However, in contrast to the original programs, in JDemetra+ some quality indicators have been implemented for both methods, allowing for an easier comparison of the results.
+This window allows to set up and launch a [seasonal adjustment process](#sa-overview).
 
 This section is divided into two parts:
 
@@ -70,20 +55,15 @@ The specifications and output for the seasonal adjustment procedure are displaye
 ![**The *Workspace* window with the nodes for the seasonal adjustment procedure marked**](All_images/A_Ref_d2.jpg)
 
 
-## Results panel {#results-panel}
+### Results panel {#results-panel}
 
-(rephrase + compact)
 
 The blank zone in the figure above (on the right of the view) is the location where JDemetra+ displays various windows. More than one window can be displayed at the same time. Windows can overlap with each other with the foremost window being the one in focus or active. The active window has a darkened title bar. [The windows in the results panel can be arranged in many different ways](#window-menu), depending on the user's needs. The example below shows one of the possible views of this panel. The results of the user's analysis are displayed in an accompanying window. The picture below shows two panels -- a window containing seasonal adjustment results (upper panel) and another one containing an autoregressive spectrum (lower panel).
 
 ![**The *Results* panel filled with two windows**](All_images/A_Ref9.jpg)
 
 
-### Statistical Methods {#statistical-methods}
-
-Here just a hint and link to relevant chapters 
-
-The Statistical methods menu includes functionalities for modelling, analysis and the seasonal adjustment of a time series. They are divided into three groups:
+## Statistical Methods Menu {#statistical-methods}
 
 -   [Anomaly Detection](#anomaly-detection) -- allows for a purely automatic identification of regression effects;
 
@@ -93,146 +73,8 @@ The Statistical methods menu includes functionalities for modelling, analysis an
 
 ![**The *Modelling* tab.**](All_images/Statistical methods menu modelling.png)
 
--   [Seasonal adjustment](#seasonal-adjustment??) -- intended for the seasonal adjustment of a time series with the TRAMO-SEATS and X-13ARIMA-SEATS methods.
+-   [Seasonal adjustment](#seasonal-adjustment) -- intended for the seasonal adjustment of a time series with the TRAMO-SEATS and X-13ARIMA-SEATS methods.
 
 ![**The *Seasonal adjustment* tab.**](All_images/Statistical methods menu.jpg)
-
-
-## Different Category to set up 
-
-### RegArimaDoc {#RegArimaDoc}
-
-*RegArimaDoc* is a main menu item that includes functionalities designated for *RegArima* documents. To create a *RegArima* document select *RegArima* from the *Statistical methods* → *Modelling* → *Single Analysis* menu.
-
-![**The *RegArima* menu item**](All_images/A_Ref53.jpg)
-
-The *RegArimaDoc* item is displayed in the main menu of the application when a newly created or existing *RegArima* document is active.
-
-![**The *RegArimaDoc* menu for a newly created *RegArima* document**](All_images/A_Ref54.jpg)
-
-*RegArimaDoc-#number* is a default name that corresponds to the *RegArima* document's name. The default name can be changed by the user in the [*Workspace*](#workspace-window) window (right click on *RegArimaDoc-#number* under the *regarima* node in the *Workspace* window and select rename from the local menu).
-
-The options for *RegArimaDoc* include:
-
--   **Paste** -- pastes the time series to the *RegArimaDoc* window and performs seasonal adjustment for this time series using settings selected for the current process. The series needs to be previously copied, e.g. from the *Providers* window. Otherwise the message informing that the action cannot be done is displayed.
-
--   **Refresh data** -- updates the input data and executes the seasonal adjustment process. This option is only available for *RegArimaDoc* documents saved during a previous session with JDemetra+. To use this option, first create a *RegArimaDoc* document and drag and drop the time series into it. Then save the workspace and close JDemetra+. Next, update the time series (add/change the observations, but do not change either the location of the file or the file name) and open JDemetra+ once again. Open the previously saved workspace and double click on the respective *RegArima* document in the *Workspace* window. Finally, choose the **Refresh data** option from the *RegArimaDoc* menu. JDemetra+ re-estimates the complete seasonal adjustment model automatically, so the results are updated immediately. The user can modify the specification and validate the newly introduced changes using the [Specifications](modelling-specifications.html) functionality.
-
--   **Lock** -- prevents the series from the *RegArimaDoc* from being changed when the user double clicks on a new series in the *Providers* window. However, with this option the user can still change the settings of the specification.
-
--   **Copy spec. to workspace** -- copy the specification of the active document into the workspace. This allows it to be used for further processing.
-
-### X-13Doc {#X-13Doc}
-
-*X13Doc* is a main menu item that includes functionalities designated to *X13* documents. To create a *X13* document select *X13* from the *Seasonal Adjustment* → *Statistical Methods* → *Single Analysis* menu.
-
-![**The *X13* menu item**](All_images/A_Ref55.jpg)
-
-The *X13doc* item is displayed in the main menu of the application when a newly created or existing *X13* document is active.
-
-![**The *X13Doc* menu for a newly created X13 document**](All_images/A_Ref56.jpg)
-
-*X13Doc-#number* is a default name that corresponds to the *X13* document's name. It is updated automatically, once the relevant *X13* document is renamed.
-
-The options for the *X13Doc* include:
-
--   **Paste** -- pastes the time series to the *X13Doc* window and performs seasonal adjustment for this time series using settings selected for the current process. The series needs to be copied previously, e.g. from the *Providers* window. Otherwise a message informing that the action cannot be done is displayed.
-
--   **Refresh data** -- updates the input data and executes the seasonal adjustment process. This option is only available for *X13* documents saved during a previous session with JDemetra+. To use this option, first create the *X13* document and drag and drop the data into it. Then save the workspace and close JDemetra+. Next, update the time series (add/change the observations, but do not change either the location of the file or the file name) and open JDemetra+ once again. Open the previously saved workspace and double click on the respective *X13* document in the *Workspace* window. Finally, choose the **Refresh data** option from the *X13Doc* menu. JDemetra+ re-estimates the complete seasonal adjustment model automatically, so the results are updated immediately. The user can modify the specification and validate the newly introduced changes using the *Specification* functionality (see [modelling specifications](modelling-specifications.html) and [seasonal adjustment specifications](sa-specifications.html)).
-
--   **Lock** -- prevents the series from the *X13Doc* from being changed when the user double clicks on a new one in the *Providers* window. However, with this option the user can still change the settings of the specification.
-
--   **Copy spec. to workspace** -- copy the specification of the active document into the workspace. This allows it to be used for further processing.
-
-### TramoDoc {#TramoDoc}
-
-*TramoDoc* is a main menu item that includes functionalities designated to *Tramo* documents. To create a *Tramo* document select *Tramo* from *the Statistical methods* → *Modelling* → *Single Analysis* menu.
-
-![**The *Tramo* item**](All_images/A_Ref57.jpg)
-
-The *TramoDoc* is displayed in the main menu of the application when a newly created or existing *Tramo* document is active.
-
-![**The *TramoDoc* menu for a newly created X13 document**](All_images/A_Ref58.jpg)
-
-*TramoDoc*-*#number* is a default name that corresponds to the *Tramo* document's name. It is updated automatically, once the relevant *Tramo* document is renamed.
-
-The options for the *TramoDoc* include:
-
--   **Paste** -- pastes the time series to the *TramoDoc* window and performs seasonal adjustment for this time series using settings selected for the current process. The series needs to be previously copied, e.g. from the *Providers* window. Otherwise the message informing that the action cannot be done is displayed.
-
--   **Refresh data** -- updates the input data and executes the seasonal adjustment process. This option is only available for *Tramo* documents saved during previous session with JDemetra+. To use this option, first create the *Tramo* document and drag and drop the data into it. Then save the workspace and close JDemetra+. Next, update the time series (add/change the observations, but do not change neither the location of the file nor the file name) and open JDemetra+ once again. Open the previously saved workspace and double click on the respective *Tramo* document in the *Workspace* window. Finally, choose the **Refresh data** option from the *TramoDoc* menu. JDemetra+ re-estimates the complete seasonal adjustment model automatically, so the results are updated immediately. The user can modify the specification and validate the newly introduced changes using the *Specification* functionality (see [modelling specifications](modelling-specifications.html)).
-
--   **Lock** -- prevents the series from the *TramoDoc* from being changed when the user double clicks on a new one in the *Providers* window. However, with this option the user can still change the settings of the specification.
-
--   **Copy spec. to workspace** -- copy the specification of the active document into the workspace. This allows it to be used for further processing.
-
-### TramoSeatsDoc {#TramoSeatsDoc}
-
-*TramoSeatsDoc* is a default name for the main menu item that includes functionalities designated to *TramoSeats* documents. To create a *TramoSeats* document select *TramoSeats* from the *Seasonal Adjustment* → *Statistical methods* → *Single Analysis* menu.
-
-![**The *TramoSeats* menu item**](All_images/A_Ref59.jpg)
-
-The *TramoSeatsDoc* item is displayed in the main menu of the application when a newly created or existing *TramoSeats* document is active.
-
-![**The *TramoSeatsDoc* menu for a newly created X13 document**](All_images/A_Ref60.jpg)
-
-*TramoSeatsDoc* is a default name that corresponds to the *TramoSeats* document's name. It is updated automatically, once the relevant *TramoSeats* document is renamed.
-
-The options for the *TramoSeatsDoc* include:
-
--   **Paste** -- pastes the time series to the *TramoSeatsDoc* window and performs seasonal adjustment for this time series using settings selected for the current process. The series needs to be previously copied, e.g. from the *Providers* window. Otherwise the message informing that the action cannot be done is displayed.
-
--   **Refresh data** -- updates the input data and executes the seasonal adjustment process. This option is only available for the *TramoSeats* documents saved during a previous session with JDemetra+. To use this option, first create *TramoSeats* document and drag and drop the data into it. Then save the workspace and close JDemetra+. Next, update the time series (add/change the observations, but do not change either the location of the file or the file name) and open JDemetra+ once again. Open the previously saved workspace and double click on the respective *TramoSeats* document in the *Workspace* window. Finally, choose the **Refresh data** option from the *TramoSeatsDoc* menu. JDemetra+ re-estimates the complete seasonal adjustment model automatically, so the results are updated immediately. The user can modify the specification and validate the newly introduced changes using the *Specification* functionality (see [modelling specifications](modelling-specifications.html) and [seasonal adjustment specifications](sa-specifications.html)).
-
--   **Lock** -- prevents the series from the *TramoDoc* from being changed when the user double clicks on a new one in the *Providers* window. However, with this option the user can still change the settings of the specification.
-
--   **Copy spec. to workspace** -- copy the specification of the active document into the workspace. This allows it to be used for further processing.
-
-### SAProcessingDoc {#SAProcessingDoc}
-
-*SAProcessingDoc*-*#number* is a main menu item that includes functionalities designated for multi-documents. This item is displayed in the main menu of the application when [a newly created or existing multi-document](../reference-manual/output.html) is active. Note that some options are inactive when none of the time series in the *SAProcessing* window is marked.
-
-![**The *SAProcessing* menu for a newly created *X13* document**](All_images/image3_RMSB.jpg)
-
-The *SAProcessingDoc*-*#number* menu facilitates the management of the multi-document.
-
-![**SAProcessing menu**](All_images/image4_RMSB.jpg)
-
-The available options include:
-
--   **Default specification** -- opens the window that contains the list of available specifications (both pre-defined and user-defined).
-
--   **Start** -- runs the seasonal adjustment of the times series included in the document.
-
--   **Refresh** -- refreshes a document with new data using one of the revisions policies. This option is only available for multi-documents saved during a previous session with JDemetra+. The description of refresh policies and step-by-step demonstration of how to use them can be found [here](../case-studies/revision.html).
-
--   **Accept** -- for a marked series the option allows the user to accept the results that JDemetra+ marks as not satisfactory. However, the option changes the entry in the *Quality* column in the *SAProcessing* window into **Accepted**, regardless of the initial value of this field. The **Accept** function can be used to distinguish the series for which the results have been examined by the user from those not checked yet. The option can be also activated from the local menu. To use it, first the series in the *SAProcessing* window need to be marked as it is shown in the picture below.
-
--   **Copy spec. to workspace** -- copy the specification of the active document into the workspace. In that way, it can be used for other processing.
-
-![**The impact of the *Accept* option on the view of the results in the multi-document**](All_images/image5_RMSB.jpg)
-
--   **Edit** -- allows for modification of the content of multi-document. New time series can be added to the multi-document directly from the external source, e.g. Excel (**Paste**). Before choosing this option the user should copy the time series (data, name of the time series and dates). For the series marked in the multi-document the **Copy** option copies the specification's details. It can be pasted into external application. Similarly, the **Copy series** option copies the time series, which can be then pasted to the another application. Both **Cut** and **Delete** remove the marked time series from the multi-document. **Copy components** is a functionality for coping selected output items in a quick and easy way.
-
--   **Clear selection** -- unmarks the series in the *SAProcessing* window. This option is inactive when none of the time series in the *SAProcessing* window is marked.
-
--   **Specification** -- enables the user to change the specification used for seasonal adjustment of a selected series to the one chosen from the list of the pre-defined and user-defined specifications.
-
--   **Priority** -- indicator that can be used to mark series that require more or less attention. The **Priority** parameter takes values from 0 to 10. JDemetra+ computes it automatically, based on the average of the (logged) series. The user can chose the method of its computation (log-based or level based).
-
--   **Initial Order** -- displays times series on the list in an initial order.
-
--   **Output** -- enables the user to export the results to a given output format (TXT, XLS, ODBC, CSV, CSV matrix), to specify the destination folder and to customise the content of the exported file. The list of available output items is determined by the chosen output format and it can be found [here](../theory/output.html). The **Output** option is discussed in detail [here](../case-studies/output.html).
-
--   **Report** -- generates a summary report from a multi-process that includes summary information on several items, such as; the number of series, specifications used, models' summary, diagnostic summary, etc.. An example of the output is presented below.
-
-![**The report from the multi-process**](All_images/image6_RMSB.png)
-
--   **Edit comments** -- a functionality for monitoring a seasonal adjustment process is implemented. The user can add and modify short notes concerning a given time series. These notes are visible in the *Comments* column in the *Processing* window. The notes are displayed when the user hovers the mouse on the given cell.
-
-![**A comment displayed in the *Processing* window**](All_images/image7_RMSB.png)
-
-To add or edit a comment the user can also click on the series in the *Processing* panel and chose an option *Edit comments* from the local menu.
-
-![**An *Edit comment* option in the local menu**](All_images/image8_RMSB.png)
+-   [Tools](#seasonal-adjustment) -- provides access to seasonality tests, described [here](#t-GUI-tstools-tests) and to Direct-Indirect Seasonal adjustment tools (up coming content)
 

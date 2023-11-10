@@ -1,9 +1,9 @@
 # Production and revision policies {.unnumbered #t-rev-pol}
 
 
-## Chapter's overview
+## In this chapter
 
-In this chapter you will find out: 
+The sections below describe:
 
 - how to update seasonally adjusted series when new data is available
 

@@ -1,8 +1,8 @@
-# Production, Cruncher and quality report {.unnumbered style="color:blue" #t-prod}
+# Production, Cruncher and quality report {.unnumbered #t-prod}
 
-## Overview
+## In this chapter
 
-In this chapter you will find how to
+The sections below describe how to 
 
 - automate the Seasonal adjustment estimation process
 
@@ -18,7 +18,7 @@ The cruncher is an additional "executable" module. It can be launched via R or S
 
 Objectives of the cruncher:
 
--   update a JDemetra+ workspace (with a given [revision policy](T-rev-policies-production.qmd))
+-   update a JDemetra+ workspace (with a selected [revision policy](#t-rev-pol))
 
 -   export the results (series and diagnostics),
 
@@ -110,7 +110,7 @@ cruncher_and_param(
 )
 ```
 
--   Apply a [revision policy](T-rev-policies-production.qmd) to updated raw series
+-   Apply a [revision policy](#t-rev-pol) to updated raw series
 
 The function `cruncher_and_param()` allows to do that
 

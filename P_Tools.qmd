@@ -1,6 +1,6 @@
 # Tools {.unnumbered #part-T}
 
-This part describes all the available [Tools](#part-T) allowing to access JDemetra+ algorithms.
+This part describes the tools allowing to access JDemetra+ algorithms.
 
 Practical guidance for using them is provided [here](#part-A).
 
@@ -15,11 +15,14 @@ Graphical User Interface (GUI)
 - [Seasonal Adjustement and Modelling features](#t-gui-sa)
 - [Output: series, parameters and diagnostics](#t-gui-output)
 
-Other tools: 
+R ecosystem: 
 
-- [R ecosystem](#t-r-packs)
-- [Production tools: Cruncher and quality report](#t-r-packs)
+- [R packages](#t-r-packs)
+
+Other tools:
+
+- [Production tools: Cruncher and quality report](#t-prod)
 - [Revision policies](#t-rev-pol)
-- [Plug-ins for the GUI](#t-plug-ins)
+- [Plug-ins for GUI](#t-plug-ins)
 
 

@@ -6,7 +6,7 @@ The goal of seasonal adjustment is to remove seasonal fluctuations from a time s
 
 This chapter is a first of a series focusing on the practical step by step use of JDemetra+ Seasonal Adjustment (SA) algorithms, restricted to monthly and quarterly series. For infra-monthly data see the [following chapter](#a-sa-hf). 
 
-In the section below an overview of the seasonal adjustment process is provided. The most widely used SA algorithms have two steps: a pre-treatment to remove (temporarily) deterministic effects and decompositions allowing to estimate the seasonal factors to be removed from the series.  
+In the section below an overview of the seasonal adjustment process is provided. The most widely used SA algorithms have two steps: a pre-treatment to remove (temporarily) deterministic effects and decompositions allowing to estimate the seasonal factors to be removed from the serie.  
 
 The following chapters get into the specifics of each algorithm. 
 

@@ -1,3 +1,5 @@
 # Nowcasting {.unnumbered #a-now}
 
 Up coming content.
+
+In the meantime the user can refer to the documentation provided with the [nowcasting plug-in ](https://github.com/nbbrd/jdemetra-nowcasting) for version 2.2 and later.

@@ -2,23 +2,27 @@
 
 ## In this chapter
 
-Time series generic tools 
+This chapter describes time series generic tools available in the Graphical User Interface:
 <!-- (independent from a special routine SA, Bench...) -->
 
 - data visualization 
 - spectral analysis tools
 - aggregation 
 - differencing 
+- tests
+
+
+Additional chapters related to GUI features, provide information on:
+
+- [Overview](#t-gui-overview)
+- [Specific Seasonal Adjustement and Modelling features](#t-gui-sa)
+- [Output: series, parameters and diagnostics](#t-gui-output)
 
 ## Data visualization
 
 *Container* includes basic tools to display the data. The following items are available: *Chart*, *Grid*, *Growth Chart* and *List*.
 
-![**The *Container* menu**](All_images/Container tools.jpg)
-
-detailed in data visualization part (link to set up)
-
-
+![** *Container* menu**](All_images/Container tools.jpg)
 
 Several containers can be opened at the same time. Each of them may include multiple time series.
 
@@ -216,15 +220,15 @@ The *Differencing* window displays the first regular differences for the selecte
 
 ![**The properties of the *Differencing* tool**](All_images/A_Ref38.jpg)
 
-The typical results are shown below. The bottom left graph presents the partial autocorrelation coefficients (vertical bars) and the confidence intervals. The right-click local menu offers several functionalities for a differenced series. An explanation of the available options can be found below in the "*Local menu options for chart*" figure in the [*Container*](#container) section.
+Typical results are shown below. The bottom left graph presents the partial autocorrelation coefficients (vertical bars) and the confidence intervals. The right-click local menu offers several functionalities for a differenced series. An explanation of the available options can be found below in the "*Local menu options for chart*" figure in the [*Container*](#container) section.
 
 ![The *Differencing tool](All_images/A_Ref39.jpg)
 
-For the *Partial autocorrelation* and the *Periodogram* panels the right-button menu offers "a copy series" option that allows data to be exported to another application and a graph to be printed and saved to a clipboard or as a jpg file. Information about the partial autocorrelation function is given [here](../theory/ACF_and_PACF.html). The description of a periodogram is presented in [the Spectral graphs scenario](../case-studies/spectralgraphs.html).
+For the *Partial autocorrelation* and the *Periodogram* panels the right-button menu offers "a copy series" option that allows data to be exported to another application and a graph to be printed and saved to a clipboard or as a .jpg file. 
 
 ## Tests {#t-GUI-tstools-tests}
 
-Here we describe the GUI access to tests, which underlying method is detailed in M-tests chapter (link)
+Here we describe the GUI access to and display of tests. The underlying method is detailed [here](#m-tests)
 
 ### Seasonality Tests
 
@@ -273,6 +277,5 @@ The test can be applied directly to any series by selecting the option *Statisti
 
 ### Tests on residuals
 
-
-
+Up coming content.
 
