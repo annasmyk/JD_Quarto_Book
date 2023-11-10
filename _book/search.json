@@ -4,14 +4,14 @@
     "href": "index.html",
     "title": "JDemetra+ documentation",
     "section": "",
-    "text": "What is JDemetra+ ?\nJDemetra+ is an open-source software for seasonal adjustment and time series analysis, developed in the framework of Eurostat’s “Centre of Excellence on Statistical Methods and Tools” by the National Bank of Belgium with the support of the Bundesbank and Insee. It has been officially recommended by Eurostat to the European Statistical System members since 2015. It is unique in its combination of very fast Java routines, a graphical user interface and an ecosystem of R packages. The graphical interface offers a structured and visual feedback, suitable for refined analysis and training. R tools allow the user to mix the capabilities of JDemetra+ with the versatility of the R world, be it for mathematical functions or data wrangling."
+    "text": "What is JDemetra+ ?\nJDemetra+ is an open-source software for seasonal adjustment and time series analysis, developed in the framework of Eurostat’s “Centre of Excellence on Statistical Methods and Tools” by the National Bank of Belgium with the support of the Bundesbank and Insee. It has been officially recommended by Eurostat to the European Statistical System members since 2015. It is unique in its combination of very fast Java routines, a graphical user interface and an ecosystem of R packages. The graphical interface offers a structured and visual feedback, suitable for refined analysis and training. R tools allow the user to mix the capabilities of JDemetra+ with the versatility of the R world, be it for mathematical functions or data wrangling.\nA pdf version of this documentation is available here"
   },
   {
     "objectID": "index.html#curently-available-versions",
     "href": "index.html#curently-available-versions",
     "title": "JDemetra+ documentation",
     "section": "Curently available versions",
-    "text": "Curently available versions\nThe highest version currently recommended for production purposes is 2.2.4.\nVersion 3 family released from spring 2023 (3.0.1 in May and 3.0.2 in June) provides extended features for seasonal adjustment and trend estimation, including high frequency data and production tools."
+    "text": "Curently available versions\nThe highest version currently recommended for production purposes is 2.2.4.\nVersion 3.x family provides, among other things, extended features for seasonal adjustment and trend estimation, including high frequency data. The latest version 3.1.1 was released on October 11th 2023."
   },
   {
     "objectID": "index.html#useful-links",
