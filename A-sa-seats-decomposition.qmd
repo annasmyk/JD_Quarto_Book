@@ -1,15 +1,5 @@
 # SA: SEATS Decomposition {#a-sa-seats .unnumbered}
 
-left to be modified
-
--   complete code
-
--   small tweaks
-
--   references
-
-to be checked: can be done later
-
 ## In this chapter
 
 This chapter focuses on practical implementation of a SEATS decomposition using the graphical user interface [GUI](#tools-GUI) and R using [R packages](#t-r-packs) in version 2.x and 3.x. More explanations on SEATS algorithm can be found [here](#m-seats).
@@ -52,27 +42,13 @@ Available frequencies in version 2 and version 3
 
 [SEATS algorithm](M-SEATS-decomposition.qmd) will decompose the linearized series, in level or in logarithm, using the Arima model fitted by Tramo in the pre-treatment phase.
 
-## Default specifications {#a-sa-SEATS-default-specs}
-
-The default specifications for SEATS must be chosen at the starting of the SA processing. They are detailed in the [Tramo](#sa-pre-t-ts-specs)
-
 ## Quick Launch
-
-### From GUI
-
--   series
-
--   diagnostics
-
--   final parameters
-
--   user-defined parameters
 
 ### Default specifications
 
-The default specifications for SEATS must be chosen at the starting of the SA processing. They are detailed in the [Reg-ARIMA part](A-sa.qmd#Pre-treatment:%20Reg-ARIMA%20(or%20TRAMO)) Starting point for TRAMO-SEATS
+The default specifications for SEATS must be chosen at the starting of the SA processing. Starting point for TRAMO-SEATS, detailed [here](#sa-pre-t-ts-specs)
 
-### Quick Launch
+### Using GUI
 
 With a workspace open, an SAProcessing created and open data provider:
 
@@ -117,7 +93,7 @@ It can be printed giving access to selected parameters, series and diagnostics.
 print(model_sa_v3)
 ```
 
-### Retrieve Series {#a-sa-SEATS-out-series}
+## Retrieve Series {#a-sa-SEATS-out-series}
 
 This section outlines how to retrieve the different kinds of output series from GUI or in R.
 
@@ -127,7 +103,7 @@ This section outlines how to retrieve the different kinds of output series from 
 
 -   components in level or log
 
-#### Stochastic series
+### Stochastic series
 
 Decomposition of the linearized series or of its logarithm (in case of a multiplicative model)
 
@@ -135,14 +111,14 @@ y_lin is split into components: t_lin, s_lin, i_lin
 
 suffixes: - \_f stands for forecast - \_e stands for - \_ef stands for
 
-##### Display in GUI
+#### Display in GUI
 
 NODE Decomposition\>Stochastic series - Table with series and its standard error image
 
 -   Plot of Trend with confidence interval image
 -   Plot of Seasonal component with confidence interval image
 
-##### Retrieve from GUI
+#### Retrieve from GUI
 
 Generating output from GUI (link) or from Cruncher (link), stochastic series, their standard errors, forecasts and forecasts errors can be accessed with the following names
 
@@ -168,7 +144,7 @@ Generating output from GUI (link) or from Cruncher (link), stochastic series, th
 | decomposition.i_lin_e   |         |
 | decomposition.i_lin_ef  |         |
 
-##### Retrieve in R
+#### Retrieve in R
 
 In version 2
 
@@ -212,7 +188,7 @@ m$user_defined$ycal
 m$user_defined$variancedecomposition.seasonality
 ```
 
-#### Components (Level)
+### Components (Level)
 
 Decomposition of the linearized series, back to level in case of a multiplicative model.
 
@@ -220,11 +196,11 @@ y_lin is split into components: t_lin, s_lin, i_lin
 
 suffixes: - \_f stands for forecast - \_e stands for - \_ef stands for
 
-##### Displayed in GUI
+#### Displayed in GUI
 
 NODE Decomposition\>Components - Table with series and its standard error image
 
-##### Retrieve from GUI
+#### Retrieve from GUI
 
 Generating output from GUI (link) or from Cruncher (link), component series, their standard errors, forecasts and forecasts errors can be accessed with the following names
 
@@ -250,29 +226,29 @@ Generating output from GUI (link) or from Cruncher (link), component series, the
 | decomposition.i_cmp_e   |         |
 | decomposition.i_cmp_ef  |         |
 
-##### Retrieve in R
+#### Retrieve in R
 
 Same procedure as for stochastic series.
 
-##### Bias correction
+#### Bias correction
 
 to be added
 
-#### Final series
+### Final series
 
 | Series                    | Final SEATS components | Final Results | Reallocation of pre-adjustment effects |
-|-----------------|-----------------|-----------------|--------------------|
+|------------------|------------------|------------------|--------------------|
 | Raw series (forecasts)    |                        | y (y_f)       |                                        |
-| Linearized series         | B1                     |               | none                                   |
-| Final seasonal component  | D16                    | s (s_f)       |                                        |
-| Final trend               | D12                    | t (t_f)       |                                        |
-| Final irregular           | D13                    | i (i_f)       |                                        |
+| Linearized series         |                        |               | none                                   |
+| Final seasonal component  |                        | s (s_f)       |                                        |
+| Final trend               |                        | t (t_f)       |                                        |
+| Final irregular           |                        | i (i_f)       |                                        |
 | Calendar component        |                        |               |                                        |
-| Seasonal without calendar | D10                    |               |                                        |
+| Seasonal without calendar |                        |               |                                        |
 
 (to be added: reallocation of outliers effects)
 
-##### Display in GUI
+#### Display in GUI
 
 Final results are displayed for each series in the NODE MAIN\>Table
 
@@ -280,7 +256,7 @@ Final results are displayed for each series in the NODE MAIN\>Table
 
 Forecasts are glued at the end it *italic*
 
-##### Retrieve from GUI
+#### Retrieve from GUI
 
 Generating output from GUI (link) or from Cruncher (link), component series, their standard errors, forecasts and forecasts errors can be accessed with the following names
 
@@ -297,7 +273,7 @@ Generating output from GUI (link) or from Cruncher (link), component series, the
 | i           |         |
 | i_f         |         |
 
-##### Retrieve in R
+#### Retrieve in R
 
 In version 2
 
@@ -319,7 +295,7 @@ sa$result$final$sa
 # for additional results call user-defined output as explained above
 ```
 
-### Retrieve Diagnostics {a-sa-SEATS-diags}
+## Retrieve Diagnostics {#a-sa-SEATS-diags}
 
 -   WK analysis
 
@@ -335,23 +311,23 @@ components final estimators
 
 -   Stationary variance decomposition
 
-### Retrieve Final Parameters {#a-sa-SEATS-final-p}
+## Retrieve Final Parameters {#a-sa-SEATS-final-p}
 
 Relevant if parameters not set manually, or any parameters automatically selected by the software without having a fixed default value. (The rest of the parameters is set in the specification) To manually set those parameters and see all the fixed default values see Specifications / parameters section
 
-#### Arima Models for components
+### Arima Models for components
 
-##### Display in GUI
+#### Display in GUI
 
 Click on the **Decomposition** NODE
 
 ![**Decomposition Node**](All_images/SA_SEATS_GUI_components_models.png)
 
-##### Retrieve from GUI
+#### Retrieve from GUI
 
 (add names for output and cruncher)
 
-##### Display in R
+#### Display in R
 
 (display or retrieve)
 
@@ -359,11 +335,11 @@ version 2
 
 version 3
 
-#### Other final parameters
+### Other final parameters
 
 Final parameters which can be fine-tuned be the user are described in User-defined specifications section below
 
-### Setting user-defined parameters {#a-sa-SEATS-user-def}
+## Setting user-defined parameters {#a-sa-SEATS-user-def}
 
 The section below explains how the user can fine-tune some seats parameters, which are put in context in [the corresponding method chapter](M-SEATS-decomposition.qmd).the default value is indicated in ().
 
@@ -397,13 +373,13 @@ KalmanSmoother
 
 McEllroyMatrix
 
-##### Seting parameters in GUI
+### Seting parameters in GUI
 
 In specification window corresponding to a given series:
 
 ![Text](All_images\SA_SEATS_GUI_user_def_params.png)
 
-##### Set in R
+### Set in R
 
 version 2 (RJDemetra)
 
