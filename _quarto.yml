@@ -2,6 +2,10 @@ project:
   type: book
 book:
   title: "JDemetra+ documentation"
+  sidebar:
+    style: "docked"
+    search: true
+    collapse-level: 1
   author:
     - name: Anna Smyk (Coordinator)
       url: https://github.com/annasmyk
