@@ -25,6 +25,8 @@ Additional chapters related to GUI features, provide information on:
 
 1.  Once a seasonal adjustment process for the dataset is performed Go to the TOP menu bar and follow the path: *SAProcessing* → *Output...*
 
+    ![**Default output formats**](All_images/SAProcessing_output.png)
+    
 2.  In the *Batch output* window the user can specify which output items will be saved and the folder in which JDemetra+ saves the results. It is possible to save the results in the *TXT*, *XLS*, *CSV*, and *CSV matrix* formats. In the first step the user should choose the output format from the list.
 
     ![**Default output formats**](All_images/UDimage6.jpg)
@@ -35,7 +37,14 @@ Additional chapters related to GUI features, provide information on:
 
 4.  To display and modify the settings click on the given output format on the list. The available options depend on the output format.
 
-5.  For *Csv* format the following options are available: *folder* (location of the file), *file prefix* (name of the file), *presentation* (controls how the output is divided into separate files) and *series* (series included in the file). These options are presented in the next points of this case study.
+5.  For *Csv* format the following options are available: 
+
+    - *folder* (location of the file), 
+    - *file prefix* (name of the file),
+    - *presentation* (controls how the output is divided into separate files)
+    - and *series* (series included in the file). 
+    
+    These options are presented in the next points of this case study.
 
     ![**Options for a *Csv* format**](All_images/UDimage8.jpg)
 
@@ -71,30 +80,50 @@ Additional chapters related to GUI features, provide information on:
 
     ![**Layout options for an *Excel* format**](All_images/UDimage13.jpg)
 
-11. If the user sets the option layout to *ByComponent*, the output will be generated as follows:
+11. If the user sets the option layout to *BySeries*, the output will be generated as follows:
+
+    - Series are placed in separate sheets
+    - Components are placed in different columns
+    
+    ![**An Excel file view for the *BySeries* option**](All_images/output_excel_by_series.png)
+    
+12. If the user sets the option layout to *ByComponent*, the output will be generated as follows:
+    
+    - Components are placed in separate sheets
+    - Series are placed in different columns
 
     ![**An Excel file view for the *ByComponent* option**](All_images/UDimage14.jpg)
+    
+13. The option *OneSheet* will produce the following *XLS* file:
 
-12. The option *OneSheet* will produce the following *XLS* file:
-
+    - Components and Sheets are crossed in different columns of the same sheet
+    
     ![**An Excel file view for the *OneSheet* option**](All_images/UDimage15.jpg)
 
-13. By default, the series in the Excel output files are organised vertically. When the user unmarks the check box the horizontal orientation is used.
+14. By default, the series in the Excel output files are organised vertically. When the user unmarks the check box the horizontal orientation is used.
 
-    ![**The *VerticalOrientatio*n option**](All_images/UDimage16.jpg)
+    ![**The *VerticalOrientation* option**](All_images/UDimage16.jpg)
 
-14. In the case of the *TXT* format the only available options are *folder* (location of the file) and *series* (results included in the output file). 
+15. The option *Full series name* is used to use the fully qualified name of the series (workbook + sheet + name).
+
+    ![**The *Full series name* option**](All_images/output_excel_full_names.png)
+    
+    This option will produce the following *XLS* file:
+    
+    ![**The generated output**](All_images/generated_output_excel_full_names.png)
+    
+16. In the case of the *TXT* format the only available options are *folder* (location of the file) and *series* (results included in the output file). 
 
     ![**Options for the *Txt* output**](All_images/UDimage17.jpg)
 
-15. The *CSV matrix* produces the CSV file containing information about the model and quality diagnostics of the seasonal adjustment. The user may generate the list of default items or create their own quality report. By default, all the available items are included in the output. 
+17. The *CSV matrix* produces the CSV file containing information about the model and quality diagnostics of the seasonal adjustment. The user may generate the list of default items or create their own quality report. By default, all the available items are included in the output. 
 
     ![**List of items available for the *Csv matrix* output type**](All_images/UDimage18.jpg)
 
-16. Once the output settings are selected, click the *OK* button.
+18. Once the output settings are selected, click the *OK* button.
 
     ![**Options for the *Csv matrix* output**](All_images/UDimage19.jpg)
 
-17. For each output JDemetra+ provides information on the status of the operation. An example is presented below.
+19. For each output JDemetra+ provides information on the status of the operation. An example is presented below.
 
     ![**Generating output - status information**](All_images/UDimage20.jpg)

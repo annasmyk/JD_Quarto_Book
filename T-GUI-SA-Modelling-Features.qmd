@@ -33,14 +33,21 @@ Content of *Workspace* window, divided into three sections:
 
 When using reg-Arima or Tramo stand alone.
 
+which are the same as the ones used for the pre-treatment phase of 
+seasonal adjustment with X13-ARIMA (Reg-Arima) and TRAMO-SEATS (Tramo) and thus described in the SA chapter.
+
+
 This section is divided into two parts: 
 
-- Specifications: parameters of the modelling procedure.
+- [Specifications](../reference-manual/modelling-specifications.html), which presents parameters of the modelling procedure.
+- [Output](../reference-manual/output-modelling.html), which details a typical output produced by the modelling procedure.
 
-- Output
 
+The specifications and output of the modelling procedure are displayed in the [*Workspace* window](#workspace-window).
 
 ![**The *Workspace* window with the nodes for the modelling procedure marked**](All_images/A_Ref_d1.jpg)
+
+
 ### Seasonal adjustment {#sa-window}
 
 This window allows to set up and launch a [seasonal adjustment process](#sa-overview).

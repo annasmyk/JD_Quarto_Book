@@ -554,36 +554,6 @@ You can find:
 - Utilities ([calendars](#usr-def-cal) and [user defined variables](#usr-def-var)).
 
 
-
-
-### Modelling
-
-(I ll rewrite all this)
-access to RegArima or Tramo modelling routines 
-
-which are the same as the ones used for the pre-treatment phase of 
-seasonal adjustment with X13-ARIMA (Reg-Arima) and TRAMO-SEATS (Tramo) and thus described in the SA chapter.
-
-
-This section is divided into two parts: 
-* [Specifications](../reference-manual/modelling-specifications.html), which presents parameters of the modelling procedure.
-* [Output](../reference-manual/output-modelling.html), which details a typical output produced by the modelling procedure.
-
-The specifications and output of the modelling procedure are displayed in the [*Workspace* window](#workspace-window).
-
-![**The *Workspace* window with the nodes for the modelling procedure marked**](All_images/A_Ref_d1.jpg)
-
-
-
-
-### Seasonal adjustment 
-
-![**The *Workspace* window with the nodes for the seasonal adjustment procedure marked**](All_images/A_Ref_d2.jpg)
-
-Brief presentation and or link ?
-
-
-
 ## Results Panel {#results-panel-overview}
 
 
