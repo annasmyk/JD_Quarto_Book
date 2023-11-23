@@ -676,7 +676,59 @@ The Statistical methods menu includes functionalities for modelling, analysis an
 
 - [Seasonal adjustment](#seasonal-adjustment??) -- intended for the seasonal adjustment of a time series with the TRAMO-SEATS and X-13ARIMA-SEATS methods.
 
-![**The *Seasonal adjustment* tab.**](All_images/Statistical methods menu.jpg)
+By default, the *Seasonal adjustment* tab has 3 sub-tabs:
+
+- *Multiprocessing*, 
+- *Single Analysis*, 
+- and *Tools*.
+
+![**The *Seasonal adjustment* tab in v2**](All_images/Statistical methods menu.png)
+
+::: {.panel-tabset .content-visible when-format="html"}
+
+#### v2
+
+In v2, the *Tools* sub-tabs contains 2 functionalities:
+
+- *Seasonality Tests*
+- *Direct-Indirect Seasonal Adjustment*
+
+![**The *Seasonal adjustment* tab in v2**](All_images/Statistical methods menu_v2.png)
+
+#### v3
+
+In v3, the *Tools* sub-tabs contains 2 functionalities:
+
+- *Seasonality Tests*
+- *CanovaHansen*
+
+But no direct-indirect analysis.
+
+![**The *Seasonal adjustment* tab in v3**](All_images/Statistical methods menu_v3.png)
+
+:::
+
+::: {.content-visible when-format="pdf"}
+
+In v2, the *Tools* sub-tabs contains 2 functionalities:
+
+- *Seasonality Tests*
+- *Direct-Indirect Seasonal Adjustment*
+
+![**The *Seasonal adjustment* tab in v2**](All_images/Statistical methods menu_v2.png)
+
+In v3, the *Tools* sub-tabs contains 2 functionalities:
+
+- *Seasonality Tests*
+- *CanovaHansen*
+
+But no direct-indirect analysis.
+
+![**The *Seasonal adjustment* tab in v3**](All_images/Statistical methods menu_v3.png)
+
+:::
+
+
 
 ### Tools menu {#tools-menu}
 
@@ -854,11 +906,15 @@ By default, in v2, the *Demetra* panel is shown. It is divided into seven tabs:
 - *ProcDocumentItems*, 
 - and *Interchange*.
 
-in v3, you will just find three tabs: 
+![**Demetra panel in v2**](All_images/demetra_panel_v2.png)
+
+In v3, you will just find three tabs: 
 
 - *Common UI*, 
 - *Behaviour*, 
 - and *Demetra Paths*.
+
+![**Demetra panel in v3**](All_images/demetra_panel_v3.png)
 
 :::
 
@@ -937,7 +993,7 @@ The *Demetra UI* tab enables the setting of:
 ![**The option Charts**](All_images/options-demetra-commonUI-charts.png)
 
 
-- The data format (uses MS Excel conventions). For example, ###,###.#### implies the numbers in the tables and the y-axis of the graphs will be rounded up to four decimals after the decimal point (**Data format** (or **Observartion format** in v3)).
+- The data format (uses MS Excel conventions). For example, ###,###.#### implies the numbers in the tables and the y-axis of the graphs will be rounded up to four decimals after the decimal point (**Data format** (or **Observation format** in v3)).
 
 ![**The option Data format**](All_images/options-demetra-commonUI-data_format.png)
 
@@ -1158,7 +1214,7 @@ In v3, there is no equivalent of the *ProcDocumentItems* tab.
 
 ##### v2
 
-The *Interchange* tab lists the protocols that can be used to export/import information like calendars, specifications, etc. For the time being, the user cannot customize the way the standard exchanges are done. However, such features could be implemented in plug-ins.
+The *Interchange* tab lists the protocols that can be used to export/import information like calendars, specifications, etc.. For the time being, the user cannot customize the way the standard exchanges are done. However, such features could be implemented in plug-ins.
 
 ![**The content of the *Interchange* tab in v2**](All_images/options-demetra-Interchange_v2.png)
 
@@ -1170,7 +1226,7 @@ In v3, there is no equivalent of the *Interchange* tab.
 
 ::: {.content-visible when-format="pdf"}
 
-In v2, the *Interchange* tab lists the protocols that can be used to export/import information like calendars, specifications, etc. For the time being, the user cannot customize the way the standard exchanges are done. However, such features could be implemented in plug-ins.
+In v2, the *Interchange* tab lists the protocols that can be used to export/import information like calendars, specifications, etc.. For the time being, the user cannot customize the way the standard exchanges are done. However, such features could be implemented in plug-ins.
 
 ![**The content of the *Interchange* tab in v2**](All_images/options-demetra-Interchange_v2.png)
 
