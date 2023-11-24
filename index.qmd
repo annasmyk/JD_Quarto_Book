@@ -34,6 +34,7 @@ Key methodological explanations and state-of-the-art description and references 
 
 -   [Handbook on rapid estimates (2017)](https://ec.europa.eu/eurostat/documents/3859598/8555708/KS-GQ-17-008-EN-N.pdf)
 
+
 ![](All_images/jdemetra+.png)
 
 ## How to contribute

@@ -1,4 +1,20 @@
 # References {.unnumbered}
 
-::: {#refs}
-:::
+#### QS test
+
+-   LJUNG G. M. and G. E. P. BOX (1978). "On a Measure of a Lack of Fit in Time Series Models". Biometrika 65 (2): 297--303. doi:10.1093/biomet/65.2.297
+-   MARAVALL, A. (2011). "Seasonality Tests and Automatic Model Identification in Tramo-Seats". Manuscript
+-   MARAVALL, A. (2012). "Update of Seasonality Tests and Automatic Model Identification in TRAMO-SEATS". Bank of Spain (November 2012)
+
+
+#### Friedman test
+
+-   Friedman, Milton (December 1937). "The use of ranks to avoid the assumption of normality implicit in the analysis of variance". Journal of the American Statistical Association (American Statistical Association) 32 (200): 675--701. doi:10.2307/2279372. JSTOR 2279372.
+
+-   Friedman, Milton (March 1939). "A correction: The use of ranks to avoid the assumption of normality implicit in the analysis of variance". Journal of the American Statistical Association (American Statistical Association) 34 (205): 109. doi:10.2307/2279169. JSTOR2279169. 
+
+
+#### Spectral Peaks
+
+-   Soukup, R.J., and D.F. Findley (1999) On the Spectrum Diagnosis used by X12-ARIMA to Indicate the Presence of Trading Day Effects After Modeling or Adjustment. In Proceedengs of the American Statistical Association. Business and Economic Statistics Section, 144-149, Alexandria, VA.
+-   Friedman, Milton (March 1940). "A comparison of alternative tests of significance for the problem of m rankings". The Annals of Mathematical Statistics 11 (1): 86--92. doi:10.1214/aoms/1177731944. JSTOR 2235971.
