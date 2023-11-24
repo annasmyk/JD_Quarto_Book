@@ -531,7 +531,7 @@ You can click on the image in the area that interests you:
 <map name="image_map2">
   <area alt="modelling" title="Modeling" href="#modelling-window" coords="5,53,545,191" shape="rect">
   <area alt="sa" title="Seasonal adjustment" href="#sa-window" coords="8,197,543,350" shape="rect">
-  <area alt="utilities" title="Utilities" href="#usr-def-cal" coords="8,354,542,444" shape="rect">
+  <area alt="utilities" title="Utilities" href="A-calendar-correction.html#usr-def-cal" coords="8,354,542,444" shape="rect">
 </map>
 
 <script> initializeAndAdjust("image_map2") </script>

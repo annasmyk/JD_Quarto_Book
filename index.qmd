@@ -16,11 +16,7 @@ To install the software and get started, you can [browse](https://github.com/Tan
 
 To keep up with all JDemetra+ related news head to the [**JDemetra+ Universe Blog**](https://jdemetra-universe-blog.netlify.app/)
 
-
 To learn more about the JDemetra+ development project you can visit [Eurostat CROS Portal](https://ec.europa.eu/eurostat/cros/content/centre-excellence-statistical-methods-and-tools).
-
-
-[![GH](github.png)](https://en.wikipedia.org/wiki/Elephant)
 
 This website is under construction, in the meantime you can fill a large number of the gaps by referring to the [previous version](https://jdemetradocumentation.github.io/JDemetra-documentation) of the on-line documentation, coordinated by Sylwia Grudkowska-Kubik (National Bank of Poland).
 
@@ -39,7 +35,7 @@ Key methodological explanations and state-of-the-art description and references 
 
 ![](All_images/jdemetra+.png)
 
-## How to contribute
+## {{< iconify fa github >}} How to contribute 
 
 If you want to help us improve this book, you can [fork this repository on GitHub](https://github.com/annasmyk/JD_Quarto_Book) and create pull requests with your contributions.
 
