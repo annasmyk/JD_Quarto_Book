@@ -15,6 +15,24 @@ Additional chapters related to GUI features, provide information on:
 
 Currently, this chapter is widely incomplete, additional content will be uploaded in the coming weeks.
 
+
+## How to create a Workspace?
+
+When you open a new session of the GUI JDemetra, a new workspace called *Workspace_1* is created.
+
+![**Initial Workspace_1**](All_images/new_workspace_1.png)
+
+To create a Workspace:
+
+1. Click on the [[File]{.button}](#file-menus) button
+
+2. Then, click on [New Workspace]{.button}
+
+A new Workspace called *Workspace_2* is created.
+
+![**Initial Workspace_1**](All_images/new_workspace_1.png)
+
+
 ## Workspace Window
 
 The workspace window displays the characteristics of a workspace but gives also access to other peripheric routines, the results of which won't be stored in a workspace (as data structure)
@@ -97,16 +115,76 @@ The blank zone in the figure above (on the right of the view) is the location wh
 
 ## Statistical Methods Menu {#statistical-methods}
 
--   [Anomaly Detection](#anomaly-detection) -- allows for a purely automatic identification of regression effects;
+- [Anomaly Detection](#anomaly-detection) -- allows for a purely automatic identification of regression effects;
 
 ![**The *Anomaly detection* tab.**](All_images/Statistical methods menu anomaly detection.png)
 
--   [Modelling](#modelling) -- enables time series modelling using the TRAMO and RegARIMA models;
+- [Modelling](#modelling) -- enables time series modelling using the TRAMO and RegARIMA models;
 
 ![**The *Modelling* tab.**](All_images/Statistical methods menu modelling.png)
 
--   [Seasonal adjustment](#seasonal-adjustment) -- intended for the seasonal adjustment of a time series with the TRAMO-SEATS and X-13ARIMA-SEATS methods.
+- [Seasonal adjustment](#seasonal-adjustment) -- intended for the seasonal adjustment of a time series with the TRAMO-SEATS and X-13ARIMA-SEATS methods.
 
 ![**The *Seasonal adjustment* tab.**](All_images/Statistical methods menu.jpg)
--   [Tools](#seasonal-adjustment) -- provides access to seasonality tests, described [here](#t-GUI-tstools-tests) and to Direct-Indirect Seasonal adjustment tools (up coming content)
 
+- [Tools](#seasonal-adjustment) -- provides access to:
+
+    - [seasonality tests](#t-GUI-tstools-tests)
+    - and to [Direct-Indirect Seasonal adjustment tools](#direct-indirect)
+
+
+## Direct-Indirect method {#direct-indirect}
+
+### Context 
+
+Economic time series are often computed and reported according to a certain classification or a breakdown. 
+
+For example, in National Accounts total consumption expenditures are a sum of individual consumption expenditures and General Government & NPISHs consumption expenditures. Therefore, the seasonally adjusted aggregates can be computed either by aggregating the seasonally adjusted components (indirect adjustment) or adjusting the aggregate and the components independently (direct adjustment). The point is that these two strategies result in different seasonally adjusted aggregates. As neither theoretical nor empirical evidence uniformly favours one approach over the other, the choice of the seasonal adjustment strategy concerning aggregated series depends on the user. Guidance in this field is given in the guidelines @guidelines2015.
+
+
+### In GUI v2
+
+JDemetra+ offers a *Direct--Indirect Seasonal Adjustment* functionality that facilitates the comparison of the results from these two strategies, which is launched from the main menu. 
+
+::: {.callout-caution title="Only in v2"}
+
+This Direct-Indirect method is not implemented in v3.
+
+:::
+
+![**The *Direct-Indirect Seasonal Adjustment* tool**](All_images/UG_SF_image5.jpg)
+
+To start the analysis drag and drop time series to the top-left panel. The panel on the right presents the sum of selected series.
+
+![**Choosing series for an analysis**](All_images/UG_SF_image6.jpg)
+
+By going to the main menu and clicking on [Window]{.button} → [Properties]{.button}, one can specify benchmarking options for direct-indirect comparison. 
+
+Be aware that the properties window displays the properties of an active item. Therefore, first click on the time series graph in the picture below and then activate the *Properties* window.
+
+![**The properties of the *Direct - Indirect seasonal adjustment* functionality**](All_images/UG_SF_image7.jpg)
+
+By default, the [pre-defined TRAMO-SEATS specification](#a-pre-t-def-spec) is used (RSAfull) for seasonal adjustment of a dataset. To change it, click on the button marked in the picture below. This will provide you with the alternative specifications. Here the user defined specification named *My spec* is chosen.
+
+![**Choosing a specification for the analysis**](All_images/UG_SF_image8.jpg)
+
+Next, run the process by clicking the button with the green arrow.
+
+
+![**Running a process**](All_images/UG_SF_image9.jpg)
+
+
+The bottom panel presents the detailed results. The seasonality test node presents the outcome of the [seasonality tests](#t-GUI-tstools-tests) performed for the aggregated series adjusted directly (*Direct sa*) and indirectly (*Indirect sa*). The reason for presenting these tests here is that the presence of residual seasonality and calendar effects should be monitored, especially in the indirectly adjusted series (see @guidelines2015). 
+It might happen that the seasonality is successfully removed from the components but it is still present in the aggregated series.
+
+![**Seasonality tests' results for a direct seasonal adjustment**](All_images/UG_SF_image10.jpg)
+
+The *Differences* node presents selected different results between the direct and the indirect seasonal adjustment approaches. The *Statistics* section shows basic statistics (average, standard deviation, minimum and maximum) for the relative differences (%) between the direct and the indirect SA series. *Chart* contains the graph of the differences, while *Table* includes the actual values. The *Periodogram* section presents graphs for two spectral estimators -- [the periodogram](#m-spectral-analysis-m-spectrum-periodogram) and [the auto-regressive spectrum](#m-spectral-analysis-m-spectrum-ar-est).
+
+![**Graph presenting the differences between direct and indirect seasonal adjustment results**](All_images/UG_SF_image11.jpg)
+
+The *Details* node include the basic statistics for the relative differences between the benchmarked and original series as well as the actual time series adjusted directly (*Sa series*) and indirectly (*Benchmarked Sa series*).
+
+![**Details of the differences between direct and indirect seasonal adjustment results**](All_images/UG_SF_image12.jpg)
+
+[^1]: Description based on @guidelines2015.

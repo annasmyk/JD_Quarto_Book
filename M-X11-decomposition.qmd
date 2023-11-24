@@ -588,7 +588,7 @@ $$
 
 The Moving Seasonality Ratio (MSR) is used to measure the amount of noise in the Seasonal-Irregular component. By studying these values, the user can [select for each period the seasonal filter](#a-X11-seaso-filters) that is the most suitable given the noisiness of the series.
 
-![Text](All_images/RDimage56.png)
+![**Moving Seasonality Ratio (MSR)**](All_images/RDimage56.png)
 
 ## Filter length choice {#m-X11-filters-length-choice}
 
@@ -600,7 +600,7 @@ the seasonally adjusted series using Henderson moving averages.
 
 The algorithm chooses between different filter lengths automatically according to the $I/C$ ratio, the user can modify this choice (first step is computed with $H_{13}$)
 
-![Text](All_images/ESTP_bbk_X11_Henderson_choice_formula.png)
+![**Calculation of I-C ratios**](All_images/ESTP_bbk_X11_Henderson_choice_formula.png)
 
 
 ### Seasonality extraction filters {#m-X11-seaso-filters}

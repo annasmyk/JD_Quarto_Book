@@ -102,7 +102,7 @@ book:
         - M-STL-decomposition.qmd ##(#m-stl)
         - M-state-space-framework.qmd ##(#m-ssf)
         - M-Temp-Disagg-Bench.qmd ##(m-bench)
-    #     - references.qmd
+    - references.qmd
 bibliography: references.bib
 
 format:
