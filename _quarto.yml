@@ -89,6 +89,8 @@ bibliography: references.bib
 
 format:
   html:
+    grid:
+      body-width: 800px
     theme: 
         - united
         - custom.scss
