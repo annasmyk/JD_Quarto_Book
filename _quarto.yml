@@ -38,7 +38,7 @@ book:
           city: Frankfurt
           url: "https://www.bundesbank.de"
       role: "Collaborator"
-  date: "11/10/2023"
+  date: "11/23/2023"
   page-navigation: true
   chapters:
     - index.qmd
