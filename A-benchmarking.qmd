@@ -316,7 +316,7 @@ The input parameters are the same as in the GUI, see the R Documentation of the 
 
 The output is a list containing 3 elements:
 
-1. **Regression**: contains the information about:
+1. **Regression**: contains information about:
 
     * Type of method applied:
     
@@ -342,7 +342,7 @@ The output is a list containing 3 elements:
     
     ```
 
-2. **Estimation**: contains the information about:
+2. **Estimation**: contains information about:
 
     * The disaggregated series:
 
@@ -368,7 +368,7 @@ The output is a list containing 3 elements:
     
     ```
 
-    * The smothing part:
+    * The smoothing part:
     ```{r,eval=FALSE, include=TRUE}
     
     output$estimation$smoothingpart
@@ -390,7 +390,7 @@ The output is a list containing 3 elements:
     
     ```   
     
-3. **Likelihood**: Contains the information about the loglikelihood(ll), sum of squares of the residuals of the model (ssq), number of observations (nobs), number of params to be estimated (nparams), freedom degrees(df), Akaike Information Criteria (aic), Akaike Information Criteria Corrected (aicc), Bayesian Information Criteria (bic), Bayesian Information Criteria Corrected (bic2).
+3. **Likelihood**: Contains information about the loglikelihood(ll), sum of squares of the residuals of the model (ssq), number of observations (nobs), number of parameters to be estimated (nparams), degrees of freedom (df), Akaike Information Criteria (aic), Akaike Information Criteria Corrected (aicc), Bayesian Information Criteria (bic), Bayesian Information Criteria Corrected (bic2).
 
 
 
