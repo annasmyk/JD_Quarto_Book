@@ -11,7 +11,7 @@
     "href": "index.html#curently-available-versions",
     "title": "JDemetra+ documentation",
     "section": "Curently available versions",
-    "text": "Curently available versions\nThe highest version currently recommended for production purposes is 2.2.4.\nVersion 3.x family provides, among other things, extended features for seasonal adjustment and trend estimation, including high frequency data. The latest version 3.1.1 was released on October 11th 2023."
+    "text": "Curently available versions\nThe highest version currently recommended for production purposes is 2.2.4.\nVersion 3.x family provides, among other things, extended features for seasonal adjustment and trend estimation, including high frequency data. The latest version 3.2 was released on November 23rd 2023."
   },
   {
     "objectID": "index.html#useful-links",
@@ -19,6 +19,13 @@
     "title": "JDemetra+ documentation",
     "section": "Useful links",
     "text": "Useful links\nTo install the software and get started, you can browse and watch tutorials for JDemetra+. On this YouTube channel you will also find many JDemetra+ related webinars.\nTo keep up with all JDemetra+ related news head to the JDemetra+ Universe Blog\nTo learn more about the JDemetra+ development project you can visit Eurostat CROS Portal.\nThis website is under construction, in the meantime you can fill a large number of the gaps by referring to the previous version of the on-line documentation, coordinated by Sylwia Grudkowska-Kubik (National Bank of Poland).\nEurostat’s recommendations on the statistical processes described in this documentation are outlined in:\n\nEurostat’s Guidelines on seasonal adjustment (2015)\nEurostat’s Guidelines on temporal disaggregation, benchmarking and reconcilation (2018)\n\nKey methodological explanations and state-of-the-art description and references can be found in:\n\nHandbook on seasonal adjustment (2018)\nHandbook on rapid estimates (2017)"
+  },
+  {
+    "objectID": "index.html#how-to-contribute",
+    "href": "index.html#how-to-contribute",
+    "title": "JDemetra+ documentation",
+    "section": "How to contribute",
+    "text": "How to contribute\nIf you want to help us improve this book, you can fork this repository on GitHub and create pull requests with your contributions."
   },
   {
     "objectID": "G-how-to-use-this-book.html#structure",
