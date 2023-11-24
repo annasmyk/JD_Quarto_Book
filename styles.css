@@ -1,16 +1,15 @@
 
 main {
     box-sizing: border-box;
-    padding-top: 1px;
-    padding-bottom: 30px;
-    padding-right: 30px;
-    padding-left: 30px;
     /*margin: 100px !important;*/
     text-align: justify !important;
     justify-content: center !important;
     background-color: #f2f6ff !important;
+    padding-top: 0px;
+    padding-bottom: 30px;
+    padding-right: 30px;
+    padding-left: 30px;
 }
-
 
 body {
     background-color: #ffffff !important;
@@ -18,11 +17,18 @@ body {
 
 nav {
     background-color: #f2f6ff !important;
+    padding: 20px;
 }
 
 pre {
     background-color: #EBEFF4;
-    padding: 10px;
+}
+
+/* Styles pour les caption des images fixes*/
+figcaption {
+    text-align: center;
+    color: grey; /* Vous pouvez ajuster la couleur en fonction de vos préférences */
+    font-size: 15px;
 }
 
 .path {
@@ -38,14 +44,10 @@ pre {
     margin: 0 auto; /* Pour centrer l'image horizontalement */
 }
 
-.figure-caption {
+.image-map-caption {
     text-align: center;
-    color: gray; /* Vous pouvez ajuster la couleur en fonction de vos préférences */
+    color: grey; /* Vous pouvez ajuster la couleur en fonction de vos préférences */
     font-size: 15px;
 }
 
-figcaption {
-    text-align: center;
-    color: gray;
-    font-size: 15px;
-}
+

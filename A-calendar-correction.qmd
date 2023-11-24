@@ -161,7 +161,7 @@ As regressors have the same data frequency as the input series, several cases:
 
 ### In GUI
 
-#### Creating calendars 
+#### Creating calendars {#usr-def-cal}
 
 The customized calendar can be directly linked to the calendar correction option in GUI while specifying a seasonal adjustment process. See chapters on [SA](A-sa.qmd) or [SA of HF data](A-sa-hf.qmd).
 

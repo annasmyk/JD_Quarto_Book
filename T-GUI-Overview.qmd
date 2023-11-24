@@ -126,7 +126,9 @@ You can click on the image in the area that interests you:
 <script src="resize.js"></script>
 <script> initializeAndAdjust("image_map") </script>
 
-[**JDemetra+ default window**]{.figure-caption}
+::: {.image-map-caption}
+**JDemetra+ default window**
+:::
 
 :::
 
@@ -527,21 +529,23 @@ You can click on the image in the area that interests you:
 
 <img src="All_images/A_Ref8.png" usemap="#image_map2">
 <map name="image_map2">
-  <area alt="modelling" title="Modelling" href="#modelling-window" coords="5,53,545,191" shape="rect">
-  <area alt="sa" title="Seasonnal adjustment" href="#sa-window" coords="8,197,543,350" shape="rect">
+  <area alt="modelling" title="Modeling" href="#modelling-window" coords="5,53,545,191" shape="rect">
+  <area alt="sa" title="Seasonal adjustment" href="#sa-window" coords="8,197,543,350" shape="rect">
   <area alt="utilities" title="Utilities" href="#usr-def-cal" coords="8,354,542,444" shape="rect">
 </map>
 
 <script> initializeAndAdjust("image_map2") </script>
 
-[**JDemetra+ default window**]{.figure-caption}
+::: {.image-map-caption}
+**The *Workspace* window**
+:::
 
 :::
 
 
 ::: {.content-visible when-format="pdf"}
 
-![**JDemetra+ default window**](All_images/A_Ref8.jpg)
+![**The *Workspace* window**](All_images/A_Ref8.jpg)
 
 :::
 
@@ -579,7 +583,9 @@ You can click on the image in the area that interests you:
 
 <script> initializeAndAdjust("bar-menu-map") </script>
 
-[**The Top bar menus**]{.figure-caption}
+::: {.image-map-caption}
+**The Top bar menus**
+:::
 
 :::
 

@@ -2,7 +2,9 @@
 
 ## In this chapter
 
-This chapter covers specific Seasonal Adjustment and Modelling features. Modelling refers to reg-Arima or Tramo when used stand alone and not as the first (pre-adjustment) step in seasonal adjustment. Note that the menu and window structure as well as options and results are almost identical in both cases.
+This chapter covers specific Seasonal Adjustment and Modelling features. Modelling refers to reg-Arima or Tramo when used stand alone and not as the first (pre-adjustment) step in seasonal adjustment. 
+
+Note that the menu and window structure as well as options and results are almost identical in both cases.
 
 
 Additional chapters related to GUI features, provide information on:
@@ -25,9 +27,32 @@ Content of *Workspace* window, divided into three sections:
 
 -   Utilities ([calendars](#usr-def-cal) and [user defined variables](#usr-def-var)).
 
+
+::: {.content-visible when-format="html"}
+
+You can click on the image in the area that interests you:
+
+<img src="All_images/A_Ref8.png" usemap="#ws_map">
+<map name="ws_map">
+  <area alt="modelling" title="Modeling" href="#modelling-window" coords="5,53,545,191" shape="rect">
+  <area alt="sa" title="Seasonal adjustment" href="#sa-window" coords="8,197,543,350" shape="rect">
+  <area alt="utilities" title="Utilities" href="#usr-def-cal" coords="8,354,542,444" shape="rect">
+</map>
+
+<script> initializeAndAdjust("ws_map") </script>
+
+::: {.image-map-caption}
+**The *Workspace* window**
+:::
+
+:::
+
+
+::: {.content-visible when-format="pdf"}
+
 ![**The *Workspace* window**](All_images/A_Ref8.jpg)
 
-
+:::
 
 ### Modelling {#modelling-window}
 
