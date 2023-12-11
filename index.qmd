@@ -8,7 +8,7 @@ A pdf version of this documentation is available [here](https://github.com/annas
 
 The highest version currently recommended for production purposes is 2.2.4.
 
-Version 3.x  family provides, among other things, extended features for seasonal adjustment and trend estimation, including **high frequency data**. The latest version 3.2 was released on November 23rd 2023.
+Version 3.x  family provides, among other things, extended features for seasonal adjustment and trend estimation, including **high frequency data**. The latest version 3.2.1 was released on December 7th 2023.
 
 ## Useful links
 

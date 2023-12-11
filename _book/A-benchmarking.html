@@ -101,7 +101,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="nav-sidebar docked">
+<body class="nav-sidebar floating">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -122,10 +122,36 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">JDemetra+ documentation</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/annasmyk/JD_Quarto_Book" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <div class="dropdown">
+      <a href="" title="Share" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Share"><i class="bi bi-share"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://www.facebook.com/sharer/sharer.php?u=|url|">
+              <i class="bi bi-bi-facebook pe-1"></i>
+            Facebook
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=|url|">
+              <i class="bi bi-bi-twitter pe-1"></i>
+            Twitter
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://www.linkedin.com/sharing/share-offsite/?url=|url|">
+              <i class="bi bi-bi-linkedin pe-1"></i>
+            LinkedIn
+            </a>
+          </li>
+      </ul>
+    </div>
+</div>
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -372,6 +398,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
       </ul>
   </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
     </ul>
     </div>
 </nav>
@@ -402,7 +434,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#benchmarking" id="toc-benchmarking" class="nav-link" data-scroll-target="#benchmarking">Benchmarking</a></li>
   <li><a href="#temporal-disaggregation" id="toc-temporal-disaggregation" class="nav-link" data-scroll-target="#temporal-disaggregation">Temporal Disaggregation</a></li>
   </ul>
-</nav>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/annasmyk/JD_Quarto_Book/edit/MAIN/A-benchmarking.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/annasmyk/JD_Quarto_Book/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -445,24 +477,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 class="anchored" data-anchor-id="gui">GUI</h3>
 <ol type="1">
 <li><p>With the pre-defined specifications the benchmarking functionality is not applied by default following the <em>ESS Guidelines on Seasonal Adjustment</em> (2015) recommendations. It means that once the user has seasonally adjusted the series with a pre-defined specification the <em>Benchmarking</em> node is empty. To execute benchmarking click on the <em>Specifications</em> button and activate the checkbox in the <em>Benchmarking</em> section.</p>
-<img src="All_images/UDimage1.jpg" class="img-fluid" alt="Text">
-<p><strong>Benchmarking option – a default view</strong></p></li>
+<img src="All_images/UDimage1.jpg" class="img-fluid" alt="Benchmarking option – a default view"></li>
 <li><p>Three parameters can be set here. <em>Target</em> specifies the target variable for the benchmarking procedure. It can be either the <em>Original</em> (the raw time series) or the <em>Calendar Adjusted</em> (the time series adjusted for calendar effects). <em>Rho</em> is a value of the AR(1) parameter (set between 0 and 1). By default it is set to 1. Finally, <em>Lambda</em> is a parameter that relates to the weights in the regression equation. It is typically equal to 0 (for an additive decomposition), 0.5 (for a proportional decomposition) or 1 (for a multiplicative decomposition). The default value is 1.</p></li>
 <li><p>To launch the benchmarking procedure click on the <strong>Apply</strong> button. The results are displayed in four panels. The top-left one compares the original output from the seasonal adjustment procedure with the result from applying a benchmarking to the seasonal adjustment. The bottom-left panel highlights the differences between these two results. The outcomes are also presented in a table in the top-right panel. The relevant statistics concerning relative differences are presented in the bottom-right panel.</p>
-<img src="All_images/UDimage2.jpg" class="img-fluid" alt="Text">
-<p><strong>The results of the benchmarking procedure</strong></p></li>
+<img src="All_images/UDimage2.jpg" class="img-fluid" alt="The results of the benchmarking procedure"></li>
 <li><p>Both pictures and the table can be copied the usual way (see the <a href="../case-studies/simplesa-single.html"><em>Simple seasonal adjustment of a single time series</em></a> scenario).</p>
-<img src="All_images/UDimage3.jpg" class="img-fluid" alt="Text">
-<p><strong>Options for benchmarking results</strong></p></li>
+<img src="All_images/UDimage3.jpg" class="img-fluid" alt="Options for benchmarking results"></li>
 <li><p>To export the result of the benchmarking procedure (<em>benchmarking.result</em>) and the target data (<em>benchmarking.target</em>) one needs to once execute the seasonal adjustment with benchmarking</p>
-<img src="All_images/UG_SSA_image28.jpg" class="img-fluid" alt="Text">
-<p><strong>The <em>SAProcessing</em> menu</strong></p></li>
+<img src="All_images/UG_SSA_image28.jpg" class="img-fluid" alt="The SAProcessing menu"></li>
 <li><p>Expand the "+" menu and choose an appropriate data format (here Excel has been chosen). It is possible to save the results in TXT, XLS, CSV, and CSV matrix formats. Note that the <a href="../theory/output.html">available content of the output depends on the output type</a>.</p>
-<img src="All_images/UG_SSA_image29.jpg" class="img-fluid" alt="Text">
-<p><strong>Exporting data to an Excel file</strong></p></li>
+<img src="All_images/UG_SSA_image29.jpg" class="img-fluid" alt="Exporting data to an Excel file"></li>
 <li><p>Chose the output items that refer to the results from the benchmarking procedure, move them to the window on the right and click <strong>OK</strong>.</p>
-<img src="All_images/UDimage4.jpg" class="img-fluid" alt="Text">
-<p><strong>Exporting the results of the benchmarking procedure</strong></p></li>
+<img src="All_images/UDimage4.jpg" class="img-fluid" alt="Exporting the results of the benchmarking procedure"></li>
 </ol>
 </section>
 <section id="benchmarking-and-temporal-disaggregation-plugin-version-2.x" class="level3">
@@ -489,7 +515,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/Image2_Bench.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Text</figcaption>
+<figcaption class="figure-caption"><strong>Benchmarking tab</strong></figcaption>
 </figure>
 </div>
 <p>In both cases, a new window is displayed to launch one of the methods with the series selected. In the upper left side, drag the high frequency series from the Providers window and drop it in <strong>Drop Series here</strong> and the low frequency series in <strong>Drop Constraint here</strong>.</p>
@@ -986,6 +1012,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">This book was built with <a href="https://quarto.org/">Quarto</a>.</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right"></div>
+  </div>
+</footer>
 
 
 
