@@ -178,7 +178,7 @@ The sections below provide an overview of each package based on version 3.x of J
 
 Contains utility functions used in other `rjd3` packages and has to be systematically installed before using any other rjd3 package. From a user point of view, it allows to:
 
--   customize specifications in X13-ARIMA and TRAMO-SEATS
+-   customize specifications in rjd3x13 and rjdtramoseats
 
 -   generate user-defined regressors for calendar correction
 
@@ -186,9 +186,9 @@ Contains utility functions used in other `rjd3` packages and has to be systemati
 
 -   run arima model estimations
 
--   perform tests
+-   perform tests (seasonality, normality, white noise)
 
--   access general functions such as autocorrelations, distributions...
+-   access general functions such as autocorrelations, distributions
 
 More details for each part can be found in \`rjd3toolkit\`\`R help pages and related vignettes.
 
