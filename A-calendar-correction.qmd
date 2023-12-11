@@ -161,7 +161,7 @@ As regressors have the same data frequency as the input series, several cases:
 
 ### In GUI
 
-#### Creating calendars 
+#### Creating calendars {#usr-def-cal}
 
 The customized calendar can be directly linked to the calendar correction option in GUI while specifying a seasonal adjustment process. See chapters on [SA](A-sa.qmd) or [SA of HF data](A-sa-hf.qmd).
 
@@ -212,17 +212,14 @@ Calendar variables shouldn't have a peak neither at a zero frequency (trend) nor
 
 -   the list of holidays defined for this calendar is displayed
 
-![Text](All_images/UG_CAL_image12.jpg)
+![**Edit a calendar window**](All_images/UG_CAL_image12.jpg)
 
-**Edit a calendar window**
 
 -   To add a holiday unfold the **+** menu
 
 -   To remove a holiday click on it and choose the **-** button
 
-![Text](All_images/UG_CAL_image13.jpg)
-
-**Removing a holiday from the calendar**
+![**Removing a holiday from the calendar**](All_images/UG_CAL_image13.jpg)
 
 ##### Creating a new calendar
 
@@ -272,8 +269,7 @@ Four options are available here:
 To add a holiday from this list to the national calendar, choose the
 	*Special day* item from the *Special days* list.
 
-![Text](All_images/UG_CAL_image18.jpg)
-**Adding a pre-defined holiday to the calendar**
+![**Adding a pre-defined holiday to the calendar**](All_images/UG_CAL_image18.jpg)
 
 By default, when the *Special Days* option is selected, JDemetra+ always adds *Christmas* to the list of selected holidays. The user can change this initial choice by specifying the settings in the panel on the right and clicking *OK*. The settings that can be changed include:
 
@@ -287,8 +283,7 @@ By default, when the *Special Days* option is selected, JDemetra+ always adds *C
 
 - **Offset**: allows to set a holiday as related to a pre-specified holiday by specifying the distance in days (e.g Easter Sunday). Default offset is 1. It can be positive or negative. Positive offset: defines a holiday following the pre-specified holiday. Negative offset: defines a holiday preceding the selected pre-specified.
 
-	![Text](All_images/UG_CAL_image19.jpg)
-**Choosing a pre-defined holiday from the list**
+	![**Choosing a pre-defined holiday from the list**](All_images/UG_CAL_image19.jpg)
 
 - To define a fixed holiday not included in the list of
     pre-defined holidays:
@@ -304,9 +299,7 @@ By default, when the *Special Days* option is selected, JDemetra+ always adds *C
 
 - **Month**: month, in which the fixed holiday is celebrated.
 
-![Text](All_images/UG_CAL_image20.jpg)
-
-**Options for a fixed holiday**
+![**Options for a fixed holiday**](All_images/UG_CAL_image20.jpg)
 
 
 - Add *Corpus Christi*: example of an Easter related holiday not included in the special day list(link to table). It is  is a moving holiday celebrated 60 days after Easter
@@ -419,27 +412,19 @@ To define a chained calendar: right click on Calendar item in the Utility panel 
 
 Right click on the *Calendar* item from the *Workspace* window and choose the *Import* item from the menu.
 
-![Text](All_images/UG_CAL_image8.jpg)
-
-**Importing a calendar to JDemetra+**
+![**Importing a calendar to JDemetra+**](All_images/UG_CAL_image8.jpg)
 
 -   choose the appropriate file and open it
 
-![Text](All_images/UG_CAL_image10.jpg)
-
-**Choosing the file**
+![**Choosing the file**](All_images/UG_CAL_image10.jpg)
 
 JDemetra+ adds it to the calendars list
 
-![Text](All_images/UG_CAL_image11.jpg)
-
-**A list of calendars with a newly imported calendar**
+![**A list of calendars with a newly imported calendar**](All_images/UG_CAL_image11.jpg)
 
 ##### Example of a calendar file
 
-example of a html file containing a calendar
-
-![Text](All_images/UG_CAL_image9.jpg)
+![**Example of an XML file containing a calendar**](All_images/UG_CAL_image9.jpg)
 #### Generating regressors
 
 ##### Type of days

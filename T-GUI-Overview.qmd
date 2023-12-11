@@ -126,7 +126,9 @@ You can click on the image in the area that interests you:
 <script src="resize.js"></script>
 <script> initializeAndAdjust("image_map") </script>
 
-[**JDemetra+ default window**]{.figure-caption}
+::: {.image-map-caption}
+**JDemetra+ default window**
+:::
 
 :::
 
@@ -527,21 +529,23 @@ You can click on the image in the area that interests you:
 
 <img src="All_images/A_Ref8.png" usemap="#image_map2">
 <map name="image_map2">
-  <area alt="modelling" title="Modelling" href="#modelling-window" coords="5,53,545,191" shape="rect">
-  <area alt="sa" title="Seasonnal adjustment" href="#sa-window" coords="8,197,543,350" shape="rect">
-  <area alt="utilities" title="Utilities" href="#usr-def-cal" coords="8,354,542,444" shape="rect">
+  <area alt="modelling" title="Modeling" href="#modelling-window" coords="5,53,545,191" shape="rect">
+  <area alt="sa" title="Seasonal adjustment" href="#sa-window" coords="8,197,543,350" shape="rect">
+  <area alt="utilities" title="Utilities" href="A-calendar-correction.html#usr-def-cal" coords="8,354,542,444" shape="rect">
 </map>
 
 <script> initializeAndAdjust("image_map2") </script>
 
-[**JDemetra+ default window**]{.figure-caption}
+::: {.image-map-caption}
+**The *Workspace* window**
+:::
 
 :::
 
 
 ::: {.content-visible when-format="pdf"}
 
-![**JDemetra+ default window**](All_images/A_Ref8.jpg)
+![**The *Workspace* window**](All_images/A_Ref8.jpg)
 
 :::
 
@@ -552,36 +556,6 @@ You can find:
 - [Seasonal adjustment](#sa-window) (contains the default and user-defined specifications for seasonal adjustment and the output from the seasonal adjustment process),
 
 - Utilities ([calendars](#usr-def-cal) and [user defined variables](#usr-def-var)).
-
-
-
-
-### Modelling
-
-(I ll rewrite all this)
-access to RegArima or Tramo modelling routines 
-
-which are the same as the ones used for the pre-treatment phase of 
-seasonal adjustment with X13-ARIMA (Reg-Arima) and TRAMO-SEATS (Tramo) and thus described in the SA chapter.
-
-
-This section is divided into two parts: 
-* [Specifications](../reference-manual/modelling-specifications.html), which presents parameters of the modelling procedure.
-* [Output](../reference-manual/output-modelling.html), which details a typical output produced by the modelling procedure.
-
-The specifications and output of the modelling procedure are displayed in the [*Workspace* window](#workspace-window).
-
-![**The *Workspace* window with the nodes for the modelling procedure marked**](All_images/A_Ref_d1.jpg)
-
-
-
-
-### Seasonal adjustment 
-
-![**The *Workspace* window with the nodes for the seasonal adjustment procedure marked**](All_images/A_Ref_d2.jpg)
-
-Brief presentation and or link ?
-
 
 
 ## Results Panel {#results-panel-overview}
@@ -609,7 +583,9 @@ You can click on the image in the area that interests you:
 
 <script> initializeAndAdjust("bar-menu-map") </script>
 
-[**The Top bar menus**]{.figure-caption}
+::: {.image-map-caption}
+**The Top bar menus**
+:::
 
 :::
 

@@ -2,10 +2,28 @@ project:
   type: book
 book:
   title: "JDemetra+ documentation"
+  
+  reader-mode: false
+  sharing: [facebook, twitter, linkedin]
+  
+  page-footer:
+    right: |
+      <li><a href="https://github.com/annasmyk/JD_Quarto_Book" target="blank">Code source</a></li>
+    left: |
+      This book was built with <a href="https://quarto.org/">Quarto</a>.
+  
+  repo-actions: [edit,issue]
+  site-url: https://jdemetra-new-documentation.netlify.app/
+  repo-url: https://github.com/annasmyk/JD_Quarto_Book
+  repo-branch: MAIN
+  # cover-image: resources/logo-utilitr.png
+  # favicon: resources/logo-utilitr.png
+  
   sidebar:
-    style: "docked"
+    style: "floating"
     search: true
     collapse-level: 1
+    
   author:
     - name: Anna Smyk (Coordinator)
       url: https://github.com/annasmyk
@@ -84,11 +102,13 @@ book:
         - M-STL-decomposition.qmd ##(#m-stl)
         - M-state-space-framework.qmd ##(#m-ssf)
         - M-Temp-Disagg-Bench.qmd ##(m-bench)
-    #     - references.qmd
+    - references.qmd
 bibliography: references.bib
 
 format:
   html:
+    grid:
+      body-width: 800px
     theme: 
         - united
         - custom.scss

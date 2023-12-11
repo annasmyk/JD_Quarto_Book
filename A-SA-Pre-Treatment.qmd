@@ -395,15 +395,15 @@ In version 2
 
 ```{r, echo = TRUE, eval = FALSE}
 # Parameter choice NA=...
-tradingdays.option <- c(NA, "TradingDays", "WorkingDays", "UserDefined", "None")
+tradingdays.option <- c(NA_character_, "TradingDays", "WorkingDays", "UserDefined", "None")
 tradingdays.autoadjust <- NA
-tradingdays.leapyear <- c(NA, "LeapYear", "LengthOfPeriod", "None")
+tradingdays.leapyear <- c(NA_character_, "LeapYear", "LengthOfPeriod", "None")
 tradingdays.stocktd <- NA_integer_
-tradingdays.test <- c(NA, "Remove", "Add", "None")
+tradingdays.test <- c(NA_character_, "Remove", "Add", "None")
 easter.enabled <- NA
 easter.julian <- NA
 easter.duration <- NA_integer_
-easter.test <- c(NA, "Add", "Remove", "None")
+easter.test <- c(NA_character_, "Add", "Remove", "None")
 # example
 ```
 

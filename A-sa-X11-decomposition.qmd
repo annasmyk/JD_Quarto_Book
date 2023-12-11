@@ -228,7 +228,7 @@ Decomposition(X11) \> Quality Measures \> Summary
 
 Results displayed in red indicate that the test failed.
 
-![Text](All_images/RDimage46.png)
+![**Summary of the quality measures**](All_images/RDimage46.png)
 
 ##### Retrieve in R
 
@@ -268,7 +268,7 @@ The following parameters are automatically chosen by the software as a result of
 
 Node Decomposition(X11) \> Final Filters
 
-![Text](All_images/SA_X11_GUI_final_filters.png)
+![**Table of final filters**](All_images/SA_X11_GUI_final_filters.png)
 
 #### Retrieve in R
 
