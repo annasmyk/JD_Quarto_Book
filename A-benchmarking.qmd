@@ -184,7 +184,7 @@ Up coming content.
 These methods are used to disaggregate a series from low frequency to high frequency. Temporal disaggregation methods developed in the plug-in are Chow-Lin, Fernández and Litterman.
 
 When there are high frequency related indicators, these methods provide high
-frequency estimations for a series whose sums, averages,first or last values are
+frequency estimations for a series whose sums, averages, first or last values are
 consistent with the observed low frequency series, applying a regression model
 where it is assumed that the high frequency series to be
 estimated follows a multiple regression with p related series (indicators).
@@ -273,6 +273,9 @@ Here are the results:
 
 
 Select **Model$\rightarrow$Summary** to see the estimation of $rho$ (coefficient of the AR(1) model) and the coefficient of the regression model. Additionally the BIC, AIC and AICC.
+It is also showed the variance decomposition in Indicators and Smoothing. Ideally, if the indicator adequately approximates the aggregate in the observable domain (low frequency model), the residuals of the low frequency model will be small and the indicator term will dominate. \\
+
+
 
 To confirm that the model works well, select **Model$\rightarrow$Residuals$\rightarrow$Statistics** and see the tests on the residuals of the model:
 
@@ -292,9 +295,9 @@ Select **MainResults$\rightarrow$Chart** to see a graph of the disaggregated ser
 
 Use the [rjd3bench]((https://github.com/rjdemetra/rjd3bench) package and see its documentation pages.
 
-## Benchmarking
+## Benchmarking Univariate: Denton and Cholette
 
-Up coming content
+To perform Univariate Benchmarking methods 
 
 ## Temporal Disaggregation 
 
@@ -306,12 +309,87 @@ output <- rjd3bench::temporaldisaggregation(
     conversion = "Average", diffuse.algorithm = "Diffuse"
 )
 ```
+The input parameters are the same as in the GUI, see the R Documentation of the rjd3bench package for the description.
 
-The output is a list containing:
+
+The output is a list containing 3 elements:
+
+1. **Regression**: contains information about:
+
+    * Type of method applied:
+    
+    ```{r,eval=FALSE, include=TRUE}
+    
+    output$regression$type
+    
+    ```
+
+    * The model (coefficient estimation, standard deviation and T-statistic):
+    
+    ```{r,eval=FALSE, include=TRUE}
+    
+    output$regression$model
+    
+    ```
+
+    * Conversion:Aggregation function (Sum, Average, Last or First):
+    
+    ```{r,eval=FALSE, include=TRUE}
+    
+    output$regression$conversion
+    
+    ```
+
+2. **Estimation**: contains information about:
+
+    * The disaggregated series:
+
+    ```{r,eval=FALSE, include=TRUE}
+    
+    output$estimation$disagg
+    
+    ```
+
+    * The standard deviation of the disaggregated series:
+    
+    ```{r,eval=FALSE, include=TRUE}
+    
+    output$estimation$edisagg
+    
+    ```
+    
+
+    * The regressor effect:
+    ```{r,eval=FALSE, include=TRUE}
+    
+    output$estimation$regeffect
+    
+    ```
+
+    * The smoothing part:
+    ```{r,eval=FALSE, include=TRUE}
+    
+    output$estimation$smoothingpart
+    
+    ```
+    
+    * The $rho$ estimation (coefficient of the AR(1) model): This parameter exists only if RWar1 or Ar1 is selected in the model.
+    
+    ```{r,eval=FALSE, include=TRUE}
+    
+    output$estimation$parameter
+    
+    ```   
+
+    * The standard deviation of the AR(1) coefficient:
+    ```{r,eval=FALSE, include=TRUE}
+    
+    output$estimation$eparameter
+    
+    ```   
+    
+3. **Likelihood**: Contains information about the loglikelihood(ll), sum of squares of the residuals of the model (ssq), number of observations (nobs), number of parameters to be estimated (nparams), degrees of freedom (df), Akaike Information Criteria (aic), Akaike Information Criteria Corrected (aicc), Bayesian Information Criteria (bic), Bayesian Information Criteria Corrected (bic2).
 
 
-To obtain $rho$ estimation:
 
-```{r, echo = TRUE, eval = FALSE}
-output$estimation$parameter
-```
+
