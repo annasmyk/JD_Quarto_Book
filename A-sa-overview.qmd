@@ -4,27 +4,24 @@ The goal of seasonal adjustment is to remove seasonal fluctuations from a time s
 
 ## In this chapter
 
-This chapter is a first of a series focusing on the practical step by step use of JDemetra+ Seasonal Adjustment (SA) algorithms, restricted to monthly and quarterly series. For infra-monthly data see the [following chapter](#a-sa-hf). 
+This chapter is a first of a series focusing on the practical step by step use of JDemetra+ Seasonal Adjustment (SA) algorithms, restricted to monthly and quarterly series. For infra-monthly data see the [following chapter](#a-sa-hf). In the sections below an overview of the seasonal adjustment process is provided. The most widely used SA algorithms (Tramo-Seats and X13-Arima) have two steps: a pre-treatment to remove (temporarily) deterministic effects and a decomposition phase to estimate the seasonal factors.
 
-In the section below an overview of the seasonal adjustment process is provided. The most widely used SA algorithms have two steps: a pre-treatment to remove (temporarily) deterministic effects and decompositions allowing to estimate the seasonal factors to be removed from the serie.  
+The following chapters get into the specifics of each algorithm.
 
-The following chapters get into the specifics of each algorithm. 
-
-- [SA: pre-treatment](#sa-pre-t)
-- [SA: X11 decomposition](a-sa-X11)
-- [SA: Seats-decomposition](#a-sa-seats)
-- [SA: STL decomposition](#a-sa-stl)
-- [SA of High-Frequency Data](#a-sa-hf)
-- [SA with Basic Stuctural Models (BSM)](#a-sa-bsm)
-
+-   [SA: pre-treatment](#sa-pre-t)
+-   [SA: X11 decomposition](a-sa-X11)
+-   [SA: Seats-decomposition](#a-sa-seats)
+-   [SA: STL decomposition](#a-sa-stl)
+-   [SA of High-Frequency Data](#a-sa-hf)
+-   [SA with Basic Stuctural Models (BSM)](#a-sa-bsm)
 
 The use of [graphical user interface](T-graphical-user-interface.qmd) and [R packages](T-r-packages.qmd) is described simultaneously whenever relevant.
 
-In-depth methodological explanations of the algorithms are covered in separated chapters, in the [Methods](P_Methods.qmd) part.
+In-depth methodological explanations of the algorithms are covered in separated chapters, in the [Methods](P_Methods.qmd) part of this book.
 
 More information on the steps and best practices of a seasonal adjustment process can be found in the [Eurostat guidelines on seasonal adjustment](https://ec.europa.eu/eurostat/documents/3859598/6830795/KS-GQ-15-001-EN-N.pdf)
 
-For an overview on the algorithms and methodological issues, please refer to the [Handbook on Seasonal Adjustment](https://ec.europa.eu/eurostat/documents/3859598/8939616/KS-GQ-18-001-EN-N.pdf)
+For an overview on the algorithms and methodological issues, the user can refer to the [Handbook on Seasonal Adjustment](https://ec.europa.eu/eurostat/documents/3859598/8939616/KS-GQ-18-001-EN-N.pdf)
 
 ## SA process description
 
@@ -42,8 +39,10 @@ Upcoming content
 | STL                    | ✖             | ✖                | rjd3stl        |
 | STS                    | ✖             | ✖                | rjd3sts        |
 
+X13-ARIMA and TRAMO-SEATS are two-step algorithms with a pre-treatment phase (Reg-Arima or Tramo) and a decomposition phase (X11 and Seats). STL is a local regression (Loess) based decomposition, without pre-treatment. but...
 
-X13-ARIMA and TRAMO-SEATS are two-step algorithms with a pre-treatment phase (Reg-Arima or Tramo) and a decomposition phase (X11 and Seats). STL is a local regression (Loess) based decomposition, without pre-treatment. In a [Structural Time Series](#a-sa-bsm) approach pre-treatment and decomposition are done simultaneously in a State Space Framework.
+
+In a [Structural Time Series](#a-sa-bsm) approach pre-treatment and decomposition are done simultaneously in a State Space Framework.
 
 ## Admissible data frequencies
 
@@ -51,7 +50,9 @@ Up coming content
 
 ## Decomposition in unobserved components
 
-To seasonally adjust a series, seasonal factors $S_{t}$ will be estimated and removed from the original raw series: $Y_{sa}=Y_{t}/S_{t}$ or $Y_{sa}=Y_{t}-S_{t}$. To do so the series is first decomposed into unobservable components. Two decomposition models:
+To seasonally adjust a series, seasonal factors $S_{t}$ will be estimated and removed from the original raw series: $Y_{sa}=Y_{t}/S_{t}$ or $Y_{sa}=Y_{t}-S_{t}$. To do so the series is first decomposed into unobservable components. Two decomposition models [^a-sa-overview-1] are used in JDemetra+ :
+
+[^a-sa-overview-1]: other options as the log-additive model are also available in a more specific context described [here](#a-sa-X11-settings)
 
 -   The additive model: $X_{t} = T_{t} + S_{t} + I_{t}$;
 
@@ -87,14 +88,14 @@ In rjd3toolkit package:
 -   Periodogram Seasonality Test (`seasonality.periodogram()`)
 -   QS Seasonality Test (`seasonality.qs()`)
 
+Full documentation of those functions can be found [here](https://rjdemetra.github.io/rjd3toolkit/reference/index.html)
+
 ### In GUI
 
-How to generate test in GUI is described [here](#t-GUI-tstools-tests).
+How to perform tests in the graphical user interface is described [here](#t-GUI-tstools-tests).
 
-## Direct-Indirect seasonal adjustment
+## Direct or Indirect seasonal adjustment
 
-Up coming content
+when seasonally adjusting series which are aggregates following a given classification, the user has to chose whether directly adjust the aggregate from its raw version or to aggregate the adjusted components.
 
-### GUI
-
-### R
+The graphical user interface in version 2.x provides a [module](#direct-indirect) to compare the two options. It won't be provided in version 3.x.

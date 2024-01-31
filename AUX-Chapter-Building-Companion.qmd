@@ -34,6 +34,11 @@ review all this and prioritize int next steps
 - link to cros portal
 - software installation : separated chapter (app + R packs )
 - example modelling with GUI 
+- footnote dispaly in "Decomposition in unobserved components"
+
+### T specifics to battle plan 
+
+(master file in rjd3 development)
 
 
 ## Next steps 

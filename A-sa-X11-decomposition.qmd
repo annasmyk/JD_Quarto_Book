@@ -295,7 +295,7 @@ model_sa_v3$result$decomposition$final_henderson
 
 The following parameters have default values, which will not be changed in the estimation process. They can be set by the user in a given range of admissible values.
 
-#### General settings
+#### General settings {#a-sa-X11-settings}
 
 -   **Mode**
 
