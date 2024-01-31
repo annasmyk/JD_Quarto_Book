@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -412,16 +446,17 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="in-this-chapter">In this chapter</h2>
 <p>This chapter focuses on practical implementation of modelling of a time series (with arima residuals) .</p>
 <p>The sections below will describe modelling features which can be used stand alone or as <a href="A-sa-pre-treatment.html">pre-treatment</a> (first step of <a href="A-sa-overview.html">seasonal adjustment</a>).</p>
+<p>Details on specifications and output characteristics are provided in the <a href="A-sa-pre-treatment.html">pre-treatment chapter</a> as they relate to the same procedure.</p>
 <p>In-depth methodological explanations of the algorithms are covered in separated chapters, in the <a href="P_Methods.html">Methods</a> part.</p>
 </section>
 <section id="modelling-algorithms" class="level2">
 <h2 class="anchored" data-anchor-id="modelling-algorithms">Modelling Algorithms</h2>
 <table class="table">
 <colgroup>
-<col style="width: 26%">
-<col style="width: 21%">
-<col style="width: 26%">
-<col style="width: 26%">
+<col style="width: 25%">
+<col style="width: 20%">
+<col style="width: 29%">
+<col style="width: 25%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -436,7 +471,7 @@ ul.task-list li input[type="checkbox"] {
 <td>Reg-Arima</td>
 <td>✔️</td>
 <td>RJDemetra</td>
-<td></td>
+<td>rjd3x13</td>
 </tr>
 <tr class="even">
 <td>Tramo</td>
@@ -447,33 +482,70 @@ ul.task-list li input[type="checkbox"] {
 <tr class="odd">
 <td>Extended Airline</td>
 <td>✔️ (v3 only)</td>
-<td>✔</td>
+<td>✖</td>
 <td>rjd3highfreq</td>
 </tr>
 <tr class="even">
 <td>STS</td>
 <td>✖</td>
-<td>✔</td>
+<td>rjdsts (deprecated)</td>
 <td>rjd3sts</td>
 </tr>
 </tbody>
 </table>
 <p>Steps to use Reg-Arima and Tramo in a pre-treatment context are described <a href="A-sa-pre-treatment.html">here</a>. Options and outputs are the same as when modelling is done as pre-treatment or stand alone. Specification differ slightly and the possibility of saving parameters and generating output in the GUI is also different.</p>
 <p><a href="A-sa-hf.html">Extended Airline Model</a> allows to handle infra monthly series in a restricted reg-Arima framework.</p>
-<p><a href="A-sa-bsm.html">Strucural time series (STS)</a> allow another kind of modelling using state space framework.</p>
+<p><a href="A-sa-bsm.html">Structural time series (STS)</a> allow another kind of modelling using state space framework.</p>
 </section>
 <section id="practical-reg-arima-modelling" class="level2">
 <h2 class="anchored" data-anchor-id="practical-reg-arima-modelling">Practical Reg-Arima modelling</h2>
 <p>For the user not needing seasonal adjustment, the sections below highlight the functions or steps allowing to perform reg-Arima (or Tramo) as a stand alone goal, outside of a seasonal adjustment process.</p>
 <section id="in-r" class="level3">
 <h3 class="anchored" data-anchor-id="in-r">In R</h3>
-<p>Up coming content</p>
+<p>In version 2</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"RJDemetra"</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Reg-Arima</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>regA_v2 <span class="ot">&lt;-</span> RJDemetra<span class="sc">::</span><span class="fu">regarima_x13</span>(raw_series, <span class="at">spec =</span> <span class="st">"RG5c"</span>)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Tramo</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>tramo_v2 <span class="ot">&lt;-</span> RJDemetra<span class="sc">::</span><span class="fu">regarima_tramoseats</span>(raw_series,<span class="at">spec =</span> <span class="st">"TRfull"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Full documentation of ‘RJDemetra::regarima’ function can be found <a href="https://jdemetra.github.io/rjdemetra/reference/regarima.html">here</a></p>
+<p>Full documentation of ‘RJDemetra::regarima_tramoseats’ function can be found <a href="https://jdemetra.github.io/rjdemetra/reference/regarima.html">here</a></p>
+<p>In version 3</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Reg-Arima</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>sa_regarima_v3 <span class="ot">&lt;-</span> rjd3x13<span class="sc">::</span><span class="fu">regarima</span>(raw_series, <span class="at">spec =</span> <span class="st">"RG5c"</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">#Tramo</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>sa_tramo_v3 <span class="ot">&lt;-</span> rjd3tramoseats<span class="sc">::</span><span class="fu">tramo</span>(raw_series, <span class="at">spec =</span> <span class="st">"TRfull"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Full documentation of ‘rjd3x13::regarima’ function can be found <a href="https://rjdemetra.github.io/rjd3x13/reference/regarima.html">here</a></p>
+<p>Full documentation of ‘rjd3tramoseats::tramo’ function can be found <a href="https://rjdemetra.github.io/rjd3tramoseats/reference/tramo.html">here</a></p>
 </section>
 <section id="gui" class="level3">
 <h3 class="anchored" data-anchor-id="gui">GUI</h3>
-<p>Up coming content</p>
+<p>In the graphical user interface modelling algorithms can be accessed in two ways described below. In both cases a document (xml file) will be generated and can be save in the workspace. The output (series, parameters and diagnostics) cannot be exported as files, just directly copied from the interface. Further details on window structure in GUI are available <a href="T-GUI-SA-Modelling-Features.html">here</a>.</p>
+<section id="choosing-modelling-in-the-workspace-window" class="level4">
+<h4 class="anchored" data-anchor-id="choosing-modelling-in-the-workspace-window">Choosing modelling in the Workspace Window</h4>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/A_Ref_d1.jpg" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption"><strong>The <em>Workspace</em> window with the nodes for the modelling procedure marked</strong></figcaption>
+</figure>
+</div>
+</section>
+<section id="choosing-modelling-in-statistical-methods-panel" class="level4">
+<h4 class="anchored" data-anchor-id="choosing-modelling-in-statistical-methods-panel">Choosing modelling in Statistical Methods Panel</h4>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/Statistical methods menu modelling.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption"><strong>The <em>Modelling</em> tab.</strong></figcaption>
+</figure>
+</div>
 
 
+</section>
 </section>
 </section>
 

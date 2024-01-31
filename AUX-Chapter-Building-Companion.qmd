@@ -4,8 +4,17 @@
 ### For NEXT release: end Feb ?
 
 (just before webinar)
+Urgent steps: LENS: show it at BCE for SA prod
+- how to use this book: quick start / download
+- up to date with latest dvlpts in SA realm 
+- chapter novelties v3 (incubator)
+- SA chaps
+- all prod SA related issues cleaned up 
+- R code + r packs 
+- output 
+(incidental corrections)
 
-review all this and priorize int next steps 
+review all this and prioritize int next steps 
 
 - all novelties are ok ? (all novelties highlighted in oecd presentation)
 - concepts around specifica
@@ -18,6 +27,13 @@ review all this and priorize int next steps
 - tough points like mode and co 
 - specific scope for each chapter (cf below)
 - a handful of references work 
+
+### small stuff to fix (T)
+
+- link to tutos 
+- link to cros portal
+- software installation : separated chapter (app + R packs )
+- example modelling with GUI 
 
 
 ## Next steps 
