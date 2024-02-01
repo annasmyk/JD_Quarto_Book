@@ -1,7 +1,13 @@
 # Doc building companion
 
+## Delib P 
 
-### For NEXT release: end Feb ?
+- look at quarto rendering possibilities (cf doc, + courses)
+- aside projects + improve doc 
+
+Warning: secondary vs JD+ mastery
+
+## For NEXT release: end Feb ?
 
 (just before webinar)
 Urgent steps: LENS: show it at BCE for SA prod
