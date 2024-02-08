@@ -13,7 +13,7 @@ The following chapters get into the specifics of each algorithm.
 -   [SA: Seats-decomposition](#a-sa-seats)
 -   [SA: STL decomposition](#a-sa-stl)
 -   [SA of High-Frequency Data](#a-sa-hf)
--   [SA with Basic Stuctural Models (BSM)](#a-sa-bsm)
+-   [SA with Basic Structural Models (BSM)](#a-sa-bsm)
 
 The use of [graphical user interface](T-graphical-user-interface.qmd) and [R packages](T-r-packages.qmd) is described simultaneously whenever relevant.
 
@@ -39,8 +39,7 @@ Upcoming content
 | STL                    | ✖             | ✖                | rjd3stl        |
 | STS                    | ✖             | ✖                | rjd3sts        |
 
-X13-ARIMA and TRAMO-SEATS are two-step algorithms with a pre-treatment phase (Reg-Arima or Tramo) and a decomposition phase (X11 and Seats). STL is a local regression (Loess) based decomposition, without pre-treatment. but...
-
+X13-ARIMA and TRAMO-SEATS are two-step algorithms with a pre-treatment phase (Reg-Arima or Tramo) and a decomposition phase (X11 and Seats). STL is a local regression (Loess) based decomposition, origibwithout pre-treatment. but...
 
 In a [Structural Time Series](#a-sa-bsm) approach pre-treatment and decomposition are done simultaneously in a State Space Framework.
 

@@ -2,7 +2,7 @@
 
 ## In this chapter
 
-This chapter focuses on practical implementation of modelling of a time series (with arima residuals) .
+This chapter focuses on practical implementation of modelling of a time series (with arima residuals) for low frequency data. High-Frequency (infra monthly) data modelling and seasonal adjustment process are described [here](#a-sa-hf).
 
 The sections below will describe modelling features which can be used stand alone or as [pre-treatment](#sa-pre-t) (first step of [seasonal adjustment](#sa-overview)).
 
@@ -17,13 +17,13 @@ In-depth methodological explanations of the algorithms are covered in separated 
 | Reg-Arima        | ✔️            | RJDemetra           | rjd3x13          |
 | Tramo            | ✔️            | RJDemetra           | rjd3tramoseats   |
 | Extended Airline | ✔️ (v3 only)  | ✖                   | rjd3highfreq     |
-| STS              | ✖             | rjdsts (deprecated) | rjd3sts          |
+| STS              | ✔️ (v3 only)  | rjdsts (deprecated) | rjd3sts          |
 
 Steps to use Reg-Arima and Tramo in a pre-treatment context are described [here](#sa-pre-t). Options and outputs are the same as when modelling is done as pre-treatment or stand alone. Specification differ slightly and the possibility of saving parameters and generating output in the GUI is also different.
 
-[Extended Airline Model](#a-sa-hf) allows to handle infra monthly series in a restricted reg-Arima framework.
+[Extended Airline Model](#a-sa-hf) allows to handle infra monthly series in a restricted reg-Arima framework, more details [here](#a-sa-hf).
 
-[Structural time series (STS)](#a-sa-bsm) allow another kind of modelling using state space framework.
+[Structural time series (STS)](#a-sa-bsm) allow another kind of modelling using state space framework, more details [here](#a-sa-bsm).
 
 ## Practical Reg-Arima modelling
 

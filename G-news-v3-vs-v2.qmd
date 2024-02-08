@@ -9,6 +9,15 @@ This chapter will provide a contextualized view of new features of v 3.x  as wel
 and testing.
 
 
+## Modelling Algorithms
+
+
+| Algorithm        | Access in GUI | Access in R (v2)    | Access in R (v3) |
+|------------------|---------------|---------------------|------------------|
+| Reg-Arima        | ✔️            | RJDemetra           | rjd3x13          |
+| Tramo            | ✔️            | RJDemetra           | rjd3tramoseats   |
+| Extended Airline | ✔️ (v3 only)  | ✖                   | rjd3highfreq     |
+| STS              | ✔️ (v3 only)  | rjdsts (deprecated) | rjd3sts          |
 
 
 
