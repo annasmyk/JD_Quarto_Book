@@ -1,0 +1,15 @@
+# JDemetra+ History {.unnumbered}
+
+##  from sa overview 
+
+| Algorithm              | Access in GUI | Access in R (v2) | Access in R v3 |
+|------------------------|---------------|------------------|----------------|
+| X-13 Arima             | ✔️            | RJDemetra        | rjd3x13        |
+| Reg-Arima only         | ✔️            | RJDemetra        | rjd3x13        |
+| X11 decomposition only | ✔️            | RJDemetra        | rjd3x13        |
+| TRAMO-SEATS            | ✔️            | RJDemetra        | rjd3tramoseats |
+| Tramo only             | ✔️            | RJDemetra        | rjd3tramoseats |
+| STL                    | ✖             | ✖                | rjd3stl        |
+| STS                    | ✖             | ✖                | rjd3sts        |
+
+

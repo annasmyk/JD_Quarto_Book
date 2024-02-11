@@ -444,7 +444,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="in-this-chapter" class="level2">
 <h2 class="anchored" data-anchor-id="in-this-chapter">In this chapter</h2>
-<p>This chapter focuses on practical implementation of modelling of a time series (with arima residuals) .</p>
+<p>This chapter focuses on practical implementation of modelling of a time series (with arima residuals) for low frequency data. High-Frequency (infra monthly) data modelling and seasonal adjustment process are described <a href="A-sa-hf.html">here</a>.</p>
 <p>The sections below will describe modelling features which can be used stand alone or as <a href="A-sa-pre-treatment.html">pre-treatment</a> (first step of <a href="A-sa-overview.html">seasonal adjustment</a>).</p>
 <p>Details on specifications and output characteristics are provided in the <a href="A-sa-pre-treatment.html">pre-treatment chapter</a> as they relate to the same procedure.</p>
 <p>In-depth methodological explanations of the algorithms are covered in separated chapters, in the <a href="P_Methods.html">Methods</a> part.</p>
@@ -487,15 +487,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 <tr class="even">
 <td>STS</td>
-<td>✖</td>
+<td>✔️ (v3 only)</td>
 <td>rjdsts (deprecated)</td>
 <td>rjd3sts</td>
 </tr>
 </tbody>
 </table>
 <p>Steps to use Reg-Arima and Tramo in a pre-treatment context are described <a href="A-sa-pre-treatment.html">here</a>. Options and outputs are the same as when modelling is done as pre-treatment or stand alone. Specification differ slightly and the possibility of saving parameters and generating output in the GUI is also different.</p>
-<p><a href="A-sa-hf.html">Extended Airline Model</a> allows to handle infra monthly series in a restricted reg-Arima framework.</p>
-<p><a href="A-sa-bsm.html">Structural time series (STS)</a> allow another kind of modelling using state space framework.</p>
+<p><a href="A-sa-hf.html">Extended Airline Model</a> allows to handle infra monthly series in a restricted reg-Arima framework, more details <a href="A-sa-hf.html">here</a>.</p>
+<p><a href="A-sa-bsm.html">Structural time series (STS)</a> allow another kind of modelling using state space framework, more details <a href="A-sa-bsm.html">here</a>.</p>
 </section>
 <section id="practical-reg-arima-modelling" class="level2">
 <h2 class="anchored" data-anchor-id="practical-reg-arima-modelling">Practical Reg-Arima modelling</h2>

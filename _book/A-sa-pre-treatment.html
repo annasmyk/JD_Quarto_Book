@@ -453,26 +453,41 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="in-this-chapter" class="level2">
 <h2 class="anchored" data-anchor-id="in-this-chapter">In this chapter</h2>
-<p>The following sections cover pre-treatment with Reg-ARIMA (or Tramo) algorithms. Tramo and the Reg-Arima part of X13-ARIMA rely on very similar <a href="M-reg-arima-modelling.html">principles</a>. Thus Tramo will be mentioned only to highlight differences with the Reg-Arima part of X13-ARIMA.</p>
-<p>Reg-Arima modelling part can be of a seasonal adjustment process or run on its <a href="A-RegArima-Tramo-Modelling-Overview.html">own</a>. Below we focus on performing reg-arima modelling as pre-treatment in a SA processing.</p>
+<p>The following sections cover pre-treatment with Reg-ARIMA (or Tramo) algorithms. Tramo and the Reg-Arima part of X13-ARIMA rely on very similar <a href="M-reg-arima-modelling.html">principles</a>. Thus Tramo will only be mentioned to highlight differences with the Reg-Arima part of X13-ARIMA.</p>
+<p>Reg-Arima modelling part can be the first of a seasonal adjustment process or run on its <a href="A-RegArima-Tramo-Modelling-Overview.html">own</a>. Below we focus on performing reg-arima modelling as pre-treatment in a SA processing.</p>
 <p>More in-depth methodological explanations of the algorithms can be found in <a href="P_Methods.html">this part</a> of the documentation.</p>
 </section>
 <section id="pre-treatment-principles" class="level2">
 <h2 class="anchored" data-anchor-id="pre-treatment-principles">Pre-treatment principles</h2>
 <p>The goal of this step is to remove deterministic effects (calendar and outliers) in order to improve the decomposition.</p>
 <p><span class="math display">\[
-Y_t = \sum{\alpha}_i O_{it} + \sum\beta_j C_{jt} + \sum {\gamma}_i U_{it} + Y_{lin,t}
+Y_t = \sum{\alpha}_i O_{it} + \sum\beta_j C_{jt} + \sum {\gamma}_i Reg_{it} + Y_{lin,t}
 \]</span></p>
 <ul>
 <li><p><span class="math inline">\(O_{it}\)</span> are the <span class="math inline">\(i\)</span> final outliers (AO, LS, TC)</p></li>
-<li><p><span class="math inline">\(C_{it}\)</span> are the calendar regressors (automatic or user-defined) (link to calendar chap)</p></li>
-<li><p><span class="math inline">\(U_{it}\)</span> are all the other user-defined regressors (link to outliers and regressors chap)</p></li>
+<li><p><span class="math inline">\(C_{it}\)</span> are the calendar regressors (automatic or user-defined), details <a href="A-calendar-correction.html">here</a></p></li>
+<li><p><span class="math inline">\(Reg_{it}\)</span> are all the other user-defined regressors details <a href="A-outlier-detection.html">here</a></p></li>
 <li><p><span class="math inline">\(Y_{lin,t} \sim ARIMA(p,d,q)(P,D,Q)\)</span></p></li>
 </ul>
 </section>
 <section id="sa-pre-t-realloc" class="level2">
 <h2 class="anchored" data-anchor-id="sa-pre-t-realloc">Reallocation of pre-treatment effects</h2>
-<p>Up coming content.</p>
+<ul>
+<li>The linearised series will be decomposed into unobservable components in the decomposition phase</li>
+</ul>
+<p><span class="math display">\[y_{lin} =S_{lin} +T_{lin}+I_{lin}\]</span></p>
+<ul>
+<li>Pre-treatment effects will then be reallocated to build the final components</li>
+</ul>
+<p><span class="math display">\[S=S_{lin}+cal+out_s+reg_s\]</span></p>
+<p><span class="math display">\[T=T_{lin}+out_t+reg_{t}\]</span></p>
+<p><span class="math display">\[I=I_{lin}+out_i+reg_{i}\]</span></p>
+<p>Where</p>
+<ul>
+<li><p><span class="math inline">\(cal\)</span> is the total calendar effect</p></li>
+<li><p><span class="math inline">\(out_j\)</span> is the total effect of outliers on component <span class="math inline">\(j\)</span></p></li>
+<li><p><span class="math inline">\(reg_j\)</span> is the total effect of user-defined regressors on component <span class="math inline">\(j\)</span></p></li>
+</ul>
 <section id="a-pre-t-def-spec" class="level3">
 <h3 class="anchored" data-anchor-id="a-pre-t-def-spec">Default Specifications</h3>
 <p>Default specifications are set for the whole SA procedure, pre-treatment and decomposition. They are slightly different for X13-ARIMA and TRAMO-SEATS and can be modified with user defined parameters.</p>
@@ -1335,7 +1350,7 @@ Y_t = \sum \hat{\alpha}_i O_{it} + \sum\hat\beta_j C_{jt} + \sum\hat\gamma_k Reg
 <li>Save the new setting with the <strong>Done</strong> button.</li>
 </ul></li>
 </ul>
-<p>Overview: differences GUI set up vs R set up</p>
+<!-- Overview: differences GUI set up vs R set up -->
 </section>
 </section>
 <section id="retrieving-results-2" class="level4">

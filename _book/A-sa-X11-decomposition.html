@@ -458,13 +458,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<p>left to be modified</p>
-<ul>
-<li><p>complete code</p></li>
-<li><p>small tweaks</p></li>
-<li><p>references</p></li>
-</ul>
-<p>to be checked: can be done later</p>
+<!-- left to be modified -->
+<!-- -   complete code -->
+<!-- -   small tweaks -->
+<!-- -   references -->
+<!-- to be checked: can be done later -->
 <section id="in-this-chapter" class="level2">
 <h2 class="anchored" data-anchor-id="in-this-chapter">In this chapter</h2>
 <p>This chapter focuses on practical implementation of an X11 decomposition using the graphical user interface <a href="#tools-GUI">GUI</a> and R using <a href="T-r-packages.html">R packages</a> in version 2.x and 3.x. More explanations on X11 algorithm can be found <a href="M-X11-decomposition.html">here</a>.</p>
@@ -487,10 +485,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="a-sa-X11-tools-X11">Tools for X11 decomposition</h2>
 <table class="table">
 <colgroup>
-<col style="width: 31%">
-<col style="width: 20%">
-<col style="width: 24%">
-<col style="width: 24%">
+<col style="width: 29%">
+<col style="width: 23%">
+<col style="width: 23%">
+<col style="width: 23%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -502,12 +500,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </thead>
 <tbody>
 <tr class="odd">
-<td>X-13 Arima</td>
+<td>X13-Arima</td>
 <td>✔️</td>
 <td>RJDemetra</td>
 <td>rjd3x13</td>
 </tr>
 <tr class="even">
+<td>X12plus</td>
+<td>v3 only</td>
+<td>——-</td>
+<td>rjd3x11plus</td>
+</tr>
+<tr class="odd">
 <td>X11 decomposition only</td>
 <td>✔️</td>
 <td>RJDemetra</td>
@@ -766,19 +770,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="a-sa-X11-user-def" class="level3">
 <h3 class="anchored" data-anchor-id="a-sa-X11-user-def">User-defined parameters</h3>
 <p>The following parameters have default values, which will not be changed in the estimation process. They can be set by the user in a given range of admissible values.</p>
-<section id="general-settings" class="level4">
-<h4 class="anchored" data-anchor-id="general-settings">General settings</h4>
+<section id="a-sa-X11-settings" class="level4">
+<h4 class="anchored" data-anchor-id="a-sa-X11-settings">General settings</h4>
 <ul>
-<li><p><strong>Mode</strong></p>
-<ul>
-<li>Undefined: automatically chosen between Multiplicative and Additive Options available only if no pre-processing:</li>
-<li>Additive: <span class="math inline">\(Y=T+S+I\)</span>, <span class="math inline">\(SA =Y-S=T+I\)</span></li>
-<li>Multiplicative <span class="math inline">\(Y=T*S*I\)</span>, <span class="math inline">\(SA =Y/S=T*I\)</span></li>
-<li>LogAdditive <span class="math inline">\(Log(Y) = T + S + I\)</span>, <span class="math inline">\(SA=exp(T+I)=Y/exp(S)\)</span></li>
-<li>PseudoAdditive <span class="math inline">\(Y=T*(S+I-1)\)</span>, <span class="math inline">\(SA=T*I\)</span></li>
-</ul></li>
+<li><strong>Mode</strong></li>
 </ul>
-<p>If X11 decomposition comes after a pre-processing, <strong>mode</strong> is set to undefined and will correspond to decomposition choice (link) made in the <a href="A-sa-pre-treatment.html#sa-pre-t-mode">pre-treatment</a>: multiplicative if series log- transformed, additive otherwise.</p>
+<!-- can be log additive if multiplicative in the pre adj: re check and modify -->
+<pre><code>-   Undefined: automatically chosen between Multiplicative and Additive Options available only if no pre-processing:
+-   Additive: $Y=T+S+I$, $SA =Y-S=T+I$
+-   Multiplicative $Y=T*S*I$, $SA =Y/S=T*I$
+-   LogAdditive $Log(Y) = T + S + I$, $SA=exp(T+I)=Y/exp(S)$
+-   PseudoAdditive $Y=T*(S+I-1)$, $SA=T*I$</code></pre>
+<p>If X11 decomposition comes after a pre-processing, <strong>mode</strong> is set to undefined and will correspond to decomposition choice made in the <a href="A-sa-pre-treatment.html#sa-pre-t-mode">pre-treatment</a>: multiplicative if series log- transformed, additive otherwise.</p>
 <ul>
 <li><strong>Seasonal component</strong></li>
 </ul>
@@ -885,59 +888,59 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h4 class="anchored" data-anchor-id="parameter-setting-in-r-packages">Parameter setting in R packages</h4>
 <p>In version 2 using RJDemetra</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>current_sa_model <span class="ot">&lt;-</span> <span class="fu">x13</span>(raw_series, <span class="at">spec =</span> current_spec)</span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Creating a modified specification, customizing all available X11 parameters</span></span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>modified_spec <span class="ot">&lt;-</span> <span class="fu">x13_spec</span>(current_sa_model,</span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">X11.mode=</span><span class="cn">NA</span>,</span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">X11.seasonalComp =</span> <span class="cn">NA</span>,</span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">X11.fcasts =</span> <span class="sc">-</span><span class="dv">2</span>,</span>
-<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">X11.bcasts =</span> <span class="sc">-</span><span class="dv">1</span>,</span>
-<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">X11.lsigma =</span> <span class="fl">1.2</span>,</span>
-<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">X11.usigma =</span> <span class="fl">2.8</span>,</span>
-<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">X11.calendarSigma =</span> <span class="cn">NA</span>,</span>
-<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">X11.sigmaVector =</span> <span class="cn">NA</span>,</span>
-<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">X11.excludeFcasts =</span> <span class="cn">NA</span>,</span>
-<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>    <span class="co"># filters</span></span>
-<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">X11.trendAuto =</span> <span class="cn">NA</span>,</span>
-<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">X11.trendma =</span> <span class="dv">23</span>,</span>
-<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">X11.seasonalma =</span> <span class="st">"S3X9"</span></span>
-<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a><span class="co"># New SA estimation: apply modified_spec</span></span>
-<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a>modified_sa_model <span class="ot">&lt;-</span> <span class="fu">x13</span>(raw_series, modified_spec)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>current_sa_model <span class="ot">&lt;-</span> <span class="fu">x13</span>(raw_series, <span class="at">spec =</span> current_spec)</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Creating a modified specification, customizing all available X11 parameters</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>modified_spec <span class="ot">&lt;-</span> <span class="fu">x13_spec</span>(current_sa_model,</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">X11.mode=</span><span class="cn">NA</span>,</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">X11.seasonalComp =</span> <span class="cn">NA</span>,</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">X11.fcasts =</span> <span class="sc">-</span><span class="dv">2</span>,</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">X11.bcasts =</span> <span class="sc">-</span><span class="dv">1</span>,</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">X11.lsigma =</span> <span class="fl">1.2</span>,</span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">X11.usigma =</span> <span class="fl">2.8</span>,</span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">X11.calendarSigma =</span> <span class="cn">NA</span>,</span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">X11.sigmaVector =</span> <span class="cn">NA</span>,</span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">X11.excludeFcasts =</span> <span class="cn">NA</span>,</span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>    <span class="co"># filters</span></span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">X11.trendAuto =</span> <span class="cn">NA</span>,</span>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">X11.trendma =</span> <span class="dv">23</span>,</span>
+<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">X11.seasonalma =</span> <span class="st">"S3X9"</span></span>
+<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb15-18"><a href="#cb15-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-19"><a href="#cb15-19" aria-hidden="true" tabindex="-1"></a><span class="co"># New SA estimation: apply modified_spec</span></span>
+<span id="cb15-20"><a href="#cb15-20" aria-hidden="true" tabindex="-1"></a>modified_sa_model <span class="ot">&lt;-</span> <span class="fu">x13</span>(raw_series, modified_spec)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>In version 3 using rjd3x13</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Creating a modified specification, customizing all available X11 parameters</span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"RJDemetra"</span>)</span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>model_sa_v2 <span class="ot">&lt;-</span> <span class="fu">x13</span>(raw_series, <span class="at">spec =</span> <span class="st">"RSA5c"</span>)</span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Creating a modified specification from the current estimation model</span></span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Customizing all available X11 parameters</span></span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>modified_spec <span class="ot">&lt;-</span> <span class="fu">x13_spec</span>(model_sa_v2,</span>
-<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">X11.fcasts =</span> <span class="sc">-</span><span class="dv">2</span>,</span>
-<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">X11.bcasts =</span> <span class="sc">-</span><span class="dv">1</span>,</span>
-<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">X11.lsigma =</span> <span class="fl">1.2</span>,</span>
-<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">X11.usigma =</span> <span class="fl">2.8</span>,</span>
-<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">X11.calendarSigma =</span> <span class="cn">NA</span>,</span>
-<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">X11.sigmaVector =</span> <span class="cn">NA</span>,</span>
-<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">X11.excludeFcasts =</span> <span class="cn">NA</span>,</span>
-<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a>    <span class="co"># filters</span></span>
-<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">X11.trendAuto =</span> <span class="cn">NA</span>,</span>
-<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">X11.trendma =</span> <span class="dv">23</span>,</span>
-<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">X11.seasonalma =</span> <span class="st">"S3X9"</span></span>
-<span id="cb15-18"><a href="#cb15-18" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb15-19"><a href="#cb15-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-20"><a href="#cb15-20" aria-hidden="true" tabindex="-1"></a><span class="co"># New SA estimation: apply modified_spec</span></span>
-<span id="cb15-21"><a href="#cb15-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-22"><a href="#cb15-22" aria-hidden="true" tabindex="-1"></a>modified_sa_model <span class="ot">&lt;-</span> <span class="fu">x13</span>(raw_series, modified_spec)</span>
-<span id="cb15-23"><a href="#cb15-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-24"><a href="#cb15-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-25"><a href="#cb15-25" aria-hidden="true" tabindex="-1"></a><span class="co"># For options available only in X11 mode</span></span>
-<span id="cb15-26"><a href="#cb15-26" aria-hidden="true" tabindex="-1"></a>modified_spec <span class="ot">&lt;-</span> <span class="fu">x13_spec</span>(model_sa_v2,</span>
-<span id="cb15-27"><a href="#cb15-27" aria-hidden="true" tabindex="-1"></a>    <span class="co"># X11.mode="?",</span></span>
-<span id="cb15-28"><a href="#cb15-28" aria-hidden="true" tabindex="-1"></a>    <span class="co"># X11.seasonalComp = "?",</span></span>
-<span id="cb15-29"><a href="#cb15-29" aria-hidden="true" tabindex="-1"></a>    <span class="at">X11.fcasts =</span> <span class="sc">-</span><span class="dv">2</span></span>
-<span id="cb15-30"><a href="#cb15-30" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Creating a modified specification, customizing all available X11 parameters</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"RJDemetra"</span>)</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>model_sa_v2 <span class="ot">&lt;-</span> <span class="fu">x13</span>(raw_series, <span class="at">spec =</span> <span class="st">"RSA5c"</span>)</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Creating a modified specification from the current estimation model</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Customizing all available X11 parameters</span></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>modified_spec <span class="ot">&lt;-</span> <span class="fu">x13_spec</span>(model_sa_v2,</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">X11.fcasts =</span> <span class="sc">-</span><span class="dv">2</span>,</span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">X11.bcasts =</span> <span class="sc">-</span><span class="dv">1</span>,</span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">X11.lsigma =</span> <span class="fl">1.2</span>,</span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">X11.usigma =</span> <span class="fl">2.8</span>,</span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">X11.calendarSigma =</span> <span class="cn">NA</span>,</span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">X11.sigmaVector =</span> <span class="cn">NA</span>,</span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">X11.excludeFcasts =</span> <span class="cn">NA</span>,</span>
+<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a>    <span class="co"># filters</span></span>
+<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">X11.trendAuto =</span> <span class="cn">NA</span>,</span>
+<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">X11.trendma =</span> <span class="dv">23</span>,</span>
+<span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">X11.seasonalma =</span> <span class="st">"S3X9"</span></span>
+<span id="cb16-18"><a href="#cb16-18" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb16-19"><a href="#cb16-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-20"><a href="#cb16-20" aria-hidden="true" tabindex="-1"></a><span class="co"># New SA estimation: apply modified_spec</span></span>
+<span id="cb16-21"><a href="#cb16-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-22"><a href="#cb16-22" aria-hidden="true" tabindex="-1"></a>modified_sa_model <span class="ot">&lt;-</span> <span class="fu">x13</span>(raw_series, modified_spec)</span>
+<span id="cb16-23"><a href="#cb16-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-24"><a href="#cb16-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-25"><a href="#cb16-25" aria-hidden="true" tabindex="-1"></a><span class="co"># For options available only in X11 mode</span></span>
+<span id="cb16-26"><a href="#cb16-26" aria-hidden="true" tabindex="-1"></a>modified_spec <span class="ot">&lt;-</span> <span class="fu">x13_spec</span>(model_sa_v2,</span>
+<span id="cb16-27"><a href="#cb16-27" aria-hidden="true" tabindex="-1"></a>    <span class="co"># X11.mode="?",</span></span>
+<span id="cb16-28"><a href="#cb16-28" aria-hidden="true" tabindex="-1"></a>    <span class="co"># X11.seasonalComp = "?",</span></span>
+<span id="cb16-29"><a href="#cb16-29" aria-hidden="true" tabindex="-1"></a>    <span class="at">X11.fcasts =</span> <span class="sc">-</span><span class="dv">2</span></span>
+<span id="cb16-30"><a href="#cb16-30" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="retrieving-parameters" class="level4">

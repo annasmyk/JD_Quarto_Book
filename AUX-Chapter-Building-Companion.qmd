@@ -1,11 +1,21 @@
 # Doc building companion
 
+## Now page 
+
+Message: 
+- a stage at which ton of low hanging fruit (can be done out of bounds)
+- a ton of easy "filling-in"
+
+Types of work:
+- 
+
 ## Delib P 
 
 - look at quarto rendering possibilities (cf doc, + courses)
 - aside projects + improve doc 
 
 Warning: secondary vs JD+ mastery
+
 
 ## For NEXT release: end Feb ?
 
@@ -340,6 +350,8 @@ when describing parameters
 ### A-sa-overview
 
 ### In A-sa-pre-treatment
+
+#### Clalendar (links)
 
 #### ramps
 

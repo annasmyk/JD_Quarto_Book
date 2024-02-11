@@ -1,14 +1,14 @@
 # SA: X11 Decomposition {#a-sa-X11 .unnumbered}
 
-left to be modified
+<!-- left to be modified -->
 
--   complete code
+<!-- -   complete code -->
 
--   small tweaks
+<!-- -   small tweaks -->
 
--   references
+<!-- -   references -->
 
-to be checked: can be done later
+<!-- to be checked: can be done later -->
 
 ## In this chapter
 
@@ -18,7 +18,7 @@ In recent years X11 has been tailored in JDemetra+ to handle high-frequency (inf
 
 The sections below will describe
 
--   [specifications](#a-sa-X11-default-specs) needed to run X11 
+-   [specifications](#a-sa-X11-default-specs) needed to run X11
 
 -   generated output
 
@@ -37,10 +37,10 @@ X11 algorithm is generally the second (decomposition) step in a seasonal adjustm
 ## Tools for X11 decomposition {#a-sa-X11-tools-X11}
 
 | Algorithm              | Access in GUI (v2 and v3) | Access in R (v2) | Access in R (v3) |
-|----------------------|--------------|-----------------|-----------------|
-| X-13 Arima             | ✔️                        | RJDemetra        | rjd3x13          |
+|---------------------|-----------------|-----------------|-----------------|
+| X13-Arima              | ✔️                        | RJDemetra        | rjd3x13          |
+| X12plus                | v3 only                   | -------          | rjd3x11plus      |
 | X11 decomposition only | ✔️                        | RJDemetra        | rjd3x13          |
-
 
 Available frequencies in version 2 and version 3
 
@@ -299,15 +299,17 @@ The following parameters have default values, which will not be changed in the e
 
 -   **Mode**
 
-    -   Undefined: automatically chosen between Multiplicative and Additive Options available only if no pre-processing:
-    -   Additive: $Y=T+S+I$, $SA =Y-S=T+I$
-    -   Multiplicative $Y=T*S*I$, $SA =Y/S=T*I$
-    -   LogAdditive $Log(Y) = T + S + I$, $SA=exp(T+I)=Y/exp(S)$
-    -   PseudoAdditive $Y=T*(S+I-1)$, $SA=T*I$
-    
+<!-- can be log additive if multiplicative in the pre adj: re check and modify -->
 
+```         
+-   Undefined: automatically chosen between Multiplicative and Additive Options available only if no pre-processing:
+-   Additive: $Y=T+S+I$, $SA =Y-S=T+I$
+-   Multiplicative $Y=T*S*I$, $SA =Y/S=T*I$
+-   LogAdditive $Log(Y) = T + S + I$, $SA=exp(T+I)=Y/exp(S)$
+-   PseudoAdditive $Y=T*(S+I-1)$, $SA=T*I$
+```
 
-If X11 decomposition comes after a pre-processing, **mode** is set to undefined and will correspond to decomposition choice (link) made in the [pre-treatment](#sa-pre-t-mode): multiplicative if series log- transformed, additive otherwise.
+If X11 decomposition comes after a pre-processing, **mode** is set to undefined and will correspond to decomposition choice made in the [pre-treatment](#sa-pre-t-mode): multiplicative if series log- transformed, additive otherwise.
 
 -   **Seasonal component**
 
@@ -346,7 +348,7 @@ Allows to set different **LSigma** and **USigma** for each period - None (defaul
 
 Specifies which filters will be used to estimate the seasonal factors for the entire series.
 
--   default value: *MSR* [Moving seasonality ratio](#m-X11-seaso-filters ), automatic choice of final seasonal filter, initial filters are $3\times 3$
+-   default value: *MSR* [Moving seasonality ratio](#m-X11-seaso-filters), automatic choice of final seasonal filter, initial filters are $3\times 3$
 
 -   choices: $3\times 1$, $3\times 3$, $3\times 5$, $3\times 9$, $3\times 15$ or Stable
 

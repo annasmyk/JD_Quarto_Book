@@ -14,15 +14,15 @@ How to use the generated regressors, or any user-defined variable, in a seasonal
 
 The external regressors described exclude calendar correction which is detailed [here](#a-cal)
 
-## Tools Map
+<!-- ## Tools Map -->
 
-### External regressors using R packages vs GUI
+<!-- ### External regressors using R packages vs GUI -->
 
-up coming content
+<!-- up coming content -->
 
-### Outlier detection using R packages vs GUI
+<!-- ### Outlier detection using R packages vs GUI -->
 
-up coming content
+<!-- up coming content -->
 
 ## Generating external regressors
 

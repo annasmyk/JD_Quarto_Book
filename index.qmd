@@ -8,11 +8,22 @@ A pdf version of this documentation is available [here](https://github.com/annas
 
 The highest version currently recommended for production purposes is 2.2.4.
 
-Version 3.x  family provides, among other things, extended features for seasonal adjustment and trend estimation, including **high frequency data**. The latest version 3.2.1 was released on December 7th 2023.
+Version 3.x  family provides, [among other things](#v3-vs-v2), extended features for seasonal adjustment and trend estimation, including **high frequency data**. The latest version 3.2.1 was released on December 7th 2023.
+
+## Install the software
+
+### Gaphical user interface 
+
+Head over to this [GitHub page](https://github.com/jdemetra)
+
+### R packages 
+
+Head over to this [GitHub page](https://github.com/rjdemetra)
+
 
 ## Useful links
 
-To install the software and get started, you can [browse](https://github.com/TanguyBarthelemy/JD_Tutorials) and [watch](https://www.youtube.com/@TSwithJDemetraandR) tutorials for JDemetra+. On this [YouTube channel](https://www.youtube.com/@TSwithJDemetraandR) you will also find many JDemetra+ related webinars.
+To get started, you can [browse](https://github.com/TanguyBarthelemy/JD_Tutorials) and [watch](https://www.youtube.com/@TSwithJDemetraandR) tutorials for JDemetra+. On this [YouTube channel](https://www.youtube.com/@TSwithJDemetraandR) you will also find many JDemetra+ related webinars.
 
 To keep up with all JDemetra+ related news head to the [**JDemetra+ Universe Blog**](https://jdemetra-universe-blog.netlify.app/)
 

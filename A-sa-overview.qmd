@@ -12,8 +12,9 @@ The following chapters get into the specifics of each algorithm.
 -   [SA: X11 decomposition](a-sa-X11)
 -   [SA: Seats-decomposition](#a-sa-seats)
 -   [SA: STL decomposition](#a-sa-stl)
--   [SA of High-Frequency Data](#a-sa-hf)
 -   [SA with Basic Structural Models (BSM)](#a-sa-bsm)
+-   [SA of High-Frequency Data](#a-sa-hf)
+
 
 The use of [graphical user interface](T-graphical-user-interface.qmd) and [R packages](T-r-packages.qmd) is described simultaneously whenever relevant.
 
@@ -25,27 +26,51 @@ For an overview on the algorithms and methodological issues, the user can refer 
 
 ## SA process description
 
-Upcoming content
+When setting up the process: 
+
+- seasonality tests (can also be done in the frame of quality assessment at the end)
+
+- trading days correction set up if relevant 
+    - [regressors generation](#a-cal)
+    - regressors selection 
+    
+- estimation with selected algorithm (see section below), might be [automated with the cruncher](#t-prod)
+
+- [quality report](#t-prod)
+
+- selective editing and manual fine tuning of parameters, re-estimation if needed 
+
+- updating when new data available with tailored [revision policy](#t-rev-pol)
 
 ## Seasonal Adjustment Algorithms
 
-| Algorithm              | Access in GUI | Access in R (v2) | Access in R v3 |
-|------------------------|---------------|------------------|----------------|
-| X-13 Arima             | ✔️            | RJDemetra        | rjd3x13        |
-| Reg-Arima only         | ✔️            | RJDemetra        | rjd3x13        |
-| X11 decomposition only | ✔️            | RJDemetra        | rjd3x13        |
-| TRAMO-SEATS            | ✔️            | RJDemetra        | rjd3tramoseats |
-| Tramo only             | ✔️            | RJDemetra        | rjd3tramoseats |
-| STL                    | ✖             | ✖                | rjd3stl        |
-| STS                    | ✖             | ✖                | rjd3sts        |
+<!-- Extensions for high frequency data tackled in frequency part  -->
 
-X13-ARIMA and TRAMO-SEATS are two-step algorithms with a pre-treatment phase (Reg-Arima or Tramo) and a decomposition phase (X11 and Seats). STL is a local regression (Loess) based decomposition, origibwithout pre-treatment. but...
+![](All_images/SA_Algos.png)
+
+Two categories of algorithms :
+
+-   historical core (main): X-13-Arima and Tramo-Seats [improved in version 3](#v3-vs-v2-sa)
+
+-   version 3 additional algorithms (incubator)
+
+X13-ARIMA and TRAMO-SEATS are two-step algorithms with a pre-treatment phase (Reg-Arima or Tramo) and a decomposition phase (X11 and Seats). 
+
+STL+ combines STL local regression based decomposition and a simplified Reg-Arima pre-treatment restricted to airline models.
+
+X12+ combines X11 (enhanced) decomposition and a simplified Reg-Arima pre-treatment restricted to airline models.
+
+Seats+ combines Seats decomposition and a simplified Reg-Arima pre-treatment restricted to airline models.
 
 In a [Structural Time Series](#a-sa-bsm) approach pre-treatment and decomposition are done simultaneously in a State Space Framework.
 
 ## Admissible data frequencies
 
-Up coming content
+For low frequency data
+    - in version 3.x $p$ in ${2,3,4,6,12}$ is admissible in all algorithms
+    - in version 3.x $p$ in ${2,3,4,6,12}$ is admissible in Tramo-Seats and $p$ in ${2,4,12}$ is admissible in X-13.
+
+Algorithms extended for high-frequency (infra-monthly) data can be applied to "any periodicity" in their R version and to $p$ in ${7, 52.18, 365.25}$ in the graphical user interface, see [here](#a-sa-hf) for more details.
 
 ## Decomposition in unobserved components
 

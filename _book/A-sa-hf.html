@@ -416,7 +416,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul>
   <li><a href="#in-this-chapter" id="toc-in-this-chapter" class="nav-link active" data-scroll-target="#in-this-chapter">In this chapter</a></li>
   <li><a href="#data-specificities" id="toc-data-specificities" class="nav-link" data-scroll-target="#data-specificities">Data specificities</a></li>
-  <li><a href="#tailored-algorithms-in-jdemetra" id="toc-tailored-algorithms-in-jdemetra" class="nav-link" data-scroll-target="#tailored-algorithms-in-jdemetra">Tailored algorithms in JDemetra+</a></li>
+  <li><a href="#tailored-algorithms-in-jdemetra" id="toc-tailored-algorithms-in-jdemetra" class="nav-link" data-scroll-target="#tailored-algorithms-in-jdemetra">Tailored algorithms in JDemetra+</a>
+  <ul class="collapse">
+  <li><a href="#sa-algorithms-extended-for-high-frequency-data" id="toc-sa-algorithms-extended-for-high-frequency-data" class="nav-link" data-scroll-target="#sa-algorithms-extended-for-high-frequency-data">SA algorithms extended for high-frequency data</a></li>
+  <li><a href="#data-frequencies-and-seasonal-patterns" id="toc-data-frequencies-and-seasonal-patterns" class="nav-link" data-scroll-target="#data-frequencies-and-seasonal-patterns">Data frequencies and seasonal patterns</a></li>
+  </ul></li>
   <li><a href="#unobserved-components" id="toc-unobserved-components" class="nav-link" data-scroll-target="#unobserved-components">Unobserved Components</a>
   <ul class="collapse">
   <li><a href="#raw-series-decomposition" id="toc-raw-series-decomposition" class="nav-link" data-scroll-target="#raw-series-decomposition">Raw series decomposition</a></li>
@@ -588,6 +592,28 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 </tbody>
 </table>
+<section id="sa-algorithms-extended-for-high-frequency-data" class="level3">
+<h3 class="anchored" data-anchor-id="sa-algorithms-extended-for-high-frequency-data">SA algorithms extended for high-frequency data</h3>
+<p>All algorithms are available via an R package and will be available in GUI (in target v 3.x version)</p>
+<ul>
+<li><p>Extended Airline estimation, reg-Arima like (<code>rjd3highfreq</code> and GUI )</p></li>
+<li><p>Extended Airline Decomposition, Seats like (<code>rjd3highfreq</code> and GUI )</p></li>
+<li><p>MX12+ (<code>rjd3x11plus</code>, GUI upcoming)</p></li>
+<li><p>MSTL+ (<code>rjd3stl</code> and in GUI)</p></li>
+<li><p>MSTS (<code>rjd3sts</code>, GUI upcoming)</p></li>
+</ul>
+</section>
+<section id="data-frequencies-and-seasonal-patterns" class="level3">
+<h3 class="anchored" data-anchor-id="data-frequencies-and-seasonal-patterns">Data frequencies and seasonal patterns</h3>
+<p>In the Graphical User Interface (display constraints)</p>
+<p>Input data: daily, weekly</p>
+<p>Seasonal patterns: weekly (<span class="math inline">\(p=7\)</span>) or yearly (<span class="math inline">\(p=365.25\)</span> or <span class="math inline">\(p=52.18\)</span> )</p>
+<p>In corresponding R packages:</p>
+<ul>
+<li><p>no constraint on data input as no TS structure (numeric vector)</p></li>
+<li><p>any seasonal patters, positive numbers</p></li>
+</ul>
+</section>
 </section>
 <section id="unobserved-components" class="level2">
 <h2 class="anchored" data-anchor-id="unobserved-components">Unobserved Components</h2>

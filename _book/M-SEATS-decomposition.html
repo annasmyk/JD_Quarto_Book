@@ -381,7 +381,7 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#m-seats-intro" id="toc-m-seats-intro" class="nav-link active" data-scroll-target="#m-seats-intro">In this chapter</a></li>
-  <li><a href="#seats-steps" id="toc-seats-steps" class="nav-link" data-scroll-target="#seats-steps">SEATS steps</a>
+  <li><a href="#m-seats-steps" id="toc-m-seats-steps" class="nav-link" data-scroll-target="#m-seats-steps">SEATS steps</a>
   <ul class="collapse">
   <li><a href="#input-from-tramo" id="toc-input-from-tramo" class="nav-link" data-scroll-target="#input-from-tramo">Input from Tramo</a></li>
   <li><a href="#arima-modelling-of-the-input-series" id="toc-arima-modelling-of-the-input-series" class="nav-link" data-scroll-target="#arima-modelling-of-the-input-series">ARIMA modelling of the input series</a></li>
@@ -418,11 +418,12 @@ ul.task-list li input[type="checkbox"] {
 <p>In recent years, SEATS implementation in JDemetra+ v 3.x has been extended to infra-monthly data (weekly, daily, hourly…). Handling this kind of data gave way to a tailored AMB decomposition whose peculiarities are described in <a href="#m-sa-hf">this chapter</a>.</p>
 <section id="m-seats-intro" class="level2">
 <h2 class="anchored" data-anchor-id="m-seats-intro">In this chapter</h2>
-<p>This chapter provides details on <a href="#m-seats-steps">seats algorithm steps</a> - series](#m-seats-stages-output) - <a href="#m-seats-qm">quality measures</a> - <a href="#m-seats-filters-length-choice">filter length choices</a> - <a href="#seats-I-correc">extreme values correction</a></p>
+<p>This chapter provides details on <a href="#m-seats-steps">seats algorithm steps</a>.</p>
+<!-- - series\](#m-seats-stages-output) - [quality measures](#m-seats-qm) - [filter length choices](#m-seats-filters-length-choice) - [extreme values correction](#seats-I-correc) -->
 <p>The practical implementation as well as all the options, using the graphical user interface or R packages are described in <a href="A-sa-seats-decomposition.html">this chapter</a></p>
 </section>
-<section id="seats-steps" class="level2">
-<h2 class="anchored" data-anchor-id="seats-steps">SEATS steps</h2>
+<section id="m-seats-steps" class="level2">
+<h2 class="anchored" data-anchor-id="m-seats-steps">SEATS steps</h2>
 <p>SEATS decomposes the linearized series into trend, seasonal, transitory and irregular components, provides forecasts for these components, together with the associated standard errors, and finally assign the deterministic effects to each component yielding the final components.</p>
 <section id="input-from-tramo" class="level3">
 <h3 class="anchored" data-anchor-id="input-from-tramo">Input from Tramo</h3>
@@ -440,7 +441,7 @@ ul.task-list li input[type="checkbox"] {
 <li><p><span class="math inline">\(\delta(B)\)</span> – a non-stationary autoregressive (AR) polynomial in <span class="math inline">\(B\)</span> (unit roots);</p></li>
 <li><p><span class="math inline">\(\theta(B)\)</span> – an invertible moving average (MA) polynomial in <span class="math inline">\(B\)</span> and in <span class="math inline">\(B^{S}\)</span>, which can be expressed in the multiplicative form <span class="math inline">\((1 + \vartheta_{1}B + \ldots{+ \ \vartheta}{q}B^{q})(1 + \Theta{1}B^{s} + \ldots{+ \ \Theta}_{Q}B^{\text{sQ}})\)</span> ;</p></li>
 <li><p><span class="math inline">\(phi(B)\)</span> – a stationary autoregressive (AR) polynomial in <span class="math inline">\(B\)</span> and in <span class="math inline">\(B^{S}\)</span> containing regular and seasonal unit roots, with <em>s</em> representing the number of observations per year;</p></li>
-<li><p><span class="math inline">\(a_{t}\)</span> – a white-noise variable with the variance<span class="math inline">\(V(a)\)</span>.</p></li>
+<li><p><span class="math inline">\(a_{t}\)</span> – a white-noise variable with the variance <span class="math inline">\(V(a)\)</span>.</p></li>
 </ul>
 <p>It should be noted that the stochastic time series can be predicted using its past observations and making an error. The variable <span class="math inline">\(a_{t}\)</span>, which is assumed to be white noise, is the fundamental <em>innovation</em> to the series at time <em>t</em>, that is the part that cannot be predicted based on the past history of the series.</p>
 <p>Denoting <span class="math inline">\(\varphi(B) = \phi(B)\delta(B)\)</span>,can be written in a more concise form as</p>
