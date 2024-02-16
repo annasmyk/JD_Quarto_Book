@@ -126,32 +126,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">JDemetra+ documentation</a> 
-        <div class="sidebar-tools-main">
-    <a href="https://github.com/annasmyk/JD_Quarto_Book" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
-    <div class="dropdown">
-      <a href="" title="Share" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Share"><i class="bi bi-share"></i></a>
-      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
-          <li>
-            <a class="dropdown-item sidebar-tools-main-item" href="https://www.facebook.com/sharer/sharer.php?u=|url|">
-              <i class="bi bi-bi-facebook pe-1"></i>
-            Facebook
-            </a>
-          </li>
-          <li>
-            <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=|url|">
-              <i class="bi bi-bi-twitter pe-1"></i>
-            Twitter
-            </a>
-          </li>
-          <li>
-            <a class="dropdown-item sidebar-tools-main-item" href="https://www.linkedin.com/sharing/share-offsite/?url=|url|">
-              <i class="bi bi-bi-linkedin pe-1"></i>
-            LinkedIn
-            </a>
-          </li>
-      </ul>
-    </div>
-</div>
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -278,11 +252,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="sidebar-item-container"> 
             <a href="./P_Tools.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Tools</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./T-GUI-Overview.html" class="sidebar-item-text sidebar-link">
@@ -337,11 +311,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="sidebar-item-container"> 
             <a href="./P_Methods.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Methods</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./M-spectral-analysis.html" class="sidebar-item-text sidebar-link">
@@ -398,12 +372,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
       </ul>
   </li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./references.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">References</span></a>
-  </div>
-</li>
     </ul>
     </div>
 </nav>
@@ -429,7 +397,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#reg-arima-model-results-and-diagnostics" id="toc-reg-arima-model-results-and-diagnostics" class="nav-link" data-scroll-target="#reg-arima-model-results-and-diagnostics">Reg-Arima model Results and Diagnostics</a></li>
   </ul></li>
   </ul>
-<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/annasmyk/JD_Quarto_Book/edit/MAIN/A-sa-pre-treatment.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/annasmyk/JD_Quarto_Book/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -453,41 +421,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="in-this-chapter" class="level2">
 <h2 class="anchored" data-anchor-id="in-this-chapter">In this chapter</h2>
-<p>The following sections cover pre-treatment with Reg-ARIMA (or Tramo) algorithms. Tramo and the Reg-Arima part of X13-ARIMA rely on very similar <a href="M-reg-arima-modelling.html">principles</a>. Thus Tramo will only be mentioned to highlight differences with the Reg-Arima part of X13-ARIMA.</p>
-<p>Reg-Arima modelling part can be the first of a seasonal adjustment process or run on its <a href="A-RegArima-Tramo-Modelling-Overview.html">own</a>. Below we focus on performing reg-arima modelling as pre-treatment in a SA processing.</p>
+<p>The following sections cover pre-treatment with Reg-ARIMA (or Tramo) algorithms. Tramo and the Reg-Arima part of X13-ARIMA rely on very similar <a href="M-reg-arima-modelling.html">principles</a>. Thus Tramo will be mentioned only to highlight differences with the Reg-Arima part of X13-ARIMA.</p>
+<p>Reg-Arima modelling part can be of a seasonal adjustment process or run on its <a href="A-RegArima-Tramo-Modelling-Overview.html">own</a>. Below we focus on performing reg-arima modelling as pre-treatment in a SA processing.</p>
 <p>More in-depth methodological explanations of the algorithms can be found in <a href="P_Methods.html">this part</a> of the documentation.</p>
 </section>
 <section id="pre-treatment-principles" class="level2">
 <h2 class="anchored" data-anchor-id="pre-treatment-principles">Pre-treatment principles</h2>
 <p>The goal of this step is to remove deterministic effects (calendar and outliers) in order to improve the decomposition.</p>
 <p><span class="math display">\[
-Y_t = \sum{\alpha}_i O_{it} + \sum\beta_j C_{jt} + \sum {\gamma}_i Reg_{it} + Y_{lin,t}
+Y_t = \sum{\alpha}_i O_{it} + \sum\beta_j C_{jt} + \sum {\gamma}_i U_{it} + Y_{lin,t}
 \]</span></p>
 <ul>
 <li><p><span class="math inline">\(O_{it}\)</span> are the <span class="math inline">\(i\)</span> final outliers (AO, LS, TC)</p></li>
-<li><p><span class="math inline">\(C_{it}\)</span> are the calendar regressors (automatic or user-defined), details <a href="A-calendar-correction.html">here</a></p></li>
-<li><p><span class="math inline">\(Reg_{it}\)</span> are all the other user-defined regressors details <a href="A-outlier-detection.html">here</a></p></li>
+<li><p><span class="math inline">\(C_{it}\)</span> are the calendar regressors (automatic or user-defined) (link to calendar chap)</p></li>
+<li><p><span class="math inline">\(U_{it}\)</span> are all the other user-defined regressors (link to outliers and regressors chap)</p></li>
 <li><p><span class="math inline">\(Y_{lin,t} \sim ARIMA(p,d,q)(P,D,Q)\)</span></p></li>
 </ul>
 </section>
 <section id="sa-pre-t-realloc" class="level2">
 <h2 class="anchored" data-anchor-id="sa-pre-t-realloc">Reallocation of pre-treatment effects</h2>
-<ul>
-<li>The linearised series will be decomposed into unobservable components in the decomposition phase</li>
-</ul>
-<p><span class="math display">\[y_{lin} =S_{lin} +T_{lin}+I_{lin}\]</span></p>
-<ul>
-<li>Pre-treatment effects will then be reallocated to build the final components</li>
-</ul>
-<p><span class="math display">\[S=S_{lin}+cal+out_s+reg_s\]</span></p>
-<p><span class="math display">\[T=T_{lin}+out_t+reg_{t}\]</span></p>
-<p><span class="math display">\[I=I_{lin}+out_i+reg_{i}\]</span></p>
-<p>Where</p>
-<ul>
-<li><p><span class="math inline">\(cal\)</span> is the total calendar effect</p></li>
-<li><p><span class="math inline">\(out_j\)</span> is the total effect of outliers on component <span class="math inline">\(j\)</span></p></li>
-<li><p><span class="math inline">\(reg_j\)</span> is the total effect of user-defined regressors on component <span class="math inline">\(j\)</span></p></li>
-</ul>
+<p>Up coming content.</p>
 <section id="a-pre-t-def-spec" class="level3">
 <h3 class="anchored" data-anchor-id="a-pre-t-def-spec">Default Specifications</h3>
 <p>Default specifications are set for the whole SA procedure, pre-treatment and decomposition. They are slightly different for X13-ARIMA and TRAMO-SEATS and can be modified with user defined parameters.</p>
@@ -991,15 +944,15 @@ Y_t = \sum{\alpha}_i O_{it} + \sum\beta_j C_{jt} + \sum {\gamma}_i Reg_{it} + Y_
 <p>In version 2</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Parameter choice NA=...</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>tradingdays.option <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="cn">NA_character_</span>, <span class="st">"TradingDays"</span>, <span class="st">"WorkingDays"</span>, <span class="st">"UserDefined"</span>, <span class="st">"None"</span>)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>tradingdays.option <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="cn">NA</span>, <span class="st">"TradingDays"</span>, <span class="st">"WorkingDays"</span>, <span class="st">"UserDefined"</span>, <span class="st">"None"</span>)</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>tradingdays.autoadjust <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>tradingdays.leapyear <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="cn">NA_character_</span>, <span class="st">"LeapYear"</span>, <span class="st">"LengthOfPeriod"</span>, <span class="st">"None"</span>)</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>tradingdays.leapyear <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="cn">NA</span>, <span class="st">"LeapYear"</span>, <span class="st">"LengthOfPeriod"</span>, <span class="st">"None"</span>)</span>
 <span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>tradingdays.stocktd <span class="ot">&lt;-</span> <span class="cn">NA_integer_</span></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>tradingdays.test <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="cn">NA_character_</span>, <span class="st">"Remove"</span>, <span class="st">"Add"</span>, <span class="st">"None"</span>)</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>tradingdays.test <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="cn">NA</span>, <span class="st">"Remove"</span>, <span class="st">"Add"</span>, <span class="st">"None"</span>)</span>
 <span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>easter.enabled <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
 <span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>easter.julian <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
 <span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>easter.duration <span class="ot">&lt;-</span> <span class="cn">NA_integer_</span></span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>easter.test <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="cn">NA_character_</span>, <span class="st">"Add"</span>, <span class="st">"Remove"</span>, <span class="st">"None"</span>)</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>easter.test <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="cn">NA</span>, <span class="st">"Add"</span>, <span class="st">"Remove"</span>, <span class="st">"None"</span>)</span>
 <span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="co"># example</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>In version 3 (Under construction)</p>
@@ -1350,7 +1303,7 @@ Y_t = \sum \hat{\alpha}_i O_{it} + \sum\hat\beta_j C_{jt} + \sum\hat\gamma_k Reg
 <li>Save the new setting with the <strong>Done</strong> button.</li>
 </ul></li>
 </ul>
-<!-- Overview: differences GUI set up vs R set up -->
+<p>Overview: differences GUI set up vs R set up</p>
 </section>
 </section>
 <section id="retrieving-results-2" class="level4">
@@ -1818,15 +1771,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
-<footer class="footer">
-  <div class="nav-footer">
-    <div class="nav-footer-left">This book was built with <a href="https://quarto.org/">Quarto</a>.</div>   
-    <div class="nav-footer-center">
-      &nbsp;
-    </div>
-    <div class="nav-footer-right"></div>
-  </div>
-</footer>
 
 
 
