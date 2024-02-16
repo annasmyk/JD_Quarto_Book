@@ -120,7 +120,7 @@ X11 produces the following type diagnostics or quality measures
 
 NODE Main Results \> SI-Ratios
 
-![Text](All_images/SA_MainResults_SI_ratios.png)
+![**S-I Ratio**](All_images/SA_MainResults_SI_ratios.png)
 
 In GUI all values cannot be retrieved
 
@@ -178,7 +178,7 @@ Decomposition(X-11) \> Quality Measures \> Summary
 
 Results displayed in red indicate that the test failed.
 
-![Text](All_images/RDimage46.png)
+![**Summary of the quality measures**](All_images/RDimage46.png)
 
 ##### Retrieve in R
 
@@ -536,7 +536,7 @@ Same procedure as for stochastic series.
 
 Final results are displayed for each series in the NODE MAIN\>Table
 
-![Text](All_images/SA_MainResults_Series.png)
+![**Table of final result**](All_images/SA_MainResults_Series.png)
 
 
 Forecasts are glued at the end it *italic*
@@ -662,7 +662,7 @@ McEllroyMatrix
 
 In specification window corresponding to a given series:
 
-![Text](All_images\SA_SEATS_GUI_user_def_params.png)
+![**TramoSeatsSpec SEATS part**](All_images\SA_SEATS_GUI_user_def_params.png)
 
 ##### Set in R
 
@@ -673,13 +673,13 @@ tramoseats_spec(
     spec = c("RSAfull", "RSA0", "RSA1", "RSA2", "RSA3", "RSA4", "RSA5"),
     fcst.horizon = NA_integer_,
     seats.predictionLength = NA_integer_,
-    seats.approx = c(NA, "None", "Legacy", "Noisy"),
+    seats.approx = c(NA_character_, "None", "Legacy", "Noisy"),
     seats.trendBoundary = NA_integer_,
     seats.seasdBoundary = NA_integer_,
     seats.seasdBoundary1 = NA_integer_,
     seats.seasTol = NA_integer_,
     seats.maBoundary = NA_integer_,
-    seats.method = c(NA, "Burman", "KalmanSmoother", "McElroyMatrix")
+    seats.method = c(NA_character_, "Burman", "KalmanSmoother", "McElroyMatrix")
 )
 ```
 
