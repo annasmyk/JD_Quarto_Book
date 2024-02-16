@@ -42,6 +42,37 @@ HF data often display multiple seasonal patterns with potentially non-integer pe
 |               | Extended STL                          | ✖        | rjd3stl      |
 | One-Step      | SSF Framework                         | ✖        | rjd3sts      |
 
+### SA algorithms extended for high-frequency data
+
+All algorithms are available via an R package and will be available in GUI (in target v 3.x version)
+
+-   Extended Airline estimation, reg-Arima like (`rjd3highfreq` and GUI )
+
+-   Extended Airline Decomposition, Seats like (`rjd3highfreq` and GUI )
+
+-   MX12+ (`rjd3x11plus`, GUI upcoming)
+
+-   MSTL+ (`rjd3stl` and in GUI)
+
+-   MSTS (`rjd3sts`, GUI upcoming)
+
+### Data frequencies and seasonal patterns 
+
+In the Graphical User Interface (display constraints)
+
+Input data: daily, weekly
+
+Seasonal patterns: weekly ($p=7$) or yearly ($p=365.25$ or $p=52.18$ )
+
+In corresponding R packages:
+
+- no constraint on data input as no TS structure (numeric vector)
+
+- any seasonal patters, positive numbers
+
+
+
+
 ## Unobserved Components
 
 ### Raw series decomposition

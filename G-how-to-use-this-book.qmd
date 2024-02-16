@@ -13,41 +13,41 @@ This book is divided in three parts, allowing the user to access the resources f
 - [Methods](#part-M)
 
 
-## Quick Start
+<!-- ## Quick Start -->
 
-(up coming content here)
+<!-- (up coming content here) -->
 
-## Features MAP
+<!-- ## Features MAP -->
 
-Up coming content: here an overview of all the existing tools will be provided, highlighted what specific features can (or cannot) be accessed with each of them.
+<!-- Up coming content: here an overview of all the existing tools will be provided, highlighted what specific features can (or cannot) be accessed with each of them. -->
 
 ### What is new in version 3.x
 
-[Seasonal adjustment of high frequency](#a-sa-hf) data is the main functionality upgrade brought by version 3 but there are many others. They will be extensively pointed out in [this chapter](#v3-vs-v2)
+[Seasonal adjustment of high frequency](#a-sa-hf) data is the main functionality upgrade brought by version 3 but there are many others. They are pointed out in [this chapter](#v3-vs-v2)
 
-### R ecosytem vs GUI in v2
+### R ecosystem vs Graphical User Interface (GUI)
 
-The vast majority of functions have identical options and output when used via R or GUI, but there are some exceptions. Data structure and visualization can also differ. This will be described in the sections below.
+The vast majority of functions have identical options and output when used via R or GUI, but there are some exceptions. Data structure and visualization can also differ. This is described in the relevant sections throughout this book.
 
-#### In version 2.2.4
+<!-- #### In version 2.2.4 -->
 
-up coming content
+<!-- up coming content -->
 
-#### In version 3.x
+<!-- #### In version 3.x -->
 
-up coming content
+<!-- up coming content -->
 
 
-## Frequently asked questions 
+<!-- ## Frequently asked questions  -->
 
-up coming content
+<!-- up coming content -->
 
-## Troubleshooting 
+<!-- ## Troubleshooting  -->
 
-up coming content
+<!-- up coming content -->
 
-### Software Installation 
+<!-- ### Software Installation  -->
 
-### Reporting bugs 
+<!-- ### Reporting bugs  -->
 
 

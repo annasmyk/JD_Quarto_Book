@@ -39,7 +39,7 @@ Additional chapters related to GUI features, provide information on:
 
 4.  To display and modify the settings click on the given output format on the list. The available options depend on the output format.
 
-### The different ouput format
+### The different ouput formats
 
 ::: {.panel-tabset .content-visible when-format="html"}
 

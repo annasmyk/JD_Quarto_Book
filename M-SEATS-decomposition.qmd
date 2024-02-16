@@ -10,11 +10,13 @@ In recent years, SEATS implementation in JDemetra+ v 3.x has been extended to in
 
 ## In this chapter {#m-seats-intro}
 
-This chapter provides details on [seats algorithm steps](#m-seats-steps) - series\](#m-seats-stages-output) - [quality measures](#m-seats-qm) - [filter length choices](#m-seats-filters-length-choice) - [extreme values correction](#seats-I-correc)
+This chapter provides details on [seats algorithm steps](#m-seats-steps). 
+
+<!-- - series\](#m-seats-stages-output) - [quality measures](#m-seats-qm) - [filter length choices](#m-seats-filters-length-choice) - [extreme values correction](#seats-I-correc) -->
 
 The practical implementation as well as all the options, using the graphical user interface or R packages are described in [this chapter](#a-sa-seats)
 
-## SEATS steps
+## SEATS steps {#m-seats-steps}
 
 SEATS decomposes the linearized series into trend, seasonal, transitory and irregular components, provides forecasts for these components, together with the associated standard errors, and finally assign the deterministic effects to each component yielding the final components.
 
@@ -40,7 +42,7 @@ where:
 
 -   $phi(B)$ -- a stationary autoregressive (AR) polynomial in $B$ and in $B^{S}$ containing regular and seasonal unit roots, with *s* representing the number of observations per year;
 
--   $a_{t}$ -- a white-noise variable with the variance$V(a)$.
+-   $a_{t}$ -- a white-noise variable with the variance $V(a)$.
 
 It should be noted that the stochastic time series can be predicted using its past observations and making an error. The variable $a_{t}$, which is assumed to be white noise, is the fundamental *innovation* to the series at time *t*, that is the part that cannot be predicted based on the past history of the series.
 

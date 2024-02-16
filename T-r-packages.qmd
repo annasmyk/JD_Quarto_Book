@@ -2,7 +2,7 @@
 
 ## In this chapter
 
-Core JDemetra+ Java algorithms can be accessed in R.This chapter provides an overview of the R ecosystem related to JDemetra+ version 2.x and 3.x (under construction). More details on specific functions are available in the relevant chapters in the [Algorithms part](#part-A) of this documentation. Help pages (and vignettes) relative to each package provide a detailed description of all available functions, stating purpose, arguments, output and examples. Whenever possible there are directly linked in this documentation when their use in a selected algorithm is mentioned.
+Core JDemetra+ Java algorithms can be accessed in R. This chapter provides an overview of the R ecosystem related to JDemetra+ [version 2.4](https://github.com/jdemetra/rjdemetra) and [3.x](https://github.com/rjdemetra), still under construction. More details on specific functions are available in the relevant chapters in the [Algorithm part](#part-A) of this documentation. Help pages, Readme pages and vignettes relative to each package provide a detailed description of all available functions: purpose, arguments, output and examples. There are directly linked to this documentation whenever their use in a selected algorithm is mentioned.
 
 ### Packages based on JDemetra+ version 2 algorithms
 
@@ -21,14 +21,15 @@ Packages corresponding to version 3.x core routines:
 -   [**rjd3toolkit**](https://github.com/rjdemetra/rjd3toolkit) at <https://github.com/rjdemetra/rjd3toolkit>
 -   [**rjd3x13**](https://github.com/rjdemetra/rjd3x13) on <https://github.com/rjdemetra/rjd3x13>
 -   [**rjd3tramoseats**](https://github.com/rjdemetra/rjd3tramoseats) at <https://github.com/rjdemetra/rjd3tramoseats>
+-   [**rjdemetra3**](https://github.com/rjdemetra/rjd3providers) at <https://github.com/rjdemetra/rjd3providers>
 -   [**rjdemetra3**](https://github.com/rjdemetra/rjdemetra3) at <https://github.com/rjdemetra/rjdemetra3>
 -   [**rjd3highfreq**](https://github.com/rjdemetra/rjd3highfreq) at <https://github.com/rjdemetra/rjd3highfreq>
+-   [**rjd3filters**](https://github.com/rjdemetra/rjd3filters) at <https://github.com/rjdemetra/rjd3filters>
 -   [**rjd3x11plus**](https://github.com/rjdemetra/rjd3x11plus) at <https://github.com/rjdemetra/rjd3x11plus>
 -   [**rjd3bench**](https://github.com/rjdemetra/rjd3bench) at <https://github.com/rjdemetra/rjd3bench>
 -   [**rjd3revsions**](https://github.com/rjdemetra/rjd3revisions) at <https://github.com/rjdemetra/rjd3revisions>
 -   [**rjd3sts**](https://github.com/rjdemetra/rjd3sts) at <https://github.com/rjdemetra/rjd3sts>
 -   [**rjd3stl**](https://github.com/rjdemetra/rjd3stl) at <https://github.com/rjdemetra/rjd3stl>
--   [**rjd3filters**](https://github.com/rjdemetra/rjd3filters) at <https://github.com/rjdemetra/rjd3filters>
 -   [**ggdemetra3**](https://github.com/AQLT/ggdemetra3) on <https://github.com/AQLT/ggdemetra3>
 
 ## Algorithms available in R
@@ -38,21 +39,21 @@ Packages corresponding to version 3.x core routines:
 #### Using JDemetra+ version 2.x
 
 | Algorithm   | Package   | Comments                                                 |
-|-----------------|-----------------|--------------------------------------|
+|------------------|------------------|-------------------------------------|
 | X13-ARIMA   | RJDemetra | Reg-Arima and X-11 decomposition available independently |
 | TRAMO-SEATS | RJDemetra | Tramo available independently                            |
 
 #### Using JDemetra+ version 3.x
 
-| Algorithm               | Package        | Comments                                                 |
-|------------------|------------------|------------------------------------|
-| X13-ARIMA               | rjd3x13        | Reg-Arima and X-11 decomposition available independently |
-| Extended X-11           | rjd3x11plus    | For high-frequency (infra-monthly) data                  |
-| TRAMO-SEATS             | rjd3tramoseats | Tramo available independently                            |
-| Extended Tramo          | rjd3highfreq   | For high-frequency data                                  |
-| Extended Seats          | rjd3highfreq   | For high-frequency data                                  |
-| STL                     | rjd3stl        | Including high-frequency data                            |
-| Basic Structural Models | rjd3sts        | State space framework                                    |
+| Algorithm               | Package        | Comments                                                                                            |
+|------------------|------------------|-----------------------------------|
+| X13-ARIMA               | rjd3x13        | Reg-Arima and X-11 decomposition available independently                                            |
+| Extended X-11           | rjd3x11plus    | Extended for high-frequency (infra-monthly) data and Trend estimation with local polynomial filters |
+| TRAMO-SEATS             | rjd3tramoseats | Tramo available independently                                                                       |
+| Extended Tramo          | rjd3highfreq   | Extended for high-frequency data                                                                    |
+| Extended Seats          | rjd3highfreq   | Extended for high-frequency data                                                                    |
+| STL+                    | rjd3stl        | Airline based preadjustment and high-frequency data extension                                       |
+| Basic Structural Models | rjd3sts        | State space framework                                                                               |
 
 Version 3.x includes [Revision Policies](#t-rev-pol) in X-13 and Tramo-Seats.
 
@@ -91,10 +92,11 @@ The packages listed below contain utility functions useful when running a produc
 
 A workspace is a specific JDemetra+ data format (xml files) allowing to use the graphical user interface (GUI) and the cruncher.
 
-| Package      | JD+ version | Comments                           |
-|--------------|-------------|------------------------------------|
-| rjdworkspace | 2.x         | update meta data, merge workspaces |
-| rjdemetra3   | 3.x         | idem but under construction        |
+| Package       | JD+ version | Comments                                               |
+|---------------|-------------|--------------------------------------------------------|
+| rjdworkspace  | 2.x         | update meta data, set specifications, merge workspaces |
+| rjd3providers | 3.x         | update metadata                                        |
+| rjdemetra3    | 3.x         |  set specifications, merge workspace                   |
 
 ### Generating enhanced output in SA estimation
 
@@ -107,19 +109,19 @@ This additional packages produce enhanced plots and diagnostic outputs.
 | ggdemetra3  | 3.x         | plots based on ggplot          |
 | rjdqa       | 2.x         | visual dashboard on one series |
 
-## Time series tools {#t-r-packs-tstools}
+<!-- ## Time series tools {#t-r-packs-tstools} -->
 
-### Tests {#t-r-packs-tests}
+<!-- ### Tests {#t-r-packs-tests} -->
 
-#### Seasonality tests
+<!-- #### Seasonality tests -->
 
-#### Tests on residuals
+<!-- #### Tests on residuals -->
 
 ## General structure
 
 The R object resulting from an estimation is a list of lists containing raw data, parameters, output series and diagnostics.
 
-### Output structure for RJDemetra package {#t-r-packs-rjdv2-structure}
+### RJDemetra output structure {#t-r-packs-rjdv2-structure}
 
 Organised by domain:
 
@@ -127,7 +129,7 @@ Organised by domain:
 
 To retrieve any element just navigate this list of lists.
 
-### Output structure for rjd3x13 package {#t-r-packs-rjd3x13-structure}
+### rjd3x13 output structure {#t-r-packs-rjd3x13-structure}
 
 Results and specification are separated first and then organised by domain.
 
@@ -172,13 +174,13 @@ remotes::install_github("AQLT/ggdemetra3")
 
 ## rjd3 suite of packages: overview
 
-The sections below provide an overview of each package based on version 3.x of JDemetra+. For detailed description refer to the package's own R documentation pages and vignettes.
+The sections below provide an overview of each package based on version 3.x of JDemetra+. For detailed description refer to the package's own R documentation pages as linked below.
 
 ### rjd3toolkit
 
 Contains utility functions used in other `rjd3` packages and has to be systematically installed before using any other rjd3 package. From a user point of view, it allows to:
 
--   customize specifications in X13-ARIMA and TRAMO-SEATS
+-   customize specifications in rjd3x13 and rjd3tramoseats
 
 -   generate user-defined regressors for calendar correction
 
@@ -186,11 +188,11 @@ Contains utility functions used in other `rjd3` packages and has to be systemati
 
 -   run arima model estimations
 
--   perform tests
+-   perform tests (seasonality, normality, white noise)
 
--   access general functions such as autocorrelations, distributions...
+-   access general functions such as autocorrelations, distributions
 
-More details for each part can be found in \`rjd3toolkit\`\`R help pages and related vignettes.
+Full documentation [here](https://rjdemetra.github.io/rjd3toolkit)
 
 ### rjd3x13
 
@@ -202,6 +204,8 @@ More details for each part can be found in \`rjd3toolkit\`\`R help pages and rel
 
 -   Refresh policies: `regarima.refresh()` and `x13.refresh()`
 
+Full documentation [here](https://rjdemetra.github.io/rjd3x13)
+
 ### rjd3tramoseats
 
 `rjd3tramoseats` gives access to TRAMO-SEATS seasonal adjustment algorithm.
@@ -212,7 +216,19 @@ More details for each part can be found in \`rjd3toolkit\`\`R help pages and rel
 
 -   Refresh policies: `tramo.refresh()` and `tramoseats.refresh()`
 
+Full documentation [here](https://rjdemetra.github.io/rjd3tramoseats)
+
+### rjd3sts
+
+Gives access to structural time series and state space models.
+
+<!-- Full documentation [here](https://rjdemetra.github.io/rjd3sts) -->
+
+Several examples available [here](https://github.com/rjdemetra/test_rjd3sts)
+
 ### rjd3highfreq
+
+Depends on `rjd3sts`
 
 Seasonal adjustment of high frequency (infra-monthly) data:
 
@@ -220,54 +236,7 @@ Seasonal adjustment of high frequency (infra-monthly) data:
 
 -   fractional and multi airline decomposition
 
-### rjd3x11plus
-
--   Extension of X-11 decomposition with multiple non integer periodicities.
-
-### rjd3sts
-
-Gives access to structural time series and state space models, has to be installed to use rjd3highfreq. Handles high-frequency data.
-
-Several examples available [here](https://github.com/rjdemetra/test_rjd3sts)
-
-### rjd3stl
-
-`rjd3stl` contains usual STL functions but is also tailored to handle high-frequency data.
-
-### ggdemetra3
-
-ggdemetra3 uses ggplot2 to add seasonal adjustment statistics to your plot (Like `ggdemetra` but compatible with version 3.x.). Also compatible with high-frequency methods:
-
-```{r ggdemetra3, out.height="85%", eval=FALSE,message = FALSE, warning = FALSE}
-library("ggdemetra3")
-
-spec <- spec_x13_default("rsa3") |> set_tradingdays(option = "WorkingDays")
-p_ipi_fr <- ggplot(data = ipi_c_eu_df, mapping = aes(x = date, y = FR)) +
-    geom_line() +
-    labs(
-        title = "SA - IPI-FR",
-        x = NULL, y = NULL
-    )
-p_sa <- p_ipi_fr +
-    geom_sa(
-        component = "y_f(12)", linetype = 2,
-        spec = spec
-    ) +
-    geom_sa(component = "sa", color = "red") +
-    geom_sa(component = "sa_f", color = "red", linetype = 2)
-p_sa
-p_sa +
-    geom_outlier(
-        geom = "label_repel",
-        coefficients = TRUE,
-        ylim = c(NA, 65), force = 10,
-        arrow = arrow(
-            length = unit(0.03, "npc"),
-            type = "closed", ends = "last"
-        ),
-        digits = 2
-    )
-```
+Full documentation [here](https://rjdemetra.github.io/rjd3highfreq)
 
 ### rjd3filters
 
@@ -366,6 +335,63 @@ plot(window(ts.union(y, trend, sa), start = 2000),
 )
 ```
 
+
+### rjd3x11plus
+
+Depends on `rjd3filters`
+
+-   Extension of X-11 decomposition with multiple non integer periodicities
+
+-   Trend estimation with local polynomial based filters 
+
+Full documentation [here](https://rjdemetra.github.io/rjd3x11plus)
+
+
+
+### rjd3stl
+
+`rjd3stl` contains usual STL functions and an airline model based pre-adjustment module. Is also tailored to handle high-frequency data.
+
+Full documentation [here](https://rjdemetra.github.io/rjd3x11plus)
+
+<!-- Full documentation [here](https://rjdemetra.github.io/rjd3stl) -->
+
+### ggdemetra3
+
+ggdemetra3 uses ggplot2 to add seasonal adjustment statistics to your plot (Like `ggdemetra` but compatible with version 3.x.). Also compatible with high-frequency methods:
+
+```{r ggdemetra3, out.height="85%", eval=FALSE,message = FALSE, warning = FALSE}
+library("ggdemetra3")
+
+spec <- spec_x13_default("rsa3") |> set_tradingdays(option = "WorkingDays")
+p_ipi_fr <- ggplot(data = ipi_c_eu_df, mapping = aes(x = date, y = FR)) +
+    geom_line() +
+    labs(
+        title = "SA - IPI-FR",
+        x = NULL, y = NULL
+    )
+p_sa <- p_ipi_fr +
+    geom_sa(
+        component = "y_f(12)", linetype = 2,
+        spec = spec
+    ) +
+    geom_sa(component = "sa", color = "red") +
+    geom_sa(component = "sa_f", color = "red", linetype = 2)
+p_sa
+p_sa +
+    geom_outlier(
+        geom = "label_repel",
+        coefficients = TRUE,
+        ylim = c(NA, 65), force = 10,
+        arrow = arrow(
+            length = unit(0.03, "npc"),
+            type = "closed", ends = "last"
+        ),
+        digits = 2
+    )
+```
+
+
 ### rjd3bench
 
 Tailored for Benchmarking and temporal disaggregation
@@ -374,14 +400,16 @@ Several examples [here](https://github.com/rjdemetra/test_rjd3bench)
 
 ### rjd3revisions
 
-Revision analysis, more info [here](#a-revs) 
+Revision analysis, more info [here](#a-revs)
 
-### rjdemetra 3
+<!-- ### rjd3providers -->
 
-This package allows to wrangle JDemetra+ workspaces in R with functions:
+<!-- ### rjdemetra 3 -->
 
--   `load_workspace`
+<!-- This package allows to wrangle JDemetra+ workspaces in R with functions: -->
 
--   `save_workspace`
+<!-- -   `load_workspace` -->
 
-Up coming content.
+<!-- -   `save_workspace` -->
+
+<!-- Up coming content. -->

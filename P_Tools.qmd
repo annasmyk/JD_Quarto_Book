@@ -1,7 +1,6 @@
 # Tools {.unnumbered #part-T}
 
 This part describes the tools allowing to access JDemetra+ algorithms.
-
 Practical guidance for using them is provided [here](#part-A).
 
 Whereas, further methodological insights on each algorithm can be found in the [Methods](#part-M) part of this book.

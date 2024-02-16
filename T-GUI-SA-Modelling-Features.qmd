@@ -139,7 +139,7 @@ The blank zone in the figure above (on the right of the view) is the location wh
 
 Economic time series are often computed and reported according to a certain classification or a breakdown. 
 
-For example, in National Accounts total consumption expenditures are a sum of individual consumption expenditures and General Government & NPISHs consumption expenditures. Therefore, the seasonally adjusted aggregates can be computed either by aggregating the seasonally adjusted components (indirect adjustment) or adjusting the aggregate and the components independently (direct adjustment). The point is that these two strategies result in different seasonally adjusted aggregates. As neither theoretical nor empirical evidence uniformly favours one approach over the other, the choice of the seasonal adjustment strategy concerning aggregated series depends on the user. Guidance in this field is given in the guidelines @guidelines2015.
+For example, in National Accounts total consumption expenditures are a sum of individual consumption expenditures and General Government & NPISHs consumption expenditures. Therefore, the seasonally adjusted aggregates can be computed either by aggregating the seasonally adjusted components (indirect adjustment) or adjusting the aggregate and the components independently (direct adjustment). The point is that these two strategies result in different seasonally adjusted aggregates. As neither theoretical nor empirical evidence uniformly favours one approach over the other, the choice of the seasonal adjustment strategy concerning aggregated series depends on the user. Guidance in this field is given in the Eurostat guidelines on seasonal adjustment @guidelines2015.
 
 
 ### In GUI v2

@@ -22,9 +22,9 @@ Regressors are corrected for deterministic seasonality through a long-term mean 
 
 How to generate other types of regressors is described [here](#a-out-reg-ext) and how to plug them into reg-arima models is detailed [here](#sa-pre-t)
 
-## Tools Map
+<!-- ## Tools Map -->
 
-up coming content
+<!-- up coming content -->
 
 ## Rationale for Calendar correction
 

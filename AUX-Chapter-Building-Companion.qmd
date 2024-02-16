@@ -1,5 +1,86 @@
 # Doc building companion
 
+## Now page 
+
+Message: 
+- a stage at which ton of low hanging fruit (can be done out of bounds)
+- a ton of easy "filling-in"
+
+Types of work:
+- 
+
+## Delib P 
+
+- look at quarto rendering possibilities (cf doc, + courses)
+- aside projects + improve doc 
+
+Warning: secondary vs JD+ mastery
+
+
+## For NEXT release: end Feb ?
+
+(just before webinar)
+Urgent steps: LENS: show it at BCE for SA prod
+- how to use this book: quick start / download
+- up to date with latest dvlpts in SA realm 
+- chapter novelties v3 (incubator)
+- SA chaps
+- all prod SA related issues cleaned up 
+- R code + r packs 
+- output 
+(incidental corrections)
+
+review all this and prioritize int next steps 
+
+- all novelties are ok ? (all novelties highlighted in oecd presentation)
+- concepts around specifica
+- revision policies in R 
+- among which: all r packages (with read me and essential doc: here and linked)
+- HF is roughly ok as well (A chap only or A and M)
+- gui v3 highlights (att: presenter test gui v3 hf)
+- tables v2 vs v3
+- gui vs r 
+- tough points like mode and co 
+- specific scope for each chapter (cf below)
+- a handful of references work 
+
+### small stuff to fix (T)
+
+- link to tutos 
+- link to cros portal
+- software installation : separated chapter (app + R packs )
+- example modelling with GUI 
+- footnote dispaly in "Decomposition in unobserved components"
+
+### T specifics to battle plan 
+
+(master file in rjd3 development)
+
+
+## Next steps 
+
+Must be as specific as possible
+
+### Easy 
+
+- edit, enhance (ex; Seats chap,)
+
+- add R code esp v3
+
+### T delegate
+
+- GUI chaps images 
+- R code 
+
+### Harder
+
+- novelties: new chapter 
+- holes (cf list)
+- output chapter
+
+Features MAPs
+- R vs GUI X13
+
 ## Opportunities 
 
 Unique playing field for high level, high value, high reward 
@@ -11,7 +92,7 @@ policy:
 
 - what is displayed in GUI should be explained, even if shortly, adding links to relevant method chapter from GUI: all panels have to be described
 
--   the same does not apply to R packages as they have a documentation on their own 
+- the same does not apply to R packages as they have a documentation on their own 
 
 ### Difference with training
 
@@ -36,16 +117,12 @@ now just a clean page
 - seats : redo step by step (with help of spanish doc) and submit to karsten
 (+ alessandro from istat)
 
-
-
 ### Chapters from scratch 
 
 like stl or ssf 
 for ALGO part: paste a well known structure like X-11 and try to fill it in 
 
 ## Added value 
-
-(see overleaf fort start, but master file here)
 
 ### New technical features 
 
@@ -67,7 +144,7 @@ global feel
 ### New content 
 
 highlight what is new and tables with missing point or state (like maps)
-when "sanity check becomes "maturity check"
+when "sanity check" becomes "maturity check"
 
 #### R ecosystem fully integrated 
 
@@ -108,6 +185,10 @@ Add a maturity, test check
 
 ### Resources 
 
+- my OECD beamer 
+
+- JD+ technical doc
+
 - slides JP march and june 
 
 - notes (ISI)
@@ -123,7 +204,7 @@ Add a maturity, test check
 
 ### R
 
-- v3 R code in may places (algo part)
+- v3 R code in many places (algo part)
 
 
 ## Methodo holes to fill in 
@@ -138,53 +219,11 @@ Add a maturity, test check
 
 -  mode
 
-## Next steps 
 
-In this phase 
-
-### Taf 1 : Filling Holes
-
-Here 
-
-- novelties
-- holes (cf list)
-
-Features MAPs
-- R vs GUI X13
-
-
-### Taf 2 : Writing, Building
-
-on (mostly) known ground 
-
-### Taf 3: editing
-
-### For Dec 4th in Bxls 
-
-See done for check discussion (might not be fully implemented in doc)
-
-#### R vs GUI 
-- R vs GUI X13
-- ....
-
-#### Frequencies 
+### Frequencies 
 
 
 Discussion on modelling features in gui + single vs multiple  
-
-
-### For Dec 8th release
-
-- all novelties are ok ? (all novelties highlighted in oecd presentation)
-- revision policies in R 
-- among which: all r packages (with read me and essential doc: here and linked)
-- HF is roughly ok as well (A chap only or A and M)
-- gui v3 highlights (att: presenter test gui v3 hf)
-- tables v2 vs v3
-- gui vs r 
-- tough points like mode and co 
-- specific scope for each chapter (cf below)
-- a handful of references work 
 
 
 ## Overlapping Issues 
@@ -207,20 +246,24 @@ Above chapter level
 
 - ref to add
 
-### Package fisrt time in a chapter 
+### Package first time in a chapter 
 
 when mentioned the first time: some additional links 
 
-cf RJDemetrai in A-X11
+cf RJDemetra in A-X11
 
 add references to prints ?
 
+### Output Appendix
 
+names 
+- GUI display 
+- GUI output 
+- Cruncher output 
+- Name R 
+- Defintion (top Meth GRID, should be mastered)
 
-- 
-
-
-
+att: if possible suggest harmos or simplifications 
 
 ### Tables development 
 
@@ -308,6 +351,8 @@ when describing parameters
 
 ### In A-sa-pre-treatment
 
+#### Clalendar (links)
+
 #### ramps
 
 test: several
@@ -364,7 +409,7 @@ remarks:
 
 frequency 41 et 41 survival of 1/60 discrete step in X12 (cf sokup findley)
 
-### To do
+#### To do
 
 On theory part:
 
@@ -471,7 +516,7 @@ add - List of exportable series (tramo / x13 with names)
 
 -   include details in rjdemetra3 (when ready)
 
-#### PERIMETERS
+#### Perimeter definition
 
 X11+
 

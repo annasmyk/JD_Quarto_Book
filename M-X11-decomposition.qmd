@@ -9,8 +9,6 @@ In the following chapter, explanations and examples are based on monthly and qua
 In recent years, X11 implementation in JDemetra+ v 3.x has been extended to infra-monthly data (weekly, daily, hourly...). Handling this kind of data gave way to a tailored X11 algorithm whose peculiarities are described in [this chapter](#m-sa-hf).
 
 
-
-
 ## In this chapter {#m-X11-intro}
 
 This chapter provides details on 
@@ -22,7 +20,7 @@ This chapter provides details on
 
 The practical implementation as well as all the options, using the graphical user interface or R packages are described in [this chapter](#sa-X11)
 
-ref to add: the X11 method
+<!-- ref to add: the X11 method -->
 
 ## Moving averages in X11 {#m-X11-ma}
 
