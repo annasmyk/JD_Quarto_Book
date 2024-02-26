@@ -15,7 +15,7 @@ book:
   repo-actions: [edit,issue]
   site-url: https://jdemetra-new-documentation.netlify.app/
   repo-url: https://github.com/annasmyk/JD_Quarto_Book
-  repo-branch: MAIN
+  repo-branch: main
   # cover-image: resources/logo-utilitr.png
   # favicon: resources/logo-utilitr.png
   
