@@ -1,0 +1,60 @@
+# BBK {.unnumbered #bbk-plugins}
+
+## ConCur
+(idea do this in a package for refresh in R: simpler ?)
+additional remarks on concur use
+(see if something neeeds to be added to BBK doc)
+
+the point is to do controlled current:
+    - by default previously stored factors are kept
+    - confronted with update (= control): concurrent or last outliers 
+    
+SEE daniel: review heuristics for updating
+
+concurrent (= real concurrent or any refresh of factors)= blue ?
+
+current= what was saved last (can date back to the last annual campaign, or the last infra-monthly review)
+### Procedure 
+- current factors have to be saved to ws 
+    - calendar 
+    - seasonal (save and displayed are D10, not final S), test SO effect 
+
+- refresh data : ex last out or concurrent 
+blue = new 
+red= old 
+
+- tweak your refreshed spec 
+
+- two solutions 
+    - keep new (save to ws)
+    - or keep old if un touched  (what if I crunch, i'll get the new: YES, JD+ normal
+    I will have to use the excel adpater (cf belon) to compute SA with current seasonal factors
+    
+    
+
+### Display 
+
+CHARTS
+in charts SA = SA + C 
+only SA = only S without C
+
+SI ratio
+- points et croix ?
+
+CCA ??
+
+Table
+- factors are always (!) multiplied by 100 if modele mult
+
+## Excel adapter 
+
+for ConCur ?
+compile
+compute : SA
+
+## Spec Parser 
+
+obj take an x13 census spec and import to JD+
+
+in X13 world: 3 files series, spec, mta (equivalent of multi processing if you want to launch several series at the same time)
+

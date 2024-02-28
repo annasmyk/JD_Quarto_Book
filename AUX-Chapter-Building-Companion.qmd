@@ -27,7 +27,7 @@ Urgent steps: LENS: show it at BCE for SA prod
 - SA chaps
 - all prod SA related issues cleaned up 
 - R code + r packs 
-- output 
+- output : URGENT end KEY
 (incidental corrections)
 
 review all this and prioritize int next steps 
@@ -218,6 +218,8 @@ Add a maturity, test check
 (to be checked: I=D8 or I = D13 ?) (D8 doesn't contain pre-treatment effects and D13 does)
 
 -  mode
+
+- X11 output detail: in meth part..ok ?
 
 
 ### Frequencies 
