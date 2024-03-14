@@ -126,32 +126,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">JDemetra+ documentation</a> 
-        <div class="sidebar-tools-main">
-    <a href="https://github.com/annasmyk/JD_Quarto_Book" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
-    <div class="dropdown">
-      <a href="" title="Share" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Share"><i class="bi bi-share"></i></a>
-      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
-          <li>
-            <a class="dropdown-item sidebar-tools-main-item" href="https://www.facebook.com/sharer/sharer.php?u=|url|">
-              <i class="bi bi-bi-facebook pe-1"></i>
-            Facebook
-            </a>
-          </li>
-          <li>
-            <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=|url|">
-              <i class="bi bi-bi-twitter pe-1"></i>
-            Twitter
-            </a>
-          </li>
-          <li>
-            <a class="dropdown-item sidebar-tools-main-item" href="https://www.linkedin.com/sharing/share-offsite/?url=|url|">
-              <i class="bi bi-bi-linkedin pe-1"></i>
-            LinkedIn
-            </a>
-          </li>
-      </ul>
-    </div>
-</div>
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -278,11 +252,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="sidebar-item-container"> 
             <a href="./P_Tools.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Tools</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./T-GUI-Overview.html" class="sidebar-item-text sidebar-link">
@@ -337,11 +311,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="sidebar-item-container"> 
             <a href="./P_Methods.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Methods</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./M-spectral-analysis.html" class="sidebar-item-text sidebar-link">
@@ -398,12 +372,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
       </ul>
   </li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./references.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">References</span></a>
-  </div>
-</li>
     </ul>
     </div>
 </nav>
@@ -415,6 +383,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#in-this-chapter" id="toc-in-this-chapter" class="nav-link active" data-scroll-target="#in-this-chapter">In this Chapter</a></li>
+  <li><a href="#tools-map" id="toc-tools-map" class="nav-link" data-scroll-target="#tools-map">Tools Map</a></li>
   <li><a href="#rationale-for-calendar-correction" id="toc-rationale-for-calendar-correction" class="nav-link" data-scroll-target="#rationale-for-calendar-correction">Rationale for Calendar correction</a></li>
   <li><a href="#modelling-calendar-effects" id="toc-modelling-calendar-effects" class="nav-link" data-scroll-target="#modelling-calendar-effects">Modelling calendar effects</a>
   <ul class="collapse">
@@ -433,7 +402,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </ul></li>
   <li><a href="#test-for-residual-calendar-effects" id="toc-test-for-residual-calendar-effects" class="nav-link" data-scroll-target="#test-for-residual-calendar-effects">Test for Residual Calendar effects</a></li>
   </ul>
-<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/annasmyk/JD_Quarto_Book/edit/MAIN/A-calendar-correction.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/annasmyk/JD_Quarto_Book/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -473,8 +442,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>step 3: these regressors have to be plugged-in in pre-adjustment phase of a seasonal adjustment estimation. How to do this is detailed in chapters on <a href="A-sa-pre-treatment.html">pre-treatment</a> and <a href="A-sa-hf.html">SA of High-Frenquency data</a>.</li>
 </ul>
 <p>How to generate other types of regressors is described <a href="A-outlier-detection.html">here</a> and how to plug them into reg-arima models is detailed <a href="A-sa-pre-treatment.html">here</a></p>
-<!-- ## Tools Map -->
-<!-- up coming content -->
+</section>
+<section id="tools-map" class="level2">
+<h2 class="anchored" data-anchor-id="tools-map">Tools Map</h2>
+<p>up coming content</p>
 </section>
 <section id="rationale-for-calendar-correction" class="level2">
 <h2 class="anchored" data-anchor-id="rationale-for-calendar-correction">Rationale for Calendar correction</h2>
@@ -580,8 +551,8 @@ C_{ti}=D_{ti}-\bar{D_{i, J}^y}-\frac{w_i}{w_K}(D_{tK}- \bar{D_{K, J}^y})
 </ul>
 <section id="in-gui" class="level3">
 <h3 class="anchored" data-anchor-id="in-gui">In GUI</h3>
-<section id="usr-def-cal" class="level4">
-<h4 class="anchored" data-anchor-id="usr-def-cal">Creating calendars</h4>
+<section id="creating-calendars" class="level4">
+<h4 class="anchored" data-anchor-id="creating-calendars">Creating calendars</h4>
 <p>The customized calendar can be directly linked to the calendar correction option in GUI while specifying a seasonal adjustment process. See chapters on <a href="A-sa.qmd">SA</a> or <a href="./A-sa-hf.html">SA of HF data</a>.</p>
 <section id="default-calendar" class="level5">
 <h5 class="anchored" data-anchor-id="default-calendar">Default Calendar</h5>
@@ -643,9 +614,10 @@ C_{ti}=D_{ti}-\bar{D_{i, J}^y}-\frac{w_i}{w_K}(D_{tK}- \bar{D_{K, J}^y})
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/UG_CAL_image12.jpg" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption"><strong>Edit a calendar window</strong></figcaption>
+<figcaption class="figure-caption">Text</figcaption>
 </figure>
 </div>
+<p><strong>Edit a calendar window</strong></p>
 <ul>
 <li><p>To add a holiday unfold the <strong>+</strong> menu</p></li>
 <li><p>To remove a holiday click on it and choose the <strong>-</strong> button</p></li>
@@ -653,9 +625,10 @@ C_{ti}=D_{ti}-\bar{D_{i, J}^y}-\frac{w_i}{w_K}(D_{tK}- \bar{D_{K, J}^y})
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/UG_CAL_image13.jpg" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption"><strong>Removing a holiday from the calendar</strong></figcaption>
+<figcaption class="figure-caption">Text</figcaption>
 </figure>
 </div>
+<p><strong>Removing a holiday from the calendar</strong></p>
 <section id="creating-a-new-calendar" class="level5">
 <h5 class="anchored" data-anchor-id="creating-a-new-calendar">Creating a new calendar</h5>
 <p>An appropriate calendar, containing the required national holidays, needs to be created to adjust a series for country-specific calendar effects.</p>
@@ -718,12 +691,7 @@ C_{ti}=D_{ti}-\bar{D_{i, J}^y}-\frac{w_i}{w_K}(D_{tK}- \bar{D_{K, J}^y})
 </figure>
 </div>
 <p>To add a holiday from this list to the national calendar, choose the <em>Special day</em> item from the <em>Special days</em> list.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="All_images/UG_CAL_image18.jpg" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption"><strong>Adding a pre-defined holiday to the calendar</strong></figcaption>
-</figure>
-</div>
+<p><img src="All_images/UG_CAL_image18.jpg" class="img-fluid" alt="Text"> <strong>Adding a pre-defined holiday to the calendar</strong></p>
 <p>By default, when the <em>Special Days</em> option is selected, JDemetra+ always adds <em>Christmas</em> to the list of selected holidays. The user can change this initial choice by specifying the settings in the panel on the right and clicking <em>OK</em>. The settings that can be changed include:</p>
 <ul>
 <li><p><strong>Start</strong>: starting date for the holiday (expecting <em>yyyy-mm-dd</em>) Default is the starting date of the calendar (empty cell).</p></li>
@@ -731,12 +699,7 @@ C_{ti}=D_{ti}-\bar{D_{i, J}^y}-\frac{w_i}{w_K}(D_{tK}- \bar{D_{K, J}^y})
 <li><p><strong>Weight</strong> : specifies the impact of the holiday on the series. The default weight is 1 (full weight) assuming that the influence of the holiday is the same as a regular Sunday. If less the a value between 0 and 1 can be assigned.</p></li>
 <li><p><strong>Day event</strong>: a list of pre-defined holidays (link to table)</p></li>
 <li><p><strong>Offset</strong>: allows to set a holiday as related to a pre-specified holiday by specifying the distance in days (e.g Easter Sunday). Default offset is 1. It can be positive or negative. Positive offset: defines a holiday following the pre-specified holiday. Negative offset: defines a holiday preceding the selected pre-specified.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="All_images/UG_CAL_image19.jpg" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption"><strong>Choosing a pre-defined holiday from the list</strong></figcaption>
-</figure>
-</div></li>
+<p><img src="All_images/UG_CAL_image19.jpg" class="img-fluid" alt="Text"> <strong>Choosing a pre-defined holiday from the list</strong></p></li>
 <li><p>To define a fixed holiday not included in the list of pre-defined holidays:</p>
 <ul>
 <li>choose <em>Fixed</em> from the <em>Special days</em> list: by default January, 1 is displayed. Specify the settings:</li>
@@ -750,9 +713,10 @@ C_{ti}=D_{ti}-\bar{D_{i, J}^y}-\frac{w_i}{w_K}(D_{tK}- \bar{D_{K, J}^y})
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/UG_CAL_image20.jpg" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption"><strong>Options for a fixed holiday</strong></figcaption>
+<figcaption class="figure-caption">Text</figcaption>
 </figure>
 </div>
+<p><strong>Options for a fixed holiday</strong></p>
 <ul>
 <li><p>Add <em>Corpus Christi</em>: example of an Easter related holiday not included in the special day list(link to table). It is is a moving holiday celebrated 60 days after Easter</p>
 <ul>
@@ -876,29 +840,33 @@ C_{ti}=D_{ti}-\bar{D_{i, J}^y}-\frac{w_i}{w_K}(D_{tK}- \bar{D_{K, J}^y})
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/UG_CAL_image8.jpg" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption"><strong>Importing a calendar to JDemetra+</strong></figcaption>
+<figcaption class="figure-caption">Text</figcaption>
 </figure>
 </div>
+<p><strong>Importing a calendar to JDemetra+</strong></p>
 <ul>
 <li>choose the appropriate file and open it</li>
 </ul>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/UG_CAL_image10.jpg" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption"><strong>Choosing the file</strong></figcaption>
+<figcaption class="figure-caption">Text</figcaption>
 </figure>
 </div>
+<p><strong>Choosing the file</strong></p>
 <p>JDemetra+ adds it to the calendars list</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/UG_CAL_image11.jpg" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption"><strong>A list of calendars with a newly imported calendar</strong></figcaption>
+<figcaption class="figure-caption">Text</figcaption>
 </figure>
 </div>
+<p><strong>A list of calendars with a newly imported calendar</strong></p>
 </section>
 <section id="example-of-a-calendar-file" class="level5">
 <h5 class="anchored" data-anchor-id="example-of-a-calendar-file">Example of a calendar file</h5>
-<p><img src="All_images/UG_CAL_image9.jpg" class="img-fluid" alt="Example of an XML file containing a calendar"> #### Generating regressors</p>
+<p>example of a html file containing a calendar</p>
+<p><img src="All_images/UG_CAL_image9.jpg" class="img-fluid" alt="Text"> #### Generating regressors</p>
 </section>
 <section id="type-of-days" class="level5">
 <h5 class="anchored" data-anchor-id="type-of-days">Type of days</h5>
@@ -927,8 +895,8 @@ C_{ti}=D_{ti}-\bar{D_{i, J}^y}-\frac{w_i}{w_K}(D_{tK}- \bar{D_{K, J}^y})
 <li><p>use built in regressors (“working days” or “trading days”) not taking into account national holidays</p></li>
 <li><p>import user defined calendar regressors</p></li>
 </ul>
-<section id="creating-calendars" class="level4">
-<h4 class="anchored" data-anchor-id="creating-calendars">Creating calendars</h4>
+<section id="creating-calendars-1" class="level4">
+<h4 class="anchored" data-anchor-id="creating-calendars-1">Creating calendars</h4>
 <section id="national-calendar-1" class="level5">
 <h5 class="anchored" data-anchor-id="national-calendar-1">National Calendar</h5>
 <p>Creating a national calendar with rjd3toolkit.</p>
@@ -1422,15 +1390,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
-<footer class="footer">
-  <div class="nav-footer">
-    <div class="nav-footer-left">This book was built with <a href="https://quarto.org/">Quarto</a>.</div>   
-    <div class="nav-footer-center">
-      &nbsp;
-    </div>
-    <div class="nav-footer-right"></div>
-  </div>
-</footer>
 
 
 

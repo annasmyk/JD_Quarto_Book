@@ -126,32 +126,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">JDemetra+ documentation</a> 
-        <div class="sidebar-tools-main">
-    <a href="https://github.com/annasmyk/JD_Quarto_Book" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
-    <div class="dropdown">
-      <a href="" title="Share" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Share"><i class="bi bi-share"></i></a>
-      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
-          <li>
-            <a class="dropdown-item sidebar-tools-main-item" href="https://www.facebook.com/sharer/sharer.php?u=|url|">
-              <i class="bi bi-bi-facebook pe-1"></i>
-            Facebook
-            </a>
-          </li>
-          <li>
-            <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=|url|">
-              <i class="bi bi-bi-twitter pe-1"></i>
-            Twitter
-            </a>
-          </li>
-          <li>
-            <a class="dropdown-item sidebar-tools-main-item" href="https://www.linkedin.com/sharing/share-offsite/?url=|url|">
-              <i class="bi bi-bi-linkedin pe-1"></i>
-            LinkedIn
-            </a>
-          </li>
-      </ul>
-    </div>
-</div>
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -278,11 +252,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="sidebar-item-container"> 
             <a href="./P_Tools.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Tools</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./T-GUI-Overview.html" class="sidebar-item-text sidebar-link">
@@ -337,11 +311,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="sidebar-item-container"> 
             <a href="./P_Methods.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Methods</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./M-spectral-analysis.html" class="sidebar-item-text sidebar-link">
@@ -398,12 +372,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
       </ul>
   </li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./references.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">References</span></a>
-  </div>
-</li>
     </ul>
     </div>
 </nav>
@@ -415,6 +383,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#in-this-chapter" id="toc-in-this-chapter" class="nav-link active" data-scroll-target="#in-this-chapter">In this chapter</a></li>
+  <li><a href="#tools-map" id="toc-tools-map" class="nav-link" data-scroll-target="#tools-map">Tools Map</a>
+  <ul class="collapse">
+  <li><a href="#external-regressors-using-r-packages-vs-gui" id="toc-external-regressors-using-r-packages-vs-gui" class="nav-link" data-scroll-target="#external-regressors-using-r-packages-vs-gui">External regressors using R packages vs GUI</a></li>
+  <li><a href="#outlier-detection-using-r-packages-vs-gui" id="toc-outlier-detection-using-r-packages-vs-gui" class="nav-link" data-scroll-target="#outlier-detection-using-r-packages-vs-gui">Outlier detection using R packages vs GUI</a></li>
+  </ul></li>
   <li><a href="#generating-external-regressors" id="toc-generating-external-regressors" class="nav-link" data-scroll-target="#generating-external-regressors">Generating external regressors</a>
   <ul class="collapse">
   <li><a href="#outliers" id="toc-outliers" class="nav-link" data-scroll-target="#outliers">Outliers</a></li>
@@ -430,7 +403,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#with-structural-models-bsm" id="toc-with-structural-models-bsm" class="nav-link" data-scroll-target="#with-structural-models-bsm">With structural models (BSM)</a></li>
   </ul></li>
   </ul>
-<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/annasmyk/JD_Quarto_Book/edit/MAIN/A-outlier-detection.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/annasmyk/JD_Quarto_Book/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -462,11 +435,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>These routines can be used stand alone or as part of a seasonal adjustment process. They can be accessed via the <a href="T-GUI-Overview.html">Graphical User Interface (GUI)</a> or [R packages]((#t-r-packs).</p>
 <p>How to use the generated regressors, or any user-defined variable, in a seasonal adjustment or reg-arima modelling process is discussed in the <a href="A-sa-pre-treatment.html">pre-treatment</a> chapter for classic SA and <a href="A-sa-hf.html">SA of High-frequency</a> chapter for infra-monthly data. There you will also find out how to fix the corresponding coefficients and how to allocate the effects to the selected component.</p>
 <p>The external regressors described exclude calendar correction which is detailed <a href="A-calendar-correction.html">here</a></p>
-<!-- ## Tools Map -->
-<!-- ### External regressors using R packages vs GUI -->
-<!-- up coming content -->
-<!-- ### Outlier detection using R packages vs GUI -->
-<!-- up coming content -->
+</section>
+<section id="tools-map" class="level2">
+<h2 class="anchored" data-anchor-id="tools-map">Tools Map</h2>
+<section id="external-regressors-using-r-packages-vs-gui" class="level3">
+<h3 class="anchored" data-anchor-id="external-regressors-using-r-packages-vs-gui">External regressors using R packages vs GUI</h3>
+<p>up coming content</p>
+</section>
+<section id="outlier-detection-using-r-packages-vs-gui" class="level3">
+<h3 class="anchored" data-anchor-id="outlier-detection-using-r-packages-vs-gui">Outlier detection using R packages vs GUI</h3>
+<p>up coming content</p>
+</section>
 </section>
 <section id="generating-external-regressors" class="level2">
 <h2 class="anchored" data-anchor-id="generating-external-regressors">Generating external regressors</h2>
@@ -986,15 +965,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
-<footer class="footer">
-  <div class="nav-footer">
-    <div class="nav-footer-left">This book was built with <a href="https://quarto.org/">Quarto</a>.</div>   
-    <div class="nav-footer-center">
-      &nbsp;
-    </div>
-    <div class="nav-footer-right"></div>
-  </div>
-</footer>
 
 
 
