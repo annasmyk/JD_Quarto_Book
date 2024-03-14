@@ -46,7 +46,7 @@ Key methodological explanations and state-of-the-art description and references 
 
 ![](All_images/jdemetra+.png)
 
-## {{< iconify fa github >}} How to contribute 
+## How to contribute 
 
 If you want to help us improve this book, you can [fork this repository on GitHub](https://github.com/annasmyk/JD_Quarto_Book) and create pull requests with your contributions.
 
