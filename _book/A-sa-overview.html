@@ -92,6 +92,32 @@ ul.task-list li input[type="checkbox"] {
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">JDemetra+ documentation</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/annasmyk/JD_Quarto_Book" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <div class="dropdown">
+      <a href="" title="Share" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Share"><i class="bi bi-share"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://www.facebook.com/sharer/sharer.php?u=|url|">
+              <i class="bi bi-bi-facebook pe-1"></i>
+            Facebook
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=|url|">
+              <i class="bi bi-bi-twitter pe-1"></i>
+            Twitter
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://www.linkedin.com/sharing/share-offsite/?url=|url|">
+              <i class="bi bi-bi-linkedin pe-1"></i>
+            LinkedIn
+            </a>
+          </li>
+      </ul>
+    </div>
+</div>
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -218,11 +244,11 @@ ul.task-list li input[type="checkbox"] {
       <div class="sidebar-item-container"> 
             <a href="./P_Tools.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Tools</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./T-GUI-Overview.html" class="sidebar-item-text sidebar-link">
@@ -277,11 +303,11 @@ ul.task-list li input[type="checkbox"] {
       <div class="sidebar-item-container"> 
             <a href="./P_Methods.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Methods</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./M-spectral-analysis.html" class="sidebar-item-text sidebar-link">
@@ -338,6 +364,12 @@ ul.task-list li input[type="checkbox"] {
 </li>
       </ul>
   </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
     </ul>
     </div>
 </nav>
@@ -358,13 +390,9 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#in-r" id="toc-in-r" class="nav-link" data-scroll-target="#in-r">In R</a></li>
   <li><a href="#in-gui" id="toc-in-gui" class="nav-link" data-scroll-target="#in-gui">In GUI</a></li>
   </ul></li>
-  <li><a href="#direct-indirect-seasonal-adjustment" id="toc-direct-indirect-seasonal-adjustment" class="nav-link" data-scroll-target="#direct-indirect-seasonal-adjustment">Direct-Indirect seasonal adjustment</a>
-  <ul class="collapse">
-  <li><a href="#gui" id="toc-gui" class="nav-link" data-scroll-target="#gui">GUI</a></li>
-  <li><a href="#r" id="toc-r" class="nav-link" data-scroll-target="#r">R</a></li>
-  </ul></li>
+  <li><a href="#direct-or-indirect-seasonal-adjustment" id="toc-direct-or-indirect-seasonal-adjustment" class="nav-link" data-scroll-target="#direct-or-indirect-seasonal-adjustment">Direct or Indirect seasonal adjustment</a></li>
   </ul>
-</nav>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/annasmyk/JD_Quarto_Book/edit/main/A-sa-overview.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/annasmyk/JD_Quarto_Book/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -389,97 +417,60 @@ ul.task-list li input[type="checkbox"] {
 <p>The goal of seasonal adjustment is to remove seasonal fluctuations from a time series. Seasonal fluctuations are quasi-periodic infra-annual movements. They can mask evolutions of greater interest for the user such as short term evolution or long time trends.</p>
 <section id="in-this-chapter" class="level2">
 <h2 class="anchored" data-anchor-id="in-this-chapter">In this chapter</h2>
-<p>This chapter is a first of a series focusing on the practical step by step use of JDemetra+ Seasonal Adjustment (SA) algorithms, restricted to monthly and quarterly series. For infra-monthly data see the <a href="A-sa-hf.html">following chapter</a>.</p>
-<p>In the section below an overview of the seasonal adjustment process is provided. The most widely used SA algorithms have two steps: a pre-treatment to remove (temporarily) deterministic effects and decompositions allowing to estimate the seasonal factors to be removed from the serie.</p>
+<p>This chapter is a first of a series focusing on the practical step by step use of JDemetra+ Seasonal Adjustment (SA) algorithms, restricted to monthly and quarterly series. For infra-monthly data see the <a href="A-sa-hf.html">following chapter</a>. In the sections below an overview of the seasonal adjustment process is provided. The most widely used SA algorithms (Tramo-Seats and X13-Arima) have two steps: a pre-treatment to remove (temporarily) deterministic effects and a decomposition phase to estimate the seasonal factors.</p>
 <p>The following chapters get into the specifics of each algorithm.</p>
 <ul>
 <li><a href="A-sa-pre-treatment.html">SA: pre-treatment</a></li>
 <li><a href="a-sa-X11">SA: X11 decomposition</a></li>
 <li><a href="A-sa-seats-decomposition.html">SA: Seats-decomposition</a></li>
 <li><a href="A-sa-stl-decomposition.html">SA: STL decomposition</a></li>
+<li><a href="A-sa-bsm.html">SA with Basic Structural Models (BSM)</a></li>
 <li><a href="A-sa-hf.html">SA of High-Frequency Data</a></li>
-<li><a href="A-sa-bsm.html">SA with Basic Stuctural Models (BSM)</a></li>
 </ul>
 <p>The use of <a href="T-graphical-user-interface.qmd">graphical user interface</a> and <a href="./T-r-packages.html">R packages</a> is described simultaneously whenever relevant.</p>
-<p>In-depth methodological explanations of the algorithms are covered in separated chapters, in the <a href="./P_Methods.html">Methods</a> part.</p>
+<p>In-depth methodological explanations of the algorithms are covered in separated chapters, in the <a href="./P_Methods.html">Methods</a> part of this book.</p>
 <p>More information on the steps and best practices of a seasonal adjustment process can be found in the <a href="https://ec.europa.eu/eurostat/documents/3859598/6830795/KS-GQ-15-001-EN-N.pdf">Eurostat guidelines on seasonal adjustment</a></p>
-<p>For an overview on the algorithms and methodological issues, please refer to the <a href="https://ec.europa.eu/eurostat/documents/3859598/8939616/KS-GQ-18-001-EN-N.pdf">Handbook on Seasonal Adjustment</a></p>
+<p>For an overview on the algorithms and methodological issues, the user can refer to the <a href="https://ec.europa.eu/eurostat/documents/3859598/8939616/KS-GQ-18-001-EN-N.pdf">Handbook on Seasonal Adjustment</a></p>
 </section>
 <section id="sa-process-description" class="level2">
 <h2 class="anchored" data-anchor-id="sa-process-description">SA process description</h2>
-<p>Upcoming content</p>
+<p>When setting up the process:</p>
+<ul>
+<li><p>seasonality tests (can also be done in the frame of quality assessment at the end)</p></li>
+<li><p>trading days correction set up if relevant</p>
+<ul>
+<li><a href="A-calendar-correction.html">regressors generation</a></li>
+<li>regressors selection</li>
+</ul></li>
+<li><p>estimation with selected algorithm (see section below), might be <a href="T-Production-tools-cruncher-QR.html">automated with the cruncher</a></p></li>
+<li><p><a href="T-Production-tools-cruncher-QR.html">quality report</a></p></li>
+<li><p>selective editing and manual fine tuning of parameters, re-estimation if needed</p></li>
+<li><p>updating when new data available with tailored <a href="T-rev-policies-production.html">revision policy</a></p></li>
+</ul>
 </section>
 <section id="seasonal-adjustment-algorithms" class="level2">
 <h2 class="anchored" data-anchor-id="seasonal-adjustment-algorithms">Seasonal Adjustment Algorithms</h2>
-<table class="table">
-<colgroup>
-<col style="width: 32%">
-<col style="width: 20%">
-<col style="width: 24%">
-<col style="width: 21%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Algorithm</th>
-<th>Access in GUI</th>
-<th>Access in R (v2)</th>
-<th>Access in R v3</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>X-13 Arima</td>
-<td>✔️</td>
-<td>RJDemetra</td>
-<td>rjd3x13</td>
-</tr>
-<tr class="even">
-<td>Reg-Arima only</td>
-<td>✔️</td>
-<td>RJDemetra</td>
-<td>rjd3x13</td>
-</tr>
-<tr class="odd">
-<td>X11 decomposition only</td>
-<td>✔️</td>
-<td>RJDemetra</td>
-<td>rjd3x13</td>
-</tr>
-<tr class="even">
-<td>TRAMO-SEATS</td>
-<td>✔️</td>
-<td>RJDemetra</td>
-<td>rjd3tramoseats</td>
-</tr>
-<tr class="odd">
-<td>Tramo only</td>
-<td>✔️</td>
-<td>RJDemetra</td>
-<td>rjd3tramoseats</td>
-</tr>
-<tr class="even">
-<td>STL</td>
-<td>✖</td>
-<td>✖</td>
-<td>rjd3stl</td>
-</tr>
-<tr class="odd">
-<td>STS</td>
-<td>✖</td>
-<td>✖</td>
-<td>rjd3sts</td>
-</tr>
-</tbody>
-</table>
-<p>X13-ARIMA and TRAMO-SEATS are two-step algorithms with a pre-treatment phase (Reg-Arima or Tramo) and a decomposition phase (X11 and Seats). STL is a local regression (Loess) based decomposition, without pre-treatment. In a <a href="A-sa-bsm.html">Structural Time Series</a> approach pre-treatment and decomposition are done simultaneously in a State Space Framework.</p>
+<!-- Extensions for high frequency data tackled in frequency part  -->
+<p><img src="All_images/SA_Algos.png" class="img-fluid"></p>
+<p>Two categories of algorithms :</p>
+<ul>
+<li><p>historical core (main): X-13-Arima and Tramo-Seats <a href="G-news-v3-vs-v2.html#v3-vs-v2-sa">improved in version 3</a></p></li>
+<li><p>version 3 additional algorithms (incubator)</p></li>
+</ul>
+<p>X13-ARIMA and TRAMO-SEATS are two-step algorithms with a pre-treatment phase (Reg-Arima or Tramo) and a decomposition phase (X11 and Seats).</p>
+<p>STL+ combines STL local regression based decomposition and a simplified Reg-Arima pre-treatment restricted to airline models.</p>
+<p>X12+ combines X11 (enhanced) decomposition and a simplified Reg-Arima pre-treatment restricted to airline models.</p>
+<p>Seats+ combines Seats decomposition and a simplified Reg-Arima pre-treatment restricted to airline models.</p>
+<p>In a <a href="A-sa-bsm.html">Structural Time Series</a> approach pre-treatment and decomposition are done simultaneously in a State Space Framework.</p>
 </section>
 <section id="admissible-data-frequencies" class="level2">
 <h2 class="anchored" data-anchor-id="admissible-data-frequencies">Admissible data frequencies</h2>
-<p>Up coming content</p>
+<p>For low frequency data - in version 3.x <span class="math inline">\(p\)</span> in <span class="math inline">\({2,3,4,6,12}\)</span> is admissible in all algorithms - in version 3.x <span class="math inline">\(p\)</span> in <span class="math inline">\({2,3,4,6,12}\)</span> is admissible in Tramo-Seats and <span class="math inline">\(p\)</span> in <span class="math inline">\({2,4,12}\)</span> is admissible in X-13.</p>
+<p>Algorithms extended for high-frequency (infra-monthly) data can be applied to “any periodicity” in their R version and to <span class="math inline">\(p\)</span> in <span class="math inline">\({7, 52.18, 365.25}\)</span> in the graphical user interface, see <a href="A-sa-hf.html">here</a> for more details.</p>
 </section>
 <section id="decomposition-in-unobserved-components" class="level2">
 <h2 class="anchored" data-anchor-id="decomposition-in-unobserved-components">Decomposition in unobserved components</h2>
-<p>To seasonally adjust a series, seasonal factors <span class="math inline">\(S_{t}\)</span> will be estimated and removed from the original raw series: <span class="math inline">\(Y_{sa}=Y_{t}/S_{t}\)</span> or <span class="math inline">\(Y_{sa}=Y_{t}-S_{t}\)</span>. To do so the series is first decomposed into unobservable components. Two decomposition models:</p>
+<p>To seasonally adjust a series, seasonal factors <span class="math inline">\(S_{t}\)</span> will be estimated and removed from the original raw series: <span class="math inline">\(Y_{sa}=Y_{t}/S_{t}\)</span> or <span class="math inline">\(Y_{sa}=Y_{t}-S_{t}\)</span>. To do so the series is first decomposed into unobservable components. Two decomposition models <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> are used in JDemetra+ :</p>
 <ul>
 <li><p>The additive model: <span class="math inline">\(X_{t} = T_{t} + S_{t} + I_{t}\)</span>;</p></li>
 <li><p>The multiplicative model: <span class="math inline">\(X_{t} = T_{t} \times S_{t} \times I_{t}\)</span>.</p></li>
@@ -511,23 +502,25 @@ ul.task-list li input[type="checkbox"] {
 <li>Periodogram Seasonality Test (<code>seasonality.periodogram()</code>)</li>
 <li>QS Seasonality Test (<code>seasonality.qs()</code>)</li>
 </ul>
+<p>Full documentation of those functions can be found <a href="https://rjdemetra.github.io/rjd3toolkit/reference/index.html">here</a></p>
 </section>
 <section id="in-gui" class="level3">
 <h3 class="anchored" data-anchor-id="in-gui">In GUI</h3>
-<p>How to generate test in GUI is described <a href="T-GUI-Data-Viz-TS-Tools.html#t-GUI-tstools-tests">here</a>.</p>
+<p>How to perform tests in the graphical user interface is described <a href="T-GUI-Data-Viz-TS-Tools.html#t-GUI-tstools-tests">here</a>.</p>
 </section>
 </section>
-<section id="direct-indirect-seasonal-adjustment" class="level2">
-<h2 class="anchored" data-anchor-id="direct-indirect-seasonal-adjustment">Direct-Indirect seasonal adjustment</h2>
-<p>Up coming content</p>
-<section id="gui" class="level3">
-<h3 class="anchored" data-anchor-id="gui">GUI</h3>
-</section>
-<section id="r" class="level3">
-<h3 class="anchored" data-anchor-id="r">R</h3>
+<section id="direct-or-indirect-seasonal-adjustment" class="level2">
+<h2 class="anchored" data-anchor-id="direct-or-indirect-seasonal-adjustment">Direct or Indirect seasonal adjustment</h2>
+<p>when seasonally adjusting series which are aggregates following a given classification, the user has to chose whether directly adjust the aggregate from its raw version or to aggregate the adjusted components.</p>
+<p>The graphical user interface in version 2.x provides a <a href="T-GUI-SA-Modelling-Features.html#direct-indirect">module</a> to compare the two options. It won’t be provided in version 3.x.</p>
 
 
 </section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>other options as the log-additive model are also available in a more specific context described <a href="A-sa-X11-decomposition.html#a-sa-X11-settings">here</a><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
 </section>
 
 </main> <!-- /main -->
@@ -777,6 +770,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">This book was built with <a href="https://quarto.org/">Quarto</a>.</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right"></div>
+  </div>
+</footer>
 
 
 

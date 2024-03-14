@@ -2,306 +2,154 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://jdemetra-new-documentation.netlify.app/index.html</loc>
-<<<<<<< HEAD
-    <lastmod>2024-02-26T13:50:02.611Z</lastmod>
+    <lastmod>2024-03-14T10:18:26.127Z</lastmod>
   </url>
   <url>
     <loc>https://jdemetra-new-documentation.netlify.app/G-how-to-use-this-book.html</loc>
-    <lastmod>2024-02-26T13:51:02.886Z</lastmod>
+    <lastmod>2024-03-14T10:19:45.097Z</lastmod>
   </url>
   <url>
     <loc>https://jdemetra-new-documentation.netlify.app/G-news-v3-vs-v2.html</loc>
-    <lastmod>2024-02-26T13:50:02.644Z</lastmod>
+    <lastmod>2024-03-14T10:18:26.170Z</lastmod>
   </url>
   <url>
     <loc>https://jdemetra-new-documentation.netlify.app/P_Algorithms.html</loc>
-    <lastmod>2024-02-26T13:50:02.659Z</lastmod>
+    <lastmod>2024-03-14T10:18:26.170Z</lastmod>
   </url>
   <url>
     <loc>https://jdemetra-new-documentation.netlify.app/A-RegArima-Tramo-Modelling-Overview.html</loc>
-    <lastmod>2024-02-26T13:50:02.673Z</lastmod>
+    <lastmod>2024-03-14T10:18:26.202Z</lastmod>
   </url>
   <url>
     <loc>https://jdemetra-new-documentation.netlify.app/A-sa-overview.html</loc>
-    <lastmod>2024-02-26T13:50:02.704Z</lastmod>
+    <lastmod>2024-03-14T10:18:26.220Z</lastmod>
   </url>
   <url>
     <loc>https://jdemetra-new-documentation.netlify.app/A-sa-pre-treatment.html</loc>
-    <lastmod>2024-02-26T13:50:02.811Z</lastmod>
+    <lastmod>2024-03-14T10:18:26.297Z</lastmod>
   </url>
   <url>
     <loc>https://jdemetra-new-documentation.netlify.app/A-sa-X11-decomposition.html</loc>
-    <lastmod>2024-02-26T13:50:02.867Z</lastmod>
+    <lastmod>2024-03-14T10:18:26.352Z</lastmod>
   </url>
   <url>
     <loc>https://jdemetra-new-documentation.netlify.app/A-sa-seats-decomposition.html</loc>
-    <lastmod>2024-02-26T13:50:02.933Z</lastmod>
+    <lastmod>2024-03-14T10:18:26.407Z</lastmod>
   </url>
   <url>
     <loc>https://jdemetra-new-documentation.netlify.app/A-sa-stl-decomposition.html</loc>
-    <lastmod>2024-02-26T13:50:02.957Z</lastmod>
+    <lastmod>2024-03-14T10:18:26.407Z</lastmod>
   </url>
   <url>
     <loc>https://jdemetra-new-documentation.netlify.app/A-sa-bsm.html</loc>
-    <lastmod>2024-02-26T13:50:02.974Z</lastmod>
+    <lastmod>2024-03-14T10:18:26.428Z</lastmod>
   </url>
   <url>
     <loc>https://jdemetra-new-documentation.netlify.app/A-sa-hf.html</loc>
-    <lastmod>2024-02-26T13:50:03.023Z</lastmod>
+    <lastmod>2024-03-14T10:18:26.473Z</lastmod>
   </url>
   <url>
     <loc>https://jdemetra-new-documentation.netlify.app/A-outlier-detection.html</loc>
-    <lastmod>2024-02-26T13:50:03.073Z</lastmod>
+    <lastmod>2024-03-14T10:18:26.511Z</lastmod>
   </url>
   <url>
     <loc>https://jdemetra-new-documentation.netlify.app/A-calendar-correction.html</loc>
-    <lastmod>2024-02-26T13:50:03.134Z</lastmod>
+    <lastmod>2024-03-14T10:18:26.595Z</lastmod>
   </url>
   <url>
     <loc>https://jdemetra-new-documentation.netlify.app/A-benchmarking.html</loc>
-    <lastmod>2024-02-26T13:50:03.182Z</lastmod>
+    <lastmod>2024-03-14T10:18:26.642Z</lastmod>
   </url>
   <url>
     <loc>https://jdemetra-new-documentation.netlify.app/A-trend-cycle-estimation.html</loc>
-    <lastmod>2024-02-26T13:50:03.198Z</lastmod>
+    <lastmod>2024-03-14T10:18:26.653Z</lastmod>
   </url>
   <url>
     <loc>https://jdemetra-new-documentation.netlify.app/A-revision-analysis.html</loc>
-    <lastmod>2024-02-26T13:50:03.214Z</lastmod>
+    <lastmod>2024-03-14T10:18:26.669Z</lastmod>
   </url>
   <url>
     <loc>https://jdemetra-new-documentation.netlify.app/A-nowcasting.html</loc>
-    <lastmod>2024-02-26T13:50:03.231Z</lastmod>
+    <lastmod>2024-03-14T10:18:26.679Z</lastmod>
   </url>
   <url>
     <loc>https://jdemetra-new-documentation.netlify.app/P_Tools.html</loc>
-    <lastmod>2024-02-26T13:50:03.245Z</lastmod>
+    <lastmod>2024-03-14T10:18:26.694Z</lastmod>
   </url>
   <url>
     <loc>https://jdemetra-new-documentation.netlify.app/T-GUI-Overview.html</loc>
-    <lastmod>2024-02-26T13:50:03.393Z</lastmod>
+    <lastmod>2024-03-14T10:18:26.771Z</lastmod>
   </url>
   <url>
     <loc>https://jdemetra-new-documentation.netlify.app/T-GUI-Data-Viz-TS-Tools.html</loc>
-    <lastmod>2024-02-26T13:50:03.447Z</lastmod>
+    <lastmod>2024-03-14T10:18:26.804Z</lastmod>
   </url>
   <url>
     <loc>https://jdemetra-new-documentation.netlify.app/T-GUI-SA-Modelling-Features.html</loc>
-    <lastmod>2024-02-26T13:50:03.468Z</lastmod>
+    <lastmod>2024-03-14T10:18:26.835Z</lastmod>
   </url>
   <url>
     <loc>https://jdemetra-new-documentation.netlify.app/T-GUI-Output.html</loc>
-    <lastmod>2024-02-26T13:50:03.524Z</lastmod>
+    <lastmod>2024-03-14T10:18:26.874Z</lastmod>
   </url>
   <url>
     <loc>https://jdemetra-new-documentation.netlify.app/T-r-packages.html</loc>
-    <lastmod>2024-02-26T13:50:03.593Z</lastmod>
+    <lastmod>2024-03-14T10:18:26.930Z</lastmod>
   </url>
   <url>
     <loc>https://jdemetra-new-documentation.netlify.app/T-Production-tools-cruncher-QR.html</loc>
-    <lastmod>2024-02-26T13:50:03.656Z</lastmod>
+    <lastmod>2024-03-14T10:18:26.967Z</lastmod>
   </url>
   <url>
     <loc>https://jdemetra-new-documentation.netlify.app/T-rev-policies-production.html</loc>
-    <lastmod>2024-02-26T13:50:34.772Z</lastmod>
+    <lastmod>2024-03-14T10:18:26.975Z</lastmod>
   </url>
   <url>
     <loc>https://jdemetra-new-documentation.netlify.app/T-plug-ins.html</loc>
-    <lastmod>2024-02-26T13:50:38.699Z</lastmod>
+    <lastmod>2024-03-14T10:18:27.008Z</lastmod>
   </url>
   <url>
     <loc>https://jdemetra-new-documentation.netlify.app/P_Methods.html</loc>
-    <lastmod>2024-02-26T13:50:03.749Z</lastmod>
+    <lastmod>2024-03-14T10:18:27.008Z</lastmod>
   </url>
   <url>
     <loc>https://jdemetra-new-documentation.netlify.app/M-spectral-analysis.html</loc>
-    <lastmod>2024-02-26T13:50:03.794Z</lastmod>
+    <lastmod>2024-03-14T10:18:27.056Z</lastmod>
   </url>
   <url>
     <loc>https://jdemetra-new-documentation.netlify.app/M-reg-arima-modelling.html</loc>
-    <lastmod>2024-02-26T13:50:03.814Z</lastmod>
+    <lastmod>2024-03-14T10:18:27.072Z</lastmod>
   </url>
   <url>
     <loc>https://jdemetra-new-documentation.netlify.app/M-X11-decomposition.html</loc>
-    <lastmod>2024-02-26T13:50:03.866Z</lastmod>
+    <lastmod>2024-03-14T10:18:27.122Z</lastmod>
   </url>
   <url>
     <loc>https://jdemetra-new-documentation.netlify.app/M-SEATS-decomposition.html</loc>
-    <lastmod>2024-02-26T13:50:03.916Z</lastmod>
+    <lastmod>2024-03-14T10:18:27.177Z</lastmod>
   </url>
   <url>
     <loc>https://jdemetra-new-documentation.netlify.app/M-Trend-Estimation-Local-Polynomials.html</loc>
-    <lastmod>2024-02-26T13:50:03.952Z</lastmod>
+    <lastmod>2024-03-14T10:18:27.184Z</lastmod>
   </url>
   <url>
     <loc>https://jdemetra-new-documentation.netlify.app/M-tests.html</loc>
-    <lastmod>2024-02-26T13:50:03.985Z</lastmod>
+    <lastmod>2024-03-14T10:18:27.215Z</lastmod>
   </url>
   <url>
     <loc>https://jdemetra-new-documentation.netlify.app/M-STL-decomposition.html</loc>
-    <lastmod>2024-02-26T13:50:03.994Z</lastmod>
+    <lastmod>2024-03-14T10:18:27.229Z</lastmod>
   </url>
   <url>
     <loc>https://jdemetra-new-documentation.netlify.app/M-state-space-framework.html</loc>
-    <lastmod>2024-02-26T13:50:04.010Z</lastmod>
+    <lastmod>2024-03-14T10:18:27.229Z</lastmod>
   </url>
   <url>
     <loc>https://jdemetra-new-documentation.netlify.app/M-Temp-Disagg-Bench.html</loc>
-    <lastmod>2024-02-26T13:50:04.023Z</lastmod>
+    <lastmod>2024-03-14T10:18:27.249Z</lastmod>
   </url>
   <url>
     <loc>https://jdemetra-new-documentation.netlify.app/references.html</loc>
-    <lastmod>2024-02-26T13:50:04.056Z</lastmod>
-=======
-    <lastmod>2023-11-24T14:32:00.218Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jdemetra-new-documentation.netlify.app/G-how-to-use-this-book.html</loc>
-    <lastmod>2023-11-08T16:49:00.930Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jdemetra-new-documentation.netlify.app/G-news-v3-vs-v2.html</loc>
-    <lastmod>2023-11-08T16:49:00.934Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jdemetra-new-documentation.netlify.app/P_Algorithms.html</loc>
-    <lastmod>2023-11-08T16:49:00.939Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jdemetra-new-documentation.netlify.app/A-RegArima-Tramo-Modelling-Overview.html</loc>
-    <lastmod>2023-11-08T16:49:00.921Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jdemetra-new-documentation.netlify.app/A-sa-overview.html</loc>
-    <lastmod>2023-11-21T14:35:53.238Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jdemetra-new-documentation.netlify.app/A-sa-pre-treatment.html</loc>
-    <lastmod>2023-11-24T17:37:41.691Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jdemetra-new-documentation.netlify.app/A-sa-X11-decomposition.html</loc>
-    <lastmod>2023-11-24T17:32:30.842Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jdemetra-new-documentation.netlify.app/A-sa-seats-decomposition.html</loc>
-    <lastmod>2023-11-24T17:36:23.091Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jdemetra-new-documentation.netlify.app/A-sa-stl-decomposition.html</loc>
-    <lastmod>2023-11-21T14:35:53.252Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jdemetra-new-documentation.netlify.app/A-sa-bsm.html</loc>
-    <lastmod>2023-11-21T14:35:53.225Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jdemetra-new-documentation.netlify.app/A-sa-hf.html</loc>
-    <lastmod>2023-11-21T14:35:53.232Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jdemetra-new-documentation.netlify.app/A-outlier-detection.html</loc>
-    <lastmod>2023-11-21T14:35:53.209Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jdemetra-new-documentation.netlify.app/A-calendar-correction.html</loc>
-    <lastmod>2023-11-24T17:34:06.912Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jdemetra-new-documentation.netlify.app/A-benchmarking.html</loc>
-    <lastmod>2023-11-24T17:37:40.233Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jdemetra-new-documentation.netlify.app/A-trend-cycle-estimation.html</loc>
-    <lastmod>2023-11-21T14:35:53.258Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jdemetra-new-documentation.netlify.app/A-revision-analysis.html</loc>
-    <lastmod>2023-11-21T14:35:53.215Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jdemetra-new-documentation.netlify.app/A-nowcasting.html</loc>
-    <lastmod>2023-11-21T14:35:53.205Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jdemetra-new-documentation.netlify.app/P_Tools.html</loc>
-    <lastmod>2023-11-21T14:35:53.293Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jdemetra-new-documentation.netlify.app/T-GUI-Overview.html</loc>
-    <lastmod>2023-11-24T14:45:33.657Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jdemetra-new-documentation.netlify.app/T-GUI-Data-Viz-TS-Tools.html</loc>
-    <lastmod>2023-11-21T14:35:53.298Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jdemetra-new-documentation.netlify.app/T-GUI-SA-Modelling-Features.html</loc>
-    <lastmod>2023-11-24T18:21:19.361Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jdemetra-new-documentation.netlify.app/T-GUI-Output.html</loc>
-    <lastmod>2023-11-24T09:06:57.502Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jdemetra-new-documentation.netlify.app/T-r-packages.html</loc>
-    <lastmod>2023-11-21T14:35:53.332Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jdemetra-new-documentation.netlify.app/T-Production-tools-cruncher-QR.html</loc>
-    <lastmod>2023-11-21T14:35:53.322Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jdemetra-new-documentation.netlify.app/T-rev-policies-production.html</loc>
-    <lastmod>2023-11-21T14:35:53.340Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jdemetra-new-documentation.netlify.app/T-plug-ins.html</loc>
-    <lastmod>2023-11-21T14:35:53.327Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jdemetra-new-documentation.netlify.app/P_Methods.html</loc>
-    <lastmod>2023-11-08T16:49:00.942Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jdemetra-new-documentation.netlify.app/M-spectral-analysis.html</loc>
-    <lastmod>2023-11-07T17:14:26.954Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jdemetra-new-documentation.netlify.app/M-reg-arima-modelling.html</loc>
-    <lastmod>2023-11-07T11:03:43.172Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jdemetra-new-documentation.netlify.app/M-X11-decomposition.html</loc>
-    <lastmod>2023-11-24T17:31:30.595Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jdemetra-new-documentation.netlify.app/M-SEATS-decomposition.html</loc>
-    <lastmod>2023-11-07T16:46:14.930Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jdemetra-new-documentation.netlify.app/M-Trend-Estimation-Local-Polynomials.html</loc>
-    <lastmod>2023-11-21T14:35:53.278Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jdemetra-new-documentation.netlify.app/M-tests.html</loc>
-    <lastmod>2023-11-07T17:18:02.453Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jdemetra-new-documentation.netlify.app/M-STL-decomposition.html</loc>
-    <lastmod>2023-11-21T14:35:53.266Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jdemetra-new-documentation.netlify.app/M-state-space-framework.html</loc>
-    <lastmod>2023-11-21T14:35:53.288Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jdemetra-new-documentation.netlify.app/M-Temp-Disagg-Bench.html</loc>
-    <lastmod>2023-11-21T14:35:53.272Z</lastmod>
-  </url>
-  <url>
-    <loc>https://jdemetra-new-documentation.netlify.app/references.html</loc>
-    <lastmod>2023-11-24T17:55:38.241Z</lastmod>
->>>>>>> a5aacc84e2a3de49e9bedda0ce015558dc692a8e
+    <lastmod>2024-03-14T10:18:27.264Z</lastmod>
   </url>
 </urlset>

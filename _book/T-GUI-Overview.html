@@ -92,6 +92,32 @@ ul.task-list li input[type="checkbox"] {
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">JDemetra+ documentation</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/annasmyk/JD_Quarto_Book" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <div class="dropdown">
+      <a href="" title="Share" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Share"><i class="bi bi-share"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://www.facebook.com/sharer/sharer.php?u=|url|">
+              <i class="bi bi-bi-facebook pe-1"></i>
+            Facebook
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=|url|">
+              <i class="bi bi-bi-twitter pe-1"></i>
+            Twitter
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://www.linkedin.com/sharing/share-offsite/?url=|url|">
+              <i class="bi bi-bi-linkedin pe-1"></i>
+            LinkedIn
+            </a>
+          </li>
+      </ul>
+    </div>
+</div>
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -123,11 +149,11 @@ ul.task-list li input[type="checkbox"] {
       <div class="sidebar-item-container"> 
             <a href="./P_Algorithms.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Algorithms</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./A-RegArima-Tramo-Modelling-Overview.html" class="sidebar-item-text sidebar-link">
@@ -277,11 +303,11 @@ ul.task-list li input[type="checkbox"] {
       <div class="sidebar-item-container"> 
             <a href="./P_Methods.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Methods</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./M-spectral-analysis.html" class="sidebar-item-text sidebar-link">
@@ -338,6 +364,12 @@ ul.task-list li input[type="checkbox"] {
 </li>
       </ul>
   </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
     </ul>
     </div>
 </nav>
@@ -365,11 +397,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#behaviour-options" id="toc-behaviour-options" class="nav-link" data-scroll-target="#behaviour-options">Behaviour options</a></li>
   </ul></li>
   <li><a href="#workspace-structure" id="toc-workspace-structure" class="nav-link" data-scroll-target="#workspace-structure">Workspace Structure</a></li>
-  <li><a href="#workspace-window" id="toc-workspace-window" class="nav-link" data-scroll-target="#workspace-window">Workspace window</a>
-  <ul class="collapse">
-  <li><a href="#modelling" id="toc-modelling" class="nav-link" data-scroll-target="#modelling">Modelling</a></li>
-  <li><a href="#seasonal-adjustment" id="toc-seasonal-adjustment" class="nav-link" data-scroll-target="#seasonal-adjustment">Seasonal adjustment</a></li>
-  </ul></li>
+  <li><a href="#workspace-window" id="toc-workspace-window" class="nav-link" data-scroll-target="#workspace-window">Workspace window</a></li>
   <li><a href="#results-panel-overview" id="toc-results-panel-overview" class="nav-link" data-scroll-target="#results-panel-overview">Results Panel</a></li>
   <li><a href="#topbar-menu" id="toc-topbar-menu" class="nav-link" data-scroll-target="#topbar-menu">Top Bar Menu and options</a>
   <ul class="collapse">
@@ -391,7 +419,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#other-panels" id="toc-other-panels" class="nav-link" data-scroll-target="#other-panels">Other panels</a></li>
   </ul></li>
   </ul>
-</nav>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/annasmyk/JD_Quarto_Book/edit/main/T-GUI-Overview.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/annasmyk/JD_Quarto_Book/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -505,7 +533,9 @@ ul.task-list li input[type="checkbox"] {
 <p><img src="All_images/Jd_mainwindow.png" usemap="#image_map"> <map name="image_map"> <area alt="providers" title="Providers" href="#providers-window" coords="4,71,76,101" shape="rect"> <area alt="workspaces" title="Workspaces" href="#workspace-window" coords="86,70,167,100" shape="rect"> <area alt="result" title="Result" href="#results-panel-overview" coords="211,68,806,359" shape="rect"> <area alt="topbar" title="Topbar menu" href="#topbar-menu" coords="29,1,680,29" shape="rect"> <area alt="closing" title="Closing" href="close" coords="765,1,807,26" shape="rect"> </map></p>
 <script src="resize.js"></script>
 <script> initializeAndAdjust("image_map") </script>
-<p><span class="figure-caption"><strong>JDemetra+ default window</strong></span></p>
+<div class="image-map-caption">
+<p><strong>JDemetra+ default window</strong></p>
+</div>
 <p>By default, on the left hand side of the window two panels are visible:</p>
 <ul>
 <li>The <a href="#workspace-window"><em>Workspace</em> panel</a> stores the results generated by the software as well as settings used to create them;</li>
@@ -777,38 +807,17 @@ How to set up you text or csv file
 <h2 class="anchored" data-anchor-id="workspace-window">Workspace window</h2>
 <p>The workspace window displays the <strong>characteristics</strong> of a workspace but ALSO gives access to other peripheric routines, the results of which won’t be stored in a workspace (as data structure).</p>
 <p>You can click on the image in the area that interests you:</p>
-<p><img src="All_images/A_Ref8.png" usemap="#image_map2"> <map name="image_map2"> <area alt="modelling" title="Modelling" href="#modelling-window" coords="5,53,545,191" shape="rect"> <area alt="sa" title="Seasonnal adjustment" href="#sa-window" coords="8,197,543,350" shape="rect"> <area alt="utilities" title="Utilities" href="#usr-def-cal" coords="8,354,542,444" shape="rect"> </map></p>
+<p><img src="All_images/A_Ref8.png" usemap="#image_map2"> <map name="image_map2"> <area alt="modelling" title="Modeling" href="#modelling-window" coords="5,53,545,191" shape="rect"> <area alt="sa" title="Seasonal adjustment" href="#sa-window" coords="8,197,543,350" shape="rect"> <area alt="utilities" title="Utilities" href="A-calendar-correction.html#usr-def-cal" coords="8,354,542,444" shape="rect"> </map></p>
 <script> initializeAndAdjust("image_map2") </script>
-<p><span class="figure-caption"><strong>JDemetra+ default window</strong></span></p>
+<div class="image-map-caption">
+<p><strong>The <em>Workspace</em> window</strong></p>
+</div>
 <p>You can find:</p>
 <ul>
 <li><p><a href="T-GUI-SA-Modelling-Features.html#modelling-window">Modelling</a> (contains the default and user-defined specifications for modelling; and the output from the modelling process)</p></li>
-<li><p><a href="#sa-window">Seasonal adjustment</a> (contains the default and user-defined specifications for seasonal adjustment and the output from the seasonal adjustment process),</p></li>
-<li><p>Utilities (<a href="#usr-def-cal">calendars</a> and <a href="A-outlier-detection.html#usr-def-var">user defined variables</a>).</p></li>
+<li><p><a href="T-GUI-SA-Modelling-Features.html#sa-window">Seasonal adjustment</a> (contains the default and user-defined specifications for seasonal adjustment and the output from the seasonal adjustment process),</p></li>
+<li><p>Utilities (<a href="A-calendar-correction.html#usr-def-cal">calendars</a> and <a href="A-outlier-detection.html#usr-def-var">user defined variables</a>).</p></li>
 </ul>
-<section id="modelling" class="level3">
-<h3 class="anchored" data-anchor-id="modelling">Modelling</h3>
-<p>(I ll rewrite all this) access to RegArima or Tramo modelling routines</p>
-<p>which are the same as the ones used for the pre-treatment phase of seasonal adjustment with X13-ARIMA (Reg-Arima) and TRAMO-SEATS (Tramo) and thus described in the SA chapter.</p>
-<p>This section is divided into two parts: * <a href="../reference-manual/modelling-specifications.html">Specifications</a>, which presents parameters of the modelling procedure. * <a href="../reference-manual/output-modelling.html">Output</a>, which details a typical output produced by the modelling procedure.</p>
-<p>The specifications and output of the modelling procedure are displayed in the <a href="#workspace-window"><em>Workspace</em> window</a>.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="All_images/A_Ref_d1.jpg" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption"><strong>The <em>Workspace</em> window with the nodes for the modelling procedure marked</strong></figcaption>
-</figure>
-</div>
-</section>
-<section id="seasonal-adjustment" class="level3">
-<h3 class="anchored" data-anchor-id="seasonal-adjustment">Seasonal adjustment</h3>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="All_images/A_Ref_d2.jpg" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption"><strong>The <em>Workspace</em> window with the nodes for the seasonal adjustment procedure marked</strong></figcaption>
-</figure>
-</div>
-<p>Brief presentation and or link ?</p>
-</section>
 </section>
 <section id="results-panel-overview" class="level2">
 <h2 class="anchored" data-anchor-id="results-panel-overview">Results Panel</h2>
@@ -819,7 +828,9 @@ How to set up you text or csv file
 <p>You can click on the image in the area that interests you:</p>
 <p><img src="All_images/tool_bar_map.png" usemap="#bar-menu-map"> <map name="bar-menu-map"> <area target="" alt="file" title="File" href="#file-menus" coords="71,37,31,8" shape="rect"> <area target="" alt="statistical-methods" title="Statistical methods" href="#statistical-methods" coords="198,38,82,8" shape="rect"> <area target="" alt="view" title="View" href="#view" coords="207,8,275,40" shape="rect"> <area target="" alt="tools" title="Tools" href="#tools-menu" coords="282,9,350,38" shape="rect"> <area target="" alt="window" title="Window" href="#window-menu" coords="356,9,439,39" shape="rect"> <area target="" alt="help" title="Help" href="#help-menu" coords="445,9,518,40" shape="rect"> </map></p>
 <script> initializeAndAdjust("bar-menu-map") </script>
-<p><span class="figure-caption"><strong>The Top bar menus</strong></span></p>
+<div class="image-map-caption">
+<p><strong>The Top bar menus</strong></p>
+</div>
 <p>The majority of functionalities are available from the main application menu, which is situated at the very top of the main window. If the user moves the cursor to an entry in the main menu and clicks on the left mouse button, a drop-down menu will appear. Clicking on an entry in the drop-down menu selects the highlighted item.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -885,11 +896,49 @@ How to set up you text or csv file
 <ul>
 <li><a href="#seasonal-adjustment??">Seasonal adjustment</a> – intended for the seasonal adjustment of a time series with the TRAMO-SEATS and X-13ARIMA-SEATS methods.</li>
 </ul>
+<p>By default, the <em>Seasonal adjustment</em> tab has 3 sub-tabs:</p>
+<ul>
+<li><em>Multiprocessing</em>,</li>
+<li><em>Single Analysis</em>,</li>
+<li>and <em>Tools</em>.</li>
+</ul>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="All_images/Statistical methods menu.jpg" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption"><strong>The <em>Seasonal adjustment</em> tab.</strong></figcaption>
+<p><img src="All_images/Statistical methods menu.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption"><strong>The <em>Seasonal adjustment</em> tab in v2</strong></figcaption>
 </figure>
+</div>
+<div class="tabset-margin-container"></div><div class="panel-tabset content-visible" data-when-format="html">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true">v2</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false">v3</a></li></ul>
+<div class="tab-content content-visible" data-when-format="html">
+<div id="tabset-3-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-3-1-tab">
+<p>In v2, the <em>Tools</em> sub-tabs contains 2 functionalities:</p>
+<ul>
+<li><em>Seasonality Tests</em></li>
+<li><em>Direct-Indirect Seasonal Adjustment</em></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/Statistical methods menu_v2.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption"><strong>The <em>Seasonal adjustment</em> tab in v2</strong></figcaption>
+</figure>
+</div>
+</div>
+<div id="tabset-3-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-2-tab">
+<p>In v3, the <em>Tools</em> sub-tabs contains 2 functionalities:</p>
+<ul>
+<li><em>Seasonality Tests</em></li>
+<li><em>CanovaHansen</em></li>
+</ul>
+<p>But no direct-indirect analysis.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/Statistical methods menu_v3.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption"><strong>The <em>Seasonal adjustment</em> tab in v3</strong></figcaption>
+</figure>
+</div>
+</div>
+</div>
 </div>
 </section>
 <section id="tools-menu" class="level3">
@@ -1031,9 +1080,9 @@ How to set up you text or csv file
 <section id="options-demetra-panel" class="level3">
 <h3 class="anchored" data-anchor-id="options-demetra-panel">Demetra panel</h3>
 <div class="tabset-margin-container"></div><div class="panel-tabset content-visible" data-when-format="html">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true">v2</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false">v3</a></li></ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-4-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-1" role="tab" aria-controls="tabset-4-1" aria-selected="true">v2</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-2" role="tab" aria-controls="tabset-4-2" aria-selected="false">v3</a></li></ul>
 <div class="tab-content content-visible" data-when-format="html">
-<div id="tabset-3-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-3-1-tab">
+<div id="tabset-4-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-4-1-tab">
 <p>By default, the <em>Demetra</em> panel is shown. It is divided into seven tabs:</p>
 <ul>
 <li><em>Behaviour</em>,</li>
@@ -1051,7 +1100,7 @@ How to set up you text or csv file
 </figure>
 </div>
 </div>
-<div id="tabset-3-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-2-tab">
+<div id="tabset-4-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-2-tab">
 <p>By default, the <em>Demetra</em> panel is shown. It is divided into three tabs::</p>
 <ul>
 <li><em>Common UI</em>,</li>
@@ -1135,9 +1184,9 @@ Low-level options
 <section id="demetra-ui-commonui-tab" class="level4">
 <h4 class="anchored" data-anchor-id="demetra-ui-commonui-tab">Demetra UI / CommonUI tab</h4>
 <div class="tabset-margin-container"></div><div class="panel-tabset content-visible" data-when-format="html">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-4-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-1" role="tab" aria-controls="tabset-4-1" aria-selected="true">v2</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-2" role="tab" aria-controls="tabset-4-2" aria-selected="false">v3</a></li></ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-5-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-1" role="tab" aria-controls="tabset-5-1" aria-selected="true">v2</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-5-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-2" role="tab" aria-controls="tabset-5-2" aria-selected="false">v3</a></li></ul>
 <div class="tab-content content-visible" data-when-format="html">
-<div id="tabset-4-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-4-1-tab">
+<div id="tabset-5-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-5-1-tab">
 <p>In v2, this panel is called <strong>Demetra UI</strong>.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -1146,7 +1195,7 @@ Low-level options
 </figure>
 </div>
 </div>
-<div id="tabset-4-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-2-tab">
+<div id="tabset-5-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-5-2-tab">
 <p>In v3, this panel is called <strong>CommonUI</strong>.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -1168,7 +1217,7 @@ Low-level options
 </figure>
 </div>
 <ul>
-<li>The data format (uses MS Excel conventions). For example, ###,###.#### implies the numbers in the tables and the y-axis of the graphs will be rounded up to four decimals after the decimal point (<strong>Data format</strong> (or <strong>Observartion format</strong> in v3)).</li>
+<li>The data format (uses MS Excel conventions). For example, ###,###.#### implies the numbers in the tables and the y-axis of the graphs will be rounded up to four decimals after the decimal point (<strong>Data format</strong> (or <strong>Observation format</strong> in v3)).</li>
 </ul>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -1208,9 +1257,9 @@ Low-level options
 <h4 class="anchored" data-anchor-id="demetra-path-tab">Demetra path tab</h4>
 <p><em>Demetra Paths</em> allows the user to specify the relative location of the folders where the data can be found. In this way, the application can access data from different computers. Otherwise, the user would need to have access to the exact path where the data is located. To add a location, select the data provider, click the “<strong>+</strong>” button and specify the location.</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset content-visible" data-when-format="html">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-5-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-1" role="tab" aria-controls="tabset-5-1" aria-selected="true">v2</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-5-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-2" role="tab" aria-controls="tabset-5-2" aria-selected="false">v3</a></li></ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-6-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-6-1" role="tab" aria-controls="tabset-6-1" aria-selected="true">v2</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-6-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-6-2" role="tab" aria-controls="tabset-6-2" aria-selected="false">v3</a></li></ul>
 <div class="tab-content content-visible" data-when-format="html">
-<div id="tabset-5-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-5-1-tab">
+<div id="tabset-6-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-6-1-tab">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/options-demetra-demetra_paths_v2.png" class="img-fluid figure-img"></p>
@@ -1218,7 +1267,7 @@ Low-level options
 </figure>
 </div>
 </div>
-<div id="tabset-5-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-5-2-tab">
+<div id="tabset-6-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-6-2-tab">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/options-demetra-demetra_paths_v3.png" class="img-fluid figure-img"></p>
@@ -1232,9 +1281,9 @@ Low-level options
 <section id="options-statistics" class="level4">
 <h4 class="anchored" data-anchor-id="options-statistics">Statistics tab</h4>
 <div class="tabset-margin-container"></div><div class="panel-tabset content-visible" data-when-format="html">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-6-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-6-1" role="tab" aria-controls="tabset-6-1" aria-selected="true">v2</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-6-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-6-2" role="tab" aria-controls="tabset-6-2" aria-selected="false">v3</a></li></ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-7-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-7-1" role="tab" aria-controls="tabset-7-1" aria-selected="true">v2</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-7-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-7-2" role="tab" aria-controls="tabset-7-2" aria-selected="false">v3</a></li></ul>
 <div class="tab-content content-visible" data-when-format="html">
-<div id="tabset-6-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-6-1-tab">
+<div id="tabset-7-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-7-1-tab">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/options-demetra-statistics_v2.png" class="img-fluid figure-img"></p>
@@ -1242,7 +1291,7 @@ Low-level options
 </figure>
 </div>
 </div>
-<div id="tabset-6-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-6-2-tab">
+<div id="tabset-7-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-7-2-tab">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/options-SA-General_v3.png" class="img-fluid figure-img"></p>
@@ -1257,9 +1306,9 @@ Low-level options
 <li>The number of years used for spectral analysis and for model stability (<strong>Default Number of Last Years</strong>);</li>
 </ul>
 <div class="tabset-margin-container"></div><div class="panel-tabset content-visible" data-when-format="html">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-7-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-7-1" role="tab" aria-controls="tabset-7-1" aria-selected="true">v2</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-7-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-7-2" role="tab" aria-controls="tabset-7-2" aria-selected="false">v3</a></li></ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-8-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-8-1" role="tab" aria-controls="tabset-8-1" aria-selected="true">v2</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-8-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-8-2" role="tab" aria-controls="tabset-8-2" aria-selected="false">v3</a></li></ul>
 <div class="tab-content content-visible" data-when-format="html">
-<div id="tabset-7-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-7-1-tab">
+<div id="tabset-8-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-8-1-tab">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/options-demetra-statistics-nbr_last_years_v2.png" class="img-fluid figure-img"></p>
@@ -1267,7 +1316,7 @@ Low-level options
 </figure>
 </div>
 </div>
-<div id="tabset-7-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-7-2-tab">
+<div id="tabset-8-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-8-2-tab">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/options-SA-General-nbr_last_years_v3.png" class="img-fluid figure-img"></p>
@@ -1316,9 +1365,9 @@ Low-level options
 </ul></li>
 </ul>
 <div class="tabset-margin-container"></div><div class="panel-tabset content-visible" data-when-format="html">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-8-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-8-1" role="tab" aria-controls="tabset-8-1" aria-selected="true">v2</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-8-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-8-2" role="tab" aria-controls="tabset-8-2" aria-selected="false">v3</a></li></ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-9-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-9-1" role="tab" aria-controls="tabset-9-1" aria-selected="true">v2</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-9-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-9-2" role="tab" aria-controls="tabset-9-2" aria-selected="false">v3</a></li></ul>
 <div class="tab-content content-visible" data-when-format="html">
-<div id="tabset-8-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-8-1-tab">
+<div id="tabset-9-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-9-1-tab">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/options-demetra-statistics-diagnostics_v2.png" class="img-fluid figure-img"></p>
@@ -1326,7 +1375,7 @@ Low-level options
 </figure>
 </div>
 </div>
-<div id="tabset-8-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-8-2-tab">
+<div id="tabset-9-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-9-2-tab">
 <p>In v3, you can find this settings in the SA panel in the tabs TramoSeats and X13:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -1363,9 +1412,9 @@ Low-level options
 <section id="data-transfer-tab" class="level4">
 <h4 class="anchored" data-anchor-id="data-transfer-tab">Data Transfer tab</h4>
 <div class="tabset-margin-container"></div><div class="panel-tabset content-visible" data-when-format="html">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-9-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-9-1" role="tab" aria-controls="tabset-9-1" aria-selected="true">v2</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-9-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-9-2" role="tab" aria-controls="tabset-9-2" aria-selected="false">v3</a></li></ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-10-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-10-1" role="tab" aria-controls="tabset-10-1" aria-selected="true">v2</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-10-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-10-2" role="tab" aria-controls="tabset-10-2" aria-selected="false">v3</a></li></ul>
 <div class="tab-content content-visible" data-when-format="html">
-<div id="tabset-9-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-9-1-tab">
+<div id="tabset-10-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-10-1-tab">
 <p>The <em>Data Transfer</em> tab contains multiple options that define the behaviour of the drag and drop and copy-paste actions. To change the default settings, double click on the selected item. Once the modifications are introduced, confirm them with the <strong>OK</strong> button.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -1374,7 +1423,7 @@ Low-level options
 </figure>
 </div>
 </div>
-<div id="tabset-9-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-9-2-tab">
+<div id="tabset-10-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-10-2-tab">
 <p>In v3, there is no equivalent of the Data Transfer tab.</p>
 </div>
 </div>
@@ -1383,9 +1432,9 @@ Low-level options
 <section id="procdocumentitems-tab" class="level4">
 <h4 class="anchored" data-anchor-id="procdocumentitems-tab">ProcDocumentItems tab</h4>
 <div class="tabset-margin-container"></div><div class="panel-tabset content-visible" data-when-format="html">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-10-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-10-1" role="tab" aria-controls="tabset-10-1" aria-selected="true">v2</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-10-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-10-2" role="tab" aria-controls="tabset-10-2" aria-selected="false">v3</a></li></ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-11-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-11-1" role="tab" aria-controls="tabset-11-1" aria-selected="true">v2</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-11-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-11-2" role="tab" aria-controls="tabset-11-2" aria-selected="false">v3</a></li></ul>
 <div class="tab-content content-visible" data-when-format="html">
-<div id="tabset-10-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-10-1-tab">
+<div id="tabset-11-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-11-1-tab">
 <p><em>ProcDocumentItems</em> includes a list of all reports available for processed documents like seasonal adjustment.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -1394,7 +1443,7 @@ Low-level options
 </figure>
 </div>
 </div>
-<div id="tabset-10-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-10-2-tab">
+<div id="tabset-11-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-11-2-tab">
 <p>In v3, there is no equivalent of the <em>ProcDocumentItems</em> tab.</p>
 </div>
 </div>
@@ -1403,10 +1452,10 @@ Low-level options
 <section id="interchange-tab" class="level4">
 <h4 class="anchored" data-anchor-id="interchange-tab">Interchange tab</h4>
 <div class="tabset-margin-container"></div><div class="panel-tabset content-visible" data-when-format="html">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-11-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-11-1" role="tab" aria-controls="tabset-11-1" aria-selected="true">v2</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-11-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-11-2" role="tab" aria-controls="tabset-11-2" aria-selected="false">v3</a></li></ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-12-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-12-1" role="tab" aria-controls="tabset-12-1" aria-selected="true">v2</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-12-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-12-2" role="tab" aria-controls="tabset-12-2" aria-selected="false">v3</a></li></ul>
 <div class="tab-content content-visible" data-when-format="html">
-<div id="tabset-11-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-11-1-tab">
-<p>The <em>Interchange</em> tab lists the protocols that can be used to export/import information like calendars, specifications, etc. For the time being, the user cannot customize the way the standard exchanges are done. However, such features could be implemented in plug-ins.</p>
+<div id="tabset-12-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-12-1-tab">
+<p>The <em>Interchange</em> tab lists the protocols that can be used to export/import information like calendars, specifications, etc.. For the time being, the user cannot customize the way the standard exchanges are done. However, such features could be implemented in plug-ins.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/options-demetra-Interchange_v2.png" class="img-fluid figure-img"></p>
@@ -1414,7 +1463,7 @@ Low-level options
 </figure>
 </div>
 </div>
-<div id="tabset-11-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-11-2-tab">
+<div id="tabset-12-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-12-2-tab">
 <p>In v3, there is no equivalent of the <em>Interchange</em> tab.</p>
 </div>
 </div>
@@ -1435,9 +1484,9 @@ Low-level options
 <h3 class="anchored" data-anchor-id="keymap-panel">Keymap panel</h3>
 <p><em>Keymap</em> provides a list of default key shortcuts to access some of the functionalities and it allows the user to edit them and to define additional shortcuts.</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset content-visible" data-when-format="html">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-12-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-12-1" role="tab" aria-controls="tabset-12-1" aria-selected="true">v2</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-12-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-12-2" role="tab" aria-controls="tabset-12-2" aria-selected="false">v3</a></li></ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-13-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-13-1" role="tab" aria-controls="tabset-13-1" aria-selected="true">v2</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-13-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-13-2" role="tab" aria-controls="tabset-13-2" aria-selected="false">v3</a></li></ul>
 <div class="tab-content content-visible" data-when-format="html">
-<div id="tabset-12-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-12-1-tab">
+<div id="tabset-13-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-13-1-tab">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/options-keymap_v2.png" class="img-fluid figure-img"></p>
@@ -1445,7 +1494,7 @@ Low-level options
 </figure>
 </div>
 </div>
-<div id="tabset-12-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-12-2-tab">
+<div id="tabset-13-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-13-2-tab">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/options-keymap_v3.png" class="img-fluid figure-img"></p>
@@ -1735,6 +1784,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">This book was built with <a href="https://quarto.org/">Quarto</a>.</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right"></div>
+  </div>
+</footer>
 
 
 

@@ -90,6 +90,32 @@ ul.task-list li input[type="checkbox"] {
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">JDemetra+ documentation</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/annasmyk/JD_Quarto_Book" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <div class="dropdown">
+      <a href="" title="Share" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Share"><i class="bi bi-share"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://www.facebook.com/sharer/sharer.php?u=|url|">
+              <i class="bi bi-bi-facebook pe-1"></i>
+            Facebook
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=|url|">
+              <i class="bi bi-bi-twitter pe-1"></i>
+            Twitter
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://www.linkedin.com/sharing/share-offsite/?url=|url|">
+              <i class="bi bi-bi-linkedin pe-1"></i>
+            LinkedIn
+            </a>
+          </li>
+      </ul>
+    </div>
+</div>
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -121,11 +147,11 @@ ul.task-list li input[type="checkbox"] {
       <div class="sidebar-item-container"> 
             <a href="./P_Algorithms.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Algorithms</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./A-RegArima-Tramo-Modelling-Overview.html" class="sidebar-item-text sidebar-link">
@@ -275,11 +301,11 @@ ul.task-list li input[type="checkbox"] {
       <div class="sidebar-item-container"> 
             <a href="./P_Methods.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Methods</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./M-spectral-analysis.html" class="sidebar-item-text sidebar-link">
@@ -336,6 +362,12 @@ ul.task-list li input[type="checkbox"] {
 </li>
       </ul>
   </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
     </ul>
     </div>
 </nav>
@@ -350,9 +382,10 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#output-from-sa-processing" id="toc-output-from-sa-processing" class="nav-link" data-scroll-target="#output-from-sa-processing">Output from SA Processing</a>
   <ul class="collapse">
   <li><a href="#steps" id="toc-steps" class="nav-link" data-scroll-target="#steps">Steps</a></li>
+  <li><a href="#the-different-ouput-formats" id="toc-the-different-ouput-formats" class="nav-link" data-scroll-target="#the-different-ouput-formats">The different ouput formats</a></li>
   </ul></li>
   </ul>
-</nav>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/annasmyk/JD_Quarto_Book/edit/main/T-GUI-Output.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/annasmyk/JD_Quarto_Book/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -377,12 +410,10 @@ ul.task-list li input[type="checkbox"] {
 <section id="in-this-chapter" class="level2">
 <h2 class="anchored" data-anchor-id="in-this-chapter">In this chapter</h2>
 <p>This chapter describes how to generate (export) output (series, parameters, diagnostics) directly from the Graphical User interface: <!-- (independent from a special routine SA, Bench...) --></p>
-<p>We will cover:</p>
-<ul>
-<li>Seasonal Adjustment (SA-Processing)</li>
-<li>Modelling (up coming content)</li>
-<li>Benchmarking (up coming content)</li>
-</ul>
+<!-- We will cover:  -->
+<!-- - Seasonal Adjustment (SA-Processing) -->
+<!-- - Modelling (up coming content) -->
+<!-- - Benchmarking (up coming content) -->
 <p>When running a SA-processing in GUI, series, parameters, diagnostics can be also generated without opening it, using a production module called <a href="T-Production-tools-cruncher-QR.html">the cruncher</a>.</p>
 <p>Additional chapters related to GUI features, provide information on:</p>
 <ul>
@@ -396,49 +427,225 @@ ul.task-list li input[type="checkbox"] {
 <section id="steps" class="level3">
 <h3 class="anchored" data-anchor-id="steps">Steps</h3>
 <ol type="1">
-<li><p>Once a seasonal adjustment process for the dataset is performed Go to the TOP menu bar and follow the path: <em>SAProcessing</em> → <em>Output…</em></p></li>
+<li><p>Once a seasonal adjustment process for the dataset is performed Go to the TOP menu bar and follow the path: <em>SAProcessing</em> → <em>Output…</em></p>
+<img src="All_images/SAProcessing_output.png" class="img-fluid" alt="Default output formats"></li>
 <li><p>In the <em>Batch output</em> window the user can specify which output items will be saved and the folder in which JDemetra+ saves the results. It is possible to save the results in the <em>TXT</em>, <em>XLS</em>, <em>CSV</em>, and <em>CSV matrix</em> formats. In the first step the user should choose the output format from the list.</p>
-<img src="All_images/UDimage6.jpg" class="img-fluid" alt="Default output formats"></li>
+<img src="All_images/UDimage6.jpg" class="img-fluid" alt="Default output formats in v3">
+<img src="All_images/output_format_v2.png" class="img-fluid" alt="Default output formats in v2"></li>
 <li><p>The user may choose more than one format as the output can be generated in different formats at the same time.</p>
 <img src="All_images/UDimage7.jpg" class="img-fluid" alt="Adding an output format to the list"></li>
 <li><p>To display and modify the settings click on the given output format on the list. The available options depend on the output format.</p></li>
-<li><p>For <em>Csv</em> format the following options are available: <em>folder</em> (location of the file), <em>file prefix</em> (name of the file), <em>presentation</em> (controls how the output is divided into separate files) and <em>series</em> (series included in the file). These options are presented in the next points of this case study.</p>
-<img src="All_images/UDimage8.jpg" class="img-fluid" alt="Options for a Csv format"></li>
-<li><p>The user can define the folder in which the selected results and components will be saved (click the <em>folder</em> item and choose the final destination).</p>
-<img src="All_images/UDimage9.jpg" class="img-fluid" alt="Specifying a destination folder"></li>
-<li><p>With the option <em>File Prefix</em> the user can modify the default name of the output saved in the CSV file.</p>
-<img src="All_images/UDimage10.jpg" class="img-fluid" alt="Setting a File Prefix option"></li>
-<li><p><em>Layout</em> controls how the output is divided into separate files. Expand the list to display available options:</p>
-<ul>
-<li><p><em>HTable</em> – the output series will be presented in the form of horizontal tables (time series in rows).</p></li>
-<li><p><em>VTable</em> – the output series will be presented in the form of vertical tables (time series in columns).</p></li>
-<li><p><em>List</em> – the output series will be presented in the form of vertical tables (time series in rows). Apart from that, for each time series each file contains in separate columns: the data frequency, the first year and of estimation span, the first period (month or quarter) of observation span and the number of observations. The files do not include dates.</p></li>
-</ul>
-<img src="All_images/UDimage11.jpg" class="img-fluid" alt="Layout options for a Csv format"></li>
-<li><p>The <em>Content</em> section presents a list of series that will be included into a set of output files. To modify the initial settings click on the grey button in the <em>Content</em> section. The <em>CVS-series</em> window presents two panels: the panel on the left includes a list of all valuable output items. The panel on the right presents the selected output items. Mark the series and use the arrows to change the settings. Confirm your choice with the <em>OK</em> button.</p>
-<img src="All_images/UDimage12.jpg" class="img-fluid" alt="Specifying a content of the output file"></li>
-<li><p>Options available for the <em>XLS</em> format are the same as for the <em>TXT</em> format with an exception of the <em>Layout</em> section.</p>
-<ul>
-<li><p><em>BySeries</em> – all results for a given time series are placed in one sheet;</p></li>
-<li><p><em>ByComponent</em> – results are grouped by components. Each component type is saved in a separate sheet.</p></li>
-<li><p><em>OneSheet</em> – all results are saved in one sheet.</p></li>
-</ul>
-<img src="All_images/UDimage13.jpg" class="img-fluid" alt="Layout options for an Excel format"></li>
-<li><p>If the user sets the option layout to <em>ByComponent</em>, the output will be generated as follows:</p>
-<img src="All_images/UDimage14.jpg" class="img-fluid" alt="An Excel file view for the ByComponent option"></li>
-<li><p>The option <em>OneSheet</em> will produce the following <em>XLS</em> file:</p>
-<img src="All_images/UDimage15.jpg" class="img-fluid" alt="An Excel file view for the OneSheet option"></li>
-<li><p>By default, the series in the Excel output files are organised vertically. When the user unmarks the check box the horizontal orientation is used.</p>
-<img src="All_images/UDimage16.jpg" class="img-fluid" alt="The VerticalOrientation option"></li>
-<li><p>In the case of the <em>TXT</em> format the only available options are <em>folder</em> (location of the file) and <em>series</em> (results included in the output file).</p>
-<img src="All_images/UDimage17.jpg" class="img-fluid" alt="Options for the Txt output"></li>
-<li><p>The <em>CSV matrix</em> produces the CSV file containing information about the model and quality diagnostics of the seasonal adjustment. The user may generate the list of default items or create their own quality report. By default, all the available items are included in the output.</p>
-<img src="All_images/UDimage18.jpg" class="img-fluid" alt="List of items available for the Csv matrix output type"></li>
-<li><p>Once the output settings are selected, click the <em>OK</em> button.</p>
-<img src="All_images/UDimage19.jpg" class="img-fluid" alt="Options for the Csv matrix output"></li>
-<li><p>For each output JDemetra+ provides information on the status of the operation. An example is presented below.</p>
-<img src="All_images/UDimage20.jpg" class="img-fluid" alt="Generating output - status information"></li>
 </ol>
+</section>
+<section id="the-different-ouput-formats" class="level3">
+<h3 class="anchored" data-anchor-id="the-different-ouput-formats">The different ouput formats</h3>
+<div class="tabset-margin-container"></div><div class="panel-tabset content-visible" data-when-format="html">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" aria-current="page"><em>Csv</em></a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false"><em>Csv matrix</em></a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false"><em>Excel</em></a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-4" role="tab" aria-controls="tabset-1-4" aria-selected="false"><em>Txt</em> (only in v2)</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-5-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-5" role="tab" aria-controls="tabset-1-5" aria-selected="false"><em>CvsArray</em> (only in v3)</a></li></ul>
+<div class="tab-content content-visible" data-when-format="html">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<p>For <em>Csv</em> format the following options are available:</p>
+<ul>
+<li><em>folder</em> (location of the file),</li>
+<li><em>file prefix</em> (name of the file),</li>
+<li><em>presentation</em> (controls how the output is divided into separate files)</li>
+<li>and <em>series</em> (series included in the file).</li>
+</ul>
+<p>These options are presented in the next points of this case study.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/UDimage8.jpg" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption"><strong>Options for a <em>Csv</em> format</strong></figcaption>
+</figure>
+</div>
+<p>The user can define the folder in which the selected results and components will be saved (click the <em>folder</em> item and choose the final destination).</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/UDimage9.jpg" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption"><strong>Specifying a destination folder</strong></figcaption>
+</figure>
+</div>
+<p>With the option <em>File Prefix</em> the user can modify the default name of the output saved in the CSV file.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/UDimage10.jpg" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption"><strong>Setting a <em>File Prefix</em> option</strong></figcaption>
+</figure>
+</div>
+<p><em>Presentation</em> controls how the output is divided into separate files. Expand the list to display available options:</p>
+<ul>
+<li><em>HTable</em> – the output series will be presented in the form of horizontal tables (time series in rows).</li>
+<li><em>VTable</em> – the output series will be presented in the form of vertical tables (time series in columns).</li>
+<li><em>List</em> – the output series will be presented in the form of vertical tables (time series in rows). Apart from that, for each time series each file contains in separate columns: the data frequency, the first year and stimation span, the first period (month or quarter) of observation span and the number of observations. The files do not include dates.</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/UDimage11.jpg" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption"><strong>Layout options for a <em>Csv</em> format</strong></figcaption>
+</figure>
+</div>
+<p>The option <em>Full series name</em> is used to use the fully qualified name of the series (workbook + sheet + name) in the output.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/output_csv_full_names.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption"><strong>The <em>Full series name</em> option</strong></figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/generated_output_csv_full_names.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption"><strong>The generated output</strong></figcaption>
+</figure>
+</div>
+<p>The <em>Content</em> section presents a list of series that will be included into a set of output files. To modify the initial settings click on the grey button in the <em>Content</em> section. The <em>CVS-series</em> window presents two panels:</p>
+<ul>
+<li>the panel on the left includes a list of all valuable output items</li>
+<li>the panel on the right presents the selected output items</li>
+</ul>
+<p>Mark the series and use the arrows to change the settings. Confirm your choice with the <em>OK</em> button.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/output_csv_content.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption"><strong>Specifying a content of the output file</strong></figcaption>
+</figure>
+</div>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<p>The <em>CSV matrix</em> produces the CSV file containing information about the model and quality diagnostics of the seasonal adjustment. The user may generate the list of default items or create their own quality report.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/output_csv_matrix.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption"><strong>Options for a <em>Csv matrix</em> format</strong></figcaption>
+</figure>
+</div>
+<p>The user can define the folder in which the selected results and components will be saved (click the <em>folder</em> item and choose the final destination).</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/output_csv_matrix_folder.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption"><strong>Specifying a destination folder</strong></figcaption>
+</figure>
+</div>
+<p>With the option <em>File Name</em> the user can modify the default name of the output saved in the CSV file.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/output_csv_matrix_name.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption"><strong>Setting a <em>File Name</em> option</strong></figcaption>
+</figure>
+</div>
+<p>By default, all the available items are included in the output.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/UDimage18.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption"><strong>List of items available for the <em>Csv matrix</em> output type</strong></figcaption>
+</figure>
+</div>
+<p>Once the output settings are selected, click the <em>OK</em> button.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/UDimage19.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption"><strong>Validation of the <em>Csv matrix</em> output</strong></figcaption>
+</figure>
+</div>
+</div>
+<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
+<p>Options available for the <em>XLS</em> format are the same as for the <em>TXT</em> format with an exception of the <em>Layout</em> section.</p>
+<ul>
+<li><em>BySeries</em> – all results for a given time series are placed in one sheet;</li>
+<li><em>ByComponent</em> – results are grouped by components. Each component type is saved in a separate sheet;</li>
+<li><em>OneSheet</em> – all results are saved in one sheet.</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/UDimage13.jpg" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption"><strong>Layout options for an <em>Excel</em> format</strong></figcaption>
+</figure>
+</div>
+<p>If the user sets the option layout to <em>BySeries</em>, the output will be generated as follows:</p>
+<ul>
+<li>Series are placed in separate sheets</li>
+<li>Components are placed in different columns</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/output_excel_by_series.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption"><strong>An Excel file view for the <em>BySeries</em> option</strong></figcaption>
+</figure>
+</div>
+<p>If the user sets the option layout to <em>ByComponent</em>, the output will be generated as follows:</p>
+<ul>
+<li>Components are placed in separate sheets</li>
+<li>Series are placed in different columns</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/UDimage14.jpg" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption"><strong>An Excel file view for the <em>ByComponent</em> option</strong></figcaption>
+</figure>
+</div>
+<p>The option <em>OneSheet</em> will produce the following <em>XLS</em> file:</p>
+<ul>
+<li>Components and Sheets are crossed in different columns of the same sheet</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/UDimage15.jpg" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption"><strong>An Excel file view for the <em>OneSheet</em> option</strong></figcaption>
+</figure>
+</div>
+<p>By default, the series in the Excel output files are organised vertically. When the user unmarks the check box the horizontal orientation is used.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/UDimage16.jpg" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption"><strong>The <em>VerticalOrientation</em> option</strong></figcaption>
+</figure>
+</div>
+<p>The option <em>Full series name</em> is used to use the fully qualified name of the series (workbook + sheet + name).</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/output_excel_full_names.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption"><strong>The <em>Full series name</em> option</strong></figcaption>
+</figure>
+</div>
+<p>This option will produce the following <em>XLS</em> file:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/generated_output_excel_full_names.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption"><strong>The generated output</strong></figcaption>
+</figure>
+</div>
+<p>The <em>Content</em> section presents a list of series that will be included into a set of output files. To modify the initial settings click on the grey button in the <em>Content</em> section. The <em>Excel-series</em> window presents two panels:</p>
+<ul>
+<li>the panel on the left includes a list of all valuable output items</li>
+<li>the panel on the right presents the selected output items</li>
+</ul>
+<p>Mark the series and use the arrows to change the settings. Confirm your choice with the <em>OK</em> button.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/UDimage12.jpg" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption"><strong>Specifying a content of the output file</strong></figcaption>
+</figure>
+</div>
+</div>
+<div id="tabset-1-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-4-tab">
+<p>In the case of the <em>TXT</em> format the only available options are <em>folder</em> (location of the file) and <em>series</em> (results included in the output file).</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/UDimage17.jpg" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption"><strong>Options for the <em>Txt</em> output</strong></figcaption>
+</figure>
+</div>
+</div>
+<div id="tabset-1-5" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-5-tab">
+
+</div>
+</div>
+</div>
+<p>For each output JDemetra+ provides information on the status of the operation. An example is presented below.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/UDimage20.jpg" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption"><strong>Generating output - status information (here for Csv format)</strong></figcaption>
+</figure>
+</div>
 
 
 </section>
@@ -691,6 +898,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">This book was built with <a href="https://quarto.org/">Quarto</a>.</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right"></div>
+  </div>
+</footer>
 
 
 

@@ -126,6 +126,32 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">JDemetra+ documentation</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/annasmyk/JD_Quarto_Book" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <div class="dropdown">
+      <a href="" title="Share" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Share"><i class="bi bi-share"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://www.facebook.com/sharer/sharer.php?u=|url|">
+              <i class="bi bi-bi-facebook pe-1"></i>
+            Facebook
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=|url|">
+              <i class="bi bi-bi-twitter pe-1"></i>
+            Twitter
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://www.linkedin.com/sharing/share-offsite/?url=|url|">
+              <i class="bi bi-bi-linkedin pe-1"></i>
+            LinkedIn
+            </a>
+          </li>
+      </ul>
+    </div>
+</div>
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -252,11 +278,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="sidebar-item-container"> 
             <a href="./P_Tools.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Tools</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./T-GUI-Overview.html" class="sidebar-item-text sidebar-link">
@@ -311,11 +337,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="sidebar-item-container"> 
             <a href="./P_Methods.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Methods</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./M-spectral-analysis.html" class="sidebar-item-text sidebar-link">
@@ -372,6 +398,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
       </ul>
   </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
     </ul>
     </div>
 </nav>
@@ -384,7 +416,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul>
   <li><a href="#in-this-chapter" id="toc-in-this-chapter" class="nav-link active" data-scroll-target="#in-this-chapter">In this chapter</a></li>
   <li><a href="#data-specificities" id="toc-data-specificities" class="nav-link" data-scroll-target="#data-specificities">Data specificities</a></li>
-  <li><a href="#tailored-algorithms-in-jdemetra" id="toc-tailored-algorithms-in-jdemetra" class="nav-link" data-scroll-target="#tailored-algorithms-in-jdemetra">Tailored algorithms in JDemetra+</a></li>
+  <li><a href="#tailored-algorithms-in-jdemetra" id="toc-tailored-algorithms-in-jdemetra" class="nav-link" data-scroll-target="#tailored-algorithms-in-jdemetra">Tailored algorithms in JDemetra+</a>
+  <ul class="collapse">
+  <li><a href="#sa-algorithms-extended-for-high-frequency-data" id="toc-sa-algorithms-extended-for-high-frequency-data" class="nav-link" data-scroll-target="#sa-algorithms-extended-for-high-frequency-data">SA algorithms extended for high-frequency data</a></li>
+  <li><a href="#data-frequencies-and-seasonal-patterns" id="toc-data-frequencies-and-seasonal-patterns" class="nav-link" data-scroll-target="#data-frequencies-and-seasonal-patterns">Data frequencies and seasonal patterns</a></li>
+  </ul></li>
   <li><a href="#unobserved-components" id="toc-unobserved-components" class="nav-link" data-scroll-target="#unobserved-components">Unobserved Components</a>
   <ul class="collapse">
   <li><a href="#raw-series-decomposition" id="toc-raw-series-decomposition" class="nav-link" data-scroll-target="#raw-series-decomposition">Raw series decomposition</a></li>
@@ -410,7 +446,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#residual-seasonality" id="toc-residual-seasonality" class="nav-link" data-scroll-target="#residual-seasonality">Residual seasonality</a></li>
   </ul></li>
   </ul>
-</nav>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/annasmyk/JD_Quarto_Book/edit/main/A-sa-hf.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/annasmyk/JD_Quarto_Book/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -556,6 +592,28 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 </tbody>
 </table>
+<section id="sa-algorithms-extended-for-high-frequency-data" class="level3">
+<h3 class="anchored" data-anchor-id="sa-algorithms-extended-for-high-frequency-data">SA algorithms extended for high-frequency data</h3>
+<p>All algorithms are available via an R package and will be available in GUI (in target v 3.x version)</p>
+<ul>
+<li><p>Extended Airline estimation, reg-Arima like (<code>rjd3highfreq</code> and GUI )</p></li>
+<li><p>Extended Airline Decomposition, Seats like (<code>rjd3highfreq</code> and GUI )</p></li>
+<li><p>MX12+ (<code>rjd3x11plus</code>, GUI upcoming)</p></li>
+<li><p>MSTL+ (<code>rjd3stl</code> and in GUI)</p></li>
+<li><p>MSTS (<code>rjd3sts</code>, GUI upcoming)</p></li>
+</ul>
+</section>
+<section id="data-frequencies-and-seasonal-patterns" class="level3">
+<h3 class="anchored" data-anchor-id="data-frequencies-and-seasonal-patterns">Data frequencies and seasonal patterns</h3>
+<p>In the Graphical User Interface (display constraints)</p>
+<p>Input data: daily, weekly</p>
+<p>Seasonal patterns: weekly (<span class="math inline">\(p=7\)</span>) or yearly (<span class="math inline">\(p=365.25\)</span> or <span class="math inline">\(p=52.18\)</span> )</p>
+<p>In corresponding R packages:</p>
+<ul>
+<li><p>no constraint on data input as no TS structure (numeric vector)</p></li>
+<li><p>any seasonal patters, positive numbers</p></li>
+</ul>
+</section>
 </section>
 <section id="unobserved-components" class="level2">
 <h2 class="anchored" data-anchor-id="unobserved-components">Unobserved Components</h2>
@@ -1031,6 +1089,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">This book was built with <a href="https://quarto.org/">Quarto</a>.</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right"></div>
+  </div>
+</footer>
 
 
 

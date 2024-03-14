@@ -126,6 +126,32 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">JDemetra+ documentation</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/annasmyk/JD_Quarto_Book" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <div class="dropdown">
+      <a href="" title="Share" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Share"><i class="bi bi-share"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://www.facebook.com/sharer/sharer.php?u=|url|">
+              <i class="bi bi-bi-facebook pe-1"></i>
+            Facebook
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=|url|">
+              <i class="bi bi-bi-twitter pe-1"></i>
+            Twitter
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://www.linkedin.com/sharing/share-offsite/?url=|url|">
+              <i class="bi bi-bi-linkedin pe-1"></i>
+            LinkedIn
+            </a>
+          </li>
+      </ul>
+    </div>
+</div>
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -252,11 +278,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="sidebar-item-container"> 
             <a href="./P_Tools.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Tools</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./T-GUI-Overview.html" class="sidebar-item-text sidebar-link">
@@ -311,11 +337,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div class="sidebar-item-container"> 
             <a href="./P_Methods.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Methods</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./M-spectral-analysis.html" class="sidebar-item-text sidebar-link">
@@ -372,6 +398,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
       </ul>
   </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
     </ul>
     </div>
 </nav>
@@ -399,10 +431,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#temporal-disaggregation-in-the-gui" id="toc-temporal-disaggregation-in-the-gui" class="nav-link" data-scroll-target="#temporal-disaggregation-in-the-gui">Temporal Disaggregation in the GUI</a></li>
   <li><a href="#benchmarking-and-temporal-disaggregation-in-r-version-3.x" id="toc-benchmarking-and-temporal-disaggregation-in-r-version-3.x" class="nav-link" data-scroll-target="#benchmarking-and-temporal-disaggregation-in-r-version-3.x">Benchmarking and Temporal Disaggregation in R (version 3.x)</a></li>
   </ul></li>
-  <li><a href="#benchmarking" id="toc-benchmarking" class="nav-link" data-scroll-target="#benchmarking">Benchmarking</a></li>
+  <li><a href="#benchmarking-univariate-denton-and-cholette" id="toc-benchmarking-univariate-denton-and-cholette" class="nav-link" data-scroll-target="#benchmarking-univariate-denton-and-cholette">Benchmarking Univariate: Denton and Cholette</a></li>
   <li><a href="#temporal-disaggregation" id="toc-temporal-disaggregation" class="nav-link" data-scroll-target="#temporal-disaggregation">Temporal Disaggregation</a></li>
   </ul>
-</nav>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/annasmyk/JD_Quarto_Book/edit/main/A-benchmarking.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/annasmyk/JD_Quarto_Book/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -445,24 +477,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 class="anchored" data-anchor-id="gui">GUI</h3>
 <ol type="1">
 <li><p>With the pre-defined specifications the benchmarking functionality is not applied by default following the <em>ESS Guidelines on Seasonal Adjustment</em> (2015) recommendations. It means that once the user has seasonally adjusted the series with a pre-defined specification the <em>Benchmarking</em> node is empty. To execute benchmarking click on the <em>Specifications</em> button and activate the checkbox in the <em>Benchmarking</em> section.</p>
-<img src="All_images/UDimage1.jpg" class="img-fluid" alt="Text">
-<p><strong>Benchmarking option – a default view</strong></p></li>
+<img src="All_images/UDimage1.jpg" class="img-fluid" alt="Benchmarking option – a default view"></li>
 <li><p>Three parameters can be set here. <em>Target</em> specifies the target variable for the benchmarking procedure. It can be either the <em>Original</em> (the raw time series) or the <em>Calendar Adjusted</em> (the time series adjusted for calendar effects). <em>Rho</em> is a value of the AR(1) parameter (set between 0 and 1). By default it is set to 1. Finally, <em>Lambda</em> is a parameter that relates to the weights in the regression equation. It is typically equal to 0 (for an additive decomposition), 0.5 (for a proportional decomposition) or 1 (for a multiplicative decomposition). The default value is 1.</p></li>
 <li><p>To launch the benchmarking procedure click on the <strong>Apply</strong> button. The results are displayed in four panels. The top-left one compares the original output from the seasonal adjustment procedure with the result from applying a benchmarking to the seasonal adjustment. The bottom-left panel highlights the differences between these two results. The outcomes are also presented in a table in the top-right panel. The relevant statistics concerning relative differences are presented in the bottom-right panel.</p>
-<img src="All_images/UDimage2.jpg" class="img-fluid" alt="Text">
-<p><strong>The results of the benchmarking procedure</strong></p></li>
+<img src="All_images/UDimage2.jpg" class="img-fluid" alt="The results of the benchmarking procedure"></li>
 <li><p>Both pictures and the table can be copied the usual way (see the <a href="../case-studies/simplesa-single.html"><em>Simple seasonal adjustment of a single time series</em></a> scenario).</p>
-<img src="All_images/UDimage3.jpg" class="img-fluid" alt="Text">
-<p><strong>Options for benchmarking results</strong></p></li>
+<img src="All_images/UDimage3.jpg" class="img-fluid" alt="Options for benchmarking results"></li>
 <li><p>To export the result of the benchmarking procedure (<em>benchmarking.result</em>) and the target data (<em>benchmarking.target</em>) one needs to once execute the seasonal adjustment with benchmarking</p>
-<img src="All_images/UG_SSA_image28.jpg" class="img-fluid" alt="Text">
-<p><strong>The <em>SAProcessing</em> menu</strong></p></li>
+<img src="All_images/UG_SSA_image28.jpg" class="img-fluid" alt="The SAProcessing menu"></li>
 <li><p>Expand the "+" menu and choose an appropriate data format (here Excel has been chosen). It is possible to save the results in TXT, XLS, CSV, and CSV matrix formats. Note that the <a href="../theory/output.html">available content of the output depends on the output type</a>.</p>
-<img src="All_images/UG_SSA_image29.jpg" class="img-fluid" alt="Text">
-<p><strong>Exporting data to an Excel file</strong></p></li>
+<img src="All_images/UG_SSA_image29.jpg" class="img-fluid" alt="Exporting data to an Excel file"></li>
 <li><p>Chose the output items that refer to the results from the benchmarking procedure, move them to the window on the right and click <strong>OK</strong>.</p>
-<img src="All_images/UDimage4.jpg" class="img-fluid" alt="Text">
-<p><strong>Exporting the results of the benchmarking procedure</strong></p></li>
+<img src="All_images/UDimage4.jpg" class="img-fluid" alt="Exporting the results of the benchmarking procedure"></li>
 </ol>
 </section>
 <section id="benchmarking-and-temporal-disaggregation-plugin-version-2.x" class="level3">
@@ -489,7 +515,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/Image2_Bench.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Text</figcaption>
+<figcaption class="figure-caption"><strong>Benchmarking tab</strong></figcaption>
 </figure>
 </div>
 <p>In both cases, a new window is displayed to launch one of the methods with the series selected. In the upper left side, drag the high frequency series from the Providers window and drop it in <strong>Drop Series here</strong> and the low frequency series in <strong>Drop Constraint here</strong>.</p>
@@ -546,7 +572,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="a-bench-tempd" class="level2">
 <h2 class="anchored" data-anchor-id="a-bench-tempd">Temporal Disaggregation</h2>
 <p>These methods are used to disaggregate a series from low frequency to high frequency. Temporal disaggregation methods developed in the plug-in are Chow-Lin, Fernández and Litterman.</p>
-<p>When there are high frequency related indicators, these methods provide high frequency estimations for a series whose sums, averages,first or last values are consistent with the observed low frequency series, applying a regression model where it is assumed that the high frequency series to be estimated follows a multiple regression with p related series (indicators).</p>
+<p>When there are high frequency related indicators, these methods provide high frequency estimations for a series whose sums, averages, first or last values are consistent with the observed low frequency series, applying a regression model where it is assumed that the high frequency series to be estimated follows a multiple regression with p related series (indicators).</p>
 <p>See Methods<span class="math inline">\(\rightarrow\)</span>Temporal disaggregation for more theoretical detail.</p>
 <section id="temporal-disaggregation-in-the-gui" class="level3">
 <h3 class="anchored" data-anchor-id="temporal-disaggregation-in-the-gui">Temporal Disaggregation in the GUI</h3>
@@ -695,7 +721,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <figcaption class="figure-caption">Temporal Disggregation</figcaption>
 </figure>
 </div>
-<p>Select <strong>Model<span class="math inline">\(\rightarrow\)</span>Summary</strong> to see the estimation of <span class="math inline">\(rho\)</span> (coefficient of the AR(1) model) and the coefficient of the regression model. Additionally the BIC, AIC and AICC.</p>
+<p>Select <strong>Model<span class="math inline">\(\rightarrow\)</span>Summary</strong> to see the estimation of <span class="math inline">\(rho\)</span> (coefficient of the AR(1) model) and the coefficient of the regression model. Additionally the BIC, AIC and AICC. It is also showed the variance decomposition in Indicators and Smoothing. Ideally, if the indicator adequately approximates the aggregate in the observable domain (low frequency model), the residuals of the low frequency model will be small and the indicator term will dominate. \</p>
 <p>To confirm that the model works well, select <strong>Model<span class="math inline">\(\rightarrow\)</span>Residuals<span class="math inline">\(\rightarrow\)</span>Statistics</strong> and see the tests on the residuals of the model:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -717,9 +743,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Use the [rjd3bench]((https://github.com/rjdemetra/rjd3bench) package and see its documentation pages.</p>
 </section>
 </section>
-<section id="benchmarking" class="level2">
-<h2 class="anchored" data-anchor-id="benchmarking">Benchmarking</h2>
-<p>Up coming content</p>
+<section id="benchmarking-univariate-denton-and-cholette" class="level2">
+<h2 class="anchored" data-anchor-id="benchmarking-univariate-denton-and-cholette">Benchmarking Univariate: Denton and Cholette</h2>
+<p>To perform Univariate Benchmarking methods</p>
 </section>
 <section id="temporal-disaggregation" class="level2">
 <h2 class="anchored" data-anchor-id="temporal-disaggregation">Temporal Disaggregation</h2>
@@ -730,11 +756,67 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">conversion =</span> <span class="st">"Average"</span>, <span class="at">diffuse.algorithm =</span> <span class="st">"Diffuse"</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>The output is a list containing:</p>
-<p>To obtain <span class="math inline">\(rho\)</span> estimation:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>output<span class="sc">$</span>estimation<span class="sc">$</span>parameter</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
+<p>The input parameters are the same as in the GUI, see the R Documentation of the rjd3bench package for the description.</p>
+<p>The output is a list containing 3 elements:</p>
+<ol type="1">
+<li><p><strong>Regression</strong>: contains information about:</p>
+<ul>
+<li>Type of method applied:</li>
+</ul>
+<p>::: {.cell}</p>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>output<span class="sc">$</span>regression<span class="sc">$</span>type</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>:::</p>
+<ul>
+<li>The model (coefficient estimation, standard deviation and T-statistic):</li>
+</ul>
+<p>::: {.cell}</p>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>output<span class="sc">$</span>regression<span class="sc">$</span>model</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>:::</p>
+<ul>
+<li>Conversion:Aggregation function (Sum, Average, Last or First):</li>
+</ul>
+<p>::: {.cell}</p>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>output<span class="sc">$</span>regression<span class="sc">$</span>conversion</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>:::</p></li>
+<li><p><strong>Estimation</strong>: contains information about:</p>
+<ul>
+<li>The disaggregated series:</li>
+</ul>
+<p>::: {.cell}</p>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>output<span class="sc">$</span>estimation<span class="sc">$</span>disagg</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>:::</p>
+<ul>
+<li>The standard deviation of the disaggregated series:</li>
+</ul>
+<p>::: {.cell}</p>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>output<span class="sc">$</span>estimation<span class="sc">$</span>edisagg</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>:::</p>
+<ul>
+<li>The regressor effect:</li>
+</ul>
+<p>::: {.cell}</p>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>output<span class="sc">$</span>estimation<span class="sc">$</span>regeffect</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>:::</p>
+<ul>
+<li>The smoothing part:</li>
+</ul>
+<p>::: {.cell}</p>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>output<span class="sc">$</span>estimation<span class="sc">$</span>smoothingpart</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>:::</p>
+<ul>
+<li>The <span class="math inline">\(rho\)</span> estimation (coefficient of the AR(1) model): This parameter exists only if RWar1 or Ar1 is selected in the model.</li>
+</ul>
+<p>::: {.cell}</p>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>output<span class="sc">$</span>estimation<span class="sc">$</span>parameter</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>:::</p>
+<ul>
+<li>The standard deviation of the AR(1) coefficient:</li>
+</ul>
+<p>::: {.cell}</p>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>output<span class="sc">$</span>estimation<span class="sc">$</span>eparameter</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>:::</p></li>
+<li><p><strong>Likelihood</strong>: Contains information about the loglikelihood(ll), sum of squares of the residuals of the model (ssq), number of observations (nobs), number of parameters to be estimated (nparams), degrees of freedom (df), Akaike Information Criteria (aic), Akaike Information Criteria Corrected (aicc), Bayesian Information Criteria (bic), Bayesian Information Criteria Corrected (bic2).</p></li>
+</ol>
 
 
 </section>
@@ -986,6 +1068,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">This book was built with <a href="https://quarto.org/">Quarto</a>.</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right"></div>
+  </div>
+</footer>
 
 
 
