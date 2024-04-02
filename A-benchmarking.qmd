@@ -1,14 +1,14 @@
-# Benchmarking and temporal disagreggation {.unnumbered #a-bench}
+# Benchmarking and temporal disagreggation {#a-bench .unnumbered}
 
-## In this chapter 
+## In this chapter
 
 The sections below provide guidance on how to implement algortihms on
 
-- benchmarking 
+-   benchmarking
 
-- [temporal disaggregation](#a-bench-tempd)
+-   [temporal disaggregation](#a-bench-tempd)
 
-Using the [GUI]() with a [plug-in]()  or [rjd3bench]() package.
+Using the [GUI]() with a [plug-in]() or [rjd3bench]() package.
 
 ## Benchmarking overview
 
@@ -18,104 +18,49 @@ In seasonal adjustment methods benchmarking is the procedure that ensures the co
 
 According to the [ESS Guidelines on Seasonal Adjustment (2015)](https://ec.europa.eu/eurostat/documents/3859598/6830795/KS-GQ-15-001-EN-N.pdf/d8f1e5f5-251b-4a69-93e3-079031b74bd3), the only benefit of this approach is that there is consistency over the year between adjusted and the non-seasonally adjusted data; this can be of particular interest when low-frequency (e.g. annual) benchmarking figures officially exist (e.g. National Accounts, Balance of Payments, External Trade, etc.) and where users' needs for time consistency are stronger.
 
+## Tools
 
-## Tools 
+### GUI
 
-###  GUI 
+1.  With the pre-defined specifications the benchmarking functionality is not applied by default following the *ESS Guidelines on Seasonal Adjustment* (2015) recommendations. It means that once the user has seasonally adjusted the series with a pre-defined specification the *Benchmarking* node is empty. To execute benchmarking click on the *Specifications* button and activate the checkbox in the *Benchmarking* section.
 
-1.  With the pre-defined specifications the benchmarking functionality is not
-    applied by default following the *ESS Guidelines on Seasonal Adjustment* (2015)
-    recommendations. It means that once the user has seasonally adjusted the series with a pre-defined specification the *Benchmarking* node is empty.
-	To execute benchmarking click on
-    the *Specifications* button and activate the checkbox in the
-    *Benchmarking* section.
-	
-	
-	![**Benchmarking option – a default view**](All_images/UDimage1.jpg)
+    ![**Benchmarking option – a default view**](All_images/UDimage1.jpg)
 
+2.  Three parameters can be set here. *Target* specifies the target variable for the benchmarking procedure. It can be either the *Original* (the raw time series) or the *Calendar Adjusted* (the time series adjusted for calendar effects). *Rho* is a value of the AR(1) parameter (set between 0 and 1). By default it is set to 1. Finally, *Lambda* is a parameter that relates to the weights in the regression equation. It is typically equal to 0 (for an additive decomposition), 0.5 (for a proportional decomposition) or 1 (for a multiplicative decomposition). The default value is 1.
 
-1.  Three parameters can be set here. *Target* specifies the target
-    variable for the benchmarking procedure. It can be either the *Original* (the
-    raw time series) or the *Calendar
-    Adjusted* (the time series adjusted for calendar effects). *Rho* is a value of the AR(1) parameter
-    (set between 0 and 1). By default it is set to 1. Finally, *Lambda*
-    is a parameter that relates to the weights in the regression
-    equation. It is typically equal to 0 (for an additive
-    decomposition), 0.5 (for a proportional decomposition) or 1 (for a
-    multiplicative decomposition). The default value is 1.
+3.  To launch the benchmarking procedure click on the **Apply** button. The results are displayed in four panels. The top-left one compares the original output from the seasonal adjustment procedure with the result from applying a benchmarking to the seasonal adjustment. The bottom-left panel highlights the differences between these two results. The outcomes are also presented in a table in the top-right panel. The relevant statistics concerning relative differences are presented in the bottom-right panel.
 
-2.  To launch the benchmarking procedure click on the **Apply** button. The
-    results are displayed in four panels. The top-left one compares the
-    original output from the seasonal adjustment procedure with the result
-    from applying a benchmarking to the seasonal adjustment. The
-    bottom-left panel highlights the differences between these two
-    results. The outcomes are also presented in a table in the top-right
-    panel. The relevant statistics concerning relative differences are
-    presented in the bottom-right panel.
+    ![**The results of the benchmarking procedure**](All_images/UDimage2.jpg)
 
-	
-	![**The results of the benchmarking procedure**](All_images/UDimage2.jpg)
+4.  Both pictures and the table can be copied the usual way (see the [*Simple seasonal adjustment of a single time series*](../case-studies/simplesa-single.html) scenario).
 
+    ![**Options for benchmarking results**](All_images/UDimage3.jpg)
 
-1.  Both pictures and the table can be copied the usual way 
-    (see the [*Simple seasonal adjustment of a single time series*](../case-studies/simplesa-single.html) scenario).
+5.  To export the result of the benchmarking procedure (*benchmarking.result*) and the target data (*benchmarking.target*) one needs to once execute the seasonal adjustment with benchmarking
 
-	
-	![**Options for benchmarking results**](All_images/UDimage3.jpg)
+    ![**The *SAProcessing* menu**](All_images/UG_SSA_image28.jpg)
 
-	
+6.  Expand the "+" menu and choose an appropriate data format (here Excel has been chosen). It is possible to save the results in TXT, XLS, CSV, and CSV matrix formats. Note that the [available content of the output depends on the output type](../theory/output.html).
 
-	
+    ![**Exporting data to an Excel file**](All_images/UG_SSA_image29.jpg)
 
-1.  To export the result of the benchmarking procedure (*benchmarking.result*) and
-    the target data (*benchmarking.target*) one needs to once execute the seasonal adjustment with benchmarking
+7.  Chose the output items that refer to the results from the benchmarking procedure, move them to the window on the right and click **OK**.
 
-	
-	![**The *SAProcessing* menu**](All_images/UG_SSA_image28.jpg)
-
-	
-
-	
-	
-1. Expand the \"+\" menu and choose an appropriate data format (here
-    Excel has been chosen). It is possible to save the results in TXT,
-    XLS, CSV, and CSV matrix formats. Note that the [available content of
-    the output depends on the output type](../theory/output.html).
-
-	
-	![**Exporting data to an Excel file**](All_images/UG_SSA_image29.jpg)
-
-	
-
-	
-
-1. Chose the output items that refer to the results from the benchmarking procedure, move them to the window on the right and  click **OK**.
-
-
-	 
-	![**Exporting the results of the benchmarking procedure**](All_images/UDimage4.jpg)
-
-	
-
-	
-
+    ![**Exporting the results of the benchmarking procedure**](All_images/UDimage4.jpg)
 
 ### Benchmarking and Temporal Disaggregation plugin (version 2.x)
 
-Select **Tools $\rightarrow$ Plug-ins** for JDemetra+ to install Benchmarking plug-in.
+Select **Tools** $\rightarrow$ Plug-ins for JDemetra+ to install Benchmarking plug-in.
 
 Once the plugin is installed, two more options appear in the Workspace window: Benchmarking and Temporal Disaggregation.
 
-
 ![Text](All_images/Image1_Bench.jpg)
 
-
-## Benchmarking with different frequencies 
+## Benchmarking with different frequencies
 
 These methods provide a high-frequency series (input series) modified so that it fulfils a linear relationship, with another series of low frequency (benchmark), both series measure the same target variable. An example of the relation to be fulfilled could be that the low frequency series (quarterly frequency) coincides with the quarterly sum of the high frequency series (monthly frequency).
 
-Multivariate benchmarking also forces contemporary linear relations between high frequency series. If these relations do not exist, benchmarking could be carried out for each series separately. Normally contemporary relations are linear and the relations of aggregation are also linear and the same for all series, so the
-contemporary relations between low frequency series are fulfilled.
+Multivariate benchmarking also forces contemporary linear relations between high frequency series. If these relations do not exist, benchmarking could be carried out for each series separately. Normally contemporary relations are linear and the relations of aggregation are also linear and the same for all series, so the contemporary relations between low frequency series are fulfilled.
 
 The benchmarking methods available in the benchmarking and time disaggregation plug-in are: Denton, Cholette, and Cholette multivariate.
 
@@ -123,11 +68,9 @@ The benchmarking methods available in the benchmarking and time disaggregation p
 
 To run Denton univariate case select:
 
-Statistical **Methods $\rightarrow$ Benchmarking $\rightarrow$ Denton or Cholette**
-
+Statistical **Methods** $\rightarrow$ Benchmarking $\rightarrow$ Denton or Cholette
 
 ![**Benchmarking tab**](All_images/Image2_Bench.png)
-
 
 In both cases, a new window is displayed to launch one of the methods with the series selected. In the upper left side, drag the high frequency series from the Providers window and drop it in **Drop Series here** and the low frequency series in **Drop Constraint here**.
 
@@ -135,18 +78,15 @@ In both cases, a new window is displayed to launch one of the methods with the s
 
 In the top right of the screen, select the **Specifications** button to set the specifications to apply each method. See below for a description of the available options on Denton method:
 
-1. **Type**: Aggregation function (Sum, Average, Last or First). This forces the
-low-frequency series to match the aggregation function selected of the high frequency series.
+1.  **Type**: Aggregation function (Sum, Average, Last or First). This forces the low-frequency series to match the aggregation function selected of the high frequency series.
 
-2. **Multiplicative**: if the checkbox is selected, the proportional Denton method is applied. Otherwise, additive Denton is applied.
+2.  **Multiplicative**: if the checkbox is selected, the proportional Denton method is applied. Otherwise, additive Denton is applied.
 
-3. **Modified Denton**: if the checkbox is selected, the modified Denton method is applied. Otherwise, original Denton is applied. It is recommended to select it; as original Denton perform a special treatment on the first observation.
+3.  **Modified Denton**: if the checkbox is selected, the modified Denton method is applied. Otherwise, original Denton is applied. It is recommended to select it; as original Denton perform a special treatment on the first observation.
 
-4. **Differencing**: Number of regular differences. By default 1.
+4.  **Differencing**: Number of regular differences. By default 1.
 
-5. **Default frequency**: periodicity of the low frequency data. The options are: Yearly, HalfYearly, QuadriMonthly, Quarterly, Bimonthly and Monthly.
-
-
+5.  **Default frequency**: periodicity of the low frequency data. The options are: Yearly, HalfYearly, QuadriMonthly, Quarterly, Bimonthly and Monthly.
 
 ![Denton Specifications](All_images/Image3_Bench.png)
 
@@ -154,24 +94,23 @@ low-frequency series to match the aggregation function selected of the high freq
 
 See below for a description of the available options on Cholette method:
 
-1. **Type**: Aggregation function (Sum, Average, Last or First). This forces the
-low-frequency series to match the aggregation function selected of the high frequency series.
-2. **Aggregation frequency**: periodicity of the low frequency data. The options are: Yearly, HalfYearly, QuadriMonthly, Quarterly, Bimonthly and Monthly.
-3. **Rho**: value between $-1$ and $1$. It is the coefficient of an AR($1$) model that follows the error term. The default value is $1$, equivalent to applying Denton.
+1.  **Type**: Aggregation function (Sum, Average, Last or First). This forces the low-frequency series to match the aggregation function selected of the high frequency series.
 
-4. **Lambda**: value between $0$ and $1$. It is the parameter $\lambda$ of the following function to be minimized in Cholette method:
+2.  **Aggregation frequency**: periodicity of the low frequency data. The options are: Yearly, HalfYearly, QuadriMonthly, Quarterly, Bimonthly and Monthly.
+
+3.  **Rho**: value between $-1$ and $1$. It is the coefficient of an AR($1$) model that follows the error term. The default value is $1$, equivalent to applying Denton.
+
+4.  **Lambda**: value between $0$ and $1$. It is the parameter $\lambda$ of the following function to be minimized in Cholette method:
 
     $$
-    \sum_t \left( \frac{x_t - z_t}{\left| z_t \right|^{\lambda}} - \rho \frac{x_{t-1} - z_{t-1}}{\left| z_{t-1} \right|^{\lambda}}\right)^2
-    $$
-    
+     \sum_t \left( \frac{x_t - z_t}{\left| z_t \right|^{\lambda}} - \rho \frac{x_{t-1} - z_{t-1}}{\left| z_{t-1} \right|^{\lambda}}\right)^2
+     $$
+
     Usually lambda is $0$ or $1$ equivalent to applying additive benchmarking and proportional benchmarking method respectively.
 
 ![Cholette Specifications](All_images/Image4_Bench.png)
 
 In both cases, Denton and Cholette methods, the output is a graph with the original series and the benchmarked series. There is no table with the results, but it is very easy to create one from the graph. Select the graph and select copy, then paste the values in excel (control-V).
-
-
 
 ![Denton output](All_images/Image5_Bench.png)
 
@@ -183,102 +122,69 @@ Up coming content.
 
 These methods are used to disaggregate a series from low frequency to high frequency. Temporal disaggregation methods developed in the plug-in are Chow-Lin, Fernández and Litterman.
 
-When there are high frequency related indicators, these methods provide high
-frequency estimations for a series whose sums, averages, first or last values are
-consistent with the observed low frequency series, applying a regression model
-where it is assumed that the high frequency series to be
-estimated follows a multiple regression with p related series (indicators).
+When there are high frequency related indicators, these methods provide high frequency estimations for a series whose sums, averages, first or last values are consistent with the observed low frequency series, applying a regression model where it is assumed that the high frequency series to be estimated follows a multiple regression with p related series (indicators).
 
 See Methods$\rightarrow$Temporal disaggregation for more theoretical detail.
 
 ### Temporal Disaggregation in the GUI
+
 To run Temporal Disaggregation methods select Temporal disaggregation$\rightarrow$ Regression Model:
 
 ![Temporal Disggregation](All_images/Image6_TD.png)
 
 A new window is displayed to launch one of the methods with the series selected. In the upper left side drag the low frequency series from the Providers window and drop it in **Y box** and the proxy series or indicator with high frequency series in **X box**.
 
-
 ![Temporal Disggregation](All_images/Image7_TD.png)
-
 
 In the top right of the screen, select **Specifications** to set the specifications to apply each method. Here is a description of the available options on Temporal Disaggregation methods:
 
 ![Temporal Disggregation](All_images/Image8_TD.png)
 
+1.  **Estimation span**: Specifies the span (data interval) of the time series to be used in the temporal disaggregation process. The user can restrict the span. The common settings are:
 
-1. **Estimation span**: Specifies the span (data interval) of the time series to be used in the temporal disaggregation process. The user can restrict the span. The common settings are:
+| Option            | Description (expected format)                                                                                                                                               |     |
+|----------|-----------------------------------------------------|----------|
+| All               | default                                                                                                                                                                     |     |
+| From              | first observation included (yyyy-mm-dd)                                                                                                                                     |     |
+| To                | last observation included (yyyy-mm-dd)                                                                                                                                      |     |
+| Between           | interval \[from ; to\] included (yyyy-mm-dd to yyyy-mm-dd)                                                                                                                  |     |
+| First             | number of observtions from the beginning of the series included (dynamic) (integer)                                                                                         |     |
+| Last              | number of observations from the end of the series (dynamic)(integer)                                                                                                        |     |
+| Excluding         | excluding N first observation and P last observation from the computation,dynamic) (integer)                                                                                |     |
+| Preliminary check | check to exclude highly problematic series e.g. the series with a number of identical observations and/or missing values above pre-specified threshold values. (True/False) |     |
 
-+-------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------+
-| Option            | Description (expected format)                                                                                                                                               |        |
-+===================+=============================================================================================================================================================================+========+
-| All               | default                                                                                                                                                                     |        |
-+-------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------+
-| From              | first observation included (yyyy-mm-dd)                                                                                                                                     |        |
-+-------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------+
-| To                | last observation included (yyyy-mm-dd)                                                                                                                                      |        |
-+-------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------+
-| Between           | interval \[from ; to\] included (yyyy-mm-dd to yyyy-mm-dd)                                                                                                                  |        |
-+-------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------+
-| First             | number of observtions from the beginning of the series included (dynamic) (integer)                                                                                         |        |
-+-------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------+
-| Last              | number of observations from the end of the series (dynamic)(integer)                                                                                                        |        |
-+-------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------+
-| Excluding         | excluding N first observation and P last observation from the computation,dynamic) (integer)                                                                                |        |
-+-------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------+
-| Preliminary check | check to exclude highly problematic series e.g. the series with a number of identical observations and/or missing values above pre-specified threshold values. (True/False) |        |
-+-------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------+
+2.  **Error**: determines the method to be applied and it refers to the model that follows the error term.
 
-2. **Error**: determines the method to be applied and it refers to the model that follows the error term.
+| Option | Description                |
+|--------|----------------------------|
+| Ar1    | Chow-Lin method (default)  |
+| Wn     | Classical Regression model |
+| Rw     | Fernández                  |
+| RwAr1  | Litterman                  |
+| I2     | Integrated order 2         |
+| I3     | Integrated order 3         |
 
+3.  **Parameter**: Coefficient of the AR(1) of the innovations model. It has a value between -1 and 1. This parameter exists only if RWar1 or Ar1 is selected in the error parameter.
 
+4.  **Constant**: a constant is included in the model if it is selected.
 
-+--------+----------------------------+--------+
-| Option | Description                |        |
-+========+============================+========+
-| Ar1    | Chow-Lin method (default)  |        |
-+--------+----------------------------+--------+
-| Wn     | Classical Regression model |        |
-+--------+----------------------------+--------+
-| Rw     | Fernández                  |        |
-+--------+----------------------------+--------+
-| RwAr1  | Litterman                  |        |
-+--------+----------------------------+--------+
-| I2     | Integrated order 2         |        |
-+--------+----------------------------+--------+
-| I3     | Integrated order 3         |        |
-+--------+----------------------------+--------+
+5.  **Trend**: a linear trend is included in the model if it is selected.
 
+6.  **Type**: Aggregation function (Sum, Average, Last or First). This forces the low-frequency series to match the aggregation function selected of the high frequency series.
 
-3. **Parameter**: Coefficient of the AR(1) of the innovations model. It has a value between -1 and 1. This parameter exists only if RWar1 or Ar1 is selected in the error parameter.
+7.  **Default frequency**: it is the frequency of the output series.
 
-4. **Constant**: a constant is included in the model if it is selected.
-
-5. **Trend**: a linear trend is included in the model if it is selected.
-
-6. **Type**: Aggregation function (Sum, Average, Last or First). This forces the
-low-frequency series to match the aggregation function selected of the high frequency series.
-
-7. **Default frequency**: it is the frequency of the output series.
-
-8. **Advanced options**: These parameters are related to state space model and the algorithm used to obtain the estimations.
+8.  **Advanced options**: These parameters are related to state space model and the algorithm used to obtain the estimations.
 
     8.1. **Diffuse regression coefficient**: Indicates if the coefficients of the regression model are diffuse (T) or fixed unknown (F, default).
-    
-
 
 Here are the results:
 
-![Temporal Disggregation](All_images/Image9_TD.png)
+![Temporal Disaggregation](All_images/Image9_TD.png)
 
+Select **Model**$\rightarrow$Summary to see the estimation of $rho$ (coefficient of the AR(1) model) and the coefficient of the regression model. Additionally the BIC, AIC and AICC. It is also showed the variance decomposition in Indicators and Smoothing. Ideally, if the indicator adequately approximates the aggregate in the observable domain (low frequency model), the residuals of the low frequency model will be small and the indicator term will dominate. \\
 
-Select **Model$\rightarrow$Summary** to see the estimation of $rho$ (coefficient of the AR(1) model) and the coefficient of the regression model. Additionally the BIC, AIC and AICC.
-It is also showed the variance decomposition in Indicators and Smoothing. Ideally, if the indicator adequately approximates the aggregate in the observable domain (low frequency model), the residuals of the low frequency model will be small and the indicator term will dominate. \\
-
-
-
-To confirm that the model works well, select **Model$\rightarrow$Residuals$\rightarrow$Statistics** and see the tests on the residuals of the model:
-
+To confirm that the model works well, select **Model**$\rightarrow$Residuals$\rightarrow$Statistics and see the tests on the residuals of the model:
 
 ![Temporal Disggregation](All_images/Image10_TD.png)
 
@@ -286,22 +192,19 @@ Select MainResults$\rightarrow$Table to obtain the disaggregated series and stan
 
 ![Temporal Disggregation](All_images/Image11_TD.png)
 
+Select **MainResults**$\rightarrow$Chart to see a graph of the disaggregated series and the confidence interval.
 
-
-Select **MainResults$\rightarrow$Chart** to see a graph of the disaggregated series and the confidence interval.
- 
- 
 ### Benchmarking and Temporal Disaggregation in R (version 3.x)
 
-Use the [rjd3bench]((https://github.com/rjdemetra/rjd3bench) package and see its documentation pages.
+Use the \[rjd3bench\]((https://github.com/rjdemetra/rjd3bench) package and see its documentation pages.
 
 ## Benchmarking Univariate: Denton and Cholette
 
-To perform Univariate Benchmarking methods 
+To perform Univariate Benchmarking methods
 
-## Temporal Disaggregation 
+## Temporal Disaggregation
 
-To perform Temporal Disaggregation methods use the function **temporaldisaggregation**: 
+To perform Temporal Disaggregation methods use the function **temporaldisaggregation**:
 
 ```{r, echo = TRUE, eval = FALSE}
 output <- rjd3bench::temporaldisaggregation(
@@ -309,87 +212,85 @@ output <- rjd3bench::temporaldisaggregation(
     conversion = "Average", diffuse.algorithm = "Diffuse"
 )
 ```
-The input parameters are the same as in the GUI, see the R Documentation of the rjd3bench package for the description.
 
+The input parameters are the same as in the GUI, see the R Documentation of the rjd3bench package for the description.
 
 The output is a list containing 3 elements:
 
-1. **Regression**: contains information about:
+1.  **Regression**: contains information about:
 
-    * Type of method applied:
-    
+    -   Type of method applied:
+
     ```{r,eval=FALSE, include=TRUE}
-    
+
     output$regression$type
-    
+
     ```
 
-    * The model (coefficient estimation, standard deviation and T-statistic):
-    
+    -   The model (coefficient estimation, standard deviation and T-statistic):
+
     ```{r,eval=FALSE, include=TRUE}
-    
+
     output$regression$model
-    
+
     ```
 
-    * Conversion:Aggregation function (Sum, Average, Last or First):
-    
+    -   Conversion:Aggregation function (Sum, Average, Last or First):
+
     ```{r,eval=FALSE, include=TRUE}
-    
+
     output$regression$conversion
-    
+
     ```
 
-2. **Estimation**: contains information about:
+2.  **Estimation**: contains information about:
 
-    * The disaggregated series:
+    -   The disaggregated series:
 
     ```{r,eval=FALSE, include=TRUE}
-    
+
     output$estimation$disagg
-    
+
     ```
 
-    * The standard deviation of the disaggregated series:
-    
+    -   The standard deviation of the disaggregated series:
+
     ```{r,eval=FALSE, include=TRUE}
-    
+
     output$estimation$edisagg
-    
-    ```
-    
 
-    * The regressor effect:
+    ```
+
+    -   The regressor effect:
+
     ```{r,eval=FALSE, include=TRUE}
-    
+
     output$estimation$regeffect
-    
+
     ```
 
-    * The smoothing part:
+    -   The smoothing part:
+
     ```{r,eval=FALSE, include=TRUE}
-    
+
     output$estimation$smoothingpart
-    
+
     ```
-    
-    * The $rho$ estimation (coefficient of the AR(1) model): This parameter exists only if RWar1 or Ar1 is selected in the model.
-    
+
+    -   The $rho$ estimation (coefficient of the AR(1) model): This parameter exists only if RWar1 or Ar1 is selected in the model.
+
     ```{r,eval=FALSE, include=TRUE}
-    
+
     output$estimation$parameter
-    
-    ```   
 
-    * The standard deviation of the AR(1) coefficient:
+    ```
+
+    -   The standard deviation of the AR(1) coefficient:
+
     ```{r,eval=FALSE, include=TRUE}
-    
+
     output$estimation$eparameter
-    
-    ```   
-    
-3. **Likelihood**: Contains information about the loglikelihood(ll), sum of squares of the residuals of the model (ssq), number of observations (nobs), number of parameters to be estimated (nparams), degrees of freedom (df), Akaike Information Criteria (aic), Akaike Information Criteria Corrected (aicc), Bayesian Information Criteria (bic), Bayesian Information Criteria Corrected (bic2).
 
+    ```
 
-
-
+3.  **Likelihood**: Contains information about the loglikelihood(ll), sum of squares of the residuals of the model (ssq), number of observations (nobs), number of parameters to be estimated (nparams), degrees of freedom (df), Akaike Information Criteria (aic), Akaike Information Criteria Corrected (aicc), Bayesian Information Criteria (bic), Bayesian Information Criteria Corrected (bic2).

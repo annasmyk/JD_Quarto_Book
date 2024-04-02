@@ -2,11 +2,17 @@
 
 ## In this Chapter
 
-We will cover how analyse the behaviour of revisions, typically on frequently published (and revised) macro-economic indicators.
+This chapter covers how to analyse the behaviour of revisions of frequently published (and revised) macro-economic indicators.
 
-## Tools for access
+## Motivation
 
-The [rjd3revi"sions](https://github.com/rjdemetra/rjd3revisions) packages allows to perform revision analysis.
+why ? 
+
+details on methods 
+
+## Tool
+
+The [rjd3revisions](https://github.com/rjdemetra/rjd3revisions) packages allows to perform revision analysis.
 
 More information is available directly in the package documentation and vignette.
 
