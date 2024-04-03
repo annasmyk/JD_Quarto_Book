@@ -1,0 +1,3 @@
+# Editing list
+
+- news v3 v2, set links to relevant part of new features 

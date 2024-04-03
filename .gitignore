@@ -8,9 +8,6 @@ nul
 *.log
 *.tex
 
-AUX-Chapter-Building-Companion.pdf
-AUX-Chapter-Building-Companion.html
-AUX-Chapter-Building-Companion_files
 
 Aux_R_code.R
 
