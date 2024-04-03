@@ -1,0 +1,28 @@
+# Editing list
+
+## Chapter Specific Issues 
+
+### Preface
+
+- T: improve install GUI link (don't leave raw link to GitHub)
+
+ASIDE: JD tutorials: scope = JD+ not only SA
+link to sheets clearer
+screen shots 
+link from basic sheet to advanced 
+
+
+### TO DO for all algorithm chapters 
+
+-   R version 3 code to be added
+-   remove theory related parts
+-   much less text than current doc (too long)
+-   method details: to method chapters
+-   tools details in tools: GUI or R...
+
+when describing parameters
+
+-   1 common description
+-   2 setting in GUI
+-   3 setting in R
+

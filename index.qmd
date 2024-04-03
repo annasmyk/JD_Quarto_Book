@@ -14,11 +14,15 @@ Version 3.x  family provides, [among other things](#v3-vs-v2), extended features
 
 ### Gaphical user interface 
 
-Head over to this [GitHub page](https://github.com/jdemetra)
+Head to this [GitHub page](https://github.com/jdemetra). You can also check this [quick](https://github.com/TanguyBarthelemy/JD-Tutorials/blob/master/Sheets/Sheet_1_a_Tools_installation_EN.pdf) or more [detailed](https://github.com/TanguyBarthelemy/JD-Tutorials/blob/master/Sheets/Sheet_1_b_Tools_installation_advanced_EN.pdf) installation guide.
+
+<!-- revamp the guide in JD Tutorials -->
 
 ### R packages 
 
-Head over to this [GitHub page](https://github.com/rjdemetra)
+Head over to this [GitHub page](https://github.com/rjdemetra): for each indications for installation an basic use are provided in the readme file.
+
+<!-- general readme to build and specific to check -->
 
 
 ## Useful links
