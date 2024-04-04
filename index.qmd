@@ -20,7 +20,7 @@ Head to this [GitHub page](https://github.com/jdemetra). You can also check this
 
 ### R packages 
 
-Head over to this [GitHub page](https://github.com/rjdemetra): for each indications for installation an basic use are provided in the readme file.
+Head over to this [GitHub page](https://github.com/rjdemetra), then for each package indications for installation and basic use are provided in the readme file.
 
 <!-- general readme to build and specific to check -->
 

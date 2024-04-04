@@ -9,7 +9,13 @@
 
 T: improve install GUI link (don't leave raw link to GitHub)
 
+A: revamp tutoriols (jd and not only sa)
+
+A: revamp rjdemetra general readme, and specific ones 
+
 ### How to Use this Book
+
+A: missing points, cf comments
 
 ### G-news-v3-vs-v2.qmd
 
