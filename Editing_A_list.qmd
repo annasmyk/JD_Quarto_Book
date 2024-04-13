@@ -1,15 +1,12 @@
 # Editing list
 
-
-
-
 ## Chapter Specific Issues 
 
 ### Preface
 
-T: improve install GUI link (don't leave raw link to GitHub)
+A: improve install GUI link (don't leave raw link to GitHub): ok 
 
-A: revamp tutoriols (jd and not only sa)
+A: revamp tutorials (jd and not only sa) : ok 
 
 A: revamp rjdemetra general readme, and specific ones 
 
@@ -44,20 +41,19 @@ when describing parameters
 -   3 setting in R
 
 
-
 ### A-sa-overview
 
-### In A-sa-pre-treatment
+### A-sa-pre-treatment
 
-#### Clalendar (links)
+- links to calendar correction 
 
-#### ramps
+- ramps 
 
-test: several
+graph and formula are available in [Linearisation with the TRAMO and RegARIMA models](../theory/SA_lin.html).
 
-see if here: ? The graph and formula are available in [Linearisation with the TRAMO and RegARIMA models](../theory/SA_lin.html).
+explain params 
 
-explain params - differentiation orders D1DS: if ticked: 1 1 automatically (pb differentiation before the real differentiation ??)
+- differentiation orders D1DS: if ticked: 1 1 automatically (pb differentiation before the real differentiation ?), cf rjd3toolkit doc to harmonize 
 
 #### in reg arima results
 
@@ -147,7 +143,7 @@ add rjd3 bench and link help pages
 
 resources
 
--   corentin, beamer rome
+-   corentin L , beamer rome
 
 -   maria, ine, beamer ocde
 
@@ -158,6 +154,9 @@ see alain
 see karsten paper on HF
 
 ### A-nowcasting.qmd
+
+plug in v2
+package v3
 
 ## T-graphical-user-interface.qmd
 
@@ -181,6 +180,8 @@ objective: describe the general features (independent of algorithms)
 
 
 ### GUI: SA and Modelling Features
+
+chapter name/scope to change: encompass all stat methods
 
 very weak 
 
@@ -225,7 +226,9 @@ X11+
 
 ### T-plug-ins
 
-ok for now, visuals to be checked
+- change order v3 first
+
+- add SDMX specifs 
 
 ### T-rev-policies-production
 
@@ -276,27 +279,24 @@ see - my notes on X-11 - formulas from training yc estp - formulas from HF paper
 
 ### M-STL-decomposition
 
-goal of the chapter : details on STL which are not in the SA chapter
-
-res: - papier HF - papier Daniel on dsa
+resources : - papier HF - papier Daniel O on dsa
 
 ### M-SEATS-decomposition
 
+- see doc JP (new ?)
+
 ### M-Trend-Estimation-Local-Polynomials
+
+see with KW / AQLT
 
 ### M-tests.qmd
 
-check NBB aux doc for any missing formulas
-JP estp adv
-
-LooP 1: sheer toilettage
+cf wiki old doc: complement existing info 
 
 ### M-state-space-framework
 
-beamer - dms moi - koopman
-
-books - durbin - shumway stoffer
-
-edit - change notations to shumway style
+cf wiki old doc 
 
 ### references
+
+set up anew 

@@ -1,6 +1,6 @@
 # How to use this book {.unnumbered #G-use-book}
 
-JDemetra+ on-line documentation provides a step-by-step guidance on how to use the algorithms featured in JDemetra+, highlighting all the available options and outputs. It also describes the different tools giving access to these algorithms and provides a specific methodological background.
+JDemetra+ on-line documentation provides a step-by-step guidance on how to use the algorithms featured in JDemetra+, highlighting all available options and outputs. It also describes the different tools giving access to these algorithms and provides a specific methodological background.
 
 ## Structure 
 

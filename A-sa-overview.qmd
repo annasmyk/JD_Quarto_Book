@@ -1,7 +1,5 @@
 # Seasonal Adjustment (SA) Overview {#sa-overview .unnumbered}
 
-The goal of seasonal adjustment is to remove seasonal fluctuations from a time series. Seasonal fluctuations are quasi-periodic infra-annual movements. They can mask evolutions of greater interest for the user such as short term evolution or long time trends.
-
 ## In this chapter
 
 This chapter is a first of a series focusing on the practical step by step use of JDemetra+ Seasonal Adjustment (SA) algorithms, restricted to monthly and quarterly series. For infra-monthly data see the [following chapter](#a-sa-hf). In the sections below an overview of the seasonal adjustment process is provided. The most widely used SA algorithms (Tramo-Seats and X13-Arima) have two steps: a pre-treatment to remove (temporarily) deterministic effects and a decomposition phase to estimate the seasonal factors.
@@ -24,7 +22,9 @@ More information on the steps and best practices of a seasonal adjustment proces
 
 For an overview on the algorithms and methodological issues, the user can refer to the [Handbook on Seasonal Adjustment](https://ec.europa.eu/eurostat/documents/3859598/8939616/KS-GQ-18-001-EN-N.pdf)
 
-## SA process description
+## SA process
+
+The goal of seasonal adjustment is to remove seasonal fluctuations from a time series. Seasonal fluctuations are quasi-periodic infra-annual movements. They can mask evolutions of greater interest for the user such as short term evolution or long time trends.
 
 When setting up the process: 
 

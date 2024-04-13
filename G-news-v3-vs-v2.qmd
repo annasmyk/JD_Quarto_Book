@@ -3,9 +3,9 @@
 
 ## In this chapter
 
-This chapter will provide a contextualized overview of new features of v 3.x  as well as modification of display or content for existing features. Compared to its predecessor, version 3.x provides:
+This chapter provides an overview of the new features in version 3.x  as well as significant modification of display or content for features already available in v 2.2.4. Compared to its predecessor, version 3.x provides:
 
--   Additional Algorithms for SA, Benchmarking, Nowcasting, Revision Analysis
+-   Additional Algorithms for Seasonal Adjustment (SA), Benchmarking and Temporal Disaggregation (TD), Nowcasting, Revision Analysis
 
 -   More stand alone time series tools
 

@@ -1,0 +1,15 @@
+# Revision Analysis {.unnumbered #m-revs}
+
+## In this Chapter
+
+This chapter gives some methodological background on revision analysis. Available JDemetra+ algorithms are described in [this chapter](#m-revs)
+
+## Motivation
+
+why ? 
+
+how to analyse the behaviour of revisions of frequently published (and revised) macro-economic indicators.
+
+
+details on methods 
+

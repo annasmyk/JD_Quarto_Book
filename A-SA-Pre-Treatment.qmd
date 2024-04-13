@@ -27,12 +27,12 @@ $$
 
 ## Reallocation of pre-treatment effects {#sa-pre-t-realloc}
 
-- The linearised series will be decomposed into unobservable components in the decomposition phase
+The linearised series ($Y_{lin,t}$) is be decomposed into unobservable components in the decomposition phase
 
-$$y_{lin} =S_{lin} +T_{lin}+I_{lin}$$
+$$Y_{lin} =S_{lin} +T_{lin}+I_{lin}$$
 
 
-- Pre-treatment effects will then be reallocated to build the final components
+Pre-treatment effects are then reallocated to build the final components
 
 $$S=S_{lin}+cal+out_s+reg_s$$
 
@@ -49,9 +49,9 @@ Where
 - $reg_j$ is the total effect of user-defined regressors on component $j$
 
 
-### Default Specifications {#a-pre-t-def-spec}
+## Default Specifications {#a-pre-t-def-spec}
 
-Default specifications are set for the whole SA procedure, pre-treatment and decomposition. They are slightly different for X13-ARIMA and TRAMO-SEATS and can be modified with user defined parameters.
+Default specifications are set for the whole SA procedure, pre-treatment and decomposition. They are slightly different for X13-ARIMA and TRAMO-SEATS and can be modified with user-defined parameters.
 
 #### Starting point for X13-ARIMA {#a-pre-t-def-spec-x13}
 
@@ -97,7 +97,7 @@ calendar:
 
 ### User-defined specifications {#usr-def-spec}
 
-Principle of user setting parameters: can be done from one of the default specifications or any specification in a "Save as" mode very similar in GUI and R, see below.
+Principle oser setting parameters: can be done from one of the default specifications or any specification in a "Save as" mode very similar in GUI and R, as detailed below.
 
 The user may add new seasonal adjustment specifications to the *Workspace* window. To do it, go to the *Seasonal adjustment* section, right click on the *tramoseats* or *x13* item in the *specifications* node and select *New* from the local menu.
 
