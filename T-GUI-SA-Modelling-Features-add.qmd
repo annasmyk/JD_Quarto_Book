@@ -3,6 +3,8 @@
 
 ## Modelling procedure 
 
+<!-- clarify : difference from doc to ws, output export cruncher... -->
+
 ### RegArimaDoc {#RegArimaDoc}
 
 *RegArimaDoc* is a main menu item that includes functionalities designated for *RegArima* documents. To create a *RegArima* document select *RegArima* from the *Statistical methods* → *Modelling* → *Single Analysis* menu.

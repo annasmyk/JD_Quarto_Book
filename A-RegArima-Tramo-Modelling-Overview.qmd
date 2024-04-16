@@ -1,14 +1,16 @@
-# RegArima (Tramo) Modelling {#a-reg-a .unnumbered}
+# Modelling {#a-reg-a .unnumbered}
 
 ## In this chapter
 
-This chapter focuses on practical implementation of modelling of a time series (with arima residuals) for low frequency data. High-Frequency (infra monthly) data modelling and seasonal adjustment process are described [here](#a-sa-hf).
+<!-- to revamp as not really described here -->
 
-The sections below will describe modelling features which can be used stand alone or as [pre-treatment](#sa-pre-t) (first step of [seasonal adjustment](#sa-overview)).
+This chapter gives an overview of modelling algorithms available in JDemetra+.
 
-Details on specifications and output characteristics are provided in the [pre-treatment chapter](#sa-pre-t) as they relate to the same procedure.
+Modelling features can be used stand alone or as [pre-treatment](#sa-pre-t) (first step of [seasonal adjustment](#sa-overview)).
 
-In-depth methodological explanations of the algorithms are covered in separated chapters, in the [Methods](#part-M) part.
+Details on modelling (specifications and output characteristics) are provided in the [pre-treatment chapter](#sa-pre-t) as they relate to the same procedure. High-Frequency (infra-monthly) data is tackled [here](#a-sa-hf).
+
+Additional methodological explanations are covered in [this chapter](#m-reg-a) and in [this one](#m-sa-hf) for high-frequency data.
 
 ## Modelling Algorithms
 
@@ -19,9 +21,11 @@ In-depth methodological explanations of the algorithms are covered in separated 
 | Extended Airline | ✔️ (v3 only)  | ✖                   | rjd3highfreq     |
 | STS              | ✔️ (v3 only)  | rjdsts (deprecated) | rjd3sts          |
 
-Steps to use Reg-Arima and Tramo in a pre-treatment context are described [here](#sa-pre-t). Options and outputs are the same as when modelling is done as pre-treatment or stand alone. Specification differ slightly and the possibility of saving parameters and generating output in the GUI is also different.
+Steps to use Reg-Arima and Tramo in a pre-treatment context are described [here](#sa-pre-t).
 
-[Extended Airline Model](#a-sa-hf) allows to handle infra monthly series in a restricted reg-Arima framework, more details [here](#a-sa-hf).
+The possibility of saving parameters and generating output in the GUI is different when using modelling methods directly or seasonal adjustment process as explained [here](#t-gui-sa).
+
+[Extended Airline Model](#a-sa-hf) allows to handle infra-monthly series in a restricted reg-Arima framework, more details [here](#a-sa-hf).
 
 [Structural time series (STS)](#a-sa-bsm) allow another kind of modelling using state space framework, more details [here](#a-sa-bsm).
 
@@ -64,10 +68,10 @@ Full documentation of 'rjd3tramoseats::tramo' function can be found [here](https
 
 In the graphical user interface modelling algorithms can be accessed in two ways described below. In both cases a document (xml file) will be generated and can be save in the workspace. The output (series, parameters and diagnostics) cannot be exported as files, just directly copied from the interface. Further details on window structure in GUI are available [here](#t-gui-sa).
 
-#### Choosing modelling in the Workspace Window
+#### Modelling in the Workspace Window
 
 ![**The *Workspace* window with the nodes for the modelling procedure marked**](All_images/A_Ref_d1.jpg)
 
-#### Choosing modelling in Statistical Methods Panel
+#### Modelling in Statistical Methods Panel
 
-![**The *Modelling* tab.**](All_images/Statistical%20methods%20menu%20modelling.png)
+![**The *RegArima* menu item**](All_images/A_Ref53.jpg)

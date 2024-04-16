@@ -1,0 +1,16 @@
+# Editing list
+
+## Chapter Specific Issues 
+
+### GUI SA modelling features
+
+### GUI: SA and Modelling Features
+
+chapter name/scope to change: encompass all stat methods
+
+ADD
+
+- algos from plug-ins 
+
+- algos from incubator (also plug ins)
+

@@ -4,13 +4,7 @@ This part provides practical guidance for using all the algorithms featured in J
 
 Further methodological insights on each algorithm can be found in the [Methods](#part-M) part of this book, whereas detailed description of all the available tools allowing to access the algorithms can be found in the [Tools](#part-T) part.
 
-In this part: 
-
-Modelling and Auxiliary Variables
-
-[Reg-Arima modelling](#a_reg-a)
-[Outlier detection and external regressors](#a-out-reg-ext)
-[Calendar correction](#a-cal)
+JDemetra+ provides algorithms in the following domains:
 
 Seasonal Adjustment (SA)
 
@@ -22,12 +16,17 @@ Seasonal Adjustment (SA)
 - [SA of High-Frequency Data](#a-sa-hf)
 - [SA with Basic Stuctural Models (BSM)](#a-sa-bsm)
 
+Modelling and Auxiliary Variables
+- [Reg-Arima modelling](#a_reg-a)
+- [Outlier detection and external regressors](#a-out-reg-ext)
+- [Calendar correction](#a-cal)
+
 Other Algorithms
 
--   [Benchmarking and temporal disaggregation]((#a-bench))
--   [Trend-Cycle estimation](#a-trend)
--   [Revision analysis](#a-revs)
--   [Nowcasting](#a-now)
+- [Benchmarking and temporal disaggregation]((#a-bench))
+- [Trend-Cycle estimation](#a-trend)
+- [Revision analysis](#a-revs)
+- [Nowcasting](#a-now)
 
      
         

@@ -485,7 +485,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <img src="All_images/UDimage3.jpg" class="img-fluid" alt="Options for benchmarking results"></li>
 <li><p>To export the result of the benchmarking procedure (<em>benchmarking.result</em>) and the target data (<em>benchmarking.target</em>) one needs to once execute the seasonal adjustment with benchmarking</p>
 <img src="All_images/UG_SSA_image28.jpg" class="img-fluid" alt="The SAProcessing menu"></li>
-<li><p>Expand the "+" menu and choose an appropriate data format (here Excel has been chosen). It is possible to save the results in TXT, XLS, CSV, and CSV matrix formats. Note that the <a href="../theory/output.html">available content of the output depends on the output type</a>.</p>
+<li><p>Expand the “+” menu and choose an appropriate data format (here Excel has been chosen). It is possible to save the results in TXT, XLS, CSV, and CSV matrix formats. Note that the <a href="../theory/output.html">available content of the output depends on the output type</a>.</p>
 <img src="All_images/UG_SSA_image29.jpg" class="img-fluid" alt="Exporting data to an Excel file"></li>
 <li><p>Chose the output items that refer to the results from the benchmarking procedure, move them to the window on the right and click <strong>OK</strong>.</p>
 <img src="All_images/UDimage4.jpg" class="img-fluid" alt="Exporting the results of the benchmarking procedure"></li>
@@ -493,7 +493,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="benchmarking-and-temporal-disaggregation-plugin-version-2.x" class="level3">
 <h3 class="anchored" data-anchor-id="benchmarking-and-temporal-disaggregation-plugin-version-2.x">Benchmarking and Temporal Disaggregation plugin (version 2.x)</h3>
-<p>Select <strong>Tools <span class="math inline">\(\rightarrow\)</span> Plug-ins</strong> for JDemetra+ to install Benchmarking plug-in.</p>
+<p>Select <strong>Tools</strong> <span class="math inline">\(\rightarrow\)</span> Plug-ins for JDemetra+ to install Benchmarking plug-in.</p>
 <p>Once the plugin is installed, two more options appear in the Workspace window: Benchmarking and Temporal Disaggregation.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -511,7 +511,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="univariate-denton-and-cholette" class="level3">
 <h3 class="anchored" data-anchor-id="univariate-denton-and-cholette">Univariate: Denton and Cholette</h3>
 <p>To run Denton univariate case select:</p>
-<p>Statistical <strong>Methods <span class="math inline">\(\rightarrow\)</span> Benchmarking <span class="math inline">\(\rightarrow\)</span> Denton or Cholette</strong></p>
+<p>Statistical <strong>Methods</strong> <span class="math inline">\(\rightarrow\)</span> Benchmarking <span class="math inline">\(\rightarrow\)</span> Denton or Cholette</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/Image2_Bench.png" class="img-fluid figure-img"></p>
@@ -602,9 +602,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ol>
 <table class="table">
 <colgroup>
-<col style="width: 9%">
-<col style="width: 85%">
-<col style="width: 4%">
+<col style="width: 13%">
+<col style="width: 72%">
+<col style="width: 13%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -660,48 +660,36 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><strong>Error</strong>: determines the method to be applied and it refers to the model that follows the error term.</li>
 </ol>
 <table class="table">
-<colgroup>
-<col style="width: 12%">
-<col style="width: 40%">
-<col style="width: 12%">
-</colgroup>
 <thead>
 <tr class="header">
 <th>Option</th>
 <th>Description</th>
-<th></th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td>Ar1</td>
 <td>Chow-Lin method (default)</td>
-<td></td>
 </tr>
 <tr class="even">
 <td>Wn</td>
 <td>Classical Regression model</td>
-<td></td>
 </tr>
 <tr class="odd">
 <td>Rw</td>
 <td>Fernández</td>
-<td></td>
 </tr>
 <tr class="even">
 <td>RwAr1</td>
 <td>Litterman</td>
-<td></td>
 </tr>
 <tr class="odd">
 <td>I2</td>
 <td>Integrated order 2</td>
-<td></td>
 </tr>
 <tr class="even">
 <td>I3</td>
 <td>Integrated order 3</td>
-<td></td>
 </tr>
 </tbody>
 </table>
@@ -718,11 +706,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/Image9_TD.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Temporal Disggregation</figcaption>
+<figcaption class="figure-caption">Temporal Disaggregation</figcaption>
 </figure>
 </div>
-<p>Select <strong>Model<span class="math inline">\(\rightarrow\)</span>Summary</strong> to see the estimation of <span class="math inline">\(rho\)</span> (coefficient of the AR(1) model) and the coefficient of the regression model. Additionally the BIC, AIC and AICC. It is also showed the variance decomposition in Indicators and Smoothing. Ideally, if the indicator adequately approximates the aggregate in the observable domain (low frequency model), the residuals of the low frequency model will be small and the indicator term will dominate. \</p>
-<p>To confirm that the model works well, select <strong>Model<span class="math inline">\(\rightarrow\)</span>Residuals<span class="math inline">\(\rightarrow\)</span>Statistics</strong> and see the tests on the residuals of the model:</p>
+<p>Select <strong>Model</strong><span class="math inline">\(\rightarrow\)</span>Summary to see the estimation of <span class="math inline">\(rho\)</span> (coefficient of the AR(1) model) and the coefficient of the regression model. Additionally the BIC, AIC and AICC. It is also showed the variance decomposition in Indicators and Smoothing. Ideally, if the indicator adequately approximates the aggregate in the observable domain (low frequency model), the residuals of the low frequency model will be small and the indicator term will dominate. \</p>
+<p>To confirm that the model works well, select <strong>Model</strong><span class="math inline">\(\rightarrow\)</span>Residuals<span class="math inline">\(\rightarrow\)</span>Statistics and see the tests on the residuals of the model:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/Image10_TD.png" class="img-fluid figure-img"></p>
@@ -736,7 +724,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <figcaption class="figure-caption">Temporal Disggregation</figcaption>
 </figure>
 </div>
-<p>Select <strong>MainResults<span class="math inline">\(\rightarrow\)</span>Chart</strong> to see a graph of the disaggregated series and the confidence interval.</p>
+<p>Select <strong>MainResults</strong><span class="math inline">\(\rightarrow\)</span>Chart to see a graph of the disaggregated series and the confidence interval.</p>
 </section>
 <section id="benchmarking-and-temporal-disaggregation-in-r-version-3.x" class="level3">
 <h3 class="anchored" data-anchor-id="benchmarking-and-temporal-disaggregation-in-r-version-3.x">Benchmarking and Temporal Disaggregation in R (version 3.x)</h3>
@@ -763,58 +751,58 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ul>
 <li>Type of method applied:</li>
 </ul>
-<p>::: {.cell}</p>
+<div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>output<span class="sc">$</span>regression<span class="sc">$</span>type</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>:::</p>
+</div>
 <ul>
 <li>The model (coefficient estimation, standard deviation and T-statistic):</li>
 </ul>
-<p>::: {.cell}</p>
+<div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>output<span class="sc">$</span>regression<span class="sc">$</span>model</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>:::</p>
+</div>
 <ul>
 <li>Conversion:Aggregation function (Sum, Average, Last or First):</li>
 </ul>
-<p>::: {.cell}</p>
+<div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>output<span class="sc">$</span>regression<span class="sc">$</span>conversion</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>:::</p></li>
+</div></li>
 <li><p><strong>Estimation</strong>: contains information about:</p>
 <ul>
 <li>The disaggregated series:</li>
 </ul>
-<p>::: {.cell}</p>
+<div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>output<span class="sc">$</span>estimation<span class="sc">$</span>disagg</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>:::</p>
+</div>
 <ul>
 <li>The standard deviation of the disaggregated series:</li>
 </ul>
-<p>::: {.cell}</p>
+<div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>output<span class="sc">$</span>estimation<span class="sc">$</span>edisagg</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>:::</p>
+</div>
 <ul>
 <li>The regressor effect:</li>
 </ul>
-<p>::: {.cell}</p>
+<div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>output<span class="sc">$</span>estimation<span class="sc">$</span>regeffect</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>:::</p>
+</div>
 <ul>
 <li>The smoothing part:</li>
 </ul>
-<p>::: {.cell}</p>
+<div class="cell">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>output<span class="sc">$</span>estimation<span class="sc">$</span>smoothingpart</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>:::</p>
+</div>
 <ul>
 <li>The <span class="math inline">\(rho\)</span> estimation (coefficient of the AR(1) model): This parameter exists only if RWar1 or Ar1 is selected in the model.</li>
 </ul>
-<p>::: {.cell}</p>
+<div class="cell">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>output<span class="sc">$</span>estimation<span class="sc">$</span>parameter</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>:::</p>
+</div>
 <ul>
 <li>The standard deviation of the AR(1) coefficient:</li>
 </ul>
-<p>::: {.cell}</p>
+<div class="cell">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>output<span class="sc">$</span>estimation<span class="sc">$</span>eparameter</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>:::</p></li>
+</div></li>
 <li><p><strong>Likelihood</strong>: Contains information about the loglikelihood(ll), sum of squares of the residuals of the model (ssq), number of observations (nobs), number of parameters to be estimated (nparams), degrees of freedom (df), Akaike Information Criteria (aic), Akaike Information Criteria Corrected (aicc), Bayesian Information Criteria (bic), Bayesian Information Criteria Corrected (bic2).</p></li>
 </ol>
 

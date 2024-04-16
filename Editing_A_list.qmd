@@ -1,0 +1,302 @@
+# Editing list
+
+## Chapter Specific Issues 
+
+### Preface
+
+A: improve install GUI link (don't leave raw link to GitHub): ok 
+
+A: revamp tutorials (jd and not only sa) : ok 
+
+A: revamp rjdemetra general readme, and specific ones 
+
+### How to Use this Book
+
+A: missing points, cf comments
+
+### G-news-v3-vs-v2.qmd
+
+- news v3 v2, set links to relevant part of new features 
+
+### G-jd-history.qmd (not in book yet )
+
+to be organized
+
+resources - small publi 4p insee/eurostat 
+
+web explo stack
+
+### In All ALGO chapters 
+
+-   R version 3 code to be added
+-   remove theory related parts
+-   much less text than current doc (too long)
+-   method details: to method chapters
+-   tools details in tools: GUI or R
+
+when describing parameters
+
+-   1 common description
+-   2 setting in GUI
+-   3 setting in R
+
+
+### A-sa-overview
+
+### A-sa-pre-treatment
+
+- links to calendar correction 
+
+- ramps 
+
+graph and formula are available in [Linearisation with the TRAMO and RegARIMA models](../theory/SA_lin.html).
+
+explain params 
+
+- differentiation orders D1DS: if ticked: 1 1 automatically (pb differentiation before the real differentiation ?), cf rjd3toolkit doc to harmonize 
+
+#### in reg arima results
+
+-   seasonality tests on residuals (Highlight differences: - in gui - in R v2: retrieve object in output, v3 run test)
+
+#### Allocation to components
+
+allocation when intervention or ramps ? in test allocated to trend ? (reg)
+
+impossible (?) to create several intervention variables
+
+### A-sa-x11-decomposition
+
+### A-sa-seats-decomposition
+
+### A-sa-hf.qmd
+
+### A-outlier-detection.qmd
+
+data type
+
+contrasting GUI and R packages
+
+small chunks on regressors to be added
+
+more info on detection
+
+### A-calendar-correction.qmd
+
+ADD tool map Calendar correction using R packages vs GUI: quick contrasting
+
+- is group and reference day choice as flexible in GUI as in R ?
+
+- in GUI (v3) automatic detection, what in R ?
+
+- are the same data frequencies available in R and in GUI (divisors of 12 and...)
+
+- calendar correction HF data: R vs GUI ? including weekly data
+
+remarks:
+
+-   less dense content, less text more tables, bullet points
+
+-   check and add documents new v3 features
+
+-   cjo frequency explained by K they simulate calendar pattern...empirically fall here (cf refs papers)
+
+frequency 41 et 41 survival of 1/60 discrete step in X12 (cf sokup findley)
+
+#### To do
+
+On theory part:
+
+-   manque effet de paques (cf regressor and ICA: hole)
+
+-   length of period
+
+-   stock
+
+On practical part:
+
+-   HF in GUI ?
+
+-   add in R
+
+-   generating regressors from customized calendar : GUI and R
+
+-   Length of Period
+
+adjust param
+
+-   stcok series
+
+cf book x12 and SH
+
+The regressor will have the value -1 if the w-th day is a Sunday, 1 if it is a Monday as 0 otherwise.
+
+example lacking in the package
+
+explain problems and mixing with seasonality ...
+
+### A-benchmarking.qmd
+
+review maria's work (cfr email remarks)
+
+add rjd3 bench and link help pages
+
+resources
+
+-   corentin L , beamer rome
+
+-   maria, ine, beamer ocde
+
+### A-trend-cycle-estimation.qmd
+
+see alain
+
+see karsten paper on HF
+
+### A-nowcasting.qmd
+
+plug in v2
+package v3
+
+## T-graphical-user-interface.qmd
+
+why use the graphical user interface ? what is not directly available in R yet?
+
+objective: describe the general features (independent of algorithms)
+
+-   general layout
+
+-   options !: like stats tools/ modifs good bad / look and feel
+
+-   import data
+
+-   documents
+
+-   workspaces
+
+-   specifications
+
+-   output
+
+
+### GUI: SA and Modelling Features
+
+chapter name/scope to change: encompass all stat methods
+
+very weak 
+
+lacks new links 
+
+Topics voir what should be tackled here 
+
+- Modelling process new document
+<!-- very short explanations, as the same as in pre-adjustment  -->
+
+- Anomaly detection (just structure link to outlier chapter)
+
+- SAP detailed (but not algo specific), just structure 
+
+- Seasonality tests 
+
+- direct indirect seasonal adjustment 
+
+ 
+### ADD : List of Output items
+
+### T-Production-tools-cruncher-QR
+
+add - List of exportable series (tramo / x13 with names)
+
+-   link to option change for adjusting "good", "bad"...
+
+### T-r-packages
+
+-   add a global description of rjd3toolkit cf aux txt file
+
+-   include details in rjdemetra3 (when ready)
+
+#### Perimeter definition
+
+X11+
+
+- will take all x11 related functions from rjd3highfreq which will stay model based (then seats+ will comme, another pack or not ?)
+
+- simple (extended) airline processing + more choices in all asymetrical filters (better for revisions)**
+
+
+### T-plug-ins
+
+- change order v3 first
+
+- add SDMX specifs 
+
+### T-rev-policies-production
+
+add - v3 visuals (progressive) 
+- fixed auto reg param - inter chapter links : r packs, cruncher
+
+obj here: general explanations + examples ? here : explain voc discrepancies vs guidelines bbk controlled current link to plug in illustration links on covid
+
+#### Revision Policies
+
+general concepts - identified vs estimated - linearization phase - X11 - seats
+
+here concepts of domain spec, point spec
+
+concurrent = first estimation or redo everything (never overrides user defined parameters)
+
+#### Implemententing revision policies in R
+
+### M-spectral-analysis
+
+add: - R code or references to - rjd3sa (?) references to tests - more explanations on spectral analysis rationale
+
+Vocabulary precision and concise definitions - spectral density - periodogram - spectral density estimator - "spectrum" is used too ubiquitously
+
+### M-reg-arima-modelling
+
+In the chapter on SA, in the pre-adjustment section, we tackle: - purpose, principles and results of reg-arima models (tramo or reg-arima)
+
+Here we tackle : - more in depth presentation - details on model estimation (not your typical box and Jenkins)
+
+### M-X11-decomposition.qmd
+
+Questions
+
+- is the A part really used in X-11 model
+
+- in step B: "and, if requested, a first estimation of the
+calendar effects" (from old doc: true ?)"
+
+
+- final tables and effects of pre adjustement 
+
+-   add more computation details: cf my notes on X-11, yes, but not urgent
+
+Edit content goal of the chapter: details on X-11 which won't be in the SA chapter
+
+see - my notes on X-11 - formulas from training yc estp - formulas from HF paper or beamer
+
+### M-STL-decomposition
+
+resources : - papier HF - papier Daniel O on dsa
+
+### M-SEATS-decomposition
+
+- see doc JP (new ?)
+
+### M-Trend-Estimation-Local-Polynomials
+
+see with KW / AQLT
+
+### M-tests.qmd
+
+cf wiki old doc: complement existing info 
+
+### M-state-space-framework
+
+cf wiki old doc 
+
+### references
+
+set up anew 

@@ -228,7 +228,7 @@ For the *Partial autocorrelation* and the *Periodogram* panels the right-button 
 
 ## Tests {#t-GUI-tstools-tests}
 
-Here we describe the GUI access to and display of tests. The underlying method is detailed [here](#m-tests)
+Here we describe describe the GUI access to and display of tests. The underlying methods are detailed in [this chapter](#m-tests)
 
 ### Seasonality Tests
 
