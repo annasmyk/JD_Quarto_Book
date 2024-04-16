@@ -218,7 +218,7 @@ The content of the workspace is presented in the *Workspace* window. It is divid
 
 -   Utilities ([calendars](#usr-def-cal) and [user defined variables](#usr-def-var)).
 
-![**The *Workspace* window**](All_images/A_Ref8.jpg)
+![**The *Workspace* window**](All_images/A_Ref8.png)
 
 
 
