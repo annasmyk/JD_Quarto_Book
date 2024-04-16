@@ -573,21 +573,24 @@ Additional information can be found in [this chapter](A-outlier-detection.qmd).
 
 #### Options for automatic detection
 
-\*Is enabled\*\*<br> *outliers; iatip*
+-   **Is enabled**  
+    *outliers; iatip*
+       
+    Enables/disables the automatic detection of outliers in the span determined by the **Detection span** option. By default, the checkbox is marked, which implies that the automatic identification of outliers is enabled.
 
-```         
-  Enables/disables the automatic detection of outliers in the span determined by the **Detection span** option. By default, the checkbox is marked, which implies that the automatic identification of outliers is enabled.
-```
 
--   **Use default critical value**<br> *outliers; va*
+-   **Use default critical value**  
+    *outliers; va*
 
-    The critical value is automatically determined by the number of observations in the interval specified by the **Detection span** option. When **Use default critical value** is disabled, the procedure uses the critical value inputted in the **Critical value** item (see below). Otherwise, the default value is used (the first case corresponds to "*critical* = *xxx*"; the second corresponds to a specification without the critical argument). It should be noted that it is not possible to define a separate critical value for each outlier type. By default, the checkbox is marked, which implies that the automatic determination of the critical value is enabled.\
+    The critical value is automatically determined by the number of observations in the interval specified by the **Detection span** option. When **Use default critical value** is disabled, the procedure uses the critical value inputted in the **Critical value** item (see below). Otherwise, the default value is used (the first case corresponds to "*critical* = *xxx*"; the second corresponds to a specification without the critical argument). It should be noted that it is not possible to define a separate critical value for each outlier type. By default, the checkbox is marked, which implies that the automatic determination of the critical value is enabled.
 
--   **Critical value**<br> *outliers; va*
+-   **Critical value**  
+    *outliers; va*
 
     The critical value used in the outlier detection procedure. The option is active once **Use default critical value** is disabled. By default, it is set to 3.5.
 
--   **Detection span** $\rightarrow $ **type**<br> *outliers; int1, int2\**
+-   **Detection span** $\rightarrow $ **type**  
+    *outliers; int1, int2\**
 
     A span of the time series to be searched for outliers. The possible values of the parameter are:
 
@@ -601,27 +604,33 @@ Additional information can be found in [this chapter](A-outlier-detection.qmd).
 
     With the options *Last*, *First*, *Excluding* the span can be computed dynamically on the series. The default setting is *All*.
 
--   **Additive**<br> *outliers; aio\**
+-   **Additive**  
+    *outliers; aio\**
 
     Automatic identification of additive outliers. By default, this option is enabled.\
 
--   **Level shift**<br> *outliers; aio\**
+-   **Level shift**  
+    *outliers; aio\**
 
     Automatic identification of level shifts. By default, this option is enabled.
 
--   **Transitory change**<br> *outliers; aio\**
+-   **Transitory change**  
+    *outliers; aio\**
 
     Automatic identification of transitory changes. By default, this option is enabled.
 
--   **Seasonal outlier**<br> *outliers; aio\**
+-   **Seasonal outlier**  
+    *outliers; aio\**
 
     Automatic identification of seasonal outliers. By default, this option is disabled. Tramo specific
 
--   **EML estimation**<br> *outliers; imvx*
+-   **EML estimation**  
+    *outliers; imvx*
 
     The estimation method used in the automatic model identification procedure. By default, the fast method of Hannan-Rissanen is used for parameter estimation in the intermediate steps of the automatic detection and correction of outliers. When the checkbox is marked the exact maximum likelihood estimation method is used.
 
--   **TC rate**<br>*outliers; deltatc*
+-   **TC rate**  
+    *outliers; deltatc*
 
     The rate of decay for the transitory change outlier. It takes values between 0 and 1. The default value is 0.7.
 
@@ -630,7 +639,6 @@ Additional information can be found in [this chapter](A-outlier-detection.qmd).
 User-defined outliers are used when prior knowledge suggests that certain effects exist at known time points\[\^14\]. Four pre-defined outlier types, which are simple forms of intervention variables, are implemented: \* Additive Outlier (AO); \* Level shift (LS); \* Temporary change\[\^15\] (TC); \* Seasonal outliers (SO).
 
 #### Setting in GUI
-
 
 
 ![**Automatic detection of outliers in GUI**](All_images/SA_REGA_Outliers_Automatic_detection.png)
@@ -780,7 +788,8 @@ allocation (to be added)
 
 fixed coefficient options
 
--   **Fixed regression coefficients**<br> *regression variables; --*
+-   **Fixed regression coefficients**  
+    *regression variables; --*
 
     For the pre-specified regression variables this option specifies the parameter estimates that will be held fixed at the values provided by the user. To fix a coefficient the user should undertake the following actions:
 
@@ -941,7 +950,7 @@ Control variables for the user-defined ARMA coefficients. Coefficients can be de
 
 **Setting in GUI**
 
-![**Manual ARIMA modeling**](All_images/SA_REGA_Arima_user_params_1.png)
+![**Manual ARIMA modelling**](All_images/SA_REGA_Arima_user_params_1.png)
 
 ![**Fixing coefficients**](All_images/SA_REGA_Arima_user_params_2.png)
 
