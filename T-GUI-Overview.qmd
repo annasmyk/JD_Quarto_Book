@@ -529,9 +529,9 @@ You can click on the image in the area that interests you:
 
 <img src="All_images/A_Ref8.png" usemap="#image_map2">
 <map name="image_map2">
-  <area alt="modelling" title="Modeling" href="#modelling-window" coords="5,53,545,191" shape="rect">
-  <area alt="sa" title="Seasonal adjustment" href="#sa-window" coords="8,197,543,350" shape="rect">
-  <area alt="utilities" title="Utilities" href="A-calendar-correction.html#usr-def-cal" coords="8,354,542,444" shape="rect">
+  <area alt="modelling" title="Modeling" href="#modelling-window" coords="0,50,554,206 shape="rect">
+  <area alt="sa" title="Seasonal adjustment" href="#sa-window" coords="0,206,554,434" shape="rect">
+  <area alt="utilities" title="Utilities" href="A-calendar-correction.html#usr-def-cal" coords="0,434,554,513" shape="rect">
 </map>
 
 <script> initializeAndAdjust("image_map2") </script>
@@ -545,7 +545,7 @@ You can click on the image in the area that interests you:
 
 ::: {.content-visible when-format="pdf"}
 
-![**The *Workspace* window**](All_images/A_Ref8.jpg)
+![**The *Workspace* window**](All_images/A_Ref8.png)
 
 :::
 

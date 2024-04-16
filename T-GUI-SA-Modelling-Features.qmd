@@ -52,9 +52,9 @@ You can click on the image in the area that interests you:
 
 <img src="All_images/A_Ref8.png" usemap="#ws_map">
 <map name="ws_map">
-  <area alt="modelling" title="Modeling" href="#modelling-window" coords="5,53,545,191" shape="rect">
-  <area alt="sa" title="Seasonal adjustment" href="#sa-window" coords="8,197,543,350" shape="rect">
-  <area alt="utilities" title="Utilities" href="A-calendar-correction.html#usr-def-cal" coords="8,354,542,444" shape="rect">
+  <area alt="modelling" title="Modeling" href="#modelling-window" coords="0,50,554,206 shape="rect">
+  <area alt="sa" title="Seasonal adjustment" href="#sa-window" coords="0,206,554,434" shape="rect">
+  <area alt="utilities" title="Utilities" href="A-calendar-correction.html#usr-def-cal" coords="0,434,554,513" shape="rect">
 </map>
 
 <script> initializeAndAdjust("ws_map") </script>
@@ -68,17 +68,16 @@ You can click on the image in the area that interests you:
 
 ::: {.content-visible when-format="pdf"}
 
-![**The *Workspace* window**](All_images/A_Ref8.jpg)
+![**The *Workspace* window**](All_images/A_Ref8.png)
 
 :::
 
 ### Modelling {#modelling-window}
 
-When using reg-Arima or Tramo stand alone.
 
-which are the same as the ones used for the pre-treatment phase of 
-seasonal adjustment with X13-ARIMA (Reg-Arima) and TRAMO-SEATS (Tramo) and thus described in the SA chapter.
+In the modelling section, you can create documents based on the reg-Arima or Tramo only specification (which are the same as the ones used for the pre-treatment phase of seasonal adjustment with X13-ARIMA (Reg-Arima) and TRAMO-SEATS (Tramo) and thus described in the SA chapter).
 
+You can also use the extended airline algorithm with the plugin jdplus-highfreq-desktop-plugin to do the pre-treatment of high frequency data.
 
 This section is divided into two parts: 
 
@@ -88,12 +87,22 @@ This section is divided into two parts:
 
 The specifications and output of the modelling procedure are displayed in the [*Workspace* window](#workspace-window).
 
-![**The *Workspace* window with the nodes for the modelling procedure marked**](All_images/A_Ref_d1.jpg)
+![**The *Workspace* window with the nodes for the modelling procedure marked**](All_images/A_Ref_d1.png)
 
 
 ### Seasonal adjustment {#sa-window}
 
 This window allows to set up and launch a [seasonal adjustment process](#sa-overview).
+
+Some plugins give you additionnal features:
+
+- jdplus-highfreq-desktop-plugin give you access to the extended airline algorithm
+- jdplus-x12plus-desktop give you access to the x12plus algorithm
+- jdplus-sts-desktop and jdplus-stl-desktop give you access to the stlplus and mstlplus algorithm
+
+
+Also the plugins 
+
 
 This section is divided into two parts:
 
@@ -102,7 +111,7 @@ This section is divided into two parts:
 
 The specifications and output for the seasonal adjustment procedure are displayed in the *Workspace* window under the *Seasonal adjustment* item.
 
-![**The *Workspace* window with the nodes for the seasonal adjustment procedure marked**](All_images/A_Ref_d2.jpg)
+![**The *Workspace* window with the nodes for the seasonal adjustment procedure marked**](All_images/A_Ref_d2.png)
 
 
 ### Results panel {#results-panel}

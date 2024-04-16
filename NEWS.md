@@ -1,5 +1,27 @@
-# Development version
 
-# First release (2022-11-03)
+# Changelog
+
+All notable changes to this project will be documented in this file.
+
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres
+to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+
+## [Unreleased]
+
+### Added
+
+* new algorithm available in v3 (images of v3)
+
+### Changed
+
+* modeling into mode**ll**ing
+* add explanation to install the plugins
+
+
+## First release (2022-11-03)
+
+### Added
 
 - New version of the documentation
+

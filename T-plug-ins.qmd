@@ -82,7 +82,6 @@ The *Plugins* window includes five panels: *Updates*, *Available plugins*, *Down
 
 Installation of the new plugins from the local machine can be done from the *Plugin* functionality activated from the *Tools* menu.
 
-Installation of the new plugins from the local machine can be done from the *Plugin* functionality activated from the *Tools* menu.
 
 ![](All_images/UG_A_image22.png)
 
@@ -90,23 +89,24 @@ Installation of the new plugins from the local machine can be done from the *Plu
 
 To start the process, go to the *Downloaded* panel and click on the **Add Plugins...** option. Next the user should select the plugins from the folder in which the plugins have been saved and click the **OK** button.
 
-\`\`
 
 ![](All_images/UG_A_image23.png)
 
-**The *Downloaded* panel -- the choice of available plugins**
+**The *Downloaded* panel**
 
-The new plugin is now visible in the panel.
 
 ![](All_images/UG_A_image24.png)
 
-**A downloaded plugin**
+**Choice of available plugins**
 
-Click on it and choose the **Install** button.
+
+The new plugin is now visible in the panel.
 
 ![](All_images/UG_A_image25.png)
 
-**Starting an installation procedure**
+**A downloaded plugin**
+
+Click on it and choose the **Install** button to start the installation procedure.
 
 There is a wizard that allows the user to install the marked plugin(s). In the first step choose **Next** to continue or **Cancel** to terminate the process.
 
@@ -120,13 +120,19 @@ Next, mark the terms of agreements and choose **Install**.
 
 **Initiating installation process**
 
+If you encounter a warning with the plungins **unsigned**. It's normal, you can click on **Continue**
+
+
+![](All_images/UG_A_image27b.png)
+**Warning with the unsigned plungins**
+
 Then the process is started.
 
 ![](All_images/UG_A_image28.png)
 
 **Installation in progress**
 
-After a while JDemetra+ will provide an update in the installation process. Click **Finish** to close the window.
+After a while JDemetra+ will provide an update in the installation process. Click **Finish** to close the window and restart JDemetra+.
 
 ![](All_images/UG_A_image29.png)
 
