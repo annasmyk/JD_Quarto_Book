@@ -1,29 +1,6 @@
-# Plug-ins GUI {.unnumbered #t-plug-ins}
+# Plug-ins (GUI extensions) {.unnumbered #t-plug-ins}
 
 JDemetra+ is an application that supports plug-ins, which are components adding specific features to the existing software.
-
-## Main functions
-
-### Default Plugins
-
-| **Name**                       | **Category**       | **Description**                                                                                                                                              |
-|--------------------------------|--------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| NbDemetra -- Anomaly detection | SA core algorithms | Identification of outliers                                                                                                                                   |
-| NbDemetra -- Spreadsheet       | IO (Input/output)  | Time series providers for spreadsheet (Excel, OpenOffice)                                                                                                    |
-| NbDemetra -- Common            | IO (Input/output)  | Common time series providers, like XML and TXT                                                                                                               |
-| NbDemetra -- JDBC              | IO (Input/output)  | Time series provider for the JDBC sources                                                                                                                    |
-| NbDemetra -- ODBC              | IO (Input/output)  | Time series provider for the ODBC sources                                                                                                                    |
-| NbDemetra -- SDMX              | IO (Input/output)  | Time series provider for SDMX files                                                                                                                          |
-| NbDemetra -- Core              | SA core algorithms | Encapsulation of the core algorithms                                                                                                                         |
-| NbDemetra -- UI                | SA core algorithms | Basic graphical components                                                                                                                                   |
-| NbDemetra -- Branding          | SA core algorithms |                                                                                                                                                              |
-| NbDemetra -- SA                | SA core algorithms | Default SA framework, including TRAMO-SEATS and X-13ARIMA-SEATS. This implementation can lead to small differences in comparison with the original programs. |
-
-This list is displayed in the *Installed* panel. This panel is available from the *Plugin* functionality and it is activated from the *Tools* menu.
-
-
-
-![](All_images/UG_A_image36.png)
 
 ## Plugins-list
 
@@ -173,3 +150,28 @@ In the second step the user should decide if the software will be restarted imme
 It is possible to delay the restart of the application, although the restart is necessary to complete the process.
 
 ![](All_images/UG_A_image35.png)
+## Default Plugins
+
+### Default Plugins in v 3.x
+
+### Default Plugins in v 2.2.4
+
+| **Name**                       | **Category**       | **Description**                                                                                                                                              |
+|--------------------------------|--------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| NbDemetra -- Anomaly detection | SA core algorithms | Identification of outliers                                                                                                                                   |
+| NbDemetra -- Spreadsheet       | IO (Input/output)  | Time series providers for spreadsheet (Excel, OpenOffice)                                                                                                    |
+| NbDemetra -- Common            | IO (Input/output)  | Common time series providers, like XML and TXT                                                                                                               |
+| NbDemetra -- JDBC              | IO (Input/output)  | Time series provider for the JDBC sources                                                                                                                    |
+| NbDemetra -- ODBC              | IO (Input/output)  | Time series provider for the ODBC sources                                                                                                                    |
+| NbDemetra -- SDMX              | IO (Input/output)  | Time series provider for SDMX files                                                                                                                          |
+| NbDemetra -- Core              | SA core algorithms | Encapsulation of the core algorithms                                                                                                                         |
+| NbDemetra -- UI                | SA core algorithms | Basic graphical components                                                                                                                                   |
+| NbDemetra -- Branding          | SA core algorithms |                                                                                                                                                              |
+| NbDemetra -- SA                | SA core algorithms | Default SA framework, including TRAMO-SEATS and X-13ARIMA-SEATS. This implementation can lead to small differences in comparison with the original programs. |
+
+This list is displayed in the *Installed* panel. This panel is available from the *Plugin* functionality and it is activated from the *Tools* menu.
+
+
+
+![](All_images/UG_A_image36.png)
+

@@ -69,6 +69,27 @@ impossible (?) to create several intervention variables
 
 ### A-sa-seats-decomposition
 
+### A-rev-policies 
+
+add - v3 visuals (progressive) 
+- fixed auto reg param - inter chapter links : r packs, cruncher
+
+obj here: general explanations + examples ? here : explain voc discrepancies vs guidelines bbk controlled current link to plug in illustration links on covid
+
+#### Revision Policies
+
+general concepts - identified vs estimated - linearization phase - X11 - seats
+
+here concepts of domain spec, point spec
+
+concurrent = first estimation or redo everything (never overrides user defined parameters)
+
+#### Implemententing revision policies in R
+
+add examples 
+
+add example with rjdemetra3
+
 ### A-sa-hf.qmd
 
 ### A-outlier-detection.qmd
@@ -230,22 +251,7 @@ X11+
 
 - add SDMX specifs 
 
-### T-rev-policies-production
 
-add - v3 visuals (progressive) 
-- fixed auto reg param - inter chapter links : r packs, cruncher
-
-obj here: general explanations + examples ? here : explain voc discrepancies vs guidelines bbk controlled current link to plug in illustration links on covid
-
-#### Revision Policies
-
-general concepts - identified vs estimated - linearization phase - X11 - seats
-
-here concepts of domain spec, point spec
-
-concurrent = first estimation or redo everything (never overrides user defined parameters)
-
-#### Implemententing revision policies in R
 
 ### M-spectral-analysis
 

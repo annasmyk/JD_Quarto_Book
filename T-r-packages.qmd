@@ -1,4 +1,4 @@
-# Using JDemetra+ in R {#t-r-packs .unnumbered}
+# R packages {#t-r-packs .unnumbered}
 
 ## In this chapter
 
@@ -55,7 +55,7 @@ Packages corresponding to version 3.x core routines:
 | STL+                    | rjd3stl        | Airline based preadjustment and high-frequency data extension                                       |
 | Basic Structural Models | rjd3sts        | State space framework                                                                               |
 
-Version 3.x includes [Revision Policies](#t-rev-pol) in X-13 and Tramo-Seats.
+Version 3.x includes [Revision Policies](#a-rev-pol) in X-13 and Tramo-Seats.
 
 More details on functions parameters and retrieving output in the chapter dedicated to [Seasonal Adjustment](#sa-overview)
 
@@ -155,6 +155,8 @@ remotes::install_github("InseeFr/JDCruncheR")
 
 ### version 3
 
+To use version 3 based R packages you need Java 17 or higher. How to configure this in your R set up is explained [here](#Rconfig).
+
 ```{r, echo = TRUE, eval = FALSE}
 # install.packages("remotes")
 # install.packages("devtools")
@@ -174,7 +176,7 @@ remotes::install_github("AQLT/ggdemetra3")
 
 ## rjd3 suite of packages: overview
 
-The sections below provide an overview of each package based on version 3.x of JDemetra+. For detailed description refer to the package's own R documentation pages as linked below.
+The sections below provide an overview of each package based on version 3.x of JDemetra+. For detailed description refer to the package's own R readme file and documentation pages as linked below.
 
 ### rjd3toolkit
 
@@ -192,7 +194,7 @@ Contains utility functions used in other `rjd3` packages and has to be systemati
 
 -   access general functions such as autocorrelations, distributions
 
-Full documentation [here](https://rjdemetra.github.io/rjd3toolkit)
+Documentation [here](https://rjdemetra.github.io/rjd3toolkit)
 
 ### rjd3x13
 
@@ -204,7 +206,7 @@ Full documentation [here](https://rjdemetra.github.io/rjd3toolkit)
 
 -   Refresh policies: `regarima.refresh()` and `x13.refresh()`
 
-Full documentation [here](https://rjdemetra.github.io/rjd3x13)
+Documentation [here](https://rjdemetra.github.io/rjd3x13)
 
 ### rjd3tramoseats
 
@@ -216,15 +218,15 @@ Full documentation [here](https://rjdemetra.github.io/rjd3x13)
 
 -   Refresh policies: `tramo.refresh()` and `tramoseats.refresh()`
 
-Full documentation [here](https://rjdemetra.github.io/rjd3tramoseats)
+Documentation [here](https://rjdemetra.github.io/rjd3tramoseats)
 
 ### rjd3sts
 
 Gives access to structural time series and state space models.
 
-<!-- Full documentation [here](https://rjdemetra.github.io/rjd3sts) -->
+Documentation [here](https://rjdemetra.github.io/rjd3sts)
 
-Several examples available [here](https://github.com/rjdemetra/test_rjd3sts)
+<!-- Several examples available: replace by wiki link [here](https://github.com/rjdemetra/test_rjd3sts) -->
 
 ### rjd3highfreq
 
@@ -236,7 +238,7 @@ Seasonal adjustment of high frequency (infra-monthly) data:
 
 -   fractional and multi airline decomposition
 
-Full documentation [here](https://rjdemetra.github.io/rjd3highfreq)
+Documentation [here](https://rjdemetra.github.io/rjd3highfreq)
 
 ### rjd3filters
 

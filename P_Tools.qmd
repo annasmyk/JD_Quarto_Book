@@ -15,14 +15,21 @@ Graphical User Interface (GUI)
 - [Seasonal Adjustement and Modelling features](#t-gui-sa)
 - [Output: series, parameters and diagnostics](#t-gui-output)
 
+GUI extensions
+
+- [Plug-ins for GUI](#t-plug-ins)
+
+Production Module
+
+- [Production tools: Cruncher and quality report](#t-prod)
+
 R ecosystem: 
 
 - [R packages](#t-r-packs)
 
-Other tools:
 
-- [Production tools: Cruncher and quality report](#t-prod)
-- [Revision policies](#t-rev-pol)
-- [Plug-ins for GUI](#t-plug-ins)
+
+
+
 
 

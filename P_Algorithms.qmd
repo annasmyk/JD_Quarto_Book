@@ -9,9 +9,10 @@ JDemetra+ provides algorithms in the following domains:
 Seasonal Adjustment (SA)
 
 - [Seasonal Adjustment overview](#sa-overview)
-- [SA: pre-treatment](#sa-pre-t)
+- [SA: Pre-treatment](#sa-pre-t)
 - [SA: X11 decomposition](a-sa-X11)
 - [SA: Seats-decomposition](#a-sa-seats)
+- [SA: Revision policies](#a-rev-pol)
 - [SA: STL decomposition](#a-sa-stl)
 - [SA of High-Frequency Data](#a-sa-hf)
 - [SA with Basic Stuctural Models (BSM)](#a-sa-bsm)

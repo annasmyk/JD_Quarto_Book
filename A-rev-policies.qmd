@@ -1,4 +1,4 @@
-# Production and revision policies {.unnumbered #t-rev-pol}
+# SA: Revision policies {.unnumbered #a-rev-pol}
 
 
 ## In this chapter
@@ -21,7 +21,7 @@ The sections below describe:
 When raw data has been modified (extended and/or revised), the previous seasonal adjustment estimation needs updating. It can be redone from scratch (complete re-estimation) or update keeping fixed a predefined set of parameters already estimated. [Eurostat's Guidelines on seasonal adjustment (2015)](https://ec.europa.eu/eurostat/documents/3859598/6830795/KS-GQ-15-001-EN-N.pdf) recommend not to perform a complete re-estimation of the parameters on an infra-annual basis. The set of constraints on the parameters is called "revision policy" or "refresh policy".
 
 
-### Overview {#t-rev-pol-ov}
+### Overview {#a-rev-pol-ov}
 
 In X13-ARIMA and TRAMO-SEATS revision policies are ways to impose constraints on the pre-adjustment phase, while the decomposition phase (X-11 or Seats) will be entirely re-run on new data. The changes induced by X-11 re-estimation stem only from a revised linerarized series, while in Seats they are also induced by the arima model possible coefficient and/ or order changes.
 
@@ -124,16 +124,20 @@ Implementing refresh policies is a new v3.x feature. Two options are available
 
 - refreshing a workspace with rjdemetra3
 
+<!-- add explanations here -->
+
 
 When performing seasonal adjustment directly in R with `rjd3x13` or `rjd3tramoseats`, you will need to refresh the "result_spec" yielded by the previous estimation with the selected policy. 
 
-Available policies and names are detailed in [here](#t-rev-pol-ov). 
+Available policies and names are detailed in [here](#a-rev-pol-ov). 
 
 More explanations and full documentation of 
 
 - `rjd3x13::x13_refresh` function can be found [here](https://rjdemetra.github.io/rjd3x13/reference/refresh.html)
 
--  ``rjd3tramoseats::tramoseats_refresh` function can be found [here](https://rjdemetra.github.io/rjd3tramoseats/reference/refresh.html)
+-  `rjd3tramoseats::tramoseats_refresh` function can be found [here](https://rjdemetra.github.io/rjd3tramoseats/reference/refresh.html)
+
+
 
 
 

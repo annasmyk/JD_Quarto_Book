@@ -1,4 +1,4 @@
-# Production, Cruncher and quality report {.unnumbered #t-prod}
+# Cruncher and quality report {.unnumbered #t-prod}
 
 ## In this chapter
 
@@ -18,7 +18,7 @@ The cruncher is an additional "executable" module. It can be launched via R or S
 
 Objectives of the cruncher:
 
--   update a JDemetra+ workspace (with a selected [revision policy](#t-rev-pol))
+-   update a JDemetra+ workspace (with a selected [revision policy](#a-rev-pol))
 
 -   export the results (series and diagnostics),
 
@@ -110,7 +110,7 @@ cruncher_and_param(
 )
 ```
 
--   Apply a [revision policy](#t-rev-pol) to updated raw series
+-   Apply a [revision policy](#a-rev-pol) to updated raw series
 
 The function `cruncher_and_param()` allows to do that
 

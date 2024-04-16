@@ -40,7 +40,15 @@ When setting up the process:
 
 - selective editing and manual fine tuning of parameters, re-estimation if needed 
 
-- updating when new data available with tailored [revision policy](#t-rev-pol)
+- updating when new data available with tailored [revision policy](#a-rev-pol)
+
+## Quick Start
+(chap à part?)
+To launch a
+en mode cahier d'exos 
+
+#a-sa-X11-q-start
+#a-sa-seats-q-start
 
 ## Seasonal Adjustment Algorithms
 
