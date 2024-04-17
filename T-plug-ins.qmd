@@ -1,48 +1,83 @@
-# Plug-ins (GUI extensions) {.unnumbered #t-plug-ins}
+# Plug-ins (GUI extensions) {#t-plug-ins .unnumbered}
 
 JDemetra+ is an application that supports plug-ins, which are components adding specific features to the existing software.
 
-## Plugins-list
+## Algorithms available with plug-ins
 
-### Eurostat plug-ins
+Here is an overview of the algorithms or features which can be added by installing additional (vs main) plug-ins to the Graphical User Interface listed by functionality. For all the mentioned files corresponding to number of version is denoted x.y.z.
 
-The Quality Report (QR) Eurostat plug-in is available [here](https://github.com/Sace2015/EurostatQR) and can be installed as indicated [below](#t-plug-ins-inst)
+### Seasonal Adjustment of Low frequency data
 
-### Bundesbank plug-ins
+For low frequency (monthly, quarterly, half-yearly, quadri-monthly) data the following additional algorithms are available with plug-ins. Corresponding files are located in the [Incubator](https://github.com/jdemetra/jdplus-incubator) ([latest releases](https://github.com/jdemetra/jdplus-incubator/releases)). Installation of auxiliary plug-in jdplus-advancedsa-desktop-plugin-x.y.z.nbm also located in the incubator is required.
 
--   [ConCur](https://bbkrd.github.io/pages/concur): The plug-in ConCur supports the controlled current adjustment approach. It supports the storage of the current components and offers graphical tools to compare forecasted and re-estimated figures. Furthermore, a pre-defined summary of the output containing the most important quality measures can be exported to HTML files.
++-------------------------------------------------------------------------------------------------------+-----------------------------------------+-----------------------------+
+| Algorithm                                                                                             | Plugin File Name                        | Documentation pages         |
++=======================================================================================================+=========================================+=============================+
+| X12+                                                                                                  | jdplus-x12plus-desktop-plugin-x.y.z.nbm | Usage in GUI described here |
+|                                                                                                       |                                         |                             |
+| Airline based pre-adjustment and extended X11 decomposition                                           |                                         |                             |
++-------------------------------------------------------------------------------------------------------+-----------------------------------------+-----------------------------+
+| STL+                                                                                                  | jdplus-stl-desktop-plugin-x.y.z.nbm     | Usage in GUI described here |
+|                                                                                                       |                                         |                             |
+| Airline based pre-adjustment and STL (Loess) decomposition                                            |                                         |                             |
++-------------------------------------------------------------------------------------------------------+-----------------------------------------+-----------------------------+
+| STS+                                                                                                  | jdplus-sts-desktop-plugin-x.y.z.nbm     | Usage in GUI described here |
+|                                                                                                       |                                         |                             |
+| Airline based pre-adjustment for outlier detection and calendar estimation, followed by BSM modelling |                                         |                             |
++-------------------------------------------------------------------------------------------------------+-----------------------------------------+-----------------------------+
+| Seats+                                                                                                | upcoming                                | upcoming                    |
+|                                                                                                       |                                         |                             |
+| Airline based pre-adjustment and Seats decomposition                                                  |                                         |                             |
++-------------------------------------------------------------------------------------------------------+-----------------------------------------+-----------------------------+
 
--   [KIX](https://bbkrd.github.io/pages/kix): The plug-in KIX (German for chain-linked index) has been designed to facilitate the handling of this index type. It offers addition and subtraction of two or more chain-linked time series as well as the computation of contributions of growth.
+### Seasonal Adjustment of High-Frequency data
 
-    -   [KIX2.0](https://bbkrd.github.io/pages/kix/kix2): KIX 2.0 offers addition and subtraction of two or more chain-linked time series as well as the computation of contributions of growth following the concept of annual overlap. Contributions to growth are calculated with the partial contribution to growth approach.
+For low frequency (monthly, quarterly, half-yearly, quadri-monthly) data the following algorithms are available with plug-ins. Corresponding files are located in the [Incubator](https://github.com/jdemetra/jdplus-incubator) ([latest releases](https://github.com/jdemetra/jdplus-incubator/releases) ). Installation of auxiliary plug-in jdplus-advancedsa-desktop-plugin-x.y.z.nbm also located in the incubator is required.
 
-    -   [KIXE](https://bbkrd.github.io/pages/kix/kixe): KIX_E offers addition and subtraction of two or more chain-linked time series as well as the computation of contributions of growth following the concept of one-period overlap. Contributions to growth are calculated with the aid of the Ribe (1999) contribution to growth approach.
++------------------------------------------------------------+------------------------------------------+----------------------------------------+
+| Algorithm                                                  | Plugin File Name                         | Repo / Comments                        |
++============================================================+==========================================+========================================+
+| Extended Airline Estimation                                | jdplus-highfreq-desktop-plugin-x.y.z.nbm | Usage in GUI described here            |
+|                                                            |                                          |                                        |
+| (Reg-Arima Modelling)                                      |                                          |                                        |
++------------------------------------------------------------+------------------------------------------+----------------------------------------+
+| Extended Airline Decomposition                             | jdplus-highfreq-desktop-plugin-x.y.z.nbm | Usage in GUI described here            |
+|                                                            |                                          |                                        |
+| (Extended Seats)                                           |                                          |                                        |
++------------------------------------------------------------+------------------------------------------+----------------------------------------+
+| MX12+                                                      | upcoming                                 | upcoming                               |
+|                                                            |                                          |                                        |
+| Extended Airline Estimation and Extended X11 Decomposition |                                          |                                        |
++------------------------------------------------------------+------------------------------------------+----------------------------------------+
+| MSTL+                                                      | upcoming                                 | upcoming                               |
+|                                                            |                                          |                                        |
+| Extended Airline Estimation and STL Decomposition          |                                          |                                        |
++------------------------------------------------------------+------------------------------------------+----------------------------------------+
+| MSTS                                                       | upcoming                                 | upcoming                               |
+|                                                            |                                          |                                        |
+| Basic Structural Models                                    |                                          |                                        |
++------------------------------------------------------------+------------------------------------------+----------------------------------------+
 
-    -   [KIX](https://bbkrd.github.io/pages/kix/kixcc): The program KIX-CC offers for continuously chain-linked indices the aggregation or disaggregation of two or more indices, or the calculation of contributions to growth.
+### Benchmarking and Temporal Disaggregation
 
--   [TransReg](https://bbkrd.github.io/pages/transreg): The plug-in TransReg allows the user to carry out grouping and centring of user-defined regression variables in JD+.
+Table for v2 and v3
 
--   [Xlsx2Ws](https://bbkrd.github.io/pages/xlsx2ws): The plug-in Xlsx2Ws allows the converting of specific workspace information to a xlsx file and vice versa.
+#### For version 3.x
 
-### National Bank of Belgium plug-ins
+#### For version 2.x
 
--   [Access](https://github.com/nbbrd/jdemetra-access)This JDemetra+ extension is a pure java library for reading time series from [MS Access databases](https://en.wikipedia.org/wiki/Microsoft_Access). It currently supports versions 2000-2016 read/write and 97 read-only.Being a pure Java library, you don't need MS Access installed in order to read Access files. (edit versions info here)
+Benchmarking methods:
 
--   [SDMX](https://github.com/nbbrd/jdemetra-dotstat): This plugin provides time series from [SDMX](https://sdmx.org) to JDemetra+ by querying [web services](https://github.com/nbbrd/jdemetra-dotstat/wiki/Supported-web-services%22) or parsing [files](https://github.com/nbbrd/jdemetra-dotstat/wiki/Supported-file-formats%22).
+- Denton 
+- Cholette (including Multi-variate)
+- Calendarization 
 
--   [SA Advanced](https://github.com/nbbrd/jdemetra-sa-advanced%22): This module provides some experimental seasonal adjustment methods (with Reg-ARIMA preprocessing), basic structural models, generalized airline models and airline + seasonal noise models (called mixed airline).
+Temporal Dia
 
-    -   gairline: generalized airline model
-    -   mairline: mixed airline model
-    -   mixedfreq: mixed frequencies seasonal adjustment
-    -   sssts: Seasonal specific structural time series
-    -   sts: Structural time series
-
--   [Benchmarking](https://github.com/nbbrd/jdemetra-benchmarking%22): This module provides some experimental methods for temporal disaggregation and multi-variate benchmarking:Chow-Lin, Fernandez, Litterman, Cholette, Calendarization.
+The plug-in file is available [here](https://github.com/nbbrd/jdemetra-benchmarking) for download. Usage in GUI is described in [this chapter](#a-bench)
 
 
-
--   [Nowcasting](https://github.com/nbbrd/jdemetra-nowcasting): Nowcasting is often defined as the prediction of the present, the very near future and the very recent past. The plug-in developed at the National Bank of Belgium helps to operationalize the process of nowcasting. It can be used to specify and estimate dynamic factor models and visualize how the real-time dataflow updates expectations, as for instance in Banbura and Modugno (2010). The software can also be used to perform pseudo out-of-sample forecasting evaluations that consider the calendar of data releases, contributing to the formalization of the nowcasting problem originally proposed by Giannone, et al. (2008) or Evans (2005).
+### Data base access (SDMX)
 
 ## Installation procedure {#t-plug-ins-inst}
 
@@ -59,27 +94,23 @@ The *Plugins* window includes five panels: *Updates*, *Available plugins*, *Down
 
 Installation of the new plugins from the local machine can be done from the *Plugin* functionality activated from the *Tools* menu.
 
-
 ![](All_images/UG_A_image22.png)
 
 **Activation of the *Plugin* functionality from the *Tools* menu**
 
 To start the process, go to the *Downloaded* panel and click on the **Add Plugins...** option. Next the user should select the plugins from the folder in which the plugins have been saved and click the **OK** button.
 
-
 ![](All_images/UG_A_image23.png)
 
 **The *Downloaded* panel**
-
 
 ![](All_images/UG_A_image24.png)
 
 **Choice of available plugins**
 
-
 The new plugin is now visible in the panel.
 
-![](All_images/UG_A_image25.png)
+![](All_images/UG_A_image25.png)\*
 
 **A downloaded plugin**
 
@@ -99,9 +130,7 @@ Next, mark the terms of agreements and choose **Install**.
 
 If you encounter a warning with the plungins **unsigned**. It's normal, you can click on **Continue**
 
-
-![](All_images/UG_A_image27b.png)
-**Warning with the unsigned plungins**
+![](All_images/UG_A_image27b.png) **Warning with the unsigned plungins**
 
 Then the process is started.
 
@@ -156,28 +185,107 @@ In the second step the user should decide if the software will be restarted imme
 It is possible to delay the restart of the application, although the restart is necessary to complete the process.
 
 ![](All_images/UG_A_image35.png)
+
+<!-- ## Plugins-list for version 3.x -->
+
+<!-- The sections below provide more detailed explanations and link to documentations pages external to this book for plug-ins compatible with JDemetra+ 3.x. -->
+
+<!-- Up coming content. -->
+
+## Plug-ins documentation for version 2.x
+
+The sections below provide more detailed explanations and link to documentation pages external to this book for plug-ins compatible with JDemetra+ 2.x.
+
+### National Bank of Belgium plug-ins
+
+-   [Access](https://github.com/nbbrd/jdemetra-access)This JDemetra+ extension is a pure java library for reading time series from [MS Access databases](https://en.wikipedia.org/wiki/Microsoft_Access). It currently supports versions 2000-2016 read/write and 97 read-only.Being a pure Java library, you don't need MS Access installed in order to read Access files. (edit versions info here)
+
+-   [SDMX](https://github.com/nbbrd/jdemetra-dotstat): This plugin provides time series from [SDMX](https://sdmx.org) to JDemetra+ by querying [web services](https://github.com/nbbrd/jdemetra-dotstat/wiki/Supported-web-services%22) or parsing [files](https://github.com/nbbrd/jdemetra-dotstat/wiki/Supported-file-formats%22).
+
+-   [SA Advanced](https://github.com/nbbrd/jdemetra-sa-advanced%22): This module provides some experimental seasonal adjustment methods (with Reg-ARIMA preprocessing), basic structural models, generalized airline models and airline + seasonal noise models (called mixed airline).
+
+    -   gairline: generalized airline model
+    -   mairline: mixed airline model
+    -   mixedfreq: mixed frequencies seasonal adjustment
+    -   sssts: Seasonal specific structural time series
+    -   sts: Structural time series
+
+-   [Benchmarking](https://github.com/nbbrd/jdemetra-benchmarking%22): This module provides some experimental methods for temporal disaggregation and multi-variate benchmarking:Chow-Lin, Fernandez, Litterman, Cholette, Calendarization.
+
+-   [Nowcasting](https://github.com/nbbrd/jdemetra-nowcasting): Nowcasting is often defined as the prediction of the present, the very near future and the very recent past. The plug-in developed at the National Bank of Belgium helps to operationalize the process of nowcasting. It can be used to specify and estimate dynamic factor models and visualize how the real-time dataflow updates expectations, as for instance in Banbura and Modugno (2010). The software can also be used to perform pseudo out-of-sample forecasting evaluations that consider the calendar of data releases, contributing to the formalization of the nowcasting problem originally proposed by Giannone, et al. (2008) or Evans (2005).
+
+### Bundesbank plug-ins
+
+-   [ConCur](https://bbkrd.github.io/pages/concur): The plug-in ConCur supports the controlled current adjustment approach. It supports the storage of the current components and offers graphical tools to compare forecasted and re-estimated figures. Furthermore, a pre-defined summary of the output containing the most important quality measures can be exported to HTML files.
+
+-   [KIX](https://bbkrd.github.io/pages/kix): The plug-in KIX (German for chain-linked index) has been designed to facilitate the handling of this index type. It offers addition and subtraction of two or more chain-linked time series as well as the computation of contributions of growth.
+
+    -   [KIX2.0](https://bbkrd.github.io/pages/kix/kix2): KIX 2.0 offers addition and subtraction of two or more chain-linked time series as well as the computation of contributions of growth following the concept of annual overlap. Contributions to growth are calculated with the partial contribution to growth approach.
+
+    -   [KIXE](https://bbkrd.github.io/pages/kix/kixe): KIX_E offers addition and subtraction of two or more chain-linked time series as well as the computation of contributions of growth following the concept of one-period overlap. Contributions to growth are calculated with the aid of the Ribe (1999) contribution to growth approach.
+
+    -   [KIX](https://bbkrd.github.io/pages/kix/kixcc): The program KIX-CC offers for continuously chain-linked indices the aggregation or disaggregation of two or more indices, or the calculation of contributions to growth.
+
+-   [TransReg](https://bbkrd.github.io/pages/transreg): The plug-in TransReg allows the user to carry out grouping and centring of user-defined regression variables in JD+.
+
+-   [Xlsx2Ws](https://bbkrd.github.io/pages/xlsx2ws): The plug-in Xlsx2Ws allows the converting of specific workspace information to a xlsx file and vice versa.
+
+### Eurostat plug-ins
+
+The Quality Report (QR) Eurostat plug-in is available [on this GtHub page](https://github.com/Sace2015/EurostatQR): download the latest version of the \*.nbm file and proceed with installation as indicated [in this chapter](#t-plug-ins-inst)
+
+### National Bank of Belgium plug-ins
+
+-   [Access](https://github.com/nbbrd/jdemetra-access)This JDemetra+ extension is a pure java library for reading time series from [MS Access databases](https://en.wikipedia.org/wiki/Microsoft_Access). It currently supports versions 2000-2016 read/write and 97 read-only.Being a pure Java library, you don't need MS Access installed in order to read Access files. (edit versions info here)
+
+-   [SDMX](https://github.com/nbbrd/jdemetra-dotstat): This plugin provides time series from [SDMX](https://sdmx.org) to JDemetra+ by querying [web services](https://github.com/nbbrd/jdemetra-dotstat/wiki/Supported-web-services%22) or parsing [files](https://github.com/nbbrd/jdemetra-dotstat/wiki/Supported-file-formats%22).
+
+-   [SA Advanced](https://github.com/nbbrd/jdemetra-sa-advanced%22): This module provides some experimental seasonal adjustment methods (with Reg-ARIMA preprocessing), basic structural models, generalized airline models and airline + seasonal noise models (called mixed airline).
+
+    -   gairline: generalized airline model
+    -   mairline: mixed airline model
+    -   mixedfreq: mixed frequencies seasonal adjustment
+    -   sssts: Seasonal specific structural time series
+    -   sts: Structural time series
+
+-   [Benchmarking](https://github.com/nbbrd/jdemetra-benchmarking%22): This module provides some experimental methods for temporal disaggregation and multi-variate benchmarking:Chow-Lin, Fernandez, Litterman, Cholette, Calendarization.
+
+-   [Nowcasting](https://github.com/nbbrd/jdemetra-nowcasting): Nowcasting is often defined as the prediction of the present, the very near future and the very recent past. The plug-in developed at the National Bank of Belgium helps to operationalize the process of nowcasting. It can be used to specify and estimate dynamic factor models and visualize how the real-time dataflow updates expectations, as for instance in Banbura and Modugno (2010). The software can also be used to perform pseudo out-of-sample forecasting evaluations that consider the calendar of data releases, contributing to the formalization of the nowcasting problem originally proposed by Giannone, et al. (2008) or Evans (2005).
+
 ## Default Plugins
 
 ### Default Plugins in v 3.x
 
+![](All_images/Plug-ins-default-v3.png)
+
+Plug-ins-default-v3.png
+
 ### Default Plugins in v 2.2.4
 
++--------------------------------+--------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | **Name**                       | **Category**       | **Description**                                                                                                                                              |
-|--------------------------------|--------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|
++================================+====================+==============================================================================================================================================================+
 | NbDemetra -- Anomaly detection | SA core algorithms | Identification of outliers                                                                                                                                   |
++--------------------------------+--------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | NbDemetra -- Spreadsheet       | IO (Input/output)  | Time series providers for spreadsheet (Excel, OpenOffice)                                                                                                    |
++--------------------------------+--------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | NbDemetra -- Common            | IO (Input/output)  | Common time series providers, like XML and TXT                                                                                                               |
++--------------------------------+--------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | NbDemetra -- JDBC              | IO (Input/output)  | Time series provider for the JDBC sources                                                                                                                    |
++--------------------------------+--------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | NbDemetra -- ODBC              | IO (Input/output)  | Time series provider for the ODBC sources                                                                                                                    |
++--------------------------------+--------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | NbDemetra -- SDMX              | IO (Input/output)  | Time series provider for SDMX files                                                                                                                          |
++--------------------------------+--------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | NbDemetra -- Core              | SA core algorithms | Encapsulation of the core algorithms                                                                                                                         |
++--------------------------------+--------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | NbDemetra -- UI                | SA core algorithms | Basic graphical components                                                                                                                                   |
++--------------------------------+--------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | NbDemetra -- Branding          | SA core algorithms |                                                                                                                                                              |
++--------------------------------+--------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | NbDemetra -- SA                | SA core algorithms | Default SA framework, including TRAMO-SEATS and X-13ARIMA-SEATS. This implementation can lead to small differences in comparison with the original programs. |
++--------------------------------+--------------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 This list is displayed in the *Installed* panel. This panel is available from the *Plugin* functionality and it is activated from the *Tools* menu.
 
-
-
 ![](All_images/UG_A_image36.png)
-

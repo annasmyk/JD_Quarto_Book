@@ -78,9 +78,7 @@ The Graphical User Interface in the 2.x and 3.x family give access to generic ti
 
 ## Installation Procedure
 
-The installation procedure is detailed in [this tutorial](https://github.com/TanguyBarthelemy/JD-Tutorials/blob/master/Sheets/Sheet_1_Tools_installation_EN.md).
-
-This tutorial allows you to install the tools (GUI and R packages) in version&nbsp;2 and in version&nbsp;3.
+The installation procedure is detailed [here](#ind-inst-gui) in the introductory chapter of this book. Should you need more configuration details you will find specific [Sheets](https://github.com/TanguyBarthelemy/JD-Tutorials/tree/master/Sheets) in the JD-Tutorials [GitHub repository](https://github.com/TanguyBarthelemy/JD-Tutorials) 
 
 
 ###  Launching JDemetra+

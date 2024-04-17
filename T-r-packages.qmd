@@ -39,14 +39,14 @@ Packages corresponding to version 3.x core routines:
 #### Using JDemetra+ version 2.x
 
 | Algorithm   | Package   | Comments                                                 |
-|------------------|------------------|-------------------------------------|
+|------------------|------------------|-----------------------------------|
 | X13-ARIMA   | RJDemetra | Reg-Arima and X-11 decomposition available independently |
 | TRAMO-SEATS | RJDemetra | Tramo available independently                            |
 
 #### Using JDemetra+ version 3.x
 
 | Algorithm               | Package        | Comments                                                                                            |
-|------------------|------------------|-----------------------------------|
+|-------------------|-------------------|----------------------------------|
 | X13-ARIMA               | rjd3x13        | Reg-Arima and X-11 decomposition available independently                                            |
 | Extended X-11           | rjd3x11plus    | Extended for high-frequency (infra-monthly) data and Trend estimation with local polynomial filters |
 | TRAMO-SEATS             | rjd3tramoseats | Tramo available independently                                                                       |
@@ -93,10 +93,10 @@ The packages listed below contain utility functions useful when running a produc
 A workspace is a specific JDemetra+ data format (xml files) allowing to use the graphical user interface (GUI) and the cruncher.
 
 | Package       | JD+ version | Comments                                               |
-|---------------|-------------|--------------------------------------------------------|
+|----------------|----------------|----------------------------------------|
 | rjdworkspace  | 2.x         | update meta data, set specifications, merge workspaces |
 | rjd3providers | 3.x         | update metadata                                        |
-| rjdemetra3    | 3.x         |  set specifications, merge workspace                   |
+| rjdemetra3    | 3.x         | set specifications, merge workspace                    |
 
 ### Generating enhanced output in SA estimation
 
@@ -337,18 +337,15 @@ plot(window(ts.union(y, trend, sa), start = 2000),
 )
 ```
 
-
 ### rjd3x11plus
 
 Depends on `rjd3filters`
 
 -   Extension of X-11 decomposition with multiple non integer periodicities
 
--   Trend estimation with local polynomial based filters 
+-   Trend estimation with local polynomial based filters
 
 Full documentation [here](https://rjdemetra.github.io/rjd3x11plus)
-
-
 
 ### rjd3stl
 
@@ -392,7 +389,6 @@ p_sa +
         digits = 2
     )
 ```
-
 
 ### rjd3bench
 

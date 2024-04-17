@@ -45,7 +45,7 @@ If you want to help us improve this book, you can [fork this repository on GitHu
 
 ## Installing the software
 
-### Graphical User Interface (GUI)
+### Graphical User Interface (GUI) {#ind-inst-gui}
 
 You can find the latest releases 
 
@@ -74,21 +74,21 @@ R packages related to version 3.x (rjd3...) also require Java 17 or higher, you 
 
 ### Additional plugins
 
-To benefit from extended features of the graphical user interface installing plug-ins can be required. This procedure is detailed [here](#t-plug-ins) and [here](#t-gui-sa).
+To benefit from extended features of the graphical user interface installing    additional plug-ins is required. The list of available extensions and the installation procedure are detailed [here](#t-plug-ins). How to access the added features in the GUI is described [here](#t-gui-sa).
 
 In the **v2.x family** some of the additional features are:
 
-    - Benchmarking and Temporal disaggregation 
+- Benchmarking and Temporal disaggregation [Github page](https://github.com/nbbrd/jdemetra-benchmarking%22)
     
-    - Nowcasting
+- Nowcasting [Github page](https://github.com/nbbrd/jdemetra-nowcasting)
     
 In the **v3.x family** some of the additional features are:
 
-    - Benchmarking and Temporal disaggregation 
+- Benchmarking and Temporal disaggregation [Github page](https://github.com/jdemetra/jdplus-benchmarking)
     
-    - Seasonal adjustment of high frequency data 
+- Seasonal adjustment of high frequency data [Github page](https://github.com/jdemetra/jdplus-incubator)
     
-    - Additional algorithms for seasonal adjustment
+- Additional algorithms for seasonal adjustment [Github page](https://github.com/jdemetra/jdplus-incubator)
 
 
 ### Cruncher 
