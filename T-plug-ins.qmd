@@ -1,14 +1,22 @@
 # Plug-ins (GUI extensions) {#t-plug-ins .unnumbered}
 
-JDemetra+ is an application that supports plug-ins, which are components adding specific features to the existing software.
+JDemetra+ Graphical User Interface can be extended with plug-ins, which are components adding specific features to the **main** software.
 
-## Algorithms available with plug-ins
+In chapter, we cover
 
-Here is an overview of the algorithms or features which can be added by installing additional (vs main) plug-ins to the Graphical User Interface listed by functionality. For all the mentioned files corresponding to number of version is denoted x.y.z.
+-   (Statistical) Algorithms available via plug-ins
+
+-   [Utility plug-ins](#t-plug-ins-ut): data providers, data formatting
+
+-   Installation [procedure](#t-plug-ins-inst) which consists of downloading the appropriate "\*.nbm" file and installation it with the GUI.
+
+## Algorithms available with plug-ins {#t-plug-ins-algs}
+
+Here is an overview of the algorithms which can be added by installing additional plug-ins to the Graphical User Interface. For all the mentioned files corresponding number of version is denoted x.y.z.
 
 ### Seasonal Adjustment of Low frequency data
 
-For low frequency (monthly, quarterly, half-yearly, quadri-monthly) data the following additional algorithms are available with plug-ins. Corresponding files are located in the [Incubator](https://github.com/jdemetra/jdplus-incubator) ([latest releases](https://github.com/jdemetra/jdplus-incubator/releases)). Installation of auxiliary plug-in jdplus-advancedsa-desktop-plugin-x.y.z.nbm also located in the incubator is required.
+For low frequency (monthly, quarterly, half-yearly, quadri-monthly) data the following additional algorithms are available with plug-ins. Corresponding files are located in the [Incubator](https://github.com/jdemetra/jdplus-incubator) ([latest releases](https://github.com/jdemetra/jdplus-incubator/releases)). Installation of auxiliary plug-in "jdplus-advancedsa-desktop-plugin-x.y.z.nbm" also located in the incubator is required.
 
 +-------------------------------------------------------------------------------------------------------+-----------------------------------------+-----------------------------+
 | Algorithm                                                                                             | Plugin File Name                        | Documentation pages         |
@@ -32,52 +40,140 @@ For low frequency (monthly, quarterly, half-yearly, quadri-monthly) data the fol
 
 ### Seasonal Adjustment of High-Frequency data
 
-For low frequency (monthly, quarterly, half-yearly, quadri-monthly) data the following algorithms are available with plug-ins. Corresponding files are located in the [Incubator](https://github.com/jdemetra/jdplus-incubator) ([latest releases](https://github.com/jdemetra/jdplus-incubator/releases) ). Installation of auxiliary plug-in jdplus-advancedsa-desktop-plugin-x.y.z.nbm also located in the incubator is required.
+For low frequency (monthly, quarterly, half-yearly, quadri-monthly) data the following algorithms are available with plug-ins. Corresponding files are located in the [Incubator](https://github.com/jdemetra/jdplus-incubator) ([latest releases](https://github.com/jdemetra/jdplus-incubator/releases) ). Installation of auxiliary plug-in "jdplus-advancedsa-desktop-plugin-x.y.z.nbm" also located in the incubator is required.
 
-+------------------------------------------------------------+------------------------------------------+----------------------------------------+
-| Algorithm                                                  | Plugin File Name                         | Repo / Comments                        |
-+============================================================+==========================================+========================================+
-| Extended Airline Estimation                                | jdplus-highfreq-desktop-plugin-x.y.z.nbm | Usage in GUI described here            |
-|                                                            |                                          |                                        |
-| (Reg-Arima Modelling)                                      |                                          |                                        |
-+------------------------------------------------------------+------------------------------------------+----------------------------------------+
-| Extended Airline Decomposition                             | jdplus-highfreq-desktop-plugin-x.y.z.nbm | Usage in GUI described here            |
-|                                                            |                                          |                                        |
-| (Extended Seats)                                           |                                          |                                        |
-+------------------------------------------------------------+------------------------------------------+----------------------------------------+
-| MX12+                                                      | upcoming                                 | upcoming                               |
-|                                                            |                                          |                                        |
-| Extended Airline Estimation and Extended X11 Decomposition |                                          |                                        |
-+------------------------------------------------------------+------------------------------------------+----------------------------------------+
-| MSTL+                                                      | upcoming                                 | upcoming                               |
-|                                                            |                                          |                                        |
-| Extended Airline Estimation and STL Decomposition          |                                          |                                        |
-+------------------------------------------------------------+------------------------------------------+----------------------------------------+
-| MSTS                                                       | upcoming                                 | upcoming                               |
-|                                                            |                                          |                                        |
-| Basic Structural Models                                    |                                          |                                        |
-+------------------------------------------------------------+------------------------------------------+----------------------------------------+
++------------------------------------------------------------+------------------------------------------+-----------------------------+
+| Algorithm                                                  | Plugin File Name                         | Repo / Comments             |
++============================================================+==========================================+=============================+
+| Extended Airline Estimation                                | jdplus-highfreq-desktop-plugin-x.y.z.nbm | Usage in GUI described here |
+|                                                            |                                          |                             |
+| (Reg-Arima Modelling)                                      |                                          |                             |
++------------------------------------------------------------+------------------------------------------+-----------------------------+
+| Extended Airline Decomposition                             | jdplus-highfreq-desktop-plugin-x.y.z.nbm | Usage in GUI described here |
+|                                                            |                                          |                             |
+| (Extended Seats)                                           |                                          |                             |
++------------------------------------------------------------+------------------------------------------+-----------------------------+
+| MX12+                                                      | upcoming                                 | upcoming                    |
+|                                                            |                                          |                             |
+| Extended Airline Estimation and Extended X11 Decomposition |                                          |                             |
++------------------------------------------------------------+------------------------------------------+-----------------------------+
+| MSTL+                                                      | upcoming                                 | upcoming                    |
+|                                                            |                                          |                             |
+| Extended Airline Estimation and STL Decomposition          |                                          |                             |
++------------------------------------------------------------+------------------------------------------+-----------------------------+
+| MSTS                                                       | upcoming                                 | upcoming                    |
+|                                                            |                                          |                             |
+| Basic Structural Models                                    |                                          |                             |
++------------------------------------------------------------+------------------------------------------+-----------------------------+
 
-### Benchmarking and Temporal Disaggregation
+### Advanced Seasonal adjustment features for v 2.x
 
-Table for v2 and v3
+[SA Advanced](https://github.com/nbbrd/jdemetra-sa-advanced%22) provides some experimental seasonal adjustment methods (with Reg-ARIMA preprocessing), basic structural models, generalized airline models and airline + seasonal noise models (called mixed airline).
 
-#### For version 3.x
+```         
+-   gairline: generalized airline model
+-   mairline: mixed airline model
+-   mixedfreq: mixed frequencies seasonal adjustment
+-   sssts: Seasonal specific structural time series
+-   sts: Structural time series
+```
 
-#### For version 2.x
+### Benchmarking {#t-plug-ins-bench}
 
-Benchmarking methods:
+The plug-in is common for benchmarking and temporal disaggregation.
 
-- Denton 
-- Cholette (including Multi-variate)
-- Calendarization 
+In version 3.x, the plug-in file ("jdplus-benchmarking-desktop-plugin-x.y.z.nbm") is available [here](https://github.com/jdemetra/jdplus-benchmarking/releases) for download. Usage in GUI is described in [this chapter](#a-bench).
 
-Temporal Dia
+In version 2.x, the plug-in file ("nbdemetra-benchmarking-2.2.2.nbm") is available [here](https://github.com/nbbrd/jdemetra-benchmarking) for download. Usage in GUI is described in [this chapter](#a-bench).
 
-The plug-in file is available [here](https://github.com/nbbrd/jdemetra-benchmarking) for download. Usage in GUI is described in [this chapter](#a-bench)
++------------------------+-----------------------+-----------------------+
+| Method                 | Plug-in for Version 2 | Plug-in for version 3 |
++========================+=======================+=======================+
+| Denton                 | ✔                     | ✔                     |
++------------------------+-----------------------+-----------------------+
+| Cholette               | ✔                     | ✔                     |
++------------------------+-----------------------+-----------------------+
+| Cholette Multi-variate | ✔                     | ✖                     |
++------------------------+-----------------------+-----------------------+
+| Cubic Splines          | ✖                     | ✔                     |
++------------------------+-----------------------+-----------------------+
+| Grp                    | ✖                     | ✔                     |
++------------------------+-----------------------+-----------------------+
+| Calendarization        | ✔                     | ✖                     |
++------------------------+-----------------------+-----------------------+
 
+### Temporal Disaggregation
 
-### Data base access (SDMX)
+The plug-in is common for benchmarking and temporal disaggregation.
+
+| Method              | Plug-in for Version 2 | Plug-in for Version 3 |
+|---------------------|-----------------------|-----------------------|
+| Regression Models\* | ✔️                    | ✔️                    |
+| Model-based Denton  | ✖                     | ✔                     |
+
+In version 3.x, the plug-in file ("jdplus-benchmarking-desktop-plugin-x.y.z.nbm") is available [here](https://github.com/jdemetra/jdplus-benchmarking/releases) for download. Usage in GUI is described in [this chapter](#a-bench)
+
+In version 2.x, the plug-in file ("nbdemetra-benchmarking-2.2.2.nbm") is available [here](https://github.com/nbbrd/jdemetra-benchmarking) for download. Usage in GUI is described in [this chapter](#a-bench)
+
+### Nowcasting
+
+In version 3.x, nowcasting are available via the [rjd3nowcasting](#t-r-packs) package.
+
+In version 2.x, the plug-in file ("nbdemetra-dfm-2.2.3.nbm") is available [here](https://github.com/nbbrd/jdemetra-nowcasting/releases) for download. Usage in GUI is described on this [wiki page](https://github.com/nbbrd/jdemetra-nowcasting/wiki)
+
+## Utility plug-ins {#t-plug-ins-ut}
+
+### Fetching time series from web services (SDMX)
+
+The SDMX plug-in aloows to import time series from [SDMX website](https://sdmx.org) to JDemetra+ by querying [web services](https://github.com/nbbrd/jdemetra-dotstat/wiki/Supported-web-services%22) or parsing [files](https://github.com/nbbrd/jdemetra-dotstat/wiki/Supported-file-formats%22).
+
+Documentation (made for version 2. but quasi-identical in version 3.x) is available on this [wiki page](https://github.com/nbbrd/jdemetra-dotstat/wiki).
+
+In version 3.x, the plug-in file ("jdplus-sdmx-desktop-plugin-x.y.z.nbm") is available [here](https://github.com/nbbrd/jdplus-sdmx/releases) for download.
+
+In version 2.x, the plug-in file ("jdplus-sdmx-desktop-plugin-x.y.z.nbm") is available [here](demetra-dotstat-desktop-2.2.7.nbm) for download.
+
+### Manual fine tuning in Seasonal Adjustment
+
+The following plug-in was developed by the Deutsche Bundesbank (BBK). For the moment it is only available for version 2.x.
+
+-   [ConCur](https://bbkrd.github.io/pages/concur): The plug-in ConCur supports the controlled current adjustment approach. It pro the storage of the current components and offers graphical tools to compare forecasted and re-estimated figures. Furthermore, a pre-defined summary of the output containing the most important quality measures can be exported to HTML files.
+
+### Chain linked Indices
+
+The following plug-ins were developed by the Deutsche Bundesbank (BBK). For the moment they are only available for version 2.x.
+
+-   [KIX](https://bbkrd.github.io/pages/kix): The plug-in KIX (German for chain-linked index) has been designed to facilitate the handling of this index type. It offers addition and subtraction of two or more chain-linked time series as well as the computation of contributions of growth.
+
+-   [KIX2.0](https://bbkrd.github.io/pages/kix/kix2): KIX 2.0 offers addition and subtraction of two or more chain-linked time series as well as the computation of contributions of growth following the concept of annual overlap. Contributions to growth are calculated with the partial contribution to growth approach.
+
+-   [KIXE](https://bbkrd.github.io/pages/kix/kixe): KIX_E offers addition and subtraction of two or more chain-linked time series as well as the computation of contributions of growth following the concept of one-period overlap. Contributions to growth are calculated with the aid of the Ribe (1999) contribution to growth approach.
+
+-   [KIX](https://bbkrd.github.io/pages/kix/kixcc): The program KIX-CC offers for continuously chain-linked indices the aggregation or disaggregation of two or more indices, or the calculation of contributions to growth.
+
+### Calendar regressors wrangling
+
+The following plug-in was developed by the Deutsche Bundesbank (BBK). For the moment it is only available for version 2.x.
+
+-   [TransReg](https://bbkrd.github.io/pages/transreg): The plug-in TransReg allows the user to carry out grouping and centring of user-defined regression variables in JD+.
+
+### Specification conversion
+
+The following plug-in was developed by the Deutsche Bundesbank (BBK). For the moment it is only available for version 2.x.
+
+-   [Xlsx2Ws](https://bbkrd.github.io/pages/xlsx2ws): The plug-in Xlsx2Ws allows the converting of specific workspace information to a xlsx file and vice versa.
+
+### Quality report
+
+The Quality Report (QR) Eurostat plug-in is available [on this GtHub page](https://github.com/Sace2015/EurostatQR): download the latest version of the \*.nbm file and proceed with installation as indicated [in this chapter](#t-plug-ins-inst)
+
+It is commonly used by Labor Cost Index (LCI) producers across eurosystem countries.
+
+### Data base access
+
+The following plug-ins was developed by the National bank of Belgium (NBB). It is only available for version 2.x.
+
+-   [Access](https://github.com/nbbrd/jdemetra-access)This JDemetra+ extension is a pure java library for reading time series from [MS Access databases](https://en.wikipedia.org/wiki/Microsoft_Access). It currently supports versions 2000-2016 read/write and 97 read-only.Being a pure Java library, you don't need MS Access installed in order to read Access files.
 
 ## Installation procedure {#t-plug-ins-inst}
 
@@ -191,66 +287,6 @@ It is possible to delay the restart of the application, although the restart is 
 <!-- The sections below provide more detailed explanations and link to documentations pages external to this book for plug-ins compatible with JDemetra+ 3.x. -->
 
 <!-- Up coming content. -->
-
-## Plug-ins documentation for version 2.x
-
-The sections below provide more detailed explanations and link to documentation pages external to this book for plug-ins compatible with JDemetra+ 2.x.
-
-### National Bank of Belgium plug-ins
-
--   [Access](https://github.com/nbbrd/jdemetra-access)This JDemetra+ extension is a pure java library for reading time series from [MS Access databases](https://en.wikipedia.org/wiki/Microsoft_Access). It currently supports versions 2000-2016 read/write and 97 read-only.Being a pure Java library, you don't need MS Access installed in order to read Access files. (edit versions info here)
-
--   [SDMX](https://github.com/nbbrd/jdemetra-dotstat): This plugin provides time series from [SDMX](https://sdmx.org) to JDemetra+ by querying [web services](https://github.com/nbbrd/jdemetra-dotstat/wiki/Supported-web-services%22) or parsing [files](https://github.com/nbbrd/jdemetra-dotstat/wiki/Supported-file-formats%22).
-
--   [SA Advanced](https://github.com/nbbrd/jdemetra-sa-advanced%22): This module provides some experimental seasonal adjustment methods (with Reg-ARIMA preprocessing), basic structural models, generalized airline models and airline + seasonal noise models (called mixed airline).
-
-    -   gairline: generalized airline model
-    -   mairline: mixed airline model
-    -   mixedfreq: mixed frequencies seasonal adjustment
-    -   sssts: Seasonal specific structural time series
-    -   sts: Structural time series
-
--   [Benchmarking](https://github.com/nbbrd/jdemetra-benchmarking%22): This module provides some experimental methods for temporal disaggregation and multi-variate benchmarking:Chow-Lin, Fernandez, Litterman, Cholette, Calendarization.
-
--   [Nowcasting](https://github.com/nbbrd/jdemetra-nowcasting): Nowcasting is often defined as the prediction of the present, the very near future and the very recent past. The plug-in developed at the National Bank of Belgium helps to operationalize the process of nowcasting. It can be used to specify and estimate dynamic factor models and visualize how the real-time dataflow updates expectations, as for instance in Banbura and Modugno (2010). The software can also be used to perform pseudo out-of-sample forecasting evaluations that consider the calendar of data releases, contributing to the formalization of the nowcasting problem originally proposed by Giannone, et al. (2008) or Evans (2005).
-
-### Bundesbank plug-ins
-
--   [ConCur](https://bbkrd.github.io/pages/concur): The plug-in ConCur supports the controlled current adjustment approach. It supports the storage of the current components and offers graphical tools to compare forecasted and re-estimated figures. Furthermore, a pre-defined summary of the output containing the most important quality measures can be exported to HTML files.
-
--   [KIX](https://bbkrd.github.io/pages/kix): The plug-in KIX (German for chain-linked index) has been designed to facilitate the handling of this index type. It offers addition and subtraction of two or more chain-linked time series as well as the computation of contributions of growth.
-
-    -   [KIX2.0](https://bbkrd.github.io/pages/kix/kix2): KIX 2.0 offers addition and subtraction of two or more chain-linked time series as well as the computation of contributions of growth following the concept of annual overlap. Contributions to growth are calculated with the partial contribution to growth approach.
-
-    -   [KIXE](https://bbkrd.github.io/pages/kix/kixe): KIX_E offers addition and subtraction of two or more chain-linked time series as well as the computation of contributions of growth following the concept of one-period overlap. Contributions to growth are calculated with the aid of the Ribe (1999) contribution to growth approach.
-
-    -   [KIX](https://bbkrd.github.io/pages/kix/kixcc): The program KIX-CC offers for continuously chain-linked indices the aggregation or disaggregation of two or more indices, or the calculation of contributions to growth.
-
--   [TransReg](https://bbkrd.github.io/pages/transreg): The plug-in TransReg allows the user to carry out grouping and centring of user-defined regression variables in JD+.
-
--   [Xlsx2Ws](https://bbkrd.github.io/pages/xlsx2ws): The plug-in Xlsx2Ws allows the converting of specific workspace information to a xlsx file and vice versa.
-
-### Eurostat plug-ins
-
-The Quality Report (QR) Eurostat plug-in is available [on this GtHub page](https://github.com/Sace2015/EurostatQR): download the latest version of the \*.nbm file and proceed with installation as indicated [in this chapter](#t-plug-ins-inst)
-
-### National Bank of Belgium plug-ins
-
--   [Access](https://github.com/nbbrd/jdemetra-access)This JDemetra+ extension is a pure java library for reading time series from [MS Access databases](https://en.wikipedia.org/wiki/Microsoft_Access). It currently supports versions 2000-2016 read/write and 97 read-only.Being a pure Java library, you don't need MS Access installed in order to read Access files. (edit versions info here)
-
--   [SDMX](https://github.com/nbbrd/jdemetra-dotstat): This plugin provides time series from [SDMX](https://sdmx.org) to JDemetra+ by querying [web services](https://github.com/nbbrd/jdemetra-dotstat/wiki/Supported-web-services%22) or parsing [files](https://github.com/nbbrd/jdemetra-dotstat/wiki/Supported-file-formats%22).
-
--   [SA Advanced](https://github.com/nbbrd/jdemetra-sa-advanced%22): This module provides some experimental seasonal adjustment methods (with Reg-ARIMA preprocessing), basic structural models, generalized airline models and airline + seasonal noise models (called mixed airline).
-
-    -   gairline: generalized airline model
-    -   mairline: mixed airline model
-    -   mixedfreq: mixed frequencies seasonal adjustment
-    -   sssts: Seasonal specific structural time series
-    -   sts: Structural time series
-
--   [Benchmarking](https://github.com/nbbrd/jdemetra-benchmarking%22): This module provides some experimental methods for temporal disaggregation and multi-variate benchmarking:Chow-Lin, Fernandez, Litterman, Cholette, Calendarization.
-
--   [Nowcasting](https://github.com/nbbrd/jdemetra-nowcasting): Nowcasting is often defined as the prediction of the present, the very near future and the very recent past. The plug-in developed at the National Bank of Belgium helps to operationalize the process of nowcasting. It can be used to specify and estimate dynamic factor models and visualize how the real-time dataflow updates expectations, as for instance in Banbura and Modugno (2010). The software can also be used to perform pseudo out-of-sample forecasting evaluations that consider the calendar of data releases, contributing to the formalization of the nowcasting problem originally proposed by Giannone, et al. (2008) or Evans (2005).
 
 ## Default Plugins
 

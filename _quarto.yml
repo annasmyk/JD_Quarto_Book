@@ -97,11 +97,11 @@ book:
         - M-X11-decomposition.qmd ##(#m-X11)
         - M-SEATS-decomposition.qmd ##(#m-seats)
         #- M-sa-hf.qmd ##(#m-sa-hf)
-        - M-Trend-Estimation-Local-Polynomials.qmd ##(#m-trend)
+        # - M-Trend-Estimation-Local-Polynomials.qmd ##(#m-trend)
         - M-tests.qmd ##(#m-tests)
         - M-STL-decomposition.qmd ##(#m-stl)
-        - M-state-space-framework.qmd ##(#m-ssf)
-        - M-Temp-Disagg-Bench.qmd ##(#m-bench)
+        # - M-state-space-framework.qmd ##(#m-ssf)
+        # - M-Temp-Disagg-Bench.qmd ##(#m-bench)
         - M-revision-analysis.qmd ##(#m-revs)
     - references.qmd
 bibliography: references.bib

@@ -2,25 +2,51 @@
 
 ## In this chapter
 
-The sections below provide guidance on how to implement algortihms on
+The sections below provide guidance on how to implement algorithms on
 
--   benchmarking
+-   Benchmarking of [seasonally adjusted data](#a-bench-sa)
 
--   [temporal disaggregation](#a-bench-tempd)
+-   Benchmarking [high to low frequency](#a-bench-high-low) data
 
-Using the [GUI]() with a [plug-in]() or [rjd3bench]() package.
+-   [Temporal Disaggregation](#a-bench-tempd)
 
-## Benchmarking overview
+Using the [GUI](#t-gui-overview) with a [plug-in](#t-plug-ins) or [rjd3bench package](#t-r-packs) package.
 
-Often one has two (or multiple) series of different frequency for the same target variable. Sometimes, however, these series are not coherent in the sense that they don't match up. Benchmarking\[\^1\] is a method to deal with this situation. An aggregate of a higher-frequency measurement variables is not necessarily equal to the corresponding lower-frequency less-aggregated measurement. Moreover, the sources of data may have different reliability levels. Usually, less frequent data are considered more trustworthy as they are based on larger samples and compiled more precisely. The more reliable measurements, hence often the less frequent, will serve as benchmark.
+## Algorithms overview
 
-In seasonal adjustment methods benchmarking is the procedure that ensures the consistency over the year between adjusted and non-seasonally adjusted data. It should be noted that the [ESS Guidelines on Seasonal Adjustment (2015)](https://ec.europa.eu/eurostat/documents/3859598/6830795/KS-GQ-15-001-EN-N.pdf/d8f1e5f5-251b-4a69-93e3-079031b74bd3), do not recommend benchmarking as it introduces a bias in the seasonally adjusted data. The U.S. Census Bureau also points out that "*forcing the seasonal adjustment totals to be the same as the original series annual totals can degrade the quality of the seasonal adjustment, especially when the seasonal pattern is undergoing change. It is not natural if trading day adjustment is performed because the aggregate trading day effect over a year is variable and moderately different from zero*"\[\^2\]. Nevertheless, some users may need that the annual totals of the seasonally adjusted series match the annual totals of the original, non-seasonally adjusted series\[\^3\].
+### Benchmarking {#t-plug-ins-bench}
 
-According to the [ESS Guidelines on Seasonal Adjustment (2015)](https://ec.europa.eu/eurostat/documents/3859598/6830795/KS-GQ-15-001-EN-N.pdf/d8f1e5f5-251b-4a69-93e3-079031b74bd3), the only benefit of this approach is that there is consistency over the year between adjusted and the non-seasonally adjusted data; this can be of particular interest when low-frequency (e.g. annual) benchmarking figures officially exist (e.g. National Accounts, Balance of Payments, External Trade, etc.) and where users' needs for time consistency are stronger.
+| Method                 | GUI Plug-in for V 2.x | GUI Plug-in for V 3.x | In R rjd3bench |
+|------------------------|-----------------------|-----------------------|----------------|
+| Denton                 | ✔                     | ✔                     | ✔              |
+| Cholette               | ✔                     | ✔                     | ✔              |
+| Cholette Multi-variate | ✔                     | ✖                     | ✖              |
+| Cubic Splines          | ✖                     | ✔                     | ✔              |
+| Grp                    | ✖                     | ✔                     | ✔              |
+| Calendarization        | ✔                     | ✖                     | ✔              |
 
-## Tools
+### Temporal Disaggregation
 
-### GUI
+| Method              | GUI Plug-in for V 2.x | GUI Plug-in for V 2.x | In R rjd3bench |
+|---------------------|-----------------------|-----------------------|----------------|
+| Regression Models\* | ✔️                    | ✔️                    | ✔              |
+| Model-based Denton  | ✖                     | ✔                     | rjd3sts        |
+
+\*Regression models: several structure of residuals
+
+-   Ar1: Chow-Lin
+
+-   Rw: Fernandez
+
+-   RwAr1: Litterman
+
+## Benchmarking seasonally adjusted data {#a-bench-sa}
+
+The goal here is to enforce identical annual totals on the seasonally adjusted series as on the raw or calendar adjusted series.
+
+### Using the GUI
+
+When running a seasonal adjustment process
 
 1.  With the pre-defined specifications the benchmarking functionality is not applied by default following the *ESS Guidelines on Seasonal Adjustment* (2015) recommendations. It means that once the user has seasonally adjusted the series with a pre-defined specification the *Benchmarking* node is empty. To execute benchmarking click on the *Specifications* button and activate the checkbox in the *Benchmarking* section.
 
@@ -48,15 +74,26 @@ According to the [ESS Guidelines on Seasonal Adjustment (2015)](https://ec.europ
 
     ![**Exporting the results of the benchmarking procedure**](All_images/UDimage4.jpg)
 
-### Benchmarking and Temporal Disaggregation plugin (version 2.x)
+### In R with `rjd3x13` and `rjd3tramoseats`
 
-Select **Tools** $\rightarrow$ Plug-ins for JDemetra+ to install Benchmarking plug-in.
+When performing seasonal adjustment with `rjd3x13` and `rjd3tramoseats`, the current (or default) specification has to be customized using the function `rjd3toolkit::set_benchmarking` documented on this [GitHub page](https://rjdemetra.github.io/rjd3toolkit/reference/set_benchmarking.html)
 
-Once the plugin is installed, two more options appear in the Workspace window: Benchmarking and Temporal Disaggregation.
+```{r, echo=TRUE, eval=FALSE}
+init_spec <- rjd3x13::spec_x13("RSA5c")
+new_spec<- set_benchmarking(init_spec,
+                           enabled = TRUE,
+                           target = "Normal",
+                           rho = 0.8,
+                           lambda = 0.5,
+                           forecast = FALSE,
+                           bias = "None")
 
-![Text](All_images/Image1_Bench.jpg)
 
-## Benchmarking with different frequencies
+```
+
+More information on R packages for JDemetra+ and installation procedures is provided in [this chapter](#t-r-packs)
+
+## Benchmarking with different frequencies {#a-bench-high-low}
 
 These methods provide a high-frequency series (input series) modified so that it fulfils a linear relationship, with another series of low frequency (benchmark), both series measure the same target variable. An example of the relation to be fulfilled could be that the low frequency series (quarterly frequency) coincides with the quarterly sum of the high frequency series (monthly frequency).
 
@@ -64,7 +101,15 @@ Multivariate benchmarking also forces contemporary linear relations between high
 
 The benchmarking methods available in the benchmarking and time disaggregation plug-in are: Denton, Cholette, and Cholette multivariate.
 
-### Univariate: Denton and Cholette
+### Using the plug-in for GUI (version 2.x) {#a-bench-td-plugin}
+
+Download the plug-in for GUI as explained [here](#t-plug-ins-bench) and install it as detailed [here](#t-plug-ins-inst)
+
+Once the plugin is installed, two more options appear in the Workspace window: Benchmarking and Temporal Disaggregation.
+
+![Text](All_images/Image1_Bench.jpg)
+
+#### Univariate: Denton and Cholette
 
 To run Denton univariate case select:
 
@@ -74,7 +119,7 @@ Statistical **Methods** $\rightarrow$ Benchmarking $\rightarrow$ Denton or Chole
 
 In both cases, a new window is displayed to launch one of the methods with the series selected. In the upper left side, drag the high frequency series from the Providers window and drop it in **Drop Series here** and the low frequency series in **Drop Constraint here**.
 
-#### Denton
+##### Denton
 
 In the top right of the screen, select the **Specifications** button to set the specifications to apply each method. See below for a description of the available options on Denton method:
 
@@ -114,9 +159,23 @@ In both cases, Denton and Cholette methods, the output is a graph with the origi
 
 ![Denton output](All_images/Image5_Bench.png)
 
-### Multi-variate: Cholette
+#### Multi-variate: Cholette
 
 Up coming content.
+
+### Using the plug-in for GUI (version 2.x)
+
+The plug-in for v 3.x is very similar to the one in v2.x described above. Some methods are not available yet in v 3.x, which contains Model Based Denton not included in v2.x.
+
+Up coming content.
+
+### In R with `rjd3bench`
+
+Use the \[rjd3bench\](https://github.com/rjdemetra/rjd3bench) package and see its documentation pages. Browse its documentation on this [GitHub page](https://rjdemetra.github.io/rjd3bench/).
+
+To get started browse the [vignette](https://rjdemetra.github.io/rjd3bench/articles/rjd3bench.html)
+
+More information on R packages for JDemetra+ and installation procedures is provided in [this chapter](#t-r-packs)
 
 ## Temporal Disaggregation {#a-bench-tempd}
 
@@ -126,7 +185,9 @@ When there are high frequency related indicators, these methods provide high fre
 
 See Methods$\rightarrow$Temporal disaggregation for more theoretical detail.
 
-### Temporal Disaggregation in the GUI
+### Using the plug-in for GUI
+
+Temporal disaggregation in the GUI is available with the same [plug-in](#a-bench-td-plugin) as benchmarking (described in the sections above)
 
 To run Temporal Disaggregation methods select Temporal disaggregation$\rightarrow$ Regression Model:
 
@@ -143,7 +204,7 @@ In the top right of the screen, select **Specifications** to set the specificati
 1.  **Estimation span**: Specifies the span (data interval) of the time series to be used in the temporal disaggregation process. The user can restrict the span. The common settings are:
 
 | Option            | Description (expected format)                                                                                                                                               |     |
-|----------|-----------------------------------------------------|----------|
+|-------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----|
 | All               | default                                                                                                                                                                     |     |
 | From              | first observation included (yyyy-mm-dd)                                                                                                                                     |     |
 | To                | last observation included (yyyy-mm-dd)                                                                                                                                      |     |
@@ -194,15 +255,15 @@ Select MainResults$\rightarrow$Table to obtain the disaggregated series and stan
 
 Select **MainResults**$\rightarrow$Chart to see a graph of the disaggregated series and the confidence interval.
 
-### Benchmarking and Temporal Disaggregation in R (version 3.x)
+### In R with `rjd3bench`
 
-Use the \[rjd3bench\]((https://github.com/rjdemetra/rjd3bench) package and see its documentation pages.
+Use the \[rjd3bench\](https://github.com/rjdemetra/rjd3bench) package and see its documentation pages. Browse its documentation on this [GitHub page](https://rjdemetra.github.io/rjd3bench/).
 
-## Benchmarking Univariate: Denton and Cholette
+To get started browse the [vignette](https://rjdemetra.github.io/rjd3bench/articles/rjd3bench.html)
 
-To perform Univariate Benchmarking methods
+More information on R packages for JDemetra+ and installation procedures is provided in [this chapter](#t-r-packs)
 
-## Temporal Disaggregation
+#### Temporal Disaggregation
 
 To perform Temporal Disaggregation methods use the function **temporaldisaggregation**:
 
