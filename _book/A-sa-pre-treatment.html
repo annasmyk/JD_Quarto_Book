@@ -191,7 +191,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./A-RegArima-Tramo-Modelling-Overview.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">RegArima (Tramo) Modelling</span></a>
+ <span class="menu-text">Modelling</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -220,20 +220,32 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./A-sa-stl-decomposition.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">SA with STL</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./A-sa-bsm.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">SA with Basic Structural Models</span></a>
+  <a href="./A-rev-policies.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SA: Revision policies</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./A-sa-hf.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">SA of high-frequency data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A-sa-x12.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SA: X12+ and MX12+</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A-sa-stl-decomposition.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SA: STL+ and MSTL+</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A-sa-bsm.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SA: STS and MSTS</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -309,26 +321,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./T-r-packages.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Using JDemetra+ in R</span></a>
+  <a href="./T-plug-ins.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Plug-ins (GUI extensions)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./T-Production-tools-cruncher-QR.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Production, Cruncher and quality report</span></a>
+ <span class="menu-text">Cruncher and quality report</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./T-rev-policies-production.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Production and revision policies</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./T-plug-ins.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Plug-ins GUI</span></a>
+  <a href="./T-r-packages.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">R packages</span></a>
   </div>
 </li>
       </ul>
@@ -368,12 +374,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./M-Trend-Estimation-Local-Polynomials.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Trend Estimation</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="./M-tests.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Tests</span></a>
   </div>
@@ -386,14 +386,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./M-state-space-framework.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">State space framework</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./M-Temp-Disagg-Bench.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Temporal disaggregation and benchmarking</span></a>
+  <a href="./M-revision-analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Revision Analysis</span></a>
   </div>
 </li>
       </ul>
@@ -416,9 +410,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul>
   <li><a href="#in-this-chapter" id="toc-in-this-chapter" class="nav-link active" data-scroll-target="#in-this-chapter">In this chapter</a></li>
   <li><a href="#pre-treatment-principles" id="toc-pre-treatment-principles" class="nav-link" data-scroll-target="#pre-treatment-principles">Pre-treatment principles</a></li>
-  <li><a href="#sa-pre-t-realloc" id="toc-sa-pre-t-realloc" class="nav-link" data-scroll-target="#sa-pre-t-realloc">Reallocation of pre-treatment effects</a>
+  <li><a href="#sa-pre-t-realloc" id="toc-sa-pre-t-realloc" class="nav-link" data-scroll-target="#sa-pre-t-realloc">Reallocation of pre-treatment effects</a></li>
+  <li><a href="#a-pre-t-def-spec" id="toc-a-pre-t-def-spec" class="nav-link" data-scroll-target="#a-pre-t-def-spec">Default Specifications</a>
   <ul class="collapse">
-  <li><a href="#a-pre-t-def-spec" id="toc-a-pre-t-def-spec" class="nav-link" data-scroll-target="#a-pre-t-def-spec">Default Specifications</a></li>
   <li><a href="#usr-def-spec" id="toc-usr-def-spec" class="nav-link" data-scroll-target="#usr-def-spec">User-defined specifications</a></li>
   <li><a href="#sa-pre-t-spans" id="toc-sa-pre-t-spans" class="nav-link" data-scroll-target="#sa-pre-t-spans">Spans</a></li>
   <li><a href="#sa-pre-t-mode" id="toc-sa-pre-t-mode" class="nav-link" data-scroll-target="#sa-pre-t-mode">Decomposition Scheme</a></li>
@@ -472,13 +466,9 @@ Y_t = \sum{\alpha}_i O_{it} + \sum\beta_j C_{jt} + \sum {\gamma}_i Reg_{it} + Y_
 </section>
 <section id="sa-pre-t-realloc" class="level2">
 <h2 class="anchored" data-anchor-id="sa-pre-t-realloc">Reallocation of pre-treatment effects</h2>
-<ul>
-<li>The linearised series will be decomposed into unobservable components in the decomposition phase</li>
-</ul>
-<p><span class="math display">\[y_{lin} =S_{lin} +T_{lin}+I_{lin}\]</span></p>
-<ul>
-<li>Pre-treatment effects will then be reallocated to build the final components</li>
-</ul>
+<p>The linearised series (<span class="math inline">\(Y_{lin,t}\)</span>) is be decomposed into unobservable components in the decomposition phase</p>
+<p><span class="math display">\[Y_{lin} =S_{lin} +T_{lin}+I_{lin}\]</span></p>
+<p>Pre-treatment effects are then reallocated to build the final components</p>
 <p><span class="math display">\[S=S_{lin}+cal+out_s+reg_s\]</span></p>
 <p><span class="math display">\[T=T_{lin}+out_t+reg_{t}\]</span></p>
 <p><span class="math display">\[I=I_{lin}+out_i+reg_{i}\]</span></p>
@@ -488,9 +478,10 @@ Y_t = \sum{\alpha}_i O_{it} + \sum\beta_j C_{jt} + \sum {\gamma}_i Reg_{it} + Y_
 <li><p><span class="math inline">\(out_j\)</span> is the total effect of outliers on component <span class="math inline">\(j\)</span></p></li>
 <li><p><span class="math inline">\(reg_j\)</span> is the total effect of user-defined regressors on component <span class="math inline">\(j\)</span></p></li>
 </ul>
-<section id="a-pre-t-def-spec" class="level3">
-<h3 class="anchored" data-anchor-id="a-pre-t-def-spec">Default Specifications</h3>
-<p>Default specifications are set for the whole SA procedure, pre-treatment and decomposition. They are slightly different for X13-ARIMA and TRAMO-SEATS and can be modified with user defined parameters.</p>
+</section>
+<section id="a-pre-t-def-spec" class="level2">
+<h2 class="anchored" data-anchor-id="a-pre-t-def-spec">Default Specifications</h2>
+<p>Default specifications are set for the whole SA procedure, pre-treatment and decomposition. They are slightly different for X13-ARIMA and TRAMO-SEATS and can be modified with user-defined parameters.</p>
 <section id="a-pre-t-def-spec-x13" class="level4">
 <h4 class="anchored" data-anchor-id="a-pre-t-def-spec-x13">Starting point for X13-ARIMA</h4>
 <table class="table">
@@ -641,10 +632,9 @@ Y_t = \sum{\alpha}_i O_{it} + \sum\beta_j C_{jt} + \sum {\gamma}_i Reg_{it} + Y_
 </tbody>
 </table>
 </section>
-</section>
 <section id="usr-def-spec" class="level3">
 <h3 class="anchored" data-anchor-id="usr-def-spec">User-defined specifications</h3>
-<p>Principle of user setting parameters: can be done from one of the default specifications or any specification in a “Save as” mode very similar in GUI and R, see below.</p>
+<p>Principle oser setting parameters: can be done from one of the default specifications or any specification in a “Save as” mode very similar in GUI and R, as detailed below.</p>
 <p>The user may add new seasonal adjustment specifications to the <em>Workspace</em> window. To do it, go to the <em>Seasonal adjustment</em> section, right click on the <em>tramoseats</em> or <em>x13</em> item in the <em>specifications</em> node and select <em>New</em> from the local menu.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -1113,15 +1103,18 @@ Y_t = \sum{\alpha}_i O_{it} + \sum\beta_j C_{jt} + \sum {\gamma}_i Reg_{it} + Y_
 <p>Additional information can be found in <a href="./A-outlier-detection.html">this chapter</a>.</p>
 <section id="options-for-automatic-detection" class="level4">
 <h4 class="anchored" data-anchor-id="options-for-automatic-detection">Options for automatic detection</h4>
-<p>*Is enabled**<br> <em>outliers; iatip</em></p>
-<pre><code>  Enables/disables the automatic detection of outliers in the span determined by the **Detection span** option. By default, the checkbox is marked, which implies that the automatic identification of outliers is enabled.</code></pre>
 <ul>
-<li><p><strong>Use default critical value</strong><br> <em>outliers; va</em></p>
-<p>The critical value is automatically determined by the number of observations in the interval specified by the <strong>Detection span</strong> option. When <strong>Use default critical value</strong> is disabled, the procedure uses the critical value inputted in the <strong>Critical value</strong> item (see below). Otherwise, the default value is used (the first case corresponds to “<em>critical</em> = <em>xxx</em>”; the second corresponds to a specification without the critical argument). It should be noted that it is not possible to define a separate critical value for each outlier type. By default, the checkbox is marked, which implies that the automatic determination of the critical value is enabled.<br>
-</p></li>
-<li><p><strong>Critical value</strong><br> <em>outliers; va</em></p>
+<li><p><strong>Is enabled</strong><br>
+<em>outliers; iatip</em></p>
+<p>Enables/disables the automatic detection of outliers in the span determined by the <strong>Detection span</strong> option. By default, the checkbox is marked, which implies that the automatic identification of outliers is enabled.</p></li>
+<li><p><strong>Use default critical value</strong><br>
+<em>outliers; va</em></p>
+<p>The critical value is automatically determined by the number of observations in the interval specified by the <strong>Detection span</strong> option. When <strong>Use default critical value</strong> is disabled, the procedure uses the critical value inputted in the <strong>Critical value</strong> item (see below). Otherwise, the default value is used (the first case corresponds to “<em>critical</em> = <em>xxx</em>”; the second corresponds to a specification without the critical argument). It should be noted that it is not possible to define a separate critical value for each outlier type. By default, the checkbox is marked, which implies that the automatic determination of the critical value is enabled.</p></li>
+<li><p><strong>Critical value</strong><br>
+<em>outliers; va</em></p>
 <p>The critical value used in the outlier detection procedure. The option is active once <strong>Use default critical value</strong> is disabled. By default, it is set to 3.5.</p></li>
-<li><p><strong>Detection span</strong> $$ <strong>type</strong><br> <em>outliers; int1, int2*</em></p>
+<li><p><strong>Detection span</strong> $$ <strong>type</strong><br>
+<em>outliers; int1, int2*</em></p>
 <p>A span of the time series to be searched for outliers. The possible values of the parameter are:</p>
 <ul>
 <li><em>All</em> – full time series span is considered in the modelling;</li>
@@ -1133,18 +1126,24 @@ Y_t = \sum{\alpha}_i O_{it} + \sum\beta_j C_{jt} + \sum {\gamma}_i Reg_{it} + Y_
 <li><em>Excluding</em> – number of observations excluded from the beginning (specified in the <em>first</em> field) and/or end of the time series (specified in the <em>last</em> field) of the pre-processing model.</li>
 </ul>
 <p>With the options <em>Last</em>, <em>First</em>, <em>Excluding</em> the span can be computed dynamically on the series. The default setting is <em>All</em>.</p></li>
-<li><p><strong>Additive</strong><br> <em>outliers; aio*</em></p>
+<li><p><strong>Additive</strong><br>
+<em>outliers; aio*</em></p>
 <p>Automatic identification of additive outliers. By default, this option is enabled.<br>
 </p></li>
-<li><p><strong>Level shift</strong><br> <em>outliers; aio*</em></p>
+<li><p><strong>Level shift</strong><br>
+<em>outliers; aio*</em></p>
 <p>Automatic identification of level shifts. By default, this option is enabled.</p></li>
-<li><p><strong>Transitory change</strong><br> <em>outliers; aio*</em></p>
+<li><p><strong>Transitory change</strong><br>
+<em>outliers; aio*</em></p>
 <p>Automatic identification of transitory changes. By default, this option is enabled.</p></li>
-<li><p><strong>Seasonal outlier</strong><br> <em>outliers; aio*</em></p>
+<li><p><strong>Seasonal outlier</strong><br>
+<em>outliers; aio*</em></p>
 <p>Automatic identification of seasonal outliers. By default, this option is disabled. Tramo specific</p></li>
-<li><p><strong>EML estimation</strong><br> <em>outliers; imvx</em></p>
+<li><p><strong>EML estimation</strong><br>
+<em>outliers; imvx</em></p>
 <p>The estimation method used in the automatic model identification procedure. By default, the fast method of Hannan-Rissanen is used for parameter estimation in the intermediate steps of the automatic detection and correction of outliers. When the checkbox is marked the exact maximum likelihood estimation method is used.</p></li>
-<li><p><strong>TC rate</strong><br><em>outliers; deltatc</em></p>
+<li><p><strong>TC rate</strong><br>
+<em>outliers; deltatc</em></p>
 <p>The rate of decay for the transitory change outlier. It takes values between 0 and 1. The default value is 0.7.</p></li>
 </ul>
 </section>
@@ -1340,7 +1339,8 @@ Y_t = \sum \hat{\alpha}_i O_{it} + \sum\hat\beta_j C_{jt} + \sum\hat\gamma_k Reg
 <p>allocation (to be added)</p>
 <p>fixed coefficient options</p>
 <ul>
-<li><p><strong>Fixed regression coefficients</strong><br> <em>regression variables; –</em></p>
+<li><p><strong>Fixed regression coefficients</strong><br>
+<em>regression variables; –</em></p>
 <p>For the pre-specified regression variables this option specifies the parameter estimates that will be held fixed at the values provided by the user. To fix a coefficient the user should undertake the following actions:</p>
 <ul>
 <li>Choose the transformation (log or none).</li>
@@ -1443,20 +1443,20 @@ Y_t = \sum \hat{\alpha}_i O_{it} + \sum\hat\beta_j C_{jt} + \sum\hat\gamma_k Reg
 </div>
 <p><strong>Setting in R</strong> (first template, then worked example) X13-ARIMA template in version 2</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>spec_2 <span class="ot">&lt;-</span> <span class="fu">x13_spec</span>(</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">spec =</span> spec_1,</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">automdl.enabled =</span> <span class="cn">NA</span>,</span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">automdl.acceptdefault =</span> <span class="cn">NA</span>,</span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">automdl.cancel =</span> <span class="cn">NA_integer_</span>,</span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">automdl.ub1 =</span> <span class="cn">NA_integer_</span>,</span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">automdl.ub2 =</span> <span class="cn">NA_integer_</span>,</span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">automdl.mixed =</span> <span class="cn">NA</span>,</span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">automdl.balanced =</span> <span class="cn">NA</span>,</span>
-<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">automdl.armalimit =</span> <span class="cn">NA_integer_</span>,</span>
-<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">automdl.reducecv =</span> <span class="cn">NA_integer_</span>,</span>
-<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">automdl.ljungboxlimit =</span> <span class="cn">NA_integer_</span>,</span>
-<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">automdl.ubfinal =</span> <span class="cn">NA_integer_</span></span>
-<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>spec_2 <span class="ot">&lt;-</span> <span class="fu">x13_spec</span>(</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">spec =</span> spec_1,</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">automdl.enabled =</span> <span class="cn">NA</span>,</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">automdl.acceptdefault =</span> <span class="cn">NA</span>,</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">automdl.cancel =</span> <span class="cn">NA_integer_</span>,</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">automdl.ub1 =</span> <span class="cn">NA_integer_</span>,</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">automdl.ub2 =</span> <span class="cn">NA_integer_</span>,</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">automdl.mixed =</span> <span class="cn">NA</span>,</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">automdl.balanced =</span> <span class="cn">NA</span>,</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">automdl.armalimit =</span> <span class="cn">NA_integer_</span>,</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">automdl.reducecv =</span> <span class="cn">NA_integer_</span>,</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">automdl.ljungboxlimit =</span> <span class="cn">NA_integer_</span>,</span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">automdl.ubfinal =</span> <span class="cn">NA_integer_</span></span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>add worked example in version 2</p>
 <p>in version 3</p>
@@ -1480,7 +1480,7 @@ Y_t = \sum \hat{\alpha}_i O_{it} + \sum\hat\beta_j C_{jt} + \sum\hat\gamma_k Reg
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/SA_REGA_Arima_user_params_1.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption"><strong>Manual ARIMA modeling</strong></figcaption>
+<figcaption class="figure-caption"><strong>Manual ARIMA modelling</strong></figcaption>
 </figure>
 </div>
 <div class="quarto-figure quarto-figure-center">
@@ -1492,21 +1492,21 @@ Y_t = \sum \hat{\alpha}_i O_{it} + \sum\hat\beta_j C_{jt} + \sum\hat\gamma_k Reg
 <p><strong>Setting in R</strong></p>
 <p>X13-ARIMA template in version 2</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>spec_2 <span class="ot">&lt;-</span> <span class="fu">x13_spec</span>(</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">spec =</span> spec_1,</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">automdl.enabled =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">arima.mu =</span> <span class="cn">NA</span>,</span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">arima.p =</span> <span class="cn">NA_integer_</span>,</span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">arima.d =</span> <span class="cn">NA_integer_</span>,</span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">arima.q =</span> <span class="cn">NA_integer_</span>,</span>
-<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">arima.bp =</span> <span class="cn">NA_integer_</span>,</span>
-<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">arima.bd =</span> <span class="cn">NA_integer_</span>,</span>
-<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">arima.bq =</span> <span class="cn">NA_integer_</span>,</span>
-<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">arima.coefEnabled =</span> <span class="cn">NA</span>,</span>
-<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">arima.coef =</span> <span class="cn">NA</span>,</span>
-<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">arima.coefType =</span> <span class="cn">NA</span>,</span>
-<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">fcst.horizon =</span> <span class="cn">NA_integer_</span></span>
-<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>spec_2 <span class="ot">&lt;-</span> <span class="fu">x13_spec</span>(</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">spec =</span> spec_1,</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">automdl.enabled =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">arima.mu =</span> <span class="cn">NA</span>,</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">arima.p =</span> <span class="cn">NA_integer_</span>,</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">arima.d =</span> <span class="cn">NA_integer_</span>,</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">arima.q =</span> <span class="cn">NA_integer_</span>,</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">arima.bp =</span> <span class="cn">NA_integer_</span>,</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">arima.bd =</span> <span class="cn">NA_integer_</span>,</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">arima.bq =</span> <span class="cn">NA_integer_</span>,</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">arima.coefEnabled =</span> <span class="cn">NA</span>,</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">arima.coef =</span> <span class="cn">NA</span>,</span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">arima.coefType =</span> <span class="cn">NA</span>,</span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">fcst.horizon =</span> <span class="cn">NA_integer_</span></span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>in version 3</p>
 </section>

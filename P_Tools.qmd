@@ -21,7 +21,7 @@ GUI extensions
 
 Production Module
 
-- [Production tools: Cruncher and quality report](#t-prod)
+- [Cruncher and quality report](#t-prod)
 
 R ecosystem: 
 

@@ -155,7 +155,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./A-RegArima-Tramo-Modelling-Overview.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">RegArima (Tramo) Modelling</span></a>
+ <span class="menu-text">Modelling</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -184,20 +184,32 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./A-sa-stl-decomposition.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">SA with STL</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./A-sa-bsm.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">SA with Basic Structural Models</span></a>
+  <a href="./A-rev-policies.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SA: Revision policies</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./A-sa-hf.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">SA of high-frequency data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A-sa-x12.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SA: X12+ and MX12+</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A-sa-stl-decomposition.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SA: STL+ and MSTL+</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A-sa-bsm.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SA: STS and MSTS</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -273,26 +285,20 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./T-r-packages.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Using JDemetra+ in R</span></a>
+  <a href="./T-plug-ins.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Plug-ins (GUI extensions)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./T-Production-tools-cruncher-QR.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Production, Cruncher and quality report</span></a>
+ <span class="menu-text">Cruncher and quality report</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./T-rev-policies-production.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Production and revision policies</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./T-plug-ins.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Plug-ins GUI</span></a>
+  <a href="./T-r-packages.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">R packages</span></a>
   </div>
 </li>
       </ul>
@@ -332,12 +338,6 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./M-Trend-Estimation-Local-Polynomials.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Trend Estimation</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="./M-tests.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Tests</span></a>
   </div>
@@ -350,14 +350,8 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./M-state-space-framework.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">State space framework</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./M-Temp-Disagg-Bench.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Temporal disaggregation and benchmarking</span></a>
+  <a href="./M-revision-analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Revision Analysis</span></a>
   </div>
 </li>
       </ul>
@@ -396,8 +390,9 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>This part describes the tools allowing to access JDemetra+ algorithms. Practical guidance for using them is provided <a href="P_Algorithms.html">here</a>.</p>
-<p>Whereas, further methodological insights on each algorithm can be found in the <a href="P_Methods.html">Methods</a> part of this book.</p>
+<p>This part describes the tools allowing to access JDemetra+ algorithms: Graphical User Interface (GUI) extended with Plug-ins, Cruncher and R packages.</p>
+<p>Practical guidance for using them is provided <a href="P_Algorithms.html">here</a>.</p>
+<p>Whereas, further methodological details on each algorithm can be found in the <a href="P_Methods.html">Methods</a> part of this book.</p>
 <p>In this part:</p>
 <p>Graphical User Interface (GUI)</p>
 <ul>
@@ -406,15 +401,17 @@ ul.task-list li input[type="checkbox"] {
 <li><a href="T-GUI-SA-Modelling-Features.html">Seasonal Adjustement and Modelling features</a></li>
 <li><a href="T-GUI-Output.html">Output: series, parameters and diagnostics</a></li>
 </ul>
+<p>GUI extensions</p>
+<ul>
+<li><a href="T-plug-ins.html">Plug-ins for GUI</a></li>
+</ul>
+<p>Production Module</p>
+<ul>
+<li><a href="T-Production-tools-cruncher-QR.html">Cruncher and quality report</a></li>
+</ul>
 <p>R ecosystem:</p>
 <ul>
 <li><a href="T-r-packages.html">R packages</a></li>
-</ul>
-<p>Other tools:</p>
-<ul>
-<li><a href="T-Production-tools-cruncher-QR.html">Production tools: Cruncher and quality report</a></li>
-<li><a href="T-rev-policies-production.html">Revision policies</a></li>
-<li><a href="T-plug-ins.html">Plug-ins for GUI</a></li>
 </ul>
 
 

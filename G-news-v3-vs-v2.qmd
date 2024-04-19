@@ -174,7 +174,8 @@ rjd3toolkit::seasonality_canovahansen(data = df_daily$births,
     p0 = min(ch.sp), p1 = max(ch.sp), np = max(ch.sp) - min(ch.sp) + 1)
 ```
 
-![Canova Hansen seasonality FB_Canova.pngges/FB_Canova.png){width=250px}
+![Canova Hansen seasonality test](All_images/FB_Canova.png){width=250px}
+
 
 ## Underway developments
 

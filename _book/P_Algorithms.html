@@ -155,7 +155,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./A-RegArima-Tramo-Modelling-Overview.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">RegArima (Tramo) Modelling</span></a>
+ <span class="menu-text">Modelling</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -184,20 +184,32 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./A-sa-stl-decomposition.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">SA with STL</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./A-sa-bsm.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">SA with Basic Structural Models</span></a>
+  <a href="./A-rev-policies.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SA: Revision policies</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./A-sa-hf.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">SA of high-frequency data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A-sa-x12.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SA: X12+ and MX12+</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A-sa-stl-decomposition.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SA: STL+ and MSTL+</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A-sa-bsm.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SA: STS and MSTS</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -273,26 +285,20 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./T-r-packages.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Using JDemetra+ in R</span></a>
+  <a href="./T-plug-ins.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Plug-ins (GUI extensions)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./T-Production-tools-cruncher-QR.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Production, Cruncher and quality report</span></a>
+ <span class="menu-text">Cruncher and quality report</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./T-rev-policies-production.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Production and revision policies</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./T-plug-ins.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Plug-ins GUI</span></a>
+  <a href="./T-r-packages.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">R packages</span></a>
   </div>
 </li>
       </ul>
@@ -332,12 +338,6 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./M-Trend-Estimation-Local-Polynomials.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Trend Estimation</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="./M-tests.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Tests</span></a>
   </div>
@@ -350,14 +350,8 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./M-state-space-framework.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">State space framework</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./M-Temp-Disagg-Bench.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Temporal disaggregation and benchmarking</span></a>
+  <a href="./M-revision-analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Revision Analysis</span></a>
   </div>
 </li>
       </ul>
@@ -398,22 +392,28 @@ ul.task-list li input[type="checkbox"] {
 
 <p>This part provides practical guidance for using all the algorithms featured in JDemetra+, be it with the <a href="T-GUI-Overview.html">Graphical User Interface</a> or <a href="T-r-packages.html">R packages</a></p>
 <p>Further methodological insights on each algorithm can be found in the <a href="P_Methods.html">Methods</a> part of this book, whereas detailed description of all the available tools allowing to access the algorithms can be found in the <a href="P_Tools.html">Tools</a> part.</p>
-<p>In this part:</p>
-<p>Modelling and Auxiliary Variables</p>
-<p><a href="#a_reg-a">Reg-Arima modelling</a> <a href="A-outlier-detection.html">Outlier detection and external regressors</a> <a href="A-calendar-correction.html">Calendar correction</a></p>
+<p>JDemetra+ provides algorithms in the following domains:</p>
 <p>Seasonal Adjustment (SA)</p>
 <ul>
 <li><a href="A-sa-overview.html">Seasonal Adjustment overview</a></li>
-<li><a href="A-sa-pre-treatment.html">SA: pre-treatment</a></li>
+<li><a href="A-sa-pre-treatment.html">Pre-treatment</a></li>
 <li><a href="a-sa-X11">SA: X11 decomposition</a></li>
 <li><a href="A-sa-seats-decomposition.html">SA: Seats-decomposition</a></li>
-<li><a href="A-sa-stl-decomposition.html">SA: STL decomposition</a></li>
+<li><a href="A-rev-policies.html">SA: Revision policies</a></li>
 <li><a href="A-sa-hf.html">SA of High-Frequency Data</a></li>
-<li><a href="A-sa-bsm.html">SA with Basic Stuctural Models (BSM)</a></li>
+<li><a href="A-sa-stl-decomposition.html">SA: STL+ and MSTL+</a></li>
+<li><a href="a-sa-x12">X12+ and MX12+</a></li>
+<li><a href="A-sa-bsm.html">STS and MSTS</a></li>
 </ul>
-<p>Other Algorithms</p>
+<p>Modelling and Auxiliary Variables</p>
 <ul>
-<li><a href="(#a-bench)">Benchmarking and temporal disaggregation</a></li>
+<li><p><a href="#a_reg-a">Reg-Arima modelling</a></p></li>
+<li><p><a href="A-outlier-detection.html">Outlier detection and external regressors</a></p></li>
+<li><p><a href="A-calendar-correction.html">Calendar correction</a></p></li>
+</ul>
+<p>And also</p>
+<ul>
+<li><a href="A-benchmarking.html">Benchmarking and temporal disaggregation</a></li>
 <li><a href="A-trend-cycle-estimation.html">Trend-Cycle estimation</a></li>
 <li><a href="A-revision-analysis.html">Revision analysis</a></li>
 <li><a href="A-nowcasting.html">Nowcasting</a></li>
@@ -663,7 +663,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
   <div class="nav-page nav-page-next">
       <a href="./A-RegArima-Tramo-Modelling-Overview.html" class="pagination-link">
-        <span class="nav-page-text">RegArima (Tramo) Modelling</span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text">Modelling</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

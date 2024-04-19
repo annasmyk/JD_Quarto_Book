@@ -1,11 +1,15 @@
-## SA with Basic Structural Models {.unnumbered #a-sa-bsm}
+## SA: STS and MSTS {.unnumbered #a-sa-bsm}
 
-Basic Structural models allow to decompose the series with explicit models for its components ($S$,$T$,$I$) while running pre-treatment in one single step. It also allows to integrate time varying trading-day correction.
+Basic Structural models (BSM) allow to decompose a time series with explicit models for its components ($S$,$T$,$I$) while running pre-treatment in one single step. It also allows to integrate time varying trading-day correction.
 
 
 ## In this Chapter
 
-We will cover how to perform seasonal adjustment using BSM in JDemetra+. How to tackling multiple periodicities (with rounded frequencies) in infra-monthly data will be described in the [high-frequency]((#a-sa-hf)) data related chapter.  
+We will cover how to perform seasonal adjustment using BSM in JDemetra+. 
+
+
+
+How to tackle multiple periodicities (with rounded frequencies) in infra-monthly data will be described in the [high-frequency](#a-sa-hf) data related chapter.  
 
 More methodological details will be provided [here](#m-ssf)
 

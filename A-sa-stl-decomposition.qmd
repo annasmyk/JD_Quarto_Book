@@ -1,4 +1,4 @@
-## SA with STL {.unnumbered #a-sa-stl}
+## SA: STL+ and MSTL+ {.unnumbered #a-sa-stl}
 
 STL is a Loess (Weighted local regression) based decomposition algorithm used on linearized data, no integrated [pre-adjustment](#sa-pre-t).
 

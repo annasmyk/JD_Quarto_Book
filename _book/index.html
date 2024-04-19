@@ -10,7 +10,7 @@
 <meta name="author" content="Tanguy Barthelemy">
 <meta name="author" content="Maria Novas Filgueira">
 <meta name="author" content="Karsten Webel">
-<meta name="dcterms.date" content="2024-02-12">
+<meta name="dcterms.date" content="2024-04-19">
 
 <title>JDemetra+ documentation</title>
 <style>
@@ -24,6 +24,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -159,7 +193,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./A-RegArima-Tramo-Modelling-Overview.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">RegArima (Tramo) Modelling</span></a>
+ <span class="menu-text">Modelling</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -188,20 +222,32 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./A-sa-stl-decomposition.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">SA with STL</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./A-sa-bsm.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">SA with Basic Structural Models</span></a>
+  <a href="./A-rev-policies.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SA: Revision policies</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./A-sa-hf.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">SA of high-frequency data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A-sa-x12.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SA: X12+ and MX12+</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A-sa-stl-decomposition.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SA: STL+ and MSTL+</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A-sa-bsm.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SA: STS and MSTS</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -277,26 +323,20 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./T-r-packages.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Using JDemetra+ in R</span></a>
+  <a href="./T-plug-ins.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Plug-ins (GUI extensions)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./T-Production-tools-cruncher-QR.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Production, Cruncher and quality report</span></a>
+ <span class="menu-text">Cruncher and quality report</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./T-rev-policies-production.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Production and revision policies</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./T-plug-ins.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Plug-ins GUI</span></a>
+  <a href="./T-r-packages.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">R packages</span></a>
   </div>
 </li>
       </ul>
@@ -336,12 +376,6 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./M-Trend-Estimation-Local-Polynomials.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Trend Estimation</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="./M-tests.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Tests</span></a>
   </div>
@@ -354,14 +388,8 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./M-state-space-framework.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">State space framework</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./M-Temp-Disagg-Bench.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Temporal disaggregation and benchmarking</span></a>
+  <a href="./M-revision-analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Revision Analysis</span></a>
   </div>
 </li>
       </ul>
@@ -384,14 +412,18 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#what-is-jdemetra" id="toc-what-is-jdemetra" class="nav-link active" data-scroll-target="#what-is-jdemetra">What is JDemetra+ ?</a>
   <ul class="collapse">
+  <li><a href="#main-features" id="toc-main-features" class="nav-link" data-scroll-target="#main-features">Main Features</a></li>
   <li><a href="#curently-available-versions" id="toc-curently-available-versions" class="nav-link" data-scroll-target="#curently-available-versions">Curently available versions</a></li>
-  <li><a href="#install-the-software" id="toc-install-the-software" class="nav-link" data-scroll-target="#install-the-software">Install the software</a>
-  <ul class="collapse">
-  <li><a href="#gaphical-user-interface" id="toc-gaphical-user-interface" class="nav-link" data-scroll-target="#gaphical-user-interface">Gaphical user interface</a></li>
-  <li><a href="#r-packages" id="toc-r-packages" class="nav-link" data-scroll-target="#r-packages">R packages</a></li>
-  </ul></li>
+  <li><a href="#background" id="toc-background" class="nav-link" data-scroll-target="#background">Background</a></li>
   <li><a href="#useful-links" id="toc-useful-links" class="nav-link" data-scroll-target="#useful-links">Useful links</a></li>
   <li><a href="#how-to-contribute" id="toc-how-to-contribute" class="nav-link" data-scroll-target="#how-to-contribute">How to contribute</a></li>
+  <li><a href="#installing-the-software" id="toc-installing-the-software" class="nav-link" data-scroll-target="#installing-the-software">Installing the software</a>
+  <ul class="collapse">
+  <li><a href="#ind-inst-gui" id="toc-ind-inst-gui" class="nav-link" data-scroll-target="#ind-inst-gui">Graphical User Interface (GUI)</a></li>
+  <li><a href="#additional-plugins" id="toc-additional-plugins" class="nav-link" data-scroll-target="#additional-plugins">Additional plugins</a></li>
+  <li><a href="#cruncher" id="toc-cruncher" class="nav-link" data-scroll-target="#cruncher">Cruncher</a></li>
+  <li><a href="#r-packages" id="toc-r-packages" class="nav-link" data-scroll-target="#r-packages">R packages</a></li>
+  </ul></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/annasmyk/JD_Quarto_Book/edit/main/index.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/annasmyk/JD_Quarto_Book/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
@@ -457,7 +489,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">February 12, 2024</p>
+      <p class="date">April 19, 2024</p>
     </div>
   </div>
   
@@ -469,30 +501,28 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="what-is-jdemetra" class="level1 unnumbered">
 <h1 class="unnumbered">What is JDemetra+ ?</h1>
-<p><a href="https://github.com/jdemetra">JDemetra+</a> is an open-source software for <strong>seasonal adjustment and time series analysis</strong>, developed in the framework of Eurostat’s “Centre of Excellence on Statistical Methods and Tools” by the National Bank of Belgium with the support of the Bundesbank and Insee. It has been officially recommended by Eurostat to the European Statistical System members since 2015. It is unique in its combination of very fast Java routines, a graphical user interface and an ecosystem of R packages. The graphical interface offers a structured and visual feedback, suitable for refined analysis and training. R tools allow the user to mix the capabilities of JDemetra+ with the versatility of the R world, be it for mathematical functions or data wrangling.</p>
+<p><a href="https://github.com/jdemetra">JDemetra+</a> is an open-source software for <strong>seasonal adjustment and time series analysis</strong>, developed in the framework of Eurostat’s “Centre of Excellence on Statistical Methods and Tools” by the National Bank of Belgium with the support of the Bundesbank and Insee. It has been officially recommended by Eurostat to the European Statistical System members since 2015. It is unique in its combination of very fast Java routines, a graphical user interface and an ecosystem of R packages. The graphical interface offers a structured visual feedback, suitable for refined analysis and training. R tools allow the user to mix the capabilities of JDemetra+ with the versatility of the R world, be it for mathematical functions or data wrangling.</p>
 <p>A pdf version of this documentation is available <a href="https://github.com/annasmyk/JD_Quarto_Book/blob/main/_book/JDemetra%2B-documentation.pdf">here</a></p>
+<section id="main-features" class="level2">
+<h2 class="anchored" data-anchor-id="main-features">Main Features</h2>
+<p>JDemetra+ provides <a href="P_Algorithms.html">algorithms</a> for:</p>
+<ul>
+<li><p>Seasonal Adjustment</p></li>
+<li><p>Trend estimation</p></li>
+<li><p>Benchmarking and temporal disaggregation</p></li>
+<li><p>Nowcasting</p></li>
+<li><p>Revision analysis</p></li>
+</ul>
+</section>
 <section id="curently-available-versions" class="level2">
 <h2 class="anchored" data-anchor-id="curently-available-versions">Curently available versions</h2>
 <p>The highest version currently recommended for production purposes is 2.2.4.</p>
-<p>Version 3.x family provides, <a href="G-news-v3-vs-v2.html">among other things</a>, extended features for seasonal adjustment and trend estimation, including <strong>high frequency data</strong>. The latest version 3.2.1 was released on December 7th 2023.</p>
+<p>Version 3.x family provides, <a href="G-news-v3-vs-v2.html">among other things</a>, extended features for seasonal adjustment and trend estimation, including <strong>high frequency data</strong>. The latest version 3.2.2 was released on December 14th 2024.</p>
 </section>
-<section id="install-the-software" class="level2">
-<h2 class="anchored" data-anchor-id="install-the-software">Install the software</h2>
-<section id="gaphical-user-interface" class="level3">
-<h3 class="anchored" data-anchor-id="gaphical-user-interface">Gaphical user interface</h3>
-<p>Head over to this <a href="https://github.com/jdemetra">GitHub page</a></p>
-</section>
-<section id="r-packages" class="level3">
-<h3 class="anchored" data-anchor-id="r-packages">R packages</h3>
-<p>Head over to this <a href="https://github.com/rjdemetra">GitHub page</a></p>
-</section>
-</section>
-<section id="useful-links" class="level2">
-<h2 class="anchored" data-anchor-id="useful-links">Useful links</h2>
-<p>To get started, you can <a href="https://github.com/TanguyBarthelemy/JD_Tutorials">browse</a> and <a href="https://www.youtube.com/@TSwithJDemetraandR">watch</a> tutorials for JDemetra+. On this <a href="https://www.youtube.com/@TSwithJDemetraandR">YouTube channel</a> you will also find many JDemetra+ related webinars.</p>
-<p>To keep up with all JDemetra+ related news head over to the <a href="https://jdemetra-universe-blog.netlify.app/"><strong>JDemetra+ Universe Blog</strong></a></p>
-<p>To learn more about the JDemetra+ development project you can visit <a href="https://ec.europa.eu/eurostat/cros/content/centre-excellence-statistical-methods-and-tools">Eurostat CROS Portal</a>.</p>
+<section id="background" class="level2">
+<h2 class="anchored" data-anchor-id="background">Background</h2>
 <p>This website is under construction, in the meantime you can fill a large number of the gaps by referring to the <a href="https://jdemetradocumentation.github.io/JDemetra-documentation">previous version</a> of the on-line documentation, coordinated by Sylwia Grudkowska-Kubik (National Bank of Poland).</p>
+<p>To learn more about the JDemetra+ development project you can visit <a href="https://ec.europa.eu/eurostat/cros/content/centre-excellence-statistical-methods-and-tools">Eurostat CROS Portal</a>.</p>
 <p>Eurostat’s recommendations on the statistical processes described in this documentation are outlined in:</p>
 <ul>
 <li><p><a href="https://ec.europa.eu/eurostat/documents/3859598/6830795/KS-GQ-15-001-EN-N.pdf">Eurostat’s Guidelines on seasonal adjustment (2015)</a></p></li>
@@ -505,11 +535,91 @@ ul.task-list li input[type="checkbox"] {
 </ul>
 <p><img src="All_images/jdemetra+.png" class="img-fluid"></p>
 </section>
+<section id="useful-links" class="level2">
+<h2 class="anchored" data-anchor-id="useful-links">Useful links</h2>
+<p>To get started, you can <a href="https://github.com/TanguyBarthelemy/JD_Tutorials">browse</a> and <a href="https://www.youtube.com/@TSwithJDemetraandR">watch</a> tutorials for JDemetra+. On this <a href="https://www.youtube.com/@TSwithJDemetraandR">YouTube channel</a> you will also find JDemetra+ related webinars.</p>
+<p>To keep up with all JDemetra+ related news head over to the <a href="https://jdemetra-universe-blog.netlify.app/"><strong>JDemetra+ Universe Blog</strong></a></p>
+</section>
 <section id="how-to-contribute" class="level2">
 <h2 class="anchored" data-anchor-id="how-to-contribute">How to contribute</h2>
 <p>If you want to help us improve this book, you can <a href="https://github.com/annasmyk/JD_Quarto_Book">fork this repository on GitHub</a> and create pull requests with your contributions.</p>
+</section>
+<section id="installing-the-software" class="level2">
+<h2 class="anchored" data-anchor-id="installing-the-software">Installing the software</h2>
+<section id="ind-inst-gui" class="level3">
+<h3 class="anchored" data-anchor-id="ind-inst-gui">Graphical User Interface (GUI)</h3>
+<p>You can find the latest releases</p>
+<ul>
+<li>in the v2.x family: <a href="https://github.com/jdemetra/jdemetra-app/releases">here</a></li>
+</ul>
+<p>As of April 2024, the latest version is <a href="https://github.com/jdemetra/jdemetra-app/releases/tag/v2.2.4">v2.2.4</a></p>
+<p>Scroll down the page, download and unzip the file <em>jdemetra-2.2.4-bin.zip</em>.</p>
+<p>To start the application, run the file <strong>nbdemetra64.exe</strong> located in the following subfolder “…\jdemetra-2.2.4-bin\nbdemetra\bin”</p>
+<p>Remark: You can create shortcuts to the executable files if you want to launch them from another folder (Desktop, project folder…).</p>
+<ul>
+<li>in the v3.x family: <a href="https://github.com/jdemetra/jdplus-main/releases">here</a></li>
+</ul>
+<p>As of April 2024, the latest version is <a href="https://github.com/jdemetra/jdplus-main/releases/tag/v3.2.2">v3.2.2</a></p>
+<p>Scroll down the page, download and unzip the file <em>jdemetra-standalone-3.2.2-windows-x86_64.zip</em>, if you use Windows, or the zip corresponding to you OS in the list.</p>
+<p>To start the application, run the file <strong>nbdemetra64.exe</strong> located in the following subfolder “…\jdemetra-standalone-3.2.2-windows-x86_64\nbdemetra\bin”</p>
+<p>Version 3.x requires Java 17 or higher, <em>jdemetra-standalone-3.2.2-windows-x86_64.zip</em> contains a portable version of Java 21, so you don’t have to deal with this issue on your computer.</p>
+<p>R packages related to version 3.x (rjd3…) also require Java 17 or higher, you can (and should) use the portable version provided with the graphical user interface to run them, this is explained <a href="#Rconfig">here</a>.</p>
+</section>
+<section id="additional-plugins" class="level3">
+<h3 class="anchored" data-anchor-id="additional-plugins">Additional plugins</h3>
+<p>To benefit from extended features of the graphical user interface installing additional plug-ins is required. The list of available extensions and the installation procedure are detailed <a href="T-plug-ins.html">here</a>. How to access the added features in the GUI is described <a href="T-GUI-SA-Modelling-Features.html">here</a>.</p>
+<p>In the <strong>v2.x family</strong> some of the additional features are:</p>
+<ul>
+<li><p>Benchmarking and Temporal disaggregation <a href="https://github.com/nbbrd/jdemetra-benchmarking%22">Github page</a></p></li>
+<li><p>Nowcasting <a href="https://github.com/nbbrd/jdemetra-nowcasting">Github page</a></p></li>
+</ul>
+<p>In the <strong>v3.x family</strong> some of the additional features are:</p>
+<ul>
+<li><p>Benchmarking and Temporal disaggregation <a href="https://github.com/jdemetra/jdplus-benchmarking">Github page</a></p></li>
+<li><p>Seasonal adjustment of high frequency data <a href="https://github.com/jdemetra/jdplus-incubator">Github page</a></p></li>
+<li><p>Additional algorithms for seasonal adjustment <a href="https://github.com/jdemetra/jdplus-incubator">Github page</a></p></li>
+</ul>
+</section>
+<section id="cruncher" class="level3">
+<h3 class="anchored" data-anchor-id="cruncher">Cruncher</h3>
+<p>JDemetra+ has an executable module, called the <a href="T-Production-tools-cruncher-QR.html">Cruncher</a>, allowing to automate tasks</p>
+<p>To install it :</p>
+<ul>
+<li><p>in v2, go to the <a href="https://github.com/jdemetra/jwsacruncher"><strong>JWSACruncher</strong> page</a>, <strong>download</strong> and <strong>unzip</strong> the compressed folder <code>jwsacruncher-2.2.4-bin.zip</code>.</p></li>
+<li><p>in v3, go to the <a href="https://github.com/jdemetra/jdplus-main"><strong>jdplus-main</strong> page</a>, <strong>download</strong> and <strong>unzip</strong> the compressed folder <code>jwsacruncher-standalone-3.2.2-windows-x86_64.zip</code>.</p></li>
+</ul>
+</section>
+<section id="r-packages" class="level3">
+<h3 class="anchored" data-anchor-id="r-packages">R packages</h3>
+<p>JDemetra+ algorithms can be accessed in R, which is detailed <a href="T-r-packages.html">here</a></p>
+<p>You can directly head over to this <a href="https://github.com/rjdemetra">GitHub page</a>, then for each package indications for installation and basic use are provided in the readme files.</p>
+<!-- general readme to build and specific to check -->
+<section id="Rconfig" class="level4">
+<h4 class="anchored" data-anchor-id="Rconfig">Configuration needed to run rjd3 packages</h4>
+<p>To use the v3 packages in R, you need Java 17 or higher.</p>
+<p>You can (and should) use the version of Java that comes with the Graphical User Interface (GUI).</p>
+<p>The Java is in C:\Software\jdemetra-standalone-3.2.2.2-windows-x86_64\nbdemetra\jdk-21.0.2+13-jre (to be adapted to your computer/sever): this location must be declared in R.</p>
+<p>After installing the GUI</p>
+<ul>
+<li>run this code at the beginning of your programs</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Sys.setenv</span>(<span class="st">"JAVA_HOME"</span> <span class="ot">=</span> <span class="st">".../jdemetra-standalone-3.2.2-windows-x86_64/nbdemetra/jdk-21.0.2+13-jre"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>or</p>
+<ul>
+<li><p>declare it “permanently” is the Renviron file (where environment variables specific to <code>R</code> are stored), following the steps below:</p>
+<ul>
+<li><p>in the R console run file.edit(“~/.Renviron”)</p></li>
+<li><p>in the file that opens add the line : <strong>JAVA_HOME= C:/Software/jdemetra-standalone-3.2.2.2-windows-x86_64/nbdemetra/jdk-21.0.2+13-jre</strong> (adapting the path to your computer)</p></li>
+<li><p>save the file and restart R</p></li>
+</ul></li>
+</ul>
+<p>Follow R packages installation procedure and run basic examples from the readme files on <a href="https://github.com/rjdemetra">this page</a></p>
 
 
+</section>
+</section>
 </section>
 </section>
 

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>JDemetra+ documentation - RegArima (Tramo) Modelling</title>
+<title>JDemetra+ documentation - Modelling</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -108,7 +108,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./P_Algorithms.html">Algorithms</a></li><li class="breadcrumb-item"><a href="./A-RegArima-Tramo-Modelling-Overview.html">RegArima (Tramo) Modelling</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./P_Algorithms.html">Algorithms</a></li><li class="breadcrumb-item"><a href="./A-RegArima-Tramo-Modelling-Overview.html">Modelling</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -189,7 +189,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./A-RegArima-Tramo-Modelling-Overview.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">RegArima (Tramo) Modelling</span></a>
+ <span class="menu-text">Modelling</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -218,20 +218,32 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./A-sa-stl-decomposition.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">SA with STL</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./A-sa-bsm.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">SA with Basic Structural Models</span></a>
+  <a href="./A-rev-policies.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SA: Revision policies</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./A-sa-hf.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">SA of high-frequency data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A-sa-x12.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SA: X12+ and MX12+</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A-sa-stl-decomposition.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SA: STL+ and MSTL+</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A-sa-bsm.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SA: STS and MSTS</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -307,26 +319,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./T-r-packages.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Using JDemetra+ in R</span></a>
+  <a href="./T-plug-ins.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Plug-ins (GUI extensions)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./T-Production-tools-cruncher-QR.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Production, Cruncher and quality report</span></a>
+ <span class="menu-text">Cruncher and quality report</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./T-rev-policies-production.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Production and revision policies</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./T-plug-ins.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Plug-ins GUI</span></a>
+  <a href="./T-r-packages.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">R packages</span></a>
   </div>
 </li>
       </ul>
@@ -366,12 +372,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./M-Trend-Estimation-Local-Polynomials.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Trend Estimation</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="./M-tests.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Tests</span></a>
   </div>
@@ -384,14 +384,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./M-state-space-framework.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">State space framework</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./M-Temp-Disagg-Bench.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Temporal disaggregation and benchmarking</span></a>
+  <a href="./M-revision-analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Revision Analysis</span></a>
   </div>
 </li>
       </ul>
@@ -427,7 +421,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span id="a-reg-a" class="quarto-section-identifier">RegArima (Tramo) Modelling</span></h1>
+<h1 class="title"><span id="a-reg-a" class="quarto-section-identifier">Modelling</span></h1>
 </div>
 
 
@@ -444,10 +438,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="in-this-chapter" class="level2">
 <h2 class="anchored" data-anchor-id="in-this-chapter">In this chapter</h2>
-<p>This chapter focuses on practical implementation of modelling of a time series (with arima residuals) for low frequency data. High-Frequency (infra monthly) data modelling and seasonal adjustment process are described <a href="A-sa-hf.html">here</a>.</p>
-<p>The sections below will describe modelling features which can be used stand alone or as <a href="A-sa-pre-treatment.html">pre-treatment</a> (first step of <a href="A-sa-overview.html">seasonal adjustment</a>).</p>
-<p>Details on specifications and output characteristics are provided in the <a href="A-sa-pre-treatment.html">pre-treatment chapter</a> as they relate to the same procedure.</p>
-<p>In-depth methodological explanations of the algorithms are covered in separated chapters, in the <a href="P_Methods.html">Methods</a> part.</p>
+<!-- to revamp as not really described here -->
+<p>This chapter gives an overview of modelling algorithms available in JDemetra+.</p>
+<p>Modelling features can be used stand alone or as <a href="A-sa-pre-treatment.html">pre-treatment</a> (first step of <a href="A-sa-overview.html">seasonal adjustment</a>).</p>
+<p>Details on modelling (specifications and output characteristics) are provided in the <a href="A-sa-pre-treatment.html">pre-treatment chapter</a> as they relate to the same procedure. High-Frequency (infra-monthly) data is tackled <a href="A-sa-hf.html">here</a>.</p>
+<p>Additional methodological explanations are covered in <a href="M-reg-arima-modelling.html">this chapter</a> and in <a href="#m-sa-hf">this one</a> for high-frequency data.</p>
 </section>
 <section id="modelling-algorithms" class="level2">
 <h2 class="anchored" data-anchor-id="modelling-algorithms">Modelling Algorithms</h2>
@@ -493,8 +488,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 </tbody>
 </table>
-<p>Steps to use Reg-Arima and Tramo in a pre-treatment context are described <a href="A-sa-pre-treatment.html">here</a>. Options and outputs are the same as when modelling is done as pre-treatment or stand alone. Specification differ slightly and the possibility of saving parameters and generating output in the GUI is also different.</p>
-<p><a href="A-sa-hf.html">Extended Airline Model</a> allows to handle infra monthly series in a restricted reg-Arima framework, more details <a href="A-sa-hf.html">here</a>.</p>
+<p>Steps to use Reg-Arima and Tramo in a pre-treatment context are described <a href="A-sa-pre-treatment.html">here</a>.</p>
+<p>The possibility of saving parameters and generating output in the GUI is different when using modelling methods directly or seasonal adjustment process as explained <a href="T-GUI-SA-Modelling-Features.html">here</a>.</p>
+<p><a href="A-sa-hf.html">Extended Airline Model</a> allows to handle infra-monthly series in a restricted reg-Arima framework, more details <a href="A-sa-hf.html">here</a>.</p>
 <p><a href="A-sa-bsm.html">Structural time series (STS)</a> allow another kind of modelling using state space framework, more details <a href="A-sa-bsm.html">here</a>.</p>
 </section>
 <section id="practical-reg-arima-modelling" class="level2">
@@ -526,8 +522,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="gui" class="level3">
 <h3 class="anchored" data-anchor-id="gui">GUI</h3>
 <p>In the graphical user interface modelling algorithms can be accessed in two ways described below. In both cases a document (xml file) will be generated and can be save in the workspace. The output (series, parameters and diagnostics) cannot be exported as files, just directly copied from the interface. Further details on window structure in GUI are available <a href="T-GUI-SA-Modelling-Features.html">here</a>.</p>
-<section id="choosing-modelling-in-the-workspace-window" class="level4">
-<h4 class="anchored" data-anchor-id="choosing-modelling-in-the-workspace-window">Choosing modelling in the Workspace Window</h4>
+<section id="modelling-in-the-workspace-window" class="level4">
+<h4 class="anchored" data-anchor-id="modelling-in-the-workspace-window">Modelling in the Workspace Window</h4>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/A_Ref_d1.jpg" class="img-fluid figure-img"></p>
@@ -535,12 +531,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </figure>
 </div>
 </section>
-<section id="choosing-modelling-in-statistical-methods-panel" class="level4">
-<h4 class="anchored" data-anchor-id="choosing-modelling-in-statistical-methods-panel">Choosing modelling in Statistical Methods Panel</h4>
+<section id="modelling-in-statistical-methods-panel" class="level4">
+<h4 class="anchored" data-anchor-id="modelling-in-statistical-methods-panel">Modelling in Statistical Methods Panel</h4>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="All_images/Statistical methods menu modelling.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption"><strong>The <em>Modelling</em> tab.</strong></figcaption>
+<p><img src="All_images/A_Ref53.jpg" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption"><strong>The <em>RegArima</em> menu item</strong></figcaption>
 </figure>
 </div>
 

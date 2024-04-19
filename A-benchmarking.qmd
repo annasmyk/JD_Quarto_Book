@@ -32,7 +32,7 @@ Using the [GUI](#t-gui-overview) with a [plug-in](#t-plug-ins) or [rjd3bench pac
 | Regression Models\* | ✔️                    | ✔️                    | ✔              |
 | Model-based Denton  | ✖                     | ✔                     | rjd3sts        |
 
-\*Regression models: several structure of residuals
+\*Regression models: several structures of residuals
 
 -   Ar1: Chow-Lin
 

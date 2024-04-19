@@ -1,0 +1,11 @@
+# SA: X12+ and MX12+ {#a-sa-x12 .unnumbered}
+
+## In this chapter
+
+Additional SA algorithms available only in v3.x.
+
+- X12+: Airline based pre-adjustment and extended X11 decomposition
+
+- MX12+: Extended Airline Estimation and Extended X11 Decomposition
+
+Up coming content.

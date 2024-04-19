@@ -6,12 +6,14 @@ This chapter is a first of a series focusing on the practical step by step use o
 
 The following chapters get into the specifics of each algorithm.
 
--   [SA: pre-treatment](#sa-pre-t)
--   [SA: X11 decomposition](a-sa-X11)
--   [SA: Seats-decomposition](#a-sa-seats)
--   [SA: STL decomposition](#a-sa-stl)
--   [SA with Basic Structural Models (BSM)](#a-sa-bsm)
--   [SA of High-Frequency Data](#a-sa-hf)
+- [Pre-treatment](#sa-pre-t)
+- [SA: X11 decomposition](a-sa-X11)
+- [SA: Seats-decomposition](#a-sa-seats)
+- [SA: Revision policies](#a-rev-pol)
+- [SA of High-Frequency Data](#a-sa-hf)
+- [SA: STL+ and MSTL+](#a-sa-stl)
+- [X12+ and MX12+](a-sa-x12)
+- [STS and MSTS](#a-sa-bsm)
 
 
 The use of [graphical user interface](T-graphical-user-interface.qmd) and [R packages](T-r-packages.qmd) is described simultaneously whenever relevant.
@@ -42,13 +44,13 @@ When setting up the process:
 
 - updating when new data available with tailored [revision policy](#a-rev-pol)
 
-## Quick Start
-(chap à part?)
-To launch a
-en mode cahier d'exos 
+<!-- ## Quick Start -->
+<!-- (chap à part?) -->
+<!-- To launch a -->
+<!-- en mode cahier d'exos  -->
 
-#a-sa-X11-q-start
-#a-sa-seats-q-start
+<!-- #a-sa-X11-q-start -->
+<!-- #a-sa-seats-q-start -->
 
 ## Seasonal Adjustment Algorithms
 

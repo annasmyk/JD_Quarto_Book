@@ -157,7 +157,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./A-RegArima-Tramo-Modelling-Overview.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">RegArima (Tramo) Modelling</span></a>
+ <span class="menu-text">Modelling</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -186,20 +186,32 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./A-sa-stl-decomposition.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">SA with STL</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./A-sa-bsm.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">SA with Basic Structural Models</span></a>
+  <a href="./A-rev-policies.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SA: Revision policies</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./A-sa-hf.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">SA of high-frequency data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A-sa-x12.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SA: X12+ and MX12+</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A-sa-stl-decomposition.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SA: STL+ and MSTL+</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A-sa-bsm.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SA: STS and MSTS</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -275,26 +287,20 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./T-r-packages.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Using JDemetra+ in R</span></a>
+  <a href="./T-plug-ins.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Plug-ins (GUI extensions)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./T-Production-tools-cruncher-QR.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Production, Cruncher and quality report</span></a>
+ <span class="menu-text">Cruncher and quality report</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./T-rev-policies-production.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Production and revision policies</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./T-plug-ins.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Plug-ins GUI</span></a>
+  <a href="./T-r-packages.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">R packages</span></a>
   </div>
 </li>
       </ul>
@@ -334,12 +340,6 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./M-Trend-Estimation-Local-Polynomials.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Trend Estimation</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="./M-tests.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Tests</span></a>
   </div>
@@ -352,14 +352,8 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./M-state-space-framework.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">State space framework</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./M-Temp-Disagg-Bench.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Temporal disaggregation and benchmarking</span></a>
+  <a href="./M-revision-analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Revision Analysis</span></a>
   </div>
 </li>
       </ul>
@@ -381,7 +375,7 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#in-this-chapter" id="toc-in-this-chapter" class="nav-link active" data-scroll-target="#in-this-chapter">In this chapter</a></li>
-  <li><a href="#sa-process-description" id="toc-sa-process-description" class="nav-link" data-scroll-target="#sa-process-description">SA process description</a></li>
+  <li><a href="#sa-process" id="toc-sa-process" class="nav-link" data-scroll-target="#sa-process">SA process</a></li>
   <li><a href="#seasonal-adjustment-algorithms" id="toc-seasonal-adjustment-algorithms" class="nav-link" data-scroll-target="#seasonal-adjustment-algorithms">Seasonal Adjustment Algorithms</a></li>
   <li><a href="#admissible-data-frequencies" id="toc-admissible-data-frequencies" class="nav-link" data-scroll-target="#admissible-data-frequencies">Admissible data frequencies</a></li>
   <li><a href="#decomposition-in-unobserved-components" id="toc-decomposition-in-unobserved-components" class="nav-link" data-scroll-target="#decomposition-in-unobserved-components">Decomposition in unobserved components</a></li>
@@ -414,26 +408,28 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>The goal of seasonal adjustment is to remove seasonal fluctuations from a time series. Seasonal fluctuations are quasi-periodic infra-annual movements. They can mask evolutions of greater interest for the user such as short term evolution or long time trends.</p>
 <section id="in-this-chapter" class="level2">
 <h2 class="anchored" data-anchor-id="in-this-chapter">In this chapter</h2>
 <p>This chapter is a first of a series focusing on the practical step by step use of JDemetra+ Seasonal Adjustment (SA) algorithms, restricted to monthly and quarterly series. For infra-monthly data see the <a href="A-sa-hf.html">following chapter</a>. In the sections below an overview of the seasonal adjustment process is provided. The most widely used SA algorithms (Tramo-Seats and X13-Arima) have two steps: a pre-treatment to remove (temporarily) deterministic effects and a decomposition phase to estimate the seasonal factors.</p>
 <p>The following chapters get into the specifics of each algorithm.</p>
 <ul>
-<li><a href="A-sa-pre-treatment.html">SA: pre-treatment</a></li>
+<li><a href="A-sa-pre-treatment.html">Pre-treatment</a></li>
 <li><a href="a-sa-X11">SA: X11 decomposition</a></li>
 <li><a href="A-sa-seats-decomposition.html">SA: Seats-decomposition</a></li>
-<li><a href="A-sa-stl-decomposition.html">SA: STL decomposition</a></li>
-<li><a href="A-sa-bsm.html">SA with Basic Structural Models (BSM)</a></li>
+<li><a href="A-rev-policies.html">SA: Revision policies</a></li>
 <li><a href="A-sa-hf.html">SA of High-Frequency Data</a></li>
+<li><a href="A-sa-stl-decomposition.html">SA: STL+ and MSTL+</a></li>
+<li><a href="a-sa-x12">X12+ and MX12+</a></li>
+<li><a href="A-sa-bsm.html">STS and MSTS</a></li>
 </ul>
 <p>The use of <a href="T-graphical-user-interface.qmd">graphical user interface</a> and <a href="./T-r-packages.html">R packages</a> is described simultaneously whenever relevant.</p>
 <p>In-depth methodological explanations of the algorithms are covered in separated chapters, in the <a href="./P_Methods.html">Methods</a> part of this book.</p>
 <p>More information on the steps and best practices of a seasonal adjustment process can be found in the <a href="https://ec.europa.eu/eurostat/documents/3859598/6830795/KS-GQ-15-001-EN-N.pdf">Eurostat guidelines on seasonal adjustment</a></p>
 <p>For an overview on the algorithms and methodological issues, the user can refer to the <a href="https://ec.europa.eu/eurostat/documents/3859598/8939616/KS-GQ-18-001-EN-N.pdf">Handbook on Seasonal Adjustment</a></p>
 </section>
-<section id="sa-process-description" class="level2">
-<h2 class="anchored" data-anchor-id="sa-process-description">SA process description</h2>
+<section id="sa-process" class="level2">
+<h2 class="anchored" data-anchor-id="sa-process">SA process</h2>
+<p>The goal of seasonal adjustment is to remove seasonal fluctuations from a time series. Seasonal fluctuations are quasi-periodic infra-annual movements. They can mask evolutions of greater interest for the user such as short term evolution or long time trends.</p>
 <p>When setting up the process:</p>
 <ul>
 <li><p>seasonality tests (can also be done in the frame of quality assessment at the end)</p></li>
@@ -445,8 +441,14 @@ ul.task-list li input[type="checkbox"] {
 <li><p>estimation with selected algorithm (see section below), might be <a href="T-Production-tools-cruncher-QR.html">automated with the cruncher</a></p></li>
 <li><p><a href="T-Production-tools-cruncher-QR.html">quality report</a></p></li>
 <li><p>selective editing and manual fine tuning of parameters, re-estimation if needed</p></li>
-<li><p>updating when new data available with tailored <a href="T-rev-policies-production.html">revision policy</a></p></li>
+<li><p>updating when new data available with tailored <a href="A-rev-policies.html">revision policy</a></p></li>
 </ul>
+<!-- ## Quick Start -->
+<!-- (chap à part?) -->
+<!-- To launch a -->
+<!-- en mode cahier d'exos  -->
+<!-- #a-sa-X11-q-start -->
+<!-- #a-sa-seats-q-start -->
 </section>
 <section id="seasonal-adjustment-algorithms" class="level2">
 <h2 class="anchored" data-anchor-id="seasonal-adjustment-algorithms">Seasonal Adjustment Algorithms</h2>
@@ -760,7 +762,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./A-RegArima-Tramo-Modelling-Overview.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">RegArima (Tramo) Modelling</span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Modelling</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">

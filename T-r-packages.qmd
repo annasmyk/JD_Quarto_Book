@@ -4,6 +4,13 @@
 
 Core JDemetra+ Java algorithms can be accessed in R. This chapter provides an overview of the R ecosystem related to JDemetra+ [version 2.4](https://github.com/jdemetra/rjdemetra) and [3.x](https://github.com/rjdemetra), still under construction. More details on specific functions are available in the relevant chapters in the [Algorithm part](#part-A) of this documentation. Help pages, Readme pages and vignettes relative to each package provide a detailed description of all available functions: purpose, arguments, output and examples. There are directly linked to this documentation whenever their use in a selected algorithm is mentioned.
 
+### Configuration needed 
+
+- To run packages based on version 2.x: Java 8 or higher
+
+- To run packages based on version 3.x: Java 17 or higher: how to get a portable Java and link it with R on your computer is explained [here](#Rconfig)
+
+
 ### Packages based on JDemetra+ version 2 algorithms
 
 Packages corresponding to version 2.x core routines:

@@ -6,6 +6,18 @@ A pdf version of this documentation is available [here](https://github.com/annas
 
 ## Main Features
 
+JDemetra+ provides [algorithms](#part-A) for:
+
+-   Seasonal Adjustment
+
+-   Trend estimation
+
+-   Benchmarking and temporal disaggregation
+
+-   Nowcasting
+
+-   Revision analysis
+
 ## Curently available versions
 
 The highest version currently recommended for production purposes is 2.2.4.

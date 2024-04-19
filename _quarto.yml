@@ -56,7 +56,7 @@ book:
           city: Frankfurt
           url: "https://www.bundesbank.de"
       role: "Collaborator"
-  date: "02/12/2024"
+  date: "04/19/2024"
   page-navigation: true
   chapters:
     - index.qmd
@@ -72,9 +72,10 @@ book:
         - A-sa-X11-decomposition.qmd ##(a-sa-X11)
         - A-sa-seats-decomposition.qmd ##(#a-sa-seats)
         - A-rev-policies.qmd ##(#a-rev-pol)
+        - A-sa-hf.qmd ##(#a-sa-hf)
+        - A-sa-x12.qmd
         - A-sa-stl-decomposition.qmd ##(#a-sa-stl)
         - A-sa-bsm.qmd ##(#a-sa-bsm)
-        - A-sa-hf.qmd ##(#a-sa-hf)
         - A-outlier-detection.qmd ##(#a-out-reg-ext)
         - A-calendar-correction.qmd ##(#a-cal)
         - A-benchmarking.qmd ##(#a-bench)
