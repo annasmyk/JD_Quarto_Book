@@ -517,7 +517,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="curently-available-versions" class="level2">
 <h2 class="anchored" data-anchor-id="curently-available-versions">Curently available versions</h2>
 <p>The highest version currently recommended for production purposes is 2.2.4.</p>
-<p>Version 3.x family provides, <a href="G-news-v3-vs-v2.html">among other things</a>, extended features for seasonal adjustment and trend estimation, including <strong>high frequency data</strong>. The latest version 3.2.2 was released on December 14th 2024.</p>
+<p>Version 3.x family provides, <a href="G-news-v3-vs-v2.html">among other things</a>, extended features for seasonal adjustment and trend estimation, including <strong>high frequency data</strong>. The latest version 3.2.2 was released on March 14th 2024.</p>
 </section>
 <section id="background" class="level2">
 <h2 class="anchored" data-anchor-id="background">Background</h2>
@@ -546,6 +546,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="installing-the-software" class="level2">
 <h2 class="anchored" data-anchor-id="installing-the-software">Installing the software</h2>
+<p>The sections below detail how to install JDemetra+ (Graphical user interface and Cruncher) and <a href="#Rconfig">how to configure R</a> to run rjd3 packages.</p>
 <section id="ind-inst-gui" class="level3">
 <h3 class="anchored" data-anchor-id="ind-inst-gui">Graphical User Interface (GUI)</h3>
 <p>You can find the latest releases</p>
@@ -559,10 +560,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ul>
 <li>in the v3.x family: <a href="https://github.com/jdemetra/jdplus-main/releases">here</a></li>
 </ul>
-<p>As of April 2024, the latest version is <a href="https://github.com/jdemetra/jdplus-main/releases/tag/v3.2.2">v3.2.2</a></p>
-<p>Scroll down the page, download and unzip the file <em>jdemetra-standalone-3.2.2-windows-x86_64.zip</em>, if you use Windows, or the zip corresponding to you OS in the list.</p>
-<p>To start the application, run the file <strong>nbdemetra64.exe</strong> located in the following subfolder “…\jdemetra-standalone-3.2.2-windows-x86_64\nbdemetra\bin”</p>
-<p>Version 3.x requires Java 17 or higher, <em>jdemetra-standalone-3.2.2-windows-x86_64.zip</em> contains a portable version of Java 21, so you don’t have to deal with this issue on your computer.</p>
+<p>You should install the latest release available denoted from now on v3.x.y</p>
+<p>Scroll down the page, download and unzip the file <em>jdemetra-standalone-3.x.y-windows-x86_64.zip</em>, if you use Windows, or the zip corresponding to you OS in the list.</p>
+<p>To start the application, run the file <strong>nbdemetra64.exe</strong> located in the following subfolder “…\jdemetra-standalone-3.x.y-windows-x86_64\nbdemetra\bin”</p>
+<p>Version 3.x requires Java 17 or higher, <em>jdemetra-standalone-3.x.y-windows-x86_64.zip</em> contains a portable version of Java 21, so you don’t have to deal with this issue on your computer.</p>
 <p>R packages related to version 3.x (rjd3…) also require Java 17 or higher, you can (and should) use the portable version provided with the graphical user interface to run them, this is explained <a href="#Rconfig">here</a>.</p>
 </section>
 <section id="additional-plugins" class="level3">
@@ -586,7 +587,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>To install it :</p>
 <ul>
 <li><p>in v2, go to the <a href="https://github.com/jdemetra/jwsacruncher"><strong>JWSACruncher</strong> page</a>, <strong>download</strong> and <strong>unzip</strong> the compressed folder <code>jwsacruncher-2.2.4-bin.zip</code>.</p></li>
-<li><p>in v3, go to the <a href="https://github.com/jdemetra/jdplus-main"><strong>jdplus-main</strong> page</a>, <strong>download</strong> and <strong>unzip</strong> the compressed folder <code>jwsacruncher-standalone-3.2.2-windows-x86_64.zip</code>.</p></li>
+<li><p>in v3, go to the <a href="https://github.com/jdemetra/jdplus-main"><strong>jdplus-main</strong> page</a>, <strong>download</strong> and <strong>unzip</strong> the compressed folder <code>jwsacruncher-standalone-3.x.y-windows-x86_64.zip</code>.</p></li>
 </ul>
 </section>
 <section id="r-packages" class="level3">
@@ -596,22 +597,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- general readme to build and specific to check -->
 <section id="Rconfig" class="level4">
 <h4 class="anchored" data-anchor-id="Rconfig">Configuration needed to run rjd3 packages</h4>
-<p>To use the v3 packages in R, you need Java 17 or higher.</p>
-<p>You can (and should) use the version of Java that comes with the Graphical User Interface (GUI).</p>
-<p>The Java is in C:\Software\jdemetra-standalone-3.2.2.2-windows-x86_64\nbdemetra\jdk-21.0.2+13-jre (to be adapted to your computer/sever): this location must be declared in R.</p>
-<p>After installing the GUI</p>
+<p>To use rjd3 packages in R, you need Java 17 or higher.</p>
+<p>You can (and should) use the version of Java that comes with the Graphical User Interface (GUI). It is contained in the file <strong>jdemetra-standalone-3.x.y-windows-x86_64.zip</strong></p>
+<p>Once unzipped, the Java will be in located in C:\Software\jdemetra-standalone-3.x.y-windows-x86_64\nbdemetra\jdk-21.0.2+13-jre (path to be adapted to your computer/sever): this location must be declared in R.</p>
+<p>After unzipping the file:</p>
 <ul>
 <li>run this code at the beginning of your programs</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Sys.setenv</span>(<span class="st">"JAVA_HOME"</span> <span class="ot">=</span> <span class="st">".../jdemetra-standalone-3.2.2-windows-x86_64/nbdemetra/jdk-21.0.2+13-jre"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Sys.setenv</span>(<span class="st">"JAVA_HOME"</span> <span class="ot">=</span> <span class="st">".../jdemetra-standalone-3.x.y-windows-x86_64/nbdemetra/jdk-21.0.2+13-jre"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>or</p>
 <ul>
 <li><p>declare it “permanently” is the Renviron file (where environment variables specific to <code>R</code> are stored), following the steps below:</p>
 <ul>
 <li><p>in the R console run file.edit(“~/.Renviron”)</p></li>
-<li><p>in the file that opens add the line : <strong>JAVA_HOME= C:/Software/jdemetra-standalone-3.2.2.2-windows-x86_64/nbdemetra/jdk-21.0.2+13-jre</strong> (adapting the path to your computer)</p></li>
+<li><p>in the file that opens add the line : <strong>JAVA_HOME= C:/Software/jdemetra-standalone-3.x.y-windows-x86_64/nbdemetra/jdk-21.0.2+13-jre</strong></p></li>
 <li><p>save the file and restart R</p></li>
 </ul></li>
 </ul>
