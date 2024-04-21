@@ -49,7 +49,7 @@ Where
 - $reg_j$ is the total effect of user-defined regressors on component $j$
 
 
-## Default Specifications {#a-pre-t-def-spec}
+## Setting Specifications {#a-pre-t-def-spec}
 
 Default specifications are set for the whole SA procedure, pre-treatment and decomposition. They are slightly different for X13-ARIMA and TRAMO-SEATS and can be modified with user-defined parameters.
 
