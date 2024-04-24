@@ -27,7 +27,7 @@ Using the [GUI](#t-gui-overview) with a [plug-in](#t-plug-ins) or [rjd3bench pac
 
 ### Temporal Disaggregation
 
-| Method              | GUI Plug-in for V 2.x | GUI Plug-in for V 2.x | In R rjd3bench |
+| Method              | GUI Plug-in for V 2.x | GUI Plug-in for V 3.x | In R rjd3bench |
 |---------------------|-----------------------|-----------------------|----------------|
 | Regression Models\* | ✔️                    | ✔️                    | ✔              |
 | Model-based Denton  | ✖                     | ✔                     | rjd3sts        |
