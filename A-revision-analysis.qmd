@@ -12,7 +12,7 @@ details on methods
 
 ## Tool
 
-The [rjd3revisions](https://github.com/rjdemetra/rjd3revisions) packages allows to perform revision analysis.
+The [rjd3revisions](https://github.com/rjdverse/rjd3revisions) packages allows to perform revision analysis.
 
 More information is available directly in the package documentation and vignette.
 

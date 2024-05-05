@@ -13,11 +13,11 @@ For the time being this algorithms are available in two R packages.
 
 ### rjd3filters
 
-rjd3filters is available [here](https://github.com/rjdemetra/rjd3filters), with useful information in the Readme file and function documentation.
+rjd3filters is available [here](https://github.com/rjdverse/rjd3filters), with useful information in the Readme file and function documentation.
 
 ### rjd3x11plus
 
-rjd3x11plus is available [here](https://github.com/rjdemetra/rjd3x11plus), with (up coming) useful information in the Readme file and function documentation.
+rjd3x11plus is available [here](https://github.com/rjdverse/rjd3x11plus), with (up coming) useful information in the Readme file and function documentation.
 
 
 (Up coming content)

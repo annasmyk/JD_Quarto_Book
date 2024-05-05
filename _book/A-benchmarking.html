@@ -469,10 +469,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 class="anchored" data-anchor-id="t-plug-ins-bench">Benchmarking</h3>
 <table class="table">
 <colgroup>
-<col style="width: 27%">
-<col style="width: 26%">
-<col style="width: 26%">
-<col style="width: 18%">
+<col style="width: 34%">
+<col style="width: 24%">
+<col style="width: 24%">
+<col style="width: 17%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -499,7 +499,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td>Cholette Multi-variate</td>
 <td>✔</td>
 <td>✖</td>
-<td>✖</td>
+<td>✔</td>
 </tr>
 <tr class="even">
 <td>Cubic Splines</td>
@@ -508,7 +508,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td>✔</td>
 </tr>
 <tr class="odd">
-<td>Grp</td>
+<td>GRP (Growth Rate Preservation)</td>
 <td>✖</td>
 <td>✔</td>
 <td>✔</td>
@@ -526,16 +526,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 class="anchored" data-anchor-id="temporal-disaggregation">Temporal Disaggregation</h3>
 <table class="table">
 <colgroup>
-<col style="width: 25%">
-<col style="width: 27%">
-<col style="width: 27%">
-<col style="width: 19%">
+<col style="width: 42%">
+<col style="width: 21%">
+<col style="width: 21%">
+<col style="width: 14%">
 </colgroup>
 <thead>
 <tr class="header">
 <th>Method</th>
 <th>GUI Plug-in for V 2.x</th>
-<th>GUI Plug-in for V 2.x</th>
+<th>GUI Plug-in for V 3.x</th>
 <th>In R rjd3bench</th>
 </tr>
 </thead>
@@ -550,7 +550,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td>Model-based Denton</td>
 <td>✖</td>
 <td>✔</td>
-<td>rjd3sts</td>
+<td>✔</td>
+</tr>
+<tr class="odd">
+<td>ADL (Autoregressive Distributed Lag Models)</td>
+<td>✖</td>
+<td>✖</td>
+<td>✔</td>
 </tr>
 </tbody>
 </table>
@@ -586,7 +592,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="in-r-with-rjd3x13-and-rjd3tramoseats" class="level3">
 <h3 class="anchored" data-anchor-id="in-r-with-rjd3x13-and-rjd3tramoseats">In R with <code>rjd3x13</code> and <code>rjd3tramoseats</code></h3>
-<p>When performing seasonal adjustment with <code>rjd3x13</code> and <code>rjd3tramoseats</code>, the current (or default) specification has to be customized using the function <code>rjd3toolkit::set_benchmarking</code> documented on this <a href="https://rjdemetra.github.io/rjd3toolkit/reference/set_benchmarking.html">GitHub page</a></p>
+<p>When performing seasonal adjustment with <code>rjd3x13</code> and <code>rjd3tramoseats</code>, the current (or default) specification has to be customized using the function <code>rjd3toolkit::set_benchmarking</code> documented on this <a href="https://rjdverse.github.io/rjd3toolkit/reference/set_benchmarking.html">GitHub page</a></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>init_spec <span class="ot">&lt;-</span> rjd3x13<span class="sc">::</span><span class="fu">spec_x13</span>(<span class="st">"RSA5c"</span>)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>new_spec<span class="ot">&lt;-</span> <span class="fu">set_benchmarking</span>(init_spec,</span>
@@ -683,8 +689,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="in-r-with-rjd3bench" class="level3">
 <h3 class="anchored" data-anchor-id="in-r-with-rjd3bench">In R with <code>rjd3bench</code></h3>
-<p>Use the [rjd3bench](https://github.com/rjdemetra/rjd3bench) package and see its documentation pages. Browse its documentation on this <a href="https://rjdemetra.github.io/rjd3bench/">GitHub page</a>.</p>
-<p>To get started browse the <a href="https://rjdemetra.github.io/rjd3bench/articles/rjd3bench.html">vignette</a></p>
+<p>Use the [rjd3bench](https://github.com/rjdverse/rjd3bench) package and see its documentation pages. Browse its documentation on this <a href="https://rjdverse.github.io/rjd3bench/">GitHub page</a>.</p>
+<p>To get started browse the <a href="https://rjdverse.github.io/rjd3bench/articles/rjd3bench.html">vignette</a></p>
 <p>More information on R packages for JDemetra+ and installation procedures is provided in <a href="T-r-packages.html">this chapter</a></p>
 </section>
 </section>
@@ -848,8 +854,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="in-r-with-rjd3bench-1" class="level3">
 <h3 class="anchored" data-anchor-id="in-r-with-rjd3bench-1">In R with <code>rjd3bench</code></h3>
-<p>Use the [rjd3bench](https://github.com/rjdemetra/rjd3bench) package and see its documentation pages. Browse its documentation on this <a href="https://rjdemetra.github.io/rjd3bench/">GitHub page</a>.</p>
-<p>To get started browse the <a href="https://rjdemetra.github.io/rjd3bench/articles/rjd3bench.html">vignette</a></p>
+<p>Use the [rjd3bench](https://github.com/rjdverse/rjd3bench) package and see its documentation pages. Browse its documentation on this <a href="https://rjdverse.github.io/rjd3bench/">GitHub page</a>.</p>
+<p>To get started browse the <a href="https://rjdverse.github.io/rjd3bench/articles/rjd3bench.html">vignette</a></p>
 <p>More information on R packages for JDemetra+ and installation procedures is provided in <a href="T-r-packages.html">this chapter</a></p>
 <section id="temporal-disaggregation-1" class="level4">
 <h4 class="anchored" data-anchor-id="temporal-disaggregation-1">Temporal Disaggregation</h4>

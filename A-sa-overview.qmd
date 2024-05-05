@@ -122,7 +122,7 @@ In rjd3toolkit package:
 -   Periodogram Seasonality Test (`seasonality.periodogram()`)
 -   QS Seasonality Test (`seasonality.qs()`)
 
-Full documentation of those functions can be found [here](https://rjdemetra.github.io/rjd3toolkit/reference/index.html)
+Full documentation of those functions can be found [here](https://rjdverse.github.io/rjd3toolkit/reference/index.html)
 
 ### In GUI
 

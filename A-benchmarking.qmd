@@ -16,21 +16,22 @@ Using the [GUI](#t-gui-overview) with a [plug-in](#t-plug-ins) or [rjd3bench pac
 
 ### Benchmarking {#t-plug-ins-bench}
 
-| Method                 | GUI Plug-in for V 2.x | GUI Plug-in for V 3.x | In R rjd3bench |
-|------------------------|-----------------------|-----------------------|----------------|
-| Denton                 | ✔                     | ✔                     | ✔              |
-| Cholette               | ✔                     | ✔                     | ✔              |
-| Cholette Multi-variate | ✔                     | ✖                     | ✖              |
-| Cubic Splines          | ✖                     | ✔                     | ✔              |
-| Grp                    | ✖                     | ✔                     | ✔              |
-| Calendarization        | ✔                     | ✖                     | ✔              |
+| Method                         | GUI Plug-in for V 2.x | GUI Plug-in for V 3.x | In R rjd3bench |
+|--------------------------------|-----------------------|-----------------------|----------------|
+| Denton                         | ✔                     | ✔                     | ✔              |
+| Cholette                       | ✔                     | ✔                     | ✔              |
+| Cholette Multi-variate         | ✔                     | ✖                     | ✔              |
+| Cubic Splines                  | ✖                     | ✔                     | ✔              |
+| GRP (Growth Rate Preservation) | ✖                     | ✔                     | ✔              |
+| Calendarization                | ✔                     | ✖                     | ✔              |
 
 ### Temporal Disaggregation
 
-| Method              | GUI Plug-in for V 2.x | GUI Plug-in for V 2.x | In R rjd3bench |
-|---------------------|-----------------------|-----------------------|----------------|
-| Regression Models\* | ✔️                    | ✔️                    | ✔              |
-| Model-based Denton  | ✖                     | ✔                     | rjd3sts        |
+| Method                                      | GUI Plug-in for V 2.x | GUI Plug-in for V 3.x | In R rjd3bench |
+|---------------------------------------------|-----------------------|-----------------------|----------------|
+| Regression Models\*                         | ✔️                    | ✔️                    | ✔              |
+| Model-based Denton                          | ✖                     | ✔                     | ✔              |
+| ADL (Autoregressive Distributed Lag Models) | ✖                     | ✖                     | ✔              |
 
 \*Regression models: several structures of residuals
 
@@ -76,7 +77,7 @@ When running a seasonal adjustment process
 
 ### In R with `rjd3x13` and `rjd3tramoseats`
 
-When performing seasonal adjustment with `rjd3x13` and `rjd3tramoseats`, the current (or default) specification has to be customized using the function `rjd3toolkit::set_benchmarking` documented on this [GitHub page](https://rjdemetra.github.io/rjd3toolkit/reference/set_benchmarking.html)
+When performing seasonal adjustment with `rjd3x13` and `rjd3tramoseats`, the current (or default) specification has to be customized using the function `rjd3toolkit::set_benchmarking` documented on this [GitHub page](https://rjdverse.github.io/rjd3toolkit/reference/set_benchmarking.html)
 
 ```{r, echo=TRUE, eval=FALSE}
 init_spec <- rjd3x13::spec_x13("RSA5c")
@@ -171,9 +172,9 @@ Up coming content.
 
 ### In R with `rjd3bench`
 
-Use the \[rjd3bench\](https://github.com/rjdemetra/rjd3bench) package and see its documentation pages. Browse its documentation on this [GitHub page](https://rjdemetra.github.io/rjd3bench/).
+Use the \[rjd3bench\](https://github.com/rjdverse/rjd3bench) package and see its documentation pages. Browse its documentation on this [GitHub page](https://rjdverse.github.io/rjd3bench/).
 
-To get started browse the [vignette](https://rjdemetra.github.io/rjd3bench/articles/rjd3bench.html)
+To get started browse the [vignette](https://rjdverse.github.io/rjd3bench/articles/rjd3bench.html)
 
 More information on R packages for JDemetra+ and installation procedures is provided in [this chapter](#t-r-packs)
 
@@ -257,9 +258,9 @@ Select **MainResults**$\rightarrow$Chart to see a graph of the disaggregated ser
 
 ### In R with `rjd3bench`
 
-Use the \[rjd3bench\](https://github.com/rjdemetra/rjd3bench) package and see its documentation pages. Browse its documentation on this [GitHub page](https://rjdemetra.github.io/rjd3bench/).
+Use the \[rjd3bench\](https://github.com/rjdverse/rjd3bench) package and see its documentation pages. Browse its documentation on this [GitHub page](https://rjdverse.github.io/rjd3bench/).
 
-To get started browse the [vignette](https://rjdemetra.github.io/rjd3bench/articles/rjd3bench.html)
+To get started browse the [vignette](https://rjdverse.github.io/rjd3bench/articles/rjd3bench.html)
 
 More information on R packages for JDemetra+ and installation procedures is provided in [this chapter](#t-r-packs)
 

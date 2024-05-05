@@ -88,7 +88,7 @@ concurrent = first estimation or redo everything (never overrides user defined p
 
 add examples 
 
-add example with rjdemetra3
+add example with rjd3workspace
 
 ### A-sa-hf.qmd
 
@@ -234,7 +234,7 @@ add - List of exportable series (tramo / x13 with names)
 
 -   add a global description of rjd3toolkit cf aux txt file
 
--   include details in rjdemetra3 (when ready)
+-   include details in rjd3workspace (when ready)
 
 #### Perimeter definition
 

@@ -122,7 +122,7 @@ Implementing refresh policies is a new v3.x feature. Two options are available
 
 - using rjd3x13 or rjd3tramoseats directly on TS objects in R 
 
-- refreshing a workspace with rjdemetra3
+- refreshing a workspace with rjd3workspace
 
 <!-- add explanations here -->
 
@@ -133,9 +133,9 @@ Available policies and names are detailed in [here](#a-rev-pol-ov).
 
 More explanations and full documentation of 
 
-- `rjd3x13::x13_refresh` function can be found [here](https://rjdemetra.github.io/rjd3x13/reference/refresh.html)
+- `rjd3x13::x13_refresh` function can be found [here](https://rjdverse.github.io/rjd3x13/reference/refresh.html)
 
--  `rjd3tramoseats::tramoseats_refresh` function can be found [here](https://rjdemetra.github.io/rjd3tramoseats/reference/refresh.html)
+-  `rjd3tramoseats::tramoseats_refresh` function can be found [here](https://rjdverse.github.io/rjd3tramoseats/reference/refresh.html)
 
 
 

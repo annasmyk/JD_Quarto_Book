@@ -132,7 +132,7 @@ With functions for
 
 - merging workspaces by series names, as you would do with a data table
 
-These functions are in `rjd3providers` and  `rjdemetra3` packages, (already in a v 2.x stable precursor `rjdworkspace`)
+These functions are in `rjd3providers` and  `rjd3workspace` packages, (already in a v 2.x stable precursor `rjdworkspace`)
 
 
 ### Production fully in R

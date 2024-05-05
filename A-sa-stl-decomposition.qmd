@@ -11,4 +11,4 @@ More methodological details will be provided [here](#m-stl)
 
 ## Tools for access
 
-In JDemetra+ STL is only available through [rjd3stl](https://github.com/rjdemetra/rjd3stl) package.
+In JDemetra+ STL is only available through [rjd3stl](https://github.com/rjdverse/rjd3stl) package.

@@ -60,9 +60,9 @@ sa_tramo_v3 <- rjd3tramoseats::tramo(raw_series, spec = "TRfull")
 
 ```
 
-Full documentation of 'rjd3x13::regarima' function can be found [here](https://rjdemetra.github.io/rjd3x13/reference/regarima.html)
+Full documentation of 'rjd3x13::regarima' function can be found [here](https://rjdverse.github.io/rjd3x13/reference/regarima.html)
 
-Full documentation of 'rjd3tramoseats::tramo' function can be found [here](https://rjdemetra.github.io/rjd3tramoseats/reference/tramo.html)
+Full documentation of 'rjd3tramoseats::tramo' function can be found [here](https://rjdverse.github.io/rjd3tramoseats/reference/tramo.html)
 
 ### GUI
 

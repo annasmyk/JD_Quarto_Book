@@ -75,7 +75,7 @@ The model_sa_v2 R object (list of lists) contains all parameters and results. It
 print(model_sa_v2)
 ```
 
-#### In version 3 using [rjd3tramoseats](https://rjdemetra.github.io/rjd3tramoseats/)
+#### In version 3 using [rjd3tramoseats](https://rjdverse.github.io/rjd3tramoseats/)
 
 ```{r, echo = TRUE, eval = FALSE}
 library("rjd3tramoseats")
@@ -83,7 +83,7 @@ model_sa_v3 <- tramoseats(raw_series, spec = "RSAfull")
 # the input series has to be a Time Series (TS) object
 ```
 
-Full documentation of 'rjd3tramoseats::tramoseats' function can be found [here](https://rjdemetra.github.io/rjd3tramoseats/reference/tramoseats.html).
+Full documentation of 'rjd3tramoseats::tramoseats' function can be found [here](https://rjdverse.github.io/rjd3tramoseats/reference/tramoseats.html).
 
 The model_sa_v3 R object (list of lists) contains all parameters and results. Its structure is detailed [here](#t-r-packs-rjd3tramoseats-structure).
 

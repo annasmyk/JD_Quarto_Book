@@ -15,4 +15,4 @@ More methodological details will be provided [here](#m-ssf)
 
 ## Tools for access
 
-In JDemetra+ Basic Structural Models are only available through [rjd3sts](https://github.com/rjdemetra/rjd3sts) package.
+In JDemetra+ Basic Structural Models are only available through [rjd3sts](https://github.com/rjdverse/rjd3sts) package.

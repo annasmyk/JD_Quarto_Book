@@ -25,18 +25,18 @@ Packages corresponding to version 2.x core routines:
 
 Packages corresponding to version 3.x core routines:
 
--   [**rjd3toolkit**](https://github.com/rjdemetra/rjd3toolkit) at <https://github.com/rjdemetra/rjd3toolkit>
--   [**rjd3x13**](https://github.com/rjdemetra/rjd3x13) on <https://github.com/rjdemetra/rjd3x13>
--   [**rjd3tramoseats**](https://github.com/rjdemetra/rjd3tramoseats) at <https://github.com/rjdemetra/rjd3tramoseats>
--   [**rjdemetra3**](https://github.com/rjdemetra/rjd3providers) at <https://github.com/rjdemetra/rjd3providers>
--   [**rjdemetra3**](https://github.com/rjdemetra/rjdemetra3) at <https://github.com/rjdemetra/rjdemetra3>
--   [**rjd3highfreq**](https://github.com/rjdemetra/rjd3highfreq) at <https://github.com/rjdemetra/rjd3highfreq>
--   [**rjd3filters**](https://github.com/rjdemetra/rjd3filters) at <https://github.com/rjdemetra/rjd3filters>
--   [**rjd3x11plus**](https://github.com/rjdemetra/rjd3x11plus) at <https://github.com/rjdemetra/rjd3x11plus>
--   [**rjd3bench**](https://github.com/rjdemetra/rjd3bench) at <https://github.com/rjdemetra/rjd3bench>
--   [**rjd3revsions**](https://github.com/rjdemetra/rjd3revisions) at <https://github.com/rjdemetra/rjd3revisions>
--   [**rjd3sts**](https://github.com/rjdemetra/rjd3sts) at <https://github.com/rjdemetra/rjd3sts>
--   [**rjd3stl**](https://github.com/rjdemetra/rjd3stl) at <https://github.com/rjdemetra/rjd3stl>
+-   [**rjd3toolkit**](https://github.com/rjdverse/rjd3toolkit) at <https://github.com/rjdverse/rjd3toolkit>
+-   [**rjd3x13**](https://github.com/rjdverse/rjd3x13) on <https://github.com/rjdverse/rjd3x13>
+-   [**rjd3tramoseats**](https://github.com/rjdverse/rjd3tramoseats) at <https://github.com/rjdverse/rjd3tramoseats>
+-   [**rjd3workspace**](https://github.com/rjdverse/rjd3providers) at <https://github.com/rjdverse/rjd3providers>
+-   [**rjd3workspace**](https://github.com/rjdverse/rjd3workspace) at <https://github.com/rjdverse/rjd3workspace>
+-   [**rjd3highfreq**](https://github.com/rjdverse/rjd3highfreq) at <https://github.com/rjdverse/rjd3highfreq>
+-   [**rjd3filters**](https://github.com/rjdverse/rjd3filters) at <https://github.com/rjdverse/rjd3filters>
+-   [**rjd3x11plus**](https://github.com/rjdverse/rjd3x11plus) at <https://github.com/rjdverse/rjd3x11plus>
+-   [**rjd3bench**](https://github.com/rjdverse/rjd3bench) at <https://github.com/rjdverse/rjd3bench>
+-   [**rjd3revsions**](https://github.com/rjdverse/rjd3revisions) at <https://github.com/rjdverse/rjd3revisions>
+-   [**rjd3sts**](https://github.com/rjdverse/rjd3sts) at <https://github.com/rjdverse/rjd3sts>
+-   [**rjd3stl**](https://github.com/rjdverse/rjd3stl) at <https://github.com/rjdverse/rjd3stl>
 -   [**ggdemetra3**](https://github.com/AQLT/ggdemetra3) on <https://github.com/AQLT/ggdemetra3>
 
 ## Algorithms available in R
@@ -103,7 +103,7 @@ A workspace is a specific JDemetra+ data format (xml files) allowing to use the 
 |-----------------|-----------------|--------------------------------------|
 | rjdworkspace  | 2.x         | update meta data, set specifications, merge workspaces |
 | rjd3providers | 3.x         | update metadata                                        |
-| rjdemetra3    | 3.x         | set specifications, merge workspace                    |
+| rjd3workspace    | 3.x         | set specifications, merge workspace                    |
 
 ### Generating enhanced output in SA estimation
 
@@ -167,17 +167,17 @@ To use version 3 based R packages you need Java 17 or higher. How to configure t
 ```{r, echo = TRUE, eval = FALSE}
 # install.packages("remotes")
 # install.packages("devtools")
-remotes::install_github("rjdemetra/rjd3toolkit")
-remotes::install_github("rjdemetra/rjd3x13")
-remotes::install_github("rjdemetra/rjd3tramoseats")
-remotes::install_github("rjdemetra/rjdemetra3")
-remotes::install_github("rjdemetra/rjd3filters")
-remotes::install_github("rjdemetra/rjd3sts")
-remotes::install_github("rjdemetra/rjd3highfreq")
-remotes::install_github("rjdemetra/rjd3x11plus")
-remotes::install_github("rjdemetra/rjd3stl")
-remotes::install_github("rjdemetra/rjd3bench")
-remotes::install_github("rjdemetra/rjd3revisions")
+remotes::install_github("rjdverse/rjd3toolkit")
+remotes::install_github("rjdverse/rjd3x13")
+remotes::install_github("rjdverse/rjd3tramoseats")
+remotes::install_github("rjdverse/rjd3workspace")
+remotes::install_github("rjdverse/rjd3filters")
+remotes::install_github("rjdverse/rjd3sts")
+remotes::install_github("rjdverse/rjd3highfreq")
+remotes::install_github("rjdverse/rjd3x11plus")
+remotes::install_github("rjdverse/rjd3stl")
+remotes::install_github("rjdverse/rjd3bench")
+remotes::install_github("rjdverse/rjd3revisions")
 remotes::install_github("AQLT/ggdemetra3")
 ```
 
@@ -201,7 +201,7 @@ Contains utility functions used in other `rjd3` packages and has to be systemati
 
 -   access general functions such as autocorrelations, distributions
 
-Documentation [here](https://rjdemetra.github.io/rjd3toolkit)
+Documentation [here](https://rjdverse.github.io/rjd3toolkit)
 
 ### rjd3x13
 
@@ -213,7 +213,7 @@ Documentation [here](https://rjdemetra.github.io/rjd3toolkit)
 
 -   Refresh policies: `regarima.refresh()` and `x13.refresh()`
 
-Documentation [here](https://rjdemetra.github.io/rjd3x13)
+Documentation [here](https://rjdverse.github.io/rjd3x13)
 
 ### rjd3tramoseats
 
@@ -225,15 +225,15 @@ Documentation [here](https://rjdemetra.github.io/rjd3x13)
 
 -   Refresh policies: `tramo.refresh()` and `tramoseats.refresh()`
 
-Documentation [here](https://rjdemetra.github.io/rjd3tramoseats)
+Documentation [here](https://rjdverse.github.io/rjd3tramoseats)
 
 ### rjd3sts
 
 Gives access to structural time series and state space models.
 
-Documentation [here](https://rjdemetra.github.io/rjd3sts)
+Documentation [here](https://rjdverse.github.io/rjd3sts)
 
-<!-- Several examples available: replace by wiki link [here](https://github.com/rjdemetra/test_rjd3sts) -->
+<!-- Several examples available: replace by wiki link [here](??)-->
 
 ### rjd3highfreq
 
@@ -245,7 +245,7 @@ Seasonal adjustment of high frequency (infra-monthly) data:
 
 -   fractional and multi airline decomposition
 
-Documentation [here](https://rjdemetra.github.io/rjd3highfreq)
+Documentation [here](https://rjdverse.github.io/rjd3highfreq)
 
 ### rjd3filters
 
@@ -352,15 +352,15 @@ Depends on `rjd3filters`
 
 -   Trend estimation with local polynomial based filters
 
-Full documentation [here](https://rjdemetra.github.io/rjd3x11plus)
+Full documentation [here](https://rjdverse.github.io/rjd3x11plus)
 
 ### rjd3stl
 
 `rjd3stl` contains usual STL functions and an airline model based pre-adjustment module. Is also tailored to handle high-frequency data.
 
-Full documentation [here](https://rjdemetra.github.io/rjd3x11plus)
+Full documentation [here](https://rjdverse.github.io/rjd3x11plus)
 
-<!-- Full documentation [here](https://rjdemetra.github.io/rjd3stl) -->
+<!-- Full documentation [here](https://rjdverse.github.io/rjd3stl) -->
 
 ### ggdemetra3
 
@@ -401,7 +401,7 @@ p_sa +
 
 Tailored for Benchmarking and temporal disaggregation
 
-Several examples [here](https://github.com/rjdemetra/test_rjd3bench)
+<!-- Several examples [here](https://github.com/rjdemetra/test_rjd3bench) -->
 
 ### rjd3revisions
 

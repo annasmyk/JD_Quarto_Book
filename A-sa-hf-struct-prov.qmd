@@ -86,7 +86,7 @@ The model_sa_v2 R object (list of lists) contains all parameters and results. It
 print(model_sa_v2)
 ```
 
-#### In version 3 using [rjd3x13](https://rjdemetra.github.io/rjd3x13/)
+#### In version 3 using [rjd3x13](https://rjdverse.github.io/rjd3x13/)
 
 ```{r, echo = TRUE, eval = FALSE}
 library("rjd3toolkit")
@@ -95,7 +95,7 @@ library("rjd3x13")
 model_sa_v3 <- rjd3x13::x13(y_raw, spec = "RSA5")
 ```
 
-Full documentation of 'rjd3x13::x13' function can be found [here](https://rjdemetra.github.io/rjd3x13/reference/x13.html) and of 'rjd3x13::X11' [here](https://rjdemetra.github.io/rjd3x13/reference/X11.html).
+Full documentation of 'rjd3x13::x13' function can be found [here](https://rjdverse.github.io/rjd3x13/reference/x13.html) and of 'rjd3x13::X11' [here](https://rjdverse.github.io/rjd3x13/reference/X11.html).
 
 The model_sa_v3 R object (list of lists) contains all parameters and results. Its structure is detailed [here](#t-r-packs-rjd3x13-structure).
 

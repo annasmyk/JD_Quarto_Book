@@ -110,7 +110,7 @@ In order to remove a previously installed JDemetra+ version, the user should del
 
 ::: {.content-visible when-format="html"}
 
-You can click on the image in the area that interests you:
+On the image below click on the area that interests you:
 
 <img src="All_images/Jd_mainwindow.png" usemap="#image_map">
 <map name="image_map">
