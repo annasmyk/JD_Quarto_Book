@@ -34,8 +34,8 @@ Packages corresponding to version 3.x core routines:
 -   [**rjd3filters**](https://github.com/rjdverse/rjd3filters) at <https://github.com/rjdverse/rjd3filters>
 -   [**rjd3x11plus**](https://github.com/rjdverse/rjd3x11plus) at <https://github.com/rjdverse/rjd3x11plus>
 -   [**rjd3bench**](https://github.com/rjdverse/rjd3bench) at <https://github.com/rjdverse/rjd3bench>
--   [**rjd3revsions**](https://github.com/rjdverse/rjd3revisions) at <https://github.com/rjdverse/rjd3revisions>
--   [**rjd3nowcasting**](https://github.com/rjdverse/rjd3revisions) at <https://github.com/rjdverse/rjd3nowcasting>
+-   [**rjd3revisions**](https://github.com/rjdverse/rjd3revisions) at <https://github.com/rjdverse/rjd3revisions>
+-   [**rjd3nowcasting**](https://github.com/rjdverse/rjd3nowcasting) at <https://github.com/rjdverse/rjd3nowcasting>
 -   [**rjd3sts**](https://github.com/rjdverse/rjd3sts) at <https://github.com/rjdverse/rjd3sts>
 -   [**rjd3stl**](https://github.com/rjdverse/rjd3stl) at <https://github.com/rjdverse/rjd3stl>
 -   [**ggdemetra3**](https://github.com/AQLT/ggdemetra3) on <https://github.com/AQLT/ggdemetra3>
