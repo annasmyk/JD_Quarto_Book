@@ -82,7 +82,7 @@ When performing seasonal adjustment with `rjd3x13` and `rjd3tramoseats`, the cur
 
 ```{r, echo=TRUE, eval=FALSE}
 init_spec <- rjd3x13::spec_x13("RSA5c")
-new_spec<- set_benchmarking(init_spec,
+new_spec <- set_benchmarking(init_spec,
                            enabled = TRUE,
                            target = "Normal",
                            rho = 0.8,

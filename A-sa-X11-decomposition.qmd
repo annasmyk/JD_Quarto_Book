@@ -404,7 +404,7 @@ In version 2 using RJDemetra
 current_sa_model <- x13(raw_series, spec = current_spec)
 # Creating a modified specification, customizing all available X11 parameters
 modified_spec <- x13_spec(current_sa_model,
-    X11.mode=NA,
+    X11.mode = NA,
     X11.seasonalComp = NA,
     X11.fcasts = -2,
     X11.bcasts = -1,
