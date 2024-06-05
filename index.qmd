@@ -131,7 +131,7 @@ You can directly head over to this [GitHub page](https://github.com/rjdemetra), 
 
 To use rjd3 packages in R, you need Java 17 or higher.
 
-You can (and should) use the version of Java that comes with the Graphical User Interface (GUI). It is contained in the file **jdemetra-standalone-3.x.y-windows-x86_64.zip**
+You can (and should) use the version of Java that comes with the Graphical User Interface (GUI). It is contained in the file **jdemetra-standalone-3.2.2-windows-x86_64.zip** available [on this page](https://github.com/jdemetra/jdplus-main/releases), in the "Assets" section, which you might have to expand to be able to see all the files.
 
 Once unzipped, the Java will be in located in  C:\\Software\\jdemetra-standalone-3.x.y-windows-x86_64\\nbdemetra\\jdk-21.0.2+13-jre (path to be adapted to your computer/sever): this location must be declared in R.
 
@@ -155,7 +155,8 @@ or
 
     - save the file and restart R
 
-Follow R packages installation procedure and run basic examples from the readme files on [this page](https://github.com/rjdverse) 
+Follow R packages installation procedure and run basic examples from the readme files of each package.
+They are all listed on [this page](https://github.com/rjdverse) 
 
 
 
