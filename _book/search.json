@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "JDemetra+ documentation",
     "section": "",
-    "text": "What is JDemetra+ ?\nJDemetra+ is an open-source software for seasonal adjustment and time series analysis, developed in the framework of Eurostat’s “Centre of Excellence on Statistical Methods and Tools” by the National Bank of Belgium with the support of the Bundesbank and Insee. It has been officially recommended by Eurostat to the European Statistical System members since 2015. It is unique in its combination of very fast Java routines, a Graphical User Interface and an ecosystem of R packages (rjdverse). The graphical interface offers a structured visual feedback, suitable for refined analysis and training. R tools allow the user to mix the capabilities of JDemetra+ with the versatility of the R world, be it for mathematical functions or data wrangling.\nA pdf version of this documentation is available here"
+    "text": "What is JDemetra+?\nJDemetra+ is an open source software for seasonal adjustment and time series analysis, developed in the framework of Eurostat’s “Centre of Excellence on Statistical Methods and Tools” by the National Bank of Belgium with the support of the Bundesbank and Insee. It has been officially recommended by Eurostat to the members of the European Statistical System since 2015. It is unique in its combination of very fast Java routines, a Graphical User Interface and an ecosystem of R packages (rjdverse). The graphical interface provides structured visual feedback suitable for refined analysis and training. R tools allow the user to combine the capabilities of JDemetra+ with the versatility of the R world, be it for mathematical functions or data wrangling. A pdf version of this documentation is available here"
   },
   {
     "objectID": "index.html#main-features",
@@ -14,11 +14,11 @@
     "text": "Main Features\nJDemetra+ provides algorithms for:\n\nSeasonal Adjustment\nTrend estimation\nBenchmarking and temporal disaggregation\nNowcasting\nRevision analysis"
   },
   {
-    "objectID": "index.html#curently-available-versions",
-    "href": "index.html#curently-available-versions",
+    "objectID": "index.html#currently-available-versions",
+    "href": "index.html#currently-available-versions",
     "title": "JDemetra+ documentation",
-    "section": "Curently available versions",
-    "text": "Curently available versions\nThe highest version currently recommended for production purposes is 2.2.4.\nVersion 3.x family provides, among other things, extended features for seasonal adjustment and trend estimation, including high frequency data. The latest version 3.2.2 was released on March 14th 2024."
+    "section": "Currently available versions",
+    "text": "Currently available versions\nThe highest version currently recommended for production purposes is 2.2.4.\nVersion 3.x family provides, among other things, extended features for seasonal adjustment and trend estimation, including high frequency data. The latest version 3.2.2 was released on March 14th 2024."
   },
   {
     "objectID": "index.html#background",
