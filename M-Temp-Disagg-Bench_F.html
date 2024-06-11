@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.353">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>m-temp-disagg-bench_f</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="M-Temp-Disagg-Bench_F_files/libs/clipboard/clipboard.min.js"></script>
+<script src="M-Temp-Disagg-Bench_F_files/libs/quarto-html/quarto.js"></script>
+<script src="M-Temp-Disagg-Bench_F_files/libs/quarto-html/popper.min.js"></script>
+<script src="M-Temp-Disagg-Bench_F_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="M-Temp-Disagg-Bench_F_files/libs/quarto-html/anchor.min.js"></script>
+<link href="M-Temp-Disagg-Bench_F_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="M-Temp-Disagg-Bench_F_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="M-Temp-Disagg-Bench_F_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="M-Temp-Disagg-Bench_F_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="M-Temp-Disagg-Bench_F_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+</head>
+
+<body class="fullcontent">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+
+
+<section id="temporal-disaggregation-and-benchmarking" class="level1 unnumbered">
+<h1 class="unnumbered">Temporal disaggregation and benchmarking</h1>
+<p>Under construction</p>
+<section id="benchmarking-underlying-theory" class="level2">
+<h2 class="anchored" data-anchor-id="benchmarking-underlying-theory">Benchmarking Underlying Theory</h2>
+<p>Benchmarking<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> is a procedure widely used when for the same target variable the two or more sources of data with different frequency are available. Generally, the two sources of data rarely agree, as an aggregate of higher-frequency measurements is not necessarily equal to the less-aggregated measurement. Moreover, the sources of data may have different reliability. Usually it is thought that less frequent data are more trustworthy as they are based on larger samples and compiled more precisely. The more reliable measurement is considered as a benchmark.</p>
+<p>Benchmarking also occurs in the context of seasonal adjustment. Seasonal adjustment causes discrepancies between the annual totals of the seasonally unadjusted (raw) and the corresponding annual totals of the seasonally adjusted series. Therefore, seasonally adjusted series are benchmarked to the annual totals of the raw time series<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>. Therefore, in such a case benchmarking means the procedure that ensures the consistency over the year between adjusted and non-seasonally adjusted data. It should be noted that the ‘<em>ESS Guidelines on Seasonal Adjustment</em>’ (2015) do not recommend benchmarking as it introduces a bias in the seasonally adjusted data. Also the U.S. Census Bureau points out that: <em>Forcing the seasonal adjustment totals to be the same as the original series annual totals can degrade the quality of the seasonal adjustment, especially when the seasonal pattern is undergoing change. It is not natural if trading day adjustment is performed because the aggregate trading day effect over a year is variable and moderately different from zero</em>.<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> Nevertheless, some users may prefer the annual totals for the seasonally adjusted series to match the annual totals for the original, non-seasonally adjusted series<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a>. According to the ‘<em>ESS Guidelines on Seasonal Adjustment</em>’ (2015), the only benefit of this approach is that there is consistency over the year between adjusted and non-seasonally adjusted data; this can be of particular interest when low-frequency (e.g.&nbsp;annual) benchmarking figures officially exist (e.g.&nbsp;National Accounts, Balance of Payments, External Trade, etc.) where user needs for time consistency are stronger.</p>
+<p>The benchmarking procedure in JDemetra+ is available for a single seasonally adjusted series and for an indirect seasonal adjustment of an aggregated series. In the first case, univariate benchmarking ensures consistency between the raw and seasonally adjusted series. In the second case, the multivariate benchmarking aims for consistency between the seasonally adjusted aggregate and its seasonally adjusted components.</p>
+<p>Given a set of initial time series <span class="math display">\[\left\{ z_{i,t} \right\}_{i \in I}\]</span>, the aim of the benchmarking procedure is to find the corresponding <span class="math display">\[\left\{ x_{i,t} \right\}_{i \in I}\]</span> that respect temporal aggregation constraints, represented by <span class="math display">\[X_{i,T} = \sum_{t \in T}^{}x_{i,t}\]</span> and contemporaneous constraints given by <span class="math display">\[q_{k,t} = \sum_{j \in J_{k}}^{}{w_{\text{kj}}x_{j,t}}\]</span> or, in matrix form: <span class="math display">\[q_{k,t} = w_{k}x_{t}\]</span>.</p>
+<p>The underlying benchmarking method implemented in JDemetra+ is an extension of Cholette’s<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a> method, which generalises, amongst others, the additive and the multiplicative Denton procedure as well as simple proportional benchmarking.</p>
+<p>The JDemetra+ solution uses the following routines that are described in DURBIN, J., and KOOPMAN, S.J. (2001):</p>
+<ul>
+<li><p>The multivariate model is handled through its univariate transformation,</p></li>
+<li><p>The smoothed states are computed by means of the disturbance smoother.</p></li>
+</ul>
+<p>The performance of the resulting algorithm is highly dependent on the number of variables involved in the model (<span class="math inline">\(\propto \ n^{3}\)</span>). The other components of the problem (number of constraints, frequency of the series, and length of the series) are much less important (<span class="math inline">\(\propto \ n\)</span>).</p>
+<p>From a theoretical point of view, it should be noted that this approach may handle any set of linear restrictions (equalities), endogenous (between variables) or exogenous (related to external values), provided that they don’t contain incompatible equations. The restrictions can also be relaxed for any period by considering their “observation” as missing. However, in practice, it appears that several kinds of contemporaneous constraints yield unstable results. This is more especially true for constraints that contain differences (which is the case for non-binding constraints). The use of a special square root initializer improves in a significant way the stability of the algorithm.</p>
+<p>Temporal disaggregation is a process by means of which a high frequency time series is obtained from its low frequency observations and, possibly, some additional information, such as a related high frequency time series.</p>
+<p>Benchmarking is a process used to try and improve the quality of an observed high frequency time series using some related (usually low frequency) information.</p>
+<p>From these definitions we can see the different nature of both processes: while in temporal disaggregation the time series of interest is observed in low frequency, in benchmarking it is observed in high frequency. For this reason, the implementation of temporal disaggregation is usually subject to more difficulties than that of benchmarking.</p>
+<p>By low and high frequency we may refer, for example, to a time series observed yearly or quarterly (in low frequency) that we try to estimate for each month (in high frequency), or to a time series observed yearly that we try to estimate for each quarter.</p>
+<p>There are several types of temporal disaggregation methods. We will classify them according to two criteria, their deterministic or stochastic nature and whether they use any related time series or not.</p>
+<p>In temporal disaggregation, we use <span class="math inline">\(s\)</span> as low frequency time index variable and <span class="math inline">\(t\)</span> as high frequency time index variable. So, <span class="math inline">\(y_s\)</span> is the observed low frequency time series of interest, <span class="math inline">\(y_t\)</span> is the desired, but not observed, high frequency time series of interest, while <span class="math inline">\(z_s\)</span> and <span class="math inline">\(z_t\)</span> are the corresponding auxiliary time series, where, usually, <span class="math inline">\(z_t\)</span> is observed and <span class="math inline">\(z_s\)</span> is computed from <span class="math inline">\(z_t\)</span>. The objective is to compute the estimates <span class="math inline">\(\hat y_t\)</span>.</p>
+<p>In benchmarking the notation is similar, but now <span class="math inline">\(y_t\)</span> is observed. The purpose is to calibrate it using <span class="math inline">\(z_s\)</span> or <span class="math inline">\(z_t\)</span> (whichever is available). The calibrated values are the <span class="math inline">\(\hat y_t\)</span>.</p>
+</section>
+<section id="deterministic-methods" class="level2">
+<h2 class="anchored" data-anchor-id="deterministic-methods">Deterministic Methods</h2>
+<p>We now briefly describe some of the deterministic methods used for temporal disaggregation and benchmarking.</p>
+<section id="pro-rata" class="level3">
+<h3 class="anchored" data-anchor-id="pro-rata">Pro-rata</h3>
+<p>For temporal disaggregation, if we have <span class="math inline">\(y_s\)</span> and <span class="math inline">\(z_t\)</span>, we first compute <span class="math inline">\(z_s\)</span> and then <span class="math inline">\(\hat y_t=y_s\tfrac{z_t}{z_s}\)</span> (we pro-rate <span class="math inline">\(y\)</span> proportionally to <span class="math inline">\(z\)</span>).</p>
+<p>For benchmarking, if we have <span class="math inline">\(y_t\)</span> and <span class="math inline">\(z_s\)</span>, we first compute <span class="math inline">\(y_s\)</span> and then <span class="math inline">\(\hat y_t=z_ s\tfrac{y_t}{y_s}\)</span> (we pro-rate <span class="math inline">\(z_s\)</span> with the ratios <span class="math inline">\(y_t/y_s\)</span>).</p>
+<p>The advantage of this method is that it is simple to use, but there are some other methods which have more desirable properties.</p>
+</section>
+<section id="denton" class="level3">
+<h3 class="anchored" data-anchor-id="denton">Denton</h3>
+<p>The Denton method<a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a> was designed to preserve the movement of the indicator in the benchmarked or disaggregated series.</p>
+<p>For benchmarking assume that we observe <span class="math inline">\(Y=(y_1,\cdots,y_T)^T\)</span> and that we have a set of <span class="math inline">\(r&lt;T\)</span> linear constraints on the benchmarked values <span class="math inline">\(\hat Y=(\hat y_1,\cdots,\hat y_T)^T\)</span> of the form <span class="math display">\[\begin{equation*}
+C\hat Y = d,\quad \text{ that is }
+\begin{pmatrix}C_{11}&amp;\cdots&amp; C_{1T}\\\cdots&amp;\cdots&amp;\cdots\\C_{r1}&amp;\cdots&amp; C_{rT} \end{pmatrix}
+\begin{pmatrix}\hat y_1\\\cdots\\\hat y_T \end{pmatrix} =
+\begin{pmatrix}d_1\\\cdots\\d_r, \end{pmatrix}
+\end{equation*}\]</span></p>
+<p>For example, the <span class="math inline">\(y_i\)</span> values could be monthly values, the <span class="math inline">\(c_{i,j}\)</span> could be all zeros and ones (twelve consecutive ones in each row) and the <span class="math inline">\(d_j\)</span> could be accurate annual totals obtained from an external source of information. So, the restrictions would mean that we know more exact annual totals than the annual totals obtained by summing the <span class="math inline">\(y_i\)</span>, and we require that the annual sums of the benchmarked <span class="math inline">\(\hat y_i\)</span> match those <span class="math inline">\(d_j\)</span>.</p>
+<p>There are several variations of the Denton method. The additive first differences Denton method tries, after taking regular differences once, to preserve the movement of the <span class="math inline">\(y_t\)</span> in the benchmarked values <span class="math inline">\(\hat y_t\)</span>. Exactly it minimizes <span class="math display">\[\begin{equation}\label{Das1}
+\min_{\hat y_t} \sum_{j=2}^T [(\hat y_t - y_t)- (\hat y_{t-1} - y_{t-1})]^2, \text{ subject to } C\hat Y = d,
+\end{equation}\]</span> where <span class="math inline">\((\hat y_t - y_t)- (\hat y_{t-1} - y_{t-1})=\hat z_t -z_t\)</span> and <span class="math inline">\(z_t=y_t-y_{t-1}\)</span> are the first regular differences of the <span class="math inline">\(y_t\)</span>.</p>
+<p>The proportional first differences Denton method is similar, but it assumes that the short term fluctuations, such as seasonal and irregular, have a multiplicative effect, instead of additive. It minimizes: <span class="math display">\[\begin{equation}\label{Deps1}
+\min_{\hat y_t} \sum_{j=2}^T \left[\frac{\hat y_t}{y_t}- \frac{\hat y_{t-1}}{y_{t-1}}\right]^2 , \text{ subject to } C\hat Y = d,
+\end{equation}\]</span></p>
+<p>The additive and proportional second differences Denton methods are also frequently used and are similar to the first differences ones, but taking two regular differences instead of one.</p>
+<p>There exist also some multivariate Denton methods. In them, several time series are benchmarked or disaggregated, each one with its own restrictions but, additionally, there are also some new restrictions that involve simultaneously two or more of the time series at some fixed time points. The optimization has a single objective function in which all the time series are included, and a different weight can be assigned to each series.</p>
+</section>
+</section>
+<section id="stochastic-methods" class="level2">
+<h2 class="anchored" data-anchor-id="stochastic-methods">Stochastic methods</h2>
+<p>These methods assume some kind of statistical model involving the time series and the indicator.</p>
+<p>Most methods in this category can be considered as particular cases of the method proposed by Stram and Wei<a href="#fn7" class="footnote-ref" id="fnref7" role="doc-noteref"><sup>7</sup></a> <a href="#fn8" class="footnote-ref" id="fnref8" role="doc-noteref"><sup>8</sup></a> <a href="#fn9" class="footnote-ref" id="fnref9" role="doc-noteref"><sup>9</sup></a>. There is a basic assumption made when we use any method in this category to temporally disaggregate a time series. That assumption is that there are no hidden periodicities, and it means that if the (often unknown) high frequency model is <span class="math inline">\(ARMA(p,q)\)</span>, namely <span class="math inline">\(\phi(B)y_t=\theta(B)\varepsilon_t\)</span>, and if <span class="math inline">\(r_1,\cdots,r_p\)</span> are the inverses of the roots of the <span class="math inline">\(\phi(B)\)</span> polynomial, then, if for any <span class="math inline">\(i,j\)</span>, <span class="math inline">\(r_i^m=r_j^m\)</span> this implies that <span class="math inline">\(r_i=r_j\)</span>, where <span class="math inline">\(m\)</span> is the disaggregation period (for example, <span class="math inline">\(m\)</span> is <span class="math inline">\(4\)</span> for yearly to quarterly, <span class="math inline">\(12\)</span> for yearly to monthly and <span class="math inline">\(3\)</span> for quarterly to monthly). Without this assumption important problems may arise, that are related to what in system theory is called lack of observability, see Gómez and Aparicio-Pérez (2009)<a href="#fn10" class="footnote-ref" id="fnref10" role="doc-noteref"><sup>10</sup></a> for an in-depth discussion of this subject and how to proceed when there are hidden periodicities. All the disaggregation methods used in JDemetra+ use models that assume that there are no hidden periodicities.</p>
+<section id="chow-lin-litterman-and-fernandez" class="level3">
+<h3 class="anchored" data-anchor-id="chow-lin-litterman-and-fernandez">Chow-Lin, Litterman and Fernandez</h3>
+<p>These methods can be all expressed with the same equation, but with different models for the error term:</p>
+<p><span class="math display">\[ y_t = z_t \beta  +\alpha_t,\]</span><br>
+<span class="math display">\[\alpha_t=\phi \alpha_{t-1}+ \varepsilon_t, \text{ with }\vert\phi\vert&lt;1 \text{ (Chow-Lin)},\]</span> <span class="math display">\[ \alpha_t-\alpha_{t-1}=\phi (\alpha_{t-1}-\alpha_{t-2})+ \varepsilon_t,  \text{ with }\vert\phi\vert&lt;1\text{ (Litterman)},\]</span> <span class="math display">\[\alpha_t -\alpha_{t-1}= \varepsilon_t. \text{ (Fernandez)}.\]</span> It is assumed that <span class="math inline">\(z_t\)</span> is observed in high frequency while <span class="math inline">\(y_t\)</span> is observed only in low frequency.</p>
+<p>As it can be seen, these methods assume a linear regresion model between <span class="math inline">\(y_t\)</span> and <span class="math inline">\(z_t\)</span>, with residuals that are <span class="math inline">\(ARIMA(1,0,0)\)</span> (Chow-Lin), <span class="math inline">\(ARIMA(1,1,0)\)</span> (Litterman) or <span class="math inline">\(ARIMA(0,1,0)\)</span> (Fernández), so Fernandez is a special case of Litterman with <span class="math inline">\(\phi=0\)</span> and is also a limit case of Chow-Lin when <span class="math inline">\(\phi\to 1\)</span>.</p>
+<p>When using modern software like JDemetra+, these models are estimated using state-space techniques, though some older programs use regression techniques after writing the model in matrix notation, obtaining then the low frequency model, estimating it and projecting the solution into high frequency using the conditional expectation to get the <span class="math inline">\(\hat y_t\)</span>. This latter process is also sometimes used to explain the method when no knowledge of state-space techniques is assumed.</p>
+</section>
+<section id="autoregressive-distributed-lags-models-adl." class="level3">
+<h3 class="anchored" data-anchor-id="autoregressive-distributed-lags-models-adl.">Autoregressive distributed lags models (ADL).</h3>
+<p>These models are particular cases of <span class="math inline">\(ARMAX\)</span> models, that is, autoregressive, moving average with exogenous input models. An <span class="math inline">\(ARMAX(p,q,r)\)</span> model is of the form <span class="math display">\[\phi(B)y_t = \omega(B)z_t+ \theta(B)\epsilon_t,\]</span> where the <span class="math inline">\(\phi(B)\)</span>, <span class="math inline">\(\theta(B)\)</span> and <span class="math inline">\(\omega(B)\)</span> polynomials have respective degrees <span class="math inline">\(p\)</span>, <span class="math inline">\(q\)</span> and <span class="math inline">\(r\)</span>, <span class="math inline">\(\epsilon_t\)</span> is a white noise process with variance <span class="math inline">\(\sigma^2_\epsilon\)</span> and <span class="math inline">\(z_t\)</span> is an exogenous input series.</p>
+<p>As a particular case, an autoregressive distributed lags <span class="math inline">\(ADL(p,r)\)</span> model is defined as a <span class="math inline">\(ARMAX(p,1,r)\)</span> model, that is <span class="math display">\[\phi(B)y_t = \omega(B)z_t+ \epsilon_t,\]</span> When, additionally, <span class="math inline">\(p=1\)</span> is imposed, the resulting <span class="math inline">\(ADL(1,r)\)</span> model is called a distributed lags model.</p>
+<p>The idea behind using these models for temporal disaggregation is that the inclusion of lagged dependent variables <span class="math inline">\(y_{t-1}, y_{t-2}, \cdots\)</span> may significantly reduce the autocorrelation of the residuals in models such as Chow-Lin and others.</p>
+</section>
+<section id="santos-silva-and-cardoso." class="level3">
+<h3 class="anchored" data-anchor-id="santos-silva-and-cardoso.">Santos Silva and Cardoso.</h3>
+<p>In Santos, Silva and Cardoso (2001)<a href="#fn11" class="footnote-ref" id="fnref11" role="doc-noteref"><sup>11</sup></a> the <span class="math inline">\(ADL(1,0)\)</span> model</p>
+<p><span class="math display">\[y_t=\phi y_{t-1}+ z_t\beta + \epsilon_t\]</span> is proposed.</p>
+<p>Some variants of this model are also possible, for example</p>
+<p><span class="math display">\[y_t=\alpha+ \phi y_{t-1}+ z_t\beta + \epsilon_t\]</span> where a constant term is included. It is also possible to work in logarithms, for example with the model <span class="math inline">\(\log y_t=\alpha+ \phi \log y_{t-1}+ \log z_t\beta + \epsilon_t\)</span>.</p>
+</section>
+<section id="proietti" class="level3">
+<h3 class="anchored" data-anchor-id="proietti">Proietti</h3>
+<p>In Proietti (2006)<a href="#fn12" class="footnote-ref" id="fnref12" role="doc-noteref"><sup>12</sup></a> the <span class="math inline">\(ADL(1,1)\)</span> model with linear deterministic trend <span class="math display">\[y_t=\phi y_{t-1} +m + g t+z_t\beta+z_{t-1}\gamma +\epsilon_t\]</span> is considered.</p>
+<p>As a particular case, if <span class="math inline">\(m=g=0\)</span> and <span class="math inline">\(\gamma=-\beta\phi\)</span>, we get <span class="math inline">\((1-\phi B)y_t=\beta(1-\phi B)z_t+\varepsilon_t\)</span>, that is Chow-Lin (multiplying by <span class="math inline">\((1-\phi B)\)</span> in Chow-Lin we get exactly this model).</p>
+</section>
+</section>
+</section>
+
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>Description of the idea of benchmarking is based on DAGUM, B.E., and CHOLETTE, P.A. (1994) and QUENNEVILLE, B. et all (2003). Detailed information can be found in: DAGUM, B.E., and CHOLETTE, P.A. (2006).<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>DAGUM, B.E., and CHOLETTE, P.A. (2006).<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>’<em>X-12-ARIMA Reference Manual’</em> (2011).<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p>HOOD, C.C.H. (2005).<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn5"><p>CHOLETTE, P.A. (1979).<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn6"><p>Denton(1971). Adjustment of Monthly or Quarterly Series to Annual Totals: An Approach Based on Quadratic Minimization. Journal of the American Statistical Association, 66(333):99-102, 1971.<a href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn7"><p>Stram and Wei (1986). Temporal Aggregation in the Arima Process. Journal of Time Series Analysis, 7(4):279-292, 1986.<a href="#fnref7" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn8"><p>Stram and Wei (1986). A Methodological Note on the Disaggregation of Time Series Totals. Journal of Time Series Analysis, 7(4):293-302, 1986.<a href="#fnref8" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn9"><p>Wei and Stram (1990). Disaggregation of Time Series Models. Journal of the Royal Statistical Society, Ser. B, 52(3):453-467, 1990.<a href="#fnref9" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn10"><p>Gómez and Aparicio-Pérez (2009). A new State-space Methodology to Disaggregate Multivariate Time Series. Journal of Time Series Analysis, 30(1):97-124, 2009.<a href="#fnref10" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn11"><p>Santos, Silva and Cardoso (2001). The Chow-Lin Method Using Dynamic Models. Economic Modelling, 18:269-280, 2001.<a href="#fnref11" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn12"><p>Proietti (2006). Temporal Disaggregation by State Space Methods: Dynamic Regression Methods Revisited. Econometric Journal, 9:357-372, 2006.<a href="#fnref12" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

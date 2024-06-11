@@ -386,6 +386,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./M-Temp-Disagg-Bench.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Benchmarking and Temporal disaggregation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./M-revision-analysis.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Revision Analysis</span></a>
   </div>
@@ -409,7 +415,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#in-this-chapter" id="toc-in-this-chapter" class="nav-link active" data-scroll-target="#in-this-chapter">In this chapter</a></li>
-  <li><a href="#algorithms-overview" id="toc-algorithms-overview" class="nav-link" data-scroll-target="#algorithms-overview">Algorithms overview</a>
+  <li><a href="#a-b-td-overview" id="toc-a-b-td-overview" class="nav-link" data-scroll-target="#a-b-td-overview">Algorithms overview</a>
   <ul class="collapse">
   <li><a href="#t-plug-ins-bench" id="toc-t-plug-ins-bench" class="nav-link" data-scroll-target="#t-plug-ins-bench">Benchmarking</a></li>
   <li><a href="#temporal-disaggregation" id="toc-temporal-disaggregation" class="nav-link" data-scroll-target="#temporal-disaggregation">Temporal Disaggregation</a></li>
@@ -422,7 +428,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#a-bench-high-low" id="toc-a-bench-high-low" class="nav-link" data-scroll-target="#a-bench-high-low">Benchmarking with different frequencies</a>
   <ul class="collapse">
   <li><a href="#a-bench-td-plugin" id="toc-a-bench-td-plugin" class="nav-link" data-scroll-target="#a-bench-td-plugin">Using the plug-in for GUI (version 2.x)</a></li>
-  <li><a href="#using-the-plug-in-for-gui-version-2.x" id="toc-using-the-plug-in-for-gui-version-2.x" class="nav-link" data-scroll-target="#using-the-plug-in-for-gui-version-2.x">Using the plug-in for GUI (version 2.x)</a></li>
+  <li><a href="#using-the-plug-in-for-gui-version-3.x" id="toc-using-the-plug-in-for-gui-version-3.x" class="nav-link" data-scroll-target="#using-the-plug-in-for-gui-version-3.x">Using the plug-in for GUI (version 3.x)</a></li>
   <li><a href="#in-r-with-rjd3bench" id="toc-in-r-with-rjd3bench" class="nav-link" data-scroll-target="#in-r-with-rjd3bench">In R with <code>rjd3bench</code></a></li>
   </ul></li>
   <li><a href="#a-bench-tempd" id="toc-a-bench-tempd" class="nav-link" data-scroll-target="#a-bench-tempd">Temporal Disaggregation</a>
@@ -463,16 +469,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 <p>Using the <a href="T-GUI-Overview.html">GUI</a> with a <a href="T-plug-ins.html">plug-in</a> or <a href="T-r-packages.html">rjd3bench package</a> package.</p>
 </section>
-<section id="algorithms-overview" class="level2">
-<h2 class="anchored" data-anchor-id="algorithms-overview">Algorithms overview</h2>
+<section id="a-b-td-overview" class="level2">
+<h2 class="anchored" data-anchor-id="a-b-td-overview">Algorithms overview</h2>
 <section id="t-plug-ins-bench" class="level3">
 <h3 class="anchored" data-anchor-id="t-plug-ins-bench">Benchmarking</h3>
 <table class="table">
 <colgroup>
-<col style="width: 34%">
-<col style="width: 24%">
-<col style="width: 24%">
-<col style="width: 17%">
+<col style="width: 31%">
+<col style="width: 22%">
+<col style="width: 22%">
+<col style="width: 22%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -526,10 +532,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 class="anchored" data-anchor-id="temporal-disaggregation">Temporal Disaggregation</h3>
 <table class="table">
 <colgroup>
-<col style="width: 42%">
-<col style="width: 21%">
-<col style="width: 21%">
-<col style="width: 14%">
+<col style="width: 37%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -632,8 +638,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </figure>
 </div>
 <p>In both cases, a new window is displayed to launch one of the methods with the series selected. In the upper left side, drag the high frequency series from the Providers window and drop it in <strong>Drop Series here</strong> and the low frequency series in <strong>Drop Constraint here</strong>.</p>
-<section id="denton" class="level5">
-<h5 class="anchored" data-anchor-id="denton">Denton</h5>
+</section>
+<section id="denton" class="level4">
+<h4 class="anchored" data-anchor-id="denton">Denton</h4>
 <p>In the top right of the screen, select the <strong>Specifications</strong> button to set the specifications to apply each method. See below for a description of the available options on Denton method:</p>
 <ol type="1">
 <li><p><strong>Type</strong>: Aggregation function (Sum, Average, Last or First). This forces the low-frequency series to match the aggregation function selected of the high frequency series.</p></li>
@@ -649,9 +656,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </figure>
 </div>
 </section>
-</section>
-<section id="cholette" class="level4">
-<h4 class="anchored" data-anchor-id="cholette">Cholette</h4>
+<section id="a-bench-high-low-cholette" class="level4">
+<h4 class="anchored" data-anchor-id="a-bench-high-low-cholette">Cholette</h4>
 <p>See below for a description of the available options on Cholette method:</p>
 <ol type="1">
 <li><p><strong>Type</strong>: Aggregation function (Sum, Average, Last or First). This forces the low-frequency series to match the aggregation function selected of the high frequency series.</p></li>
@@ -678,14 +684,51 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </section>
 <section id="multi-variate-cholette" class="level4">
-<h4 class="anchored" data-anchor-id="multi-variate-cholette">Multi-variate: Cholette</h4>
-<p>Up coming content.</p>
+<h4 class="anchored" data-anchor-id="multi-variate-cholette">Multi-variate Cholette</h4>
+<p>The only multi-variate benchmarking method available for the version 2 plugin, is multi-variate Cholette.</p>
+<p>The input for this method are a set of time series with different frequencies and a set of constraints, both contemporary and intertemporal. The output is a new set of time series, that corresponds to the former, now fulfilling the constraints.</p>
+<p>To run multi-variate Cholette select <em>Statistical methods</em> <span class="math inline">\(\rightarrow\)</span> <em>Benchmarking</em> <span class="math inline">\(\rightarrow\)</span> <em>Multi-variate Cholette</em>. Then, a box appears, where we can drop time series.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/CholetteMulti.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Multi-variate Cholette input</figcaption>
+</figure>
+</div>
+<p>The specification properties can be set by selecting <em>Window</em> <span class="math inline">\(\rightarrow\)</span> <em>Properties</em>. There are only three elements in the form: <em>Rho</em>, <em>Lambda</em> and <em>Constraints</em>. The two first are analogous to their <a href="#a-bench-high-low-cholette">univariate Cholette</a> counterparts. The third one allows to set constraints, both contemporary and intertemporal.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/PropCholetteMulti.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Multi-variate Cholette specification</figcaption>
+</figure>
+</div>
+<p>Clicking the three dots button from <em>Constraints</em>, opens the constraints list box.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/Constraints.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Constraints list</figcaption>
+</figure>
+</div>
+<p>From this box, the set of constraints can be added, just typing the constraint inside item and clicking <em>Add</em> button. The constraints must be written as follows:</p>
+<ul>
+<li><span class="math inline">\(y = a_1 * x_1 + \dots + a_n * x_n\)</span> where <span class="math inline">\(y, x_1, \dots, x_n\)</span> are same frequency time series and <span class="math inline">\(a_1, \dots, a_n\)</span> are constant.</li>
+<li><span class="math inline">\(c = a_1 * x_1 + \dots + a_n * x_n\)</span> where <span class="math inline">\(x_1, \dots, x_n\)</span> are same frequency time series and <span class="math inline">\(c, a_1, \dots, a_n\)</span> are constant.</li>
+<li><span class="math inline">\(c = x_1 + \dots + x_n\)</span> can be shortened as <span class="math inline">\(c = x?\)</span>.</li>
+<li><span class="math inline">\(S = \mathrm{sum}(s)\)</span> where <span class="math inline">\(S\)</span> is low-frequency and <span class="math inline">\(s\)</span> is high-frequency.</li>
+</ul>
+<p>Note that any time series put on the left hand side can’t appear on the right hand side of any other constraint. This is because left hand side quantities are fixed while right hand side quantities are adjusted so the equality holds.</p>
+<p>The output are the benchmarked high-frequency time series, that can be found in <em>Details</em> <span class="math inline">\(\rightarrow\)</span> <em>Benchmarked series</em>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/OutCholetteMulti.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Output multi-variate Cholette</figcaption>
+</figure>
+</div>
 </section>
 </section>
-<section id="using-the-plug-in-for-gui-version-2.x" class="level3">
-<h3 class="anchored" data-anchor-id="using-the-plug-in-for-gui-version-2.x">Using the plug-in for GUI (version 2.x)</h3>
-<p>The plug-in for v 3.x is very similar to the one in v2.x described above. Some methods are not available yet in v 3.x, which contains Model Based Denton not included in v2.x.</p>
-<p>Up coming content.</p>
+<section id="using-the-plug-in-for-gui-version-3.x" class="level3">
+<h3 class="anchored" data-anchor-id="using-the-plug-in-for-gui-version-3.x">Using the plug-in for GUI (version 3.x)</h3>
+<p>Practical use of the plug-in for v 3.x is quasi identical to the one in v2.x described <a href="#a-bench-td-plugin">above</a>. Some methods are not available yet in v 3.x but the latter which contains Model</p>
+<p>Based Denton not included in v2.x, as stated <a href="#a-b-td-overview">here</a></p>
 </section>
 <section id="in-r-with-rjd3bench" class="level3">
 <h3 class="anchored" data-anchor-id="in-r-with-rjd3bench">In R with <code>rjd3bench</code></h3>
@@ -728,9 +771,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ol>
 <table class="table">
 <colgroup>
-<col style="width: 9%">
-<col style="width: 87%">
-<col style="width: 2%">
+<col style="width: 13%">
+<col style="width: 72%">
+<col style="width: 13%">
 </colgroup>
 <thead>
 <tr class="header">

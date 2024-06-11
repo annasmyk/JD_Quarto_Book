@@ -19,7 +19,7 @@ The sections below provide guidance on how to implement algorithms on
 Using the [GUI](#t-gui-overview) with a [plug-in](#t-plug-ins) or
 [rjd3bench package](#t-r-packs) package.
 
-## Algorithms overview
+## Algorithms overview{#a-b-td-overview}
 
 ### Benchmarking {#t-plug-ins-bench}
 
@@ -183,7 +183,7 @@ with the series selected. In the upper left side, drag the high
 frequency series from the Providers window and drop it in **Drop Series
 here** and the low frequency series in **Drop Constraint here**.
 
-##### Denton
+#### Denton
 
 In the top right of the screen, select the **Specifications** button to
 set the specifications to apply each method. See below for a description
@@ -209,7 +209,7 @@ of the available options on Denton method:
 
 ![Denton Specifications](All_images/Image3_Bench.png)
 
-#### Cholette
+#### Cholette {#a-bench-high-low-cholette}
 
 See below for a description of the available options on Cholette method:
 
@@ -244,9 +244,9 @@ the graph and select copy, then paste the values in excel (control-V).
 
 ![Denton output](All_images/Image5_Bench.png)
 
-#### Multi-variate: Cholette
+#### Multi-variate Cholette
 
-The only multi-variate benchmarking method available for the plugin, is
+The only multi-variate benchmarking method available for the version 2 plugin, is
 multi-variate Cholette.
 
 The input for this method are a set of time series with different
@@ -262,7 +262,7 @@ Then, a box appears, where we can drop time series.
 
 The specification properties can be set by selecting  *Window* $\rightarrow$ 
 *Properties*. There are only three elements in the form: *Rho*, *Lambda* and
-*Constraints*. The two first are analogous to their univariate Cholette
+*Constraints*. The two first are analogous to their [univariate Cholette](#a-bench-high-low-cholette)
 counterparts. The third one allows to set constraints, both contemporary and
 intertemporal.
 
@@ -296,11 +296,11 @@ in *Details* $\rightarrow$ *Benchmarked series*.
 
 ### Using the plug-in for GUI (version 3.x)
 
-The plug-in for v 3.x is very similar to the one in v2.x described
-above. Some methods are not available yet in v 3.x, which contains Model
-Based Denton not included in v2.x.
+Practical use of the plug-in for v 3.x is quasi identical to the one in v2.x described
+[above](#a-bench-td-plugin). Some methods are not available yet in v 3.x but the latter which contains Model
 
-Up coming content.
+Based Denton not included in v2.x, as stated [here](#a-b-td-overview)
+
 
 ### In R with `rjd3bench`
 

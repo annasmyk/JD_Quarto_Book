@@ -1,0 +1,158 @@
+#  Temporal disaggregation and benchmarking {.unnumbered}
+
+## Cuts from previous version 
+
+Often one has two (or multiple) series of different frequency for the same target variable. Sometimes, however, these series are not coherent in the sense that they don't match up. Benchmarking\[\^1\] is a method to deal with this situation. An aggregate of a higher-frequency measurement variables is not necessarily equal to the corresponding lower-frequency less-aggregated measurement. Moreover, the sources of data may have different reliability levels. Usually, less frequent data are considered more trustworthy as they are based on larger samples and compiled more precisely. The more reliable measurements, hence often the less frequent, will serve as benchmark.
+
+
+
+
+## Benchmarking Underlying Theory
+
+Benchmarking[^m-temp-disagg-bench-1] is a procedure widely used when for the same target variable the two or more sources of data with different frequency are available. Generally, the two sources of data rarely agree, as an aggregate of higher-frequency measurements is not necessarily equal to the less-aggregated measurement. Moreover, the sources of data may have different reliability. Usually it is thought that less frequent data are more trustworthy as they are based on larger samples and compiled more precisely. The more reliable measurement is considered as a benchmark.
+
+[^m-temp-disagg-bench-1]: Description of the idea of benchmarking is based on DAGUM, B.E., and CHOLETTE, P.A. (1994) and QUENNEVILLE, B. et all (2003). Detailed information can be found in: DAGUM, B.E., and CHOLETTE, P.A. (2006).
+
+Benchmarking also occurs in the context of seasonal adjustment. Seasonal adjustment causes discrepancies between the annual totals of the seasonally unadjusted (raw) and the corresponding annual totals of the seasonally adjusted series. Therefore, seasonally adjusted series are benchmarked to the annual totals of the raw time series[^m-temp-disagg-bench-2]. Therefore, in such a case benchmarking means the procedure that ensures the consistency over the year between adjusted and non-seasonally adjusted data. It should be noted that the '*ESS Guidelines on Seasonal Adjustment*' (2015) do not recommend benchmarking as it introduces a bias in the seasonally adjusted data. Also the U.S. Census Bureau points out that: *Forcing the seasonal adjustment totals to be the same as the original series annual totals can degrade the quality of the seasonal adjustment, especially when the seasonal pattern is undergoing change. It is not natural if trading day adjustment is performed because the aggregate trading day effect over a year is variable and moderately different from zero*.[^m-temp-disagg-bench-3] Nevertheless, some users may prefer the annual totals for the seasonally adjusted series to match the annual totals for the original, non-seasonally adjusted series[^m-temp-disagg-bench-4]. According to the '*ESS Guidelines on Seasonal Adjustment*' (2015), the only benefit of this approach is that there is consistency over the year between adjusted and non-seasonally adjusted data; this can be of particular interest when low-frequency (e.g. annual) benchmarking figures officially exist (e.g. National Accounts, Balance of Payments, External Trade, etc.) where user needs for time consistency are stronger.
+
+[^m-temp-disagg-bench-2]: DAGUM, B.E., and CHOLETTE, P.A. (2006).
+
+[^m-temp-disagg-bench-3]: '*X-12-ARIMA Reference Manual'* (2011).
+
+[^m-temp-disagg-bench-4]: HOOD, C.C.H. (2005).
+
+The benchmarking procedure in JDemetra+ is available for a single seasonally adjusted series and for an indirect seasonal adjustment of an aggregated series. In the first case, univariate benchmarking ensures consistency between the raw and seasonally adjusted series. In the second case, the multivariate benchmarking aims for consistency between the seasonally adjusted aggregate and its seasonally adjusted components.
+
+Given a set of initial time series $$\left\{ z_{i,t} \right\}_{i \in I}$$, the aim of the benchmarking procedure is to find the corresponding $$\left\{ x_{i,t} \right\}_{i \in I}$$ that respect temporal aggregation constraints, represented by $$X_{i,T} = \sum_{t \in T}^{}x_{i,t}$$ and contemporaneous constraints given by $$q_{k,t} = \sum_{j \in J_{k}}^{}{w_{\text{kj}}x_{j,t}}$$ or, in matrix form: $$q_{k,t} = w_{k}x_{t}$$.
+
+The underlying benchmarking method implemented in JDemetra+ is an extension of Cholette's[^m-temp-disagg-bench-5] method, which generalises, amongst others, the additive and the multiplicative Denton procedure as well as simple proportional benchmarking.
+
+[^m-temp-disagg-bench-5]: CHOLETTE, P.A. (1979).
+
+The JDemetra+ solution uses the following routines that are described in DURBIN, J., and KOOPMAN, S.J. (2001):
+
+-   The multivariate model is handled through its univariate transformation,
+
+-   The smoothed states are computed by means of the disturbance smoother.
+
+The performance of the resulting algorithm is highly dependent on the number of variables involved in the model ($\propto \ n^{3}$). The other components of the problem (number of constraints, frequency of the series, and length of the series) are much less important ($\propto \ n$).
+
+From a theoretical point of view, it should be noted that this approach may handle any set of linear restrictions (equalities), endogenous (between variables) or exogenous (related to external values), provided that they don't contain incompatible equations. The restrictions can also be relaxed for any period by considering their "observation" as missing. However, in practice, it appears that several kinds of contemporaneous constraints yield unstable results. This is more especially true for constraints that contain differences (which is the case for non-binding constraints). The use of a special square root initializer improves in a significant way the stability of the algorithm.
+
+Temporal disaggregation is a process by means of which a high frequency time series is obtained from its low frequency observations and, possibly, some additional information, such as a related high frequency time series.
+
+Benchmarking is a process used to try and improve the quality of an observed high frequency time series using some related (usually low frequency) information.
+
+From these definitions we can see the different nature of both processes: while in temporal disaggregation the time series of interest is observed in low frequency, in benchmarking it is observed in high frequency. For this reason, the implementation of temporal disaggregation is usually subject to more difficulties than that of benchmarking.
+
+By low and high frequency we may refer, for example, to a time series observed yearly or quarterly (in low frequency) that we try to estimate for each month (in high frequency), or to a time series observed yearly that we try to estimate for each quarter.
+
+There are several types of temporal disaggregation methods. We will classify them according to two criteria, their deterministic or stochastic nature and whether they use any related time series or not.
+
+In temporal disaggregation, we use $s$ as low frequency time index variable and $t$ as high frequency time index variable. So, $y_s$ is the observed low frequency time series of interest, $y_t$ is the desired, but not observed, high frequency time series of interest, while $z_s$ and $z_t$ are the corresponding auxiliary time series, where, usually, $z_t$ is observed and $z_s$ is computed from $z_t$. The objective is to compute the estimates $\hat y_t$.
+
+In benchmarking the notation is similar, but now $y_t$ is observed. The purpose is to calibrate it using $z_s$ or $z_t$ (whichever is available). The calibrated values are the $\hat y_t$.
+
+## Deterministic Methods
+
+We now briefly describe some of the deterministic methods used for temporal disaggregation and benchmarking.
+
+### Pro-rata
+
+For temporal disaggregation, if we have $y_s$ and $z_t$, we first compute $z_s$ and then $\hat y_t=y_s\tfrac{z_t}{z_s}$ (we pro-rate $y$ proportionally to $z$).
+
+For benchmarking, if we have $y_t$ and $z_s$, we first compute $y_s$ and then $\hat y_t=z_ s\tfrac{y_t}{y_s}$ (we pro-rate $z_s$ with the ratios $y_t/y_s$). 
+
+The advantage of this method is that it is simple to use, but there are some other methods which have more desirable properties.
+
+### Denton
+
+The Denton method[^m-temp-disagg-bench-6] was designed to preserve the movement of the indicator in the benchmarked or disaggregated series.
+
+[^m-temp-disagg-bench-6]: Denton(1971). Adjustment of Monthly or Quarterly Series to Annual Totals: An Approach Based on Quadratic Minimization. Journal of the American Statistical Association, 66(333):99-102, 1971. 
+
+For benchmarking assume that we observe $Y=(y_1,\cdots,y_T)^T$ and that we have a set of $r<T$ linear constraints on the benchmarked values 
+ $\hat Y=(\hat y_1,\cdots,\hat y_T)^T$ of the form
+\begin{equation*}
+C\hat Y = d,\quad \text{ that is }
+\begin{pmatrix}C_{11}&\cdots& C_{1T}\\\cdots&\cdots&\cdots\\C_{r1}&\cdots& C_{rT} \end{pmatrix}
+\begin{pmatrix}\hat y_1\\\cdots\\\hat y_T \end{pmatrix} = 
+\begin{pmatrix}d_1\\\cdots\\d_r, \end{pmatrix}
+\end{equation*} 
+
+For example, the $y_i$ values could be monthly values, the $c_{i,j}$ could be all zeros and ones (twelve consecutive ones in each row) and the $d_j$ could be accurate annual totals obtained from an external source of information. So, the restrictions would mean that we know more exact annual totals than the annual totals obtained by summing the $y_i$, and we require that the annual sums of the benchmarked $\hat y_i$ match those $d_j$. 
+
+There are several variations of the Denton method. The additive first differences Denton method tries, after taking regular differences once, to preserve the movement of the $y_t$ in the benchmarked values $\hat y_t$. Exactly it minimizes
+\begin{equation}\label{Das1}
+\min_{\hat y_t} \sum_{j=2}^T [(\hat y_t - y_t)- (\hat y_{t-1} - y_{t-1})]^2, \text{ subject to } C\hat Y = d,
+\end{equation}
+where $(\hat y_t - y_t)- (\hat y_{t-1} - y_{t-1})=\hat z_t -z_t$ and $z_t=y_t-y_{t-1}$ are the first regular differences of the $y_t$.
+
+The proportional first differences Denton method is similar, but it assumes that the short term fluctuations, such as seasonal and irregular, have a multiplicative effect, instead of additive. It minimizes:
+\begin{equation}\label{Deps1}
+ \min_{\hat y_t} \sum_{j=2}^T \left[\frac{\hat y_t}{y_t}- \frac{\hat y_{t-1}}{y_{t-1}}\right]^2 , \text{ subject to } C\hat Y = d,
+\end{equation}
+
+The additive and proportional second differences Denton methods are also frequently used and are similar to the first differences ones, but taking two regular differences instead of one.
+
+There exist also some multivariate Denton methods. In them, several time series are benchmarked or disaggregated, each one with its own restrictions but, additionally, there are also some new restrictions that involve simultaneously two or more of the time series at some fixed time points. The optimization has a single objective function in which all the time series are included, and a different weight can be assigned to each series.
+
+## Stochastic methods
+These methods assume some kind of statistical model involving the time series and the indicator.
+
+Most methods in this category can be considered as particular cases of the method proposed by Stram and Wei[^m-temp-disagg-bench-7] [^m-temp-disagg-bench-8] [^m-temp-disagg-bench-9]. There is a basic assumption made when we use any method in this category to temporally disaggregate a time series. That assumption is that there are no hidden periodicities, and it means that if the (often unknown) high frequency model is $ARMA(p,q)$, namely $\phi(B)y_t=\theta(B)\varepsilon_t$, and if $r_1,\cdots,r_p$ are the inverses of the roots of the $\phi(B)$ polynomial, then, if for any $i,j$,  $r_i^m=r_j^m$ this implies that $r_i=r_j$, where $m$ is the disaggregation period (for example, $m$ is $4$ for yearly to quarterly, $12$ for yearly to monthly and $3$ for quarterly to monthly). Without this assumption important problems may arise, that are related to what in system theory is called lack of observability, see Gómez and Aparicio-Pérez (2009)[^m-temp-disagg-bench-10] for an in-depth discussion of this subject and how to proceed when there are hidden periodicities. All the disaggregation methods used in JDemetra+ use models that assume that there are no hidden periodicities.    
+
+[^m-temp-disagg-bench-7]: Stram and Wei (1986). Temporal Aggregation in the Arima Process. Journal of Time Series Analysis, 7(4):279-292, 1986. 
+[^m-temp-disagg-bench-8]: Stram and Wei (1986). A Methodological Note on the Disaggregation of Time Series Totals. Journal of Time Series Analysis, 7(4):293-302, 1986. 
+[^m-temp-disagg-bench-9]: Wei and Stram (1990). Disaggregation of Time Series Models. Journal of the Royal Statistical Society, Ser. B, 52(3):453-467, 1990.
+[^m-temp-disagg-bench-10]: Gómez and Aparicio-Pérez (2009). A new State-space Methodology to Disaggregate Multivariate Time Series. Journal of Time Series Analysis, 30(1):97-124, 2009.   
+
+
+### Chow-Lin, Litterman and Fernandez
+These methods can be all expressed with the same equation, but with different models for the error term:
+
+$$ y_t = z_t \beta  +\alpha_t,$$  
+$$\alpha_t=\phi \alpha_{t-1}+ \varepsilon_t, \text{ with }\vert\phi\vert<1 \text{ (Chow-Lin)},$$
+$$ \alpha_t-\alpha_{t-1}=\phi (\alpha_{t-1}-\alpha_{t-2})+ \varepsilon_t,  \text{ with }\vert\phi\vert<1\text{ (Litterman)},$$
+$$\alpha_t -\alpha_{t-1}= \varepsilon_t. \text{ (Fernandez)}.$$
+It is assumed that $z_t$ is observed in high frequency while $y_t$ is observed only in low frequency.
+
+As it can be seen, these methods assume a linear regresion model between $y_t$ and $z_t$, with residuals that are $ARIMA(1,0,0)$ (Chow-Lin), $ARIMA(1,1,0)$ (Litterman) or $ARIMA(0,1,0)$ (Fernández), so Fernandez is a special case of Litterman with $\phi=0$ and is also a limit case of Chow-Lin when $\phi\to 1$.
+
+When using modern software like JDemetra+, these models are estimated using state-space techniques, though some older programs use regression techniques after writing the model in matrix notation, obtaining then the low frequency model, estimating it and projecting the solution into high frequency using the conditional expectation to get the $\hat y_t$. This latter process is also sometimes used to explain the method when no knowledge of state-space techniques is assumed. 
+
+### Autoregressive distributed lags models (ADL).
+
+These models are particular cases of $ARMAX$ models, that is, autoregressive, moving average with exogenous input models. An $ARMAX(p,q,r)$ model is of the form 
+$$\phi(B)y_t = \omega(B)z_t+ \theta(B)\epsilon_t,$$
+where the $\phi(B)$, $\theta(B)$ and $\omega(B)$ polynomials have respective degrees $p$, $q$ and $r$, $\epsilon_t$ is a white noise process with variance $\sigma^2_\epsilon$ and $z_t$ is an exogenous input series.
+
+As a particular case, an autoregressive distributed lags $ADL(p,r)$ model is defined as a $ARMAX(p,1,r)$ model, that is 
+$$\phi(B)y_t = \omega(B)z_t+ \epsilon_t,$$
+When, additionally, $p=1$ is imposed, the resulting $ADL(1,r)$ model is called a distributed lags model.
+
+The idea behind using these models for temporal disaggregation is that the inclusion of lagged dependent variables $y_{t-1}, y_{t-2}, \cdots$ may significantly reduce the autocorrelation of the residuals in models such as Chow-Lin and others. 
+
+### Santos Silva and Cardoso.
+
+In Santos, Silva and Cardoso (2001)[^m-temp-disagg-bench-11] the $ADL(1,0)$ model
+
+$$y_t=\phi y_{t-1}+ z_t\beta + \epsilon_t$$
+is proposed.
+
+Some variants of this model are also possible, for example
+
+$$y_t=\alpha+ \phi y_{t-1}+ z_t\beta + \epsilon_t$$
+where a constant term is included. It is also possible to work in logarithms, for example with the model $\log y_t=\alpha+  \phi \log y_{t-1}+ \log z_t\beta + \epsilon_t$.   
+
+### Proietti
+In Proietti (2006)[^m-temp-disagg-bench-12] the $ADL(1,1)$ model with linear deterministic trend
+$$y_t=\phi y_{t-1} +m + g t+z_t\beta+z_{t-1}\gamma +\epsilon_t$$
+is considered. 
+
+[^m-temp-disagg-bench-12]: Proietti (2006). Temporal Disaggregation by State Space Methods: Dynamic Regression Methods Revisited. Econometric Journal, 9:357-372, 2006.  
+
+As a particular case, if $m=g=0$ and $\gamma=-\beta\phi$, we get $(1-\phi B)y_t=\beta(1-\phi B)z_t+\varepsilon_t$, that is Chow-Lin (multiplying by $(1-\phi B)$  in Chow-Lin we get exactly this model).
+
+[^m-temp-disagg-bench-11]: Santos, Silva and Cardoso (2001). The Chow-Lin Method Using Dynamic Models. Economic Modelling, 18:269-280, 2001. 
+

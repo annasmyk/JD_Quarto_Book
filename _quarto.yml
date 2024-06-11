@@ -102,7 +102,7 @@ book:
         - M-tests.qmd ##(#m-tests)
         - M-STL-decomposition.qmd ##(#m-stl)
         # - M-state-space-framework.qmd ##(#m-ssf)
-        # - M-Temp-Disagg-Bench.qmd ##(#m-bench)
+        - M-Temp-Disagg-Bench.qmd ##(#m-bench)
         - M-revision-analysis.qmd ##(#m-revs)
     - references.qmd
 bibliography: references.bib
