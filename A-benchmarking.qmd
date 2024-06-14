@@ -59,7 +59,7 @@ When running a seasonal adjustment process
 
 1.  With the pre-defined specifications the benchmarking functionality
     is not applied by default following the *ESS Guidelines on Seasonal
-    Adjustment* (2015) recommendations. It means that once the user has
+    Adjustment* (2024) recommendations. It means that once the user has
     seasonally adjusted the series with a pre-defined specification the
     *Benchmarking* node is empty. To execute benchmarking click on the
     *Specifications* button and activate the checkbox in the

@@ -40,14 +40,6 @@ book:
           city: Paris
           url: "https://www.insee.fr/fr/accueil"
       role: "Author"
-    - name: Maria Novas Filgueira
-      url: https://github.com/maria-novas
-      affiliations:
-        - name: Ine
-          country: Spain
-          city: Madrid
-          url: "https://www.ine.es/"
-      role: "Collaborator"
     - name: Karsten Webel
       url: https://github.com/webelk
       affiliations:
@@ -56,7 +48,29 @@ book:
           city: Frankfurt
           url: "https://www.bundesbank.de"
       role: "Collaborator"
-  date: "05/06/2024"
+    - name: Maria Novas Filgueira
+      url: https://github.com/maria-novas
+      affiliations:
+        - name: Ine
+          country: Spain
+          city: Madrid
+          url: "https://www.ine.es/"
+      role: "Collaborator"
+    - name: Luis Sanguiao Sande
+      affiliations:
+        - name: Ine
+          country: Spain
+          city: Madrid
+          url: "https://www.ine.es/"
+      role: "Collaborator"
+    - name: Felix Aparicio Perez
+      affiliations:
+        - name: Ine
+          country: Spain
+          city: Madrid
+          url: "https://www.ine.es/"
+      role: "Collaborator"
+  date: "06/14/2024"
   page-navigation: true
   chapters:
     - index.qmd

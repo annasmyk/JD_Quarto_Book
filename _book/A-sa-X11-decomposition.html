@@ -891,7 +891,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>current_sa_model <span class="ot">&lt;-</span> <span class="fu">x13</span>(raw_series, <span class="at">spec =</span> current_spec)</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Creating a modified specification, customizing all available X11 parameters</span></span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>modified_spec <span class="ot">&lt;-</span> <span class="fu">x13_spec</span>(current_sa_model,</span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">X11.mode=</span><span class="cn">NA</span>,</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">X11.mode =</span> <span class="cn">NA</span>,</span>
 <span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">X11.seasonalComp =</span> <span class="cn">NA</span>,</span>
 <span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">X11.fcasts =</span> <span class="sc">-</span><span class="dv">2</span>,</span>
 <span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">X11.bcasts =</span> <span class="sc">-</span><span class="dv">1</span>,</span>

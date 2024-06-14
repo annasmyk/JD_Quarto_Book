@@ -31,7 +31,7 @@ To learn more about the JDemetra+ development project you can visit [Eurostat CR
 
 Eurostat's recommendations on the statistical processes described in this documentation are outlined in:
 
--   [Eurostat's Guidelines on seasonal adjustment (2015)](https://ec.europa.eu/eurostat/documents/3859598/6830795/KS-GQ-15-001-EN-N.pdf)
+-   [Eurostat's Guidelines on seasonal adjustment (2024)](https://ec.europa.eu/eurostat/product?code=KS-GQ-24-012)
 
 -   [Eurostat's Guidelines on temporal disaggregation, benchmarking and reconcilation (2018)](https://ec.europa.eu/eurostat/documents/3859598/9441376/KS-06-18-355-EN.pdf)
 

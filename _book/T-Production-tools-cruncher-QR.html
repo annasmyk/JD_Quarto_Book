@@ -500,34 +500,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>rjwsacruncher</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(rjwsacruncher)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"rjwsacruncher"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
-<li>JDCruncheR package: download the <strong>.zip</strong> or <strong>.tar.gz</strong> file from <a href="https://github.com/InseeFr/JDCruncheR/releases" class="uri">https://github.com/InseeFr/JDCruncheR/releases</a>.</li>
+<li>JDCruncheR package: download the <strong>.zip</strong> or <strong>.tar.gz</strong> file from <a href="https://github.com/InseeFr/JDCruncheR/releases" class="uri">https://github.com/InseeFr/JDCruncheR/releases</a> or install the package from github:</li>
 </ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># If remotes packages is not installed</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("remotes")</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Install development version from GitHub</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"InseeFr/JDCruncheR"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <p>Additional packages needed</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="fu">c</span>(<span class="st">"XLConnect"</span>, <span class="st">"XML"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="fu">c</span>(<span class="st">"XLConnect"</span>, <span class="st">"XML"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="loading" class="level4">
 <h4 class="anchored" data-anchor-id="loading">Loading</h4>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"JDCruncheR"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>or</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"rjwsacruncher"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"rjwsacruncher"</span>)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"JDCruncheR"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="connecting-the-cruncher-module" class="level4">
 <h4 class="anchored" data-anchor-id="connecting-the-cruncher-module">Connecting the cruncher module</h4>
 <p>To connect the cruncher to the R package, the path to the bin directory containing the <strong>cruncher.bat</strong> file must be specified. This directory is available once the zip file has been unzipped.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">cruncher_bin_directory =</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>        <span class="st">"C:/Software/jwsacruncher-2.2.3/jdemetra-cli-2.2.3/bin"</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">cruncher_bin_directory =</span> <span class="st">"C:/Software/jwsacruncher-2.2.3/jdemetra-cli-2.2.3/bin"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
 <li>checking the current value</li>
@@ -544,34 +545,34 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h4 class="anchored" data-anchor-id="running-estimations">Running estimations</h4>
 <p>The general context: two use cases</p>
 <ul>
-<li>Run first estimation of seasonally adjusted series (from raw series and parameters contained in the workspace)</li>
+<li><p>Run first estimation of seasonally adjusted series (from raw series and parameters contained in the workspace)</p></li>
+<li><p>Apply a <a href="A-rev-policies.html">revision policy</a> to updated raw series</p></li>
 </ul>
+<p>The function <a href="https://aqlt.github.io/rjwsacruncher/reference/cruncher_and_param.html"><code class="sourceCode r"><span class="fu">cruncher_and_param</span>()</code></a> allows to do that:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cruncher_and_param</span>(</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">workspace =</span> <span class="st">"D:/my_folder/my_ws.xml"</span>,</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">rename_multi_documents =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">policy =</span> <span class="st">"complete"</span>, <span class="co"># name of the revision policy</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">policy =</span> <span class="st">"lastoutliers"</span>, <span class="co"># name of the revision policy</span></span>
 <span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">log =</span> my_log_file.txt</span>
 <span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<ul>
-<li>Apply a <a href="A-rev-policies.html">revision policy</a> to updated raw series</li>
-</ul>
-<p>The function <code>cruncher_and_param()</code> allows to do that</p>
+<p>To use the documentation, compute <code class="sourceCode r"><span class="fu">help</span>()</code> or <code class="sourceCode r">?<span class="cf">function</span></code>:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cruncher_and_param</span>(</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">workspace =</span> <span class="st">"D:/my_folder/my_ws.xml"</span>,</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">rename_multi_documents =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">policy =</span> <span class="st">"lastoutliers"</span>, <span class="co"># name of the revision policy</span></span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">log =</span> my_log_file.txt</span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>To use the documentation, compute <code>help()</code> or <code>?function</code>:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>?cruncher_and_param</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">help</span>(cruncher_and_param)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>?cruncher_and_param</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">help</span>(cruncher_and_param)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Before running SA estimations, set the export options.</p>
+</section>
+<section id="additional-options" class="level4">
+<h4 class="anchored" data-anchor-id="additional-options">Additional options</h4>
+<p>The function <a href="https://aqlt.github.io/rjwsacruncher/reference/cruncher_and_param.html"><code class="sourceCode r"><span class="fu">cruncher_and_param</span>()</code></a> calls the <a href="https://aqlt.github.io/rjwsacruncher/reference/cruncher.html">cruncher</a> with the param file created by the function <a href="https://aqlt.github.io/rjwsacruncher/reference/create_param_file.html"><code class="sourceCode r"><span class="fu">create_param_file</span>()</code></a>. So you can add arguments to this function according to the needs of your workspace.</p>
+<p>For example:</p>
+<ul>
+<li><code>paths_path</code> to add relative paths</li>
+<li><code>v3</code> to specify if your workspace was created in v3</li>
+<li>other argument you can find <a href="https://aqlt.github.io/rjwsacruncher/reference/create_param_file.html">here</a></li>
+</ul>
 </section>
 </section>
 <section id="configuring-output-options" class="level3">
@@ -579,30 +580,30 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>After updating the workspace with the selected revision policies, the cruncher generates output - series (csv files) - diagnostics and parameters (demetra_m.csv file)</p>
 <p>These files will be created in the workspace’s repository, sub-repository ’Output”</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>path <span class="ot">&lt;-</span> <span class="st">"My_Workspace/Output/SAProcessing"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>path <span class="ot">&lt;-</span> <span class="st">"My_Workspace/Output/SAProcessing"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <section id="selecting-time-series-to-export" class="level4">
 <h4 class="anchored" data-anchor-id="selecting-time-series-to-export">Selecting time series to export</h4>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># returns names of the currently exported series</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">getOption</span>(<span class="st">"default_tsmatrix_series"</span>)</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="co"># example of setting this option</span></span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">default_tsmatrix_series =</span> <span class="fu">c</span>(<span class="st">"sa"</span>, <span class="st">"sa_f"</span>))</span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="co"># only seasonally adjsuted series ("sa") and its forecasts ("sa_f") will be exported</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># returns names of the currently exported series</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">getOption</span>(<span class="st">"default_tsmatrix_series"</span>)</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="co"># example of setting this option</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">default_tsmatrix_series =</span> <span class="fu">c</span>(<span class="st">"sa"</span>, <span class="st">"sa_f"</span>))</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="co"># only seasonally adjusted series ("sa") and its forecasts ("sa_f") will be exported</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="selecting-diagnostics-and-parameters-to-exoprt" class="level4">
 <h4 class="anchored" data-anchor-id="selecting-diagnostics-and-parameters-to-exoprt">Selecting diagnostics and parameters to exoprt</h4>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># returns names of the currently exported diagnostics and parameters</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">getOption</span>(<span class="st">"default_matrix_item"</span>)</span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="co"># example of setting this option</span></span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">default_matrix_item =</span> <span class="fu">c</span>(</span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">"likelihood.aic"</span>,</span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">"likelihood.aicc"</span>,</span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">"likelihood.bic"</span>,</span>
-<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">"likelihood.bicc"</span></span>
-<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># returns names of the currently exported diagnostics and parameters</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">getOption</span>(<span class="st">"default_matrix_item"</span>)</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="co"># example of setting this option</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">default_matrix_item =</span> <span class="fu">c</span>(</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">"likelihood.aic"</span>,</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">"likelihood.aicc"</span>,</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">"likelihood.bic"</span>,</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">"likelihood.bicc"</span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 </section>
@@ -618,71 +619,71 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 class="anchored" data-anchor-id="main-steps">Main steps</h3>
 <p>The three main functions of the package are:</p>
 <ul>
-<li><p><code>extract_QR</code> to extract the quality report from the csv file (demetra_m.csv) that contains all JD+ diagnostics;</p></li>
-<li><p><code>compute_score</code> to compute a weighted score based on the diagnostics</p></li>
-<li><p><code>export_xlsx</code> to export the quality report.</p></li>
+<li><p><code>extract_QR()</code> to extract the quality report from the csv file (demetra_m.csv) that contains all JD+ diagnostics;</p></li>
+<li><p><code>compute_score()</code> to compute a weighted score based on the diagnostics</p></li>
+<li><p><code>export_xlsx()</code> to export the quality report.</p></li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># choose the demetra_m.csv file generated by the cruncher</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>QR <span class="ot">&lt;-</span> <span class="fu">extract_QR</span>()</span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>QR</span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>?compute_score <span class="co"># to see how the score is calculated (formula)</span></span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>QR <span class="ot">&lt;-</span> <span class="fu">compute_score</span>(QR,</span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">n_contrib_score =</span> <span class="dv">3</span></span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>QR</span>
-<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>QR <span class="ot">&lt;-</span> <span class="fu">sort</span>(QR, <span class="at">decreasing =</span> <span class="cn">TRUE</span>, <span class="at">sort_variables =</span> <span class="st">"score"</span>)</span>
-<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a><span class="fu">export_xlsx</span>(QR,</span>
-<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">file_name =</span> <span class="st">"U:/quality_report.xls"</span></span>
-<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># choose the demetra_m.csv file generated by the cruncher</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>QR <span class="ot">&lt;-</span> <span class="fu">extract_QR</span>()</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>QR</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>?compute_score <span class="co"># to see how the score is calculated (formula)</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>QR <span class="ot">&lt;-</span> <span class="fu">compute_score</span>(QR,</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">n_contrib_score =</span> <span class="dv">3</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>QR</span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>QR <span class="ot">&lt;-</span> <span class="fu">sort</span>(QR, <span class="at">decreasing =</span> <span class="cn">TRUE</span>, <span class="at">sort_variables =</span> <span class="st">"score"</span>)</span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a><span class="fu">export_xlsx</span>(QR,</span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">file_name =</span> <span class="st">"U:/quality_report.xls"</span></span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="piling-up-results" class="level3">
 <h3 class="anchored" data-anchor-id="piling-up-results">Piling up results</h3>
 <p>When working with several workspaces or Seasonal adjustment processings (SAP) within a given workspace, quality reports can be piled up with the function <code>rbind()</code> or by creating a mQR_matrix object with the function <code>mQR_matrix()</code></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>QR1 <span class="ot">&lt;-</span> <span class="fu">extract_QR</span>()</span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>QR2 <span class="ot">&lt;-</span> <span class="fu">extract_QR</span>()</span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>mQR <span class="ot">&lt;-</span> <span class="fu">mQR_matrix</span>(QR1, QR2)</span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>mQR</span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="co"># naming each object</span></span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(mQR) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"report_1"</span>, <span class="st">"report_2"</span>)</span>
-<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Equivalent to:</span></span>
-<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>mQR <span class="ot">&lt;-</span> <span class="fu">mQR_matrix</span>(<span class="at">report_1 =</span> QR1, <span class="at">report_2 =</span> QR2)</span>
-<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>mQR</span>
-<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a><span class="co"># score calculation for all reports</span></span>
-<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>mQR <span class="ot">&lt;-</span> <span class="fu">compute_score</span>(mQR,</span>
-<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">n_contrib_score =</span> <span class="dv">3</span></span>
-<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a><span class="fu">export_xlsx</span>(mQR,</span>
-<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">export_dir =</span> <span class="st">"U:/"</span></span>
-<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>QR1 <span class="ot">&lt;-</span> <span class="fu">extract_QR</span>()</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>QR2 <span class="ot">&lt;-</span> <span class="fu">extract_QR</span>()</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>mQR <span class="ot">&lt;-</span> <span class="fu">mQR_matrix</span>(QR1, QR2)</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>mQR</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="co"># naming each object</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(mQR) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"report_1"</span>, <span class="st">"report_2"</span>)</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Equivalent to:</span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>mQR <span class="ot">&lt;-</span> <span class="fu">mQR_matrix</span>(<span class="at">report_1 =</span> QR1, <span class="at">report_2 =</span> QR2)</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>mQR</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a><span class="co"># score calculation for all reports</span></span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>mQR <span class="ot">&lt;-</span> <span class="fu">compute_score</span>(mQR,</span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">n_contrib_score =</span> <span class="dv">3</span></span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a><span class="fu">export_xlsx</span>(mQR,</span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">export_dir =</span> <span class="st">"U:/"</span></span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="conditionnal-score" class="level3">
 <h3 class="anchored" data-anchor-id="conditionnal-score">Conditionnal score</h3>
 <p>Missing values can be ignored and conditions can be set for indicators:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># oos_mse weight reduced to 1 when the other</span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="co"># indicators are "Bad" ou "Severe"</span></span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>condition1 <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">indicator =</span> <span class="st">"oos_mse"</span>,</span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">conditions =</span> <span class="fu">c</span>(</span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>        <span class="st">"residuals_independency"</span>,</span>
-<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>        <span class="st">"residuals_homoskedasticity"</span>,</span>
-<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>        <span class="st">"residuals_normality"</span></span>
-<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>    ),</span>
-<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">conditions_modalities =</span> <span class="fu">c</span>(<span class="st">"Bad"</span>, <span class="st">"Severe"</span>)</span>
-<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>BQ <span class="ot">&lt;-</span> <span class="fu">compute_score</span>(BQ,</span>
-<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">n_contrib_score =</span> <span class="dv">5</span>,</span>
-<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">conditional_indicator =</span> <span class="fu">list</span>(condition1),</span>
-<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">na.rm =</span> <span class="cn">TRUE</span></span>
-<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># oos_mse weight reduced to 1 when the other</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="co"># indicators are "Bad" ou "Severe"</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>condition1 <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">indicator =</span> <span class="st">"oos_mse"</span>,</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">conditions =</span> <span class="fu">c</span>(</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>        <span class="st">"residuals_independency"</span>,</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>        <span class="st">"residuals_homoskedasticity"</span>,</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>        <span class="st">"residuals_normality"</span></span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">conditions_modalities =</span> <span class="fu">c</span>(<span class="st">"Bad"</span>, <span class="st">"Severe"</span>)</span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>BQ <span class="ot">&lt;-</span> <span class="fu">compute_score</span>(BQ,</span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">n_contrib_score =</span> <span class="dv">5</span>,</span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">conditional_indicator =</span> <span class="fu">list</span>(condition1),</span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">na.rm =</span> <span class="cn">TRUE</span></span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="customize-the-score-computation" class="level3">
@@ -705,85 +706,85 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="list-of-exportable-diagnostics-and-parameters">List of exportable diagnostics and parameters</h2>
 <p>Some parameters and available diagnostics will be different when using X13-ARIMA or TRAMO-SEATS.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(</span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">default_matrix_item =</span></span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>        <span class="fu">c</span>(</span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>            <span class="st">"period"</span>, <span class="st">"span.start"</span>, <span class="st">"span.end"</span>, <span class="st">"span.n"</span>, <span class="st">"span.missing"</span>,</span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>            <span class="st">"espan.start"</span>, <span class="st">"espan.end"</span>, <span class="st">"espan.n"</span>, <span class="st">"log"</span>, <span class="st">"adjust"</span>, <span class="st">"regression.lp"</span>,</span>
-<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>            <span class="st">"regression.ntd"</span>, <span class="st">"regression.nmh"</span>, <span class="st">"regression.td-derived"</span>,</span>
-<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>            <span class="st">"regression.td-ftest"</span>, <span class="st">"regression.easter"</span>, <span class="st">"regression.nout"</span>,</span>
-<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>            <span class="st">"regression.noutao"</span>, <span class="st">"regression.noutls"</span>, <span class="st">"regression.nouttc"</span>,</span>
-<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>            <span class="st">"regression.noutso"</span>, <span class="st">"regression.td(*):4"</span>, <span class="st">"regression.out(*)"</span>,</span>
-<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>            <span class="st">"regression.user(*)"</span>, <span class="st">"likelihood.neffectiveobs"</span>, <span class="st">"likelihood.np"</span>,</span>
-<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>            <span class="st">"likelihood.logvalue"</span>, <span class="st">"likelihood.adjustedlogvalue"</span>, <span class="st">"likelihood.ssqerr"</span>,</span>
-<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>            <span class="st">"likelihood.aic"</span>, <span class="st">"likelihood.aicc"</span>, <span class="st">"likelihood.bic"</span>, <span class="st">"likelihood.bicc"</span>,</span>
-<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a>            <span class="st">"residuals.ser"</span>, <span class="st">"residuals.ser-ml"</span>, <span class="st">"residuals.mean"</span>, <span class="st">"residuals.skewness:3"</span>,</span>
-<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a>            <span class="st">"residuals.kurtosis:3"</span>, <span class="st">"residuals.dh"</span>, <span class="st">"residuals.lb"</span>, <span class="st">"residuals.lb2:3"</span>,</span>
-<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a>            <span class="st">"residuals.seaslb"</span>, <span class="st">"residuals.bp"</span>, <span class="st">"residuals.bp2"</span>, <span class="st">"residuals.seasbp"</span>,</span>
-<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a>            <span class="st">"residuals.nudruns"</span>, <span class="st">"residuals.ludruns"</span>, <span class="st">"residuals.nruns"</span>,</span>
-<span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a>            <span class="st">"residuals.lruns"</span>, <span class="st">"arima"</span>, <span class="st">"arima.mean"</span>, <span class="st">"arima.p"</span>, <span class="st">"arima.d"</span>,</span>
-<span id="cb16-18"><a href="#cb16-18" aria-hidden="true" tabindex="-1"></a>            <span class="st">"arima.q"</span>, <span class="st">"arima.bp"</span>, <span class="st">"arima.bd"</span>, <span class="st">"arima.bq"</span>, <span class="st">"arima.phi(*)"</span>,</span>
-<span id="cb16-19"><a href="#cb16-19" aria-hidden="true" tabindex="-1"></a>            <span class="st">"arima.bphi(*)"</span>, <span class="st">"arima.th(*)"</span>, <span class="st">"arima.bth(*)"</span>, <span class="st">"decomposition.seasonality"</span>,</span>
-<span id="cb16-20"><a href="#cb16-20" aria-hidden="true" tabindex="-1"></a>            <span class="st">"decomposition.parameters_cutoff"</span>, <span class="st">"decomposition.model_changed"</span>,</span>
-<span id="cb16-21"><a href="#cb16-21" aria-hidden="true" tabindex="-1"></a>            <span class="st">"decomposition.tvar-estimator"</span>, <span class="st">"decomposition.tvar-estimate"</span>,</span>
-<span id="cb16-22"><a href="#cb16-22" aria-hidden="true" tabindex="-1"></a>            <span class="st">"decomposition.tvar-pvalue"</span>, <span class="st">"decomposition.savar-estimator"</span>,</span>
-<span id="cb16-23"><a href="#cb16-23" aria-hidden="true" tabindex="-1"></a>            <span class="st">"decomposition.savar-estimate"</span>, <span class="st">"decomposition.savar-pvalue"</span>,</span>
-<span id="cb16-24"><a href="#cb16-24" aria-hidden="true" tabindex="-1"></a>            <span class="st">"decomposition.svar-estimator"</span>, <span class="st">"decomposition.svar-estimate"</span>,</span>
-<span id="cb16-25"><a href="#cb16-25" aria-hidden="true" tabindex="-1"></a>            <span class="st">"decomposition.svar-pvalue"</span>, <span class="st">"decomposition.ivar-estimator"</span>,</span>
-<span id="cb16-26"><a href="#cb16-26" aria-hidden="true" tabindex="-1"></a>            <span class="st">"decomposition.ivar-estimate"</span>, <span class="st">"decomposition.ivar-pvalue"</span>, <span class="st">"decomposition.tscorr-estimator"</span>,</span>
-<span id="cb16-27"><a href="#cb16-27" aria-hidden="true" tabindex="-1"></a>            <span class="st">"decomposition.tscorr-estimate"</span>, <span class="st">"decomposition.tscorr-pvalue"</span>,</span>
-<span id="cb16-28"><a href="#cb16-28" aria-hidden="true" tabindex="-1"></a>            <span class="st">"decomposition.ticorr-estimator"</span>, <span class="st">"decomposition.ticorr-estimate"</span>,</span>
-<span id="cb16-29"><a href="#cb16-29" aria-hidden="true" tabindex="-1"></a>            <span class="st">"decomposition.ticorr-pvalue"</span>, <span class="st">"decomposition.sicorr-estimator"</span>,</span>
-<span id="cb16-30"><a href="#cb16-30" aria-hidden="true" tabindex="-1"></a>            <span class="st">"decomposition.sicorr-estimate"</span>, <span class="st">"decomposition.sicorr-pvalue"</span>,</span>
-<span id="cb16-31"><a href="#cb16-31" aria-hidden="true" tabindex="-1"></a>            <span class="st">"decomposition.ar_root(*)"</span>, <span class="st">"decomposition.ma_root(*)"</span>, <span class="st">"method"</span>,</span>
-<span id="cb16-32"><a href="#cb16-32" aria-hidden="true" tabindex="-1"></a>            <span class="st">"variancedecomposition.cycle"</span>, <span class="st">"variancedecomposition.seasonality"</span>,</span>
-<span id="cb16-33"><a href="#cb16-33" aria-hidden="true" tabindex="-1"></a>            <span class="st">"variancedecomposition.irregular"</span>, <span class="st">"variancedecomposition.tdh"</span>,</span>
-<span id="cb16-34"><a href="#cb16-34" aria-hidden="true" tabindex="-1"></a>            <span class="st">"variancedecomposition.others"</span>, <span class="st">"variancedecomposition.total"</span>,</span>
-<span id="cb16-35"><a href="#cb16-35" aria-hidden="true" tabindex="-1"></a>            <span class="st">"diagnostics.logstat"</span>, <span class="st">"diagnostics.levelstat"</span>, <span class="st">"diagnostics.fcast-insample-mean"</span>,</span>
-<span id="cb16-36"><a href="#cb16-36" aria-hidden="true" tabindex="-1"></a>            <span class="st">"diagnostics.fcast-outsample-mean"</span>, <span class="st">"diagnostics.fcast-outsample-variance"</span>,</span>
-<span id="cb16-37"><a href="#cb16-37" aria-hidden="true" tabindex="-1"></a>            <span class="st">"diagnostics.seas-lin-f"</span>, <span class="st">"diagnostics.seas-lin-qs"</span>, <span class="st">"diagnostics.seas-lin-kw"</span>,</span>
-<span id="cb16-38"><a href="#cb16-38" aria-hidden="true" tabindex="-1"></a>            <span class="st">"diagnostics.seas-lin-friedman"</span>, <span class="st">"diagnostics.seas-lin-periodogram"</span>,</span>
-<span id="cb16-39"><a href="#cb16-39" aria-hidden="true" tabindex="-1"></a>            <span class="st">"diagnostics.seas-lin-spectralpeaks"</span>, <span class="st">"diagnostics.seas-si-combined"</span>,</span>
-<span id="cb16-40"><a href="#cb16-40" aria-hidden="true" tabindex="-1"></a>            <span class="st">"diagnostics.seas-si-evolutive"</span>, <span class="st">"diagnostics.seas-si-stable"</span>,</span>
-<span id="cb16-41"><a href="#cb16-41" aria-hidden="true" tabindex="-1"></a>            <span class="st">"diagnostics.seas-res-f"</span>, <span class="st">"diagnostics.seas-res-qs"</span>, <span class="st">"diagnostics.seas-res-kw"</span>,</span>
-<span id="cb16-42"><a href="#cb16-42" aria-hidden="true" tabindex="-1"></a>            <span class="st">"diagnostics.seas-res-friedman"</span>, <span class="st">"diagnostics.seas-res-periodogram"</span>,</span>
-<span id="cb16-43"><a href="#cb16-43" aria-hidden="true" tabindex="-1"></a>            <span class="st">"diagnostics.seas-res-spectralpeaks"</span>, <span class="st">"diagnostics.seas-res-combined"</span>,</span>
-<span id="cb16-44"><a href="#cb16-44" aria-hidden="true" tabindex="-1"></a>            <span class="st">"diagnostics.seas-res-combined3"</span>, <span class="st">"diagnostics.seas-res-evolutive"</span>,</span>
-<span id="cb16-45"><a href="#cb16-45" aria-hidden="true" tabindex="-1"></a>            <span class="st">"diagnostics.seas-res-stable"</span>, <span class="st">"diagnostics.seas-i-f"</span>, <span class="st">"diagnostics.seas-i-qs"</span>,</span>
-<span id="cb16-46"><a href="#cb16-46" aria-hidden="true" tabindex="-1"></a>            <span class="st">"diagnostics.seas-i-kw"</span>, <span class="st">"diagnostics.seas-i-periodogram"</span>, <span class="st">"diagnostics.seas-i-spectralpeaks"</span>,</span>
-<span id="cb16-47"><a href="#cb16-47" aria-hidden="true" tabindex="-1"></a>            <span class="st">"diagnostics.seas-i-combined"</span>, <span class="st">"diagnostics.seas-i-combined3"</span>,</span>
-<span id="cb16-48"><a href="#cb16-48" aria-hidden="true" tabindex="-1"></a>            <span class="st">"diagnostics.seas-i-evolutive"</span>, <span class="st">"diagnostics.seas-i-stable"</span>,</span>
-<span id="cb16-49"><a href="#cb16-49" aria-hidden="true" tabindex="-1"></a>            <span class="st">"diagnostics.seas-sa-f"</span>, <span class="st">"diagnostics.seas-sa-qs"</span>, <span class="st">"diagnostics.seas-sa-kw"</span>,</span>
-<span id="cb16-50"><a href="#cb16-50" aria-hidden="true" tabindex="-1"></a>            <span class="st">"diagnostics.seas-sa-friedman"</span>, <span class="st">"diagnostics.seas-sa-periodogram"</span>,</span>
-<span id="cb16-51"><a href="#cb16-51" aria-hidden="true" tabindex="-1"></a>            <span class="st">"diagnostics.seas-sa-spectralpeaks"</span>, <span class="st">"diagnostics.seas-sa-combined"</span>,</span>
-<span id="cb16-52"><a href="#cb16-52" aria-hidden="true" tabindex="-1"></a>            <span class="st">"diagnostics.seas-sa-combined3"</span>, <span class="st">"diagnostics.seas-sa-evolutive"</span>,</span>
-<span id="cb16-53"><a href="#cb16-53" aria-hidden="true" tabindex="-1"></a>            <span class="st">"diagnostics.seas-sa-stable"</span>, <span class="st">"diagnostics.seas-sa-ac1"</span>, <span class="st">"diagnostics.td-sa-all"</span>,</span>
-<span id="cb16-54"><a href="#cb16-54" aria-hidden="true" tabindex="-1"></a>            <span class="st">"diagnostics.td-sa-last"</span>, <span class="st">"diagnostics.td-i-all"</span>, <span class="st">"diagnostics.td-i-last"</span>,</span>
-<span id="cb16-55"><a href="#cb16-55" aria-hidden="true" tabindex="-1"></a>            <span class="st">"diagnostics.td-res-all"</span>, <span class="st">"diagnostics.td-res-last"</span>, <span class="st">"diagnostics.ic-ratio-henderson"</span>,</span>
-<span id="cb16-56"><a href="#cb16-56" aria-hidden="true" tabindex="-1"></a>            <span class="st">"diagnostics.ic-ratio"</span>, <span class="st">"diagnostics.msr-global"</span>, <span class="st">"diagnostics.msr(*)"</span>,</span>
-<span id="cb16-57"><a href="#cb16-57" aria-hidden="true" tabindex="-1"></a>            <span class="st">"decomposition.trendfilter"</span>, <span class="st">"decomposition.seasfilter"</span>, <span class="st">"m-statistics.m1"</span>,</span>
-<span id="cb16-58"><a href="#cb16-58" aria-hidden="true" tabindex="-1"></a>            <span class="st">"m-statistics.m2"</span>, <span class="st">"m-statistics.m3"</span>, <span class="st">"m-statistics.m4"</span>, <span class="st">"m-statistics.m5"</span>,</span>
-<span id="cb16-59"><a href="#cb16-59" aria-hidden="true" tabindex="-1"></a>            <span class="st">"m-statistics.m6"</span>, <span class="st">"m-statistics.m7"</span>, <span class="st">"m-statistics.m8"</span>, <span class="st">"m-statistics.m9"</span>,</span>
-<span id="cb16-60"><a href="#cb16-60" aria-hidden="true" tabindex="-1"></a>            <span class="st">"m-statistics.m10"</span>, <span class="st">"m-statistics.m11"</span>, <span class="st">"m-statistics.q"</span>, <span class="st">"m-statistics.q-m2"</span>,</span>
-<span id="cb16-61"><a href="#cb16-61" aria-hidden="true" tabindex="-1"></a>            <span class="st">"diagnostics.basic checks.definition:2"</span>, <span class="st">"diagnostics.basic checks.annual totals:2"</span>,</span>
-<span id="cb16-62"><a href="#cb16-62" aria-hidden="true" tabindex="-1"></a>            <span class="st">"diagnostics.visual spectral analysis.spectral seas peaks"</span>, <span class="st">"diagnostics.visual spectral analysis.spectral td peaks"</span>,</span>
-<span id="cb16-63"><a href="#cb16-63" aria-hidden="true" tabindex="-1"></a>            <span class="st">"diagnostics.regarima residuals.normality:2"</span>, <span class="st">"diagnostics.regarima residuals.independence:2"</span>,</span>
-<span id="cb16-64"><a href="#cb16-64" aria-hidden="true" tabindex="-1"></a>            <span class="st">"diagnostics.regarima residuals.spectral td peaks:2"</span>, <span class="st">"diagnostics.regarima residuals.spectral seas peaks:2"</span>,</span>
-<span id="cb16-65"><a href="#cb16-65" aria-hidden="true" tabindex="-1"></a>            <span class="st">"diagnostics.outliers.number of outliers:2"</span>, <span class="st">"diagnostics.out-of-sample.mean:2"</span>,</span>
-<span id="cb16-66"><a href="#cb16-66" aria-hidden="true" tabindex="-1"></a>            <span class="st">"diagnostics.out-of-sample.mse:2"</span>, <span class="st">"diagnostics.m-statistics.q:2"</span>,</span>
-<span id="cb16-67"><a href="#cb16-67" aria-hidden="true" tabindex="-1"></a>            <span class="st">"diagnostics.m-statistics.q-m2:2"</span>, <span class="st">"diagnostics.seats.seas variance:2"</span>,</span>
-<span id="cb16-68"><a href="#cb16-68" aria-hidden="true" tabindex="-1"></a>            <span class="st">"diagnostics.seats.irregular variance:2"</span>, <span class="st">"diagnostics.seats.seas/irr cross-correlation:2"</span>,</span>
-<span id="cb16-69"><a href="#cb16-69" aria-hidden="true" tabindex="-1"></a>            <span class="st">"diagnostics.residual seasonality tests.qs test on sa:2"</span>, <span class="st">"diagnostics.residual seasonality tests.qs test on i:2"</span>,</span>
-<span id="cb16-70"><a href="#cb16-70" aria-hidden="true" tabindex="-1"></a>            <span class="st">"diagnostics.residual seasonality tests.f-test on sa (seasonal dummies):2"</span>,</span>
-<span id="cb16-71"><a href="#cb16-71" aria-hidden="true" tabindex="-1"></a>            <span class="st">"diagnostics.residual seasonality tests.f-test on i (seasonal dummies):2"</span>,</span>
-<span id="cb16-72"><a href="#cb16-72" aria-hidden="true" tabindex="-1"></a>            <span class="st">"diagnostics.combined seasonality test.combined seasonality test on sa:2"</span>,</span>
-<span id="cb16-73"><a href="#cb16-73" aria-hidden="true" tabindex="-1"></a>            <span class="st">"diagnostics.combined seasonality test.combined seasonality test on sa (last 3 years):2"</span>,</span>
-<span id="cb16-74"><a href="#cb16-74" aria-hidden="true" tabindex="-1"></a>            <span class="st">"diagnostics.combined seasonality test.combined seasonality test on irregular:2"</span>,</span>
-<span id="cb16-75"><a href="#cb16-75" aria-hidden="true" tabindex="-1"></a>            <span class="st">"diagnostics.residual trading days tests.f-test on sa (td):2"</span>,</span>
-<span id="cb16-76"><a href="#cb16-76" aria-hidden="true" tabindex="-1"></a>            <span class="st">"diagnostics.residual trading days tests.f-test on i (td):2"</span>,</span>
-<span id="cb16-77"><a href="#cb16-77" aria-hidden="true" tabindex="-1"></a>            <span class="st">"diagnostics.quality"</span></span>
-<span id="cb16-78"><a href="#cb16-78" aria-hidden="true" tabindex="-1"></a>        )</span>
-<span id="cb16-79"><a href="#cb16-79" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">default_matrix_item =</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>        <span class="fu">c</span>(</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>            <span class="st">"period"</span>, <span class="st">"span.start"</span>, <span class="st">"span.end"</span>, <span class="st">"span.n"</span>, <span class="st">"span.missing"</span>,</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>            <span class="st">"espan.start"</span>, <span class="st">"espan.end"</span>, <span class="st">"espan.n"</span>, <span class="st">"log"</span>, <span class="st">"adjust"</span>, <span class="st">"regression.lp"</span>,</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>            <span class="st">"regression.ntd"</span>, <span class="st">"regression.nmh"</span>, <span class="st">"regression.td-derived"</span>,</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>            <span class="st">"regression.td-ftest"</span>, <span class="st">"regression.easter"</span>, <span class="st">"regression.nout"</span>,</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>            <span class="st">"regression.noutao"</span>, <span class="st">"regression.noutls"</span>, <span class="st">"regression.nouttc"</span>,</span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>            <span class="st">"regression.noutso"</span>, <span class="st">"regression.td(*):4"</span>, <span class="st">"regression.out(*)"</span>,</span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>            <span class="st">"regression.user(*)"</span>, <span class="st">"likelihood.neffectiveobs"</span>, <span class="st">"likelihood.np"</span>,</span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>            <span class="st">"likelihood.logvalue"</span>, <span class="st">"likelihood.adjustedlogvalue"</span>, <span class="st">"likelihood.ssqerr"</span>,</span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>            <span class="st">"likelihood.aic"</span>, <span class="st">"likelihood.aicc"</span>, <span class="st">"likelihood.bic"</span>, <span class="st">"likelihood.bicc"</span>,</span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>            <span class="st">"residuals.ser"</span>, <span class="st">"residuals.ser-ml"</span>, <span class="st">"residuals.mean"</span>, <span class="st">"residuals.skewness:3"</span>,</span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a>            <span class="st">"residuals.kurtosis:3"</span>, <span class="st">"residuals.dh"</span>, <span class="st">"residuals.lb"</span>, <span class="st">"residuals.lb2:3"</span>,</span>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a>            <span class="st">"residuals.seaslb"</span>, <span class="st">"residuals.bp"</span>, <span class="st">"residuals.bp2"</span>, <span class="st">"residuals.seasbp"</span>,</span>
+<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a>            <span class="st">"residuals.nudruns"</span>, <span class="st">"residuals.ludruns"</span>, <span class="st">"residuals.nruns"</span>,</span>
+<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a>            <span class="st">"residuals.lruns"</span>, <span class="st">"arima"</span>, <span class="st">"arima.mean"</span>, <span class="st">"arima.p"</span>, <span class="st">"arima.d"</span>,</span>
+<span id="cb15-18"><a href="#cb15-18" aria-hidden="true" tabindex="-1"></a>            <span class="st">"arima.q"</span>, <span class="st">"arima.bp"</span>, <span class="st">"arima.bd"</span>, <span class="st">"arima.bq"</span>, <span class="st">"arima.phi(*)"</span>,</span>
+<span id="cb15-19"><a href="#cb15-19" aria-hidden="true" tabindex="-1"></a>            <span class="st">"arima.bphi(*)"</span>, <span class="st">"arima.th(*)"</span>, <span class="st">"arima.bth(*)"</span>, <span class="st">"decomposition.seasonality"</span>,</span>
+<span id="cb15-20"><a href="#cb15-20" aria-hidden="true" tabindex="-1"></a>            <span class="st">"decomposition.parameters_cutoff"</span>, <span class="st">"decomposition.model_changed"</span>,</span>
+<span id="cb15-21"><a href="#cb15-21" aria-hidden="true" tabindex="-1"></a>            <span class="st">"decomposition.tvar-estimator"</span>, <span class="st">"decomposition.tvar-estimate"</span>,</span>
+<span id="cb15-22"><a href="#cb15-22" aria-hidden="true" tabindex="-1"></a>            <span class="st">"decomposition.tvar-pvalue"</span>, <span class="st">"decomposition.savar-estimator"</span>,</span>
+<span id="cb15-23"><a href="#cb15-23" aria-hidden="true" tabindex="-1"></a>            <span class="st">"decomposition.savar-estimate"</span>, <span class="st">"decomposition.savar-pvalue"</span>,</span>
+<span id="cb15-24"><a href="#cb15-24" aria-hidden="true" tabindex="-1"></a>            <span class="st">"decomposition.svar-estimator"</span>, <span class="st">"decomposition.svar-estimate"</span>,</span>
+<span id="cb15-25"><a href="#cb15-25" aria-hidden="true" tabindex="-1"></a>            <span class="st">"decomposition.svar-pvalue"</span>, <span class="st">"decomposition.ivar-estimator"</span>,</span>
+<span id="cb15-26"><a href="#cb15-26" aria-hidden="true" tabindex="-1"></a>            <span class="st">"decomposition.ivar-estimate"</span>, <span class="st">"decomposition.ivar-pvalue"</span>, <span class="st">"decomposition.tscorr-estimator"</span>,</span>
+<span id="cb15-27"><a href="#cb15-27" aria-hidden="true" tabindex="-1"></a>            <span class="st">"decomposition.tscorr-estimate"</span>, <span class="st">"decomposition.tscorr-pvalue"</span>,</span>
+<span id="cb15-28"><a href="#cb15-28" aria-hidden="true" tabindex="-1"></a>            <span class="st">"decomposition.ticorr-estimator"</span>, <span class="st">"decomposition.ticorr-estimate"</span>,</span>
+<span id="cb15-29"><a href="#cb15-29" aria-hidden="true" tabindex="-1"></a>            <span class="st">"decomposition.ticorr-pvalue"</span>, <span class="st">"decomposition.sicorr-estimator"</span>,</span>
+<span id="cb15-30"><a href="#cb15-30" aria-hidden="true" tabindex="-1"></a>            <span class="st">"decomposition.sicorr-estimate"</span>, <span class="st">"decomposition.sicorr-pvalue"</span>,</span>
+<span id="cb15-31"><a href="#cb15-31" aria-hidden="true" tabindex="-1"></a>            <span class="st">"decomposition.ar_root(*)"</span>, <span class="st">"decomposition.ma_root(*)"</span>, <span class="st">"method"</span>,</span>
+<span id="cb15-32"><a href="#cb15-32" aria-hidden="true" tabindex="-1"></a>            <span class="st">"variancedecomposition.cycle"</span>, <span class="st">"variancedecomposition.seasonality"</span>,</span>
+<span id="cb15-33"><a href="#cb15-33" aria-hidden="true" tabindex="-1"></a>            <span class="st">"variancedecomposition.irregular"</span>, <span class="st">"variancedecomposition.tdh"</span>,</span>
+<span id="cb15-34"><a href="#cb15-34" aria-hidden="true" tabindex="-1"></a>            <span class="st">"variancedecomposition.others"</span>, <span class="st">"variancedecomposition.total"</span>,</span>
+<span id="cb15-35"><a href="#cb15-35" aria-hidden="true" tabindex="-1"></a>            <span class="st">"diagnostics.logstat"</span>, <span class="st">"diagnostics.levelstat"</span>, <span class="st">"diagnostics.fcast-insample-mean"</span>,</span>
+<span id="cb15-36"><a href="#cb15-36" aria-hidden="true" tabindex="-1"></a>            <span class="st">"diagnostics.fcast-outsample-mean"</span>, <span class="st">"diagnostics.fcast-outsample-variance"</span>,</span>
+<span id="cb15-37"><a href="#cb15-37" aria-hidden="true" tabindex="-1"></a>            <span class="st">"diagnostics.seas-lin-f"</span>, <span class="st">"diagnostics.seas-lin-qs"</span>, <span class="st">"diagnostics.seas-lin-kw"</span>,</span>
+<span id="cb15-38"><a href="#cb15-38" aria-hidden="true" tabindex="-1"></a>            <span class="st">"diagnostics.seas-lin-friedman"</span>, <span class="st">"diagnostics.seas-lin-periodogram"</span>,</span>
+<span id="cb15-39"><a href="#cb15-39" aria-hidden="true" tabindex="-1"></a>            <span class="st">"diagnostics.seas-lin-spectralpeaks"</span>, <span class="st">"diagnostics.seas-si-combined"</span>,</span>
+<span id="cb15-40"><a href="#cb15-40" aria-hidden="true" tabindex="-1"></a>            <span class="st">"diagnostics.seas-si-evolutive"</span>, <span class="st">"diagnostics.seas-si-stable"</span>,</span>
+<span id="cb15-41"><a href="#cb15-41" aria-hidden="true" tabindex="-1"></a>            <span class="st">"diagnostics.seas-res-f"</span>, <span class="st">"diagnostics.seas-res-qs"</span>, <span class="st">"diagnostics.seas-res-kw"</span>,</span>
+<span id="cb15-42"><a href="#cb15-42" aria-hidden="true" tabindex="-1"></a>            <span class="st">"diagnostics.seas-res-friedman"</span>, <span class="st">"diagnostics.seas-res-periodogram"</span>,</span>
+<span id="cb15-43"><a href="#cb15-43" aria-hidden="true" tabindex="-1"></a>            <span class="st">"diagnostics.seas-res-spectralpeaks"</span>, <span class="st">"diagnostics.seas-res-combined"</span>,</span>
+<span id="cb15-44"><a href="#cb15-44" aria-hidden="true" tabindex="-1"></a>            <span class="st">"diagnostics.seas-res-combined3"</span>, <span class="st">"diagnostics.seas-res-evolutive"</span>,</span>
+<span id="cb15-45"><a href="#cb15-45" aria-hidden="true" tabindex="-1"></a>            <span class="st">"diagnostics.seas-res-stable"</span>, <span class="st">"diagnostics.seas-i-f"</span>, <span class="st">"diagnostics.seas-i-qs"</span>,</span>
+<span id="cb15-46"><a href="#cb15-46" aria-hidden="true" tabindex="-1"></a>            <span class="st">"diagnostics.seas-i-kw"</span>, <span class="st">"diagnostics.seas-i-periodogram"</span>, <span class="st">"diagnostics.seas-i-spectralpeaks"</span>,</span>
+<span id="cb15-47"><a href="#cb15-47" aria-hidden="true" tabindex="-1"></a>            <span class="st">"diagnostics.seas-i-combined"</span>, <span class="st">"diagnostics.seas-i-combined3"</span>,</span>
+<span id="cb15-48"><a href="#cb15-48" aria-hidden="true" tabindex="-1"></a>            <span class="st">"diagnostics.seas-i-evolutive"</span>, <span class="st">"diagnostics.seas-i-stable"</span>,</span>
+<span id="cb15-49"><a href="#cb15-49" aria-hidden="true" tabindex="-1"></a>            <span class="st">"diagnostics.seas-sa-f"</span>, <span class="st">"diagnostics.seas-sa-qs"</span>, <span class="st">"diagnostics.seas-sa-kw"</span>,</span>
+<span id="cb15-50"><a href="#cb15-50" aria-hidden="true" tabindex="-1"></a>            <span class="st">"diagnostics.seas-sa-friedman"</span>, <span class="st">"diagnostics.seas-sa-periodogram"</span>,</span>
+<span id="cb15-51"><a href="#cb15-51" aria-hidden="true" tabindex="-1"></a>            <span class="st">"diagnostics.seas-sa-spectralpeaks"</span>, <span class="st">"diagnostics.seas-sa-combined"</span>,</span>
+<span id="cb15-52"><a href="#cb15-52" aria-hidden="true" tabindex="-1"></a>            <span class="st">"diagnostics.seas-sa-combined3"</span>, <span class="st">"diagnostics.seas-sa-evolutive"</span>,</span>
+<span id="cb15-53"><a href="#cb15-53" aria-hidden="true" tabindex="-1"></a>            <span class="st">"diagnostics.seas-sa-stable"</span>, <span class="st">"diagnostics.seas-sa-ac1"</span>, <span class="st">"diagnostics.td-sa-all"</span>,</span>
+<span id="cb15-54"><a href="#cb15-54" aria-hidden="true" tabindex="-1"></a>            <span class="st">"diagnostics.td-sa-last"</span>, <span class="st">"diagnostics.td-i-all"</span>, <span class="st">"diagnostics.td-i-last"</span>,</span>
+<span id="cb15-55"><a href="#cb15-55" aria-hidden="true" tabindex="-1"></a>            <span class="st">"diagnostics.td-res-all"</span>, <span class="st">"diagnostics.td-res-last"</span>, <span class="st">"diagnostics.ic-ratio-henderson"</span>,</span>
+<span id="cb15-56"><a href="#cb15-56" aria-hidden="true" tabindex="-1"></a>            <span class="st">"diagnostics.ic-ratio"</span>, <span class="st">"diagnostics.msr-global"</span>, <span class="st">"diagnostics.msr(*)"</span>,</span>
+<span id="cb15-57"><a href="#cb15-57" aria-hidden="true" tabindex="-1"></a>            <span class="st">"decomposition.trendfilter"</span>, <span class="st">"decomposition.seasfilter"</span>, <span class="st">"m-statistics.m1"</span>,</span>
+<span id="cb15-58"><a href="#cb15-58" aria-hidden="true" tabindex="-1"></a>            <span class="st">"m-statistics.m2"</span>, <span class="st">"m-statistics.m3"</span>, <span class="st">"m-statistics.m4"</span>, <span class="st">"m-statistics.m5"</span>,</span>
+<span id="cb15-59"><a href="#cb15-59" aria-hidden="true" tabindex="-1"></a>            <span class="st">"m-statistics.m6"</span>, <span class="st">"m-statistics.m7"</span>, <span class="st">"m-statistics.m8"</span>, <span class="st">"m-statistics.m9"</span>,</span>
+<span id="cb15-60"><a href="#cb15-60" aria-hidden="true" tabindex="-1"></a>            <span class="st">"m-statistics.m10"</span>, <span class="st">"m-statistics.m11"</span>, <span class="st">"m-statistics.q"</span>, <span class="st">"m-statistics.q-m2"</span>,</span>
+<span id="cb15-61"><a href="#cb15-61" aria-hidden="true" tabindex="-1"></a>            <span class="st">"diagnostics.basic checks.definition:2"</span>, <span class="st">"diagnostics.basic checks.annual totals:2"</span>,</span>
+<span id="cb15-62"><a href="#cb15-62" aria-hidden="true" tabindex="-1"></a>            <span class="st">"diagnostics.visual spectral analysis.spectral seas peaks"</span>, <span class="st">"diagnostics.visual spectral analysis.spectral td peaks"</span>,</span>
+<span id="cb15-63"><a href="#cb15-63" aria-hidden="true" tabindex="-1"></a>            <span class="st">"diagnostics.regarima residuals.normality:2"</span>, <span class="st">"diagnostics.regarima residuals.independence:2"</span>,</span>
+<span id="cb15-64"><a href="#cb15-64" aria-hidden="true" tabindex="-1"></a>            <span class="st">"diagnostics.regarima residuals.spectral td peaks:2"</span>, <span class="st">"diagnostics.regarima residuals.spectral seas peaks:2"</span>,</span>
+<span id="cb15-65"><a href="#cb15-65" aria-hidden="true" tabindex="-1"></a>            <span class="st">"diagnostics.outliers.number of outliers:2"</span>, <span class="st">"diagnostics.out-of-sample.mean:2"</span>,</span>
+<span id="cb15-66"><a href="#cb15-66" aria-hidden="true" tabindex="-1"></a>            <span class="st">"diagnostics.out-of-sample.mse:2"</span>, <span class="st">"diagnostics.m-statistics.q:2"</span>,</span>
+<span id="cb15-67"><a href="#cb15-67" aria-hidden="true" tabindex="-1"></a>            <span class="st">"diagnostics.m-statistics.q-m2:2"</span>, <span class="st">"diagnostics.seats.seas variance:2"</span>,</span>
+<span id="cb15-68"><a href="#cb15-68" aria-hidden="true" tabindex="-1"></a>            <span class="st">"diagnostics.seats.irregular variance:2"</span>, <span class="st">"diagnostics.seats.seas/irr cross-correlation:2"</span>,</span>
+<span id="cb15-69"><a href="#cb15-69" aria-hidden="true" tabindex="-1"></a>            <span class="st">"diagnostics.residual seasonality tests.qs test on sa:2"</span>, <span class="st">"diagnostics.residual seasonality tests.qs test on i:2"</span>,</span>
+<span id="cb15-70"><a href="#cb15-70" aria-hidden="true" tabindex="-1"></a>            <span class="st">"diagnostics.residual seasonality tests.f-test on sa (seasonal dummies):2"</span>,</span>
+<span id="cb15-71"><a href="#cb15-71" aria-hidden="true" tabindex="-1"></a>            <span class="st">"diagnostics.residual seasonality tests.f-test on i (seasonal dummies):2"</span>,</span>
+<span id="cb15-72"><a href="#cb15-72" aria-hidden="true" tabindex="-1"></a>            <span class="st">"diagnostics.combined seasonality test.combined seasonality test on sa:2"</span>,</span>
+<span id="cb15-73"><a href="#cb15-73" aria-hidden="true" tabindex="-1"></a>            <span class="st">"diagnostics.combined seasonality test.combined seasonality test on sa (last 3 years):2"</span>,</span>
+<span id="cb15-74"><a href="#cb15-74" aria-hidden="true" tabindex="-1"></a>            <span class="st">"diagnostics.combined seasonality test.combined seasonality test on irregular:2"</span>,</span>
+<span id="cb15-75"><a href="#cb15-75" aria-hidden="true" tabindex="-1"></a>            <span class="st">"diagnostics.residual trading days tests.f-test on sa (td):2"</span>,</span>
+<span id="cb15-76"><a href="#cb15-76" aria-hidden="true" tabindex="-1"></a>            <span class="st">"diagnostics.residual trading days tests.f-test on i (td):2"</span>,</span>
+<span id="cb15-77"><a href="#cb15-77" aria-hidden="true" tabindex="-1"></a>            <span class="st">"diagnostics.quality"</span></span>
+<span id="cb15-78"><a href="#cb15-78" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb15-79"><a href="#cb15-79" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 
