@@ -2,7 +2,7 @@
 
 ## In this chapter
 
-Core JDemetra+ Java algorithms can be accessed in R. This chapter provides an overview of the R ecosystem related to JDemetra+ [version 2.4](https://github.com/jdemetra/rjdemetra) and [3.x](https://github.com/rjdemetra), still under construction. More details on specific functions are available in the relevant chapters in the [Algorithm part](#part-A) of this documentation. Help pages, Readme pages and vignettes relative to each package provide a detailed description of all available functions: purpose, arguments, output and examples. There are directly linked to this documentation whenever their use in a selected algorithm is mentioned.
+Core JDemetra+ Java algorithms can be accessed in R. This chapter provides an overview of the R ecosystem related to JDemetra+ [version 2.4](https://github.com/rjdverse/rjdemetra) and [3.x](https://github.com/rjdemetra), still under construction. More details on specific functions are available in the relevant chapters in the [Algorithm part](#part-A) of this documentation. Help pages, Readme pages and vignettes relative to each package provide a detailed description of all available functions: purpose, arguments, output and examples. There are directly linked to this documentation whenever their use in a selected algorithm is mentioned.
 
 ### Configuration needed 
 
@@ -15,7 +15,7 @@ Core JDemetra+ Java algorithms can be accessed in R. This chapter provides an ov
 
 Packages corresponding to version 2.x core routines:
 
--   [**RJDemetra**](https://github.com/jdemetra/rjdemetra) on [CRAN](https://cran.r-project.org/web/packages/RJDemetra/index.html) or <https://github.com/jdemetra/rjdemetra>
+-   [**RJDemetra**](https://github.com/rjdverse/rjdemetra) on [CRAN](https://cran.r-project.org/web/packages/RJDemetra/index.html) or <https://github.com/rjdverse/rjdemetra>
 -   [**rjdworkspace**](https://github.com/InseeFrLab/rjdworkspace) on <https://github.com/InseeFrLab/rjdworkspace>
 -   [**JDCruncheR**](https://github.com/InseeFr/JDCruncheR) on <https://github.com/InseeFr/JDCruncheR>
 -   [**ggdemetra**](https://github.com/AQLT/ggdemetra) on <https://github.com/AQLT/ggdemetra>
