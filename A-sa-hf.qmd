@@ -321,4 +321,4 @@ Not currently available. Under construction.
 
 ### Residual seasonality
 
-JDemetra+ provides the Canova-Hansen test in rjd3toolkit package which allows to check for any remaining seasonal periodicity in the final SA data.
+JDemetra+ provides the Canova-Hansen test in rjd3toolkit package which allows to check for any remaining seasonal pattern in the final SA data.
