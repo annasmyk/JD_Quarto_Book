@@ -12,7 +12,7 @@ Currently available topics:
 
 Topics under construction
 
--   graphical user interface 3.0 functionalities for HF data
+-   Graphical User Interface 3.x functionalities for HF data
 
 -   STL functions
 
@@ -34,7 +34,7 @@ HF data often display multiple seasonal patterns with potentially non-integer pe
 
 ## Tailored algorithms in JDemetra+
 
-| Col1          | Algorithm                             | GUI v 3.0 | R package    |
+| Col1          | Algorithm                             | GUI v 3.x | R package    |
 |---------------|---------------------------------------|-----------|--------------|
 | Pre-treatment | Extended Airline Model                | ✔️        | rjd3highfreq |
 | Decomposition | Extended SEATS Extended Airline Model | ✔️        | rjd3highfreq |

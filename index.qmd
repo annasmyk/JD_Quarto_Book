@@ -21,7 +21,7 @@ JDemetra+ provides [algorithms](#part-A) for:
 
 The highest version currently recommended for production purposes is 2.2.4.
 
-Version 3.x  family provides, [among other things](#v3-vs-v2), extended features for seasonal adjustment and trend estimation, including **high frequency data**. The latest version 3.2.2 was released on March 14th 2024.
+Version 3.x  family provides, [among other things](#v3-vs-v2), extended features for seasonal adjustment and trend estimation, including **high frequency data**. The latest version 3.2.4 was released on July 11th 2024.
 
 ## Background
 
@@ -71,7 +71,7 @@ As of April 2024, the latest version is [v2.2.4](https://github.com/jdemetra/jde
 
 Scroll down the page, download and unzip the file *jdemetra-2.2.4-bin.zip*.
 
-To start the application, run the file **nbdemetra64.exe** located in the following subfolder "...\\jdemetra-2.2.4-bin\\nbdemetra\\bin"
+To start the application, run the file **nbdemetra64.exe** located in the following subfolder [...\\jdemetra-2.2.4-bin\\nbdemetra\\bin]{.path}
  
 Remark: You can create shortcuts to the executable files if you want to launch them from another folder (Desktop, project folder...).
 
@@ -82,7 +82,7 @@ You should install the latest release available denoted from now on v3.x.y
 
 Scroll down the page, download and unzip the file *jdemetra-standalone-3.x.y-windows-x86_64.zip*, if you use Windows, or the zip corresponding to you OS in the list.
 
-To start the application, run the file **nbdemetra64.exe** located in the following subfolder "...\\jdemetra-standalone-3.x.y-windows-x86_64\\nbdemetra\\bin"
+To start the application, run the file **nbdemetra64.exe** located in the following subfolder [...\\jdemetra-standalone-3.x.y-windows-x86_64\\nbdemetra\\bin]{.path}
 
 Version 3.x requires Java 17 or higher, *jdemetra-standalone-3.x.y-windows-x86_64.zip* contains a portable version of Java 21, so you don't have to deal with this issue on your computer.
 
@@ -130,9 +130,9 @@ You can directly head over to this [GitHub page](https://github.com/rjdemetra), 
 
 To use rjd3 packages in R, you need Java 17 or higher.
 
-You can (and should) use the version of Java that comes with the Graphical User Interface (GUI). It is contained in the file **jdemetra-standalone-3.2.2-windows-x86_64.zip** available [on this page](https://github.com/jdemetra/jdplus-main/releases), in the "Assets" section, which you might have to expand to be able to see all the files.
+You can (and should) use the version of Java that comes with the Graphical User Interface (GUI). It is contained in the file **jdemetra-standalone-3.2.4-windows-x86_64.zip** available [on this page](https://github.com/jdemetra/jdplus-main/releases), in the "Assets" section, which you might have to expand to be able to see all the files.
 
-Once unzipped, the Java will be in located in  C:\\Software\\jdemetra-standalone-3.x.y-windows-x86_64\\nbdemetra\\jdk-21.0.2+13-jre (path to be adapted to your computer/sever): this location must be declared in R.
+Once unzipped, the Java will be in located in  [C:\\Software\\jdemetra-standalone-3.x.y-windows-x86_64\\nbdemetra\\jdk-21.0.2+13-jre]{.path} (path to be adapted to your computer/server): this location must be declared in R.
 
 After unzipping the file: 
 
@@ -147,10 +147,12 @@ or
 
 - declare it "permanently" is the Renviron file (where environment variables specific to `R` are stored), following the steps below:
 
-    - in the R console run file.edit("~/.Renviron")
+    - in the R console run `file.edit("~/.Renviron")`{.r}
 
     - in the file that opens add the line :
-**JAVA_HOME= C:/Software/jdemetra-standalone-3.x.y-windows-x86_64/nbdemetra/jdk-21.0.2+13-jre**
+    ```
+    JAVA_HOME= "C:/Software/jdemetra-standalone-3.x.y-windows-x86_64/nbdemetra/jdk-21.0.2+13-jre"
+    ```
 
     - save the file and restart R
 
