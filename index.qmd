@@ -155,7 +155,7 @@ or
     - save the file and restart R
 
 Follow R packages installation procedure and run basic examples from the readme files of each package.
-They are all listed on [this page](https://github.com/rjdverse) 
+They are all listed on [this page](https://github.com/rjdverse?view_as=public) 
 
 
 

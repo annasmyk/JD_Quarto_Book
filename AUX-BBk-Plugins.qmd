@@ -1,8 +1,9 @@
 # BBK {.unnumbered #bbk-plugins}
 
-## ConCur
+## [CompRes](https://github.com/bbkrd/CompRes)
+
 (idea do this in a package for refresh in R: simpler ?)
-additional remarks on concur use
+additional remarks on CompRes use
 (see if something neeeds to be added to BBK doc)
 
 the point is to do controlled current:
@@ -14,7 +15,9 @@ SEE daniel: review heuristics for updating
 concurrent (= real concurrent or any refresh of factors)= blue ?
 
 current= what was saved last (can date back to the last annual campaign, or the last infra-monthly review)
+
 ### Procedure 
+
 - current factors have to be saved to ws 
     - calendar 
     - seasonal (save and displayed are D10, not final S), test SO effect 
@@ -48,7 +51,7 @@ Table
 
 ## Excel adapter 
 
-for ConCur ?
+for CompRes ?
 compile
 compute : SA
 

@@ -130,7 +130,7 @@ In version 2.x, the plug-in file ("jdplus-sdmx-desktop-plugin-x.y.z.nbm") is ava
 
 The following plug-in was developed by the Deutsche Bundesbank (BBK). For the moment it is only available for version 2.x.
 
--   [ConCur](https://bbkrd.github.io/pages/concur): The plug-in ConCur supports the controlled current adjustment approach. It pro the storage of the current components and offers graphical tools to compare forecasted and re-estimated figures. Furthermore, a pre-defined summary of the output containing the most important quality measures can be exported to HTML files.
+-   [CompRes](https://bbkrd.github.io/pages/compres/): The plug-in CompRes supports the controlled current adjustment approach. It pro the storage of the current components and offers graphical tools to compare forecasted and re-estimated figures. Furthermore, a pre-defined summary of the output containing the most important quality measures can be exported to HTML files.
 
 ### Chain linked Indices
 
