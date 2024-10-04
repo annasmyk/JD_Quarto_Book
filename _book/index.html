@@ -12,7 +12,7 @@
 <meta name="author" content="Maria Novas Filgueira">
 <meta name="author" content="Luis Sanguiao Sande">
 <meta name="author" content="Felix Aparicio Perez">
-<meta name="dcterms.date" content="2024-06-14">
+<meta name="dcterms.date" content="2024-09-26">
 
 <title>JDemetra+ documentation</title>
 <style>
@@ -517,7 +517,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">June 14, 2024</p>
+      <p class="date">September 26, 2024</p>
     </div>
   </div>
   
@@ -544,7 +544,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="currently-available-versions" class="level2">
 <h2 class="anchored" data-anchor-id="currently-available-versions">Currently available versions</h2>
 <p>The highest version currently recommended for production purposes is 2.2.4.</p>
-<p>Version 3.x family provides, <a href="G-news-v3-vs-v2.html">among other things</a>, extended features for seasonal adjustment and trend estimation, including <strong>high frequency data</strong>. The latest version 3.2.2 was released on March 14th 2024.</p>
+<p>Version 3.x family provides, <a href="G-news-v3-vs-v2.html">among other things</a>, extended features for seasonal adjustment and trend estimation, including <strong>high frequency data</strong>. The latest version 3.2.4 was released on July 11th 2024.</p>
 </section>
 <section id="background" class="level2">
 <h2 class="anchored" data-anchor-id="background">Background</h2>
@@ -582,14 +582,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 <p>As of April 2024, the latest version is <a href="https://github.com/jdemetra/jdemetra-app/releases/tag/v2.2.4">v2.2.4</a></p>
 <p>Scroll down the page, download and unzip the file <em>jdemetra-2.2.4-bin.zip</em>.</p>
-<p>To start the application, run the file <strong>nbdemetra64.exe</strong> located in the following subfolder “…\jdemetra-2.2.4-bin\nbdemetra\bin”</p>
+<p>To start the application, run the file <strong>nbdemetra64.exe</strong> located in the following subfolder <span class="path">…\jdemetra-2.2.4-bin\nbdemetra\bin</span></p>
 <p>Remark: You can create shortcuts to the executable files if you want to launch them from another folder (Desktop, project folder…).</p>
 <ul>
 <li>in the v3.x family: <a href="https://github.com/jdemetra/jdplus-main/releases">here</a></li>
 </ul>
 <p>You should install the latest release available denoted from now on v3.x.y</p>
 <p>Scroll down the page, download and unzip the file <em>jdemetra-standalone-3.x.y-windows-x86_64.zip</em>, if you use Windows, or the zip corresponding to you OS in the list.</p>
-<p>To start the application, run the file <strong>nbdemetra64.exe</strong> located in the following subfolder “…\jdemetra-standalone-3.x.y-windows-x86_64\nbdemetra\bin”</p>
+<p>To start the application, run the file <strong>nbdemetra64.exe</strong> located in the following subfolder <span class="path">…\jdemetra-standalone-3.x.y-windows-x86_64\nbdemetra\bin</span></p>
 <p>Version 3.x requires Java 17 or higher, <em>jdemetra-standalone-3.x.y-windows-x86_64.zip</em> contains a portable version of Java 21, so you don’t have to deal with this issue on your computer.</p>
 <p>R packages related to version 3.x (rjd3…) also require Java 17 or higher, you can (and should) use the portable version provided with the graphical user interface to run them, this is explained <a href="#Rconfig">here</a>.</p>
 </section>
@@ -625,8 +625,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="Rconfig" class="level4">
 <h4 class="anchored" data-anchor-id="Rconfig">Configuration needed to run rjd3 packages</h4>
 <p>To use rjd3 packages in R, you need Java 17 or higher.</p>
-<p>You can (and should) use the version of Java that comes with the Graphical User Interface (GUI). It is contained in the file <strong>jdemetra-standalone-3.2.2-windows-x86_64.zip</strong> available <a href="https://github.com/jdemetra/jdplus-main/releases">on this page</a>, in the “Assets” section, which you might have to expand to be able to see all the files.</p>
-<p>Once unzipped, the Java will be in located in C:\Software\jdemetra-standalone-3.x.y-windows-x86_64\nbdemetra\jdk-21.0.2+13-jre (path to be adapted to your computer/sever): this location must be declared in R.</p>
+<p>You can (and should) use the version of Java that comes with the Graphical User Interface (GUI). It is contained in the file <strong>jdemetra-standalone-3.2.4-windows-x86_64.zip</strong> available <a href="https://github.com/jdemetra/jdplus-main/releases">on this page</a>, in the “Assets” section, which you might have to expand to be able to see all the files.</p>
+<p>Once unzipped, the Java will be in located in <span class="path">C:\Software\jdemetra-standalone-3.x.y-windows-x86_64\nbdemetra\jdk-21.0.2+13-jre</span> (path to be adapted to your computer/server): this location must be declared in R.</p>
 <p>After unzipping the file:</p>
 <ul>
 <li>run this code at the beginning of your programs</li>
@@ -638,9 +638,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ul>
 <li><p>declare it “permanently” is the Renviron file (where environment variables specific to <code>R</code> are stored), following the steps below:</p>
 <ul>
-<li><p>in the R console run file.edit(“~/.Renviron”)</p></li>
-<li><p>in the file that opens add the line : <strong>JAVA_HOME= C:/Software/jdemetra-standalone-3.x.y-windows-x86_64/nbdemetra/jdk-21.0.2+13-jre</strong></p></li>
-<li><p>save the file and restart R</p></li>
+<li><p>in the R console run <code class="sourceCode r"><span class="fu">file.edit</span>(<span class="st">"~/.Renviron"</span>)</code></p></li>
+<li><p>in the file that opens add the line :</p></li>
+</ul>
+<pre><code>JAVA_HOME= "C:/Software/jdemetra-standalone-3.x.y-windows-x86_64/nbdemetra/jdk-21.0.2+13-jre"</code></pre>
+<ul>
+<li>save the file and restart R</li>
 </ul></li>
 </ul>
 <p>Follow R packages installation procedure and run basic examples from the readme files of each package. They are all listed on <a href="https://github.com/rjdverse?view_as=public">this page</a></p>
