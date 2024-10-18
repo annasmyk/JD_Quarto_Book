@@ -25,14 +25,14 @@
     "href": "index.html#background",
     "title": "JDemetra+ documentation",
     "section": "Background",
-    "text": "Background\nThis website is under construction, in the meantime you can fill a large number of the gaps by referring to the previous version of the on-line documentation, coordinated by Sylwia Grudkowska-Kubik (National Bank of Poland).\nTo learn more about the JDemetra+ development project you can visit Eurostat CROS Portal.\nEurostat’s recommendations on the statistical processes described in this documentation are outlined in:\n\nEurostat’s Guidelines on seasonal adjustment (2024)\nEurostat’s Guidelines on temporal disaggregation, benchmarking and reconcilation (2018)\n\nKey methodological explanations and state-of-the-art description and references can be found in:\n\nHandbook on seasonal adjustment (2018)\nHandbook on rapid estimates (2017)"
+    "text": "Background\nThis website is under construction, in the meantime you can fill a large number of the gaps by referring to the previous version of the on-line documentation, coordinated by Sylwia Grudkowska-Kubik (National Bank of Poland).\nEurostat’s recommendations on the statistical processes described in this documentation are outlined in:\n\nEurostat’s Guidelines on seasonal adjustment (2024)\nEurostat’s Guidelines on temporal disaggregation, benchmarking and reconcilation (2018)\n\nKey methodological explanations and state-of-the-art description and references can be found in:\n\nHandbook on seasonal adjustment (2018)\nHandbook on rapid estimates (2017)"
   },
   {
     "objectID": "index.html#useful-links",
     "href": "index.html#useful-links",
     "title": "JDemetra+ documentation",
     "section": "Useful links",
-    "text": "Useful links\nTo get started, you can browse and watch tutorials for JDemetra+. On this YouTube channel you will also find JDemetra+ related webinars.\nTo keep up with all JDemetra+ related news head over to the JDemetra+ Universe Blog"
+    "text": "Useful links\nTo get started, you can browse and watch tutorials for JDemetra+. On this YouTube channel you will also find JDemetra+ related webinars.\nIf you need user support, please raise an issue in this repository\nTo keep up with all JDemetra+ related news head over to the JDemetra+ Universe Blog"
   },
   {
     "objectID": "index.html#how-to-contribute",
