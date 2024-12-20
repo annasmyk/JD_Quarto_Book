@@ -118,6 +118,7 @@ book:
         # - M-state-space-framework.qmd ##(#m-ssf)
         - M-Temp-Disagg-Bench.qmd ##(#m-bench)
         - M-revision-analysis.qmd ##(#m-revs)
+    - Output_Description.qmd
     - references.qmd
 bibliography: references.bib
 
