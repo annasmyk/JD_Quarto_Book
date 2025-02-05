@@ -1,18 +1,18 @@
 # Revision Analysis {.unnumbered #a-revs}
 
-## In this Chapter
+<!-- ## In this Chapter -->
 
-This chapter covers how to analyse the behaviour of revisions of frequently published (and revised) macro-economic indicators.
+<!-- This chapter covers how to analyse the behaviour of revisions of frequently published (and revised) macro-economic indicators. -->
 
-## Motivation
+<!-- ## Motivation -->
 
-why ? 
+<!-- why ?  -->
 
-details on methods 
+<!-- details on methods  -->
 
 ## Tool
 
-The [rjd3revisions](https://github.com/rjdverse/rjd3revisions) packages allows to perform revision analysis.
+[rjd3revisions](https://github.com/rjdverse/rjd3revisions) package allows to perform revision analysis.
 
 More information is available directly in the package documentation and vignette.
 

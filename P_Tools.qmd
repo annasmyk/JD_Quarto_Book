@@ -2,9 +2,7 @@
 
 This part describes the tools allowing to access JDemetra+ algorithms: Graphical User Interface (GUI) extended with Plug-ins, Cruncher and R packages.
 
-Practical guidance for using them is provided [here](#part-A).
-
-Whereas, further methodological details on each algorithm can be found in the [Methods](#part-M) part of this book.
+Practical guidance on algorithms per se is provided [here](#part-A) and methodological details on each algorithm can be found in the [here](#part-M).
 
 In this part: 
 

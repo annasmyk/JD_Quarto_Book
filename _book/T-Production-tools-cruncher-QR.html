@@ -398,6 +398,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./Output_Description.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Output description</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./references.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">References</span></a>
   </div>
@@ -418,10 +424,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#installation-procedure" id="toc-installation-procedure" class="nav-link" data-scroll-target="#installation-procedure">Installation procedure</a></li>
   <li><a href="#help-pages" id="toc-help-pages" class="nav-link" data-scroll-target="#help-pages">Help pages</a></li>
   <li><a href="#running-the-cruncher-in-r" id="toc-running-the-cruncher-in-r" class="nav-link" data-scroll-target="#running-the-cruncher-in-r">Running the cruncher in R</a></li>
-  <li><a href="#updating-a-workspace" id="toc-updating-a-workspace" class="nav-link" data-scroll-target="#updating-a-workspace">Updating a workspace</a></li>
+  <li><a href="#updating-a-workspace-with-rjwsacruncher" id="toc-updating-a-workspace-with-rjwsacruncher" class="nav-link" data-scroll-target="#updating-a-workspace-with-rjwsacruncher">Updating a workspace with rjwsacruncher</a></li>
   <li><a href="#configuring-output-options" id="toc-configuring-output-options" class="nav-link" data-scroll-target="#configuring-output-options">Configuring output options</a></li>
   </ul></li>
-  <li><a href="#quality-report-with-jdcruncher" id="toc-quality-report-with-jdcruncher" class="nav-link" data-scroll-target="#quality-report-with-jdcruncher">Quality report with JDCruncheR</a>
+  <li><a href="#quality-report-with-jdcruncher" id="toc-quality-report-with-jdcruncher" class="nav-link" data-scroll-target="#quality-report-with-jdcruncher">Quality Report with JDCruncheR</a>
   <ul class="collapse">
   <li><a href="#main-steps" id="toc-main-steps" class="nav-link" data-scroll-target="#main-steps">Main steps</a></li>
   <li><a href="#piling-up-results" id="toc-piling-up-results" class="nav-link" data-scroll-target="#piling-up-results">Piling up results</a></li>
@@ -453,11 +459,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
+<!-- updates  -->
+<!-- code exaample with v3= true -->
+
+<!-- exportable series list  -->
+<!-- code for customizing score  -->
+<!-- - input options in params  -->
+<!-- - jd cruncher functions -->
+<!-- - clean edit  -->
+<!-- - check all functions doc in packages  -->
 <section id="in-this-chapter" class="level2">
 <h2 class="anchored" data-anchor-id="in-this-chapter">In this chapter</h2>
 <p>The sections below describe how to</p>
 <ul>
-<li><p>automate the Seasonal adjustment estimation process</p></li>
+<li><p>automate a Seasonal adjustment estimation process</p></li>
 <li><p>update a workspace when new data is available</p></li>
 <li><p>export output (series, diagnostics, parameters)</p></li>
 <li><p>generate a quality report usable for selective editing (manual fine tuning)</p></li>
@@ -469,7 +484,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Objectives of the cruncher:</p>
 <ul>
 <li><p>update a JDemetra+ workspace (with a selected <a href="A-rev-policies.html">revision policy</a>)</p></li>
-<li><p>export the results (series and diagnostics),</p></li>
+<li><p>export the results (series,diagnostics and parameters)</p></li>
 </ul>
 <p>without having to open the graphical interface and operate manually. Suitable for a production process.</p>
 <section id="installation-procedure" class="level3">
@@ -491,8 +506,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 class="anchored" data-anchor-id="running-the-cruncher-in-r">Running the cruncher in R</h3>
 <p>Two R packages are currently available</p>
 <ul>
-<li><p>rjwsacruncher on CRAN: workspace update and output production</p></li>
-<li><p>Cruncher (https://github.com/InseeFr/JDCruncheR): same functions as rjwsacruncher but adds a quality report</p></li>
+<li><p><a href="https://github.com/AQLT/rjwsacruncher">rjwsacruncher</a> (on CRAN): workspace update and output production</p></li>
+<li><p><a href="https://github.com/InseeFr/JDCruncheR">JDCruncheR</a> (on CRAN): adds a quality report</p></li>
 </ul>
 <section id="installation" class="level4">
 <h4 class="anchored" data-anchor-id="installation">Installation</h4>
@@ -503,14 +518,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"rjwsacruncher"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
-<li>JDCruncheR package: download the <strong>.zip</strong> or <strong>.tar.gz</strong> file from <a href="https://github.com/InseeFr/JDCruncheR/releases" class="uri">https://github.com/InseeFr/JDCruncheR/releases</a> or install the package from github:</li>
+<li>JDCruncheR</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># If remotes packages is not installed</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("remotes")</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Install development version from GitHub</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"InseeFr/JDCruncheR"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"JDCruncheR"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Additional packages needed</p>
 <div class="cell">
@@ -525,10 +536,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </section>
 <section id="connecting-the-cruncher-module" class="level4">
-<h4 class="anchored" data-anchor-id="connecting-the-cruncher-module">Connecting the cruncher module</h4>
-<p>To connect the cruncher to the R package, the path to the bin directory containing the <strong>cruncher.bat</strong> file must be specified. This directory is available once the zip file has been unzipped.</p>
+<h4 class="anchored" data-anchor-id="connecting-the-cruncher-module">Connecting the Cruncher module</h4>
+<p>To connect the cruncher to the R package, the path to the bin directory containing the <strong>cruncher.bat</strong> file must be specified. This directory is available once the zip file has been unzipped. For example:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">cruncher_bin_directory =</span> <span class="st">"C:/Software/jwsacruncher-2.2.3/jdemetra-cli-2.2.3/bin"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">cruncher_bin_directory =</span> <span class="st">"C:/Software/jwsacruncher-3.3.0/jdemetra-cli-3.3.0/bin"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <ul>
 <li>checking the current value</li>
@@ -538,14 +549,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </section>
 </section>
-<section id="updating-a-workspace" class="level3">
-<h3 class="anchored" data-anchor-id="updating-a-workspace">Updating a workspace</h3>
-<p>The functions described in this section are identical for both packages.</p>
+<section id="updating-a-workspace-with-rjwsacruncher" class="level3">
+<h3 class="anchored" data-anchor-id="updating-a-workspace-with-rjwsacruncher">Updating a workspace with rjwsacruncher</h3>
 <section id="running-estimations" class="level4">
 <h4 class="anchored" data-anchor-id="running-estimations">Running estimations</h4>
-<p>The general context: two use cases</p>
+<p>General context: two use cases</p>
 <ul>
-<li><p>Run first estimation of seasonally adjusted series (from raw series and parameters contained in the workspace)</p></li>
+<li><p>Run first or complete estimation of seasonally adjusted series (from raw series and parameters contained in the workspace)</p></li>
 <li><p>Apply a <a href="A-rev-policies.html">revision policy</a> to updated raw series</p></li>
 </ul>
 <p>The function <a href="https://aqlt.github.io/rjwsacruncher/reference/cruncher_and_param.html"><code class="sourceCode r"><span class="fu">cruncher_and_param</span>()</code></a> allows to do that:</p>
@@ -571,7 +581,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ul>
 <li><code>paths_path</code> to add relative paths</li>
 <li><code>v3</code> to specify if your workspace was created in v3</li>
-<li>other argument you can find <a href="https://aqlt.github.io/rjwsacruncher/reference/create_param_file.html">here</a></li>
+<li>others arguments you can find <a href="https://aqlt.github.io/rjwsacruncher/reference/create_param_file.html">here</a></li>
 </ul>
 </section>
 </section>
@@ -609,11 +619,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 </section>
 <section id="quality-report-with-jdcruncher" class="level2">
-<h2 class="anchored" data-anchor-id="quality-report-with-jdcruncher">Quality report with JDCruncheR</h2>
-<p>The JDCruncheR package also:</p>
+<h2 class="anchored" data-anchor-id="quality-report-with-jdcruncher">Quality Report with JDCruncheR</h2>
+<p>The JDCruncheR package:</p>
 <ul>
-<li><p>computes a quality score</p></li>
-<li><p>creates a quality report from the diagnostics produced by JDemetra+</p></li>
+<li><p>computes a quality score from the diagnostics produced by JDemetra+</p></li>
+<li><p>creates a quality report</p></li>
 </ul>
 <section id="main-steps" class="level3">
 <h3 class="anchored" data-anchor-id="main-steps">Main steps</h3>
@@ -691,10 +701,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Practical steps if you want to customize the score computation (see package documentation in R)</p>
 <ul>
 <li><p>select your indicators of interest</p></li>
-<li><p>adjust “good”, “bad”…threshold in JD+ GUI if necessary</p></li>
+<li><p>adjust “good”, “uncertain”, “bad”, “severe”</p></li>
 <li><p>by default good=0, uncertain=1, bad or severe=3</p></li>
-<li><p>change this grading system and/or the weights directly in the package functions</p></li>
-<li><p>rebuild your package</p></li>
 </ul>
 </section>
 </section>
