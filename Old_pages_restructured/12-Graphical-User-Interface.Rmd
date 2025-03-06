@@ -101,7 +101,7 @@ JDemetra+ the Java RE 8 or higher is needed. Java RE can be downloaded
 from [Oracle
 website](https://www.oracle.com/technetwork/java/javase/downloads/index.html).
 
-The official release of JDemetra+ is accessible at [a dedicated Github
+The official release of JDemetra+ is accessible at [a dedicated GitHub
 page](https://github.com/jdemetra/jdemetra-app/releases). The site
 presents all available releases - both official releases (labelled in
 green as latest releases) and pre-releases (labelled in red) - packed in

@@ -35,7 +35,7 @@ The graphical user interface in the 2.x and 3.x family give access to generic ti
 
 JDemetra+ is a stand-alone application packed in a zip package. To run JDemetra+ the Java RE 8 or higher is needed. Java RE can be downloaded from [Oracle website](https://www.oracle.com/technetwork/java/javase/downloads/index.html).
 
-The official release of JDemetra+ is accessible at [a dedicated Github page](https://github.com/jdemetra/jdemetra-app/releases). The site presents all available releases - both official releases (labelled in green as latest releases) and pre-releases (labelled in red) - packed in zip packages. From the *Latest release* section either choose the installer appropriate for your operating system (Windows, Linux, Mac OS, Solaris) or take the portable zip-file. The installation process is straightforward and intuitive. For example, when the zip-file is chosen and downloaded, then under Windows OS the application can be found in the "bin"-folder of the installation/unpacked zip.
+The official release of JDemetra+ is accessible at [a dedicated GitHub page](https://github.com/jdemetra/jdemetra-app/releases). The site presents all available releases - both official releases (labelled in green as latest releases) and pre-releases (labelled in red) - packed in zip packages. From the *Latest release* section either choose the installer appropriate for your operating system (Windows, Linux, Mac OS, Solaris) or take the portable zip-file. The installation process is straightforward and intuitive. For example, when the zip-file is chosen and downloaded, then under Windows OS the application can be found in the "bin"-folder of the installation/unpacked zip.
 
 ## Running JDemetra+ {#running-jdemetra}
 
