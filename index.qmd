@@ -96,17 +96,17 @@ To benefit from extended features of the graphical user interface installing add
 
 In the **v2.x family** some of the additional features are:
 
-- Benchmarking and Temporal disaggregation [Github page](https://github.com/nbbrd/jdemetra-benchmarking%22)
+- Benchmarking and Temporal disaggregation [GitHub page](https://github.com/nbbrd/jdemetra-benchmarking%22)
     
-- Nowcasting [Github page](https://github.com/nbbrd/jdemetra-nowcasting)
+- Nowcasting [GitHub page](https://github.com/nbbrd/jdemetra-nowcasting)
     
 In the **v3.x family** some of the additional features are:
 
-- Benchmarking and Temporal disaggregation [Github page](https://github.com/jdemetra/jdplus-benchmarking)
+- Benchmarking and Temporal disaggregation [GitHub page](https://github.com/jdemetra/jdplus-benchmarking)
     
-- Seasonal adjustment of high frequency data [Github page](https://github.com/jdemetra/jdplus-incubator)
+- Seasonal adjustment of high frequency data [GitHub page](https://github.com/jdemetra/jdplus-incubator)
     
-- Additional algorithms for seasonal adjustment [Github page](https://github.com/jdemetra/jdplus-incubator)
+- Additional algorithms for seasonal adjustment [GitHub page](https://github.com/jdemetra/jdplus-incubator)
 
 
 ### Cruncher 

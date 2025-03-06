@@ -36,7 +36,7 @@ Click on the zip code line of the latest release
 
 ### Help pages
 
-Documentation is available here or click on the wiki icon on the Github page <https://github.com/jdemetra/jwsacruncher/wiki>
+Documentation is available here or click on the wiki icon on the GitHub page <https://github.com/jdemetra/jwsacruncher/wiki>
 
 ### Running the cruncher in R
 
