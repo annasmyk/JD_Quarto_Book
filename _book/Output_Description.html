@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>JDemetra+ documentation - Trend-cycle estimation</title>
+<title>JDemetra+ documentation - Output description</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./A-revision-analysis.html" rel="next">
-<link href="./A-benchmarking.html" rel="prev">
+<link href="./references.html" rel="next">
+<link href="./M-revision-analysis.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -61,6 +61,8 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -74,7 +76,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./P_Algorithms.html">Algorithms</a></li><li class="breadcrumb-item"><a href="./A-trend-cycle-estimation.html">Trend-cycle estimation</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Output_Description.html">Output description</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -147,11 +149,11 @@ ul.task-list li input[type="checkbox"] {
       <div class="sidebar-item-container"> 
             <a href="./P_Algorithms.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Algorithms</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./A-RegArima-Tramo-Modelling-Overview.html" class="sidebar-item-text sidebar-link">
@@ -232,7 +234,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./A-trend-cycle-estimation.html" class="sidebar-item-text sidebar-link active">
+  <a href="./A-trend-cycle-estimation.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Trend-cycle estimation</span></a>
   </div>
 </li>
@@ -364,7 +366,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Output_Description.html" class="sidebar-item-text sidebar-link">
+  <a href="./Output_Description.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Output description</span></a>
   </div>
 </li>
@@ -384,21 +386,22 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#in-this-chapter" id="toc-in-this-chapter" class="nav-link active" data-scroll-target="#in-this-chapter">In this Chapter</a></li>
-  <li><a href="#tools-for-access" id="toc-tools-for-access" class="nav-link" data-scroll-target="#tools-for-access">Tools for access</a>
-  <ul class="collapse">
-  <li><a href="#rjd3filters" id="toc-rjd3filters" class="nav-link" data-scroll-target="#rjd3filters">rjd3filters</a></li>
-  <li><a href="#rjd3x11plus" id="toc-rjd3x11plus" class="nav-link" data-scroll-target="#rjd3x11plus">rjd3x11plus</a></li>
-  </ul></li>
+  <li><a href="#in-this-chapter" id="toc-in-this-chapter" class="nav-link active" data-scroll-target="#in-this-chapter">In this chapter</a></li>
+  <li><a href="#what-is-displayed-or-generated" id="toc-what-is-displayed-or-generated" class="nav-link" data-scroll-target="#what-is-displayed-or-generated">What is displayed or generated ?</a></li>
+  <li><a href="#how-to-access-it" id="toc-how-to-access-it" class="nav-link" data-scroll-target="#how-to-access-it">How to access it</a></li>
+  <li><a href="#series" id="toc-series" class="nav-link" data-scroll-target="#series">Series</a></li>
+  <li><a href="#diagnostics" id="toc-diagnostics" class="nav-link" data-scroll-target="#diagnostics">Diagnostics</a></li>
+  <li><a href="#parameters" id="toc-parameters" class="nav-link" data-scroll-target="#parameters">Parameters</a></li>
+  <li><a href="#cruncher-output" id="toc-cruncher-output" class="nav-link" data-scroll-target="#cruncher-output">Cruncher Output</a></li>
   </ul>
-<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/annasmyk/JD_Quarto_Book/edit/main/A-trend-cycle-estimation.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/annasmyk/JD_Quarto_Book/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/annasmyk/JD_Quarto_Book/edit/main/Output_Description.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/annasmyk/JD_Quarto_Book/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span id="a-trend" class="quarto-section-identifier">Trend-cycle estimation</span></h1>
+<h1 class="title"><span id="output-chap" class="quarto-section-identifier">Output description</span></h1>
 </div>
 
 
@@ -414,24 +417,406 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 <section id="in-this-chapter" class="level2">
-<h2 class="anchored" data-anchor-id="in-this-chapter">In this Chapter</h2>
-<p>This chapter will cover the implementation of trend estimation methods available in JDemetra+ v 3.</p>
-<p>More methodological details will be provided <a href="#m-trend">here</a></p>
+<h2 class="anchored" data-anchor-id="in-this-chapter">In this chapter</h2>
+<p>How to navigate output</p>
+<p>Names</p>
+<p>Indications and example in the relevant algo or tool chapter</p>
+<p>Here comprehensive (target) lists</p>
 </section>
-<section id="tools-for-access" class="level2">
-<h2 class="anchored" data-anchor-id="tools-for-access">Tools for access</h2>
-<p>For the time being this algorithms are available in two R packages.</p>
-<section id="rjd3filters" class="level3">
-<h3 class="anchored" data-anchor-id="rjd3filters">rjd3filters</h3>
-<p>rjd3filters is available <a href="https://github.com/rjdverse/rjd3filters">here</a>, with useful information in the Readme file and function documentation.</p>
+<section id="what-is-displayed-or-generated" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-displayed-or-generated">What is displayed or generated ?</h2>
+<p>Output: 3 types of objects</p>
+<ul>
+<li><p>series (final and intermediate)</p></li>
+<li><p>parameters (automatic, user-defined or resulting from the estimation process)</p></li>
+<li><p>diagnostics</p></li>
+</ul>
+<p>displayed</p>
+<ul>
+<li><p>gui</p></li>
+<li><p>R packages</p></li>
+</ul>
+<p>dictionaries user defined functions (deprecated)</p>
+<!-- maj java dicos  -->
+<p>generated to files or R objects (lists of lists)</p>
+<p>Gathered in 2 data structures</p>
+<ul>
+<li><p>time series organised in data tables</p></li>
+<li><p>individual data (for each series: parameters and diagnostics)</p></li>
+</ul>
 </section>
-<section id="rjd3x11plus" class="level3">
-<h3 class="anchored" data-anchor-id="rjd3x11plus">rjd3x11plus</h3>
-<p>rjd3x11plus is available <a href="https://github.com/rjdverse/rjd3x11plus">here</a>, with (up coming) useful information in the Readme file and function documentation.</p>
-<p>(Up coming content)</p>
+<section id="how-to-access-it" class="level2">
+<h2 class="anchored" data-anchor-id="how-to-access-it">How to access it</h2>
+<p>Below different lists We flog differences between v2 and v3</p>
+<!-- file from old doc GUI_Output_items.txt in Documents/JD_Quarto_Book_AUX/All_pages -->
+
+<!-- use: https://www.tablesgenerator.com/markdown_tables -->
+</section>
+<section id="series" class="level2">
+<h2 class="anchored" data-anchor-id="series">Series</h2>
+<p>fields: concept, name in the software (GUI, cruncher, R), algo used ? or by algo ?</p>
+<table class="table">
+<colgroup>
+<col style="width: 52%">
+<col style="width: 25%">
+<col style="width: 22%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Concept</th>
+<th>Name</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Original series</td>
+<td><span class="math display">\[y\]</span></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Forecasts of the original series</td>
+<td><span class="math display">\[y\_ f\]</span></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Standard errors of the forecasts of the original series</td>
+<td><span class="math display">\[y\_ ef\]</span></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Interpolated series</td>
+<td><span class="math display">\[y\_ c\]</span></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Forecasts of the interpolated series</td>
+<td><span class="math display">\[yc\_ f\]</span></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Standard errors of the forecasts of the interpolated series</td>
+<td><span class="math display">\[yc\_ ef\]</span></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Linearised series (not transformed)</td>
+<td><span class="math display">\[y\_ lin\]</span></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Linearised series (transformed)</td>
+<td><span class="math display">\[l\]</span></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Series corrected for calendar effects</td>
+<td><span class="math display">\[{ycal}\]</span></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Forecasts of the series corrected for calendar effects</td>
+<td><span class="math display">\[ycal\_ f\]</span></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Forecasts of the linearised series</td>
+<td><span class="math display">\[l\_ f\]</span></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Backcasts of the linearised series</td>
+<td><span class="math display">\[l\_ b\]</span></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Trend (including deterministic effects)</td>
+<td><span class="math display">\[t\]</span></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Forecasts of the trend</td>
+<td><span class="math display">\[t\_ f\]</span></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Seasonally adjusted series (including deterministic effects)</td>
+<td><span class="math display">\[{sa}\]</span></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Forecasts of the seasonally adjusted series</td>
+<td><span class="math display">\[sa\_ f\]</span></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Seasonal component (including deterministic effects)</td>
+<td><span class="math display">\[s\]</span></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Forecasts of the seasonal component</td>
+<td><span class="math display">\[s\_ f\]</span></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Irregular component (including deterministic effects)</td>
+<td><span class="math display">\[i\]</span></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Forecasts of the irregular component</td>
+<td><span class="math display">\[i\_ f\]</span></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>All deterministic effects</td>
+<td><span class="math display">\[{det}\]</span></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Forecasts of the deterministic effects</td>
+<td><span class="math display">\[det\_ f\]</span></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Calendar effects</td>
+<td><span class="math display">\[{cal}\]</span></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Forecasts of the calendar effects</td>
+<td><span class="math display">\[cal\_ f\]</span></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Trading day effect</td>
+<td><span class="math display">\[{tde}\]</span></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Forecasts of the trading day effect</td>
+<td><span class="math display">\[tde\_ f\]</span></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Moving holidays effects</td>
+<td><span class="math display">\[{mhe}\]</span></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Forecasts of the moving holidays effects</td>
+<td><span class="math display">\[mhe\_ f\]</span></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Easter effect</td>
+<td><span class="math display">\[{ee}\]</span></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Forecasts of the Easter effect</td>
+<td><span class="math display">\[ee\_ f\]</span></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Other moving holidays effects</td>
+<td><span class="math display">\[{omhe}\]</span></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Forecasts of the other moving holidays effects</td>
+<td><span class="math display">\[omhe\_ f\]</span></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>All outliers effects</td>
+<td><span class="math display">\[{out}\]</span></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Forecasts of all outliers effects</td>
+<td><span class="math display">\[out\_ f\]</span></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Outliers effects related to irregular (AO, TC)</td>
+<td><span class="math display">\[out\_ i\]</span></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Forecasts of outliers effects related to irregular (TC)</td>
+<td><span class="math display">\[out\_ i\_ f\]</span></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Outliers effects related to trend (LS)</td>
+<td><span class="math display">\[out\_ t\]</span></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Forecasts of outliers effects related to trend (LS)</td>
+<td><span class="math display">\[out\_ t\_ f\]</span></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Outliers effects related to seasonal (SO)</td>
+<td><span class="math display">\[out\_ s\]</span></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Forecasts of outliers effects related to seasonal (SO)</td>
+<td><span class="math display">\[out\_ s\_ f\]</span></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>All other regression effects</td>
+<td><span class="math display">\[{reg}\]</span></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Forecasts of all other regression effects</td>
+<td><span class="math display">\[reg\_ f\]</span></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Regression effects related to irregular</td>
+<td><span class="math display">\[reg\_ i\]</span></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Forecasts of regression effects related to irregular</td>
+<td><span class="math display">\[reg\_ i\_ f\]</span></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Regression effects related to trend</td>
+<td><span class="math display">\[reg\_ t\]</span></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Forecasts of regression effects related to trend</td>
+<td><span class="math display">\[reg\_ t\_ f\]</span></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Regression effects related to seasonal</td>
+<td><span class="math display">\[reg\_ s\]</span></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Forecasts of regression effects related to seasonal</td>
+<td><span class="math display">\[reg\_ s\_ f\]</span></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Regression effects related to seasonally adjusted series</td>
+<td><span class="math display">\[reg\_ sa\]</span></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Forecasts of regression effects related to seasonally adjusted series</td>
+<td><span class="math display">\[reg\_ sa\_ f\]</span></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Separate regression effects</td>
+<td><span class="math display">\[reg\_ y\]</span></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Forecasts of separate regression effects</td>
+<td><span class="math display">\[reg\_ y\_ f\]</span></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Full residuals of the RegARIMA model</td>
+<td><span class="math display">\[{fullresiduals}\]</span></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Linearised series used as input in the decomposition</td>
+<td><span class="math display">\[decomposition.y\_ lin\]</span></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Forecast of the linearised series used as input in the decomposition</td>
+<td><span class="math display">\[decomposition.y\_ lin\_ f\]</span></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Trend produced by the decomposition</td>
+<td><span class="math display">\[decomposition.t\_ lin\]</span></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Forecasts of the trend produced by the decomposition</td>
+<td><span class="math display">\[decomposition.t\_ lin\_ f\]</span></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Seasonal component produced by the decomposition</td>
+<td><span class="math display">\[decomposition.s\_ lin\]</span></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Forecasts of the Seasonal component produced by the decomposition</td>
+<td><span class="math display">\[decomposition.s\_ lin\_ f\]</span></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Irregular produced by the decomposition</td>
+<td><span class="math display">\[decomposition.i\_ lin\]</span></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Forecasts of the irregular produced by the decomposition</td>
+<td><span class="math display">\[decomposition.i\_ lin\_ f\]</span></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Seasonally adjusted series produced by the decomposition</td>
+<td><span class="math display">\[decomposition.sa\_ lin\]</span></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Forecasts of the seasonally adjusted series produced by the decomposition</td>
+<td><span class="math display">\[decomposition.sa\_ lin\_ f\]</span></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Seasonal-Irregular produced by the decomposition</td>
+<td><span class="math display">\[decomposition.si\_ lin\]</span></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>For X-13ARIMA-SEATS only. Series from the X-11 decomposition (x = a, b, c, d, e; y=a1…)</td>
+<td><span class="math display">\[decomposition.x - tables.y\]</span></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Benchmarked seasonally adjusted series</td>
+<td><span class="math display">\[{benchmarking.result}\]</span></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Target for the benchmarking</td>
+<td><span class="math display">\[{benchmarking.target}\]</span></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="diagnostics" class="level2">
+<h2 class="anchored" data-anchor-id="diagnostics">Diagnostics</h2>
+</section>
+<section id="parameters" class="level2">
+<h2 class="anchored" data-anchor-id="parameters">Parameters</h2>
+</section>
+<section id="cruncher-output" class="level2">
+<h2 class="anchored" data-anchor-id="cruncher-output">Cruncher Output</h2>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
@@ -670,13 +1055,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./A-benchmarking.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Benchmarking and temporal disagreggation</span>
+      <a href="./M-revision-analysis.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Revision Analysis</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./A-revision-analysis.html" class="pagination-link">
-        <span class="nav-page-text">Revision Analysis</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./references.html" class="pagination-link">
+        <span class="nav-page-text">References</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

@@ -1,4 +1,4 @@
-# Output description {#output .unnumbered}
+# Output description {#output-chap .unnumbered}
 
 ## In this chapter
 
@@ -51,7 +51,7 @@ Below different lists We flog differences between v2 and v3
 fields: concept, name in the software (GUI, cruncher, R), algo used ? or by algo ?
 
 | Concept | Name |   |
-|----------------------------------------------|-----------------------|-------------|
+|--------------------------------------|------------------|----------------|
 | Original series | $$y$$ |  |
 | Forecasts of the original series | $$y\_ f$$ |  |
 | Standard errors of the forecasts of the original series | $$y\_ ef$$ |  |
@@ -120,8 +120,8 @@ fields: concept, name in the software (GUI, cruncher, R), algo used ? or by algo
 | Benchmarked seasonally adjusted series | $${benchmarking.result}$$ |  |
 | Target for the benchmarking | $${benchmarking.target}$$ |  |
 
-## Diagnostics by algorithm
+## Diagnostics
 
-## Parameters by algorithm
+## Parameters
 
 ## Cruncher Output

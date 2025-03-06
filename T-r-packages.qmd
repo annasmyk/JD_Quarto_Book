@@ -2,43 +2,26 @@
 
 ## In this chapter
 
-Core JDemetra+ Java algorithms can be accessed in R. This chapter provides an overview of the R ecosystem related to JDemetra+ [version 2.4](https://github.com/rjdverse/rjdemetra) and [3.x](https://github.com/rjdemetra), still under construction. More details on specific functions are available in the relevant chapters in the [Algorithm part](#part-A) of this documentation. Help pages, Readme pages and vignettes relative to each package provide a detailed description of all available functions: purpose, arguments, output and examples. There are directly linked to this documentation whenever their use in a selected algorithm is mentioned.
+Core JDemetra+ Java algorithms can be accessed in R. This chapter provides an overview of the suite of R packages related to JDemetra+: [rjdverse](https://github.com/rjdverse). R Help pages, Readme pages and vignettes relative to each package provide a detailed description of all available functions: objectives, arguments, output and examples. The corresponding GitHub pages are directly linked to this documentation whenever their use in a selected algorithm is mentioned.
+More details on specific functions are available in the relevant chapters in the [Algorithm part](#part-A)
+
+### Installing Packages
+
+All R packages related to JDemetra+ (v2 or v3) are available from the [rjdverse Github page](https://github.com/rjdverse). 
+
+They can be installed from 
+    - GitHub 
+    - r-universe
+    - CRAN (for some of them)
+    
+As explained in the corresponding Readme files on [Github](https://github.com/rjdverse).
+
 
 ### Configuration needed 
 
-- To run packages based on version 2.x: Java 8 or higher
-
 - To run packages based on version 3.x: Java 17 or higher: how to get a portable Java and link it with R on your computer is explained [here](#Rconfig)
 
-
-### Packages based on JDemetra+ version 2 algorithms
-
-Packages corresponding to version 2.x core routines:
-
--   [**RJDemetra**](https://github.com/rjdverse/rjdemetra) on [CRAN](https://cran.r-project.org/web/packages/RJDemetra/index.html) or <https://github.com/rjdverse/rjdemetra>
--   [**rjdworkspace**](https://github.com/InseeFrLab/rjdworkspace) on <https://github.com/InseeFrLab/rjdworkspace>
--   [**JDCruncheR**](https://github.com/InseeFr/JDCruncheR) on <https://github.com/InseeFr/JDCruncheR>
--   [**ggdemetra**](https://github.com/AQLT/ggdemetra) on <https://github.com/AQLT/ggdemetra>
--   [**rjdqa**](https://github.com/AQLT/rjdqa) on <https://github.com/AQLT/rjdqa>
-
-### Packages based on JDemetra+ version 3 algorithms
-
-Packages corresponding to version 3.x core routines:
-
--   [**rjd3toolkit**](https://github.com/rjdverse/rjd3toolkit) at <https://github.com/rjdverse/rjd3toolkit>
--   [**rjd3x13**](https://github.com/rjdverse/rjd3x13) on <https://github.com/rjdverse/rjd3x13>
--   [**rjd3tramoseats**](https://github.com/rjdverse/rjd3tramoseats) at <https://github.com/rjdverse/rjd3tramoseats>
--   [**rjd3providers**](https://github.com/rjdverse/rjd3providers) at <https://github.com/rjdverse/rjd3providers>
--   [**rjd3workspace**](https://github.com/rjdverse/rjd3workspace) at <https://github.com/rjdverse/rjd3workspace>
--   [**rjd3highfreq**](https://github.com/rjdverse/rjd3highfreq) at <https://github.com/rjdverse/rjd3highfreq>
--   [**rjd3filters**](https://github.com/rjdverse/rjd3filters) at <https://github.com/rjdverse/rjd3filters>
--   [**rjd3x11plus**](https://github.com/rjdverse/rjd3x11plus) at <https://github.com/rjdverse/rjd3x11plus>
--   [**rjd3bench**](https://github.com/rjdverse/rjd3bench) at <https://github.com/rjdverse/rjd3bench>
--   [**rjd3revisions**](https://github.com/rjdverse/rjd3revisions) at <https://github.com/rjdverse/rjd3revisions>
--   [**rjd3nowcasting**](https://github.com/rjdverse/rjd3nowcasting) at <https://github.com/rjdverse/rjd3nowcasting>
--   [**rjd3sts**](https://github.com/rjdverse/rjd3sts) at <https://github.com/rjdverse/rjd3sts>
--   [**rjd3stl**](https://github.com/rjdverse/rjd3stl) at <https://github.com/rjdverse/rjd3stl>
--   [**ggdemetra3**](https://github.com/AQLT/ggdemetra3) on <https://github.com/AQLT/ggdemetra3>
+- To run packages based on version 2.x: Java 8 or higher
 
 ## Algorithms available in R
 
@@ -151,42 +134,10 @@ sa_x13_v3$user_defined
 
 To retrieve any element just navigate this list of lists.
 
-## Installation procedure
-
-### version 2
-
-```{r, echo = TRUE, eval = FALSE}
-install.packages("RJDemetra")
-remotes::install_github("InseeFrLab/rjdworkspace")
-remotes::install_github("InseeFr/JDCruncheR")
-```
-
-### version 3
-
-To use version 3 based R packages you need Java 17 or higher. How to configure this in your R set up is explained [here](#Rconfig).
-
-```{r, echo = TRUE, eval = FALSE}
-# install.packages("remotes")
-# install.packages("devtools")
-remotes::install_github("rjdverse/rjd3toolkit")
-remotes::install_github("rjdverse/rjd3x13")
-remotes::install_github("rjdverse/rjd3tramoseats")
-remotes::install_github("rjdverse/rjd3providers")
-remotes::install_github("rjdverse/rjd3workspace")
-remotes::install_github("rjdverse/rjd3filters")
-remotes::install_github("rjdverse/rjd3sts")
-remotes::install_github("rjdverse/rjd3highfreq")
-remotes::install_github("rjdverse/rjd3x11plus")
-remotes::install_github("rjdverse/rjd3stl")
-remotes::install_github("rjdverse/rjd3bench")
-remotes::install_github("rjdverse/rjd3revisions")
-remotes::install_github("rjdverse/rjd3nowcasting")
-remotes::install_github("AQLT/ggdemetra3")
-```
 
 ## rjd3 suite of packages: overview
 
-The sections below provide an overview of each package based on version 3.x of JDemetra+. For detailed description refer to the package's own R readme file and documentation pages as linked below.
+The sections below provide an overview of each package based on version 3.x of JDemetra+. For detailed description refer to the package's own R Readme file and documentation pages as linked below.
 
 ### rjd3toolkit
 
@@ -408,11 +359,11 @@ Tailored for Benchmarking and temporal disaggregation
 
 ### rjd3revisions
 
-Revision analysis, more info [here](#a-revs)
+Revision analysis, more information [here](#a-revs)
 
 <!-- ### rjd3providers -->
 
-<!-- ### rjdemetra 3 -->
+<!-- ### rjd3workspace -->
 
 <!-- This package allows to wrangle JDemetra+ workspaces in R with functions: -->
 
