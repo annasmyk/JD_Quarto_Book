@@ -10,7 +10,7 @@ to be added: which test are done when SEATS decomposition vs X-13-Arima.
 
 | Test           | Purpose         | GUI  | R package  |
 |----------------|-----------------|------|------------|
-| Ljung-Box      | autocorrelation | ✔️   |            |
+| Ljung-Box      | autocorrelation | ✔️   | rjd3tookit |
 | Box-Pierce     | autocorrelation | ✔️   |            |
 | Doornik-Hansen | normality       | ✔️   | rjd3tookit |
 
@@ -128,7 +128,7 @@ table with all tests by purpose and accessibility
 | QS test                          | Autocorrelation at seasonal lags | ✔️  |             |
 | F-test with seasonal dummies     | Stable seasonality               | ✔️  | rjd3toolkit |
 | Canova-Hansen                    | Seasonal frequencies             | ✖  | rjd3toolkit |
-| Identification of spectral peaks | Seasonal frequencies             | ✔️  | rjd3toolkit |
+| Identification of spectral peaks | Seasonal frequencies             | ✔️  |             |
 | Friedman test                    | Stable seasonality               | ✔️  | rjd3toolkit |
 | Two-way variance analysis        | Moving seasonality               | ✔️  |             |
 
