@@ -96,7 +96,7 @@ To benefit from extended features of the graphical user interface installing add
 
 In the **v2.x family** some of the additional features are:
 
-- Benchmarking and Temporal disaggregation [GitHub page](https://github.com/nbbrd/jdemetra-benchmarking%22)
+- Benchmarking and Temporal disaggregation [GitHub page](https://github.com/nbbrd/jdemetra-benchmarking)
     
 - Nowcasting [GitHub page](https://github.com/nbbrd/jdemetra-nowcasting)
     
@@ -123,7 +123,7 @@ To install it :
 
 JDemetra+ algorithms can be accessed in R, which is detailed [here](#t-r-packs)
 
-You can directly head over to this [GitHub page](https://github.com/rjdemetra), then for each package indications for installation and basic use are provided in the readme files.
+You can directly head over to this [GitHub page](https://github.com/rjdverse?view_as=public), then for each package indications for installation and basic use are provided in the readme files.
 
 <!-- general readme to build and specific to check -->
 

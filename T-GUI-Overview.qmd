@@ -161,7 +161,7 @@ By default, JDemetra+ supports the following data sources:
 - Excel spreadsheets;
 - TSW (input files for the [TRAMO-SEATS-Windows application](https://www.bde.es/bde/en/secciones/servicios/Profesionales/Programas_estadi/Programas.html) by the Bank of Spain);
 - TXT;
-- USCB (input files for the [X-13-ARIMA-SEATS application](https://www.census.gov/srd/www/winx13/) by the U.S. Census Bureau);
+- USCB (input files for the [X-13-ARIMA-SEATS application](https://www.census.gov/data/software/x13as.html) by the U.S. Census Bureau);
 - XML.
 
 All standard databases (Oracle, SQLServer, DB2, MySQL) are supported by JDemetra+ via JDBC, which is a generic interface to many relational databases. Other providers can be added by users by creating plugins (see *Plugins* section in the [Tools](tools.html) menu).

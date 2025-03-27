@@ -45,6 +45,7 @@ jobs:
           remotes::install_github("rjdverse/rjd3bench")
           remotes::install_github("rjdverse/rjd3x11plus")
           remotes::install_github("rjdverse/rjd3filters")
+          remotes::install_github("rjdverse/rjd3revisions")
           remotes::install_github("AQLT/ggdemetra3")
         shell: Rscript {0}
 
