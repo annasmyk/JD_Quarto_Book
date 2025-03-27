@@ -38,7 +38,6 @@ For the user not needing seasonal adjustment, the sections below highlight the f
 In version 2
 
 ```{r, echo = TRUE, eval = FALSE}
-library("RJDemetra")
 # Reg-Arima
 regA_v2 <- RJDemetra::regarima_x13(raw_series, spec = "RG5c")
 # Tramo

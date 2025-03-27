@@ -126,15 +126,15 @@ page](https://rjdverse.github.io/rjd3toolkit/reference/set_benchmarking.html)
 
 ```{r, echo=TRUE, eval=FALSE}
 init_spec <- rjd3x13::spec_x13("RSA5c")
-new_spec <- set_benchmarking(init_spec,
-                           enabled = TRUE,
-                           target = "Normal",
-                           rho = 0.8,
-                           lambda = 0.5,
-                           forecast = FALSE,
-                           bias = "None")
-
-
+new_spec <- set_benchmarking(
+    init_spec,
+    enabled = TRUE,
+    target = "Normal",
+    rho = 0.8,
+    lambda = 0.5,
+    forecast = FALSE,
+    bias = "None"
+)
 ```
 
 More information on R packages for JDemetra+ and installation procedures
@@ -464,7 +464,7 @@ The output is a list containing 3 elements:
 
     ```{r,eval=FALSE, include=TRUE}
 
-    output$regression$type
+output$regression$type
 
     ```
 
@@ -473,7 +473,7 @@ The output is a list containing 3 elements:
 
     ```{r,eval=FALSE, include=TRUE}
 
-    output$regression$model
+output$regression$model
 
     ```
 
@@ -481,7 +481,7 @@ The output is a list containing 3 elements:
 
     ```{r,eval=FALSE, include=TRUE}
 
-    output$regression$conversion
+output$regression$conversion
 
     ```
 
@@ -491,7 +491,7 @@ The output is a list containing 3 elements:
 
     ```{r,eval=FALSE, include=TRUE}
 
-    output$estimation$disagg
+output$estimation$disagg
 
     ```
 
@@ -499,7 +499,7 @@ The output is a list containing 3 elements:
 
     ```{r,eval=FALSE, include=TRUE}
 
-    output$estimation$edisagg
+output$estimation$edisagg
 
     ```
 
@@ -507,7 +507,7 @@ The output is a list containing 3 elements:
 
     ```{r,eval=FALSE, include=TRUE}
 
-    output$estimation$regeffect
+output$estimation$regeffect
 
     ```
 
@@ -515,7 +515,7 @@ The output is a list containing 3 elements:
 
     ```{r,eval=FALSE, include=TRUE}
 
-    output$estimation$smoothingpart
+output$estimation$smoothingpart
 
     ```
 
@@ -524,16 +524,16 @@ The output is a list containing 3 elements:
 
     ```{r,eval=FALSE, include=TRUE}
 
-    output$estimation$parameter
+output$estimation$parameter
 
     ```
 
     -   The standard deviation of the AR(1) coefficient:
 
     ```{r,eval=FALSE, include=TRUE}
-
-    output$estimation$eparameter
-
+    
+output$estimation$eparameter
+    
     ```
 
 3.  **Likelihood**: Contains information about the loglikelihood(ll),

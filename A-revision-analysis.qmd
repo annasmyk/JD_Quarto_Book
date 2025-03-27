@@ -16,10 +16,9 @@
 
 More information is available directly in the package documentation and vignette.
 
-```{r, eval=FALSE}
-library(rjd3revisions)
+```{r, eval = FALSE}
+library("rjd3revisions")
 browseVignettes("rjd3revisions")
-
 ```
 
 
