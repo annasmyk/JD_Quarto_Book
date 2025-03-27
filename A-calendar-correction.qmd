@@ -485,7 +485,7 @@ Holidays can be created with the following ways:
 day <- fixed_day(
     month = 12,
     day = 25,
-    weight = .9,
+    weight = 0.9,
     validity = list(start = "1968-02-01", end = "2010-01-01")
 )
 day # December 25th, with weight=0.9, from February 1968 until January 2010
