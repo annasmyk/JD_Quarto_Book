@@ -463,26 +463,20 @@ The output is a list containing 3 elements:
     -   Type of method applied:
 
     ```{r,eval=FALSE, include=TRUE}
-
 output$regression$type
-
     ```
 
     -   The model (coefficient estimation, standard deviation and
         T-statistic):
 
     ```{r,eval=FALSE, include=TRUE}
-
 output$regression$model
-
     ```
 
     -   Conversion:Aggregation function (Sum, Average, Last or First):
 
     ```{r,eval=FALSE, include=TRUE}
-
 output$regression$conversion
-
     ```
 
 2.  **Estimation**: contains information about:
@@ -490,50 +484,38 @@ output$regression$conversion
     -   The disaggregated series:
 
     ```{r,eval=FALSE, include=TRUE}
-
 output$estimation$disagg
-
     ```
 
     -   The standard deviation of the disaggregated series:
 
     ```{r,eval=FALSE, include=TRUE}
-
 output$estimation$edisagg
-
     ```
 
     -   The regressor effect:
 
     ```{r,eval=FALSE, include=TRUE}
-
 output$estimation$regeffect
-
     ```
 
     -   The smoothing part:
 
     ```{r,eval=FALSE, include=TRUE}
-
 output$estimation$smoothingpart
-
     ```
 
     -   The $rho$ estimation (coefficient of the AR(1) model): This
         parameter exists only if RWar1 or Ar1 is selected in the model.
 
     ```{r,eval=FALSE, include=TRUE}
-
 output$estimation$parameter
-
     ```
 
     -   The standard deviation of the AR(1) coefficient:
 
     ```{r,eval=FALSE, include=TRUE}
-    
 output$estimation$eparameter
-    
     ```
 
 3.  **Likelihood**: Contains information about the loglikelihood(ll),
