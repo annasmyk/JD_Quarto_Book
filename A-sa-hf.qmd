@@ -170,9 +170,9 @@ frenchCalendar <- national_calendar(days = list(
 ))
 # Generrate calendar regressors
 q <- holidays(
-    calendar = frenchCalendar, 
+    calendar = frenchCalendar,
     start = "1968-01-01",
-    length = length(df_daily$births), 
+    length = length(df_daily$births),
     type = "All",
     nonworking = 7L
 )

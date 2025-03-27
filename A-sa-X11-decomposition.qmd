@@ -67,7 +67,7 @@ With a workspace open, an SAProcessing created and an open data provider: (link 
 
 ### In R
 
-#### In version 2 using [RJDemetra](https://jdemetra.github.io/rjdemetra/)
+#### In version 2 using [RJDemetra](https://rjdverse.github.io/rjdemetra/)
 
 ```{r, echo = TRUE, eval = FALSE}
 library("RJDemetra")
@@ -78,7 +78,7 @@ model_sa_v2 <- x13(raw_series, spec = "RSA5c")
 model_sa_v2 <- x13(raw_series, spec = "X11")
 ```
 
-Full documentation of 'RJDemetra::x13' function can be found [here](https://jdemetra.github.io/rjdemetra/reference/x13.html)
+Full documentation of 'RJDemetra::x13' function can be found [here](https://rjdverse.github.io/rjdemetra/reference/x13.html)
 
 The model_sa_v2 R object (list of lists) contains all parameters and results. Its structure is detailed [here](#t-r-packs-rjdv2-structure). It can be printed giving access to selected parameters, series and diagnostics.
 
@@ -95,7 +95,7 @@ library("rjd3x13")
 model_sa_v3 <- rjd3x13::x13(y_raw, spec = "RSA5")
 ```
 
-Full documentation of 'rjd3x13::x13' function can be found [here](https://rjdverse.github.io/rjd3x13/reference/x13.html) and of 'rjd3x13::X11' [here](https://rjdverse.github.io/rjd3x13/reference/X11.html).
+Full documentation of 'rjd3x13::x13' function can be found [here](https://rjdverse.github.io/rjd3x13/reference/x13.html) and of 'rjd3x13::X11' [here](https://rjdverse.github.io/rjd3x13/reference/x11.html).
 
 The model_sa_v3 R object (list of lists) contains all parameters and results. Its structure is detailed [here](#t-r-packs-rjd3x13-structure).
 
@@ -141,7 +141,7 @@ model_sa$final$series
 model_sa$final$forecasts
 ```
 
-Detailed X11 tables have to be pre-specified from the [user-defined output list](https://jdemetra.github.io/rjdemetra/reference/user_defined_variables.html).
+Detailed X11 tables have to be pre-specified from the [user-defined output list](https://rjdverse.github.io/rjdemetra/reference/user_defined_variables.html).
 
 ```{r, echo = TRUE, eval = FALSE}
 # display the list of available objects (series, diagnostics, parameters)

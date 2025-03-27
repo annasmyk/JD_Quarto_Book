@@ -58,7 +58,7 @@ With a workspace open, an SAProcessing created and open data provider:
 
 ### In R
 
-#### In version 2 using [RJDemetra](https://jdemetra.github.io/rjdemetra/)
+#### In version 2 using [RJDemetra](https://rjdverse.github.io/rjdemetra/)
 
 ```{r, echo = TRUE, eval = FALSE}
 library("RJDemetra")
@@ -67,7 +67,7 @@ library("RJDemetra")
 model_sa_v2 <- tramoseats(raw_series, spec = "RSAfull")
 ```
 
-Full documentation of 'RJDemetra::tramoseats' function can be found [here](https://jdemetra.github.io/rjdemetra/reference/tramoseats.html)
+Full documentation of 'RJDemetra::tramoseats' function can be found [here](https://rjdverse.github.io/rjdemetra/reference/tramoseats.html)
 
 The model_sa_v2 R object (list of lists) contains all parameters and results. Its structure is detailed [here](#t-r-packs-rjdv2-structure). It can be printed giving access to selected parameters, series and diagnostics.
 
