@@ -18,15 +18,41 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - uses: actions/setup-java@v4
+        with:
+          distribution: 'zulu' # See 'Supported distributions' for available options
+          java-version: '17'
+
+      - name: Set up for RProtoBuf on ubuntu
+        if: runner.os == 'Linux'
+        run: sudo apt-get update -y && sudo apt-get install protobuf-compiler libprotobuf-dev libprotoc-dev
+
       - uses: r-lib/actions/setup-r@v2
         with:
           use-public-rspm: true
 
-      - name: Install lintr
-        run: install.packages("lintr")
+      - name: Install dependencies
+        run: |
+          install.packages("remotes")
+          # Install from CRAN
+          install.packages("RJDemetra")
+          install.packages("rjwsacruncher")
+          install.packages("JDCruncheR")
+          remotes::install_github("rjdverse/rjd3toolkit")
+          remotes::install_github("rjdverse/rjd3x13")
+          remotes::install_github("rjdverse/rjd3tramoseats")
+          remotes::install_github("rjdverse/rjd3highfreq")
+          remotes::install_github("rjdverse/rjd3bench")
+          remotes::install_github("rjdverse/rjd3x11plus")
+          remotes::install_github("rjdverse/rjd3filters")
+          remotes::install_github("AQLT/ggdemetra3")
         shell: Rscript {0}
 
-      - name: Lint root directory
+      - name: Install lintr
+        run: install.packages(c("cyclocomp", "lintr"))
+        shell: Rscript {0}
+
+      - name: Lint project
         run: lintr::lint_dir()
         shell: Rscript {0}
         env:
