@@ -631,8 +631,12 @@ X13-Arima was restricted to $p$ in ${2,4,12}$</code></pre></li>
 <section id="canova-hansen-test-to-identify-multiple-seasonal-patterns" class="level3">
 <h3 class="anchored" data-anchor-id="canova-hansen-test-to-identify-multiple-seasonal-patterns">Canova-Hansen test to identify multiple seasonal patterns</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>rjd3toolkit<span class="sc">::</span><span class="fu">seasonality_canovahansen</span>(<span class="at">data =</span> df_daily<span class="sc">$</span>births, </span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">p0 =</span> <span class="fu">min</span>(ch.sp), <span class="at">p1 =</span> <span class="fu">max</span>(ch.sp), <span class="at">np =</span> <span class="fu">max</span>(ch.sp) <span class="sc">-</span> <span class="fu">min</span>(ch.sp) <span class="sc">+</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>rjd3toolkit<span class="sc">::</span><span class="fu">seasonality_canovahansen</span>(</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> df_daily<span class="sc">$</span>births,</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">p0 =</span> <span class="fu">min</span>(ch.sp),</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">p1 =</span> <span class="fu">max</span>(ch.sp),</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">np =</span> <span class="fu">max</span>(ch.sp) <span class="sc">-</span> <span class="fu">min</span>(ch.sp) <span class="sc">+</span> <span class="dv">1</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
