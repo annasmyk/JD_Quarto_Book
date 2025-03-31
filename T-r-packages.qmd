@@ -5,7 +5,7 @@
 Core JDemetra+ Java algorithms can be accessed in R. This chapter provides an overview of the suite of R packages related to JDemetra+: [rjdverse](https://github.com/rjdverse). R Help pages, Readme pages and vignettes relative to each package provide a detailed description of all available functions: objectives, arguments, output and examples. The corresponding GitHub pages are directly linked to this documentation whenever their use in a selected algorithm is mentioned.
 More details on specific functions are available in the relevant chapters in the [Algorithm part](#part-A)
 
-### Installing Packages
+## Installing Packages
 
 All R packages related to JDemetra+ (v2 or v3) are available from the [rjdverse Github page](https://github.com/rjdverse). 
 
