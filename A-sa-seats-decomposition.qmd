@@ -42,6 +42,7 @@ Available frequencies in version 2 and version 3
 
 [SEATS algorithm](M-SEATS-decomposition.qmd) will decompose the linearized series, in level or in logarithm, using the Arima model fitted by Tramo in the pre-treatment phase.
 {#a-sa-seats-q-start}
+
 ## Quick Launch 
 
 ### Default specifications
