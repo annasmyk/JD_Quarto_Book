@@ -10,12 +10,12 @@ Seasonal Adjustment (SA)
 
 - [Seasonal Adjustment overview](#sa-overview)
 - [Pre-treatment](#sa-pre-t)
-- [SA: X11 decomposition](a-sa-X11)
+- [SA: X11 decomposition](#a-sa-X11)
 - [SA: Seats-decomposition](#a-sa-seats)
 - [SA: Revision policies](#a-rev-pol)
 - [SA of High-Frequency Data](#a-sa-hf)
 - [SA: STL+ and MSTL+](#a-sa-stl)
-- [X12+ and MX12+](a-sa-x12)
+- [X12+ and MX12+](#a-sa-x12)
 - [STS and MSTS](#a-sa-bsm)
 
 Modelling and Auxiliary Variables

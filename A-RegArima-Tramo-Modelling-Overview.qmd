@@ -44,9 +44,9 @@ regA_v2 <- RJDemetra::regarima_x13(raw_series, spec = "RG5c")
 tramo_v2 <- RJDemetra::regarima_tramoseats(raw_series, spec = "TRfull")
 ```
 
-Full documentation of 'RJDemetra::regarima' function can be found [here](https://jdemetra.github.io/rjdemetra/reference/regarima.html)
+Full documentation of 'RJDemetra::regarima' function can be found [here](https://rjdverse.github.io/rjdemetra/reference/regarima.html)
 
-Full documentation of 'RJDemetra::regarima_tramoseats' function can be found [here](https://jdemetra.github.io/rjdemetra/reference/regarima.html)
+Full documentation of 'RJDemetra::regarima_tramoseats' function can be found [here](https://rjdverse.github.io/rjdemetra/reference/regarima.html)
 
 In version 3
 

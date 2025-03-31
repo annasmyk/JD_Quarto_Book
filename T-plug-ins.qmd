@@ -124,7 +124,7 @@ Documentation (made for version 2. but quasi-identical in version 3.x) is availa
 
 In version 3.x, the plug-in file ("jdplus-sdmx-desktop-plugin-x.y.z.nbm") is available [here](https://github.com/nbbrd/jdplus-sdmx/releases) for download.
 
-In version 2.x, the plug-in file ("jdplus-sdmx-desktop-plugin-x.y.z.nbm") is available [here](demetra-dotstat-desktop-2.2.7.nbm) for download.
+In version 2.x, the plug-in file ("jdplus-sdmx-desktop-plugin-x.y.z.nbm") is available [here](https://github.com/nbbrd/jdemetra-dotstat/releases) for download.
 
 ### Manual fine tuning in Seasonal Adjustment
 

@@ -79,10 +79,10 @@ In the modelling section, you can create documents based on the reg-Arima or Tra
 
 You can also use the extended airline algorithm with the plugin jdplus-highfreq-desktop-plugin to do the pre-treatment of high frequency data.
 
-This section is divided into two parts: 
+<!-- This section is divided into two parts:  -->
 
-- [Specifications](../reference-manual/modelling-specifications.html), which presents parameters of the modelling procedure.
-- [Output](../reference-manual/output-modelling.html), which details a typical output produced by the modelling procedure.
+<!-- - [Specifications](../reference-manual/modelling-specifications.html), which presents parameters of the modelling procedure. -->
+<!-- - [Output](../reference-manual/output-modelling.html), which details a typical output produced by the modelling procedure. -->
 
 
 The specifications and output of the modelling procedure are displayed in the [*Workspace* window](#workspace-window).
@@ -94,15 +94,11 @@ The specifications and output of the modelling procedure are displayed in the [*
 
 This window allows to set up and launch a [seasonal adjustment process](#sa-overview).
 
-Some plugins give you additionnal features:
+Some plugins give you additional features:
 
 - jdplus-highfreq-desktop-plugin give you access to the extended airline algorithm
 - jdplus-x12plus-desktop give you access to the x12plus algorithm
 - jdplus-sts-desktop and jdplus-stl-desktop give you access to the stlplus and mstlplus algorithm
-
-
-Also the plugins 
-
 
 This section is divided into two parts:
 
