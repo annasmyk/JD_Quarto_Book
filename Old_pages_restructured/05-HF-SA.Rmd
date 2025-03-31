@@ -2,7 +2,7 @@
 
 ## Motivation
 
-## Unobserved Components 
+## Unobserved Components
 
 ## Spedcral analysis
 
@@ -10,7 +10,7 @@
 
 ## Calendar correction
 
-## Outliers and intervention variables 
+## Outliers and intervention variables
 
 ## Pre-adjustment
 
@@ -18,4 +18,4 @@
 
 ## Quality assessment
 
-### Seasonlity tests 
+### Seasonlity tests

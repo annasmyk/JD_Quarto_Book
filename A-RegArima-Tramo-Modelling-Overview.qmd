@@ -38,7 +38,6 @@ For the user not needing seasonal adjustment, the sections below highlight the f
 In version 2
 
 ```{r, echo = TRUE, eval = FALSE}
-library("RJDemetra")
 # Reg-Arima
 regA_v2 <- RJDemetra::regarima_x13(raw_series, spec = "RG5c")
 # Tramo
@@ -57,7 +56,6 @@ sa_regarima_v3 <- rjd3x13::regarima(raw_series, spec = "RG5c")
 
 #Tramo
 sa_tramo_v3 <- rjd3tramoseats::tramo(raw_series, spec = "TRfull")
-
 ```
 
 Full documentation of 'rjd3x13::regarima' function can be found [here](https://rjdverse.github.io/rjd3x13/reference/regarima.html)

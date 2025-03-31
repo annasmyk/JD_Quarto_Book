@@ -68,7 +68,7 @@ For low frequency (monthly, quarterly, half-yearly, quadri-monthly) data the fol
 
 ### Advanced Seasonal adjustment features for v 2.x
 
-[SA Advanced](https://github.com/nbbrd/jdemetra-sa-advanced%22) provides some experimental seasonal adjustment methods (with Reg-ARIMA preprocessing), basic structural models, generalized airline models and airline + seasonal noise models (called mixed airline).
+[SA Advanced](https://github.com/nbbrd/jdemetra-sa-advanced) provides some experimental seasonal adjustment methods (with Reg-ARIMA preprocessing), basic structural models, generalized airline models and airline + seasonal noise models (called mixed airline).
 
 ```         
 -   gairline: generalized airline model
@@ -118,7 +118,7 @@ In version 2.x, the plug-in file ("nbdemetra-dfm-2.2.3.nbm") is available [here]
 
 ### Fetching time series from web services (SDMX)
 
-The SDMX plug-in aloows to import time series from [SDMX website](https://sdmx.org) to JDemetra+ by querying [web services](https://github.com/nbbrd/jdemetra-dotstat/wiki/Supported-web-services%22) or parsing [files](https://github.com/nbbrd/jdemetra-dotstat/wiki/Supported-file-formats%22).
+The SDMX plug-in aloows to import time series from [SDMX website](https://sdmx.org) to JDemetra+ by querying [web services](https://github.com/nbbrd/jdemetra-dotstat/wiki/Supported-web-services) or parsing [files](https://github.com/nbbrd/jdemetra-dotstat/wiki/Supported-file-formats).
 
 Documentation (made for version 2. but quasi-identical in version 3.x) is available on this [wiki page](https://github.com/nbbrd/jdemetra-dotstat/wiki).
 
