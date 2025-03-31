@@ -16,7 +16,7 @@ The following chapters get into the specifics of each algorithm.
 - [STS and MSTS](#a-sa-bsm)
 
 
-The use of [graphical user interface](T-graphical-user-interface.qmd) and [R packages](T-r-packages.qmd) is described simultaneously whenever relevant.
+The use of [Graphical User Interface](T-graphical-user-interface.qmd) and [R packages](T-r-packages.qmd) is described simultaneously whenever relevant.
 
 In-depth methodological explanations of the algorithms are covered in separated chapters, in the [Methods](P_Methods.qmd) part of this book.
 

@@ -70,7 +70,7 @@ book:
           city: Madrid
           url: "https://www.ine.es/"
       role: "Collaborator"
-  date: "02/05/2025"
+  date: "03/31/2025"
   page-navigation: true
   chapters:
     - index.qmd
