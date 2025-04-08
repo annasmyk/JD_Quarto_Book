@@ -5,7 +5,7 @@ STL is a Loess (Weighted local regression) based decomposition algorithm used on
 
 ## In this Chapter
 
-We will cover how to use classic STL JDemetra+. M-STL functions for tackling multiple periodicities (with rounded frequencies) in infra-monthly data will be described in the [high-frequency]((#a-sa-hf)) data related chapter.  
+We will cover how to use classic STL JDemetra+. M-STL functions for tackling multiple periodicities (with rounded frequencies) in infra-monthly data will be described in the [high-frequency](#a-sa-hf) data related chapter.  
 
 More methodological details will be provided [here](#m-stl)
 

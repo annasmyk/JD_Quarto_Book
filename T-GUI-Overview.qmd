@@ -164,7 +164,7 @@ By default, JDemetra+ supports the following data sources:
 - USCB (input files for the [X-13-ARIMA-Seats application](https://www.census.gov/data/software/x13as.html) by the U.S. Census Bureau);
 - `.xml`.
 
-All standard databases (Oracle, SQLServer, DB2, MySQL) are supported by JDemetra+ via JDBC, which is a generic interface to many relational databases. Other providers can be added by users by creating plugins (see *Plugins* section in the [Tools](tools.html) menu).
+All standard databases (Oracle, SQLServer, DB2, MySQL) are supported by JDemetra+ via JDBC, which is a generic interface to many relational databases. Other providers can be added by users by creating plugins (see *Plugins* section in the *Tools* menu).
 
 
 ### Import data {#import-data}
@@ -1111,7 +1111,7 @@ In v3, you can find this settings in the SA panel in the tabs TramoSeats and X-1
 
 :::
 
-An explanation of the list of the series and diagnostics components that are displayed in the *Default components* section can be found [here](../theory/output.html).
+<!-- An explanation of the list of the series and diagnostics components that are displayed in the *Default components* section can be found [here](../theory/output.html). -->
 
 To modify the settings for a particular measure, double click on a selected row (select the test's name from the list and click on the working tools button), introduce changes in the pop-up window and click the **OK** button.
 

@@ -90,9 +90,7 @@ When running a seasonal adjustment process
     ![**The results of the benchmarking
     procedure**](All_images/UDimage2.jpg)
 
-4.  Both pictures and the table can be copied the usual way (see the
-    [*Simple seasonal adjustment of a single time
-    series*](../case-studies/simplesa-single.html) scenario).
+4.  Both pictures and the table can be copied the usual way 
 
     ![**Options for benchmarking results**](All_images/UDimage3.jpg)
 
@@ -104,8 +102,9 @@ When running a seasonal adjustment process
 
 6.  Expand the "+" menu and choose an appropriate data format (here
     Excel has been chosen). It is possible to save the results in `.txt`,
-    `.xls`, `.csv`, and `.csv` matrix formats. Note that the [available content
-    of the output depends on the output type](../theory/output.html).
+    `.xls`, `.csv`, and `.csv` matrix formats. Note that the available content
+    of the output depends on the output type.
+    <!-- link to add ? -->
 
     ![**Exporting data to an Excel
     file**](All_images/UG_SSA_image29.jpg)

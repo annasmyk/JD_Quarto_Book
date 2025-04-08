@@ -12,7 +12,7 @@
 <meta name="author" content="Maria Novas Filgueira">
 <meta name="author" content="Luis Sanguiao Sande">
 <meta name="author" content="Felix Aparicio Perez">
-<meta name="dcterms.date" content="2025-02-05">
+<meta name="dcterms.date" content="2025-03-31">
 
 <title>JDemetra+ documentation</title>
 <style>
@@ -523,7 +523,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">February 5, 2025</p>
+      <p class="date">March 31, 2025</p>
     </div>
   </div>
   
@@ -604,14 +604,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>To benefit from extended features of the graphical user interface installing additional plug-ins is required. The list of available extensions and the installation procedure are detailed <a href="T-plug-ins.html">here</a>. How to access the added features in the GUI is described <a href="T-GUI-SA-Modelling-Features.html">here</a>.</p>
 <p>In the <strong>v2.x family</strong> some of the additional features are:</p>
 <ul>
-<li><p>Benchmarking and Temporal disaggregation <a href="https://github.com/nbbrd/jdemetra-benchmarking%22">GitHub page</a></p></li>
-<li><p>Nowcasting <a href="https://github.com/nbbrd/jdemetra-nowcasting">GitHub page</a></p></li>
+<li><p>Benchmarking and Temporal disaggregation <a href="https://github.com/nbbrd/jdemetra-benchmarking">Plug-in here</a></p></li>
+<li><p>Nowcasting <a href="https://github.com/nbbrd/jdemetra-nowcasting">Plug-in here</a></p></li>
 </ul>
 <p>In the <strong>v3.x family</strong> some of the additional features are:</p>
 <ul>
-<li><p>Benchmarking and Temporal disaggregation <a href="https://github.com/jdemetra/jdplus-benchmarking">GitHub page</a></p></li>
-<li><p>Seasonal adjustment of high frequency data <a href="https://github.com/jdemetra/jdplus-incubator">GitHub page</a></p></li>
-<li><p>Additional algorithms for seasonal adjustment <a href="https://github.com/jdemetra/jdplus-incubator">GitHub page</a></p></li>
+<li><p>Benchmarking and Temporal disaggregation <a href="https://github.com/jdemetra/jdplus-benchmarking">Plug-in here</a></p></li>
+<li><p>Seasonal adjustment of high frequency data <a href="https://github.com/jdemetra/jdplus-incubator">Plug-ins here</a></p></li>
+<li><p>Additional algorithms for seasonal adjustment <a href="https://github.com/jdemetra/jdplus-incubator">Plug-ins here</a></p></li>
 </ul>
 </section>
 <section id="cruncher" class="level3">
@@ -626,7 +626,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="r-packages" class="level3">
 <h3 class="anchored" data-anchor-id="r-packages">R packages</h3>
 <p>JDemetra+ algorithms can be accessed in R, which is detailed <a href="T-r-packages.html">here</a></p>
-<p>You can directly head over to this <a href="https://github.com/rjdemetra">GitHub page</a>, then for each package indications for installation and basic use are provided in the readme files.</p>
+<p>You can directly head over to this <a href="https://github.com/rjdverse?view_as=public">GitHub page</a>, then for each package indications for installation and basic use are provided in the readme files.</p>
 <!-- general readme to build and specific to check -->
 <section id="Rconfig" class="level4">
 <h4 class="anchored" data-anchor-id="Rconfig">Configuration needed to run rjd3 packages</h4>
@@ -638,7 +638,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>run this code at the beginning of your programs</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Sys.setenv</span>(<span class="st">"JAVA_HOME"</span> <span class="ot">=</span> <span class="st">".../jdemetra-standalone-3.x.y-windows-x86_64/nbdemetra/jdk-21.0.2+13-jre"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Sys.setenv</span>(<span class="at">JAVA_HOME =</span> <span class="st">".../jdemetra-standalone-3.x.y-windows-x86_64/nbdemetra/jdk-21.0.2+13-jre"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>or</p>
 <ul>
@@ -647,7 +647,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><p>in the R console run <code class="sourceCode r"><span class="fu">file.edit</span>(<span class="st">"~/.Renviron"</span>)</code></p></li>
 <li><p>in the file that opens add the line :</p></li>
 </ul>
-<pre><code>JAVA_HOME= "C:/Software/jdemetra-standalone-3.x.y-windows-x86_64/nbdemetra/jdk-21.0.2+13-jre"</code></pre>
+<pre><code>JAVA_HOME = "C:/Software/jdemetra-standalone-3.x.y-windows-x86_64/nbdemetra/jdk-21.0.2+13-jre"</code></pre>
 <ul>
 <li>save the file and restart R</li>
 </ul></li>

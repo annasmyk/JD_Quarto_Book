@@ -563,7 +563,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="in-r" class="level3">
 <h3 class="anchored" data-anchor-id="in-r">In R</h3>
 <section id="in-version-2-using-rjdemetra" class="level4">
-<h4 class="anchored" data-anchor-id="in-version-2-using-rjdemetra">In version 2 using <a href="https://jdemetra.github.io/rjdemetra/">RJDemetra</a></h4>
+<h4 class="anchored" data-anchor-id="in-version-2-using-rjdemetra">In version 2 using <a href="https://rjdverse.github.io/rjdemetra/">RJDemetra</a></h4>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"RJDemetra"</span>)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># the input series has to be a Time Series (TS) object</span></span>
@@ -572,7 +572,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># specification X11 without pre-treatment</span></span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>model_sa_v2 <span class="ot">&lt;-</span> <span class="fu">x13</span>(raw_series, <span class="at">spec =</span> <span class="st">"X11"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Full documentation of ‘RJDemetra::x13’ function can be found <a href="https://jdemetra.github.io/rjdemetra/reference/x13.html">here</a></p>
+<p>Full documentation of ‘RJDemetra::x13’ function can be found <a href="https://rjdverse.github.io/rjdemetra/reference/x13.html">here</a></p>
 <p>The model_sa_v2 R object (list of lists) contains all parameters and results. Its structure is detailed <a href="T-r-packages.html#t-r-packs-rjdv2-structure">here</a>. It can be printed giving access to selected parameters, series and diagnostics.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(model_sa_v2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -586,7 +586,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># the input series has to be a Time Series (TS) object</span></span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>model_sa_v3 <span class="ot">&lt;-</span> rjd3x13<span class="sc">::</span><span class="fu">x13</span>(y_raw, <span class="at">spec =</span> <span class="st">"RSA5"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Full documentation of ‘rjd3x13::x13’ function can be found <a href="https://rjdverse.github.io/rjd3x13/reference/x13.html">here</a> and of ‘rjd3x13::X11’ <a href="https://rjdverse.github.io/rjd3x13/reference/X11.html">here</a>.</p>
+<p>Full documentation of ‘rjd3x13::x13’ function can be found <a href="https://rjdverse.github.io/rjd3x13/reference/x13.html">here</a> and of ‘rjd3x13::X11’ <a href="https://rjdverse.github.io/rjd3x13/reference/x11.html">here</a>.</p>
 <p>The model_sa_v3 R object (list of lists) contains all parameters and results. Its structure is detailed <a href="T-r-packages.html#t-r-packs-rjd3x13-structure">here</a>.</p>
 <p>It can be printed giving access to selected parameters, series and diagnostics.</p>
 <div class="cell">
@@ -632,7 +632,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># final forecasts y_f sa_f s_f t_f i_f</span></span>
 <span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>model_sa<span class="sc">$</span>final<span class="sc">$</span>forecasts</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Detailed X11 tables have to be pre-specified from the <a href="https://jdemetra.github.io/rjdemetra/reference/user_defined_variables.html">user-defined output list</a>.</p>
+<p>Detailed X11 tables have to be pre-specified from the <a href="https://rjdverse.github.io/rjdemetra/reference/user_defined_variables.html">user-defined output list</a>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># display the list of available objects (series, diagnostics, parameters)</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">user_defined_variables</span>(<span class="st">"X13-ARIMA"</span>)</span>

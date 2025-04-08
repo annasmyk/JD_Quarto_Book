@@ -236,7 +236,9 @@ the tabs under the *Variables* node.
 
 ![**Activation of an empty dataset for the user-defined variables**](All_images/A_Ref_d4.jpg)
 
-Then, go to *Providers* window and open your file that contains external variables following the instructions provided [here](../quick-start/datasources.html).
+Then, go to *Providers* window and open your file that contains external variables.
+<!-- following the instructions provided [here](../quick-start/datasources.html). -->
+<!-- link to add to instructions  -->
 Drag and drop your external regressors from the *Providers* window to the *Vars-1* window.
 
 ![**Importing the user-defined variables to JDemetra+**](All_images/A_Ref_d5.jpg)
