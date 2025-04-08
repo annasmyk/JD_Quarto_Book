@@ -127,7 +127,7 @@ The available options include:
 
 -   **Initial Order** -- displays times series on the list in an initial order.
 
--   **Output** -- enables the user to export the results to a given output format (TXT, XLS, ODBC, CSV, CSV matrix), to specify the destination folder and to customise the content of the exported file. The list of available output items is determined by the chosen output format and it can be found [here](../theory/output.html). The **Output** option is discussed in detail [here](../case-studies/output.html).
+-   **Output** -- enables the user to export the results to a given output format (`.txt`, `.xls`, ODBC, `.csv`, `.csv` matrix), to specify the destination folder and to customise the content of the exported file. The list of available output items is determined by the chosen output format and it can be found [here](../theory/output.html). The **Output** option is discussed in detail [here](../case-studies/output.html).
 
 -   **Report** -- generates a summary report from a multi-process that includes summary information on several items, such as; the number of series, specifications used, models' summary, diagnostic summary, etc.. An example of the output is presented below.
 

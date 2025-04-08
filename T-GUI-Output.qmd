@@ -27,7 +27,7 @@ Additional chapters related to GUI features, provide information on:
 
     ![**Default output formats**](All_images/SAProcessing_output.png)
     
-2.  In the *Batch output* window the user can specify which output items will be saved and the folder in which JDemetra+ saves the results. It is possible to save the results in the *TXT*, *XLS*, *CSV*, and *CSV matrix* formats. In the first step the user should choose the output format from the list.
+2.  In the *Batch output* window the user can specify which output items will be saved and the folder in which JDemetra+ saves the results. It is possible to save the results in the `.txt`, `.csv`, `.xls`, and `.csv` matrix formats. In the first step the user should choose the output format from the list.
 
     ![**Default output formats in v3**](All_images/UDimage6.jpg)
     
@@ -43,9 +43,9 @@ Additional chapters related to GUI features, provide information on:
 
 ::: {.panel-tabset .content-visible when-format="html"}
 
-#### *Csv*
+#### `.csv`
 
-For *Csv* format the following options are available: 
+For `.csv` format the following options are available: 
 
 - *folder* (location of the file), 
 - *file prefix* (name of the file),
@@ -54,14 +54,14 @@ For *Csv* format the following options are available:
 
 These options are presented in the next points of this case study.
 
-![**Options for a *Csv* format**](All_images/UDimage8.jpg)
+![**Options for a `.csv` format**](All_images/UDimage8.jpg)
 
 
 The user can define the folder in which the selected results and components will be saved (click the *folder* item and choose the final destination).
 
 ![**Specifying a destination folder**](All_images/UDimage9.jpg)
 
-With the option *File Prefix* the user can modify the default name of the output saved in the CSV file.
+With the option *File Prefix* the user can modify the default name of the output saved in the `.csv` file.
 
 ![**Setting a *File Prefix* option**](All_images/UDimage10.jpg)
 
@@ -71,7 +71,7 @@ With the option *File Prefix* the user can modify the default name of the output
 - *VTable* -- the output series will be presented in the form of vertical tables (time series in columns).
 - *List* -- the output series will be presented in the form of vertical tables (time series in rows). Apart from that, for each time series each file contains in separate columns: the data frequency, the first year and stimation span, the first period (month or quarter) of observation span and the number of observations. The files do not include dates.
 
-![**Layout options for a *Csv* format**](All_images/UDimage11.jpg)
+![**Layout options for a `.csv` format**](All_images/UDimage11.jpg)
 
 The option *Full series name* is used to use the fully qualified name of the series (workbook + sheet + name) in the output.
 
@@ -89,36 +89,36 @@ Mark the series and use the arrows to change the settings. Confirm your choice w
 ![**Specifying a content of the output file**](All_images/output_csv_content.png)
 
 
-#### *Csv matrix*
+#### `.csv` matrix
 
-The *CSV matrix* produces the CSV file containing information about the model and quality diagnostics of the seasonal adjustment. The user may generate the list of default items or create their own quality report. 
+The `.csv` matrix produces the `.csv` file containing information about the model and quality diagnostics of the seasonal adjustment. The user may generate the list of default items or create their own quality report. 
 
 
-![**Options for a *Csv matrix* format**](All_images/output_csv_matrix.png)
+![**Options for a `.csv` matrix format**](All_images/output_csv_matrix.png)
 
 
 The user can define the folder in which the selected results and components will be saved (click the *folder* item and choose the final destination).
 
 ![**Specifying a destination folder**](All_images/output_csv_matrix_folder.png)
 
-With the option *File Name* the user can modify the default name of the output saved in the CSV file.
+With the option *File Name* the user can modify the default name of the output saved in the `.csv` file.
 
 ![**Setting a *File Name* option**](All_images/output_csv_matrix_name.png)
 
 
 By default, all the available items are included in the output. 
 
-![**List of items available for the *Csv matrix* output type**](All_images/UDimage18.png)
+![**List of items available for the `.csv` matrix output type**](All_images/UDimage18.png)
 
 
 Once the output settings are selected, click the *OK* button.
 
-![**Validation of the *Csv matrix* output**](All_images/UDimage19.png)
+![**Validation of the `.csv` matrix output**](All_images/UDimage19.png)
 
 
 #### *Excel*
 
-Options available for the *XLS* format are the same as for the *TXT* format with an exception of the *Layout* section. 
+Options available for the `.xls` format are the same as for the `.txt` format with an exception of the *Layout* section. 
 
 - *BySeries* -- all results for a given time series are placed in one sheet;
 - *ByComponent* -- results are grouped by components. Each component type is saved in a separate sheet;
@@ -140,7 +140,7 @@ If the user sets the option layout to *ByComponent*, the output will be generate
 
 ![**An Excel file view for the *ByComponent* option**](All_images/UDimage14.jpg)
 
-The option *OneSheet* will produce the following *XLS* file:
+The option *OneSheet* will produce the following `.xls` file:
 
 - Components and Sheets are crossed in different columns of the same sheet
 
@@ -154,7 +154,7 @@ The option *Full series name* is used to use the fully qualified name of the ser
 
 ![**The *Full series name* option**](All_images/output_excel_full_names.png)
 
-This option will produce the following *XLS* file:
+This option will produce the following `.xls` file:
 
 ![**The generated output**](All_images/generated_output_excel_full_names.png)
 
@@ -167,11 +167,11 @@ Mark the series and use the arrows to change the settings. Confirm your choice w
 
 ![**Specifying a content of the output file**](All_images/UDimage12.jpg)
 
-#### *Txt* (only in v2)
+#### `.txt` (only in v2)
 
-In the case of the *TXT* format the only available options are *folder* (location of the file) and *series* (results included in the output file).
+In the case of the `.txt` format the only available options are *folder* (location of the file) and *series* (results included in the output file).
 
-![**Options for the *Txt* output**](All_images/UDimage17.jpg)
+![**Options for the `.txt` output**](All_images/UDimage17.jpg)
 
 
 #### *CvsArray* (only in v3)
@@ -183,4 +183,4 @@ In the case of the *TXT* format the only available options are *folder* (locatio
 
 For each output JDemetra+ provides information on the status of the operation. An example is presented below.
 
-![**Generating output - status information (here for Csv format)**](All_images/UDimage20.jpg)
+![**Generating output - status information (here for `.csv` format)**](All_images/UDimage20.jpg)

@@ -295,7 +295,7 @@ Plug-ins-default-v3.png
 |--------------------------------|--------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | NbDemetra -- Anomaly detection | SA core algorithms | Identification of outliers                                                                                                                                   |
 | NbDemetra -- Spreadsheet       | IO (Input/output)  | Time series providers for spreadsheet (Excel, OpenOffice)                                                                                                    |
-| NbDemetra -- Common            | IO (Input/output)  | Common time series providers, like XML and TXT                                                                                                               |
+| NbDemetra -- Common            | IO (Input/output)  | Common time series providers, like `.xml` and `.txt`                                                                                                               |
 | NbDemetra -- JDBC              | IO (Input/output)  | Time series provider for the JDBC sources                                                                                                                    |
 | NbDemetra -- ODBC              | IO (Input/output)  | Time series provider for the ODBC sources                                                                                                                    |
 | NbDemetra -- SDMX              | IO (Input/output)  | Time series provider for SDMX files                                                                                                                          |

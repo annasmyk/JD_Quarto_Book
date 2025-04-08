@@ -64,7 +64,7 @@ Full documentation of 'rjd3tramoseats::tramo' function can be found [here](https
 
 ### GUI
 
-In the graphical user interface modelling algorithms can be accessed in two ways described below. In both cases a document (xml file) will be generated and can be save in the workspace. The output (series, parameters and diagnostics) cannot be exported as files, just directly copied from the interface. Further details on window structure in GUI are available [here](#t-gui-sa).
+In the graphical user interface modelling algorithms can be accessed in two ways described below. In both cases a document (`.xml` file) will be generated and can be save in the workspace. The output (series, parameters and diagnostics) cannot be exported as files, just directly copied from the interface. Further details on window structure in GUI are available [here](#t-gui-sa).
 
 #### Modelling in the Workspace Window
 

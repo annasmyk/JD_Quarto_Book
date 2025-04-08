@@ -232,7 +232,7 @@ add - List of exportable series (Tramo / x13 with names)
 
 ### T-r-packages
 
--   add a global description of rjd3toolkit cf aux txt file
+-   add a global description of rjd3toolkit cf aux `.txt` file
 
 -   include details in rjd3workspace (when ready)
 

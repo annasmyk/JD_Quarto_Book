@@ -424,7 +424,7 @@ JDemetra+ adds it to the calendars list
 
 ##### Example of a calendar file
 
-![**Example of an XML file containing a calendar**](All_images/UG_CAL_image9.jpg)
+![**Example of an `.xml` file containing a calendar**](All_images/UG_CAL_image9.jpg)
 #### Generating regressors
 
 ##### Type of days

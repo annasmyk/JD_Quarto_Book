@@ -81,7 +81,7 @@ The packages listed below contain utility functions useful when running a produc
 
 ### Wrangling JD+ workspaces
 
-A workspace is a specific JDemetra+ data format (xml files) allowing to use the graphical user interface (GUI) and the cruncher.
+A workspace is a specific JDemetra+ data format (`.xml` files) allowing to use the graphical user interface (GUI) and the cruncher.
 
 | Package       | JD+ version | Comments                                               |
 |-----------------|-----------------|--------------------------------------|

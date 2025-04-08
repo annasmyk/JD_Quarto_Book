@@ -160,9 +160,9 @@ By default, JDemetra+ supports the following data sources:
 - SDMX;
 - Excel spreadsheets;
 - TSW (input files for the [Tramo-Seats-Windows application](https://www.bde.es/bde/en/secciones/servicios/Profesionales/Programas_estadi/Programas.html) by the Bank of Spain);
-- TXT;
+- `.txt`;
 - USCB (input files for the [X-13-ARIMA-Seats application](https://www.census.gov/data/software/x13as.html) by the U.S. Census Bureau);
-- XML.
+- `.xml`.
 
 All standard databases (Oracle, SQLServer, DB2, MySQL) are supported by JDemetra+ via JDBC, which is a generic interface to many relational databases. Other providers can be added by users by creating plugins (see *Plugins* section in the [Tools](tools.html) menu).
 
@@ -251,7 +251,7 @@ In Excel files, series are identified by their names (colnames) in the file.
 :::
 
 
-#### Text or csv file
+#### `.txt` or `.csv` file
 
 The example below show how to import the data from an Excel file.
 
@@ -261,7 +261,7 @@ The example below show how to import the data from an Excel file.
 
 2.  The *Open data source* window contains the following options:
 
-    + **Text file** -- a path to access the file.
+    + **`.txt` file** -- a path to access the file.
     
     + **Charset** -- the encoding used to encode the file
     
@@ -296,7 +296,7 @@ The example below show how to import the data from an Excel file.
     ![**Options for importing data**](All_images/provider-txt-file-structure.png)
 
 
-::: {.callout-note collapse="true" title="How to set up you text or csv file"}
+::: {.callout-note collapse="true" title="How to set up you `.txt` or `.csv` file"}
 
 - **Dates** in Excel date format, in the first column (or in the first row) 
 - **Titles** of the series in the corresponding cell of the first row (or in the first column)
@@ -379,7 +379,7 @@ In Excel files, series are identified by their names (colnames) in the file.
 
 :::
 
-#### Text or csv file
+#### `.txt` or `.csv` file
 
 The example below show how to import the data from an Excel file.
 
@@ -424,7 +424,7 @@ The example below show how to import the data from an Excel file.
     ![**Data structure**](All_images/provider-txt-file-structure.png)
 
 
-::: {.callout-note collapse="true" title="How to set up you text or csv file"}
+::: {.callout-note collapse="true" title="How to set up you `.txt` or `.csv` file"}
 
 - **Dates** in Excel date format, in the first column (or in the first row) 
 - **Titles** of the series in the corresponding cell of the first row (or in the first column)
@@ -714,7 +714,7 @@ The following functionalities are available from the *Tools* menu:
 - [*Spectral analysis*](#spectral-analysis-windows) -- contains tools for the analysis of a time series in a frequency domain;
 - [*Aggregation*](#aggregation) -- enables the user to investigate a graph of the sum of multiple time series;
 - [*Differencing*](#differencing) -- allows for the inspection of the first regular differences of the time series;
-- [*Spreadsheet profiler*](#spreadsheet-profiler) -- offers an Excel-type view of the XLS file imported to JDemetra+.
+- [*Spreadsheet profiler*](#spreadsheet-profiler) -- offers an Excel-type view of the `.xls` file imported to JDemetra+.
 - [*Plugins*](#plugins-overview) -- allows for the installation and activation of plugins, which extend JDemetra+ functionalities.
 - [*Options*](#options-window) -- presents the default interface settings and allows for their modification.
 
@@ -753,7 +753,7 @@ link to data visu chap
 
 #### Spreadsheet profiler {#spreadsheet-profiler}
 
-The *Spreadsheet profiler* offers an Excel-type view of the XLS file imported to JDemetra+. To use this functionality drag the file name from the *Providers* window and drop it to the empty *Spreadsheet profiler* window.
+The *Spreadsheet profiler* offers an Excel-type view of the `.xls` file imported to JDemetra+. To use this functionality drag the file name from the *Providers* window and drop it to the empty *Spreadsheet profiler* window.
 
 ![**The *Spreadsheet Profiler* window**](All_images/A_Ref40.jpg)
 

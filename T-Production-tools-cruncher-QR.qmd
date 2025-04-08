@@ -131,7 +131,7 @@ For example:
 
 ### Configuring output options
 
-After updating the workspace with the selected revision policies, the cruncher generates output - series (csv files) - diagnostics and parameters (demetra_m.csv file)
+After updating the workspace with the selected revision policies, the cruncher generates output - series (`.csv` files) - diagnostics and parameters (demetra_m.csv file)
 
 These files will be created in the workspace's repository, sub-repository 'Output"
 
@@ -175,7 +175,7 @@ The JDCruncheR package:
 
 The three main functions of the package are:
 
--   `extract_QR()` to extract the quality report from the csv file (demetra_m.csv) that contains all JD+ diagnostics;
+-   `extract_QR()` to extract the quality report from the `.csv` file (demetra_m.csv) that contains all JD+ diagnostics;
 
 -   `compute_score()` to compute a weighted score based on the diagnostics
 
