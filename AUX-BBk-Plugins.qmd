@@ -57,7 +57,7 @@ compute : SA
 
 ## Spec Parser 
 
-obj take an x13 census spec and import to JD+
+obj take an X-13 census spec and import to JD+
 
-in X13 world: 3 files series, spec, mta (equivalent of multi processing if you want to launch several series at the same time)
+in X-13 world: 3 files series, spec, mta (equivalent of multi processing if you want to launch several series at the same time)
 

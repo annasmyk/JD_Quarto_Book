@@ -2,7 +2,7 @@
 
 ## In this chapter
 
-The following sections cover pre-treatment with Reg-ARIMA (or Tramo) algorithms. Tramo and the Reg-ARIMA part of X13-ARIMA rely on very similar [principles](#m-reg-a). Thus Tramo will only be mentioned to highlight differences with the Reg-ARIMA part of X13-ARIMA. 
+The following sections cover pre-treatment with Reg-ARIMA (or Tramo) algorithms. Tramo and the Reg-ARIMA part of X-13-ARIMA rely on very similar [principles](#m-reg-a). Thus Tramo will only be mentioned to highlight differences with the Reg-ARIMA part of X-13-ARIMA. 
 
 Reg-ARIMA modelling part can be the first of a seasonal adjustment process or run on its [own](#a-reg-a). Below we focus on performing Reg-ARIMA modelling as pre-treatment in a SA processing.
 
@@ -51,9 +51,9 @@ Where
 
 ## Setting Specifications {#a-pre-t-def-spec}
 
-Default specifications are set for the whole SA procedure, pre-treatment and decomposition. They are slightly different for X13-ARIMA and Tramo-Seats and can be modified with user-defined parameters.
+Default specifications are set for the whole SA procedure, pre-treatment and decomposition. They are slightly different for X-13-ARIMA and Tramo-Seats and can be modified with user-defined parameters.
 
-#### Starting point for X13-ARIMA {#a-pre-t-def-spec-x13}
+#### Starting point for X-13-ARIMA {#a-pre-t-def-spec-x13}
 
 | Spec identifier | Log/level detection | Outliers detection | Calendar effects | ARIMA          |
 |-----------------|---------------------|--------------------|------------------|----------------|
@@ -81,7 +81,7 @@ calendar:
 
 -   always tested
 
--   easter tested (default length = 6 days in Tramo, 8 days in X13-ARIMA)
+-   easter tested (default length = 6 days in Tramo, 8 days in X-13-ARIMA)
 
 
 #### Starting point for Tramo-Seats {#sa-pre-t-ts-specs}
@@ -132,7 +132,7 @@ Use the specification window for a given series and expand the nodes.
 
 ![**Setting series span in R**](All_images/SA_REGA_Spans.png)
 
-x13 in version 2
+X-13 in version 2
 
 ```{r}
 #| echo: true
@@ -301,7 +301,7 @@ Controls the bias in the log/level pre-test (the function is active when **Funct
 
 **Set and in R**
 
-X13
+X-13
 
 ```{r, echo = TRUE, eval = FALSE}
 # excluding first 24 and last 36 observations
@@ -328,7 +328,7 @@ user_spec_1 <- tramoseats_spec(
 
 ### Calendar correction
 
-Some calendar correction options included in the starting specifications for X13-ARIMA or Tramo-Seats, they can be fine-tuned by modifying specifications. The following section lists all the available options, illustrates how to set them in GUI or R and shows have to retrieve used parameters, regressors as well as results.
+Some calendar correction options included in the starting specifications for X-13-ARIMA or Tramo-Seats, they can be fine-tuned by modifying specifications. The following section lists all the available options, illustrates how to set them in GUI or R and shows have to retrieve used parameters, regressors as well as results.
 
 JDemetra+ offers two default options for calendar correction working days regressors and trading days regressors, with Leap-year effect if needed. Those options don't take into account national calendars (link) and their specific holidays. There are two ways to change this:
 
@@ -906,9 +906,9 @@ Forecast horizon when using Tramo-Seats Is set in the decomposition part of the 
 
 ![**Forecast horizon when using Tramo-Seats**](All_images/SA_REGA_arima_forecast_horizon_tramo.png)
 
-![**Forecast horizon when using X13-ARIMA**](All_images/SA_REGA_arima_forecast_horizon_X11.png)
+![**Forecast horizon when using X-13-ARIMA**](All_images/SA_REGA_arima_forecast_horizon_X11.png)
 
-**Setting in R** (first template, then worked example) X13-ARIMA template in version 2
+**Setting in R** (first template, then worked example) X-13-ARIMA template in version 2
 
 ```{r, echo = TRUE, eval = FALSE}
 spec_2 <- x13_spec(
@@ -967,7 +967,7 @@ Control variables for the user-defined ARMA coefficients. Coefficients can be de
 
 **Setting in R**
 
-X13-ARIMA template in version 2
+X-13-ARIMA template in version 2
 
 ```{r, echo = TRUE, eval = FALSE}
 spec_2 <- x13_spec(

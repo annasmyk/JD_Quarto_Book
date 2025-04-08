@@ -68,7 +68,7 @@ JDemetra+ provides the Canova-Hansen test in the rjd3toolkit package.
 
 ## Pre-adjustment
 
-In classical X13-ARIMA and Tramo-Seats, a pre-adjustment step is performed to remove deterministic effects, such as outliers and calendar effects, with a Reg-ARIMA model. In the extended version for HF data, it is also the case with an **extended Airline model**.
+In classical X-13-ARIMA and Tramo-Seats, a pre-adjustment step is performed to remove deterministic effects, such as outliers and calendar effects, with a Reg-ARIMA model. In the extended version for HF data, it is also the case with an **extended Airline model**.
 
 A general Reg-ARIMA model is written as follows: 
 

@@ -145,7 +145,7 @@ Detailed X11 tables have to be pre-specified from the [user-defined output list]
 
 ```{r, echo = TRUE, eval = FALSE}
 # display the list of available objects (series, diagnostics, parameters)
-user_defined_variables("X13-ARIMA")
+user_defined_variables("X-13-ARIMA")
 # add selected object to estimation
 sa_x13_v2 <- RJDemetra::x13(myseries, myspec,
     userdefined = c("decomposition.c20", "decomposition.d1")

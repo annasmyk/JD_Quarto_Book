@@ -32,12 +32,12 @@ Improvements X-13-ARIMA and Tramo-Seats (historical JD+)
         algorithms (historical and new)
         
         - In version 2, only Tramo-Seats supported all these frequencies, whereas
-        X13-ARIMA was restricted to $p$ in ${2,4,12}$
+        X-13-ARIMA was restricted to $p$ in ${2,4,12}$
 
 -   outlier correction taken into account when
     selecting decomposition scheme
 
--   ex-ante leap year correction added to Tramo-Seats (like in X13)
+-   ex-ante leap year correction added to Tramo-Seats (like in X-13)
 
 -   automatic trading day regressors selection from pre-defined sets built, according to groups of days
 

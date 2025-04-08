@@ -1,6 +1,6 @@
 # X11 decomposition {.unnumbered #m-X11}
 
-X11 is the decomposition part of X13-ARIMA seasonal adjustment algorithm originally developed by the US Census Bureau. It is a non parametric algorithm based on [moving averages](#m-x11-ma).
+X11 is the decomposition part of X-13-ARIMA seasonal adjustment algorithm originally developed by the US Census Bureau. It is a non parametric algorithm based on [moving averages](#m-x11-ma).
 
 The genuine X11 algorithm was meant to decompose monthly ($p=12$) and quarterly series ($p=4$). In JDemetra+ half-yearly data ($p=2$), quadri-monthly ($p=3$) and bi-monthly data ($p=6$) can also be handled. ($p=3$ and $p=6$ only in version 3.x)
 

@@ -30,7 +30,7 @@
 | STS                    | ✖            | ✖               | rjd3sts        |
 +------------------------+---------------+------------------+----------------+
 
-: X13-ARIMA and Tramo-Seats are two-step algorithms with a pre-treatment phase (Reg-ARIMA or Tramo) and a decomposition phase (X11 and Seats). STL is a local regression (Loess) based decomposition, without pre-treatment. In a Structural Time Series approach pre-treatment and decomposition are done simultaneously in a State Space Framework [(SSF)](M-state-space-framework.qmd).
+: X-13-ARIMA and Tramo-Seats are two-step algorithms with a pre-treatment phase (Reg-ARIMA or Tramo) and a decomposition phase (X11 and Seats). STL is a local regression (Loess) based decomposition, without pre-treatment. In a Structural Time Series approach pre-treatment and decomposition are done simultaneously in a State Space Framework [(SSF)](M-state-space-framework.qmd).
 
 
 

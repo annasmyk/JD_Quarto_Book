@@ -75,7 +75,7 @@ You can click on the image in the area that interests you:
 ### Modelling {#modelling-window}
 
 
-In the modelling section, you can create documents based on the reg-ARIMA or Tramo only specification (which are the same as the ones used for the pre-treatment phase of seasonal adjustment with X13-ARIMA (Reg-ARIMA) and Tramo-Seats (Tramo) and thus described in the SA chapter).
+In the modelling section, you can create documents based on the reg-ARIMA or Tramo only specification (which are the same as the ones used for the pre-treatment phase of seasonal adjustment with X-13-ARIMA (Reg-ARIMA) and Tramo-Seats (Tramo) and thus described in the SA chapter).
 
 You can also use the extended airline algorithm with the plugin jdplus-highfreq-desktop-plugin to do the pre-treatment of high frequency data.
 
