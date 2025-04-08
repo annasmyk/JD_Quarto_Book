@@ -51,7 +51,7 @@ Where
 
 ## Setting Specifications {#a-pre-t-def-spec}
 
-Default specifications are set for the whole SA procedure, pre-treatment and decomposition. They are slightly different for X13-ARIMA and TRAMO-SEATS and can be modified with user-defined parameters.
+Default specifications are set for the whole SA procedure, pre-treatment and decomposition. They are slightly different for X13-ARIMA and Tramo-Seats and can be modified with user-defined parameters.
 
 #### Starting point for X13-ARIMA {#a-pre-t-def-spec-x13}
 
@@ -134,8 +134,19 @@ Use the specification window for a given series and expand the nodes.
 
 x13 in version 2
 
-```{r, echo = TRUE, eval = FALSE}
+```{r}
+#| echo: true
+#| eval: true
+#| label: loading RJDemetra (A-SA-Pre-Treatment)
+
 library("RJDemetra")
+```
+
+```{r}
+#| echo: true
+#| eval: false
+#| label: Create spec RJDemetra (A-SA-Pre-Treatment)
+
 # estimation interval: option with static dates
 user_spec_1 <- x13_spec(
     spec = c(
@@ -172,9 +183,9 @@ user_spec_4 <- x13_spec(
 # Retrieve settings
 ```
 
-For comprehensive details about x13_spec function see RJDemetra R help pages.
+For comprehensive details about `x13_spec()`{.r} function see RJDemetra R help pages.
 
-TRAMO-SEATS in version 2
+Tramo-Seats in version 2
 
 ```{r, echo = TRUE, eval = FALSE}
 # excluding first 24 and last 36 observations
@@ -185,7 +196,7 @@ user_spec_1 <- tramoseats_spec(
 )
 ```
 
-For comprehensive details about tramoseats_spec function see RJDemetra R help pages.
+For comprehensive details about `tramoseats_spec()`{.r} function see RJDemetra R help pages.
 
 #### Setting model span
 
@@ -303,7 +314,7 @@ user_spec <- x13_spec(
 # Retrieve settings: to complete*
 ```
 
-TRAMO-SEATS settings
+Tramo-Seats settings
 
 ```{r, echo = TRUE, eval = FALSE}
 # transfo
@@ -317,7 +328,7 @@ user_spec_1 <- tramoseats_spec(
 
 ### Calendar correction
 
-Some calendar correction options included in the starting specifications for X13-ARIMA or TRAMO-SEATS, they can be fine-tuned by modifying specifications. The following section lists all the available options, illustrates how to set them in GUI or R and shows have to retrieve used parameters, regressors as well as results.
+Some calendar correction options included in the starting specifications for X13-ARIMA or Tramo-Seats, they can be fine-tuned by modifying specifications. The following section lists all the available options, illustrates how to set them in GUI or R and shows have to retrieve used parameters, regressors as well as results.
 
 JDemetra+ offers two default options for calendar correction working days regressors and trading days regressors, with Leap-year effect if needed. Those options don't take into account national calendars (link) and their specific holidays. There are two ways to change this:
 
@@ -557,7 +568,7 @@ set this option in R version 2:
 
 version 3
 
-Once the calendar regressors are set, the Reg-ARIMA (tramo) model will be estimated globally with all the other regression variables and taking into account Arima model specificities as well. That is why diagnostics are all jointly displayed at the end of the process. (link)
+Once the calendar regressors are set, the Reg-ARIMA (Tramo) model will be estimated globally with all the other regression variables and taking into account Arima model specificities as well. That is why diagnostics are all jointly displayed at the end of the process. (link)
 
 (to be added: worked example: french calendar in R)
 
@@ -891,9 +902,9 @@ Control variables for the automatic modelling of the ARIMA model (when automdl.e
 
 
 
-Forecast horizon when using TRAMO-SEATS Is set in the decomposition part of the specification in GUI.
+Forecast horizon when using Tramo-Seats Is set in the decomposition part of the specification in GUI.
 
-![**Forecast horizon when using TRAMO-SEATS**](All_images/SA_REGA_arima_forecast_horizon_tramo.png)
+![**Forecast horizon when using Tramo-Seats**](All_images/SA_REGA_arima_forecast_horizon_tramo.png)
 
 ![**Forecast horizon when using X13-ARIMA**](All_images/SA_REGA_arima_forecast_horizon_X11.png)
 

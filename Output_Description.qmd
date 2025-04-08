@@ -116,7 +116,7 @@ fields: concept, name in the software (GUI, cruncher, R), algo used ? or by algo
 | Seasonally adjusted series produced by the decomposition | $$decomposition.sa\_ lin$$ |  |
 | Forecasts of the seasonally adjusted series produced by the decomposition | $$decomposition.sa\_ lin\_ f$$ |  |
 | Seasonal-Irregular produced by the decomposition | $$decomposition.si\_ lin$$ |  |
-| For X-13ARIMA-SEATS only. Series from the X-11 decomposition (x = a, b, c, d, e; y=a1...) | $$decomposition.x - tables.y$$ |  |
+| For X-13ARIMA-Seats only. Series from the X-11 decomposition (x = a, b, c, d, e; y=a1...) | $$decomposition.x - tables.y$$ |  |
 | Benchmarked seasonally adjusted series | $${benchmarking.result}$$ |  |
 | Target for the benchmarking | $${benchmarking.target}$$ |  |
 

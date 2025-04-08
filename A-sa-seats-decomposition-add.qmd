@@ -1,28 +1,28 @@
-# SA: SEATS Decomposition {#a-sa-seats .unnumbered}
+# SA: Seats Decomposition {#a-sa-seats .unnumbered}
 
 ## In this chapter
 
-This chapter focuses on practical implementation of a SEATS decomposition using the graphical user interface [GUI](#tools-GUI) and R using [R packages](#t-r-packs) in version 2.x and 3.x. More explanations on SEATS algorithm can be found [here](#m-seats).
+This chapter focuses on practical implementation of a Seats decomposition using the graphical user interface [GUI](#tools-GUI) and R using [R packages](#t-r-packs) in version 2.x and 3.x. More explanations on Seats algorithm can be found [here](#m-seats).
 
-In recent years SEATS has been tailored in JDemetra+ to handle high-frequency (infra-monthly) data, which is described [here](#sa-hf) with more methodological details [here](#m-sa-hf).
+In recent years Seats has been tailored in JDemetra+ to handle high-frequency (infra-monthly) data, which is described [here](#sa-hf) with more methodological details [here](#m-sa-hf).
 
 The sections below will describe
 
--   [specifications](#a-sa-SEATS-default-specs) needed to run SEATS
+-   [specifications](#a-sa-Seats-default-specs) needed to run Seats
 
 -   generated output
 
--   [series](#a-sa-SEATS-out-series)
+-   [series](#a-sa-Seats-out-series)
 
--   [diagnostics](#a-sa-SEATS-diags)
+-   [diagnostics](#a-sa-Seats-diags)
 
--   [final parameters](#a-sa-SEATS-final-p)
+-   [final parameters](#a-sa-Seats-final-p)
 
--   [user-defined parameters](#a-sa-SEATS-user-def)
+-   [user-defined parameters](#a-sa-Seats-user-def)
 
 ## Context
 
-SEATS is the second (decomposition) step in a seasonal adjustment processing with [Tramo-Seats](#sa-overview), once a [pre-treatment with Tramo](#sa-pre-t) has been performed. SEATS is an [Arima Model Based (AMB)](#m-seats) algorithm and will decompose the linearized series using the arima model fit in Tramo.
+Seats is the second (decomposition) step in a seasonal adjustment processing with [Tramo-Seats](#sa-overview), once a [pre-treatment with Tramo](#sa-pre-t) has been performed. Seats is an [Arima Model Based (AMB)](#m-seats) algorithm and will decompose the linearized series using the arima model fit in Tramo.
 
 ## Tools for Seats decomposition
 
@@ -38,13 +38,13 @@ Available frequencies in version 2 and version 3
 | v 2.x   | $p=12, 6, 4, 2$    |
 | v 3.x   | $p=12, 6, 4, 3, 2$ |
 
-## SEATS Decomposition
+## Seats Decomposition
 
-[SEATS algorithm](M-SEATS-decomposition.qmd) will decompose the linearized series, in level or in logarithm, using the Arima model fitted by Tramo in the pre-treatment phase.
+[Seats algorithm](M-Seats-decomposition.qmd) will decompose the linearized series, in level or in logarithm, using the Arima model fitted by Tramo in the pre-treatment phase.
 
-## Default specifications {#a-sa-SEATS-default-specs}
+## Default specifications {#a-sa-Seats-default-specs}
 
-The default specifications for SEATS must be chosen at the starting of the SA processing. They are detailed in the [Tramo](#sa-pre-t-ts-specs)
+The default specifications for Seats must be chosen at the starting of the SA processing. They are detailed in the [Tramo](#sa-pre-t-ts-specs)
 
 ## Quick Launch
 
@@ -60,7 +60,7 @@ The default specifications for SEATS must be chosen at the starting of the SA pr
 
 ### Default specifications
 
-The default specifications for SEATS must be chosen at the starting of the SA processing. They are detailed in the [Reg-ARIMA part](A-sa.qmd#Pre-treatment:%20Reg-ARIMA%20(or%20TRAMO)) Starting point for TRAMO-SEATS
+The default specifications for Seats must be chosen at the starting of the SA processing. They are detailed in the [Reg-ARIMA part](A-sa.qmd#Pre-treatment:%20Reg-ARIMA%20(or%20Tramo)) Starting point for Tramo-Seats
 
 ### Quick Launch
 
@@ -81,7 +81,7 @@ library("RJDemetra")
 model_sa_v2 <- tramoseats(raw_series, spec = "RSAfull")
 ```
 
-Full documentation of 'RJDemetra::tramoseats' function can be found [here](https://jdemetra.github.io/rjdemetra/reference/tramoseats.html)
+Full documentation of `RJDemetra::tramoseats()`{.r} function can be found [here](https://jdemetra.github.io/rjdemetra/reference/tramoseats.html)
 
 The model_sa_v2 R object (list of lists) contains all parameters and results. Its structure is detailed [here](#t-r-packs-rjdv2-structure). It can be printed giving access to selected parameters, series and diagnostics.
 
@@ -107,7 +107,7 @@ It can be printed giving access to selected parameters, series and diagnostics.
 print(model_sa_v3)
 ```
 
-### Retrieve Series {#a-sa-SEATS-out-series}
+### Retrieve Series {#a-sa-Seats-out-series}
 
 This section outlines how to retrieve the different kinds of output series from GUI or in R.
 
@@ -165,7 +165,7 @@ In version 2
 ```{r, echo = TRUE, eval = FALSE}
 library("RJDemetra")
 # list of additional output objects
-user_defined_variables("TRAMO-SEATS")
+user_defined_variables("Tramo-Seats")
 # specify additional objects in estimation
 m <- tramoseats(
     series = y,
@@ -250,7 +250,7 @@ to be added
 
 #### Final series
 
-| Series                    | Final SEATS components | Final Results | Reallocation of pre-adjustment effects |
+| Series                    | Final Seats components | Final Results | Reallocation of pre-adjustment effects |
 |-----------------|-----------------|-----------------|--------------------|
 | Raw series (forecasts)    |                        | y (y_f)       |                                        |
 | Linearized series         | B1                     |               | none                                   |
@@ -309,7 +309,7 @@ sa$result$final$sa
 # for additional results call user-defined output as explained above
 ```
 
-### Retrieve Diagnostics {a-sa-SEATS-diags}
+### Retrieve Diagnostics {a-sa-Seats-diags}
 
 -   WK analysis
 
@@ -325,7 +325,7 @@ components final estimators
 
 -   Stationary variance decomposition
 
-### Retrieve Final Parameters {#a-sa-SEATS-final-p}
+### Retrieve Final Parameters {#a-sa-Seats-final-p}
 
 Relevant if parameters not set manually, or any parameters automatically selected by the software without having a fixed default value. (The rest of the parameters is set in the specification) To manually set those parameters and see all the fixed default values see Specifications / parameters section
 
@@ -335,7 +335,7 @@ Relevant if parameters not set manually, or any parameters automatically selecte
 
 Click on the **Decomposition** NODE
 
-![**Decomposition Node**](All_images/SA_SEATS_GUI_components_models.png)
+![**Decomposition Node**](All_images/SA_Seats_GUI_components_models.png)
 
 ##### Retrieve from GUI
 
@@ -353,9 +353,9 @@ version 3
 
 Final parameters which can be fine-tuned be the user are described in User-defined specifications section below
 
-### Setting user-defined parameters {#a-sa-SEATS-user-def}
+### Setting user-defined parameters {#a-sa-Seats-user-def}
 
-The section below explains how the user can fine-tune some seats parameters, which are put in context in [the corresponding method chapter](M-SEATS-decomposition.qmd).the default value is indicated in ().
+The section below explains how the user can fine-tune some Seats parameters, which are put in context in [the corresponding method chapter](M-Seats-decomposition.qmd). The default value is indicated in ().
 
 -   Prediction length
 
@@ -391,7 +391,7 @@ McEllroyMatrix
 
 In specification window corresponding to a given series:
 
-![Text](All_images\SA_SEATS_GUI_user_def_params.png)
+![Text](All_images\SA_Seats_GUI_user_def_params.png)
 
 ##### Set in R
 

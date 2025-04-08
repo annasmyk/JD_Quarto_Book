@@ -4,7 +4,7 @@
 
 This chapter describes all the tests available in JDemetra+, via [Graphical User Interface](#t-GUI-tstools-tests) and [R packages](#t-r-packs-tests). Here the underlying theoretical principles of each test are provided.
 
-to be added: which test are done when SEATS decomposition vs X-13-Arima.
+to be added: which test are done when Seats decomposition vs X-13-Arima.
 
 ## Tests on residuals
 

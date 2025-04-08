@@ -32,7 +32,7 @@ As explained in the corresponding Readme files on [Github](https://github.com/rj
 | Algorithm   | Package   | Comments                                                 |
 |-------------------|-------------------|-----------------------------------|
 | X13-ARIMA   | RJDemetra | Reg-Arima and X-11 decomposition available independently |
-| TRAMO-SEATS | RJDemetra | Tramo available independently                            |
+| Tramo-Seats | RJDemetra | Tramo available independently                            |
 
 #### Using JDemetra+ version 3.x
 
@@ -40,7 +40,7 @@ As explained in the corresponding Readme files on [Github](https://github.com/rj
 |-------------------|-------------------|---------------------------------|
 | X13-ARIMA               | rjd3x13        | Reg-Arima and X-11 decomposition available independently                                            |
 | Extended X-11           | rjd3x11plus    | Extended for high-frequency (infra-monthly) data and Trend estimation with local polynomial filters |
-| TRAMO-SEATS             | rjd3tramoseats | Tramo available independently                                                                       |
+| Tramo-Seats             | rjd3tramoseats | Tramo available independently                                                                       |
 | Extended Tramo          | rjd3highfreq   | Extended for high-frequency data                                                                    |
 | Extended Seats          | rjd3highfreq   | Extended for high-frequency data                                                                    |
 | STL+                    | rjd3stl        | Airline based preadjustment and high-frequency data extension                                       |
@@ -171,7 +171,7 @@ Documentation [here](https://rjdverse.github.io/rjd3x13)
 
 ### rjd3tramoseats
 
-`rjd3tramoseats` gives access to TRAMO-SEATS seasonal adjustment algorithm.
+`rjd3tramoseats` gives access to Tramo-Seats seasonal adjustment algorithm.
 
 -   Specification: created with `spec_tramoseats_default()`, `spec_tramo_default()` and customized with `rjd3toolkit` functions + `set_seats()`
 

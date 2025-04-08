@@ -37,7 +37,7 @@ HF data often display multiple seasonal patterns with potentially non-integer pe
 | Col1          | Algorithm                             | GUI v 3.x | R package    |
 |---------------|---------------------------------------|-----------|--------------|
 | Pre-treatment | Extended Airline Model                | ✔️        | rjd3highfreq |
-| Decomposition | Extended SEATS Extended Airline Model | ✔️        | rjd3highfreq |
+| Decomposition | Extended Seats Extended Airline Model | ✔️        | rjd3highfreq |
 |               | Extended X-11                         | ✔️        | rjd3x11plus  |
 |               | Extended STL                          | ✖        | rjd3stl      |
 | One-Step      | SSF Framework                         | ✖        | rjd3sts      |
@@ -99,7 +99,7 @@ JDemetra+ provides the Canova-Hansen test in the rjd3toolkit package.
 
 ## Pre-adjustment
 
-In classical X13-ARIMA and TRAMO-SEATS, a pre-adjustment step is performed to remove deterministic effects, such as outliers and calendar effects, with a Reg-Arima model. In the extended version for HF data, it is also the case with an **extended Airline model**.
+In classical X13-ARIMA and Tramo-Seats, a pre-adjustment step is performed to remove deterministic effects, such as outliers and calendar effects, with a Reg-Arima model. In the extended version for HF data, it is also the case with an **extended Airline model**.
 
 A general Reg-ARIMA model is written as follows:
 

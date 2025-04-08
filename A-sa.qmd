@@ -21,7 +21,7 @@
 +------------------------+---------------+------------------+----------------+
 | X11 decomposition only | ✔️            | RJDemetra        | rjd3x13        |
 +------------------------+---------------+------------------+----------------+
-| TRAMO-SEATS            | ✔️            | RJDemetra        | rjd3tramoseats |
+| Tramo-Seats            | ✔️            | RJDemetra        | rjd3tramoseats |
 +------------------------+---------------+------------------+----------------+
 | Tramo only             | ✔️            | RJDemetra        | rjd3tramoseats |
 +------------------------+---------------+------------------+----------------+
@@ -30,7 +30,7 @@
 | STS                    | ✖            | ✖               | rjd3sts        |
 +------------------------+---------------+------------------+----------------+
 
-: X13-ARIMA and TRAMO-SEATS are two-step algorithms with a pre-treatment phase (Reg-Arima or Tramo) and a decomposition phase (X11 and Seats). STL is a local regression (Loess) based decomposition, without pre-treatment. In a Structural Time Series approach pre-treatment and decomposition are done simultaneously in a State Space Framework [(SSF)](M-state-space-framework.qmd).
+: X13-ARIMA and Tramo-Seats are two-step algorithms with a pre-treatment phase (Reg-Arima or Tramo) and a decomposition phase (X11 and Seats). STL is a local regression (Loess) based decomposition, without pre-treatment. In a Structural Time Series approach pre-treatment and decomposition are done simultaneously in a State Space Framework [(SSF)](M-state-space-framework.qmd).
 
 
 
@@ -333,13 +333,13 @@ modified_spec <- x13_spec(current_sa_model,
 modified_sa_model <- x13(raw_series, modified_spec)
 ```
 
-## SEATS Decomposition
+## Seats Decomposition
 
-[SEATS algorithm](M-SEATS-decomposition.qmd) will decompose the linearized series, in level or in logarithm, using the Arima model fitted by Tramo in the pre-treatment phase.
+[Seats algorithm](M-Seats-decomposition.qmd) will decompose the linearized series, in level or in logarithm, using the Arima model fitted by Tramo in the pre-treatment phase.
 
 The sections below will describe
 
--   specifications needed to run SEATS
+-   specifications needed to run Seats
 
 -   generated output
 
@@ -353,7 +353,7 @@ The sections below will describe
 
 ### Default specifications
 
-The default specifications for SEATS must be chosen at the starting of the SA processing. They are detailed in the [Reg-ARIMA part](A-sa.qmd#Pre-treatment:%20Reg-ARIMA%20(or%20TRAMO)) Starting point for TRAMO-SEATS
+The default specifications for Seats must be chosen at the starting of the SA processing. They are detailed in the [Reg-ARIMA part](A-sa.qmd#Pre-treatment:%20Reg-ARIMA%20(or%20Tramo)) Starting point for Tramo-Seats
 
 ### Quick Launch
 
@@ -443,7 +443,7 @@ In version 2
 ```{r, echo = TRUE, eval = FALSE}
 library("RJDemetra")
 # list of additional output objects
-user_defined_variables("TRAMO-SEATS")
+user_defined_variables("Tramo-Seats")
 # specify additional objects in estimation
 m <- tramoseats(y, "RSAfull", userdefined = c("decomposition.y_lin", "ycal", "variancedecomposition.seasonality"))
 # retrieve objects
@@ -513,7 +513,7 @@ Same procedure as for stochastic series.
 #### Final series
 
 +---------------------------+------------------------+---------------+----------------------------------------+
-| Series                    | Final SEATS components | Final Results | Reallocation of pre-adjustment effects |
+| Series                    | Final Seats components | Final Results | Reallocation of pre-adjustment effects |
 +===========================+========================+===============+========================================+
 | Raw series (forecasts)    |                        | y (y_f)       |                                        |
 +---------------------------+------------------------+---------------+----------------------------------------+
@@ -606,7 +606,7 @@ Relevant if parameters not set manually, or any parameters automatically selecte
 
 Click on the **Decomposition** NODE
 
-![**Decomposition NODE**](All_images/SA_SEATS_GUI_components_models.png)
+![**Decomposition NODE**](All_images/SA_Seats_GUI_components_models.png)
 
 ##### Retrieve from GUI
 
@@ -626,7 +626,7 @@ Final parameters which can be fine-tuned be the user are described in User-defin
 
 ### Setting user-defined parameters
 
-The section below explains how the user can fine-tune some seats parameters, which are put in context in [the corresponding method chapter](M-SEATS-decomposition.qmd).the default value is indicated in ().
+The section below explains how the user can fine-tune some Seats parameters, which are put in context in [the corresponding method chapter](M-Seats-decomposition.qmd). The default value is indicated in ().
 
 -   Prediction length
 
@@ -662,7 +662,7 @@ McEllroyMatrix
 
 In specification window corresponding to a given series:
 
-![**TramoSeatsSpec SEATS part**](All_images\SA_SEATS_GUI_user_def_params.png)
+![**TramoSeatsSpec Seats part**](All_images\SA_Seats_GUI_user_def_params.png)
 
 ##### Set in R
 

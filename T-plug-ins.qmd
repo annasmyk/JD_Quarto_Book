@@ -302,7 +302,7 @@ Plug-ins-default-v3.png
 | NbDemetra -- Core              | SA core algorithms | Encapsulation of the core algorithms                                                                                                                         |
 | NbDemetra -- UI                | SA core algorithms | Basic graphical components                                                                                                                                   |
 | NbDemetra -- Branding          | SA core algorithms |                                                                                                                                                              |
-| NbDemetra -- SA                | SA core algorithms | Default SA framework, including TRAMO-SEATS and X-13ARIMA-SEATS. This implementation can lead to small differences in comparison with the original programs. |
+| NbDemetra -- SA                | SA core algorithms | Default SA framework, including Tramo-Seats and X-13ARIMA-Seats. This implementation can lead to small differences in comparison with the original programs. |
 
 This list is displayed in the *Installed* panel. This panel is available from the *Plugin* functionality and it is activated from the *Tools* menu.
 

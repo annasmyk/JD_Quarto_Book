@@ -64,7 +64,7 @@ Two categories of algorithms :
 
 -   version 3 additional algorithms (incubator)
 
-X13-ARIMA and TRAMO-SEATS are two-step algorithms with a pre-treatment phase (Reg-Arima or Tramo) and a decomposition phase (X11 and Seats). 
+X13-ARIMA and Tramo-Seats are two-step algorithms with a pre-treatment phase (Reg-Arima or Tramo) and a decomposition phase (X11 and Seats). 
 
 STL+ combines STL local regression based decomposition and a simplified Reg-Arima pre-treatment restricted to airline models.
 

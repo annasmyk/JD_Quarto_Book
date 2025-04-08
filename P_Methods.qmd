@@ -14,7 +14,7 @@ In this part:
 
 -   [X-11: moving average based decomposition](#m-X11)
 
--   [SEATS: Arima model based decomposition](#m-seats)
+-   [Seats: Arima model based decomposition](#m-seats)
 
 -   [STL: Loess based decomposition](#m-stl)
 

@@ -2,7 +2,7 @@
 
 ## Overview
 
-This chapter provides general information about using the graphical interface (GUI). Specific indications related to a given algorithm (X13-ARIMA, Tramo-seats, Benchmarking...) are displayed in the relevant chapters.
+This chapter provides general information about using the graphical interface (GUI). Specific indications related to a given algorithm (X13-ARIMA, Tramo-Seats, Benchmarking...) are displayed in the relevant chapters.
 
 ### Available algorithms
 
@@ -11,7 +11,7 @@ The graphical user interface in the 2.x family gives access to:
 -   Seasonal adjustment [(SA) algorithms](A-sa.qmd)
 
     -   X13-ARIMA
-    -   TRAMO-SEATS
+    -   Tramo-Seats
     -   Direct-indirect SA comparisons
 
 -   Outlier detection (TERROR)
@@ -106,9 +106,9 @@ By default, JDemetra+ supports the following data sources:
 -   ODBC;
 -   SDMX;
 -   Excel spreadsheets;
--   TSW (input files for the [TRAMO-SEATS-Windows application](https://www.bde.es/bde/en/secciones/servicios/Profesionales/Programas_estadi/Programas.html) by the Bank of Spain);
+-   TSW (input files for the [Tramo-Seats-Windows application](https://www.bde.es/bde/en/secciones/servicios/Profesionales/Programas_estadi/Programas.html) by the Bank of Spain);
 -   TXT;
--   USCB (input files for the [X-13-ARIMA-SEATS application](https://www.census.gov/srd/www/winx13/) by the U.S. Census Bureau);
+-   USCB (input files for the [X-13-ARIMA-Seats application](https://www.census.gov/srd/www/winx13/) by the U.S. Census Bureau);
 -   XML.
 
 All standard databases (Oracle, SQLServer, DB2, MySQL) are supported by JDemetra+ via JDBC, which is a generic interface to many relational databases. Other providers can be added by users by creating plugins (see *Plugins* section in the [Tools](tools.html) menu).
@@ -244,7 +244,7 @@ The specifications and output of the modelling procedure are displayed in the [*
 The primary aim of the seasonal adjustment process is to remove seasonal fluctuations from the time series. To achieve this goal, seasonal adjustment methods decompose the original time series into components that capture specific movements. These components are: trend-cycle, seasonality and irregularity.
 The trend-cycle component includes long-term and medium-term movements in the data. For seasonal adjustment purposes there is no need to divide this component into two parts. JDemetra+ refers to the trend-cycle as trend and consequently this convention is used here.
 
-This section presents the options of the seasonal adjustment processes performed by the methods implemented in JDemetra+ (X-12-ARIMA/X-13ARIMA-SEATS and TRAMO/SEATS) and discusses the output displayed by JDemetra+. As these seasonal adjustment methods use different approach to the decomposition, the output produced for both of them has different structure and content. Therefore, the results for both methods are discussed separately. 
+This section presents the options of the seasonal adjustment processes performed by the methods implemented in JDemetra+ (X-12-ARIMA/X-13ARIMA-Seats and Tramo/Seats) and discusses the output displayed by JDemetra+. As these seasonal adjustment methods use different approach to the decomposition, the output produced for both of them has different structure and content. Therefore, the results for both methods are discussed separately. 
 However, in contrast to the original programs, in JDemetra+ some quality indicators have been implemented for both methods, allowing for an easier comparison of the results.
 
 This section is divided into two parts:
@@ -321,11 +321,11 @@ The Statistical methods menu includes functionalities for modelling, analysis an
 
 ![**The *Anomaly detection* tab.**](All_images/Statistical methods menu anomaly detection.png)
 
--   [Modelling](#modelling) -- enables time series modelling using the TRAMO and Reg-ARIMA models;
+-   [Modelling](#modelling) -- enables time series modelling using the Tramo and Reg-ARIMA models;
 
 ![**The *Modelling* tab.**](All_images/Statistical methods menu modelling.png)
 
--   [Seasonal adjustment](#seasonal-adjustment??) -- intended for the seasonal adjustment of a time series with the TRAMO-SEATS and X-13ARIMA-SEATS methods.
+-   [Seasonal adjustment](#seasonal-adjustment??) -- intended for the seasonal adjustment of a time series with the Tramo-Seats and X-13ARIMA-Seats methods.
 
 ![**The *Seasonal adjustment* tab.**](All_images/Statistical methods menu.jpg)
 

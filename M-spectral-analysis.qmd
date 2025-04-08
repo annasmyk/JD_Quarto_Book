@@ -60,7 +60,7 @@ The explanations given in the subsections of this node derive mainly from DE ANT
 
 #### Method 1: Periodogram {#m-spectral-analysis-m-spectrum-periodogram}
 
-For any given frequency $\omega$ the sample periodogram is the sample analog of the sample spectrum. In general, the periodogram is used to identify the periodic components of unknown frequency in the time series. X-13ARIMA-SEATS and TRAMO-SEATS use this tool for detecting seasonality in raw time series and seasonally adjusted series. Apart from this it is applied for checking randomness of the residuals from the ARIMA model.
+For any given frequency $\omega$ the sample periodogram is the sample analog of the sample spectrum. In general, the periodogram is used to identify the periodic components of unknown frequency in the time series. X-13ARIMA-Seats and Tramo-Seats use this tool for detecting seasonality in raw time series and seasonally adjusted series. Apart from this it is applied for checking randomness of the residuals from the ARIMA model.
 
 To define a periodogram, first consider a vector of complex numbers
 
@@ -307,7 +307,7 @@ This implies that it may be hard to disentangle both effects using the frequency
 
 ### In a Tukey spectrum
 
-Current JDemetra+ implementation of the seasonality test is based on a $F(d_{1},d_{2})$ approximation that has been originally proposed by Maravall (2012) for TRAMO-SEATS. This test is has been designed for a Blackman-Tukey window based on a particular choices of the truncation lag $r$ and sample size. Following this approach, we determine visually significant peaks for a frequency $\omega_{j}$ when
+Current JDemetra+ implementation of the seasonality test is based on a $F(d_{1},d_{2})$ approximation that has been originally proposed by Maravall (2012) for Tramo-Seats. This test is has been designed for a Blackman-Tukey window based on a particular choices of the truncation lag $r$ and sample size. Following this approach, we determine visually significant peaks for a frequency $\omega_{j}$ when
 
 $$
 \frac{2 f_{x}(\omega_{j})}{[f_{x}(\omega_{j+1})+ f_{x}(\omega_{j-1})]} \ge CV(\omega_{j})
