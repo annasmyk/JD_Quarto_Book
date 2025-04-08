@@ -4,13 +4,13 @@
 
 The following sections describe 
 
-- how to generate useful external regressors for improving seasonal adjustment or reg-arima modelling
+- how to generate useful external regressors for improving seasonal adjustment or Reg-ARIMA modelling
 
 - JDemetra+ solutions for outlier detection and in a time series.
 
 These routines can be used stand alone or as part of a seasonal adjustment process. They can be accessed via the [Graphical User Interface (GUI)](#t-gui-overview) or [R packages]((#t-r-packs).
 
-How to use the generated regressors, or any user-defined variable, in a seasonal adjustment or reg-arima modelling process is discussed in the [pre-treatment](#sa-pre-t) chapter for classic SA and [SA of High-frequency](#a-sa-hf) chapter for infra-monthly data. There you will also find out how to fix the corresponding coefficients and how to allocate the effects to the selected component.
+How to use the generated regressors, or any user-defined variable, in a seasonal adjustment or Reg-ARIMA modelling process is discussed in the [pre-treatment](#sa-pre-t) chapter for classic SA and [SA of High-frequency](#a-sa-hf) chapter for infra-monthly data. There you will also find out how to fix the corresponding coefficients and how to allocate the effects to the selected component.
 
 The external regressors described exclude calendar correction which is detailed [here](#a-cal)
 
@@ -42,7 +42,7 @@ ADD:
 
 #### Pre-specifying outliers 
 
-Outliers are well-defined types of auxiliary variables, therefore when they are used (reg-arima or Tramo modelling) they don't need to be explicitly generated beforehand. Pre-specifying outliers is detailed in chapters on [pre-treatment in SA](#sa-pre-t) and [SA of High-frequency data](#a-sa-hf). 
+Outliers are well-defined types of auxiliary variables, therefore when they are used (Reg-ARIMA or Tramo modelling) they don't need to be explicitly generated beforehand. Pre-specifying outliers is detailed in chapters on [pre-treatment in SA](#sa-pre-t) and [SA of High-frequency data](#a-sa-hf). 
 
 #### Generating regressors for outliers
 
@@ -73,7 +73,7 @@ so <- so_variable(12, c(2000, 1), length = 12 * 4, date = "2002-02-01")
 
 A ramp effect means a linear increase or decrease in the level of the series over a specified time interval $t_{0}$ to $\ t_{1}$. Ramps can overlap other ramps, additive outliers and level shifts. In seasonal adjustment their effected will be allocated to the trend.
 
-Adding ramps to a seasonal adjustment (or reg-arima / Tramo) specification happens in one step in GUI as well as in R, where ramp regressors can nevertheless be independently generated.
+Adding ramps to a seasonal adjustment (or Reg-ARIMA / Tramo) specification happens in one step in GUI as well as in R, where ramp regressors can nevertheless be independently generated.
 
 
 #### Adding ramps in GUI 
@@ -115,7 +115,7 @@ More details rjd3toolkit pages.
 
 Intervention variables are modelled as any possible sequence of ones and zeros, on which differencing (regular and seasonal) can be applied.
 
-Adding intervention variables to a seasonal adjustment (or reg-arima / Tramo) specification happens in one step when using the GUI, whereas two steps are required in R: generating the regressors and the adding them as an user-defined variable. 
+Adding intervention variables to a seasonal adjustment (or Reg-ARIMA / Tramo) specification happens in one step when using the GUI, whereas two steps are required in R: generating the regressors and the adding them as an user-defined variable. 
 
 #### Adding intervention variables in GUI 
 
@@ -212,7 +212,7 @@ Correction for stable seasonality.
 
 ### User-defined variables {#usr-def-var}
 
-User defined variables are simply time series used as explanatory regressors in the RegARIMA and the Tramo models. Although JDemetra+ allows the user to indicate any time series as a variable to avoid misleading or 
+User defined variables are simply time series used as explanatory regressors in the Reg-ARIMA and the Tramo models. Although JDemetra+ allows the user to indicate any time series as a variable to avoid misleading or 
 erroneous results, the following rules should be kept: 
 
 * User-defined regression variables are used for measuring abnormalities and therefore they should not contain a seasonal pattern. 
@@ -255,15 +255,15 @@ In order to rename the series in the *Variables* window, right click on the seri
 
 ## Outlier Detection
 
-### With Reg Arima models
+### With Reg ARIMA models
 
 #### Within an SA processing
 
-In a seasonal adjustment estimation or reg-arima modelling outliers are detected by default. This process can be customized by selecting the type of outliers to be taken into account and the critical values to be used for selection. See the relevant chapters on [SA](#sa-pre-t) and [SA of High-frequency data](#a-sa-hf)
+In a seasonal adjustment estimation or Reg-ARIMA modelling outliers are detected by default. This process can be customized by selecting the type of outliers to be taken into account and the critical values to be used for selection. See the relevant chapters on [SA](#sa-pre-t) and [SA of High-frequency data](#a-sa-hf)
 
 #### Stand alone 
 
-In version 3;x, R packages rjd3x13 and rjd3tramoseats provide functions for detecting outliers with reg-arima (tramo) algorithms. 
+In version 3;x, R packages rjd3x13 and rjd3tramoseats provide functions for detecting outliers with Reg-ARIMA (tramo) algorithms. 
 
 Example using `regarima_outliers`in rjd3x13:
 

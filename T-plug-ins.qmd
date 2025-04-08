@@ -47,7 +47,7 @@ For low frequency (monthly, quarterly, half-yearly, quadri-monthly) data the fol
 +============================================================+==========================================+=============================+
 | Extended Airline Estimation                                | jdplus-highfreq-desktop-plugin-x.y.z.nbm | Usage in GUI described here |
 |                                                            |                                          |                             |
-| (Reg-Arima Modelling)                                      |                                          |                             |
+| (Reg-ARIMA Modelling)                                      |                                          |                             |
 +------------------------------------------------------------+------------------------------------------+-----------------------------+
 | Extended Airline Decomposition                             | jdplus-highfreq-desktop-plugin-x.y.z.nbm | Usage in GUI described here |
 |                                                            |                                          |                             |

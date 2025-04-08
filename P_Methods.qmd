@@ -10,11 +10,11 @@ In this part:
 
 -   [Tests for seasonality and residuals](M-tests.qmd)
 
--   [Reg-Arima modelling](#m-reg-a)
+-   [Reg-ARIMA modelling](#m-reg-a)
 
 -   [X-11: moving average based decomposition](#m-X11)
 
--   [Seats: Arima model based decomposition](#m-seats)
+-   [Seats: ARIMA model based decomposition](#m-seats)
 
 -   [STL: Loess based decomposition](#m-stl)
 

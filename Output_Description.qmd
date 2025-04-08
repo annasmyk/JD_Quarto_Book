@@ -104,7 +104,7 @@ fields: concept, name in the software (GUI, cruncher, R), algo used ? or by algo
 | Forecasts of regression effects related to seasonally adjusted series | $$reg\_ sa\_ f$$ |  |
 | Separate regression effects | $$reg\_ y$$ |  |
 | Forecasts of separate regression effects | $$reg\_ y\_ f$$ |  |
-| Full residuals of the RegARIMA model | $${fullresiduals}$$ |  |
+| Full residuals of the Reg-ARIMA model | $${fullresiduals}$$ |  |
 | Linearised series used as input in the decomposition | $$decomposition.y\_ lin$$ |  |
 | Forecast of the linearised series used as input in the decomposition | $$decomposition.y\_ lin\_ f$$ |  |
 | Trend produced by the decomposition | $$decomposition.t\_ lin$$ |  |

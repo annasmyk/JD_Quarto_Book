@@ -10,7 +10,7 @@ left to be modified
 
 to be checked: can be done later
 
-SEATS is an Arima Model Based (AMB) decomposition which is the second part of Tramo-SEATS seasonal adjustment algorithm, originally developed by the Bank of Spain.
+SEATS is an ARIMA Model Based (AMB) decomposition which is the second part of Tramo-SEATS seasonal adjustment algorithm, originally developed by the Bank of Spain.
 
 SEATS is a program for estimating unobserved components in a time series. It follows the ARIMA-model-based (AMB) method, developed from the work of CLEVELAND, W.P., and TIAO, G.C. (1976), BURMAN, J.P. (1980), HILLMER, S.C., and TIAO, G.C. (1982), BELL, W.R., and HILLMER, S.C. (1984) and MARAVALL, A., and PIERCE, D.A. (1987).
 

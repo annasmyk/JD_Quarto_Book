@@ -24,7 +24,7 @@ This chapter provides an overview of the new features in version 3.x  as well as
 
 #### Improvements on historical algorithms
 
-Improvements X-13-Arima and Tramo-Seats (historical JD+)
+Improvements X-13-ARIMA and Tramo-Seats (historical JD+)
 
 -   New acceptable data frequencies for seasonal adjustment and modelling of low frequency data:
 
@@ -32,7 +32,7 @@ Improvements X-13-Arima and Tramo-Seats (historical JD+)
         algorithms (historical and new)
         
         - In version 2, only Tramo-Seats supported all these frequencies, whereas
-        X13-Arima was restricted to $p$ in ${2,4,12}$
+        X13-ARIMA was restricted to $p$ in ${2,4,12}$
 
 -   outlier correction taken into account when
     selecting decomposition scheme
@@ -53,12 +53,12 @@ The user can transform a given "estimation specification" in a user defined spec
 
 #### New algorithms in v3.x
 
-Tramo-Seats and X-13-Arima share a very similar and sophisticated
-pre-adjustment process for the Arima model selection phase.
+Tramo-Seats and X-13-ARIMA share a very similar and sophisticated
+pre-adjustment process for the ARIMA model selection phase.
 
 For new algorithms, the philosophy is to offer
 
--   a simplified pre-adjustment on the arima modelling side, reduced to
+-   a simplified pre-adjustment on the ARIMA modelling side, reduced to
     airline model
 
 -   several enhanced decomposition options
@@ -97,7 +97,7 @@ In version 3.x this process is available from the graphical user interface.
 
 All algorithms are available via an R package and will be available in GUI (in target v 3.x version)
 
--   Extended Airline estimation, reg-Arima like (`rjd3highfreq` and GUI )
+-   Extended Airline estimation, reg-ARIMA like (`rjd3highfreq` and GUI )
 
 -   Extended Airline Decomposition, Seats like (`rjd3highfreq` and GUI )
 
@@ -112,7 +112,7 @@ All algorithms are available via an R package and will be available in GUI (in t
 
 | Algorithm        | Access in GUI | Access in R (v2)    | Access in R (v3) |
 |------------------|---------------|---------------------|------------------|
-| Reg-Arima        | ✔️            | RJDemetra           | rjd3x13          |
+| Reg-ARIMA        | ✔️            | RJDemetra           | rjd3x13          |
 | Tramo            | ✔️            | RJDemetra           | rjd3tramoseats   |
 | Extended Airline | ✔️ (v3 only)  | ✖                   | rjd3highfreq     |
 | STS              | ✔️ (v3 only)  | rjdsts (deprecated) | rjd3sts          |
@@ -155,7 +155,7 @@ Version 3.x offers more stand alone tools (mainly in `rjd3toolkit`)
 
 -   Tests (seasonality, auto-correlation, normality, randomness...)
 
--   (Fast) Arima Modelling 
+-   (Fast) ARIMA Modelling 
 
 -   Flexible Calendar regressors generation
 

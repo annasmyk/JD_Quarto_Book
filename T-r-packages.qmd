@@ -31,14 +31,14 @@ As explained in the corresponding Readme files on [Github](https://github.com/rj
 
 | Algorithm   | Package   | Comments                                                 |
 |-------------------|-------------------|-----------------------------------|
-| X13-ARIMA   | RJDemetra | Reg-Arima and X-11 decomposition available independently |
+| X13-ARIMA   | RJDemetra | Reg-ARIMA and X-11 decomposition available independently |
 | Tramo-Seats | RJDemetra | Tramo available independently                            |
 
 #### Using JDemetra+ version 3.x
 
 | Algorithm               | Package        | Comments                                                                                            |
 |-------------------|-------------------|---------------------------------|
-| X13-ARIMA               | rjd3x13        | Reg-Arima and X-11 decomposition available independently                                            |
+| X13-ARIMA               | rjd3x13        | Reg-ARIMA and X-11 decomposition available independently                                            |
 | Extended X-11           | rjd3x11plus    | Extended for high-frequency (infra-monthly) data and Trend estimation with local polynomial filters |
 | Tramo-Seats             | rjd3tramoseats | Tramo available independently                                                                       |
 | Extended Tramo          | rjd3highfreq   | Extended for high-frequency data                                                                    |
@@ -149,7 +149,7 @@ Contains utility functions used in other `rjd3` packages and has to be systemati
 
 -   generate auxiliary variables (outliers, ramps..)
 
--   run arima model estimations
+-   run ARIMA model estimations
 
 -   perform tests (seasonality, normality, white noise)
 
@@ -195,7 +195,7 @@ Depends on `rjd3sts`
 
 Seasonal adjustment of high frequency (infra-monthly) data:
 
--   fractional airline based reg-Arima pre-adjustment
+-   fractional airline based reg-ARIMA pre-adjustment
 
 -   fractional and multi airline decomposition
 

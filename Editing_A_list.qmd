@@ -49,13 +49,13 @@ when describing parameters
 
 - ramps 
 
-graph and formula are available in [Linearisation with the Tramo and RegARIMA models](../theory/SA_lin.html).
+graph and formula are available in [Linearisation with the Tramo and Reg-ARIMA models](../theory/SA_lin.html).
 
 explain params 
 
 - differentiation orders D1DS: if ticked: 1 1 automatically (pb differentiation before the real differentiation ?), cf rjd3toolkit doc to harmonize 
 
-#### in reg arima results
+#### in Reg-ARIMA results
 
 -   seasonality tests on residuals (Highlight differences: - in gui - in R v2: retrieve object in output, v3 run test)
 
@@ -259,11 +259,11 @@ add: - R code or references to - rjd3sa (?) references to tests - more explanati
 
 Vocabulary precision and concise definitions - spectral density - periodogram - spectral density estimator - "spectrum" is used too ubiquitously
 
-### M-reg-arima-modelling
+### M-Reg-ARIMA-modelling
 
 In the chapter on SA, in the pre-adjustment section, we tackle: 
 
-- purpose, principles and results of reg-arima models (Tramo or reg-arima)
+- purpose, principles and results of Reg-ARIMA models (Tramo or Reg-ARIMA)
 
 Here we tackle : 
 

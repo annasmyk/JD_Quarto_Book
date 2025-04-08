@@ -2,9 +2,9 @@
 
 ## In this chapter
 
-The following sections cover pre-treatment with Reg-ARIMA (or Tramo) algorithms. Tramo and the Reg-Arima part of X13-ARIMA rely on very similar [principles](#m-reg-a). Thus Tramo will only be mentioned to highlight differences with the Reg-Arima part of X13-ARIMA. 
+The following sections cover pre-treatment with Reg-ARIMA (or Tramo) algorithms. Tramo and the Reg-ARIMA part of X13-ARIMA rely on very similar [principles](#m-reg-a). Thus Tramo will only be mentioned to highlight differences with the Reg-ARIMA part of X13-ARIMA. 
 
-Reg-Arima modelling part can be the first of a seasonal adjustment process or run on its [own](#a-reg-a). Below we focus on performing reg-arima modelling as pre-treatment in a SA processing.
+Reg-ARIMA modelling part can be the first of a seasonal adjustment process or run on its [own](#a-reg-a). Below we focus on performing Reg-ARIMA modelling as pre-treatment in a SA processing.
 
 More in-depth methodological explanations of the algorithms can be found in [this part](#part-M) of the documentation.
 
@@ -264,7 +264,7 @@ Auto -- the program tests for the log-level specification. This option is recomm
 
 The default setting is Auto.
 
-Reg-Arima specific settings
+Reg-ARIMA specific settings
 
 AIC difference
 
@@ -376,7 +376,7 @@ The leap-year effect can be pre-specified in the model only if the input series 
 
 #### Test
 
-**Test**: defines the pre-tests for the significance of the trading day regression variables based on the AICC statistics: "Add" = the trading day variables are not included in the initial regression model but can be added to the Reg-ARIMA model after the test; "Remove" = the trading day variables belong to the initial regression model but can be removed from the RegARIMA model after the test; "None" = the trading day variables are not pre-tested and are included in the model.
+**Test**: defines the pre-tests for the significance of the trading day regression variables based on the AICC statistics: "Add" = the trading day variables are not included in the initial regression model but can be added to the Reg-ARIMA model after the test; "Remove" = the trading day variables belong to the initial regression model but can be removed from the Reg-ARIMA model after the test; "None" = the trading day variables are not pre-tested and are included in the model.
 
 ##### Easter
 
@@ -386,7 +386,7 @@ easter.Julian a logical. If TRUE, the program uses the Julian Easter (expressed 
 
 easter.duration a numeric indicating the duration of the Easter effect (length in days, between 1 and 20).
 
-easter.test defines the pre-tests for the significance of the Easter effect based on the t-statistic (the Easter effect is considered as significant if the t-statistic is greater than 1.96): "Add" = the Easter effect variable is not included in the initial regression model but can be added to the Reg-ARIMA model after the test; "Remove" = the Easter effect variable belongs to the initial regression model but can be removed from the RegARIMA model after the test; "None" = the Easter effect variable is not pre-tested and is included in the model.
+easter.test defines the pre-tests for the significance of the Easter effect based on the t-statistic (the Easter effect is considered as significant if the t-statistic is greater than 1.96): "Add" = the Easter effect variable is not included in the initial regression model but can be added to the Reg-ARIMA model after the test; "Remove" = the Easter effect variable belongs to the initial regression model but can be removed from the Reg-ARIMA model after the test; "None" = the Easter effect variable is not pre-tested and is included in the model.
 
 A user-defined regressor can also be used, see chapter on [calendar correction](A-calendar-correction.qmd)
 
@@ -526,7 +526,7 @@ Regressions results
 
 **In GUI**
 
-The results of the whole Reg-Arima regression (link to last section) including calendar effects (below) are displayed in the pre-processing panel.
+The results of the whole Reg-ARIMA regression (link to last section) including calendar effects (below) are displayed in the pre-processing panel.
 
 ![](All_images/SA_REGA_calendar_retrieving_regressions_results.png)
 
@@ -568,7 +568,7 @@ set this option in R version 2:
 
 version 3
 
-Once the calendar regressors are set, the Reg-ARIMA (Tramo) model will be estimated globally with all the other regression variables and taking into account Arima model specificities as well. That is why diagnostics are all jointly displayed at the end of the process. (link)
+Once the calendar regressors are set, the Reg-ARIMA (Tramo) model will be estimated globally with all the other regression variables and taking into account ARIMA model specificities as well. That is why diagnostics are all jointly displayed at the end of the process. (link)
 
 (to be added: worked example: french calendar in R)
 
@@ -578,7 +578,7 @@ The sections below focus on
 
 -   outlier detection parameters (type and critical value)
 
--   pre-specifying outliers in a seasonal adjustement (reg-arima modelling) process
+-   pre-specifying outliers in a seasonal adjustement (Reg-ARIMA modelling) process
 
 Additional information can be found in [this chapter](A-outlier-detection.qmd).
 
@@ -838,15 +838,15 @@ Regression details are in the pre-processing pane.
 
 **IN R**
 
-### Arima Model
+### ARIMA Model
 
-Key specifications on Arima modelling are embedded in default specifications: airline (default model) or full automatic research.(links)
+Key specifications on ARIMA modelling are embedded in default specifications: airline (default model) or full automatic research.(links)
 
 Two kinds of interventions are available to the user
 
 -   modify automatic detection parameters
 
--   set a user defined Arima model
+-   set a user defined ARIMA model
 
 In both cases forecast horizon can also be set (link)
 
@@ -876,7 +876,7 @@ Control variables for the automatic modelling of the ARIMA model (when automdl.e
 
 *automdl.ubfinal* numeric, final unit root limit. The threshold value for the final unit root test. If the magnitude of an AR root for the final model is smaller than the final unit root limit, then a unit root is assumed, the order of the AR polynomial is reduced by one and the appropriate order of the differencing (non-seasonal, seasonal) is increased. The parameter value should be greater than one.
 
-(for both options) *fcst.horizon* the forecasting horizon (numeric). The forecast length generated by the Reg-Arima model in periods (positive values) or years (negative values). By default, the program generates a two-year forecast (fcst.horizon set to -2). Defaults different in GUI and R.
+(for both options) *fcst.horizon* the forecasting horizon (numeric). The forecast length generated by the Reg-ARIMA model in periods (positive values) or years (negative values). By default, the program generates a two-year forecast (fcst.horizon set to -2). Defaults different in GUI and R.
 
 
 ::: {.panel-tabset .content-visible when-format="html"}
@@ -933,7 +933,7 @@ in version 3
 
 add worked example in version 3
 
-#### Options for setting a user-defined Arima model
+#### Options for setting a user-defined ARIMA model
 
 Control variables for the non-automatic modelling of the ARIMA model (when *automdl.enabled* is set to FALSE):
 
@@ -961,9 +961,9 @@ Control variables for the user-defined ARMA coefficients. Coefficients can be de
 
 **Setting in GUI**
 
-![**Manual ARIMA modelling**](All_images/SA_REGA_Arima_user_params_1.png)
+![**Manual ARIMA modelling**](All_images/SA_REGA_ARIMA_user_params_1.png)
 
-![**Fixing coefficients**](All_images/SA_REGA_Arima_user_params_2.png)
+![**Fixing coefficients**](All_images/SA_REGA_ARIMA_user_params_2.png)
 
 **Setting in R**
 
@@ -989,7 +989,7 @@ spec_2 <- x13_spec(
 
 in version 3
 
-### Reg-Arima model Results and Diagnostics
+### Reg-ARIMA model Results and Diagnostics
 
 Type of results (including Tramo addenda)
 
@@ -997,7 +997,7 @@ Type of results (including Tramo addenda)
 
 -   regression details: explanatory variables (above)
 
--   Arima model specific results
+-   ARIMA model specific results
 
 -   additional diagnostics on residuals
 
@@ -1007,47 +1007,47 @@ Type of results (including Tramo addenda)
 
 #### Display in GUI
 
-Reg-Arima model detail with other regression results in pre-processing pane. with number of observations.. parameters 
+Reg-ARIMA model detail with other regression results in pre-processing pane. with number of observations.. parameters 
 
-![**Final model**](All_images/SA_REGA_Arima_model_results_1.png)
+![**Final model**](All_images/SA_REGA_ARIMA_model_results_1.png)
 
-More details in Pre-processing/Arima Node
+More details in Pre-processing/ARIMA Node
 
-![**Arima details**](All_images/SA_REGA_Arima_model_results_2.png)
+![**ARIMA details**](All_images/SA_REGA_ARIMA_model_results_2.png)
 
 In residual Node
 
 ::: {.content-visible when-format="html"}
 
-![**Residuals**](All_images/SA_REGA_Arima_Model_Residuals_Node.png)
+![**Residuals**](All_images/SA_REGA_ARIMA_Model_Residuals_Node.png)
 
 :::
 
 
 ::: {.content-visible when-format="pdf"}
 
-![**Residuals**](All_images/SA_REGA_Arima_Model_Residuals_Node_1.png)
+![**Residuals**](All_images/SA_REGA_ARIMA_Model_Residuals_Node_1.png)
 
-![**Residuals**](All_images/SA_REGA_Arima_Model_Residuals_Node_2.png)
+![**Residuals**](All_images/SA_REGA_ARIMA_Model_Residuals_Node_2.png)
 
-![**Residuals**](All_images/SA_REGA_Arima_Model_Residuals_Node_3.png)
+![**Residuals**](All_images/SA_REGA_ARIMA_Model_Residuals_Node_3.png)
 
-![**Residuals**](All_images/SA_REGA_Arima_Model_Residuals_Node_4.png)
+![**Residuals**](All_images/SA_REGA_ARIMA_Model_Residuals_Node_4.png)
 
-![**Residuals**](All_images/SA_REGA_Arima_Model_Residuals_Node_5.png)
+![**Residuals**](All_images/SA_REGA_ARIMA_Model_Residuals_Node_5.png)
 
-![**Residuals**](All_images/SA_REGA_Arima_Model_Residuals_Node_6.png)
+![**Residuals**](All_images/SA_REGA_ARIMA_Model_Residuals_Node_6.png)
 
 :::
 
 
-![**Distribution**](All_images/SA_REGA_Arima_Model_Residuals_Node_7.png)
+![**Distribution**](All_images/SA_REGA_ARIMA_Model_Residuals_Node_7.png)
 
-![**Likelihood**](All_images/SA_REGA_Arima_Model_Likelihood_Node.png) 
+![**Likelihood**](All_images/SA_REGA_ARIMA_Model_Likelihood_Node.png) 
 
-![](All_images/SA_REGA_Arima_Model_Likelihood_Node.png)
+![](All_images/SA_REGA_ARIMA_Model_Likelihood_Node.png)
 
 Seasonality tests on residuals in the **Diagnostics NODE**
 
-![**Residuals**](All_images/SA_REGA_Arima_Model_residuals_seaso_tests.png)
+![**Residuals**](All_images/SA_REGA_ARIMA_Model_residuals_seaso_tests.png)
 

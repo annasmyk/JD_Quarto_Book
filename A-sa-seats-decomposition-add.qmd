@@ -22,7 +22,7 @@ The sections below will describe
 
 ## Context
 
-Seats is the second (decomposition) step in a seasonal adjustment processing with [Tramo-Seats](#sa-overview), once a [pre-treatment with Tramo](#sa-pre-t) has been performed. Seats is an [Arima Model Based (AMB)](#m-seats) algorithm and will decompose the linearized series using the arima model fit in Tramo.
+Seats is the second (decomposition) step in a seasonal adjustment processing with [Tramo-Seats](#sa-overview), once a [pre-treatment with Tramo](#sa-pre-t) has been performed. Seats is an [ARIMA Model Based (AMB)](#m-seats) algorithm and will decompose the linearized series using the ARIMA model fit in Tramo.
 
 ## Tools for Seats decomposition
 
@@ -40,7 +40,7 @@ Available frequencies in version 2 and version 3
 
 ## Seats Decomposition
 
-[Seats algorithm](M-Seats-decomposition.qmd) will decompose the linearized series, in level or in logarithm, using the Arima model fitted by Tramo in the pre-treatment phase.
+[Seats algorithm](M-Seats-decomposition.qmd) will decompose the linearized series, in level or in logarithm, using the ARIMA model fitted by Tramo in the pre-treatment phase.
 
 ## Default specifications {#a-sa-Seats-default-specs}
 
@@ -329,7 +329,7 @@ components final estimators
 
 Relevant if parameters not set manually, or any parameters automatically selected by the software without having a fixed default value. (The rest of the parameters is set in the specification) To manually set those parameters and see all the fixed default values see Specifications / parameters section
 
-#### Arima Models for components
+#### ARIMA Models for components
 
 ##### Display in GUI
 

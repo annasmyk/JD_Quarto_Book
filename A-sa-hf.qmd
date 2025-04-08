@@ -46,7 +46,7 @@ HF data often display multiple seasonal patterns with potentially non-integer pe
 
 All algorithms are available via an R package and will be available in GUI (in target v 3.x version)
 
--   Extended Airline estimation, reg-Arima like (`rjd3highfreq` and GUI )
+-   Extended Airline estimation, reg-ARIMA like (`rjd3highfreq` and GUI )
 
 -   Extended Airline Decomposition, Seats like (`rjd3highfreq` and GUI )
 
@@ -99,7 +99,7 @@ JDemetra+ provides the Canova-Hansen test in the rjd3toolkit package.
 
 ## Pre-adjustment
 
-In classical X13-ARIMA and Tramo-Seats, a pre-adjustment step is performed to remove deterministic effects, such as outliers and calendar effects, with a Reg-Arima model. In the extended version for HF data, it is also the case with an **extended Airline model**.
+In classical X13-ARIMA and Tramo-Seats, a pre-adjustment step is performed to remove deterministic effects, such as outliers and calendar effects, with a Reg-ARIMA model. In the extended version for HF data, it is also the case with an **extended Airline model**.
 
 A general Reg-ARIMA model is written as follows:
 
@@ -107,7 +107,7 @@ $$
 \left(Y_t - \sum {\alpha_i}X_{it}\right) \sim ARIMA(p,d,q)(P,D,Q)
 $$
 
-These models contain seasonal backshift operators $B^{s}(y_t)=y_{t-s}$. Here $s$ can be non-integer. JDemetra+ will rely on a modified version of a frequently used Arima model: the "Airline" model:
+These models contain seasonal backshift operators $B^{s}(y_t)=y_{t-s}$. Here $s$ can be non-integer. JDemetra+ will rely on a modified version of a frequently used ARIMA model: the "Airline" model:
 
 $$
 (1-B)(1-B^{s})y_t=(1-\theta_1 B)(1-\theta_2 B^{s}) \epsilon_t \text{~~~~} \epsilon_t \sim \text{NID}(0,\sigma^2_{\epsilon})  
@@ -206,7 +206,7 @@ pre_adjustment <- rjd3highfreq::fractionalAirlineEstimation(y_raw,
 
 ### Extended X-11
 
-X-11 is the decomposition module of [X-13-Arima](#sa-overview), the linearized series from the pre-adjustment step is split into seasonal ($S$), trend ($T$) and irregular ($I$) components. In case of multiple periodicities the decomposition is done periodicity by periodicity starting with the smallest one. Global structure of the iterations is the same as in "classical" X-11 but modifications were introduced for tackling non-integer periodicities. They rely on the Taylor approximation for the seasonal backshift operator:
+X-11 is the decomposition module of [X-13-ARIMA](#sa-overview), the linearized series from the pre-adjustment step is split into seasonal ($S$), trend ($T$) and irregular ($I$) components. In case of multiple periodicities the decomposition is done periodicity by periodicity starting with the smallest one. Global structure of the iterations is the same as in "classical" X-11 but modifications were introduced for tackling non-integer periodicities. They rely on the Taylor approximation for the seasonal backshift operator:
 
 $$
 \begin{array}{lll}
@@ -278,7 +278,7 @@ x11.doy <- rjd3x11plus::x11plus(x11.dow$decomposition$sa, # previous sa
 )
 ```
 
-### Arima Model Based (AMB) Decomposition (Extended Seats)
+### ARIMA Model Based (AMB) Decomposition (Extended Seats)
 
 Example
 

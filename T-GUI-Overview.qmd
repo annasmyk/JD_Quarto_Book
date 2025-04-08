@@ -608,7 +608,7 @@ The functions available in the main application menu are:
 - [Tools](#tools-menu)
 - [Window](#window-menu)
 - [Help](#help-menu)
-- [RegArimaDoc](#RegArimaDoc)
+- [RegARIMADoc](#RegARIMADoc)
 - [X-13Doc](#X-13Doc)
 - [TramoDoc](#TramoDoc)
 - [TramoSeatsDoc](#TramoSeatsDoc)
@@ -644,7 +644,7 @@ The Statistical methods menu includes functionalities for modelling, analysis an
 
 ![**The *Anomaly detection* tab.**](All_images/Statistical methods menu anomaly detection.png)
 
-- [Modelling](#modelling) -- enables time series modelling using the Tramo and RegARIMA models;
+- [Modelling](#modelling) -- enables time series modelling using the Tramo and Reg-ARIMA models;
 
 ![**The *Modelling* tab.**](All_images/Statistical methods menu modelling.png)
 
@@ -1065,11 +1065,11 @@ The *Statistics* tab includes options to control:
 
 - The type of the analysis of revision history (**Revision History**):
 
-    + *FreeParameters* -- the RegARIMA model parameters and regression coefficients of the RegARIMA model will be re-estimated each time the end point of the data is changed. This argument is ignored if no RegARIMA model is fit to the series.
+    + *FreeParameters* -- the Reg-ARIMA model parameters and regression coefficients of the Reg-ARIMA model will be re-estimated each time the end point of the data is changed. This argument is ignored if no Reg-ARIMA model is fit to the series.
 
-    + *Complete* -- the whole RegARIMA model together with regressors will be re-identified and re-estimated each time the end point of the data is changed. This argument is ignored if no RegARIMA model is fitted to the series.
+    + *Complete* -- the whole Reg-ARIMA model together with regressors will be re-identified and re-estimated each time the end point of the data is changed. This argument is ignored if no Reg-ARIMA model is fitted to the series.
 
-    + *None* -- the ARIMA parameters and regression coefficients of the RegARIMA model will be fixed throughout the analysis at the values estimated from the entire series (or model span).
+    + *None* -- the ARIMA parameters and regression coefficients of the Reg-ARIMA model will be fixed throughout the analysis at the values estimated from the entire series (or model span).
 
 ![**Revision History option in v2**](All_images/options-demetra-statistics-revision_history.png)
 
