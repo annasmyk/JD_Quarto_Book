@@ -130,6 +130,6 @@ How to perform tests in the graphical user interface is described [here](#t-GUI-
 
 ## Direct or Indirect seasonal adjustment
 
-when seasonally adjusting series which are aggregates following a given classification, the user has to chose whether directly adjust the aggregate from its raw version or to aggregate the adjusted components.
+when seasonally adjusting series which are aggregates following a given classification, the user has to chose whether to directly adjust the aggregate from its raw version or to aggregate the adjusted components.
 
 The graphical user interface in version 2.x provides a [module](#direct-indirect) to compare the two options. It won't be provided in version 3.x.
