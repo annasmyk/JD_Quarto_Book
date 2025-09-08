@@ -365,7 +365,7 @@ M statistics are specific quality measures (ref: Lothian and Mory (1979))
 
 - $0<M_x<3$, acceptance region $M_x \leq 1$
 
-- 11 statistics of the decomposition quality (M1 to M11) and 2 summary indicators (Q et Q-M2)
+- 11 statistics of the decomposition quality (M1 to M11) and 2 summary indicators (Q and Q-M2)
 
 Detailed description: 
 
