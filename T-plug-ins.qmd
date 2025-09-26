@@ -47,7 +47,7 @@ For low frequency (monthly, quarterly, half-yearly, quadri-monthly) data the fol
 +============================================================+==========================================+=============================+
 | Extended Airline Estimation                                | jdplus-highfreq-desktop-plugin-x.y.z.nbm | Usage in GUI described here |
 |                                                            |                                          |                             |
-| (Reg-Arima Modelling)                                      |                                          |                             |
+| (Reg-ARIMA Modelling)                                      |                                          |                             |
 +------------------------------------------------------------+------------------------------------------+-----------------------------+
 | Extended Airline Decomposition                             | jdplus-highfreq-desktop-plugin-x.y.z.nbm | Usage in GUI described here |
 |                                                            |                                          |                             |
@@ -295,14 +295,14 @@ Plug-ins-default-v3.png
 |--------------------------------|--------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | NbDemetra -- Anomaly detection | SA core algorithms | Identification of outliers                                                                                                                                   |
 | NbDemetra -- Spreadsheet       | IO (Input/output)  | Time series providers for spreadsheet (Excel, OpenOffice)                                                                                                    |
-| NbDemetra -- Common            | IO (Input/output)  | Common time series providers, like XML and TXT                                                                                                               |
+| NbDemetra -- Common            | IO (Input/output)  | Common time series providers, like `.xml` and `.txt`                                                                                                               |
 | NbDemetra -- JDBC              | IO (Input/output)  | Time series provider for the JDBC sources                                                                                                                    |
 | NbDemetra -- ODBC              | IO (Input/output)  | Time series provider for the ODBC sources                                                                                                                    |
 | NbDemetra -- SDMX              | IO (Input/output)  | Time series provider for SDMX files                                                                                                                          |
 | NbDemetra -- Core              | SA core algorithms | Encapsulation of the core algorithms                                                                                                                         |
 | NbDemetra -- UI                | SA core algorithms | Basic graphical components                                                                                                                                   |
 | NbDemetra -- Branding          | SA core algorithms |                                                                                                                                                              |
-| NbDemetra -- SA                | SA core algorithms | Default SA framework, including TRAMO-SEATS and X-13ARIMA-SEATS. This implementation can lead to small differences in comparison with the original programs. |
+| NbDemetra -- SA                | SA core algorithms | Default SA framework, including Tramo-Seats and X-13ARIMA-Seats. This implementation can lead to small differences in comparison with the original programs. |
 
 This list is displayed in the *Installed* panel. This panel is available from the *Plugin* functionality and it is activated from the *Tools* menu.
 

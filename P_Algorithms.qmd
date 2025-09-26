@@ -20,7 +20,7 @@ Seasonal Adjustment (SA)
 
 Modelling and Auxiliary Variables
 
-- [Reg-Arima modelling](#a_reg-a)
+- [Reg-ARIMA modelling](#a_reg-a)
 
 - [Outlier detection and external regressors](#a-out-reg-ext)
 

@@ -16,45 +16,45 @@ Additional methodological explanations are covered in [this chapter](#m-reg-a) a
 
 | Algorithm        | Access in GUI | Access in R (v2)    | Access in R (v3) |
 |------------------|---------------|---------------------|------------------|
-| Reg-Arima        | ✔️            | RJDemetra           | rjd3x13          |
+| Reg-ARIMA        | ✔️            | RJDemetra           | rjd3x13          |
 | Tramo            | ✔️            | RJDemetra           | rjd3tramoseats   |
 | Extended Airline | ✔️ (v3 only)  | ✖                   | rjd3highfreq     |
 | STS              | ✔️ (v3 only)  | rjdsts (deprecated) | rjd3sts          |
 
-Steps to use Reg-Arima and Tramo in a pre-treatment context are described [here](#sa-pre-t).
+Steps to use Reg-ARIMA and Tramo in a pre-treatment context are described [here](#sa-pre-t).
 
 The possibility of saving parameters and generating output in the GUI is different when using modelling methods directly or seasonal adjustment process as explained [here](#t-gui-sa).
 
-[Extended Airline Model](#a-sa-hf) allows to handle infra-monthly series in a restricted reg-Arima framework, more details [here](#a-sa-hf).
+[Extended Airline Model](#a-sa-hf) allows to handle infra-monthly series in a restricted reg-ARIMA framework, more details [here](#a-sa-hf).
 
 [Structural time series (STS)](#a-sa-bsm) allow another kind of modelling using state space framework, more details [here](#a-sa-bsm).
 
-## Practical Reg-Arima modelling
+## Practical Reg-ARIMA modelling
 
-For the user not needing seasonal adjustment, the sections below highlight the functions or steps allowing to perform reg-Arima (or Tramo) as a stand alone goal, outside of a seasonal adjustment process.
+For the user not needing seasonal adjustment, the sections below highlight the functions or steps allowing to perform reg-ARIMA (or Tramo) as a stand alone goal, outside of a seasonal adjustment process.
 
 ### In R
 
 In version 2
 
 ```{r, echo = TRUE, eval = FALSE}
-# Reg-Arima
+# Reg-ARIMA
 regA_v2 <- RJDemetra::regarima_x13(raw_series, spec = "RG5c")
 # Tramo
 tramo_v2 <- RJDemetra::regarima_tramoseats(raw_series, spec = "TRfull")
 ```
 
-Full documentation of 'RJDemetra::regarima' function can be found [here](https://rjdverse.github.io/rjdemetra/reference/regarima.html)
+Full documentation of `RJDemetra::regarima()`{.r} function can be found [here](https://rjdverse.github.io/rjdemetra/reference/regarima.html)
 
-Full documentation of 'RJDemetra::regarima_tramoseats' function can be found [here](https://rjdverse.github.io/rjdemetra/reference/regarima.html)
+Full documentation of `RJDemetra::regarima_tramoseats()`{.r} function can be found [here](https://rjdverse.github.io/rjdemetra/reference/regarima.html)
 
 In version 3
 
 ```{r,eval=FALSE, echo=TRUE}
-# Reg-Arima
+# Reg-ARIMA
 sa_regarima_v3 <- rjd3x13::regarima(raw_series, spec = "RG5c")
 
-#Tramo
+# Tramo
 sa_tramo_v3 <- rjd3tramoseats::tramo(raw_series, spec = "TRfull")
 ```
 
@@ -64,7 +64,7 @@ Full documentation of 'rjd3tramoseats::tramo' function can be found [here](https
 
 ### GUI
 
-In the graphical user interface modelling algorithms can be accessed in two ways described below. In both cases a document (xml file) will be generated and can be save in the workspace. The output (series, parameters and diagnostics) cannot be exported as files, just directly copied from the interface. Further details on window structure in GUI are available [here](#t-gui-sa).
+In the graphical user interface modelling algorithms can be accessed in two ways described below. In both cases a document (`.xml` file) will be generated and can be save in the workspace. The output (series, parameters and diagnostics) cannot be exported as files, just directly copied from the interface. Further details on window structure in GUI are available [here](#t-gui-sa).
 
 #### Modelling in the Workspace Window
 
@@ -72,4 +72,4 @@ In the graphical user interface modelling algorithms can be accessed in two ways
 
 #### Modelling in Statistical Methods Panel
 
-![**The *RegArima* menu item**](All_images/A_Ref53.jpg)
+![**The *RegARIMA* menu item**](All_images/A_Ref53.jpg)

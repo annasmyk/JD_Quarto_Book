@@ -49,13 +49,13 @@ when describing parameters
 
 - ramps 
 
-graph and formula are available in [Linearisation with the TRAMO and RegARIMA models](../theory/SA_lin.html).
+graph and formula are available in [Linearisation with the Tramo and Reg-ARIMA models](../theory/SA_lin.html).
 
 explain params 
 
 - differentiation orders D1DS: if ticked: 1 1 automatically (pb differentiation before the real differentiation ?), cf rjd3toolkit doc to harmonize 
 
-#### in reg arima results
+#### in Reg-ARIMA results
 
 -   seasonality tests on residuals (Highlight differences: - in gui - in R v2: retrieve object in output, v3 run test)
 
@@ -78,7 +78,7 @@ obj here: general explanations + examples ? here : explain voc discrepancies vs 
 
 #### Revision Policies
 
-general concepts - identified vs estimated - linearization phase - X11 - seats
+general concepts - identified vs estimated - linearization phase - X11 - Seats
 
 here concepts of domain spec, point spec
 
@@ -226,13 +226,13 @@ Topics voir what should be tackled here
 
 ### T-Production-tools-cruncher-QR
 
-add - List of exportable series (tramo / x13 with names)
+add - List of exportable series (Tramo / x13 with names)
 
 -   link to option change for adjusting "good", "bad"...
 
 ### T-r-packages
 
--   add a global description of rjd3toolkit cf aux txt file
+-   add a global description of rjd3toolkit cf aux `.txt` file
 
 -   include details in rjd3workspace (when ready)
 
@@ -240,9 +240,9 @@ add - List of exportable series (tramo / x13 with names)
 
 X11+
 
-- will take all x11 related functions from rjd3highfreq which will stay model based (then seats+ will comme, another pack or not ?)
+- Will take all x11 related functions from rjd3highfreq which will stay model based (then Seats+ will comme, another pack or not ?)
 
-- simple (extended) airline processing + more choices in all asymetrical filters (better for revisions)**
+- Simple (extended) airline processing + more choices in all asymetrical filters (better for revisions)**
 
 
 ### T-plug-ins
@@ -259,11 +259,18 @@ add: - R code or references to - rjd3sa (?) references to tests - more explanati
 
 Vocabulary precision and concise definitions - spectral density - periodogram - spectral density estimator - "spectrum" is used too ubiquitously
 
-### M-reg-arima-modelling
+### M-Reg-ARIMA-modelling
 
-In the chapter on SA, in the pre-adjustment section, we tackle: - purpose, principles and results of reg-arima models (tramo or reg-arima)
+In the chapter on SA, in the pre-adjustment section, we tackle: 
 
-Here we tackle : - more in depth presentation - details on model estimation (not your typical box and Jenkins)
+- purpose, principles and results of Reg-ARIMA models (Tramo or Reg-ARIMA)
+
+Here we tackle : 
+
+- more in depth presentation 
+
+- details on model estimation (not your typical box and Jenkins)
+
 
 ### M-X11-decomposition.qmd
 
@@ -287,7 +294,7 @@ see - my notes on X-11 - formulas from training yc estp - formulas from HF paper
 
 resources : - papier HF - papier Daniel O on dsa
 
-### M-SEATS-decomposition
+### M-Seats-decomposition
 
 - see doc JP (new ?)
 

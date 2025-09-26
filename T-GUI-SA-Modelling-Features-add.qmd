@@ -5,47 +5,47 @@
 
 <!-- clarify : difference from doc to ws, output export cruncher... -->
 
-### RegArimaDoc {#RegArimaDoc}
+### RegARIMADoc {#RegARIMADoc}
 
-*RegArimaDoc* is a main menu item that includes functionalities designated for *RegArima* documents. To create a *RegArima* document select *RegArima* from the *Statistical methods* → *Modelling* → *Single Analysis* menu.
+*RegARIMADoc* is a main menu item that includes functionalities designated for *RegARIMA* documents. To create a *RegARIMA* document select *RegARIMA* from the *Statistical methods* → *Modelling* → *Single Analysis* menu.
 
-![**The *RegArima* menu item**](All_images/A_Ref53.jpg)
+![**The *RegARIMA* menu item**](All_images/A_Ref53.jpg)
 
-The *RegArimaDoc* item is displayed in the main menu of the application when a newly created or existing *RegArima* document is active.
+The *RegARIMADoc* item is displayed in the main menu of the application when a newly created or existing *RegARIMA* document is active.
 
-![**The *RegArimaDoc* menu for a newly created *RegArima* document**](All_images/A_Ref54.jpg)
+![**The *RegARIMADoc* menu for a newly created *RegARIMA* document**](All_images/A_Ref54.jpg)
 
-*RegArimaDoc-#number* is a default name that corresponds to the *RegArima* document's name. The default name can be changed by the user in the [*Workspace*](#workspace-window) window (right click on *RegArimaDoc-#number* under the *regarima* node in the *Workspace* window and select rename from the local menu).
+*RegARIMADoc-#number* is a default name that corresponds to the *RegARIMA* document's name. The default name can be changed by the user in the [*Workspace*](#workspace-window) window (right click on *RegARIMADoc-#number* under the *regarima* node in the *Workspace* window and select rename from the local menu).
 
-The options for *RegArimaDoc* include:
+The options for *RegARIMADoc* include:
 
--   **Paste** -- pastes the time series to the *RegArimaDoc* window and performs seasonal adjustment for this time series using settings selected for the current process. The series needs to be previously copied, e.g. from the *Providers* window. Otherwise the message informing that the action cannot be done is displayed.
+-   **Paste** -- pastes the time series to the *RegARIMADoc* window and performs seasonal adjustment for this time series using settings selected for the current process. The series needs to be previously copied, e.g. from the *Providers* window. Otherwise the message informing that the action cannot be done is displayed.
 
--   **Refresh data** -- updates the input data and executes the seasonal adjustment process. This option is only available for *RegArimaDoc* documents saved during a previous session with JDemetra+. To use this option, first create a *RegArimaDoc* document and drag and drop the time series into it. Then save the workspace and close JDemetra+. Next, update the time series (add/change the observations, but do not change either the location of the file or the file name) and open JDemetra+ once again. Open the previously saved workspace and double click on the respective *RegArima* document in the *Workspace* window. Finally, choose the **Refresh data** option from the *RegArimaDoc* menu. JDemetra+ re-estimates the complete seasonal adjustment model automatically, so the results are updated immediately. The user can modify the specification and validate the newly introduced changes using the [Specifications](modelling-specifications.html) functionality.
+-   **Refresh data** -- updates the input data and executes the seasonal adjustment process. This option is only available for *RegARIMADoc* documents saved during a previous session with JDemetra+. To use this option, first create a *RegARIMADoc* document and drag and drop the time series into it. Then save the workspace and close JDemetra+. Next, update the time series (add/change the observations, but do not change either the location of the file or the file name) and open JDemetra+ once again. Open the previously saved workspace and double click on the respective *RegARIMA* document in the *Workspace* window. Finally, choose the **Refresh data** option from the *RegARIMADoc* menu. JDemetra+ re-estimates the complete seasonal adjustment model automatically, so the results are updated immediately. The user can modify the specification and validate the newly introduced changes using the [Specifications](modelling-specifications.html) functionality.
 
--   **Lock** -- prevents the series from the *RegArimaDoc* from being changed when the user double clicks on a new series in the *Providers* window. However, with this option the user can still change the settings of the specification.
+-   **Lock** -- prevents the series from the *RegARIMADoc* from being changed when the user double clicks on a new series in the *Providers* window. However, with this option the user can still change the settings of the specification.
 
 -   **Copy spec. to workspace** -- copy the specification of the active document into the workspace. This allows it to be used for further processing.
 
 ### X-13Doc {#X-13Doc}
 
-*X13Doc* is a main menu item that includes functionalities designated to *X13* documents. To create a *X13* document select *X13* from the *Seasonal Adjustment* → *Statistical Methods* → *Single Analysis* menu.
+*X-13Doc* is a main menu item that includes functionalities designated to *X-13* documents. To create a *X-13* document select *X-13* from the *Seasonal Adjustment* → *Statistical Methods* → *Single Analysis* menu.
 
-![**The *X13* menu item**](All_images/A_Ref55.jpg)
+![**The *X-13* menu item**](All_images/A_Ref55.jpg)
 
-The *X13doc* item is displayed in the main menu of the application when a newly created or existing *X13* document is active.
+The *X-13doc* item is displayed in the main menu of the application when a newly created or existing *X-13* document is active.
 
-![**The *X13Doc* menu for a newly created X13 document**](All_images/A_Ref56.jpg)
+![**The *X-13Doc* menu for a newly created X-13 document**](All_images/A_Ref56.jpg)
 
-*X13Doc-#number* is a default name that corresponds to the *X13* document's name. It is updated automatically, once the relevant *X13* document is renamed.
+*X-13Doc-#number* is a default name that corresponds to the *X-13* document's name. It is updated automatically, once the relevant *X-13* document is renamed.
 
-The options for the *X13Doc* include:
+The options for the *X-13Doc* include:
 
--   **Paste** -- pastes the time series to the *X13Doc* window and performs seasonal adjustment for this time series using settings selected for the current process. The series needs to be copied previously, e.g. from the *Providers* window. Otherwise a message informing that the action cannot be done is displayed.
+-   **Paste** -- pastes the time series to the *X-13Doc* window and performs seasonal adjustment for this time series using settings selected for the current process. The series needs to be copied previously, e.g. from the *Providers* window. Otherwise a message informing that the action cannot be done is displayed.
 
--   **Refresh data** -- updates the input data and executes the seasonal adjustment process. This option is only available for *X13* documents saved during a previous session with JDemetra+. To use this option, first create the *X13* document and drag and drop the data into it. Then save the workspace and close JDemetra+. Next, update the time series (add/change the observations, but do not change either the location of the file or the file name) and open JDemetra+ once again. Open the previously saved workspace and double click on the respective *X13* document in the *Workspace* window. Finally, choose the **Refresh data** option from the *X13Doc* menu. JDemetra+ re-estimates the complete seasonal adjustment model automatically, so the results are updated immediately. The user can modify the specification and validate the newly introduced changes using the *Specification* functionality (see [modelling specifications](modelling-specifications.html) and [seasonal adjustment specifications](sa-specifications.html)).
+-   **Refresh data** -- updates the input data and executes the seasonal adjustment process. This option is only available for *X-13* documents saved during a previous session with JDemetra+. To use this option, first create the *X-13* document and drag and drop the data into it. Then save the workspace and close JDemetra+. Next, update the time series (add/change the observations, but do not change either the location of the file or the file name) and open JDemetra+ once again. Open the previously saved workspace and double click on the respective *X-13* document in the *Workspace* window. Finally, choose the **Refresh data** option from the *X-13Doc* menu. JDemetra+ re-estimates the complete seasonal adjustment model automatically, so the results are updated immediately. The user can modify the specification and validate the newly introduced changes using the *Specification* functionality (see [modelling specifications](modelling-specifications.html) and [seasonal adjustment specifications](sa-specifications.html)).
 
--   **Lock** -- prevents the series from the *X13Doc* from being changed when the user double clicks on a new one in the *Providers* window. However, with this option the user can still change the settings of the specification.
+-   **Lock** -- prevents the series from the *X-13Doc* from being changed when the user double clicks on a new one in the *Providers* window. However, with this option the user can still change the settings of the specification.
 
 -   **Copy spec. to workspace** -- copy the specification of the active document into the workspace. This allows it to be used for further processing.
 
@@ -57,7 +57,7 @@ The options for the *X13Doc* include:
 
 The *TramoDoc* is displayed in the main menu of the application when a newly created or existing *Tramo* document is active.
 
-![**The *TramoDoc* menu for a newly created X13 document**](All_images/A_Ref58.jpg)
+![**The *TramoDoc* menu for a newly created X-13 document**](All_images/A_Ref58.jpg)
 
 *TramoDoc*-*#number* is a default name that corresponds to the *Tramo* document's name. It is updated automatically, once the relevant *Tramo* document is renamed.
 
@@ -79,7 +79,7 @@ The options for the *TramoDoc* include:
 
 The *TramoSeatsDoc* item is displayed in the main menu of the application when a newly created or existing *TramoSeats* document is active.
 
-![**The *TramoSeatsDoc* menu for a newly created X13 document**](All_images/A_Ref60.jpg)
+![**The *TramoSeatsDoc* menu for a newly created X-13 document**](All_images/A_Ref60.jpg)
 
 *TramoSeatsDoc* is a default name that corresponds to the *TramoSeats* document's name. It is updated automatically, once the relevant *TramoSeats* document is renamed.
 
@@ -97,7 +97,7 @@ The options for the *TramoSeatsDoc* include:
 
 *SAProcessingDoc*-*#number* is a main menu item that includes functionalities designated for multi-documents. This item is displayed in the main menu of the application when [a newly created or existing multi-document](../reference-manual/output.html) is active. Note that some options are inactive when none of the time series in the *SAProcessing* window is marked.
 
-![**The *SAProcessing* menu for a newly created *X13* document**](All_images/image3_RMSB.jpg)
+![**The *SAProcessing* menu for a newly created *X-13* document**](All_images/image3_RMSB.jpg)
 
 The *SAProcessingDoc*-*#number* menu facilitates the management of the multi-document.
 
@@ -127,7 +127,7 @@ The available options include:
 
 -   **Initial Order** -- displays times series on the list in an initial order.
 
--   **Output** -- enables the user to export the results to a given output format (TXT, XLS, ODBC, CSV, CSV matrix), to specify the destination folder and to customise the content of the exported file. The list of available output items is determined by the chosen output format and it can be found [here](../theory/output.html). The **Output** option is discussed in detail [here](../case-studies/output.html).
+-   **Output** -- enables the user to export the results to a given output format (`.txt`, `.xls`, ODBC, `.csv`, `.csv` matrix), to specify the destination folder and to customise the content of the exported file. The list of available output items is determined by the chosen output format and it can be found [here](../theory/output.html). The **Output** option is discussed in detail [here](../case-studies/output.html).
 
 -   **Report** -- generates a summary report from a multi-process that includes summary information on several items, such as; the number of series, specifications used, models' summary, diagnostic summary, etc.. An example of the output is presented below.
 

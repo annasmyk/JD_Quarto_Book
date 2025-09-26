@@ -2,7 +2,7 @@
 
 ## In this chapter
 
-This chapter provides general information about using the Graphical User Interface (GUI). Specific indications related to a given algorithm (X13-ARIMA, Tramo-seats, Benchmarking...) are displayed in the relevant chapters, listed [here](#part-A).
+This chapter provides general information about using the Graphical User Interface (GUI). Specific indications related to a given algorithm (X-13-ARIMA, Tramo-Seats, Benchmarking...) are displayed in the relevant chapters, listed [here](#part-A).
 
 Contents:
 
@@ -29,8 +29,8 @@ The Graphical User Interface in the 2.x family gives access to:
 
 - Seasonal adjustment [(SA) algorithms](#sa-chapter)
 
-    + X13-ARIMA
-    + TRAMO-SEATS
+    + X-13-ARIMA
+    + Tramo-Seats
     + Direct-indirect SA comparisons
 
 - Outlier detection (TERROR)
@@ -50,8 +50,8 @@ The Graphical User Interface in the 2.x family gives access to:
 
 - Seasonal adjustment [(SA) algorithms](#sa-chapter)
 
-    + X13-ARIMA
-    + TRAMO-SEATS
+    + X-13-ARIMA
+    + Tramo-Seats
     + Direct-indirect SA comparisons
 
 - Outlier detection (TERROR)
@@ -159,10 +159,10 @@ By default, JDemetra+ supports the following data sources:
 - ODBC;
 - SDMX;
 - Excel spreadsheets;
-- TSW (input files for the [TRAMO-SEATS-Windows application](https://www.bde.es/bde/en/secciones/servicios/Profesionales/Programas_estadi/Programas.html) by the Bank of Spain);
-- TXT;
-- USCB (input files for the [X-13-ARIMA-SEATS application](https://www.census.gov/data/software/x13as.html) by the U.S. Census Bureau);
-- XML.
+- TSW (input files for the [Tramo-Seats-Windows application](https://www.bde.es/bde/en/secciones/servicios/Profesionales/Programas_estadi/Programas.html) by the Bank of Spain);
+- `.txt`;
+- USCB (input files for the [X-13-ARIMA-Seats application](https://www.census.gov/data/software/x13as.html) by the U.S. Census Bureau);
+- `.xml`.
 
 All standard databases (Oracle, SQLServer, DB2, MySQL) are supported by JDemetra+ via JDBC, which is a generic interface to many relational databases. Other providers can be added by users by creating plugins (see *Plugins* section in the *Tools* menu).
 
@@ -251,7 +251,7 @@ In Excel files, series are identified by their names (colnames) in the file.
 :::
 
 
-#### Text or csv file
+#### `.txt` or `.csv` file
 
 The example below show how to import the data from an Excel file.
 
@@ -261,7 +261,7 @@ The example below show how to import the data from an Excel file.
 
 2.  The *Open data source* window contains the following options:
 
-    + **Text file** -- a path to access the file.
+    + **`.txt` file** -- a path to access the file.
     
     + **Charset** -- the encoding used to encode the file
     
@@ -296,7 +296,7 @@ The example below show how to import the data from an Excel file.
     ![**Options for importing data**](All_images/provider-txt-file-structure.png)
 
 
-::: {.callout-note collapse="true" title="How to set up you text or csv file"}
+::: {.callout-note collapse="true" title="How to set up you `.txt` or `.csv` file"}
 
 - **Dates** in Excel date format, in the first column (or in the first row) 
 - **Titles** of the series in the corresponding cell of the first row (or in the first column)
@@ -379,7 +379,7 @@ In Excel files, series are identified by their names (colnames) in the file.
 
 :::
 
-#### Text or csv file
+#### `.txt` or `.csv` file
 
 The example below show how to import the data from an Excel file.
 
@@ -424,7 +424,7 @@ The example below show how to import the data from an Excel file.
     ![**Data structure**](All_images/provider-txt-file-structure.png)
 
 
-::: {.callout-note collapse="true" title="How to set up you text or csv file"}
+::: {.callout-note collapse="true" title="How to set up you `.txt` or `.csv` file"}
 
 - **Dates** in Excel date format, in the first column (or in the first row) 
 - **Titles** of the series in the corresponding cell of the first row (or in the first column)
@@ -507,7 +507,7 @@ The workspace can be shared with other users, which eases the burden of work wit
 The main folder contains:
 
 - a folder **SAProcessing** with all the result of the SA
-- folders **TramoSeatsSpec** and/or **X13Spec** with the custom specifications
+- folders **TramoSeatsSpec** and/or **X-13Spec** with the custom specifications
 - a folder **Variables** for external regressor and variables
 - a folder **Calendars** with the calendars used to correct the trading days effect
 - a folder **Output** contains all the generated output from the GUI
@@ -608,7 +608,7 @@ The functions available in the main application menu are:
 - [Tools](#tools-menu)
 - [Window](#window-menu)
 - [Help](#help-menu)
-- [RegArimaDoc](#RegArimaDoc)
+- [RegARIMADoc](#RegARIMADoc)
 - [X-13Doc](#X-13Doc)
 - [TramoDoc](#TramoDoc)
 - [TramoSeatsDoc](#TramoSeatsDoc)
@@ -644,11 +644,11 @@ The Statistical methods menu includes functionalities for modelling, analysis an
 
 ![**The *Anomaly detection* tab.**](All_images/Statistical methods menu anomaly detection.png)
 
-- [Modelling](#modelling) -- enables time series modelling using the TRAMO and RegARIMA models;
+- [Modelling](#modelling) -- enables time series modelling using the Tramo and Reg-ARIMA models;
 
 ![**The *Modelling* tab.**](All_images/Statistical methods menu modelling.png)
 
-- [Seasonal adjustment](#seasonal-adjustment??) -- intended for the seasonal adjustment of a time series with the TRAMO-SEATS and X-13ARIMA-SEATS methods.
+- [Seasonal adjustment](#seasonal-adjustment??) -- intended for the seasonal adjustment of a time series with the Tramo-Seats and X-13ARIMA-Seats methods.
 
 By default, the *Seasonal adjustment* tab has 3 sub-tabs:
 
@@ -714,7 +714,7 @@ The following functionalities are available from the *Tools* menu:
 - [*Spectral analysis*](#spectral-analysis-windows) -- contains tools for the analysis of a time series in a frequency domain;
 - [*Aggregation*](#aggregation) -- enables the user to investigate a graph of the sum of multiple time series;
 - [*Differencing*](#differencing) -- allows for the inspection of the first regular differences of the time series;
-- [*Spreadsheet profiler*](#spreadsheet-profiler) -- offers an Excel-type view of the XLS file imported to JDemetra+.
+- [*Spreadsheet profiler*](#spreadsheet-profiler) -- offers an Excel-type view of the `.xls` file imported to JDemetra+.
 - [*Plugins*](#plugins-overview) -- allows for the installation and activation of plugins, which extend JDemetra+ functionalities.
 - [*Options*](#options-window) -- presents the default interface settings and allows for their modification.
 
@@ -753,7 +753,7 @@ link to data visu chap
 
 #### Spreadsheet profiler {#spreadsheet-profiler}
 
-The *Spreadsheet profiler* offers an Excel-type view of the XLS file imported to JDemetra+. To use this functionality drag the file name from the *Providers* window and drop it to the empty *Spreadsheet profiler* window.
+The *Spreadsheet profiler* offers an Excel-type view of the `.xls` file imported to JDemetra+. To use this functionality drag the file name from the *Providers* window and drop it to the empty *Spreadsheet profiler* window.
 
 ![**The *Spreadsheet Profiler* window**](All_images/A_Ref40.jpg)
 
@@ -1065,11 +1065,11 @@ The *Statistics* tab includes options to control:
 
 - The type of the analysis of revision history (**Revision History**):
 
-    + *FreeParameters* -- the RegARIMA model parameters and regression coefficients of the RegARIMA model will be re-estimated each time the end point of the data is changed. This argument is ignored if no RegARIMA model is fit to the series.
+    + *FreeParameters* -- the Reg-ARIMA model parameters and regression coefficients of the Reg-ARIMA model will be re-estimated each time the end point of the data is changed. This argument is ignored if no Reg-ARIMA model is fit to the series.
 
-    + *Complete* -- the whole RegARIMA model together with regressors will be re-identified and re-estimated each time the end point of the data is changed. This argument is ignored if no RegARIMA model is fitted to the series.
+    + *Complete* -- the whole Reg-ARIMA model together with regressors will be re-identified and re-estimated each time the end point of the data is changed. This argument is ignored if no Reg-ARIMA model is fitted to the series.
 
-    + *None* -- the ARIMA parameters and regression coefficients of the RegARIMA model will be fixed throughout the analysis at the values estimated from the entire series (or model span).
+    + *None* -- the ARIMA parameters and regression coefficients of the Reg-ARIMA model will be fixed throughout the analysis at the values estimated from the entire series (or model span).
 
 ![**Revision History option in v2**](All_images/options-demetra-statistics-revision_history.png)
 
@@ -1091,11 +1091,11 @@ The *Statistics* tab includes options to control:
 
 ##### v3
 
-In v3, you can find this settings in the SA panel in the tabs TramoSeats and X13:
+In v3, you can find this settings in the SA panel in the tabs TramoSeats and X-13:
 
 ![**Settings for the quality measures and tests in Tramoseats in v3**](All_images/options-SA-TramoSeats_v3.png)
 
-![**Settings for the quality measures and tests in X13 in v3**](All_images/options-SA-X13_v3.png)
+![**Settings for the quality measures and tests in X-13 in v3**](All_images/options-SA-X-13_v3.png)
 
 :::
 
@@ -1103,11 +1103,11 @@ In v3, you can find this settings in the SA panel in the tabs TramoSeats and X13
 
 ![**The *Diagnostics* section in v2**](All_images/options-demetra-statistics-diagnostics_v2.png)
 
-In v3, you can find this settings in the SA panel in the tabs TramoSeats and X13:
+In v3, you can find this settings in the SA panel in the tabs TramoSeats and X-13:
 
 ![**Settings for the quality measures and tests in Tramoseats in v3**](All_images/options-SA-TramoSeats_v3.png)
 
-![**Settings for the quality measures and tests in X13 in v3**](All_images/options-SA-X13_v3.png)
+![**Settings for the quality measures and tests in X-13 in v3**](All_images/options-SA-X-13_v3.png)
 
 :::
 
@@ -1255,11 +1255,11 @@ The SA panel is only available in v3.
 The General tab correspond to the [Statistics tab](#options-statistics) from the [Demetra panel](#options-demetra-panel) in v2.
 
 
-#### TramoSeats and X13 tabs
+#### TramoSeats and X-13 tabs
 
 ![**Tramoseats tab**](All_images/options-SA-TramoSeats_v3.png)
 
-The TramoSeats and X13 tabs correspond to the settings for the quality measures and tests used in a diagnostic procedure in v2.
+The TramoSeats and X-13 tabs correspond to the settings for the quality measures and tests used in a diagnostic procedure in v2.
 
 
 ### Other panels
