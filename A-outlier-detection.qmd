@@ -50,7 +50,7 @@ Nevertheless, explicit regressors corresponding to outliers can be generated wit
 
 ```{r}
 #| echo: true
-#| eval: true
+#| eval: false
 #| label: loading rjd3toolkit (A-outliers-detection)
 
 library("rjd3toolkit")
@@ -58,7 +58,7 @@ library("rjd3toolkit")
 
 ```{r}
 #| echo: true
-#| eval: true
+#| eval: false
 #| label: creating outliers rjd3toolkit (A-outliers-detection)
 
 # Outliers in February 2002, for monthly data
