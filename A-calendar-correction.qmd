@@ -4,7 +4,7 @@
 
 This chapter is divided in two parts. The first one (theory) outlines the rationale for calendar correction and the underlying modelling. The second part (practice) describes how relevant regressors for calendar correction are built in JDemetra+.
 
-As calendar effects are deterministic, they can be corrected with a regression model. In the algorithms X13-ARIMA and TRAMO-SEATS it boils down to adding suitable regressors to the [pre-treatment phase](#sa-pre-t)). This chapter will describe how to generate a set of regressors corresponding to the desired correction, which will happen according to the following steps:  
+As calendar effects are deterministic, they can be corrected with a regression model. In the algorithms X-13-ARIMA and Tramo-Seats it boils down to adding suitable regressors to the [pre-treatment phase](#sa-pre-t)). This chapter will describe how to generate a set of regressors corresponding to the desired correction, which will happen according to the following steps:  
 
 - step 1: generate a calendar (usually national calendar of interest). If this step is skipped a default calendar, not taking into account country-specific holidays will be used.
 
@@ -20,7 +20,7 @@ Regressors are corrected for deterministic seasonality through a long-term mean 
 
 - step 3: these regressors have to be plugged-in in pre-adjustment phase of a seasonal adjustment estimation. How to do this is detailed in chapters on [pre-treatment](#sa-pre-t) and [SA of High-Frenquency data](#a-sa-hf).
 
-How to generate other types of regressors is described [here](#a-out-reg-ext) and how to plug them into reg-arima models is detailed [here](#sa-pre-t)
+How to generate other types of regressors is described [here](#a-out-reg-ext) and how to plug them into Reg-ARIMA models is detailed [here](#sa-pre-t)
 
 <!-- ## Tools Map -->
 
@@ -424,7 +424,7 @@ JDemetra+ adds it to the calendars list
 
 ##### Example of a calendar file
 
-![**Example of an XML file containing a calendar**](All_images/UG_CAL_image9.jpg)
+![**Example of an `.xml` file containing a calendar**](All_images/UG_CAL_image9.jpg)
 #### Generating regressors
 
 ##### Type of days
@@ -722,4 +722,4 @@ By default, we compute the tests on the 8 last years of the components, so that 
 
 Remark:
 
-In Tramo, a similar test is computed on the residuals of the Arima model. More exactly, the F-test is computed on $e_t=\beta TD_t + \epsilon_t$, where $e_t$ are the one-step-ahead forecast errors.
+In Tramo, a similar test is computed on the residuals of the ARIMA model. More exactly, the F-test is computed on $e_t=\beta TD_t + \epsilon_t$, where $e_t$ are the one-step-ahead forecast errors.

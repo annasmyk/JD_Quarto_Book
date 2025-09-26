@@ -1,6 +1,6 @@
 # X11 decomposition {.unnumbered #m-X11}
 
-X11 is the decomposition part of X13-ARIMA seasonal adjustment algorithm originally developed by the US Census Bureau. It is a non parametric algorithm based on [moving averages](#m-x11-ma).
+X11 is the decomposition part of X-13-ARIMA seasonal adjustment algorithm originally developed by the US Census Bureau. It is a non parametric algorithm based on [moving averages](#m-x11-ma).
 
 The genuine X11 algorithm was meant to decompose monthly ($p=12$) and quarterly series ($p=4$). In JDemetra+ half-yearly data ($p=2$), quadri-monthly ($p=3$) and bi-monthly data ($p=6$) can also be handled. ($p=3$ and $p=6$ only in version 3.x)
 
@@ -176,9 +176,9 @@ The algorithm is split into
 
 ### Stage A: Pre-adjustment
 
-If a [pre-treatment](#sa-pre-t) is performed using X-13-Arima algorithm is A step is not used, results in A table appearing in JDemetra+ output are a copy of pre-treatment results. 
+If a [pre-treatment](#sa-pre-t) is performed using X-13-ARIMA algorithm is A step is not used, results in A table appearing in JDemetra+ output are a copy of pre-treatment results. 
 
-Detailed series produced at the end of stage A, including estimated effect from the [Reg-Arima part](#sa-pre-t)
+Detailed series produced at the end of stage A, including estimated effect from the [Reg-ARIMA part](#sa-pre-t)
 
 (to be checked: v2 vs v3 display, in GUI and R, here info based on v2)
 
@@ -455,7 +455,7 @@ The first table presents the average percent change without regard to sign of th
 
 -   $S$: Final seasonal factors (Table D10);
 
--   $P$: Preliminary adjustment coefficients, i.e. regressors estimated by the Reg-Arima model (Table A2);
+-   $P$: Preliminary adjustment coefficients, i.e. regressors estimated by the Reg-ARIMA model (Table A2);
 
 -   $TD\& H$: Final calendar component (Tables A6 and A7);
 

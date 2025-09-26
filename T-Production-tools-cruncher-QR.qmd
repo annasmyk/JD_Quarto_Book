@@ -57,27 +57,20 @@ Two R packages are currently available
 
 #### Installation
 
--   rjwsacruncher
+```{r}
+#| eval: false
+#| label: Installation cruncher R packages
 
-```{r, eval = FALSE}
-install.packages("rjwsacruncher")
+install.packages(c("rjwsacruncher", "JDCruncheR"))
 ```
 
--   JDCruncheR 
-
-```{r, eval = FALSE}
-install.packages("JDCruncheR")
-```
-
-Additional packages needed
-
-```{r, eval = FALSE}
-install.packages(c("XLConnect", "XML"))
-```
 
 #### Loading
 
-```{r, eval = FALSE}
+```{r}
+#| eval: false
+#| label: Chargement cruncher R packages
+
 library("rjwsacruncher")
 library("JDCruncheR")
 ```
@@ -87,15 +80,13 @@ library("JDCruncheR")
 
 To connect the cruncher to the R package, the path to the bin directory containing the **cruncher.bat** file must be specified. This directory is available once the zip file has been unzipped. For example:
 
-```{r, eval = FALSE}
-options(cruncher_bin_directory = "C:/Software/jwsacruncher-3.3.0/jdemetra-cli-3.3.0/bin")
+```{r}
+#| eval: false
+#| label: Set option path cruncher
+
+options(cruncher_bin_directory = "C:/Software/jwsacruncher-3.4.0/jdemetra-cli-3.4.0/bin")
 ```
 
--   checking the current value
-
-```{r, eval = FALSE}
-getOption("cruncher_bin_directory")
-```
 
 ### Updating a workspace with rjwsacruncher
 
@@ -140,7 +131,7 @@ For example:
 
 ### Configuring output options
 
-After updating the workspace with the selected revision policies, the cruncher generates output - series (csv files) - diagnostics and parameters (demetra_m.csv file)
+After updating the workspace with the selected revision policies, the cruncher generates output - series (`.csv` files) - diagnostics and parameters (demetra_m.csv file)
 
 These files will be created in the workspace's repository, sub-repository 'Output"
 
@@ -184,7 +175,7 @@ The JDCruncheR package:
 
 The three main functions of the package are:
 
--   `extract_QR()` to extract the quality report from the csv file (demetra_m.csv) that contains all JD+ diagnostics;
+-   `extract_QR()` to extract the quality report from the `.csv` file (demetra_m.csv) that contains all JD+ diagnostics;
 
 -   `compute_score()` to compute a weighted score based on the diagnostics
 
@@ -267,14 +258,14 @@ Practical steps if you want to customize the score computation (see package docu
 
 ## List of exportable series
 
-Some available output series will be different when using X13-ARIMA or TRAMO-SEATS.
+Some available output series will be different when using X-13-ARIMA or Tramo-Seats.
 
 ```{r, echo = TRUE, eval = FALSE}
 ```
 
 ## List of exportable diagnostics and parameters
 
-Some parameters and available diagnostics will be different when using X13-ARIMA or TRAMO-SEATS.
+Some parameters and available diagnostics will be different when using X-13-ARIMA or Tramo-Seats.
 
 ```{r, echo = TRUE, eval = FALSE}
 options(

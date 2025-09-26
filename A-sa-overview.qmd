@@ -2,7 +2,7 @@
 
 ## In this chapter
 
-This chapter is a first of a series focusing on the practical step by step use of JDemetra+ Seasonal Adjustment (SA) algorithms, restricted to monthly and quarterly series. For infra-monthly data see the [following chapter](#a-sa-hf). In the sections below an overview of the seasonal adjustment process is provided. The most widely used SA algorithms (Tramo-Seats and X13-Arima) have two steps: a pre-treatment to remove (temporarily) deterministic effects and a decomposition phase to estimate the seasonal factors.
+This chapter is a first of a series focusing on the practical step by step use of JDemetra+ Seasonal Adjustment (SA) algorithms, restricted to monthly and quarterly series. For infra-monthly data see the [following chapter](#a-sa-hf). In the sections below an overview of the seasonal adjustment process is provided. The most widely used SA algorithms (Tramo-Seats and X-13-ARIMA) have two steps: a pre-treatment to remove (temporarily) deterministic effects and a decomposition phase to estimate the seasonal factors.
 
 The following chapters get into the specifics of each algorithm.
 
@@ -60,17 +60,17 @@ When setting up the process:
 
 Two categories of algorithms :
 
--   historical core (main): X-13-Arima and Tramo-Seats [improved in version 3](#v3-vs-v2-sa)
+-   historical core (main): X-13-ARIMA and Tramo-Seats [improved in version 3](#v3-vs-v2-sa)
 
 -   version 3 additional algorithms (incubator)
 
-X13-ARIMA and TRAMO-SEATS are two-step algorithms with a pre-treatment phase (Reg-Arima or Tramo) and a decomposition phase (X11 and Seats). 
+X-13-ARIMA and Tramo-Seats are two-step algorithms with a pre-treatment phase (Reg-ARIMA or Tramo) and a decomposition phase (X11 and Seats). 
 
-STL+ combines STL local regression based decomposition and a simplified Reg-Arima pre-treatment restricted to airline models.
+STL+ combines STL local regression based decomposition and a simplified Reg-ARIMA pre-treatment restricted to airline models.
 
-X12+ combines X11 (enhanced) decomposition and a simplified Reg-Arima pre-treatment restricted to airline models.
+X12+ combines X11 (enhanced) decomposition and a simplified Reg-ARIMA pre-treatment restricted to airline models.
 
-Seats+ combines Seats decomposition and a simplified Reg-Arima pre-treatment restricted to airline models.
+Seats+ combines Seats decomposition and a simplified Reg-ARIMA pre-treatment restricted to airline models.
 
 In a [Structural Time Series](#a-sa-bsm) approach pre-treatment and decomposition are done simultaneously in a State Space Framework.
 

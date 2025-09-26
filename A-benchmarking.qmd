@@ -101,8 +101,8 @@ When running a seasonal adjustment process
     ![**The *SAProcessing* menu**](All_images/UG_SSA_image28.jpg)
 
 6.  Expand the "+" menu and choose an appropriate data format (here
-    Excel has been chosen). It is possible to save the results in TXT,
-    XLS, CSV, and CSV matrix formats. Note that the available content
+    Excel has been chosen). It is possible to save the results in `.txt`,
+    `.xls`, `.csv`, and `.csv` matrix formats. Note that the available content
     of the output depends on the output type.
     <!-- link to add ? -->
 

@@ -2,7 +2,7 @@
 
 ## In this chapter
 
-This chapter covers specific Seasonal Adjustment and Modelling features. Modelling refers to reg-Arima or Tramo when used stand alone and not as the first (pre-adjustment) step in seasonal adjustment. 
+This chapter covers specific Seasonal Adjustment and Modelling features. Modelling refers to reg-ARIMA or Tramo when used stand alone and not as the first (pre-adjustment) step in seasonal adjustment. 
 
 Note that the menu and window structure as well as options and results are almost identical in both cases.
 
@@ -75,7 +75,7 @@ You can click on the image in the area that interests you:
 ### Modelling {#modelling-window}
 
 
-In the modelling section, you can create documents based on the reg-Arima or Tramo only specification (which are the same as the ones used for the pre-treatment phase of seasonal adjustment with X13-ARIMA (Reg-Arima) and TRAMO-SEATS (Tramo) and thus described in the SA chapter).
+In the modelling section, you can create documents based on the reg-ARIMA or Tramo only specification (which are the same as the ones used for the pre-treatment phase of seasonal adjustment with X-13-ARIMA (Reg-ARIMA) and Tramo-Seats (Tramo) and thus described in the SA chapter).
 
 You can also use the extended airline algorithm with the plugin jdplus-highfreq-desktop-plugin to do the pre-treatment of high frequency data.
 
@@ -124,11 +124,11 @@ The blank zone in the figure above (on the right of the view) is the location wh
 
 ![**The *Anomaly detection* tab.**](All_images/Statistical methods menu anomaly detection.png)
 
-- [Modelling](#modelling) -- enables time series modelling using the TRAMO and RegARIMA models;
+- [Modelling](#modelling) -- enables time series modelling using the Tramo and Reg-ARIMA models;
 
 ![**The *Modelling* tab.**](All_images/Statistical methods menu modelling.png)
 
-- [Seasonal adjustment](#seasonal-adjustment) -- intended for the seasonal adjustment of a time series with the TRAMO-SEATS and X-13ARIMA-SEATS methods.
+- [Seasonal adjustment](#seasonal-adjustment) -- intended for the seasonal adjustment of a time series with the Tramo-Seats and X-13ARIMA-Seats methods.
 
 ![**The *Seasonal adjustment* tab.**](All_images/Statistical methods menu.jpg)
 
@@ -169,7 +169,7 @@ Be aware that the properties window displays the properties of an active item. T
 
 ![**The properties of the *Direct - Indirect seasonal adjustment* functionality**](All_images/UG_SF_image7.jpg)
 
-By default, the [pre-defined TRAMO-SEATS specification](#a-pre-t-def-spec) is used (RSAfull) for seasonal adjustment of a dataset. To change it, click on the button marked in the picture below. This will provide you with the alternative specifications. Here the user defined specification named *My spec* is chosen.
+By default, the [pre-defined Tramo-Seats specification](#a-pre-t-def-spec) is used (RSAfull) for seasonal adjustment of a dataset. To change it, click on the button marked in the picture below. This will provide you with the alternative specifications. Here the user defined specification named *My spec* is chosen.
 
 ![**Choosing a specification for the analysis**](All_images/UG_SF_image8.jpg)
 
