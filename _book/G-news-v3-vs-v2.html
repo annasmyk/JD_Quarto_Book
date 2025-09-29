@@ -215,7 +215,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./A-sa-seats-decomposition.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">SA: SEATS Decomposition</span></a>
+ <span class="menu-text">SA: Seats Decomposition</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -357,7 +357,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./M-reg-arima-modelling.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Reg-Arima models</span></a>
+ <span class="menu-text">Reg-ARIMA models</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -369,7 +369,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./M-SEATS-decomposition.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">SEATS decomposition</span></a>
+ <span class="menu-text">Seats decomposition</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -477,16 +477,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><img src="All_images/SA_Algos.png" class="img-fluid"></p>
 <section id="improvements-on-historical-algorithms" class="level4">
 <h4 class="anchored" data-anchor-id="improvements-on-historical-algorithms">Improvements on historical algorithms</h4>
-<p>Improvements X-13-Arima and Tramo-Seats (historical JD+)</p>
+<p>Improvements X-13-ARIMA and Tramo-Seats (historical JD+)</p>
 <ul>
 <li><p>New acceptable data frequencies for seasonal adjustment and modelling of low frequency data:</p>
 <pre><code>- In v3.x Low frequency data: $p$ in ${2,3,4,6,12}$ is admissible in all
 algorithms (historical and new)
 
 - In version 2, only Tramo-Seats supported all these frequencies, whereas
-X13-Arima was restricted to $p$ in ${2,4,12}$</code></pre></li>
+X-13-ARIMA was restricted to $p$ in ${2,4,12}$</code></pre></li>
 <li><p>outlier correction taken into account when selecting decomposition scheme</p></li>
-<li><p>ex-ante leap year correction added to Tramo-Seats (like in X13)</p></li>
+<li><p>ex-ante leap year correction added to Tramo-Seats (like in X-13)</p></li>
 <li><p>automatic trading day regressors selection from pre-defined sets built, according to groups of days</p></li>
 <li><p>specification: split into two distinct concepts, which can be directly manipulated by the user:</p>
 <ul>
@@ -498,10 +498,10 @@ X13-Arima was restricted to $p$ in ${2,4,12}$</code></pre></li>
 </section>
 <section id="new-algorithms-in-v3.x" class="level4">
 <h4 class="anchored" data-anchor-id="new-algorithms-in-v3.x">New algorithms in v3.x</h4>
-<p>Tramo-Seats and X-13-Arima share a very similar and sophisticated pre-adjustment process for the Arima model selection phase.</p>
+<p>Tramo-Seats and X-13-ARIMA share a very similar and sophisticated pre-adjustment process for the ARIMA model selection phase.</p>
 <p>For new algorithms, the philosophy is to offer</p>
 <ul>
-<li><p>a simplified pre-adjustment on the arima modelling side, reduced to airline model</p></li>
+<li><p>a simplified pre-adjustment on the ARIMA modelling side, reduced to airline model</p></li>
 <li><p>several enhanced decomposition options</p>
 <ul>
 <li><p>stl+ (“+” stands for airline based pre-adjustment)</p></li>
@@ -537,7 +537,7 @@ X13-Arima was restricted to $p$ in ${2,4,12}$</code></pre></li>
 <h4 class="anchored" data-anchor-id="sa-algorithms-extended-for-high-frequency-data">SA algorithms extended for high-frequency data</h4>
 <p>All algorithms are available via an R package and will be available in GUI (in target v 3.x version)</p>
 <ul>
-<li><p>Extended Airline estimation, reg-Arima like (<code>rjd3highfreq</code> and GUI )</p></li>
+<li><p>Extended Airline estimation, reg-ARIMA like (<code>rjd3highfreq</code> and GUI )</p></li>
 <li><p>Extended Airline Decomposition, Seats like (<code>rjd3highfreq</code> and GUI )</p></li>
 <li><p>MX12+ (<code>rjd3x11plus</code>, GUI upcoming)</p></li>
 <li><p>MSTL+ (<code>rjd3stl</code> and in GUI)</p></li>
@@ -564,7 +564,7 @@ X13-Arima was restricted to $p$ in ${2,4,12}$</code></pre></li>
 </thead>
 <tbody>
 <tr class="odd">
-<td>Reg-Arima</td>
+<td>Reg-ARIMA</td>
 <td>✔️</td>
 <td>RJDemetra</td>
 <td>rjd3x13</td>
@@ -621,7 +621,7 @@ X13-Arima was restricted to $p$ in ${2,4,12}$</code></pre></li>
 <p>Version 3.x offers more stand alone tools (mainly in <code>rjd3toolkit</code>)</p>
 <ul>
 <li><p>Tests (seasonality, auto-correlation, normality, randomness…)</p></li>
-<li><p>(Fast) Arima Modelling</p></li>
+<li><p>(Fast) ARIMA Modelling</p></li>
 <li><p>Flexible Calendar regressors generation</p></li>
 <li><p>Auxiliary variables for pre-adjustment</p></li>
 <li><p>Spectral analysis (in GUI)</p></li>

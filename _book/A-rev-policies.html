@@ -213,7 +213,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./A-sa-seats-decomposition.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">SA: SEATS Decomposition</span></a>
+ <span class="menu-text">SA: Seats Decomposition</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -355,7 +355,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./M-reg-arima-modelling.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Reg-Arima models</span></a>
+ <span class="menu-text">Reg-ARIMA models</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -367,7 +367,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./M-SEATS-decomposition.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">SEATS decomposition</span></a>
+ <span class="menu-text">Seats decomposition</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -471,7 +471,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="a-rev-pol-ov" class="level3">
 <h3 class="anchored" data-anchor-id="a-rev-pol-ov">Overview</h3>
-<p>In X13-ARIMA and TRAMO-SEATS revision policies are ways to impose constraints on the pre-adjustment phase, while the decomposition phase (X-11 or Seats) will be entirely re-run on new data. The changes induced by X-11 re-estimation stem only from a revised linerarized series, while in Seats they are also induced by the arima model possible coefficient and/ or order changes.</p>
+<p>In X-13-ARIMA and Tramo-Seats revision policies are ways to impose constraints on the pre-adjustment phase, while the decomposition phase (X-11 or Seats) will be entirely re-run on new data. The changes induced by X-11 re-estimation stem only from a revised linerarized series, while in Seats they are also induced by the ARIMA model possible coefficient and/ or order changes.</p>
 <p>The table below lists the available policies as well as their name for implementation with the graphical user interface (GUI), the cruncher or rjd3x13 ans rjd3tramoseats packages.</p>
 <p><img src="All_images/Rev_Policies.png" class="img-fluid"></p>
 </section>
@@ -503,9 +503,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><strong>The <em>Partial concurrent adjustment→ Estimate regression coefficients</em> revision policy results</strong></p>
 </section>
 <section id="partial-concurrent-adjustment-estimate-regression-coefficients-arima-parameters" class="level4">
-<h4 class="anchored" data-anchor-id="partial-concurrent-adjustment-estimate-regression-coefficients-arima-parameters">Partial concurrent adjustment → Estimate regression coefficients + Arima parameters</h4>
-<p>The <em>Partial concurrent adjustment → Estimate regression coefficients + Arima parameters</em> strategy means that the ARIMA model, outliers and other regression parameters are not re-identified. All parameters of the Reg-ARIMA model are re-estimated but the explanatory variables remain the same. The transformation type remains unchanged.</p>
-<p>The picture below presents the initial model (on the left) and the results of the refreshment procedure with the <em>Partial</em> <em>concurrent adjustment → Estimate regression coefficient + Arima parameters</em> option (on the right). The parameters of the ARIMA part have been re-estimated and their values have been updated. Also regression coefficients have been re-estimated and the number of estimated coefficients in the revised model is the same as in the initial model (i.e.&nbsp;16 estimated coefficients). The structure of the model remains unchanged while all coefficients have been updated.</p>
+<h4 class="anchored" data-anchor-id="partial-concurrent-adjustment-estimate-regression-coefficients-arima-parameters">Partial concurrent adjustment → Estimate regression coefficients + ARIMA parameters</h4>
+<p>The <em>Partial concurrent adjustment → Estimate regression coefficients + ARIMA parameters</em> strategy means that the ARIMA model, outliers and other regression parameters are not re-identified. All parameters of the Reg-ARIMA model are re-estimated but the explanatory variables remain the same. The transformation type remains unchanged.</p>
+<p>The picture below presents the initial model (on the left) and the results of the refreshment procedure with the <em>Partial</em> <em>concurrent adjustment → Estimate regression coefficient + ARIMA parameters</em> option (on the right). The parameters of the ARIMA part have been re-estimated and their values have been updated. Also regression coefficients have been re-estimated and the number of estimated coefficients in the revised model is the same as in the initial model (i.e.&nbsp;16 estimated coefficients). The structure of the model remains unchanged while all coefficients have been updated.</p>
 <p><img src="All_images/UDimage25.jpg" class="img-fluid"></p>
 </section>
 <section id="partial-concurrent-adjustment-estimate-regression-coefficients-outliers" class="level4">
@@ -515,9 +515,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><img src="All_images/UDimage27.jpg" class="img-fluid"></p>
 </section>
 <section id="partial-concurrent-adjustment-estimate-regression-coefficients-arima-model" class="level4">
-<h4 class="anchored" data-anchor-id="partial-concurrent-adjustment-estimate-regression-coefficients-arima-model">Partial concurrent adjustment → Estimate regression coefficients + Arima model</h4>
-<p>The <em>Partial concurrent adjustment → Estimate regression coefficients + Arima model</em> option means that the ARIMA model, outliers and regression variables (except the calendar variables) are re-identified. All parameters are re-estimated. The transformation type remains unchanged.</p>
-<p>The picture below presents the initial model (on the left) and the results of the refreshment procedure with the <em>Partial concurrent adjustment → Estimate regression coefficients + Arima model</em> option (on the right). The ARIMA part has been re-identified (a change from (2,1,0)(0,1,1) to (0,1,1)(1,1,1)). Also the regression coefficients for the calendar variables have been re-estimated. In the revised model there is no <em>Prespecified outliers</em> section. Therefore, the outliers were re-identified.</p>
+<h4 class="anchored" data-anchor-id="partial-concurrent-adjustment-estimate-regression-coefficients-arima-model">Partial concurrent adjustment → Estimate regression coefficients + ARIMA model</h4>
+<p>The <em>Partial concurrent adjustment → Estimate regression coefficients + ARIMA model</em> option means that the ARIMA model, outliers and regression variables (except the calendar variables) are re-identified. All parameters are re-estimated. The transformation type remains unchanged.</p>
+<p>The picture below presents the initial model (on the left) and the results of the refreshment procedure with the <em>Partial concurrent adjustment → Estimate regression coefficients + ARIMA model</em> option (on the right). The ARIMA part has been re-identified (a change from (2,1,0)(0,1,1) to (0,1,1)(1,1,1)). Also the regression coefficients for the calendar variables have been re-estimated. In the revised model there is no <em>Prespecified outliers</em> section. Therefore, the outliers were re-identified.</p>
 <p><img src="All_images/UG_PCA_image1.jpg" class="img-fluid"></p>
 </section>
 <section id="partial-concurrent-adjustment-estimate-regression-coefficients-last-outliers" class="level4">
@@ -796,7 +796,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./A-sa-seats-decomposition.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">SA: SEATS Decomposition</span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">SA: Seats Decomposition</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">

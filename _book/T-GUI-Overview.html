@@ -181,7 +181,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./A-sa-seats-decomposition.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">SA: SEATS Decomposition</span></a>
+ <span class="menu-text">SA: Seats Decomposition</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -323,7 +323,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./M-reg-arima-modelling.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Reg-Arima models</span></a>
+ <span class="menu-text">Reg-ARIMA models</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -335,7 +335,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./M-SEATS-decomposition.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">SEATS decomposition</span></a>
+ <span class="menu-text">Seats decomposition</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -449,7 +449,7 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="in-this-chapter" class="level2">
 <h2 class="anchored" data-anchor-id="in-this-chapter">In this chapter</h2>
-<p>This chapter provides general information about using the Graphical User Interface (GUI). Specific indications related to a given algorithm (X13-ARIMA, Tramo-seats, Benchmarking…) are displayed in the relevant chapters, listed <a href="P_Algorithms.html">here</a>.</p>
+<p>This chapter provides general information about using the Graphical User Interface (GUI). Specific indications related to a given algorithm (X-13-ARIMA, Tramo-Seats, Benchmarking…) are displayed in the relevant chapters, listed <a href="P_Algorithms.html">here</a>.</p>
 <p>Contents:</p>
 <ul>
 <li>Available algorithms</li>
@@ -473,8 +473,8 @@ ul.task-list li input[type="checkbox"] {
 <ul>
 <li><p>Seasonal adjustment <a href="#sa-chapter">(SA) algorithms</a></p>
 <ul>
-<li>X13-ARIMA</li>
-<li>TRAMO-SEATS</li>
+<li>X-13-ARIMA</li>
+<li>Tramo-Seats</li>
 <li>Direct-indirect SA comparisons</li>
 </ul></li>
 <li><p>Outlier detection (TERROR)</p></li>
@@ -566,10 +566,10 @@ ul.task-list li input[type="checkbox"] {
 <li>ODBC;</li>
 <li>SDMX;</li>
 <li>Excel spreadsheets;</li>
-<li>TSW (input files for the <a href="https://www.bde.es/bde/en/secciones/servicios/Profesionales/Programas_estadi/Programas.html">TRAMO-SEATS-Windows application</a> by the Bank of Spain);</li>
-<li>TXT;</li>
-<li>USCB (input files for the <a href="https://www.census.gov/data/software/x13as.html">X-13-ARIMA-SEATS application</a> by the U.S. Census Bureau);</li>
-<li>XML.</li>
+<li>TSW (input files for the <a href="https://www.bde.es/bde/en/secciones/servicios/Profesionales/Programas_estadi/Programas.html">Tramo-Seats-Windows application</a> by the Bank of Spain);</li>
+<li><code>.txt</code>;</li>
+<li>USCB (input files for the <a href="https://www.census.gov/data/software/x13as.html">X-13-ARIMA-Seats application</a> by the U.S. Census Bureau);</li>
+<li><code>.xml</code>.</li>
 </ul>
 <p>All standard databases (Oracle, SQLServer, DB2, MySQL) are supported by JDemetra+ via JDBC, which is a generic interface to many relational databases. Other providers can be added by users by creating plugins (see <em>Plugins</em> section in the <em>Tools</em> menu).</p>
 <section id="import-data" class="level3">
@@ -582,7 +582,7 @@ ul.task-list li input[type="checkbox"] {
 <p>These details vary according to data providers.</p>
 <div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/KYBcKx1e8ys" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
 <div class="tabset-margin-container"></div><div class="panel-tabset content-visible" data-when-format="html">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">Spreadsheet</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false">Text or csv file</a></li></ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">Spreadsheet</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false"><code>.txt</code> or <code>.csv</code> file</a></li></ul>
 <div class="tab-content content-visible" data-when-format="html">
 <div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
 <div class="quarto-figure quarto-figure-center">
@@ -670,7 +670,7 @@ How to set-up your spreadsheet
 <img src="All_images/provider-txt-files.png" class="img-fluid" alt="Data provider available by default"></li>
 <li><p>The <em>Open data source</em> window contains the following options:</p>
 <ul>
-<li><p><strong>Text file</strong> – a path to access the file.</p></li>
+<li><p><strong><code>.txt</code> file</strong> – a path to access the file.</p></li>
 <li><p><strong>Charset</strong> – the encoding used to encode the file</p></li>
 <li><p><strong>Lines to skip</strong> – the number of lines to skip before reading the data</p></li>
 <li><p><strong>Delimiter</strong> – the character used to separate fields in the file</p></li>
@@ -689,13 +689,13 @@ How to set-up your spreadsheet
 <li><p>The data are organized in a tree structure.</p>
 <img src="All_images/provider-txt-file-structure.png" class="img-fluid" alt="Options for importing data"></li>
 </ol>
-<div class="callout callout-style-default callout-note callout-titled" title="How to set up you text or csv file">
+<div class="callout callout-style-default callout-note callout-titled" title="How to set up you `.txt` or `.csv` file">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-How to set up you text or csv file
+How to set up you <code>.txt</code> or <code>.csv</code> file
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -796,7 +796,7 @@ How to set up you text or csv file
 <p>The main folder contains:</p>
 <ul>
 <li>a folder <strong>SAProcessing</strong> with all the result of the SA</li>
-<li>folders <strong>TramoSeatsSpec</strong> and/or <strong>X13Spec</strong> with the custom specifications</li>
+<li>folders <strong>TramoSeatsSpec</strong> and/or <strong>X-13Spec</strong> with the custom specifications</li>
 <li>a folder <strong>Variables</strong> for external regressor and variables</li>
 <li>a folder <strong>Calendars</strong> with the calendars used to correct the trading days effect</li>
 <li>a folder <strong>Output</strong> contains all the generated output from the GUI</li>
@@ -851,7 +851,7 @@ How to set up you text or csv file
 <li><a href="#tools-menu">Tools</a></li>
 <li><a href="#window-menu">Window</a></li>
 <li><a href="#help-menu">Help</a></li>
-<li><a href="#RegArimaDoc">RegArimaDoc</a></li>
+<li><a href="#RegARIMADoc">RegARIMADoc</a></li>
 <li><a href="#X-13Doc">X-13Doc</a></li>
 <li><a href="#TramoDoc">TramoDoc</a></li>
 <li><a href="#TramoSeatsDoc">TramoSeatsDoc</a></li>
@@ -890,7 +890,7 @@ How to set up you text or csv file
 </figure>
 </div>
 <ul>
-<li><a href="#modelling">Modelling</a> – enables time series modelling using the TRAMO and RegARIMA models;</li>
+<li><a href="#modelling">Modelling</a> – enables time series modelling using the Tramo and Reg-ARIMA models;</li>
 </ul>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -899,7 +899,7 @@ How to set up you text or csv file
 </figure>
 </div>
 <ul>
-<li><a href="#seasonal-adjustment??">Seasonal adjustment</a> – intended for the seasonal adjustment of a time series with the TRAMO-SEATS and X-13ARIMA-SEATS methods.</li>
+<li><a href="#seasonal-adjustment??">Seasonal adjustment</a> – intended for the seasonal adjustment of a time series with the Tramo-Seats and X-13ARIMA-Seats methods.</li>
 </ul>
 <p>By default, the <em>Seasonal adjustment</em> tab has 3 sub-tabs:</p>
 <ul>
@@ -960,7 +960,7 @@ How to set up you text or csv file
 <li><a href="#spectral-analysis-windows"><em>Spectral analysis</em></a> – contains tools for the analysis of a time series in a frequency domain;</li>
 <li><a href="#aggregation"><em>Aggregation</em></a> – enables the user to investigate a graph of the sum of multiple time series;</li>
 <li><a href="#differencing"><em>Differencing</em></a> – allows for the inspection of the first regular differences of the time series;</li>
-<li><a href="#spreadsheet-profiler"><em>Spreadsheet profiler</em></a> – offers an Excel-type view of the XLS file imported to JDemetra+.</li>
+<li><a href="#spreadsheet-profiler"><em>Spreadsheet profiler</em></a> – offers an Excel-type view of the <code>.xls</code> file imported to JDemetra+.</li>
 <li><a href="#plugins-overview"><em>Plugins</em></a> – allows for the installation and activation of plugins, which extend JDemetra+ functionalities.</li>
 <li><a href="#options-window"><em>Options</em></a> – presents the default interface settings and allows for their modification.</li>
 </ul>
@@ -998,7 +998,7 @@ How to set up you text or csv file
 </section>
 <section id="spreadsheet-profiler" class="level4">
 <h4 class="anchored" data-anchor-id="spreadsheet-profiler">Spreadsheet profiler</h4>
-<p>The <em>Spreadsheet profiler</em> offers an Excel-type view of the XLS file imported to JDemetra+. To use this functionality drag the file name from the <em>Providers</em> window and drop it to the empty <em>Spreadsheet profiler</em> window.</p>
+<p>The <em>Spreadsheet profiler</em> offers an Excel-type view of the <code>.xls</code> file imported to JDemetra+. To use this functionality drag the file name from the <em>Providers</em> window and drop it to the empty <em>Spreadsheet profiler</em> window.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/A_Ref40.jpg" class="img-fluid figure-img"></p>
@@ -1343,9 +1343,9 @@ Low-level options
 <ul>
 <li><p>The type of the analysis of revision history (<strong>Revision History</strong>):</p>
 <ul>
-<li><p><em>FreeParameters</em> – the RegARIMA model parameters and regression coefficients of the RegARIMA model will be re-estimated each time the end point of the data is changed. This argument is ignored if no RegARIMA model is fit to the series.</p></li>
-<li><p><em>Complete</em> – the whole RegARIMA model together with regressors will be re-identified and re-estimated each time the end point of the data is changed. This argument is ignored if no RegARIMA model is fitted to the series.</p></li>
-<li><p><em>None</em> – the ARIMA parameters and regression coefficients of the RegARIMA model will be fixed throughout the analysis at the values estimated from the entire series (or model span).</p></li>
+<li><p><em>FreeParameters</em> – the Reg-ARIMA model parameters and regression coefficients of the Reg-ARIMA model will be re-estimated each time the end point of the data is changed. This argument is ignored if no Reg-ARIMA model is fit to the series.</p></li>
+<li><p><em>Complete</em> – the whole Reg-ARIMA model together with regressors will be re-identified and re-estimated each time the end point of the data is changed. This argument is ignored if no Reg-ARIMA model is fitted to the series.</p></li>
+<li><p><em>None</em> – the ARIMA parameters and regression coefficients of the Reg-ARIMA model will be fixed throughout the analysis at the values estimated from the entire series (or model span).</p></li>
 </ul></li>
 </ul>
 <div class="quarto-figure quarto-figure-center">
@@ -1381,7 +1381,7 @@ Low-level options
 </div>
 </div>
 <div id="tabset-9-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-9-2-tab">
-<p>In v3, you can find this settings in the SA panel in the tabs TramoSeats and X13:</p>
+<p>In v3, you can find this settings in the SA panel in the tabs TramoSeats and X-13:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/options-SA-TramoSeats_v3.png" class="img-fluid figure-img"></p>
@@ -1390,8 +1390,8 @@ Low-level options
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="All_images/options-SA-X13_v3.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption"><strong>Settings for the quality measures and tests in X13 in v3</strong></figcaption>
+<p><img src="All_images/options-SA-X-13_v3.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption"><strong>Settings for the quality measures and tests in X-13 in v3</strong></figcaption>
 </figure>
 </div>
 </div>
@@ -1523,15 +1523,15 @@ Low-level options
 <h4 class="anchored" data-anchor-id="general-tab">General tab</h4>
 <p>The General tab correspond to the <a href="#options-statistics">Statistics tab</a> from the <a href="#options-demetra-panel">Demetra panel</a> in v2.</p>
 </section>
-<section id="tramoseats-and-x13-tabs" class="level4">
-<h4 class="anchored" data-anchor-id="tramoseats-and-x13-tabs">TramoSeats and X13 tabs</h4>
+<section id="tramoseats-and-x-13-tabs" class="level4">
+<h4 class="anchored" data-anchor-id="tramoseats-and-x-13-tabs">TramoSeats and X-13 tabs</h4>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/options-SA-TramoSeats_v3.png" class="img-fluid figure-img"></p>
 <figcaption class="figure-caption"><strong>Tramoseats tab</strong></figcaption>
 </figure>
 </div>
-<p>The TramoSeats and X13 tabs correspond to the settings for the quality measures and tests used in a diagnostic procedure in v2.</p>
+<p>The TramoSeats and X-13 tabs correspond to the settings for the quality measures and tests used in a diagnostic procedure in v2.</p>
 </section>
 </section>
 <section id="other-panels" class="level3">

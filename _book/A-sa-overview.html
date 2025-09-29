@@ -181,7 +181,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./A-sa-seats-decomposition.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">SA: SEATS Decomposition</span></a>
+ <span class="menu-text">SA: Seats Decomposition</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -323,7 +323,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./M-reg-arima-modelling.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Reg-Arima models</span></a>
+ <span class="menu-text">Reg-ARIMA models</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -335,7 +335,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./M-SEATS-decomposition.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">SEATS decomposition</span></a>
+ <span class="menu-text">Seats decomposition</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -422,7 +422,7 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="in-this-chapter" class="level2">
 <h2 class="anchored" data-anchor-id="in-this-chapter">In this chapter</h2>
-<p>This chapter is a first of a series focusing on the practical step by step use of JDemetra+ Seasonal Adjustment (SA) algorithms, restricted to monthly and quarterly series. For infra-monthly data see the <a href="A-sa-hf.html">following chapter</a>. In the sections below an overview of the seasonal adjustment process is provided. The most widely used SA algorithms (Tramo-Seats and X13-Arima) have two steps: a pre-treatment to remove (temporarily) deterministic effects and a decomposition phase to estimate the seasonal factors.</p>
+<p>This chapter is a first of a series focusing on the practical step by step use of JDemetra+ Seasonal Adjustment (SA) algorithms, restricted to monthly and quarterly series. For infra-monthly data see the <a href="A-sa-hf.html">following chapter</a>. In the sections below an overview of the seasonal adjustment process is provided. The most widely used SA algorithms (Tramo-Seats and X-13-ARIMA) have two steps: a pre-treatment to remove (temporarily) deterministic effects and a decomposition phase to estimate the seasonal factors.</p>
 <p>The following chapters get into the specifics of each algorithm.</p>
 <ul>
 <li><a href="A-sa-pre-treatment.html">Pre-treatment</a></li>
@@ -468,13 +468,13 @@ ul.task-list li input[type="checkbox"] {
 <p><img src="All_images/SA_Algos.png" class="img-fluid"></p>
 <p>Two categories of algorithms :</p>
 <ul>
-<li><p>historical core (main): X-13-Arima and Tramo-Seats <a href="G-news-v3-vs-v2.html#v3-vs-v2-sa">improved in version 3</a></p></li>
+<li><p>historical core (main): X-13-ARIMA and Tramo-Seats <a href="G-news-v3-vs-v2.html#v3-vs-v2-sa">improved in version 3</a></p></li>
 <li><p>version 3 additional algorithms (incubator)</p></li>
 </ul>
-<p>X13-ARIMA and TRAMO-SEATS are two-step algorithms with a pre-treatment phase (Reg-Arima or Tramo) and a decomposition phase (X11 and Seats).</p>
-<p>STL+ combines STL local regression based decomposition and a simplified Reg-Arima pre-treatment restricted to airline models.</p>
-<p>X12+ combines X11 (enhanced) decomposition and a simplified Reg-Arima pre-treatment restricted to airline models.</p>
-<p>Seats+ combines Seats decomposition and a simplified Reg-Arima pre-treatment restricted to airline models.</p>
+<p>X-13-ARIMA and Tramo-Seats are two-step algorithms with a pre-treatment phase (Reg-ARIMA or Tramo) and a decomposition phase (X11 and Seats).</p>
+<p>STL+ combines STL local regression based decomposition and a simplified Reg-ARIMA pre-treatment restricted to airline models.</p>
+<p>X12+ combines X11 (enhanced) decomposition and a simplified Reg-ARIMA pre-treatment restricted to airline models.</p>
+<p>Seats+ combines Seats decomposition and a simplified Reg-ARIMA pre-treatment restricted to airline models.</p>
 <p>In a <a href="A-sa-bsm.html">Structural Time Series</a> approach pre-treatment and decomposition are done simultaneously in a State Space Framework.</p>
 </section>
 <section id="admissible-data-frequencies" class="level2">
@@ -525,7 +525,7 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="direct-or-indirect-seasonal-adjustment" class="level2">
 <h2 class="anchored" data-anchor-id="direct-or-indirect-seasonal-adjustment">Direct or Indirect seasonal adjustment</h2>
-<p>when seasonally adjusting series which are aggregates following a given classification, the user has to chose whether directly adjust the aggregate from its raw version or to aggregate the adjusted components.</p>
+<p>when seasonally adjusting series which are aggregates following a given classification, the user has to chose whether to directly adjust the aggregate from its raw version or to aggregate the adjusted components.</p>
 <p>The graphical user interface in version 2.x provides a <a href="T-GUI-SA-Modelling-Features.html#direct-indirect">module</a> to compare the two options. It won’t be provided in version 3.x.</p>
 
 

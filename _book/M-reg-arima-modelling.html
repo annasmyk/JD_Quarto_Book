@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>JDemetra+ documentation - Reg-Arima models</title>
+<title>JDemetra+ documentation - Reg-ARIMA models</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -74,7 +74,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./P_Methods.html">Methods</a></li><li class="breadcrumb-item"><a href="./M-reg-arima-modelling.html">Reg-Arima models</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./P_Methods.html">Methods</a></li><li class="breadcrumb-item"><a href="./M-reg-arima-modelling.html">Reg-ARIMA models</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -179,7 +179,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./A-sa-seats-decomposition.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">SA: SEATS Decomposition</span></a>
+ <span class="menu-text">SA: Seats Decomposition</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -321,7 +321,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./M-reg-arima-modelling.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Reg-Arima models</span></a>
+ <span class="menu-text">Reg-ARIMA models</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -333,7 +333,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./M-SEATS-decomposition.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">SEATS decomposition</span></a>
+ <span class="menu-text">Seats decomposition</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -393,7 +393,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span id="m-reg-a" class="quarto-section-identifier">Reg-Arima models</span></h1>
+<h1 class="title"><span id="m-reg-a" class="quarto-section-identifier">Reg-ARIMA models</span></h1>
 </div>
 
 
@@ -411,9 +411,9 @@ ul.task-list li input[type="checkbox"] {
 <p>Under construction.</p>
 <section id="overview" class="level2">
 <h2 class="anchored" data-anchor-id="overview">Overview</h2>
-<p>The primary aim of seasonal adjustment is to remove the unobservable seasonal component from the observed series. The decomposition routines implemented in the seasonal adjustment methods make specific assumptions concerning the input series. One of the crucial assumptions is that the input series is stochastic, i.e.&nbsp;it is clean of deterministic effects. Another important limitation derives from the symmetric linear filter used in TRAMO-SEATS and X-13ARIMA-SEATS. A symmetric linear filter cannot be applied to the first and last observations with the same set of weights as for the central observations[^1]. Therefore, for the most recent observations these filters provide estimates that are subject to revisions.</p>
+<p>The primary aim of seasonal adjustment is to remove the unobservable seasonal component from the observed series. The decomposition routines implemented in the seasonal adjustment methods make specific assumptions concerning the input series. One of the crucial assumptions is that the input series is stochastic, i.e.&nbsp;it is clean of deterministic effects. Another important limitation derives from the symmetric linear filter used in Tramo-Seats and X-13ARIMA-Seats. A symmetric linear filter cannot be applied to the first and last observations with the same set of weights as for the central observations[^1]. Therefore, for the most recent observations these filters provide estimates that are subject to revisions.</p>
 <p>To overcome these constrains both seasonal adjustment methods discussed here include a modelling step that aims to analyse the time series development and provide a better input for decomposition purposes. The tool that is frequently used for this purpose is the ARIMA model, as discussed by BOX, G.E.P., and JENKINS, G.M. (1970). However, time series are often affected by the outliers, other deterministic effects and missing observations. The presence of these effects is not in line with the ARIMA model assumptions. The presence of outliers and other deterministic effects impede the identification of an optimal ARIMA model due to the important bias in the estimation of parameters of sample autocorrelation functions (both global and partial)[^3]. Therefore, the original series need to be corrected for any deterministic effects and missing observations. This process is called linearisation and results in the stochastic series that can be modelled by ARIMA.</p>
-<p>For this purpose both TRAMO and Reg-ARIMA use regression models with ARIMA errors. With these models TRAMO and Reg-ARIMA also produce forecasts.</p>
+<p>For this purpose both Tramo and Reg-ARIMA use regression models with ARIMA errors. With these models Tramo and Reg-ARIMA also produce forecasts.</p>
 
 
 </section>

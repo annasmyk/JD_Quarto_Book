@@ -215,7 +215,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./A-sa-seats-decomposition.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">SA: SEATS Decomposition</span></a>
+ <span class="menu-text">SA: Seats Decomposition</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -357,7 +357,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./M-reg-arima-modelling.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Reg-Arima models</span></a>
+ <span class="menu-text">Reg-ARIMA models</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -369,7 +369,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./M-SEATS-decomposition.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">SEATS decomposition</span></a>
+ <span class="menu-text">Seats decomposition</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -432,7 +432,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </ul></li>
   <li><a href="#outlier-detection" id="toc-outlier-detection" class="nav-link" data-scroll-target="#outlier-detection">Outlier Detection</a>
   <ul class="collapse">
-  <li><a href="#with-reg-arima-models" id="toc-with-reg-arima-models" class="nav-link" data-scroll-target="#with-reg-arima-models">With Reg Arima models</a></li>
+  <li><a href="#with-reg-arima-models" id="toc-with-reg-arima-models" class="nav-link" data-scroll-target="#with-reg-arima-models">With Reg ARIMA models</a></li>
   <li><a href="#with-structural-models-bsm" id="toc-with-structural-models-bsm" class="nav-link" data-scroll-target="#with-structural-models-bsm">With structural models (BSM)</a></li>
   </ul></li>
   </ul>
@@ -462,11 +462,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="in-this-chapter">In this chapter</h2>
 <p>The following sections describe</p>
 <ul>
-<li><p>how to generate useful external regressors for improving seasonal adjustment or reg-arima modelling</p></li>
+<li><p>how to generate useful external regressors for improving seasonal adjustment or Reg-ARIMA modelling</p></li>
 <li><p>JDemetra+ solutions for outlier detection and in a time series.</p></li>
 </ul>
 <p>These routines can be used stand alone or as part of a seasonal adjustment process. They can be accessed via the <a href="T-GUI-Overview.html">Graphical User Interface (GUI)</a> or [R packages]((#t-r-packs).</p>
-<p>How to use the generated regressors, or any user-defined variable, in a seasonal adjustment or reg-arima modelling process is discussed in the <a href="A-sa-pre-treatment.html">pre-treatment</a> chapter for classic SA and <a href="A-sa-hf.html">SA of High-frequency</a> chapter for infra-monthly data. There you will also find out how to fix the corresponding coefficients and how to allocate the effects to the selected component.</p>
+<p>How to use the generated regressors, or any user-defined variable, in a seasonal adjustment or Reg-ARIMA modelling process is discussed in the <a href="A-sa-pre-treatment.html">pre-treatment</a> chapter for classic SA and <a href="A-sa-hf.html">SA of High-frequency</a> chapter for infra-monthly data. There you will also find out how to fix the corresponding coefficients and how to allocate the effects to the selected component.</p>
 <p>The external regressors described exclude calendar correction which is detailed <a href="A-calendar-correction.html">here</a></p>
 <!-- ## Tools Map -->
 <!-- ### External regressors using R packages vs GUI -->
@@ -497,25 +497,27 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="pre-specifying-outliers" class="level4">
 <h4 class="anchored" data-anchor-id="pre-specifying-outliers">Pre-specifying outliers</h4>
-<p>Outliers are well-defined types of auxiliary variables, therefore when they are used (reg-arima or tramo modelling) they don’t need to be explicitly generated beforehand. Pre-specifying outliers is detailed in chapters on <a href="A-sa-pre-treatment.html">pre-treatment in SA</a> and <a href="A-sa-hf.html">SA of High-frequency data</a>.</p>
+<p>Outliers are well-defined types of auxiliary variables, therefore when they are used (Reg-ARIMA or Tramo modelling) they don’t need to be explicitly generated beforehand. Pre-specifying outliers is detailed in chapters on <a href="A-sa-pre-treatment.html">pre-treatment in SA</a> and <a href="A-sa-hf.html">SA of High-frequency data</a>.</p>
 </section>
 <section id="generating-regressors-for-outliers" class="level4">
 <h4 class="anchored" data-anchor-id="generating-regressors-for-outliers">Generating regressors for outliers</h4>
 <p>Nevertheless, explicit regressors corresponding to outliers can be generated with <code>rjd3toolkit</code> functions for independent use. Further details rjd3toolkit help pages.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Outliers in February 2002, for monthly data</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"rjd3toolkit"</span>)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>ao <span class="ot">&lt;-</span> <span class="fu">ao_variable</span>(<span class="at">frequency =</span> <span class="dv">12</span>, <span class="fu">c</span>(<span class="dv">2000</span>, <span class="dv">1</span>), <span class="at">length =</span> <span class="dv">12</span> <span class="sc">*</span> <span class="dv">4</span>, <span class="at">date =</span> <span class="st">"2002-02-01"</span>)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>ls <span class="ot">&lt;-</span> <span class="fu">ls_variable</span>(<span class="dv">12</span>, <span class="fu">c</span>(<span class="dv">2000</span>, <span class="dv">1</span>), <span class="at">length =</span> <span class="dv">12</span> <span class="sc">*</span> <span class="dv">4</span>, <span class="at">date =</span> <span class="st">"2002-02-01"</span>)</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>tc <span class="ot">&lt;-</span> <span class="fu">tc_variable</span>(<span class="dv">12</span>, <span class="fu">c</span>(<span class="dv">2000</span>, <span class="dv">1</span>), <span class="at">length =</span> <span class="dv">12</span> <span class="sc">*</span> <span class="dv">4</span>, <span class="at">date =</span> <span class="st">"2002-02-01"</span>)</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>so <span class="ot">&lt;-</span> <span class="fu">so_variable</span>(<span class="dv">12</span>, <span class="fu">c</span>(<span class="dv">2000</span>, <span class="dv">1</span>), <span class="at">length =</span> <span class="dv">12</span> <span class="sc">*</span> <span class="dv">4</span>, <span class="at">date =</span> <span class="st">"2002-02-01"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"rjd3toolkit"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Outliers in February 2002, for monthly data</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>ao <span class="ot">&lt;-</span> <span class="fu">ao_variable</span>(<span class="at">frequency =</span> <span class="dv">12</span>, <span class="fu">c</span>(<span class="dv">2000</span>, <span class="dv">1</span>), <span class="at">length =</span> <span class="dv">12</span> <span class="sc">*</span> <span class="dv">4</span>, <span class="at">date =</span> <span class="st">"2002-02-01"</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>ls <span class="ot">&lt;-</span> <span class="fu">ls_variable</span>(<span class="dv">12</span>, <span class="fu">c</span>(<span class="dv">2000</span>, <span class="dv">1</span>), <span class="at">length =</span> <span class="dv">12</span> <span class="sc">*</span> <span class="dv">4</span>, <span class="at">date =</span> <span class="st">"2002-02-01"</span>)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>tc <span class="ot">&lt;-</span> <span class="fu">tc_variable</span>(<span class="dv">12</span>, <span class="fu">c</span>(<span class="dv">2000</span>, <span class="dv">1</span>), <span class="at">length =</span> <span class="dv">12</span> <span class="sc">*</span> <span class="dv">4</span>, <span class="at">date =</span> <span class="st">"2002-02-01"</span>)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>so <span class="ot">&lt;-</span> <span class="fu">so_variable</span>(<span class="dv">12</span>, <span class="fu">c</span>(<span class="dv">2000</span>, <span class="dv">1</span>), <span class="at">length =</span> <span class="dv">12</span> <span class="sc">*</span> <span class="dv">4</span>, <span class="at">date =</span> <span class="st">"2002-02-01"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 </section>
 <section id="ramps" class="level3">
 <h3 class="anchored" data-anchor-id="ramps">Ramps</h3>
 <p>A ramp effect means a linear increase or decrease in the level of the series over a specified time interval <span class="math inline">\(t_{0}\)</span> to <span class="math inline">\(\ t_{1}\)</span>. Ramps can overlap other ramps, additive outliers and level shifts. In seasonal adjustment their effected will be allocated to the trend.</p>
-<p>Adding ramps to a seasonal adjustment (or reg-arima/tramo) specification happens in one step in GUI as well as in R, where ramp regressors can nevertheless be independently generated.</p>
+<p>Adding ramps to a seasonal adjustment (or Reg-ARIMA / Tramo) specification happens in one step in GUI as well as in R, where ramp regressors can nevertheless be independently generated.</p>
 <section id="adding-ramps-in-gui" class="level4">
 <h4 class="anchored" data-anchor-id="adding-ramps-in-gui">Adding ramps in GUI</h4>
 <p>In the specification window</p>
@@ -531,23 +533,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h4 class="anchored" data-anchor-id="adding-ramps-in-r">Adding ramps in R</h4>
 <p>Use the function <code>add_ramp</code></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create a specification from a default specification</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>init_spec <span class="ot">&lt;-</span> rjd3x13<span class="sc">::</span><span class="fu">spec_x13</span>(<span class="st">"RSA5c"</span>)</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># add ramp on year 2012</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>new_spec <span class="ot">&lt;-</span> rjd3toolkit<span class="sc">::</span><span class="fu">add_ramp</span>(init_spec, <span class="at">start =</span> <span class="st">"2012-01-01"</span>, <span class="at">end =</span> <span class="st">"2012-12-01"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># create a specification from a default specification</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>init_spec <span class="ot">&lt;-</span> rjd3x13<span class="sc">::</span><span class="fu">spec_x13</span>(<span class="st">"RSA5c"</span>)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># add ramp on year 2012</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>new_spec <span class="ot">&lt;-</span> rjd3toolkit<span class="sc">::</span><span class="fu">add_ramp</span>(init_spec, <span class="at">start =</span> <span class="st">"2012-01-01"</span>, <span class="at">end =</span> <span class="st">"2012-12-01"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="generating-ramp-regressors-in-r" class="level4">
 <h4 class="anchored" data-anchor-id="generating-ramp-regressors-in-r">Generating ramp regressors in R</h4>
 <p>Use <code>ramp_variable</code> function in rjd3toolkit:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>?ramp_variable</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Ramp variable from January 2001 to September 2001 for a monthly series</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>rp <span class="ot">&lt;-</span> <span class="fu">ramp_variable</span>(<span class="at">frequency =</span> <span class="dv">12</span>, <span class="fu">c</span>(<span class="dv">2000</span>, <span class="dv">1</span>), <span class="at">length =</span> <span class="dv">12</span> <span class="sc">*</span> <span class="dv">4</span>, <span class="at">range =</span> <span class="fu">c</span>(<span class="dv">13</span>, <span class="dv">21</span>))</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Or equivalently</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>rp <span class="ot">&lt;-</span> <span class="fu">ramp_variable</span>(<span class="dv">12</span>, <span class="fu">c</span>(<span class="dv">2000</span>, <span class="dv">1</span>), <span class="at">length =</span> <span class="dv">12</span> <span class="sc">*</span> <span class="dv">4</span>, <span class="at">range =</span> <span class="fu">c</span>(<span class="st">"2001-01-01"</span>, <span class="st">"2001-09-02"</span>))</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="fu">plot.ts</span>(rp)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>?ramp_variable</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Ramp variable from January 2001 to September 2001 for a monthly series</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>rp <span class="ot">&lt;-</span> <span class="fu">ramp_variable</span>(<span class="at">frequency =</span> <span class="dv">12</span>, <span class="fu">c</span>(<span class="dv">2000</span>, <span class="dv">1</span>), <span class="at">length =</span> <span class="dv">12</span> <span class="sc">*</span> <span class="dv">4</span>, <span class="at">range =</span> <span class="fu">c</span>(<span class="dv">13</span>, <span class="dv">21</span>))</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Or equivalently</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>rp <span class="ot">&lt;-</span> <span class="fu">ramp_variable</span>(<span class="dv">12</span>, <span class="fu">c</span>(<span class="dv">2000</span>, <span class="dv">1</span>), <span class="at">length =</span> <span class="dv">12</span> <span class="sc">*</span> <span class="dv">4</span>, <span class="at">range =</span> <span class="fu">c</span>(<span class="st">"2001-01-01"</span>, <span class="st">"2001-09-02"</span>))</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="fu">plot.ts</span>(rp)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>More details rjd3toolkit pages.</p>
 </section>
@@ -555,7 +557,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="intervention-variables" class="level3">
 <h3 class="anchored" data-anchor-id="intervention-variables">Intervention variables</h3>
 <p>Intervention variables are modelled as any possible sequence of ones and zeros, on which differencing (regular and seasonal) can be applied.</p>
-<p>Adding intervention variables to a seasonal adjustment (or reg-arima/tramo) specification happens in one step when using the GUI, whereas two steps are required in R: generating the regressors and the adding them as an user-defined variable.</p>
+<p>Adding intervention variables to a seasonal adjustment (or Reg-ARIMA / Tramo) specification happens in one step when using the GUI, whereas two steps are required in R: generating the regressors and the adding them as an user-defined variable.</p>
 <section id="adding-intervention-variables-in-gui" class="level4">
 <h4 class="anchored" data-anchor-id="adding-intervention-variables-in-gui">Adding intervention variables in GUI</h4>
 <p>step 1:</p>
@@ -567,27 +569,27 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h4 class="anchored" data-anchor-id="generating-intervention-variables-in-r">Generating intervention variables in R</h4>
 <p>Using <code>intervention_variable</code> function in rjd3toolkit</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"rjd3toolkit"</span>)</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>? intervention_variable</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>iv <span class="ot">&lt;-</span> <span class="fu">intervention_variable</span>(</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">frequency =</span> <span class="dv">12</span>, <span class="at">start =</span> <span class="fu">c</span>(<span class="dv">2000</span>, <span class="dv">1</span>), <span class="at">length =</span> <span class="dv">60</span>,</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">starts =</span> <span class="st">"2001-01-01"</span>, <span class="at">ends =</span> <span class="st">"2001-12-01"</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>iv</span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(iv)</span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>iv <span class="ot">&lt;-</span> <span class="fu">intervention_variable</span>(<span class="dv">12</span>, <span class="fu">c</span>(<span class="dv">2000</span>, <span class="dv">1</span>), <span class="dv">60</span>,</span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">starts =</span> <span class="st">"2001-01-01"</span>, <span class="at">ends =</span> <span class="st">"2001-12-01"</span>, <span class="at">delta =</span> <span class="dv">1</span></span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>iv</span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(iv)</span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>iv <span class="ot">&lt;-</span> <span class="fu">intervention_variable</span>(<span class="dv">12</span>, <span class="fu">c</span>(<span class="dv">2000</span>, <span class="dv">1</span>), <span class="dv">60</span>,</span>
-<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">starts =</span> <span class="st">"2001-01-01"</span>, <span class="at">ends =</span> <span class="st">"2001-12-01"</span>,</span>
-<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">delta =</span> <span class="dv">0</span>, <span class="at">seasonaldelta =</span> <span class="dv">1</span></span>
-<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>iv</span>
-<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(iv)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"rjd3toolkit"</span>)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>?intervention_variable</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>iv <span class="ot">&lt;-</span> <span class="fu">intervention_variable</span>(</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">frequency =</span> <span class="dv">12</span>, <span class="at">start =</span> <span class="fu">c</span>(<span class="dv">2000</span>, <span class="dv">1</span>), <span class="at">length =</span> <span class="dv">60</span>,</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">starts =</span> <span class="st">"2001-01-01"</span>, <span class="at">ends =</span> <span class="st">"2001-12-01"</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>iv</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(iv)</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>iv <span class="ot">&lt;-</span> <span class="fu">intervention_variable</span>(<span class="dv">12</span>, <span class="fu">c</span>(<span class="dv">2000</span>, <span class="dv">1</span>), <span class="dv">60</span>,</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">starts =</span> <span class="st">"2001-01-01"</span>, <span class="at">ends =</span> <span class="st">"2001-12-01"</span>, <span class="at">delta =</span> <span class="dv">1</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>iv</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(iv)</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>iv <span class="ot">&lt;-</span> <span class="fu">intervention_variable</span>(<span class="dv">12</span>, <span class="fu">c</span>(<span class="dv">2000</span>, <span class="dv">1</span>), <span class="dv">60</span>,</span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">starts =</span> <span class="st">"2001-01-01"</span>, <span class="at">ends =</span> <span class="st">"2001-12-01"</span>,</span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">delta =</span> <span class="dv">0</span>, <span class="at">seasonaldelta =</span> <span class="dv">1</span></span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>iv</span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(iv)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>More details rjd3toolkit help pages.</p>
 </section>
@@ -595,28 +597,28 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h4 class="anchored" data-anchor-id="adding-intervention-variables-in-r">Adding intervention variables in R</h4>
 <p>Intervention variables can be added to a specification like any other external regressor using the <code>add_usrdefvar</code>. They also need to be declared in a “context” using the <code>modelling_context</code> function.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># creating one or several external regressors (TS objects),</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co"># which will be gathered in one or several groups</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>iv1 <span class="ot">&lt;-</span> <span class="fu">intervention_variable</span>(<span class="dv">12</span>, <span class="fu">c</span>(<span class="dv">2000</span>, <span class="dv">1</span>), <span class="dv">60</span>,</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">starts =</span> <span class="st">"2001-01-01"</span>, <span class="at">ends =</span> <span class="st">"2001-12-01"</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>iv2 <span class="ot">&lt;-</span> <span class="fu">intervention_variable</span>(<span class="dv">12</span>, <span class="fu">c</span>(<span class="dv">2000</span>, <span class="dv">1</span>), <span class="dv">60</span>,</span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">starts =</span> <span class="st">"2001-01-01"</span>, <span class="at">ends =</span> <span class="st">"2001-12-01"</span>, <span class="at">delta =</span> <span class="dv">1</span></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="co"># regressors as a list of two groups (lists) reg1 and reg2</span></span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>vars <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">reg1 =</span> <span class="fu">list</span>(<span class="at">iv1 =</span> iv1), <span class="at">reg2 =</span> <span class="fu">list</span>(<span class="at">iv2 =</span> iv2))</span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="co"># to use those regressors, input : name=reg1.iv1 and name=reg2.iv2 in add_usrdefvar function</span></span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="co"># creating the modelling context</span></span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>my_context <span class="ot">&lt;-</span> <span class="fu">modelling_context</span>(<span class="at">variables =</span> vars)</span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="co"># customize a default specification</span></span>
-<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>init_spec <span class="ot">&lt;-</span> rjd3x13<span class="sc">::</span><span class="fu">spec_x13</span>(<span class="st">"RSA5c"</span>)</span>
-<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="co"># regressors have to be added one by one</span></span>
-<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>new_spec <span class="ot">&lt;-</span> <span class="fu">add_usrdefvar</span>(init_spec, <span class="at">name =</span> <span class="st">"reg1.iv1"</span>, <span class="at">regeffect =</span> <span class="st">"Trend"</span>)</span>
-<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>new_spec <span class="ot">&lt;-</span> <span class="fu">add_usrdefvar</span>(new_spec, <span class="at">name =</span> <span class="st">"reg2.iv2"</span>, <span class="at">regeffect =</span> <span class="st">"Trend"</span>, <span class="at">coef =</span> <span class="fl">0.7</span>)</span>
-<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a><span class="co"># modelling context is needed for the estimation phase</span></span>
-<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a><span class="co"># raw series</span></span>
-<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> rjd3toolkit<span class="sc">::</span>ABS<span class="sc">$</span>X0.<span class="dv">2</span>.<span class="dv">09</span>.<span class="fl">10.</span>M</span>
-<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>sa_x13 <span class="ot">&lt;-</span> rjd3x13<span class="sc">::</span><span class="fu">x13</span>(y, new_spec, <span class="at">context =</span> my_context)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># creating one or several external regressors (TS objects),</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co"># which will be gathered in one or several groups</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>iv1 <span class="ot">&lt;-</span> <span class="fu">intervention_variable</span>(<span class="dv">12</span>, <span class="fu">c</span>(<span class="dv">2000</span>, <span class="dv">1</span>), <span class="dv">60</span>,</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">starts =</span> <span class="st">"2001-01-01"</span>, <span class="at">ends =</span> <span class="st">"2001-12-01"</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>iv2 <span class="ot">&lt;-</span> <span class="fu">intervention_variable</span>(<span class="dv">12</span>, <span class="fu">c</span>(<span class="dv">2000</span>, <span class="dv">1</span>), <span class="dv">60</span>,</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">starts =</span> <span class="st">"2001-01-01"</span>, <span class="at">ends =</span> <span class="st">"2001-12-01"</span>, <span class="at">delta =</span> <span class="dv">1</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="co"># regressors as a list of two groups (lists) reg1 and reg2</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>vars <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">reg1 =</span> <span class="fu">list</span>(<span class="at">iv1 =</span> iv1), <span class="at">reg2 =</span> <span class="fu">list</span>(<span class="at">iv2 =</span> iv2))</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="co"># to use those regressors, input : name=reg1.iv1 and name=reg2.iv2 in add_usrdefvar function</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="co"># creating the modelling context</span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>my_context <span class="ot">&lt;-</span> <span class="fu">modelling_context</span>(<span class="at">variables =</span> vars)</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a><span class="co"># customize a default specification</span></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>init_spec <span class="ot">&lt;-</span> rjd3x13<span class="sc">::</span><span class="fu">spec_x13</span>(<span class="st">"RSA5c"</span>)</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a><span class="co"># regressors have to be added one by one</span></span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>new_spec <span class="ot">&lt;-</span> <span class="fu">add_usrdefvar</span>(init_spec, <span class="at">name =</span> <span class="st">"reg1.iv1"</span>, <span class="at">regeffect =</span> <span class="st">"Trend"</span>)</span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>new_spec <span class="ot">&lt;-</span> <span class="fu">add_usrdefvar</span>(new_spec, <span class="at">name =</span> <span class="st">"reg2.iv2"</span>, <span class="at">regeffect =</span> <span class="st">"Trend"</span>, <span class="at">coef =</span> <span class="fl">0.7</span>)</span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a><span class="co"># modelling context is needed for the estimation phase</span></span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a><span class="co"># raw series</span></span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> rjd3toolkit<span class="sc">::</span>ABS<span class="sc">$</span>X0.<span class="dv">2</span>.<span class="dv">09</span>.<span class="fl">10.</span>M</span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>sa_x13 <span class="ot">&lt;-</span> rjd3x13<span class="sc">::</span><span class="fu">x13</span>(y, new_spec, <span class="at">context =</span> my_context)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 </section>
@@ -626,12 +628,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h4 class="anchored" data-anchor-id="generating-regressors-in-r">Generating regressors in R</h4>
 <p>dummies :as many time series as type of periods in a year (4,12)</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="do">## periodic dummies : add explanations and examples</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">periodic.dummies</span>(<span class="dv">4</span>, <span class="fu">c</span>(<span class="dv">2000</span>, <span class="dv">1</span>), <span class="dv">60</span>)</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(p)</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(p)</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>q <span class="ot">&lt;-</span> <span class="fu">periodic.contrasts</span>(<span class="dv">4</span>, <span class="fu">c</span>(<span class="dv">2000</span>, <span class="dv">1</span>), <span class="dv">60</span>)</span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>q[<span class="dv">1</span><span class="sc">:</span><span class="dv">9</span>, ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="do">## periodic dummies : add explanations and examples</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">periodic.dummies</span>(<span class="dv">4</span>, <span class="fu">c</span>(<span class="dv">2000</span>, <span class="dv">1</span>), <span class="dv">60</span>)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(p)</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(p)</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>q <span class="ot">&lt;-</span> <span class="fu">periodic.contrasts</span>(<span class="dv">4</span>, <span class="fu">c</span>(<span class="dv">2000</span>, <span class="dv">1</span>), <span class="dv">60</span>)</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>q[<span class="dv">1</span><span class="sc">:</span><span class="dv">9</span>, ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 </section>
@@ -644,7 +646,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="usr-def-var" class="level3">
 <h3 class="anchored" data-anchor-id="usr-def-var">User-defined variables</h3>
-<p>User defined variables are simply time series used as explanatory regressors in the RegARIMA and the TRAMO models. Although JDemetra+ allows the user to indicate any time series as a variable to avoid misleading or erroneous results, the following rules should be kept:</p>
+<p>User defined variables are simply time series used as explanatory regressors in the Reg-ARIMA and the Tramo models. Although JDemetra+ allows the user to indicate any time series as a variable to avoid misleading or erroneous results, the following rules should be kept:</p>
 <ul>
 <li>User-defined regression variables are used for measuring abnormalities and therefore they should not contain a seasonal pattern.</li>
 <li>JDemetra+ assumes that user-defined regressors are already in an appropriately centred form.</li>
@@ -701,35 +703,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="outlier-detection" class="level2">
 <h2 class="anchored" data-anchor-id="outlier-detection">Outlier Detection</h2>
 <section id="with-reg-arima-models" class="level3">
-<h3 class="anchored" data-anchor-id="with-reg-arima-models">With Reg Arima models</h3>
+<h3 class="anchored" data-anchor-id="with-reg-arima-models">With Reg ARIMA models</h3>
 <section id="within-an-sa-processing" class="level4">
 <h4 class="anchored" data-anchor-id="within-an-sa-processing">Within an SA processing</h4>
-<p>In a seasonal adjustment estimation or reg-arima modelling outliers are detected by default. This process can be customized by selecting the type of outliers to be taken into account and the critical values to be used for selection. See the relevant chapters on <a href="A-sa-pre-treatment.html">SA</a> and <a href="A-sa-hf.html">SA of High-frequency data</a></p>
+<p>In a seasonal adjustment estimation or Reg-ARIMA modelling outliers are detected by default. This process can be customized by selecting the type of outliers to be taken into account and the critical values to be used for selection. See the relevant chapters on <a href="A-sa-pre-treatment.html">SA</a> and <a href="A-sa-hf.html">SA of High-frequency data</a></p>
 </section>
 <section id="stand-alone" class="level4">
 <h4 class="anchored" data-anchor-id="stand-alone">Stand alone</h4>
-<p>In version 3;x, R packages rjd3x13 and rjd3tramoseats provide functions for detecting outliers with reg-arima (tramo) algorithms.</p>
+<p>In version 3;x, R packages rjd3x13 and rjd3tramoseats provide functions for detecting outliers with Reg-ARIMA (tramo) algorithms.</p>
 <p>Example using <code>regarima_outliers</code>in rjd3x13:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rjd3x13)</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>?regarima_outliers</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">regarima_outliers</span>(rjd3toolkit<span class="sc">::</span>ABS<span class="sc">$</span>X0.<span class="dv">2</span>.<span class="dv">09</span>.<span class="fl">10.</span>M,</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">order =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>), <span class="at">seasonal =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span>),</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">mean =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">X =</span> <span class="cn">NULL</span>, <span class="at">X.td =</span> <span class="cn">NULL</span>,</span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">ao =</span> <span class="cn">TRUE</span>, <span class="at">ls =</span> <span class="cn">FALSE</span>, <span class="at">tc =</span> <span class="cn">TRUE</span>, <span class="at">so =</span> <span class="cn">TRUE</span>, <span class="at">cv =</span> <span class="dv">4</span></span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Example wit rjd3tramoseats::tramo_outliers</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rjd3tramoseats)</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>?tramo_outliers</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="fu">tramo_outliers</span>(rjd3toolkit<span class="sc">::</span>ABS<span class="sc">$</span>X0.<span class="dv">2</span>.<span class="dv">09</span>.<span class="fl">10.</span>M,</span>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rjd3x13)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>?regarima_outliers</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="fu">regarima_outliers</span>(rjd3toolkit<span class="sc">::</span>ABS<span class="sc">$</span>X0.<span class="dv">2</span>.<span class="dv">09</span>.<span class="fl">10.</span>M,</span>
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">order =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>), <span class="at">seasonal =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span>),</span>
 <span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">mean =</span> <span class="cn">FALSE</span>,</span>
 <span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">X =</span> <span class="cn">NULL</span>, <span class="at">X.td =</span> <span class="cn">NULL</span>,</span>
 <span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">ao =</span> <span class="cn">TRUE</span>, <span class="at">ls =</span> <span class="cn">FALSE</span>, <span class="at">tc =</span> <span class="cn">TRUE</span>, <span class="at">so =</span> <span class="cn">TRUE</span>, <span class="at">cv =</span> <span class="dv">4</span></span>
 <span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Example wit rjd3tramoseats::tramo_outliers</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rjd3tramoseats)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>?tramo_outliers</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="fu">tramo_outliers</span>(rjd3toolkit<span class="sc">::</span>ABS<span class="sc">$</span>X0.<span class="dv">2</span>.<span class="dv">09</span>.<span class="fl">10.</span>M,</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">order =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>), <span class="at">seasonal =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span>),</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">mean =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">X =</span> <span class="cn">NULL</span>, <span class="at">X.td =</span> <span class="cn">NULL</span>,</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">ao =</span> <span class="cn">TRUE</span>, <span class="at">ls =</span> <span class="cn">FALSE</span>, <span class="at">tc =</span> <span class="cn">TRUE</span>, <span class="at">so =</span> <span class="cn">TRUE</span>, <span class="at">cv =</span> <span class="dv">4</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="specific-terror-tool" class="level4">

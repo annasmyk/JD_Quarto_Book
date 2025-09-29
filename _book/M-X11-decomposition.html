@@ -181,7 +181,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./A-sa-seats-decomposition.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">SA: SEATS Decomposition</span></a>
+ <span class="menu-text">SA: Seats Decomposition</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -323,7 +323,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./M-reg-arima-modelling.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Reg-Arima models</span></a>
+ <span class="menu-text">Reg-ARIMA models</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -335,7 +335,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./M-SEATS-decomposition.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">SEATS decomposition</span></a>
+ <span class="menu-text">Seats decomposition</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -436,7 +436,7 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>X11 is the decomposition part of X13-ARIMA seasonal adjustment algorithm originally developed by the US Census Bureau. It is a non parametric algorithm based on <a href="#m-x11-ma">moving averages</a>.</p>
+<p>X11 is the decomposition part of X-13-ARIMA seasonal adjustment algorithm originally developed by the US Census Bureau. It is a non parametric algorithm based on <a href="#m-x11-ma">moving averages</a>.</p>
 <p>The genuine X11 algorithm was meant to decompose monthly (<span class="math inline">\(p=12\)</span>) and quarterly series (<span class="math inline">\(p=4\)</span>). In JDemetra+ half-yearly data (<span class="math inline">\(p=2\)</span>), quadri-monthly (<span class="math inline">\(p=3\)</span>) and bi-monthly data (<span class="math inline">\(p=6\)</span>) can also be handled. (<span class="math inline">\(p=3\)</span> and <span class="math inline">\(p=6\)</span> only in version 3.x)</p>
 <p>In the following chapter, explanations and examples are based on monthly and quarterly data, but the principles can be extended to other supra-monthly frequencies.</p>
 <p>In recent years, X11 implementation in JDemetra+ v 3.x has been extended to infra-monthly data (weekly, daily, hourly…). Handling this kind of data gave way to a tailored X11 algorithm whose peculiarities are described in <a href="#m-sa-hf">this chapter</a>.</p>
@@ -543,8 +543,8 @@ Xsa_t^{(2)}= X_t - Snorm_t^{(2)}
 <p><img src="All_images/ESTP_bbk_X11_detailed_computation.png" class="img-fluid"></p>
 <section id="stage-a-pre-adjustment" class="level3">
 <h3 class="anchored" data-anchor-id="stage-a-pre-adjustment">Stage A: Pre-adjustment</h3>
-<p>If a <a href="A-sa-pre-treatment.html">pre-treatment</a> is performed using X-13-Arima algorithm is A step is not used, results in A table appearing in JDemetra+ output are a copy of pre-treatment results.</p>
-<p>Detailed series produced at the end of stage A, including estimated effect from the <a href="A-sa-pre-treatment.html">Reg-Arima part</a></p>
+<p>If a <a href="A-sa-pre-treatment.html">pre-treatment</a> is performed using X-13-ARIMA algorithm is A step is not used, results in A table appearing in JDemetra+ output are a copy of pre-treatment results.</p>
+<p>Detailed series produced at the end of stage A, including estimated effect from the <a href="A-sa-pre-treatment.html">Reg-ARIMA part</a></p>
 <p>(to be checked: v2 vs v3 display, in GUI and R, here info based on v2)</p>
 <ul>
 <li><p>Table A1: Original raw series;</p></li>
@@ -654,7 +654,7 @@ Xsa_t^{(2)}= X_t - Snorm_t^{(2)}
 <p>M statistics are specific quality measures (ref: Lothian and Mory (1979))</p>
 <ul>
 <li><p><span class="math inline">\(0&lt;M_x&lt;3\)</span>, acceptance region <span class="math inline">\(M_x \leq 1\)</span></p></li>
-<li><p>11 statistics of the decomposition quality (M1 to M11) and 2 summary indicators (Q et Q-M2)</p></li>
+<li><p>11 statistics of the decomposition quality (M1 to M11) and 2 summary indicators (Q and Q-M2)</p></li>
 </ul>
 <p>Detailed description:</p>
 <ul>
@@ -694,7 +694,7 @@ Q = \frac{14M1 + 15M2 + 10M3 + 8M4 + 11M5 + 10M6 + 32M7}{100}
 <li><p><span class="math inline">\(I\)</span>: Final irregular component (Table D13);</p></li>
 <li><p><span class="math inline">\(C\)</span>: Final trend (Table D12);</p></li>
 <li><p><span class="math inline">\(S\)</span>: Final seasonal factors (Table D10);</p></li>
-<li><p><span class="math inline">\(P\)</span>: Preliminary adjustment coefficients, i.e.&nbsp;regressors estimated by the Reg-Arima model (Table A2);</p></li>
+<li><p><span class="math inline">\(P\)</span>: Preliminary adjustment coefficients, i.e.&nbsp;regressors estimated by the Reg-ARIMA model (Table A2);</p></li>
 <li><p><span class="math inline">\(TD\&amp; H\)</span>: Final calendar component (Tables A6 and A7);</p></li>
 <li><p><span class="math inline">\(\text{Mod.O}\)</span>: Original series adjusted for extreme values (Table E1);</p></li>
 <li><p><span class="math inline">\(\text{Mod.CI}\)</span>: Final seasonally adjusted series corrected for extreme values (Table E2);</p></li>
@@ -1153,12 +1153,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./M-reg-arima-modelling.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Reg-Arima models</span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Reg-ARIMA models</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./M-SEATS-decomposition.html" class="pagination-link">
-        <span class="nav-page-text">SEATS decomposition</span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text">Seats decomposition</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

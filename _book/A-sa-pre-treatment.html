@@ -215,7 +215,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./A-sa-seats-decomposition.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">SA: SEATS Decomposition</span></a>
+ <span class="menu-text">SA: Seats Decomposition</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -357,7 +357,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./M-reg-arima-modelling.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Reg-Arima models</span></a>
+ <span class="menu-text">Reg-ARIMA models</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -369,7 +369,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./M-SEATS-decomposition.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">SEATS decomposition</span></a>
+ <span class="menu-text">Seats decomposition</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -431,8 +431,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#calendar-correction" id="toc-calendar-correction" class="nav-link" data-scroll-target="#calendar-correction">Calendar correction</a></li>
   <li><a href="#outliers" id="toc-outliers" class="nav-link" data-scroll-target="#outliers">Outliers</a></li>
   <li><a href="#user-defined-regressors-1" id="toc-user-defined-regressors-1" class="nav-link" data-scroll-target="#user-defined-regressors-1">User-defined regressors</a></li>
-  <li><a href="#arima-model" id="toc-arima-model" class="nav-link" data-scroll-target="#arima-model">Arima Model</a></li>
-  <li><a href="#reg-arima-model-results-and-diagnostics" id="toc-reg-arima-model-results-and-diagnostics" class="nav-link" data-scroll-target="#reg-arima-model-results-and-diagnostics">Reg-Arima model Results and Diagnostics</a></li>
+  <li><a href="#arima-model" id="toc-arima-model" class="nav-link" data-scroll-target="#arima-model">ARIMA Model</a></li>
+  <li><a href="#reg-arima-model-results-and-diagnostics" id="toc-reg-arima-model-results-and-diagnostics" class="nav-link" data-scroll-target="#reg-arima-model-results-and-diagnostics">Reg-ARIMA model Results and Diagnostics</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/annasmyk/JD_Quarto_Book/edit/main/A-sa-pre-treatment.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/annasmyk/JD_Quarto_Book/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
@@ -459,8 +459,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="in-this-chapter" class="level2">
 <h2 class="anchored" data-anchor-id="in-this-chapter">In this chapter</h2>
-<p>The following sections cover pre-treatment with Reg-ARIMA (or Tramo) algorithms. Tramo and the Reg-Arima part of X13-ARIMA rely on very similar <a href="M-reg-arima-modelling.html">principles</a>. Thus Tramo will only be mentioned to highlight differences with the Reg-Arima part of X13-ARIMA.</p>
-<p>Reg-Arima modelling part can be the first of a seasonal adjustment process or run on its <a href="A-RegArima-Tramo-Modelling-Overview.html">own</a>. Below we focus on performing reg-arima modelling as pre-treatment in a SA processing.</p>
+<p>The following sections cover pre-treatment with Reg-ARIMA (or Tramo) algorithms. Tramo and the Reg-ARIMA part of X-13-ARIMA rely on very similar <a href="M-reg-arima-modelling.html">principles</a>. Thus Tramo will only be mentioned to highlight differences with the Reg-ARIMA part of X-13-ARIMA.</p>
+<p>Reg-ARIMA modelling part can be the first of a seasonal adjustment process or run on its <a href="A-RegArima-Tramo-Modelling-Overview.html">own</a>. Below we focus on performing Reg-ARIMA modelling as pre-treatment in a SA processing.</p>
 <p>More in-depth methodological explanations of the algorithms can be found in <a href="P_Methods.html">this part</a> of the documentation.</p>
 </section>
 <section id="pre-treatment-principles" class="level2">
@@ -493,9 +493,9 @@ Y_t = \sum{\alpha}_i O_{it} + \sum\beta_j C_{jt} + \sum {\gamma}_i Reg_{it} + Y_
 </section>
 <section id="a-pre-t-def-spec" class="level2">
 <h2 class="anchored" data-anchor-id="a-pre-t-def-spec">Setting Specifications</h2>
-<p>Default specifications are set for the whole SA procedure, pre-treatment and decomposition. They are slightly different for X13-ARIMA and TRAMO-SEATS and can be modified with user-defined parameters.</p>
+<p>Default specifications are set for the whole SA procedure, pre-treatment and decomposition. They are slightly different for X-13-ARIMA and Tramo-Seats and can be modified with user-defined parameters.</p>
 <section id="a-pre-t-def-spec-x13" class="level4">
-<h4 class="anchored" data-anchor-id="a-pre-t-def-spec-x13">Starting point for X13-ARIMA</h4>
+<h4 class="anchored" data-anchor-id="a-pre-t-def-spec-x13">Starting point for X-13-ARIMA</h4>
 <table class="table">
 <colgroup>
 <col style="width: 18%">
@@ -576,7 +576,7 @@ Y_t = \sum{\alpha}_i O_{it} + \sum\beta_j C_{jt} + \sum {\gamma}_i Reg_{it} + Y_
 <li><p>2 regressors: weekdays vs week-ends + LY</p></li>
 <li><p>7 regressors: each week day vs Sundays + LY</p></li>
 <li><p>always tested</p></li>
-<li><p>easter tested (default length = 6 days in Tramo, 8 days in X13-ARIMA)</p></li>
+<li><p>easter tested (default length = 6 days in Tramo, 8 days in X-13-ARIMA)</p></li>
 </ul>
 </section>
 <section id="sa-pre-t-ts-specs" class="level4">
@@ -732,55 +732,57 @@ Y_t = \sum{\alpha}_i O_{it} + \sum\beta_j C_{jt} + \sum {\gamma}_i Reg_{it} + Y_
 <figcaption class="figure-caption"><strong>Setting series span in R</strong></figcaption>
 </figure>
 </div>
-<p>x13 in version 2</p>
+<p>X-13 in version 2</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"RJDemetra"</span>)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># estimation interval: option with static dates</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>user_spec_1 <span class="ot">&lt;-</span> <span class="fu">x13_spec</span>(</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">spec =</span> <span class="fu">c</span>(</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>        <span class="st">"RSA5c"</span>, <span class="st">"RSA0"</span>, <span class="st">"RSA1"</span>, <span class="st">"RSA2c"</span>,</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>        <span class="st">"RSA3"</span>, <span class="st">"RSA4c"</span>, <span class="st">"X11"</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    ),</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">preliminary.check =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">estimate.from =</span> <span class="st">"2012-06-01"</span>,</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">estimate.to =</span> <span class="st">"2019-12-01"</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co"># estimation interval: option with dynamic numbers of observations</span></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="co"># spec can be applied on different series and therefore exclude different dates</span></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>user_spec_2 <span class="ot">&lt;-</span> <span class="fu">x13_spec</span>(</span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">spec =</span> <span class="fu">c</span>(<span class="st">"RSA5c"</span>, <span class="st">"RSA0"</span>, <span class="st">"RSA1"</span>, <span class="st">"RSA2c"</span>, <span class="st">"RSA3"</span>, <span class="st">"RSA4c"</span>, <span class="st">"X11"</span>),</span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">estimate.first =</span> <span class="dv">12</span></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="co"># eestimation on the last 120 obs</span></span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>user_spec_3 <span class="ot">&lt;-</span> <span class="fu">x13_spec</span>(</span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">spec =</span> <span class="fu">c</span>(<span class="st">"RSA5c"</span>, <span class="st">"RSA0"</span>, <span class="st">"RSA1"</span>, <span class="st">"RSA2c"</span>, <span class="st">"RSA3"</span>, <span class="st">"RSA4c"</span>, <span class="st">"X11"</span>),</span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">estimate.last =</span> <span class="dv">120</span></span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="co"># excluding first 24 and last 36 observations</span></span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>user_spec_4 <span class="ot">&lt;-</span> <span class="fu">x13_spec</span>(</span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>    <span class="at">spec =</span> <span class="fu">c</span>(<span class="st">"RSA5c"</span>, <span class="st">"RSA0"</span>, <span class="st">"RSA1"</span>, <span class="st">"RSA2c"</span>, <span class="st">"RSA3"</span>, <span class="st">"RSA4c"</span>, <span class="st">"X11"</span>),</span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>    <span class="at">estimate.exclFirst =</span> <span class="dv">24</span>,</span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>    <span class="at">estimate.exclLast =</span> <span class="dv">36</span></span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a><span class="co"># Retrieve settings</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">"RJDemetra"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>For comprehensive details about x13_spec function see RJDemetra R help pages.</p>
-<p>TRAMO-SEATS in version 2</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># excluding first 24 and last 36 observations</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>user_spec_1 <span class="ot">&lt;-</span> <span class="fu">tramoseats_spec</span>(</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">spec =</span> <span class="fu">c</span>(<span class="st">"RSAfull"</span>, <span class="st">"RSA0"</span>, <span class="st">"RSA1"</span>, <span class="st">"RSA2"</span>, <span class="st">"RSA3"</span>, <span class="st">"RSA4"</span>, <span class="st">"RSA5"</span>),</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">estimate.exclFirst =</span> <span class="dv">24</span>,</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">estimate.exclLast =</span> <span class="dv">36</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># estimation interval: option with static dates</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>user_spec_1 <span class="ot">&lt;-</span> <span class="fu">x13_spec</span>(</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">spec =</span> <span class="fu">c</span>(</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>        <span class="st">"RSA5c"</span>, <span class="st">"RSA0"</span>, <span class="st">"RSA1"</span>, <span class="st">"RSA2c"</span>,</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>        <span class="st">"RSA3"</span>, <span class="st">"RSA4c"</span>, <span class="st">"X11"</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">preliminary.check =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">estimate.from =</span> <span class="st">"2012-06-01"</span>,</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">estimate.to =</span> <span class="st">"2019-12-01"</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="co"># estimation interval: option with dynamic numbers of observations</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="co"># spec can be applied on different series and therefore exclude different dates</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>user_spec_2 <span class="ot">&lt;-</span> <span class="fu">x13_spec</span>(</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">spec =</span> <span class="fu">c</span>(<span class="st">"RSA5c"</span>, <span class="st">"RSA0"</span>, <span class="st">"RSA1"</span>, <span class="st">"RSA2c"</span>, <span class="st">"RSA3"</span>, <span class="st">"RSA4c"</span>, <span class="st">"X11"</span>),</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">estimate.first =</span> <span class="dv">12</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="co"># eestimation on the last 120 obs</span></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>user_spec_3 <span class="ot">&lt;-</span> <span class="fu">x13_spec</span>(</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>    <span class="at">spec =</span> <span class="fu">c</span>(<span class="st">"RSA5c"</span>, <span class="st">"RSA0"</span>, <span class="st">"RSA1"</span>, <span class="st">"RSA2c"</span>, <span class="st">"RSA3"</span>, <span class="st">"RSA4c"</span>, <span class="st">"X11"</span>),</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">estimate.last =</span> <span class="dv">120</span></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a><span class="co"># excluding first 24 and last 36 observations</span></span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>user_spec_4 <span class="ot">&lt;-</span> <span class="fu">x13_spec</span>(</span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>    <span class="at">spec =</span> <span class="fu">c</span>(<span class="st">"RSA5c"</span>, <span class="st">"RSA0"</span>, <span class="st">"RSA1"</span>, <span class="st">"RSA2c"</span>, <span class="st">"RSA3"</span>, <span class="st">"RSA4c"</span>, <span class="st">"X11"</span>),</span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>    <span class="at">estimate.exclFirst =</span> <span class="dv">24</span>,</span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>    <span class="at">estimate.exclLast =</span> <span class="dv">36</span></span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a><span class="co"># Retrieve settings</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>For comprehensive details about tramoseats_spec function see RJDemetra R help pages.</p>
+<p>For comprehensive details about <code class="sourceCode r"><span class="fu">x13_spec</span>()</code> function see RJDemetra R help pages.</p>
+<p>Tramo-Seats in version 2</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># excluding first 24 and last 36 observations</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>user_spec_1 <span class="ot">&lt;-</span> <span class="fu">tramoseats_spec</span>(</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">spec =</span> <span class="fu">c</span>(<span class="st">"RSAfull"</span>, <span class="st">"RSA0"</span>, <span class="st">"RSA1"</span>, <span class="st">"RSA2"</span>, <span class="st">"RSA3"</span>, <span class="st">"RSA4"</span>, <span class="st">"RSA5"</span>),</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">estimate.exclFirst =</span> <span class="dv">24</span>,</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">estimate.exclLast =</span> <span class="dv">36</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>For comprehensive details about <code class="sourceCode r"><span class="fu">tramoseats_spec</span>()</code> function see RJDemetra R help pages.</p>
 </section>
 <section id="setting-model-span" class="level4">
 <h4 class="anchored" data-anchor-id="setting-model-span">Setting model span</h4>
@@ -825,13 +827,13 @@ Y_t = \sum{\alpha}_i O_{it} + \sum\beta_j C_{jt} + \sum {\gamma}_i Reg_{it} + Y_
 </div>
 <p>Tramo example in version 2</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># excluding first 24 and last 36 observations</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>user_spec_1 <span class="ot">&lt;-</span> <span class="fu">tramoseats_spec</span>(</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">spec =</span> <span class="fu">c</span>(<span class="st">"RSAfull"</span>, <span class="st">"RSA0"</span>, <span class="st">"RSA1"</span>, <span class="st">"RSA2"</span>, <span class="st">"RSA3"</span>, <span class="st">"RSA4"</span>, <span class="st">"RSA5"</span>),</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">estimate.tol =</span> <span class="fl">0.0000001</span>,</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">estimate.eml =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">estimate.urfinal =</span> <span class="fl">0.98</span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># excluding first 24 and last 36 observations</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>user_spec_1 <span class="ot">&lt;-</span> <span class="fu">tramoseats_spec</span>(</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">spec =</span> <span class="fu">c</span>(<span class="st">"RSAfull"</span>, <span class="st">"RSA0"</span>, <span class="st">"RSA1"</span>, <span class="st">"RSA2"</span>, <span class="st">"RSA3"</span>, <span class="st">"RSA4"</span>, <span class="st">"RSA5"</span>),</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">estimate.tol =</span> <span class="fl">0.0000001</span>,</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">estimate.eml =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">estimate.urfinal =</span> <span class="fl">0.98</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 </section>
@@ -848,7 +850,7 @@ Y_t = \sum{\alpha}_i O_{it} + \sum\beta_j C_{jt} + \sum {\gamma}_i Reg_{it} + Y_
 <p>Log – takes logs of the data;</p>
 <p>Auto – the program tests for the log-level specification. This option is recommended for automatic modelling of many series.</p>
 <p>The default setting is Auto.</p>
-<p>Reg-Arima specific settings</p>
+<p>Reg-ARIMA specific settings</p>
 <p>AIC difference</p>
 <p>transform {aicdiff=}</p>
 <p>Defines the difference in AICC needed to accept no transformation over a log transformation when the automatic transformation</p>
@@ -872,32 +874,32 @@ Y_t = \sum{\alpha}_i O_{it} + \sum\beta_j C_{jt} + \sum {\gamma}_i Reg_{it} + Y_
 </figure>
 </div>
 <p><strong>Set and in R</strong></p>
-<p>X13</p>
+<p>X-13</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># excluding first 24 and last 36 observations</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>user_spec <span class="ot">&lt;-</span> <span class="fu">x13_spec</span>(</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">spec =</span> <span class="fu">c</span>(<span class="st">"RSA5c"</span>, <span class="st">"RSA0"</span>, <span class="st">"RSA1"</span>, <span class="st">"RSA2c"</span>, <span class="st">"RSA3"</span>, <span class="st">"RSA4c"</span>, <span class="st">"X11"</span>),</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">transform.function =</span> <span class="st">"Log"</span>, <span class="co"># choose from: c(NA, "Auto", "None", "Log"),</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">transform.adjust =</span> <span class="st">"LeapYear"</span>, <span class="co"># c(NA, "None", "LeapYear", "LengthOfPeriod"),</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">transform.aicdiff =</span> <span class="sc">-</span><span class="dv">3</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Retrieve settings: to complete*</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># excluding first 24 and last 36 observations</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>user_spec <span class="ot">&lt;-</span> <span class="fu">x13_spec</span>(</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">spec =</span> <span class="fu">c</span>(<span class="st">"RSA5c"</span>, <span class="st">"RSA0"</span>, <span class="st">"RSA1"</span>, <span class="st">"RSA2c"</span>, <span class="st">"RSA3"</span>, <span class="st">"RSA4c"</span>, <span class="st">"X11"</span>),</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">transform.function =</span> <span class="st">"Log"</span>, <span class="co"># choose from: c(NA, "Auto", "None", "Log"),</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">transform.adjust =</span> <span class="st">"LeapYear"</span>, <span class="co"># c(NA, "None", "LeapYear", "LengthOfPeriod"),</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">transform.aicdiff =</span> <span class="sc">-</span><span class="dv">3</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Retrieve settings: to complete*</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>TRAMO-SEATS settings</p>
+<p>Tramo-Seats settings</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># transfo</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>user_spec_1 <span class="ot">&lt;-</span> <span class="fu">tramoseats_spec</span>(</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">spec =</span> <span class="fu">c</span>(<span class="st">"RSAfull"</span>, <span class="st">"RSA0"</span>, <span class="st">"RSA1"</span>, <span class="st">"RSA2"</span>, <span class="st">"RSA3"</span>, <span class="st">"RSA4"</span>, <span class="st">"RSA5"</span>),</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">transform.function =</span> <span class="st">"Auto"</span>, <span class="co"># c(NA, "Auto", "None", "Log"),</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">transform.fct =</span> <span class="fl">0.5</span></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Retrieve settings: to complete</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># transfo</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>user_spec_1 <span class="ot">&lt;-</span> <span class="fu">tramoseats_spec</span>(</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">spec =</span> <span class="fu">c</span>(<span class="st">"RSAfull"</span>, <span class="st">"RSA0"</span>, <span class="st">"RSA1"</span>, <span class="st">"RSA2"</span>, <span class="st">"RSA3"</span>, <span class="st">"RSA4"</span>, <span class="st">"RSA5"</span>),</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">transform.function =</span> <span class="st">"Auto"</span>, <span class="co"># c(NA, "Auto", "None", "Log"),</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">transform.fct =</span> <span class="fl">0.5</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Retrieve settings: to complete</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 </section>
 <section id="calendar-correction" class="level3">
 <h3 class="anchored" data-anchor-id="calendar-correction">Calendar correction</h3>
-<p>Some calendar correction options included in the starting specifications for X13-ARIMA or TRAMO-SEATS, they can be fine-tuned by modifying specifications. The following section lists all the available options, illustrates how to set them in GUI or R and shows have to retrieve used parameters, regressors as well as results.</p>
+<p>Some calendar correction options included in the starting specifications for X-13-ARIMA or Tramo-Seats, they can be fine-tuned by modifying specifications. The following section lists all the available options, illustrates how to set them in GUI or R and shows have to retrieve used parameters, regressors as well as results.</p>
 <p>JDemetra+ offers two default options for calendar correction working days regressors and trading days regressors, with Leap-year effect if needed. Those options don’t take into account national calendars (link) and their specific holidays. There are two ways to change this:</p>
 <ul>
 <li><p>user-defined regressors (link)</p></li>
@@ -935,13 +937,13 @@ Y_t = \sum{\alpha}_i O_{it} + \sum\beta_j C_{jt} + \sum {\gamma}_i Reg_{it} + Y_
 </section>
 <section id="test" class="level4">
 <h4 class="anchored" data-anchor-id="test">Test</h4>
-<p><strong>Test</strong>: defines the pre-tests for the significance of the trading day regression variables based on the AICC statistics: “Add” = the trading day variables are not included in the initial regression model but can be added to the Reg-ARIMA model after the test; “Remove” = the trading day variables belong to the initial regression model but can be removed from the RegARIMA model after the test; “None” = the trading day variables are not pre-tested and are included in the model.</p>
+<p><strong>Test</strong>: defines the pre-tests for the significance of the trading day regression variables based on the AICC statistics: “Add” = the trading day variables are not included in the initial regression model but can be added to the Reg-ARIMA model after the test; “Remove” = the trading day variables belong to the initial regression model but can be removed from the Reg-ARIMA model after the test; “None” = the trading day variables are not pre-tested and are included in the model.</p>
 <section id="easter" class="level5">
 <h5 class="anchored" data-anchor-id="easter">Easter</h5>
 <p>Easter.enabled a logical. If TRUE, the program considers the Easter effect in the model.</p>
 <p>easter.Julian a logical. If TRUE, the program uses the Julian Easter (expressed in Gregorian calendar).</p>
 <p>easter.duration a numeric indicating the duration of the Easter effect (length in days, between 1 and 20).</p>
-<p>easter.test defines the pre-tests for the significance of the Easter effect based on the t-statistic (the Easter effect is considered as significant if the t-statistic is greater than 1.96): “Add” = the Easter effect variable is not included in the initial regression model but can be added to the Reg-ARIMA model after the test; “Remove” = the Easter effect variable belongs to the initial regression model but can be removed from the RegARIMA model after the test; “None” = the Easter effect variable is not pre-tested and is included in the model.</p>
+<p>easter.test defines the pre-tests for the significance of the Easter effect based on the t-statistic (the Easter effect is considered as significant if the t-statistic is greater than 1.96): “Add” = the Easter effect variable is not included in the initial regression model but can be added to the Reg-ARIMA model after the test; “Remove” = the Easter effect variable belongs to the initial regression model but can be removed from the Reg-ARIMA model after the test; “None” = the Easter effect variable is not pre-tested and is included in the model.</p>
 <p>A user-defined regressor can also be used, see chapter on <a href="./A-calendar-correction.html">calendar correction</a></p>
 <p>(to be added: additional options in Tramo)</p>
 </section>
@@ -992,17 +994,17 @@ Y_t = \sum{\alpha}_i O_{it} + \sum\beta_j C_{jt} + \sum {\gamma}_i Reg_{it} + Y_
 <h4 class="anchored" data-anchor-id="setting-calendar-correction-in-r">Setting Calendar correction in R</h4>
 <p>In version 2</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Parameter choice NA=...</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>tradingdays.option <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="cn">NA_character_</span>, <span class="st">"TradingDays"</span>, <span class="st">"WorkingDays"</span>, <span class="st">"UserDefined"</span>, <span class="st">"None"</span>)</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>tradingdays.autoadjust <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>tradingdays.leapyear <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="cn">NA_character_</span>, <span class="st">"LeapYear"</span>, <span class="st">"LengthOfPeriod"</span>, <span class="st">"None"</span>)</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>tradingdays.stocktd <span class="ot">&lt;-</span> <span class="cn">NA_integer_</span></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>tradingdays.test <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="cn">NA_character_</span>, <span class="st">"Remove"</span>, <span class="st">"Add"</span>, <span class="st">"None"</span>)</span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>easter.enabled <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>easter.julian <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>easter.duration <span class="ot">&lt;-</span> <span class="cn">NA_integer_</span></span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>easter.test <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="cn">NA_character_</span>, <span class="st">"Add"</span>, <span class="st">"Remove"</span>, <span class="st">"None"</span>)</span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="co"># example</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Parameter choice NA=...</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>tradingdays.option <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="cn">NA_character_</span>, <span class="st">"TradingDays"</span>, <span class="st">"WorkingDays"</span>, <span class="st">"UserDefined"</span>, <span class="st">"None"</span>)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>tradingdays.autoadjust <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>tradingdays.leapyear <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="cn">NA_character_</span>, <span class="st">"LeapYear"</span>, <span class="st">"LengthOfPeriod"</span>, <span class="st">"None"</span>)</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>tradingdays.stocktd <span class="ot">&lt;-</span> <span class="cn">NA_integer_</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>tradingdays.test <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="cn">NA_character_</span>, <span class="st">"Remove"</span>, <span class="st">"Add"</span>, <span class="st">"None"</span>)</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>easter.enabled <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>easter.julian <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>easter.duration <span class="ot">&lt;-</span> <span class="cn">NA_integer_</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>easter.test <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="cn">NA_character_</span>, <span class="st">"Add"</span>, <span class="st">"Remove"</span>, <span class="st">"None"</span>)</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a><span class="co"># example</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>In version 3 (Under construction)</p>
 </section>
@@ -1031,15 +1033,15 @@ Y_t = \sum{\alpha}_i O_{it} + \sum\beta_j C_{jt} + \sum {\gamma}_i Reg_{it} + Y_
 <h5 class="anchored" data-anchor-id="adding-regressors-in-r">Adding Regressors in R</h5>
 <p>“UserDefined” = user-defined trading days regressors (regressors must be defined by the usrdef.var argument with usrdef.varType set to “Calendar” and usrdef.varEnabled = TRUE).</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># example</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>spec_4 <span class="ot">&lt;-</span> <span class="fu">x13_spec</span>(</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">spec =</span> spec_1,</span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">tradingdays.option =</span> <span class="st">"UserDefined"</span>,</span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">tradingdays.test =</span> <span class="st">"None"</span>,</span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">usrdef.varEnabled =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">usrdef.varType =</span> <span class="st">"Calendar"</span>,</span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">usrdef.var =</span> reg3</span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>) <span class="co"># set of regressors in TS format</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># example</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>spec_4 <span class="ot">&lt;-</span> <span class="fu">x13_spec</span>(</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">spec =</span> spec_1,</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">tradingdays.option =</span> <span class="st">"UserDefined"</span>,</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">tradingdays.test =</span> <span class="st">"None"</span>,</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">usrdef.varEnabled =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">usrdef.varType =</span> <span class="st">"Calendar"</span>,</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">usrdef.var =</span> reg3</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>) <span class="co"># set of regressors in TS format</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 </section>
@@ -1070,7 +1072,7 @@ Y_t = \sum{\alpha}_i O_{it} + \sum\beta_j C_{jt} + \sum {\gamma}_i Reg_{it} + Y_
 <h5 class="anchored" data-anchor-id="regression-results">Regression results</h5>
 <p>Regressions results</p>
 <p><strong>In GUI</strong></p>
-<p>The results of the whole Reg-Arima regression (link to last section) including calendar effects (below) are displayed in the pre-processing panel.</p>
+<p>The results of the whole Reg-ARIMA regression (link to last section) including calendar effects (below) are displayed in the pre-processing panel.</p>
 <p><img src="All_images/SA_REGA_calendar_retrieving_regressions_results.png" class="img-fluid"></p>
 <p><strong>In R</strong></p>
 </section>
@@ -1101,7 +1103,7 @@ Y_t = \sum{\alpha}_i O_{it} + \sum\beta_j C_{jt} + \sum {\gamma}_i Reg_{it} + Y_
 <p>set this option in GUI how to import variables into JD+ / set utility (in interface chapter) classical user defined</p>
 <p>set this option in R version 2:</p>
 <p>version 3</p>
-<p>Once the calendar regressors are set, the Reg-ARIMA (tramo) model will be estimated globally with all the other regression variables and taking into account Arima model specificities as well. That is why diagnostics are all jointly displayed at the end of the process. (link)</p>
+<p>Once the calendar regressors are set, the Reg-ARIMA (Tramo) model will be estimated globally with all the other regression variables and taking into account ARIMA model specificities as well. That is why diagnostics are all jointly displayed at the end of the process. (link)</p>
 <p>(to be added: worked example: french calendar in R)</p>
 </section>
 </section>
@@ -1110,7 +1112,7 @@ Y_t = \sum{\alpha}_i O_{it} + \sum\beta_j C_{jt} + \sum {\gamma}_i Reg_{it} + Y_
 <p>The sections below focus on</p>
 <ul>
 <li><p>outlier detection parameters (type and critical value)</p></li>
-<li><p>pre-specifying outliers in a seasonal adjustement (reg-arima modelling) process</p></li>
+<li><p>pre-specifying outliers in a seasonal adjustement (Reg-ARIMA modelling) process</p></li>
 </ul>
 <p>Additional information can be found in <a href="./A-outlier-detection.html">this chapter</a>.</p>
 <section id="options-for-automatic-detection" class="level4">
@@ -1396,12 +1398,12 @@ Y_t = \sum \hat{\alpha}_i O_{it} + \sum\hat\beta_j C_{jt} + \sum\hat\gamma_k Reg
 </section>
 </section>
 <section id="arima-model" class="level3">
-<h3 class="anchored" data-anchor-id="arima-model">Arima Model</h3>
-<p>Key specifications on Arima modelling are embedded in default specifications: airline (default model) or full automatic research.(links)</p>
+<h3 class="anchored" data-anchor-id="arima-model">ARIMA Model</h3>
+<p>Key specifications on ARIMA modelling are embedded in default specifications: airline (default model) or full automatic research.(links)</p>
 <p>Two kinds of interventions are available to the user</p>
 <ul>
 <li><p>modify automatic detection parameters</p></li>
-<li><p>set a user defined Arima model</p></li>
+<li><p>set a user defined ARIMA model</p></li>
 </ul>
 <p>In both cases forecast horizon can also be set (link)</p>
 <section id="options-for-modifying-automatic-detection" class="level4">
@@ -1418,7 +1420,7 @@ Y_t = \sum \hat{\alpha}_i O_{it} + \sum\hat\beta_j C_{jt} + \sum\hat\gamma_k Reg
 <p><em>automdl.reducecv</em> numeric, ReduceCV. The percentage by which the outlier’s critical value will be reduced when an identified model is found to have a Ljung-Box statistic with an unacceptable confidence coefficient. The parameter should be between 0 and 1, and will only be active when automatic outlier identification is enabled. The reduced critical value will be set to (1-ReduceCV)*CV, where CV is the original critical value.</p>
 <p><em>automdl.ljungboxlimit</em> the Ljung Box limit (numeric). Acceptance criterion for the confidence intervals of the Ljung-Box Q statistic. If the LjungBox Q statistics for the residuals of a final model is greater than the Ljung Box limit, then the model is rejected, the outlier critical value is reduced and model and outlier identification (if specified) is redone with a reduced value.</p>
 <p><em>automdl.ubfinal</em> numeric, final unit root limit. The threshold value for the final unit root test. If the magnitude of an AR root for the final model is smaller than the final unit root limit, then a unit root is assumed, the order of the AR polynomial is reduced by one and the appropriate order of the differencing (non-seasonal, seasonal) is increased. The parameter value should be greater than one.</p>
-<p>(for both options) <em>fcst.horizon</em> the forecasting horizon (numeric). The forecast length generated by the Reg-Arima model in periods (positive values) or years (negative values). By default, the program generates a two-year forecast (fcst.horizon set to -2). Defaults different in GUI and R.</p>
+<p>(for both options) <em>fcst.horizon</em> the forecasting horizon (numeric). The forecast length generated by the Reg-ARIMA model in periods (positive values) or years (negative values). By default, the program generates a two-year forecast (fcst.horizon set to -2). Defaults different in GUI and R.</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset content-visible" data-when-format="html">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" aria-current="page">v2</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">v3</a></li></ul>
 <div class="tab-content content-visible" data-when-format="html">
@@ -1440,42 +1442,42 @@ Y_t = \sum \hat{\alpha}_i O_{it} + \sum\hat\beta_j C_{jt} + \sum\hat\gamma_k Reg
 </div>
 </div>
 </div>
-<p>Forecast horizon when using TRAMO-SEATS Is set in the decomposition part of the specification in GUI.</p>
+<p>Forecast horizon when using Tramo-Seats Is set in the decomposition part of the specification in GUI.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/SA_REGA_arima_forecast_horizon_tramo.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption"><strong>Forecast horizon when using TRAMO-SEATS</strong></figcaption>
+<figcaption class="figure-caption"><strong>Forecast horizon when using Tramo-Seats</strong></figcaption>
 </figure>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/SA_REGA_arima_forecast_horizon_X11.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption"><strong>Forecast horizon when using X13-ARIMA</strong></figcaption>
+<figcaption class="figure-caption"><strong>Forecast horizon when using X-13-ARIMA</strong></figcaption>
 </figure>
 </div>
-<p><strong>Setting in R</strong> (first template, then worked example) X13-ARIMA template in version 2</p>
+<p><strong>Setting in R</strong> (first template, then worked example) X-13-ARIMA template in version 2</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>spec_2 <span class="ot">&lt;-</span> <span class="fu">x13_spec</span>(</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">spec =</span> spec_1,</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">automdl.enabled =</span> <span class="cn">NA</span>,</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">automdl.acceptdefault =</span> <span class="cn">NA</span>,</span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">automdl.cancel =</span> <span class="cn">NA_integer_</span>,</span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">automdl.ub1 =</span> <span class="cn">NA_integer_</span>,</span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">automdl.ub2 =</span> <span class="cn">NA_integer_</span>,</span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">automdl.mixed =</span> <span class="cn">NA</span>,</span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">automdl.balanced =</span> <span class="cn">NA</span>,</span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">automdl.armalimit =</span> <span class="cn">NA_integer_</span>,</span>
-<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">automdl.reducecv =</span> <span class="cn">NA_integer_</span>,</span>
-<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">automdl.ljungboxlimit =</span> <span class="cn">NA_integer_</span>,</span>
-<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">automdl.ubfinal =</span> <span class="cn">NA_integer_</span></span>
-<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>spec_2 <span class="ot">&lt;-</span> <span class="fu">x13_spec</span>(</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">spec =</span> spec_1,</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">automdl.enabled =</span> <span class="cn">NA</span>,</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">automdl.acceptdefault =</span> <span class="cn">NA</span>,</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">automdl.cancel =</span> <span class="cn">NA_integer_</span>,</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">automdl.ub1 =</span> <span class="cn">NA_integer_</span>,</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">automdl.ub2 =</span> <span class="cn">NA_integer_</span>,</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">automdl.mixed =</span> <span class="cn">NA</span>,</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">automdl.balanced =</span> <span class="cn">NA</span>,</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">automdl.armalimit =</span> <span class="cn">NA_integer_</span>,</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">automdl.reducecv =</span> <span class="cn">NA_integer_</span>,</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">automdl.ljungboxlimit =</span> <span class="cn">NA_integer_</span>,</span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">automdl.ubfinal =</span> <span class="cn">NA_integer_</span></span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>add worked example in version 2</p>
 <p>in version 3</p>
 <p>add worked example in version 3</p>
 </section>
 <section id="options-for-setting-a-user-defined-arima-model" class="level4">
-<h4 class="anchored" data-anchor-id="options-for-setting-a-user-defined-arima-model">Options for setting a user-defined Arima model</h4>
+<h4 class="anchored" data-anchor-id="options-for-setting-a-user-defined-arima-model">Options for setting a user-defined ARIMA model</h4>
 <p>Control variables for the non-automatic modelling of the ARIMA model (when <em>automdl.enabled</em> is set to FALSE):</p>
 <p><em>arima.mu</em> logical. If TRUE, the mean is considered as part of the ARIMA model.</p>
 <p><em>arima.p</em> numeric. The order of the non-seasonal autoregressive (AR) polynomial.</p>
@@ -1491,89 +1493,89 @@ Y_t = \sum \hat{\alpha}_i O_{it} + \sum\hat\beta_j C_{jt} + \sum\hat\gamma_k Reg
 <p><strong>Setting in GUI</strong></p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="All_images/SA_REGA_Arima_user_params_1.png" class="img-fluid figure-img"></p>
+<p><img src="All_images/SA_REGA_ARIMA_user_params_1.png" class="img-fluid figure-img"></p>
 <figcaption class="figure-caption"><strong>Manual ARIMA modelling</strong></figcaption>
 </figure>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="All_images/SA_REGA_Arima_user_params_2.png" class="img-fluid figure-img"></p>
+<p><img src="All_images/SA_REGA_ARIMA_user_params_2.png" class="img-fluid figure-img"></p>
 <figcaption class="figure-caption"><strong>Fixing coefficients</strong></figcaption>
 </figure>
 </div>
 <p><strong>Setting in R</strong></p>
-<p>X13-ARIMA template in version 2</p>
+<p>X-13-ARIMA template in version 2</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>spec_2 <span class="ot">&lt;-</span> <span class="fu">x13_spec</span>(</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">spec =</span> spec_1,</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">automdl.enabled =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">arima.mu =</span> <span class="cn">NA</span>,</span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">arima.p =</span> <span class="cn">NA_integer_</span>,</span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">arima.d =</span> <span class="cn">NA_integer_</span>,</span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">arima.q =</span> <span class="cn">NA_integer_</span>,</span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">arima.bp =</span> <span class="cn">NA_integer_</span>,</span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">arima.bd =</span> <span class="cn">NA_integer_</span>,</span>
-<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">arima.bq =</span> <span class="cn">NA_integer_</span>,</span>
-<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">arima.coefEnabled =</span> <span class="cn">NA</span>,</span>
-<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">arima.coef =</span> <span class="cn">NA</span>,</span>
-<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">arima.coefType =</span> <span class="cn">NA</span>,</span>
-<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">fcst.horizon =</span> <span class="cn">NA_integer_</span></span>
-<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>spec_2 <span class="ot">&lt;-</span> <span class="fu">x13_spec</span>(</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">spec =</span> spec_1,</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">automdl.enabled =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">arima.mu =</span> <span class="cn">NA</span>,</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">arima.p =</span> <span class="cn">NA_integer_</span>,</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">arima.d =</span> <span class="cn">NA_integer_</span>,</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">arima.q =</span> <span class="cn">NA_integer_</span>,</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">arima.bp =</span> <span class="cn">NA_integer_</span>,</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">arima.bd =</span> <span class="cn">NA_integer_</span>,</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">arima.bq =</span> <span class="cn">NA_integer_</span>,</span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">arima.coefEnabled =</span> <span class="cn">NA</span>,</span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">arima.coef =</span> <span class="cn">NA</span>,</span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">arima.coefType =</span> <span class="cn">NA</span>,</span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">fcst.horizon =</span> <span class="cn">NA_integer_</span></span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>in version 3</p>
 </section>
 </section>
 <section id="reg-arima-model-results-and-diagnostics" class="level3">
-<h3 class="anchored" data-anchor-id="reg-arima-model-results-and-diagnostics">Reg-Arima model Results and Diagnostics</h3>
+<h3 class="anchored" data-anchor-id="reg-arima-model-results-and-diagnostics">Reg-ARIMA model Results and Diagnostics</h3>
 <p>Type of results (including Tramo addenda)</p>
 <ul>
 <li><p>all regressors used (shown above)</p></li>
 <li><p>regression details: explanatory variables (above)</p></li>
-<li><p>Arima model specific results</p></li>
+<li><p>ARIMA model specific results</p></li>
 <li><p>additional diagnostics on residuals</p></li>
 <li><p>likelihood</p></li>
 <li><p>seasonality tests on residuals</p></li>
 </ul>
 <section id="display-in-gui" class="level4">
 <h4 class="anchored" data-anchor-id="display-in-gui">Display in GUI</h4>
-<p>Reg-Arima model detail with other regression results in pre-processing pane. with number of observations.. parameters</p>
+<p>Reg-ARIMA model detail with other regression results in pre-processing pane. with number of observations.. parameters</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="All_images/SA_REGA_Arima_model_results_1.png" class="img-fluid figure-img"></p>
+<p><img src="All_images/SA_REGA_ARIMA_model_results_1.png" class="img-fluid figure-img"></p>
 <figcaption class="figure-caption"><strong>Final model</strong></figcaption>
 </figure>
 </div>
-<p>More details in Pre-processing/Arima Node</p>
+<p>More details in Pre-processing/ARIMA Node</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="All_images/SA_REGA_Arima_model_results_2.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption"><strong>Arima details</strong></figcaption>
+<p><img src="All_images/SA_REGA_ARIMA_model_results_2.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption"><strong>ARIMA details</strong></figcaption>
 </figure>
 </div>
 <p>In residual Node</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="All_images/SA_REGA_Arima_Model_Residuals_Node.png" class="img-fluid figure-img"></p>
+<p><img src="All_images/SA_REGA_ARIMA_Model_Residuals_Node.png" class="img-fluid figure-img"></p>
 <figcaption class="figure-caption"><strong>Residuals</strong></figcaption>
 </figure>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="All_images/SA_REGA_Arima_Model_Residuals_Node_7.png" class="img-fluid figure-img"></p>
+<p><img src="All_images/SA_REGA_ARIMA_Model_Residuals_Node_7.png" class="img-fluid figure-img"></p>
 <figcaption class="figure-caption"><strong>Distribution</strong></figcaption>
 </figure>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="All_images/SA_REGA_Arima_Model_Likelihood_Node.png" class="img-fluid figure-img"></p>
+<p><img src="All_images/SA_REGA_ARIMA_Model_Likelihood_Node.png" class="img-fluid figure-img"></p>
 <figcaption class="figure-caption"><strong>Likelihood</strong></figcaption>
 </figure>
 </div>
-<p><img src="All_images/SA_REGA_Arima_Model_Likelihood_Node.png" class="img-fluid"></p>
+<p><img src="All_images/SA_REGA_ARIMA_Model_Likelihood_Node.png" class="img-fluid"></p>
 <p>Seasonality tests on residuals in the <strong>Diagnostics NODE</strong></p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="All_images/SA_REGA_Arima_Model_residuals_seaso_tests.png" class="img-fluid figure-img"></p>
+<p><img src="All_images/SA_REGA_ARIMA_Model_residuals_seaso_tests.png" class="img-fluid figure-img"></p>
 <figcaption class="figure-caption"><strong>Residuals</strong></figcaption>
 </figure>
 </div>

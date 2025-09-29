@@ -213,7 +213,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./A-sa-seats-decomposition.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">SA: SEATS Decomposition</span></a>
+ <span class="menu-text">SA: Seats Decomposition</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -355,7 +355,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./M-reg-arima-modelling.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Reg-Arima models</span></a>
+ <span class="menu-text">Reg-ARIMA models</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -367,7 +367,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./M-SEATS-decomposition.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">SEATS decomposition</span></a>
+ <span class="menu-text">Seats decomposition</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -515,12 +515,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </thead>
 <tbody>
 <tr class="odd">
-<td>X13-ARIMA</td>
+<td>X-13-ARIMA</td>
 <td>RJDemetra</td>
-<td>Reg-Arima and X-11 decomposition available independently</td>
+<td>Reg-ARIMA and X-11 decomposition available independently</td>
 </tr>
 <tr class="even">
-<td>TRAMO-SEATS</td>
+<td>Tramo-Seats</td>
 <td>RJDemetra</td>
 <td>Tramo available independently</td>
 </tr>
@@ -544,9 +544,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </thead>
 <tbody>
 <tr class="odd">
-<td>X13-ARIMA</td>
+<td>X-13-ARIMA</td>
 <td>rjd3x13</td>
-<td>Reg-Arima and X-11 decomposition available independently</td>
+<td>Reg-ARIMA and X-11 decomposition available independently</td>
 </tr>
 <tr class="even">
 <td>Extended X-11</td>
@@ -554,7 +554,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td>Extended for high-frequency (infra-monthly) data and Trend estimation with local polynomial filters</td>
 </tr>
 <tr class="odd">
-<td>TRAMO-SEATS</td>
+<td>Tramo-Seats</td>
 <td>rjd3tramoseats</td>
 <td>Tramo available independently</td>
 </tr>
@@ -665,7 +665,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="wrangling-jd-workspaces" class="level3">
 <h3 class="anchored" data-anchor-id="wrangling-jd-workspaces">Wrangling JD+ workspaces</h3>
-<p>A workspace is a specific JDemetra+ data format (xml files) allowing to use the graphical user interface (GUI) and the cruncher.</p>
+<p>A workspace is a specific JDemetra+ data format (<code>.xml</code> files) allowing to use the graphical user interface (GUI) and the cruncher.</p>
 <table class="table">
 <colgroup>
 <col style="width: 23%">
@@ -775,7 +775,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><p>customize specifications in rjd3x13 and rjd3tramoseats</p></li>
 <li><p>generate user-defined regressors for calendar correction</p></li>
 <li><p>generate auxiliary variables (outliers, ramps..)</p></li>
-<li><p>run arima model estimations</p></li>
+<li><p>run ARIMA model estimations</p></li>
 <li><p>perform tests (seasonality, normality, white noise)</p></li>
 <li><p>access general functions such as autocorrelations, distributions</p></li>
 </ul>
@@ -783,7 +783,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="rjd3x13" class="level3">
 <h3 class="anchored" data-anchor-id="rjd3x13">rjd3x13</h3>
-<p><code>rjd3x13</code> gives access to X13-ARIMA seasonal adjustment algorithm.</p>
+<p><code>rjd3x13</code> gives access to X-13-ARIMA seasonal adjustment algorithm.</p>
 <ul>
 <li><p>Specification: created with <code>spec_x11_default()</code>, <code>spec_x13_default()</code>, <code>spec_regarima_default()</code> and customized with <code>rjd3toolkit</code> functions + <code>set_x11()</code></p></li>
 <li><p>Apply model with <code>x11()</code>, <code>x13()</code>, <code>fast.x13()</code>, <code>regarima()</code>, <code>fast.regarima()</code></p></li>
@@ -793,7 +793,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="rjd3tramoseats" class="level3">
 <h3 class="anchored" data-anchor-id="rjd3tramoseats">rjd3tramoseats</h3>
-<p><code>rjd3tramoseats</code> gives access to TRAMO-SEATS seasonal adjustment algorithm.</p>
+<p><code>rjd3tramoseats</code> gives access to Tramo-Seats seasonal adjustment algorithm.</p>
 <ul>
 <li><p>Specification: created with <code>spec_tramoseats_default()</code>, <code>spec_tramo_default()</code> and customized with <code>rjd3toolkit</code> functions + <code>set_seats()</code></p></li>
 <li><p>Apply model with <code>tramoseats()</code>, <code>fast.tramoseats()</code>, <code>tramo()</code>, <code>fast.tramo()</code></p></li>
@@ -812,7 +812,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Depends on <code>rjd3sts</code></p>
 <p>Seasonal adjustment of high frequency (infra-monthly) data:</p>
 <ul>
-<li><p>fractional airline based reg-Arima pre-adjustment</p></li>
+<li><p>fractional airline based reg-ARIMA pre-adjustment</p></li>
 <li><p>fractional and multi airline decomposition</p></li>
 </ul>
 <p>Documentation <a href="https://rjdverse.github.io/rjd3highfreq">here</a></p>

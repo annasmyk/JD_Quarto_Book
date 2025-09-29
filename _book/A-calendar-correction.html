@@ -215,7 +215,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./A-sa-seats-decomposition.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">SA: SEATS Decomposition</span></a>
+ <span class="menu-text">SA: Seats Decomposition</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -357,7 +357,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./M-reg-arima-modelling.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Reg-Arima models</span></a>
+ <span class="menu-text">Reg-ARIMA models</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -369,7 +369,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./M-SEATS-decomposition.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">SEATS decomposition</span></a>
+ <span class="menu-text">Seats decomposition</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -464,7 +464,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="in-this-chapter" class="level2">
 <h2 class="anchored" data-anchor-id="in-this-chapter">In this Chapter</h2>
 <p>This chapter is divided in two parts. The first one (theory) outlines the rationale for calendar correction and the underlying modelling. The second part (practice) describes how relevant regressors for calendar correction are built in JDemetra+.</p>
-<p>As calendar effects are deterministic, they can be corrected with a regression model. In the algorithms X13-ARIMA and TRAMO-SEATS it boils down to adding suitable regressors to the <a href="A-sa-pre-treatment.html">pre-treatment phase</a>). This chapter will describe how to generate a set of regressors corresponding to the desired correction, which will happen according to the following steps:</p>
+<p>As calendar effects are deterministic, they can be corrected with a regression model. In the algorithms X-13-ARIMA and Tramo-Seats it boils down to adding suitable regressors to the <a href="A-sa-pre-treatment.html">pre-treatment phase</a>). This chapter will describe how to generate a set of regressors corresponding to the desired correction, which will happen according to the following steps:</p>
 <ul>
 <li><p>step 1: generate a calendar (usually national calendar of interest). If this step is skipped a default calendar, not taking into account country-specific holidays will be used.</p></li>
 <li><p>step 2: generate regressors based on the above defined calendar</p></li>
@@ -478,7 +478,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ul>
 <li>step 3: these regressors have to be plugged-in in pre-adjustment phase of a seasonal adjustment estimation. How to do this is detailed in chapters on <a href="A-sa-pre-treatment.html">pre-treatment</a> and <a href="A-sa-hf.html">SA of High-Frenquency data</a>.</li>
 </ul>
-<p>How to generate other types of regressors is described <a href="A-outlier-detection.html">here</a> and how to plug them into reg-arima models is detailed <a href="A-sa-pre-treatment.html">here</a></p>
+<p>How to generate other types of regressors is described <a href="A-outlier-detection.html">here</a> and how to plug them into Reg-ARIMA models is detailed <a href="A-sa-pre-treatment.html">here</a></p>
 <!-- ## Tools Map -->
 <!-- up coming content -->
 </section>
@@ -904,7 +904,7 @@ C_{ti}=D_{ti}-\bar{D_{i, J}^y}-\frac{w_i}{w_K}(D_{tK}- \bar{D_{K, J}^y})
 </section>
 <section id="example-of-a-calendar-file" class="level5">
 <h5 class="anchored" data-anchor-id="example-of-a-calendar-file">Example of a calendar file</h5>
-<p><img src="All_images/UG_CAL_image9.jpg" class="img-fluid" alt="Example of an XML file containing a calendar"> #### Generating regressors</p>
+<p><img src="All_images/UG_CAL_image9.jpg" class="img-fluid" alt="Example of an .xml file containing a calendar"> #### Generating regressors</p>
 </section>
 <section id="type-of-days" class="level5">
 <h5 class="anchored" data-anchor-id="type-of-days">Type of days</h5>
@@ -1174,7 +1174,7 @@ y_t=\mu + \alpha y_{t-1} + \beta TD_t + \epsilon_t
 <p>The tests are the usual joint F-tests on <span class="math inline">\(\beta \quad (H_0:\beta=0)\)</span>.</p>
 <p>By default, we compute the tests on the 8 last years of the components, so that they might highlight moving calendar effects.</p>
 <p>Remark:</p>
-<p>In Tramo, a similar test is computed on the residuals of the Arima model. More exactly, the F-test is computed on <span class="math inline">\(e_t=\beta TD_t + \epsilon_t\)</span>, where <span class="math inline">\(e_t\)</span> are the one-step-ahead forecast errors.</p>
+<p>In Tramo, a similar test is computed on the residuals of the ARIMA model. More exactly, the F-test is computed on <span class="math inline">\(e_t=\beta TD_t + \epsilon_t\)</span>, where <span class="math inline">\(e_t\)</span> are the one-step-ahead forecast errors.</p>
 
 
 </section>

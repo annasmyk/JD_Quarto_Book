@@ -181,7 +181,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./A-sa-seats-decomposition.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">SA: SEATS Decomposition</span></a>
+ <span class="menu-text">SA: Seats Decomposition</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -323,7 +323,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./M-reg-arima-modelling.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Reg-Arima models</span></a>
+ <span class="menu-text">Reg-ARIMA models</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -335,7 +335,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./M-SEATS-decomposition.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">SEATS decomposition</span></a>
+ <span class="menu-text">Seats decomposition</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -428,7 +428,7 @@ ul.task-list li input[type="checkbox"] {
 <section id="in-this-chapter" class="level2">
 <h2 class="anchored" data-anchor-id="in-this-chapter">In this chapter</h2>
 <p>This chapter describes all the tests available in JDemetra+, via <a href="T-GUI-Data-Viz-TS-Tools.html#t-GUI-tstools-tests">Graphical User Interface</a> and <a href="#t-r-packs-tests">R packages</a>. Here the underlying theoretical principles of each test are provided.</p>
-<p>to be added: which test are done when SEATS decomposition vs X-13-Arima.</p>
+<p>to be added: which test are done when Seats decomposition vs X-13-ARIMA.</p>
 </section>
 <section id="tests-on-residuals" class="level2">
 <h2 class="anchored" data-anchor-id="tests-on-residuals">Tests on residuals</h2>
@@ -615,8 +615,8 @@ QS=n(n+2)\sum_{i=1}^k\frac{[\max(0, \hat\gamma_{i \cdot l})]^2}{n-i \cdot l}
 <section id="f-test-on-seasonal-dummies" class="level3">
 <h3 class="anchored" data-anchor-id="f-test-on-seasonal-dummies">F-test on seasonal dummies</h3>
 <p>The F-test on seasonal dummies checks for the presence of deterministic seasonality. The model used here uses seasonal dummies (mean effect and 11 seasonal dummies for monthly data, mean effect and 3 for quarterly data) to describe the (possibly transformed) time series behaviour. The test statistic checks if the seasonal dummies are jointly statistically not significant. When this hypothesis is rejected, it is assumed that the deterministic seasonality is present and the test results are displayed in green.</p>
-<p>This test refers to Model-Based $^{2}$ and F-tests for Fixed Seasonal Effects proposed by LYTRAS, D.P., FELDPAUSCH, R.M., and BELL, W.R. (2007) that is based on the estimates of the regression dummy variables and the corresponding t-statistics of the Reg-Arima model, in which the ARIMA part of the model has a form (0,1,1)(0,0,0). The consequences of a misspecification of a model are discussed in LYTRAS, D.P., FELDPAUSCH, R.M., and BELL, W.R. (2007).</p>
-<p>For a monthly time series the Reg-Arima model structure is as follows:</p>
+<p>This test refers to Model-Based $^{2}$ and F-tests for Fixed Seasonal Effects proposed by LYTRAS, D.P., FELDPAUSCH, R.M., and BELL, W.R. (2007) that is based on the estimates of the regression dummy variables and the corresponding t-statistics of the Reg-ARIMA model, in which the ARIMA part of the model has a form (0,1,1)(0,0,0). The consequences of a misspecification of a model are discussed in LYTRAS, D.P., FELDPAUSCH, R.M., and BELL, W.R. (2007).</p>
+<p>For a monthly time series the Reg-ARIMA model structure is as follows:</p>
 <p><span id="eq-1"><span class="math display">\[
 (1-B)(y_{t}-\beta_{1}M_{1,t}-\ldots-\beta_{11}M_{11,t}-\gamma X_{t})=\mu+(1-B)a_{t}
 \tag{1}\]</span></span></p>
@@ -646,7 +646,7 @@ M_{j,t} =
 <p><span class="math display">\[
 F=\frac{{\widehat{\chi}}^{2}}{s-1} \times \frac{n-d-k}{n-d}
 \]</span></p>
-<p>where <span class="math inline">\(n\)</span> is the sample size, <span class="math inline">\(d\)</span> is the degree of differencing, s is time series frequency (12 for a monthly series, 4 for a quarterly series) and <span class="math inline">\(k\)</span> is the total number of regressors in the Reg-Arima model (including the seasonal dummies <span class="math inline">\(\text{M}_{j,t}\)</span> and the intercept).</p>
+<p>where <span class="math inline">\(n\)</span> is the sample size, <span class="math inline">\(d\)</span> is the degree of differencing, s is time series frequency (12 for a monthly series, 4 for a quarterly series) and <span class="math inline">\(k\)</span> is the total number of regressors in the Reg-ARIMA model (including the seasonal dummies <span class="math inline">\(\text{M}_{j,t}\)</span> and the intercept).</p>
 <p>This statistic follows a <span class="math inline">\(F_{s-1,n-d-k}\)</span> distribution under the null hypothesis.</p>
 </section>
 <section id="friedman-test-for-stable-seasonality" class="level3">
@@ -949,7 +949,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./M-SEATS-decomposition.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">SEATS decomposition</span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Seats decomposition</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">

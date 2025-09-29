@@ -213,7 +213,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./A-sa-seats-decomposition.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">SA: SEATS Decomposition</span></a>
+ <span class="menu-text">SA: Seats Decomposition</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -355,7 +355,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./M-reg-arima-modelling.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Reg-Arima models</span></a>
+ <span class="menu-text">Reg-ARIMA models</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -367,7 +367,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./M-SEATS-decomposition.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">SEATS decomposition</span></a>
+ <span class="menu-text">Seats decomposition</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -420,7 +420,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul>
   <li><a href="#in-this-chapter" id="toc-in-this-chapter" class="nav-link active" data-scroll-target="#in-this-chapter">In this chapter</a></li>
   <li><a href="#modelling-algorithms" id="toc-modelling-algorithms" class="nav-link" data-scroll-target="#modelling-algorithms">Modelling Algorithms</a></li>
-  <li><a href="#practical-reg-arima-modelling" id="toc-practical-reg-arima-modelling" class="nav-link" data-scroll-target="#practical-reg-arima-modelling">Practical Reg-Arima modelling</a>
+  <li><a href="#practical-reg-arima-modelling" id="toc-practical-reg-arima-modelling" class="nav-link" data-scroll-target="#practical-reg-arima-modelling">Practical Reg-ARIMA modelling</a>
   <ul class="collapse">
   <li><a href="#in-r" id="toc-in-r" class="nav-link" data-scroll-target="#in-r">In R</a></li>
   <li><a href="#gui" id="toc-gui" class="nav-link" data-scroll-target="#gui">GUI</a></li>
@@ -475,7 +475,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </thead>
 <tbody>
 <tr class="odd">
-<td>Reg-Arima</td>
+<td>Reg-ARIMA</td>
 <td>✔️</td>
 <td>RJDemetra</td>
 <td>rjd3x13</td>
@@ -500,31 +500,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 </tbody>
 </table>
-<p>Steps to use Reg-Arima and Tramo in a pre-treatment context are described <a href="A-sa-pre-treatment.html">here</a>.</p>
+<p>Steps to use Reg-ARIMA and Tramo in a pre-treatment context are described <a href="A-sa-pre-treatment.html">here</a>.</p>
 <p>The possibility of saving parameters and generating output in the GUI is different when using modelling methods directly or seasonal adjustment process as explained <a href="T-GUI-SA-Modelling-Features.html">here</a>.</p>
-<p><a href="A-sa-hf.html">Extended Airline Model</a> allows to handle infra-monthly series in a restricted reg-Arima framework, more details <a href="A-sa-hf.html">here</a>.</p>
+<p><a href="A-sa-hf.html">Extended Airline Model</a> allows to handle infra-monthly series in a restricted reg-ARIMA framework, more details <a href="A-sa-hf.html">here</a>.</p>
 <p><a href="A-sa-bsm.html">Structural time series (STS)</a> allow another kind of modelling using state space framework, more details <a href="A-sa-bsm.html">here</a>.</p>
 </section>
 <section id="practical-reg-arima-modelling" class="level2">
-<h2 class="anchored" data-anchor-id="practical-reg-arima-modelling">Practical Reg-Arima modelling</h2>
-<p>For the user not needing seasonal adjustment, the sections below highlight the functions or steps allowing to perform reg-Arima (or Tramo) as a stand alone goal, outside of a seasonal adjustment process.</p>
+<h2 class="anchored" data-anchor-id="practical-reg-arima-modelling">Practical Reg-ARIMA modelling</h2>
+<p>For the user not needing seasonal adjustment, the sections below highlight the functions or steps allowing to perform reg-ARIMA (or Tramo) as a stand alone goal, outside of a seasonal adjustment process.</p>
 <section id="in-r" class="level3">
 <h3 class="anchored" data-anchor-id="in-r">In R</h3>
 <p>In version 2</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Reg-Arima</span></span>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Reg-ARIMA</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>regA_v2 <span class="ot">&lt;-</span> RJDemetra<span class="sc">::</span><span class="fu">regarima_x13</span>(raw_series, <span class="at">spec =</span> <span class="st">"RG5c"</span>)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Tramo</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>tramo_v2 <span class="ot">&lt;-</span> RJDemetra<span class="sc">::</span><span class="fu">regarima_tramoseats</span>(raw_series, <span class="at">spec =</span> <span class="st">"TRfull"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Full documentation of ‘RJDemetra::regarima’ function can be found <a href="https://rjdverse.github.io/rjdemetra/reference/regarima.html">here</a></p>
-<p>Full documentation of ‘RJDemetra::regarima_tramoseats’ function can be found <a href="https://rjdverse.github.io/rjdemetra/reference/regarima.html">here</a></p>
+<p>Full documentation of <code class="sourceCode r">RJDemetra<span class="sc">::</span><span class="fu">regarima</span>()</code> function can be found <a href="https://rjdverse.github.io/rjdemetra/reference/regarima.html">here</a></p>
+<p>Full documentation of <code class="sourceCode r">RJDemetra<span class="sc">::</span><span class="fu">regarima_tramoseats</span>()</code> function can be found <a href="https://rjdverse.github.io/rjdemetra/reference/regarima.html">here</a></p>
 <p>In version 3</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Reg-Arima</span></span>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Reg-ARIMA</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>sa_regarima_v3 <span class="ot">&lt;-</span> rjd3x13<span class="sc">::</span><span class="fu">regarima</span>(raw_series, <span class="at">spec =</span> <span class="st">"RG5c"</span>)</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">#Tramo</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Tramo</span></span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>sa_tramo_v3 <span class="ot">&lt;-</span> rjd3tramoseats<span class="sc">::</span><span class="fu">tramo</span>(raw_series, <span class="at">spec =</span> <span class="st">"TRfull"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Full documentation of ‘rjd3x13::regarima’ function can be found <a href="https://rjdverse.github.io/rjd3x13/reference/regarima.html">here</a></p>
@@ -532,7 +532,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="gui" class="level3">
 <h3 class="anchored" data-anchor-id="gui">GUI</h3>
-<p>In the graphical user interface modelling algorithms can be accessed in two ways described below. In both cases a document (xml file) will be generated and can be save in the workspace. The output (series, parameters and diagnostics) cannot be exported as files, just directly copied from the interface. Further details on window structure in GUI are available <a href="T-GUI-SA-Modelling-Features.html">here</a>.</p>
+<p>In the graphical user interface modelling algorithms can be accessed in two ways described below. In both cases a document (<code>.xml</code> file) will be generated and can be save in the workspace. The output (series, parameters and diagnostics) cannot be exported as files, just directly copied from the interface. Further details on window structure in GUI are available <a href="T-GUI-SA-Modelling-Features.html">here</a>.</p>
 <section id="modelling-in-the-workspace-window" class="level4">
 <h4 class="anchored" data-anchor-id="modelling-in-the-workspace-window">Modelling in the Workspace Window</h4>
 <div class="quarto-figure quarto-figure-center">
@@ -547,7 +547,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="All_images/A_Ref53.jpg" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption"><strong>The <em>RegArima</em> menu item</strong></figcaption>
+<figcaption class="figure-caption"><strong>The <em>RegARIMA</em> menu item</strong></figcaption>
 </figure>
 </div>
 

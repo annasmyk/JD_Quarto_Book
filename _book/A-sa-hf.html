@@ -215,7 +215,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./A-sa-seats-decomposition.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">SA: SEATS Decomposition</span></a>
+ <span class="menu-text">SA: Seats Decomposition</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -357,7 +357,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./M-reg-arima-modelling.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Reg-Arima models</span></a>
+ <span class="menu-text">Reg-ARIMA models</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -369,7 +369,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./M-SEATS-decomposition.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">SEATS decomposition</span></a>
+ <span class="menu-text">Seats decomposition</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -442,7 +442,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#decomposition" id="toc-decomposition" class="nav-link" data-scroll-target="#decomposition">Decomposition</a>
   <ul class="collapse">
   <li><a href="#extended-x-11" id="toc-extended-x-11" class="nav-link" data-scroll-target="#extended-x-11">Extended X-11</a></li>
-  <li><a href="#arima-model-based-amb-decomposition-extended-seats" id="toc-arima-model-based-amb-decomposition-extended-seats" class="nav-link" data-scroll-target="#arima-model-based-amb-decomposition-extended-seats">Arima Model Based (AMB) Decomposition (Extended Seats)</a></li>
+  <li><a href="#arima-model-based-amb-decomposition-extended-seats" id="toc-arima-model-based-amb-decomposition-extended-seats" class="nav-link" data-scroll-target="#arima-model-based-amb-decomposition-extended-seats">ARIMA Model Based (AMB) Decomposition (Extended Seats)</a></li>
   <li><a href="#summary-of-the-process" id="toc-summary-of-the-process" class="nav-link" data-scroll-target="#summary-of-the-process">Summary of the process</a></li>
   <li><a href="#stl-decomposition" id="toc-stl-decomposition" class="nav-link" data-scroll-target="#stl-decomposition">STL decomposition</a></li>
   </ul></li>
@@ -574,7 +574,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 <tr class="even">
 <td>Decomposition</td>
-<td>Extended SEATS Extended Airline Model</td>
+<td>Extended Seats Extended Airline Model</td>
 <td>✔️</td>
 <td>rjd3highfreq</td>
 </tr>
@@ -602,7 +602,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 class="anchored" data-anchor-id="sa-algorithms-extended-for-high-frequency-data">SA algorithms extended for high-frequency data</h3>
 <p>All algorithms are available via an R package and will be available in GUI (in target v 3.x version)</p>
 <ul>
-<li><p>Extended Airline estimation, reg-Arima like (<code>rjd3highfreq</code> and GUI )</p></li>
+<li><p>Extended Airline estimation, reg-ARIMA like (<code>rjd3highfreq</code> and GUI )</p></li>
 <li><p>Extended Airline Decomposition, Seats like (<code>rjd3highfreq</code> and GUI )</p></li>
 <li><p>MX12+ (<code>rjd3x11plus</code>, GUI upcoming)</p></li>
 <li><p>MSTL+ (<code>rjd3stl</code> and in GUI)</p></li>
@@ -651,12 +651,12 @@ S_{t}= S_{t,7} \circ S_{t,30.44} \circ S_{t,365.25}
 </section>
 <section id="pre-adjustment" class="level2">
 <h2 class="anchored" data-anchor-id="pre-adjustment">Pre-adjustment</h2>
-<p>In classical X13-ARIMA and TRAMO-SEATS, a pre-adjustment step is performed to remove deterministic effects, such as outliers and calendar effects, with a Reg-Arima model. In the extended version for HF data, it is also the case with an <strong>extended Airline model</strong>.</p>
+<p>In classical X-13-ARIMA and Tramo-Seats, a pre-adjustment step is performed to remove deterministic effects, such as outliers and calendar effects, with a Reg-ARIMA model. In the extended version for HF data, it is also the case with an <strong>extended Airline model</strong>.</p>
 <p>A general Reg-ARIMA model is written as follows:</p>
 <p><span class="math display">\[
 \left(Y_t - \sum {\alpha_i}X_{it}\right) \sim ARIMA(p,d,q)(P,D,Q)
 \]</span></p>
-<p>These models contain seasonal backshift operators <span class="math inline">\(B^{s}(y_t)=y_{t-s}\)</span>. Here <span class="math inline">\(s\)</span> can be non-integer. JDemetra+ will rely on a modified version of a frequently used Arima model: the “Airline” model:</p>
+<p>These models contain seasonal backshift operators <span class="math inline">\(B^{s}(y_t)=y_{t-s}\)</span>. Here <span class="math inline">\(s\)</span> can be non-integer. JDemetra+ will rely on a modified version of a frequently used ARIMA model: the “Airline” model:</p>
 <p><span class="math display">\[
 (1-B)(1-B^{s})y_t=(1-\theta_1 B)(1-\theta_2 B^{s}) \epsilon_t \text{~~~~} \epsilon_t \sim \text{NID}(0,\sigma^2_{\epsilon})  
 \]</span></p>
@@ -741,7 +741,7 @@ B^{s+\alpha} &amp;\cong&amp; (1 - \alpha)B^s+ \alpha B^{s+1}
 <h2 class="anchored" data-anchor-id="decomposition">Decomposition</h2>
 <section id="extended-x-11" class="level3">
 <h3 class="anchored" data-anchor-id="extended-x-11">Extended X-11</h3>
-<p>X-11 is the decomposition module of <a href="A-sa-overview.html">X-13-Arima</a>, the linearized series from the pre-adjustment step is split into seasonal (<span class="math inline">\(S\)</span>), trend (<span class="math inline">\(T\)</span>) and irregular (<span class="math inline">\(I\)</span>) components. In case of multiple periodicities the decomposition is done periodicity by periodicity starting with the smallest one. Global structure of the iterations is the same as in “classical” X-11 but modifications were introduced for tackling non-integer periodicities. They rely on the Taylor approximation for the seasonal backshift operator:</p>
+<p>X-11 is the decomposition module of <a href="A-sa-overview.html">X-13-ARIMA</a>, the linearized series from the pre-adjustment step is split into seasonal (<span class="math inline">\(S\)</span>), trend (<span class="math inline">\(T\)</span>) and irregular (<span class="math inline">\(I\)</span>) components. In case of multiple periodicities the decomposition is done periodicity by periodicity starting with the smallest one. Global structure of the iterations is the same as in “classical” X-11 but modifications were introduced for tackling non-integer periodicities. They rely on the Taylor approximation for the seasonal backshift operator:</p>
 <p><span class="math display">\[
 \begin{array}{lll}
 B^{s+\alpha} &amp;\cong&amp; (1 - \alpha)B^s+ \alpha B^{s+1}                
@@ -804,7 +804,7 @@ M_{3\times3}X = \frac{1}{9}(X_{t-2p})+\frac{2}{9}(X_{t-p})+\frac{3}{9}(X_{t})+\f
 </section>
 </section>
 <section id="arima-model-based-amb-decomposition-extended-seats" class="level3">
-<h3 class="anchored" data-anchor-id="arima-model-based-amb-decomposition-extended-seats">Arima Model Based (AMB) Decomposition (Extended Seats)</h3>
+<h3 class="anchored" data-anchor-id="arima-model-based-amb-decomposition-extended-seats">ARIMA Model Based (AMB) Decomposition (Extended Seats)</h3>
 <p>Example</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># extracting DOY pattern</span></span>

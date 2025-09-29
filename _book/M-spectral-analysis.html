@@ -181,7 +181,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./A-sa-seats-decomposition.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">SA: SEATS Decomposition</span></a>
+ <span class="menu-text">SA: Seats Decomposition</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -323,7 +323,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./M-reg-arima-modelling.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Reg-Arima models</span></a>
+ <span class="menu-text">Reg-ARIMA models</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -335,7 +335,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./M-SEATS-decomposition.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">SEATS decomposition</span></a>
+ <span class="menu-text">Seats decomposition</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -465,7 +465,7 @@ f(\omega)=\frac{1}{\pi}[\ \gamma(0)+2\sum_{k=1}^{\infty}{\ \gamma(k)}cos\text{ω
 <h3 class="anchored" data-anchor-id="estimation">Estimation</h3>
 <section id="m-spectral-analysis-m-spectrum-periodogram" class="level4">
 <h4 class="anchored" data-anchor-id="m-spectral-analysis-m-spectrum-periodogram">Method 1: Periodogram</h4>
-<p>For any given frequency <span class="math inline">\(\omega\)</span> the sample periodogram is the sample analog of the sample spectrum. In general, the periodogram is used to identify the periodic components of unknown frequency in the time series. X-13ARIMA-SEATS and TRAMO-SEATS use this tool for detecting seasonality in raw time series and seasonally adjusted series. Apart from this it is applied for checking randomness of the residuals from the ARIMA model.</p>
+<p>For any given frequency <span class="math inline">\(\omega\)</span> the sample periodogram is the sample analog of the sample spectrum. In general, the periodogram is used to identify the periodic components of unknown frequency in the time series. X-13ARIMA-Seats and Tramo-Seats use this tool for detecting seasonality in raw time series and seasonally adjusted series. Apart from this it is applied for checking randomness of the residuals from the ARIMA model.</p>
 <p>To define a periodogram, first consider a vector of complex numbers</p>
 <p><span id="eq-5"><span class="math display">\[
 \mathbf{x}=\begin{bmatrix}
@@ -714,7 +714,7 @@ x_{t}=\mu+(\phi_{1}B+\ldots+\phi_{p}B^{p})x_{t}+\varepsilon_{t}
 <p>This implies that it may be hard to disentangle both effects using the frequency domain techniques.</p>
 <section id="in-a-tukey-spectrum" class="level3">
 <h3 class="anchored" data-anchor-id="in-a-tukey-spectrum">In a Tukey spectrum</h3>
-<p>Current JDemetra+ implementation of the seasonality test is based on a <span class="math inline">\(F(d_{1},d_{2})\)</span> approximation that has been originally proposed by Maravall (2012) for TRAMO-SEATS. This test is has been designed for a Blackman-Tukey window based on a particular choices of the truncation lag <span class="math inline">\(r\)</span> and sample size. Following this approach, we determine visually significant peaks for a frequency <span class="math inline">\(\omega_{j}\)</span> when</p>
+<p>Current JDemetra+ implementation of the seasonality test is based on a <span class="math inline">\(F(d_{1},d_{2})\)</span> approximation that has been originally proposed by Maravall (2012) for Tramo-Seats. This test is has been designed for a Blackman-Tukey window based on a particular choices of the truncation lag <span class="math inline">\(r\)</span> and sample size. Following this approach, we determine visually significant peaks for a frequency <span class="math inline">\(\omega_{j}\)</span> when</p>
 <p><span class="math display">\[
 \frac{2 f_{x}(\omega_{j})}{[f_{x}(\omega_{j+1})+ f_{x}(\omega_{j-1})]} \ge CV(\omega_{j})
 \]</span></p>
@@ -1137,7 +1137,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
   <div class="nav-page nav-page-next">
       <a href="./M-reg-arima-modelling.html" class="pagination-link">
-        <span class="nav-page-text">Reg-Arima models</span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text">Reg-ARIMA models</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
