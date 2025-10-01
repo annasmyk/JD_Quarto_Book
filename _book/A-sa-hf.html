@@ -1,0 +1,1110 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.353">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>JDemetra+ documentation - SA of high-frequency data</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./A-sa-x12.html" rel="next">
+<link href="./A-rev-policies.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./P_Algorithms.html">Algorithms</a></li><li class="breadcrumb-item"><a href="./A-sa-hf.html">SA of high-frequency data</a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">JDemetra+ documentation</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/annasmyk/JD_Quarto_Book" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <div class="dropdown">
+      <a href="" title="Share" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Share"><i class="bi bi-share"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://www.facebook.com/sharer/sharer.php?u=|url|">
+              <i class="bi bi-bi-facebook pe-1"></i>
+            Facebook
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=|url|">
+              <i class="bi bi-bi-twitter pe-1"></i>
+            Twitter
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://www.linkedin.com/sharing/share-offsite/?url=|url|">
+              <i class="bi bi-bi-linkedin pe-1"></i>
+            LinkedIn
+            </a>
+          </li>
+      </ul>
+    </div>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">What is JDemetra+?</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./G-how-to-use-this-book.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">How to use this book</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./G-news-v3-vs-v2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">New Features in v 3.x family</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./P_Algorithms.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Algorithms</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A-RegArima-Tramo-Modelling-Overview.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Modelling</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A-sa-overview.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Seasonal Adjustment (SA) Overview</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A-sa-pre-treatment.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SA: Pre-Treatment</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A-sa-X11-decomposition.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SA: X11 Decomposition</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A-sa-seats-decomposition.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SA: Seats Decomposition</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A-rev-policies.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SA: Revision policies</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A-sa-hf.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">SA of high-frequency data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A-sa-x12.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SA: X12+ and MX12+</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A-sa-stl-decomposition.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SA: STL+ and MSTL+</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A-sa-bsm.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SA: STS and MSTS</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A-outlier-detection.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Outlier detection and external regressors</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A-calendar-correction.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Calendar correction</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A-benchmarking.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Benchmarking and temporal disagreggation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A-trend-cycle-estimation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Trend-cycle estimation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A-revision-analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Revision Analysis</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A-nowcasting.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Nowcasting</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./P_Tools.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Tools</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./T-GUI-Overview.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Graphical User Interface (GUI): Overview</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./T-GUI-Data-Viz-TS-Tools.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">GUI: data visualization and time series tools</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./T-GUI-SA-Modelling-Features.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">GUI: SA and Modelling Features</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./T-GUI-Output.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">GUI: Generating output</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./T-plug-ins.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Plug-ins (GUI extensions)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./T-Production-tools-cruncher-QR.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Cruncher and quality report</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./T-r-packages.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">R packages</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./P_Methods.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Methods</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./M-spectral-analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Spectral Analysis Principles and Tools</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./M-reg-arima-modelling.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Reg-ARIMA models</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./M-X11-decomposition.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">X11 decomposition</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./M-SEATS-decomposition.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Seats decomposition</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./M-tests.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Tests</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./M-STL-decomposition.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">STL: Local regression decomposition</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./M-Temp-Disagg-Bench.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Benchmarking and Temporal disaggregation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./M-revision-analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Revision Analysis</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Output_Description.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Output description</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#in-this-chapter" id="toc-in-this-chapter" class="nav-link active" data-scroll-target="#in-this-chapter">In this chapter</a></li>
+  <li><a href="#data-specificities" id="toc-data-specificities" class="nav-link" data-scroll-target="#data-specificities">Data specificities</a></li>
+  <li><a href="#tailored-algorithms-in-jdemetra" id="toc-tailored-algorithms-in-jdemetra" class="nav-link" data-scroll-target="#tailored-algorithms-in-jdemetra">Tailored algorithms in JDemetra+</a>
+  <ul class="collapse">
+  <li><a href="#sa-algorithms-extended-for-high-frequency-data" id="toc-sa-algorithms-extended-for-high-frequency-data" class="nav-link" data-scroll-target="#sa-algorithms-extended-for-high-frequency-data">SA algorithms extended for high-frequency data</a></li>
+  <li><a href="#data-frequencies-and-seasonal-patterns" id="toc-data-frequencies-and-seasonal-patterns" class="nav-link" data-scroll-target="#data-frequencies-and-seasonal-patterns">Data frequencies and seasonal patterns</a></li>
+  </ul></li>
+  <li><a href="#unobserved-components" id="toc-unobserved-components" class="nav-link" data-scroll-target="#unobserved-components">Unobserved Components</a>
+  <ul class="collapse">
+  <li><a href="#raw-series-decomposition" id="toc-raw-series-decomposition" class="nav-link" data-scroll-target="#raw-series-decomposition">Raw series decomposition</a></li>
+  <li><a href="#multiple-seasonal-patterns" id="toc-multiple-seasonal-patterns" class="nav-link" data-scroll-target="#multiple-seasonal-patterns">Multiple seasonal patterns</a></li>
+  </ul></li>
+  <li><a href="#identifying-seasonal-patterns" id="toc-identifying-seasonal-patterns" class="nav-link" data-scroll-target="#identifying-seasonal-patterns">Identifying seasonal patterns</a></li>
+  <li><a href="#pre-adjustment" id="toc-pre-adjustment" class="nav-link" data-scroll-target="#pre-adjustment">Pre-adjustment</a>
+  <ul class="collapse">
+  <li><a href="#calendar-correction" id="toc-calendar-correction" class="nav-link" data-scroll-target="#calendar-correction">Calendar correction</a></li>
+  <li><a href="#outliers-and-intervention-variables" id="toc-outliers-and-intervention-variables" class="nav-link" data-scroll-target="#outliers-and-intervention-variables">Outliers and intervention variables</a></li>
+  <li><a href="#linearization" id="toc-linearization" class="nav-link" data-scroll-target="#linearization">Linearization</a></li>
+  </ul></li>
+  <li><a href="#decomposition" id="toc-decomposition" class="nav-link" data-scroll-target="#decomposition">Decomposition</a>
+  <ul class="collapse">
+  <li><a href="#extended-x-11" id="toc-extended-x-11" class="nav-link" data-scroll-target="#extended-x-11">Extended X-11</a></li>
+  <li><a href="#arima-model-based-amb-decomposition-extended-seats" id="toc-arima-model-based-amb-decomposition-extended-seats" class="nav-link" data-scroll-target="#arima-model-based-amb-decomposition-extended-seats">ARIMA Model Based (AMB) Decomposition (Extended Seats)</a></li>
+  <li><a href="#summary-of-the-process" id="toc-summary-of-the-process" class="nav-link" data-scroll-target="#summary-of-the-process">Summary of the process</a></li>
+  <li><a href="#stl-decomposition" id="toc-stl-decomposition" class="nav-link" data-scroll-target="#stl-decomposition">STL decomposition</a></li>
+  </ul></li>
+  <li><a href="#state-space-framework" id="toc-state-space-framework" class="nav-link" data-scroll-target="#state-space-framework">State Space framework</a></li>
+  <li><a href="#quality-assessment" id="toc-quality-assessment" class="nav-link" data-scroll-target="#quality-assessment">Quality assessment</a>
+  <ul class="collapse">
+  <li><a href="#residual-seasonality" id="toc-residual-seasonality" class="nav-link" data-scroll-target="#residual-seasonality">Residual seasonality</a></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/annasmyk/JD_Quarto_Book/edit/main/A-sa-hf.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/annasmyk/JD_Quarto_Book/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span id="a-sa-hf" class="quarto-section-identifier">SA of high-frequency data</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="in-this-chapter" class="level2">
+<h2 class="anchored" data-anchor-id="in-this-chapter">In this chapter</h2>
+<p>The sections below provide guidance on seasonal adjustment of infra-monthly, or high-frequency (HF), time-series data with JDemetra+ tailored algorithms.</p>
+<p>Currently available topics:</p>
+<ul>
+<li><p>description of HF data specificities</p></li>
+<li><p>R functions for pre-treatment, extended X-11 and extended Seats</p></li>
+</ul>
+<p>Up coming content:</p>
+<ul>
+<li><p>Graphical User Interface 3.x functionalities for HF data</p></li>
+<li><p>STL functions</p></li>
+<li><p>State space framework</p></li>
+</ul>
+</section>
+<section id="data-specificities" class="level2">
+<h2 class="anchored" data-anchor-id="data-specificities">Data specificities</h2>
+<p>HF data often display multiple seasonal patterns with potentially non-integer periodicities which cannot be modeled with classical SA algorithms. JD+ provides tailored versions of these algorithms.</p>
+<table class="table">
+<caption>Periodicities (number of observations per cycle)</caption>
+<thead>
+<tr class="header">
+<th>Data</th>
+<th>Day</th>
+<th>Week</th>
+<th>Month</th>
+<th>Quarter</th>
+<th>Year</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>quarterly</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td>monthly</td>
+<td></td>
+<td></td>
+<td></td>
+<td>3</td>
+<td>12</td>
+</tr>
+<tr class="odd">
+<td>weekly</td>
+<td></td>
+<td></td>
+<td>4.3481</td>
+<td>13.0443</td>
+<td>52.1775</td>
+</tr>
+<tr class="even">
+<td>daily</td>
+<td></td>
+<td>7</td>
+<td>30.4368</td>
+<td>91.3106</td>
+<td>365.2425</td>
+</tr>
+<tr class="odd">
+<td>hourly</td>
+<td>24</td>
+<td>168</td>
+<td>730.485</td>
+<td>2191.4550</td>
+<td>8765.82</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="tailored-algorithms-in-jdemetra" class="level2">
+<h2 class="anchored" data-anchor-id="tailored-algorithms-in-jdemetra">Tailored algorithms in JDemetra+</h2>
+<table class="table">
+<colgroup>
+<col style="width: 18%">
+<col style="width: 49%">
+<col style="width: 13%">
+<col style="width: 17%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Col1</th>
+<th>Algorithm</th>
+<th>GUI v 3.x</th>
+<th>R package</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Pre-treatment</td>
+<td>Extended Airline Model</td>
+<td>✔️</td>
+<td>rjd3highfreq</td>
+</tr>
+<tr class="even">
+<td>Decomposition</td>
+<td>Extended Seats Extended Airline Model</td>
+<td>✔️</td>
+<td>rjd3highfreq</td>
+</tr>
+<tr class="odd">
+<td></td>
+<td>Extended X-11</td>
+<td>✔️</td>
+<td>rjd3x11plus</td>
+</tr>
+<tr class="even">
+<td></td>
+<td>Extended STL</td>
+<td>✖</td>
+<td>rjd3stl</td>
+</tr>
+<tr class="odd">
+<td>One-Step</td>
+<td>SSF Framework</td>
+<td>✖</td>
+<td>rjd3sts</td>
+</tr>
+</tbody>
+</table>
+<section id="sa-algorithms-extended-for-high-frequency-data" class="level3">
+<h3 class="anchored" data-anchor-id="sa-algorithms-extended-for-high-frequency-data">SA algorithms extended for high-frequency data</h3>
+<p>All algorithms are available via an R package and will be available in GUI (in target v 3.x version)</p>
+<ul>
+<li><p>Extended Airline estimation, reg-ARIMA like (<code>rjd3highfreq</code> and GUI )</p></li>
+<li><p>Extended Airline Decomposition, Seats like (<code>rjd3highfreq</code> and GUI )</p></li>
+<li><p>MX12+ (<code>rjd3x11plus</code>, GUI upcoming)</p></li>
+<li><p>MSTL+ (<code>rjd3stl</code> and in GUI)</p></li>
+<li><p>MSTS (<code>rjd3sts</code>, GUI upcoming)</p></li>
+</ul>
+</section>
+<section id="data-frequencies-and-seasonal-patterns" class="level3">
+<h3 class="anchored" data-anchor-id="data-frequencies-and-seasonal-patterns">Data frequencies and seasonal patterns</h3>
+<p>In the Graphical User Interface (display constraints)</p>
+<p>Input data: daily, weekly</p>
+<p>Seasonal patterns: weekly (<span class="math inline">\(p=7\)</span>) or yearly (<span class="math inline">\(p=365.25\)</span> or <span class="math inline">\(p=52.18\)</span> )</p>
+<p>In corresponding R packages:</p>
+<ul>
+<li><p>no constraint on data input as no TS structure (numeric vector)</p></li>
+<li><p>any seasonal patters, positive numbers</p></li>
+</ul>
+</section>
+</section>
+<section id="unobserved-components" class="level2">
+<h2 class="anchored" data-anchor-id="unobserved-components">Unobserved Components</h2>
+<section id="raw-series-decomposition" class="level3">
+<h3 class="anchored" data-anchor-id="raw-series-decomposition">Raw series decomposition</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/SA_HF_unobs_comps.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption"><strong>Decomposition diagram</strong></figcaption>
+</figure>
+</div>
+</section>
+<section id="multiple-seasonal-patterns" class="level3">
+<h3 class="anchored" data-anchor-id="multiple-seasonal-patterns">Multiple seasonal patterns</h3>
+<p>HF data often contain multiple seasonal patterns. For example, daily economic time series often display strong infra-weekly and infra-yearly seasonality. An infra-monthly seasonal pattern may also be present, but its strength is usually less pronounced in practice. In theory, the full decomposition of the seasonal component in daily data is given by:</p>
+<p><span class="math display">\[
+S_{t}= S_{t,7} \circ S_{t,30.44} \circ S_{t,365.25}
+\]</span></p>
+<p>The decomposition is done iteratively periodicity by periodicity starting with the smallest one (highest frequency) as:</p>
+<ul>
+<li><p>highest frequencies usually display the biggest and most stable variations</p></li>
+<li><p>cycles of highest frequencies can mix up with lower ones</p></li>
+</ul>
+</section>
+</section>
+<section id="identifying-seasonal-patterns" class="level2">
+<h2 class="anchored" data-anchor-id="identifying-seasonal-patterns">Identifying seasonal patterns</h2>
+<p>JDemetra+ provides the Canova-Hansen test in the rjd3toolkit package.</p>
+</section>
+<section id="pre-adjustment" class="level2">
+<h2 class="anchored" data-anchor-id="pre-adjustment">Pre-adjustment</h2>
+<p>In classical X-13-ARIMA and Tramo-Seats, a pre-adjustment step is performed to remove deterministic effects, such as outliers and calendar effects, with a Reg-ARIMA model. In the extended version for HF data, it is also the case with an <strong>extended Airline model</strong>.</p>
+<p>A general Reg-ARIMA model is written as follows:</p>
+<p><span class="math display">\[
+\left(Y_t - \sum {\alpha_i}X_{it}\right) \sim ARIMA(p,d,q)(P,D,Q)
+\]</span></p>
+<p>These models contain seasonal backshift operators <span class="math inline">\(B^{s}(y_t)=y_{t-s}\)</span>. Here <span class="math inline">\(s\)</span> can be non-integer. JDemetra+ will rely on a modified version of a frequently used ARIMA model: the “Airline” model:</p>
+<p><span class="math display">\[
+(1-B)(1-B^{s})y_t=(1-\theta_1 B)(1-\theta_2 B^{s}) \epsilon_t \text{~~~~} \epsilon_t \sim \text{NID}(0,\sigma^2_{\epsilon})  
+\]</span></p>
+<p>For HF data, the potentially non-integer periodicity <span class="math inline">\(s\)</span> will be written: <span class="math inline">\(s=s' + \alpha\)</span>, with <span class="math inline">\(\alpha \in [0,1)\)</span> (for example <span class="math inline">\(52.18 = 52 +0.18\)</span> is the yearly periodicity for weekly data)</p>
+<p>Taylor series development around <span class="math inline">\(1\)</span> of <span class="math inline">\(f(x)=x^\alpha\)</span></p>
+<p><span class="math display">\[
+\begin{array}{lll}
+x^\alpha &amp;=&amp; 1 + \alpha (x-1) + \frac{\alpha (\alpha+1)}{2!} (x-1)^2 + \frac{\alpha (\alpha+1) (\alpha+2)}{3!} (x-1)^3 +\cdots \\
+            B^\alpha &amp;\cong&amp; (1 - \alpha)+ \alpha B     
+\end{array}
+\]</span></p>
+<p>Approximation of <span class="math inline">\(B^{s+\alpha}\)</span> in an extended Airline model</p>
+<p><span class="math display">\[
+\begin{array}{lll}
+B^{s+\alpha} &amp;\cong&amp; (1 - \alpha)B^s+ \alpha B^{s+1}                
+\end{array}
+\]</span></p>
+<p>Example for a daily series displaying infra-weekly (<span class="math inline">\(p_{1}=7\)</span>) and infra-yearly (<span class="math inline">\(p_{2}=365.25\)</span>) seasonality:</p>
+<p><span class="math display">\[
+(1-B)(1-B^{7})(1-B^{365.25)}(Y_t - \sum {\alpha_i}X_{it})=(1-\theta_1 B)(1-\theta_2 B^{7})(1-\theta_3 B^{365.25}) \epsilon_t
+\]</span></p>
+<p><span class="math display">\[
+\epsilon_t \overset{iid}{\sim} \text{N}(0,\sigma^2_{\epsilon})
+\]</span></p>
+<p>with</p>
+<p><span class="math display">\[
+1 - B^{365.25} = 1 - (0.75B^{365} + 0.25B^{366})
+\]</span></p>
+<section id="calendar-correction" class="level3">
+<h3 class="anchored" data-anchor-id="calendar-correction">Calendar correction</h3>
+<p>Calendar regressors can be defined with the rjd3toolkit package and added to pre-treatment function as a matrix.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a calendar with rjd3toolkit</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Define a national calendar</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>frenchCalendar <span class="ot">&lt;-</span> <span class="fu">national_calendar</span>(<span class="at">days =</span> <span class="fu">list</span>(</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">fixed_day</span>(<span class="dv">7</span>, <span class="dv">14</span>), <span class="co"># Bastille Day</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">fixed_day</span>(<span class="dv">5</span>, <span class="dv">8</span>, <span class="at">validity =</span> <span class="fu">list</span>(<span class="at">start =</span> <span class="st">"1982-05-08"</span>)), <span class="co"># Victory Day</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">special_day</span>(<span class="st">"NEWYEAR"</span>),</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">special_day</span>(<span class="st">"CHRISTMAS"</span>),</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">special_day</span>(<span class="st">"MAYDAY"</span>),</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">special_day</span>(<span class="st">"EASTERMONDAY"</span>),</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">special_day</span>(<span class="st">"ASCENSION"</span>),</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">special_day</span>(<span class="st">"WHITMONDAY"</span>),</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">special_day</span>(<span class="st">"ASSUMPTION"</span>),</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">special_day</span>(<span class="st">"ALLSAINTSDAY"</span>),</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">special_day</span>(<span class="st">"ARMISTICE"</span>)</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>))</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Generrate calendar regressors</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>q <span class="ot">&lt;-</span> <span class="fu">holidays</span>(</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">calendar =</span> frenchCalendar,</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">start =</span> <span class="st">"1968-01-01"</span>,</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">length =</span> <span class="fu">length</span>(df_daily<span class="sc">$</span>births),</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">type =</span> <span class="st">"All"</span>,</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">nonworking =</span> 7L</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="co"># Argument type = All : taking all holidays into account</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="co"># Argument type = Skip : taking into account only the holidays falling on a week day</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="outliers-and-intervention-variables" class="level3">
+<h3 class="anchored" data-anchor-id="outliers-and-intervention-variables">Outliers and intervention variables</h3>
+<p>Outliers detection is available in the pre-treatment function. Detected outliers are AO, LS and WO. Critical value can be computed by the algorithm or user-defined.</p>
+</section>
+<section id="linearization" class="level3">
+<h3 class="anchored" data-anchor-id="linearization">Linearization</h3>
+<p>Example using rjd3highfreq::fractionalAirlineEstimation function:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>pre_adjustment <span class="ot">&lt;-</span> rjd3highfreq<span class="sc">::</span><span class="fu">fractionalAirlineEstimation</span>(y_raw,</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> q, <span class="co"># q = daily calendar regressors</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">periods =</span> <span class="fu">c</span>(<span class="dv">7</span>, <span class="fl">365.25</span>),</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">ndiff =</span> <span class="dv">2</span>, <span class="at">ar =</span> <span class="cn">FALSE</span>, <span class="at">mean =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">outliers =</span> <span class="fu">c</span>(<span class="st">"ao"</span>, <span class="st">"ls"</span>, <span class="st">"wo"</span>),</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">criticalValue =</span> <span class="dv">0</span>, <span class="co"># computed in the algorithm</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">precision =</span> <span class="fl">1e-9</span>, <span class="at">approximateHessian =</span> <span class="cn">TRUE</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>“pre_adjustment” R object is a list of lists in which the user can retrieve input series, parameters and output series. For more details see chapter on <a href="T-r-packages.html">R packages</a> and rjd3highfreq help pages R, where all parameters are listed.</p>
+</section>
+</section>
+<section id="decomposition" class="level2">
+<h2 class="anchored" data-anchor-id="decomposition">Decomposition</h2>
+<section id="extended-x-11" class="level3">
+<h3 class="anchored" data-anchor-id="extended-x-11">Extended X-11</h3>
+<p>X-11 is the decomposition module of <a href="A-sa-overview.html">X-13-ARIMA</a>, the linearized series from the pre-adjustment step is split into seasonal (<span class="math inline">\(S\)</span>), trend (<span class="math inline">\(T\)</span>) and irregular (<span class="math inline">\(I\)</span>) components. In case of multiple periodicities the decomposition is done periodicity by periodicity starting with the smallest one. Global structure of the iterations is the same as in “classical” X-11 but modifications were introduced for tackling non-integer periodicities. They rely on the Taylor approximation for the seasonal backshift operator:</p>
+<p><span class="math display">\[
+\begin{array}{lll}
+B^{s+\alpha} &amp;\cong&amp; (1 - \alpha)B^s+ \alpha B^{s+1}                
+\end{array}
+\]</span></p>
+<section id="modification-of-the-first-trend-filter-for-removing-seasonality" class="level4">
+<h4 class="anchored" data-anchor-id="modification-of-the-first-trend-filter-for-removing-seasonality">Modification of the first trend filter for removing seasonality</h4>
+<p>The first trend estimation is thanks to a generalization of the centred and symmetrical moving averages with an order equal to the periodicity <span class="math inline">\(p\)</span>.</p>
+<ul>
+<li><p>filter length <span class="math inline">\(l\)</span>: smallest odd integer greater than <span class="math inline">\(p\)</span></p></li>
+<li><p>examples: <span class="math inline">\(p=7 \rightarrow l=7\)</span>, <span class="math inline">\(p=12 \rightarrow l=13\)</span>, <span class="math inline">\(p=365.25 \rightarrow l=367\)</span>, <span class="math inline">\(p=52.18 \rightarrow l=53\)</span></p></li>
+<li><p>central coefficients <span class="math inline">\(1/p\)</span> (1/12,1/7, 1/365.25)</p></li>
+<li><p>end-point coefficients <span class="math inline">\(\mathbb{I} \{\text{$E(p)$ even}\} +(p-E(p)) /2p\)</span></p></li>
+<li><p>example for <span class="math inline">\(p=12\)</span>: (<span class="math inline">\(1/12\)</span> and <span class="math inline">\(1/24\)</span>) (we fall back on <span class="math inline">\(M_{2\times12}\)</span> of the monthly case</p></li>
+<li><p>example for <span class="math inline">\(p=365.25\)</span>: (<span class="math inline">\(1/365.25\)</span> and <span class="math inline">\(0.25/(2*365.25)\)</span>)</p></li>
+</ul>
+</section>
+<section id="modification-of-seasonality-extraction-filters" class="level4">
+<h4 class="anchored" data-anchor-id="modification-of-seasonality-extraction-filters">Modification of seasonality extraction filters</h4>
+<p>Computation is done on a given period</p>
+<p>Example <span class="math inline">\(M_{3\times3}\)</span></p>
+<p><span class="math display">\[
+M_{3\times3}X = \frac{1}{9}(X_{t-2p})+\frac{2}{9}(X_{t-p})+\frac{3}{9}(X_{t})+\frac{2}{9}(X_{t+p})+\frac{1}{9}(X_{t+2p})
+\]</span></p>
+<p>if <span class="math inline">\(p\)</span> integer: no changes needed</p>
+<p>if <span class="math inline">\(p\)</span> non-integer: Taylor approximation of the backshift operator</p>
+</section>
+<section id="modification-of-final-trend-estimation-filter" class="level4">
+<h4 class="anchored" data-anchor-id="modification-of-final-trend-estimation-filter">Modification of final trend estimation filter</h4>
+<p>As seasonality has been removed in the first step, there is no non-integer periodicity issue in the final trend estimation, but extended X-11 offers additional features vs classic X-11, in which final trend is estimated with Henderson filters and Musgrave asymmetrical surrogates. In extended X-11, a generalization of this method with local polynomial approximation is available.</p>
+</section>
+<section id="example-of-decomposition" class="level4">
+<h4 class="anchored" data-anchor-id="example-of-decomposition">Example of decomposition</h4>
+<p>Here the raw series is daily and displays two periodicities <span class="math inline">\(p=7\)</span> and <span class="math inline">\(p=365.25\)</span></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># extraction of day-of-the-week pattern (dow)</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>x11.dow <span class="ot">&lt;-</span> rjd3x11plus<span class="sc">::</span><span class="fu">x11plus</span>(y_linearized,</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">period =</span> <span class="dv">7</span>, <span class="co"># DOW pattern</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">mul =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">trend.horizon =</span> <span class="dv">9</span>, <span class="co"># 1/2 Filter length : not too long vs p</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">trend.degree =</span> <span class="dv">3</span>, <span class="co"># Polynomial degree</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">trend.kernel =</span> <span class="st">"Henderson"</span>, <span class="co"># Kernel function</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">trend.asymmetric =</span> <span class="st">"CutAndNormalize"</span>, <span class="co"># Truncation method</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">seas.s0 =</span> <span class="st">"S3X9"</span>, <span class="at">seas.s1 =</span> <span class="st">"S3X9"</span>, <span class="co"># Seasonal filters</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">extreme.lsig =</span> <span class="fl">1.5</span>, <span class="at">extreme.usig =</span> <span class="fl">2.5</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>) <span class="co"># Sigma-limits</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="co"># extraction of day-of-the-week pattern (doy)</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>x11.doy <span class="ot">&lt;-</span> rjd3x11plus<span class="sc">::</span><span class="fu">x11plus</span>(x11.dow<span class="sc">$</span>decomposition<span class="sc">$</span>sa, <span class="co"># previous sa</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">period =</span> <span class="fl">365.2425</span>, <span class="co"># DOY pattern</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">mul =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">trend.horizon =</span> <span class="dv">371</span>, <span class="co"># 1/2 final filter length</span></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">trend.degree =</span> <span class="dv">3</span>,</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">trend.kernel =</span> <span class="st">"Henderson"</span>,</span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">trend.asymmetric =</span> <span class="st">"CutAndNormalize"</span>,</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">seas.s0 =</span> <span class="st">"S3X15"</span>, <span class="at">seas.s1 =</span> <span class="st">"S3X5"</span>,</span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">extreme.lsig =</span> <span class="fl">1.5</span>, <span class="at">extreme.usig =</span> <span class="fl">2.5</span></span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="arima-model-based-amb-decomposition-extended-seats" class="level3">
+<h3 class="anchored" data-anchor-id="arima-model-based-amb-decomposition-extended-seats">ARIMA Model Based (AMB) Decomposition (Extended Seats)</h3>
+<p>Example</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># extracting DOY pattern</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>amb.doy <span class="ot">&lt;-</span> rjd3highfreq<span class="sc">::</span><span class="fu">fractionalAirlineDecomposition</span>(</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    amb.dow<span class="sc">$</span>decomposition<span class="sc">$</span>sa, <span class="co"># DOW-adjusted linearised data</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">period =</span> <span class="fl">365.2425</span>, <span class="co"># DOY pattern</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">sn =</span> <span class="cn">FALSE</span>, <span class="co"># Signal (SA)-noise decomposition</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">stde =</span> <span class="cn">FALSE</span>, <span class="co"># Calculate standard deviations</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">nbcasts =</span> <span class="dv">0</span>, <span class="at">nfcasts =</span> <span class="dv">0</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>) <span class="co"># Numbers of back- and forecasts</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="summary-of-the-process" class="level3">
+<h3 class="anchored" data-anchor-id="summary-of-the-process">Summary of the process</h3>
+<p>For the time being, seasonal adjustment processing in rjd3highfreq cannot be encompassed by one function like for lower frequency, e.g rjd3x13::x13(y_raw)</p>
+<p>The user has to run the steps one by one, here is an example with <span class="math inline">\(p=7\)</span> and <span class="math inline">\(p=365.25\)</span></p>
+<ul>
+<li><p>computation of the linearized series <span class="math inline">\(Y_{lin}=ExtendedAirline(Y)\)</span></p></li>
+<li><p>computation of the calendar corrected series <span class="math inline">\(Y_{cal}\)</span></p></li>
+<li><p>computation of <span class="math inline">\(S_{7}\)</span> by decomposition of the linearized series</p></li>
+<li><p>computation of <span class="math inline">\(S_{365.25}\)</span> by decomposition of the seasonally adjusted series with <span class="math inline">\(p=7\)</span></p></li>
+<li><p>finally adjusted series <span class="math inline">\(sa_{final} = Y_{cal}/S_{7}/S_{365.25}\)</span> (if multiplicative model)</p></li>
+</ul>
+</section>
+<section id="stl-decomposition" class="level3">
+<h3 class="anchored" data-anchor-id="stl-decomposition">STL decomposition</h3>
+<p>Not currently available. Under construction.</p>
+</section>
+</section>
+<section id="state-space-framework" class="level2">
+<h2 class="anchored" data-anchor-id="state-space-framework">State Space framework</h2>
+<p>Not currently available. Under construction.</p>
+</section>
+<section id="quality-assessment" class="level2">
+<h2 class="anchored" data-anchor-id="quality-assessment">Quality assessment</h2>
+<section id="residual-seasonality" class="level3">
+<h3 class="anchored" data-anchor-id="residual-seasonality">Residual seasonality</h3>
+<p>JDemetra+ provides the Canova-Hansen test in rjd3toolkit package which allows to check for any remaining seasonal pattern in the final SA data.</p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./A-rev-policies.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">SA: Revision policies</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./A-sa-x12.html" class="pagination-link">
+        <span class="nav-page-text">SA: X12+ and MX12+</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">This book was built with <a href="https://quarto.org/">Quarto</a>.</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right"></div>
+  </div>
+</footer>
+
+
+
+</body></html>

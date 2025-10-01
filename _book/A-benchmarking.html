@@ -1,0 +1,1246 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.353">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>JDemetra+ documentation - Benchmarking and temporal disagreggation</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./A-trend-cycle-estimation.html" rel="next">
+<link href="./A-calendar-correction.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./P_Algorithms.html">Algorithms</a></li><li class="breadcrumb-item"><a href="./A-benchmarking.html">Benchmarking and temporal disagreggation</a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">JDemetra+ documentation</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/annasmyk/JD_Quarto_Book" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <div class="dropdown">
+      <a href="" title="Share" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Share"><i class="bi bi-share"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://www.facebook.com/sharer/sharer.php?u=|url|">
+              <i class="bi bi-bi-facebook pe-1"></i>
+            Facebook
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=|url|">
+              <i class="bi bi-bi-twitter pe-1"></i>
+            Twitter
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://www.linkedin.com/sharing/share-offsite/?url=|url|">
+              <i class="bi bi-bi-linkedin pe-1"></i>
+            LinkedIn
+            </a>
+          </li>
+      </ul>
+    </div>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">What is JDemetra+?</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./G-how-to-use-this-book.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">How to use this book</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./G-news-v3-vs-v2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">New Features in v 3.x family</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./P_Algorithms.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Algorithms</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A-RegArima-Tramo-Modelling-Overview.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Modelling</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A-sa-overview.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Seasonal Adjustment (SA) Overview</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A-sa-pre-treatment.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SA: Pre-Treatment</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A-sa-X11-decomposition.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SA: X11 Decomposition</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A-sa-seats-decomposition.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SA: Seats Decomposition</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A-rev-policies.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SA: Revision policies</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A-sa-hf.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SA of high-frequency data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A-sa-x12.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SA: X12+ and MX12+</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A-sa-stl-decomposition.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SA: STL+ and MSTL+</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A-sa-bsm.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SA: STS and MSTS</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A-outlier-detection.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Outlier detection and external regressors</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A-calendar-correction.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Calendar correction</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A-benchmarking.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Benchmarking and temporal disagreggation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A-trend-cycle-estimation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Trend-cycle estimation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A-revision-analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Revision Analysis</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./A-nowcasting.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Nowcasting</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./P_Tools.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Tools</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./T-GUI-Overview.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Graphical User Interface (GUI): Overview</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./T-GUI-Data-Viz-TS-Tools.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">GUI: data visualization and time series tools</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./T-GUI-SA-Modelling-Features.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">GUI: SA and Modelling Features</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./T-GUI-Output.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">GUI: Generating output</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./T-plug-ins.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Plug-ins (GUI extensions)</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./T-Production-tools-cruncher-QR.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Cruncher and quality report</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./T-r-packages.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">R packages</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./P_Methods.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Methods</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./M-spectral-analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Spectral Analysis Principles and Tools</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./M-reg-arima-modelling.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Reg-ARIMA models</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./M-X11-decomposition.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">X11 decomposition</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./M-SEATS-decomposition.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Seats decomposition</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./M-tests.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Tests</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./M-STL-decomposition.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">STL: Local regression decomposition</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./M-Temp-Disagg-Bench.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Benchmarking and Temporal disaggregation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./M-revision-analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Revision Analysis</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Output_Description.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Output description</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#in-this-chapter" id="toc-in-this-chapter" class="nav-link active" data-scroll-target="#in-this-chapter">In this chapter</a></li>
+  <li><a href="#a-b-td-overview" id="toc-a-b-td-overview" class="nav-link" data-scroll-target="#a-b-td-overview">Algorithms overview</a>
+  <ul class="collapse">
+  <li><a href="#t-plug-ins-bench" id="toc-t-plug-ins-bench" class="nav-link" data-scroll-target="#t-plug-ins-bench">Benchmarking</a></li>
+  <li><a href="#temporal-disaggregation" id="toc-temporal-disaggregation" class="nav-link" data-scroll-target="#temporal-disaggregation">Temporal Disaggregation</a></li>
+  </ul></li>
+  <li><a href="#a-bench-sa" id="toc-a-bench-sa" class="nav-link" data-scroll-target="#a-bench-sa">Benchmarking seasonally adjusted data</a>
+  <ul class="collapse">
+  <li><a href="#using-the-gui" id="toc-using-the-gui" class="nav-link" data-scroll-target="#using-the-gui">Using the GUI</a></li>
+  <li><a href="#in-r-with-rjd3x13-and-rjd3tramoseats" id="toc-in-r-with-rjd3x13-and-rjd3tramoseats" class="nav-link" data-scroll-target="#in-r-with-rjd3x13-and-rjd3tramoseats">In R with <code>rjd3x13</code> and <code>rjd3tramoseats</code></a></li>
+  </ul></li>
+  <li><a href="#a-bench-high-low" id="toc-a-bench-high-low" class="nav-link" data-scroll-target="#a-bench-high-low">Benchmarking with different frequencies</a>
+  <ul class="collapse">
+  <li><a href="#a-bench-td-plugin" id="toc-a-bench-td-plugin" class="nav-link" data-scroll-target="#a-bench-td-plugin">Using the plug-in for GUI (version 2.x)</a></li>
+  <li><a href="#using-the-plug-in-for-gui-version-3.x" id="toc-using-the-plug-in-for-gui-version-3.x" class="nav-link" data-scroll-target="#using-the-plug-in-for-gui-version-3.x">Using the plug-in for GUI (version 3.x)</a></li>
+  <li><a href="#in-r-with-rjd3bench" id="toc-in-r-with-rjd3bench" class="nav-link" data-scroll-target="#in-r-with-rjd3bench">In R with <code>rjd3bench</code></a></li>
+  </ul></li>
+  <li><a href="#a-bench-tempd" id="toc-a-bench-tempd" class="nav-link" data-scroll-target="#a-bench-tempd">Temporal Disaggregation</a>
+  <ul class="collapse">
+  <li><a href="#using-the-plug-in-for-gui" id="toc-using-the-plug-in-for-gui" class="nav-link" data-scroll-target="#using-the-plug-in-for-gui">Using the plug-in for GUI</a></li>
+  <li><a href="#in-r-with-rjd3bench-1" id="toc-in-r-with-rjd3bench-1" class="nav-link" data-scroll-target="#in-r-with-rjd3bench-1">In R with <code>rjd3bench</code></a></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/annasmyk/JD_Quarto_Book/edit/main/A-benchmarking.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/annasmyk/JD_Quarto_Book/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span id="a-bench" class="quarto-section-identifier">Benchmarking and temporal disagreggation</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="in-this-chapter" class="level2">
+<h2 class="anchored" data-anchor-id="in-this-chapter">In this chapter</h2>
+<p>The sections below provide guidance on how to implement algorithms on</p>
+<ul>
+<li><p>Benchmarking of <a href="#a-bench-sa">seasonally adjusted data</a></p></li>
+<li><p>Benchmarking <a href="#a-bench-high-low">high to low frequency</a> data</p></li>
+<li><p><a href="#a-bench-tempd">Temporal Disaggregation</a></p></li>
+</ul>
+<p>Using the <a href="T-GUI-Overview.html">GUI</a> with a <a href="T-plug-ins.html">plug-in</a> or <a href="T-r-packages.html">rjd3bench package</a> package.</p>
+</section>
+<section id="a-b-td-overview" class="level2">
+<h2 class="anchored" data-anchor-id="a-b-td-overview">Algorithms overview</h2>
+<section id="t-plug-ins-bench" class="level3">
+<h3 class="anchored" data-anchor-id="t-plug-ins-bench">Benchmarking</h3>
+<table class="table">
+<colgroup>
+<col style="width: 31%">
+<col style="width: 22%">
+<col style="width: 22%">
+<col style="width: 22%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Method</th>
+<th>GUI Plug-in for V 2.x</th>
+<th>GUI Plug-in for V 3.x</th>
+<th>In R rjd3bench</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Denton</td>
+<td>✔</td>
+<td>✔</td>
+<td>✔</td>
+</tr>
+<tr class="even">
+<td>Cholette</td>
+<td>✔</td>
+<td>✔</td>
+<td>✔</td>
+</tr>
+<tr class="odd">
+<td>Cholette Multi-variate</td>
+<td>✔</td>
+<td>✖</td>
+<td>✔</td>
+</tr>
+<tr class="even">
+<td>Cubic Splines</td>
+<td>✖</td>
+<td>✔</td>
+<td>✔</td>
+</tr>
+<tr class="odd">
+<td>GRP (Growth Rate Preservation)</td>
+<td>✖</td>
+<td>✔</td>
+<td>✔</td>
+</tr>
+<tr class="even">
+<td>Calendarization</td>
+<td>✔</td>
+<td>✖</td>
+<td>✔</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="temporal-disaggregation" class="level3">
+<h3 class="anchored" data-anchor-id="temporal-disaggregation">Temporal Disaggregation</h3>
+<table class="table">
+<colgroup>
+<col style="width: 37%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Method</th>
+<th>GUI Plug-in for V 2.x</th>
+<th>GUI Plug-in for V 3.x</th>
+<th>In R rjd3bench</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Regression Models*</td>
+<td>✔️</td>
+<td>✔️</td>
+<td>✔</td>
+</tr>
+<tr class="even">
+<td>Model-based Denton</td>
+<td>✖</td>
+<td>✔</td>
+<td>✔</td>
+</tr>
+<tr class="odd">
+<td>ADL (Autoregressive Distributed Lag Models)</td>
+<td>✖</td>
+<td>✖</td>
+<td>✔</td>
+</tr>
+</tbody>
+</table>
+<p>*Regression models: several structures of residuals</p>
+<ul>
+<li><p>Ar1: Chow-Lin</p></li>
+<li><p>Rw: Fernandez</p></li>
+<li><p>RwAr1: Litterman</p></li>
+</ul>
+</section>
+</section>
+<section id="a-bench-sa" class="level2">
+<h2 class="anchored" data-anchor-id="a-bench-sa">Benchmarking seasonally adjusted data</h2>
+<p>The goal here is to enforce identical annual totals on the seasonally adjusted series as on the raw or calendar adjusted series.</p>
+<section id="using-the-gui" class="level3">
+<h3 class="anchored" data-anchor-id="using-the-gui">Using the GUI</h3>
+<p>When running a seasonal adjustment process</p>
+<ol type="1">
+<li><p>With the pre-defined specifications the benchmarking functionality is not applied by default following the <em>ESS Guidelines on Seasonal Adjustment</em> (2024) recommendations. It means that once the user has seasonally adjusted the series with a pre-defined specification the <em>Benchmarking</em> node is empty. To execute benchmarking click on the <em>Specifications</em> button and activate the checkbox in the <em>Benchmarking</em> section.</p>
+<img src="All_images/UDimage1.jpg" class="img-fluid" alt="Benchmarking option – a default view"></li>
+<li><p>Three parameters can be set here. <em>Target</em> specifies the target variable for the benchmarking procedure. It can be either the <em>Original</em> (the raw time series) or the <em>Calendar Adjusted</em> (the time series adjusted for calendar effects). <em>Rho</em> is a value of the AR(1) parameter (set between 0 and 1). By default it is set to 1. Finally, <em>Lambda</em> is a parameter that relates to the weights in the regression equation. It is typically equal to 0 (for an additive decomposition), 0.5 (for a proportional decomposition) or 1 (for a multiplicative decomposition). The default value is 1.</p></li>
+<li><p>To launch the benchmarking procedure click on the <strong>Apply</strong> button. The results are displayed in four panels. The top-left one compares the original output from the seasonal adjustment procedure with the result from applying a benchmarking to the seasonal adjustment. The bottom-left panel highlights the differences between these two results. The outcomes are also presented in a table in the top-right panel. The relevant statistics concerning relative differences are presented in the bottom-right panel.</p>
+<img src="All_images/UDimage2.jpg" class="img-fluid" alt="The results of the benchmarking procedure"></li>
+<li><p>Both pictures and the table can be copied the usual way</p>
+<img src="All_images/UDimage3.jpg" class="img-fluid" alt="Options for benchmarking results"></li>
+<li><p>To export the result of the benchmarking procedure (<em>benchmarking.result</em>) and the target data (<em>benchmarking.target</em>) one needs to once execute the seasonal adjustment with benchmarking</p>
+<img src="All_images/UG_SSA_image28.jpg" class="img-fluid" alt="The SAProcessing menu"></li>
+<li><p>Expand the “+” menu and choose an appropriate data format (here Excel has been chosen). It is possible to save the results in <code>.txt</code>, <code>.xls</code>, <code>.csv</code>, and <code>.csv</code> matrix formats. Note that the available content of the output depends on the output type. <!-- link to add ? --></p>
+<img src="All_images/UG_SSA_image29.jpg" class="img-fluid" alt="Exporting data to an Excel file"></li>
+<li><p>Chose the output items that refer to the results from the benchmarking procedure, move them to the window on the right and click <strong>OK</strong>.</p>
+<img src="All_images/UDimage4.jpg" class="img-fluid" alt="Exporting the results of the benchmarking procedure"></li>
+</ol>
+</section>
+<section id="in-r-with-rjd3x13-and-rjd3tramoseats" class="level3">
+<h3 class="anchored" data-anchor-id="in-r-with-rjd3x13-and-rjd3tramoseats">In R with <code>rjd3x13</code> and <code>rjd3tramoseats</code></h3>
+<p>When performing seasonal adjustment with <code>rjd3x13</code> and <code>rjd3tramoseats</code>, the current (or default) specification has to be customized using the function <code>rjd3toolkit::set_benchmarking</code> documented on this <a href="https://rjdverse.github.io/rjd3toolkit/reference/set_benchmarking.html">GitHub page</a></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>init_spec <span class="ot">&lt;-</span> rjd3x13<span class="sc">::</span><span class="fu">spec_x13</span>(<span class="st">"RSA5c"</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>new_spec <span class="ot">&lt;-</span> <span class="fu">set_benchmarking</span>(</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    init_spec,</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">enabled =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">target =</span> <span class="st">"Normal"</span>,</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">rho =</span> <span class="fl">0.8</span>,</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">lambda =</span> <span class="fl">0.5</span>,</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">forecast =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">bias =</span> <span class="st">"None"</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>More information on R packages for JDemetra+ and installation procedures is provided in <a href="T-r-packages.html">this chapter</a></p>
+</section>
+</section>
+<section id="a-bench-high-low" class="level2">
+<h2 class="anchored" data-anchor-id="a-bench-high-low">Benchmarking with different frequencies</h2>
+<p>These methods provide a high-frequency series (input series) modified so that it fulfils a linear relationship, with another series of low frequency (benchmark), both series measure the same target variable. An example of the relation to be fulfilled could be that the low frequency series (quarterly frequency) coincides with the quarterly sum of the high frequency series (monthly frequency).</p>
+<p>Multivariate benchmarking also forces contemporary linear relations between high frequency series. If these relations do not exist, benchmarking could be carried out for each series separately. Normally contemporary relations are linear and the relations of aggregation are also linear and the same for all series, so the contemporary relations between low frequency series are fulfilled.</p>
+<p>The benchmarking methods available in the benchmarking and time disaggregation plug-in are: Denton, Cholette, and Cholette multivariate.</p>
+<section id="a-bench-td-plugin" class="level3">
+<h3 class="anchored" data-anchor-id="a-bench-td-plugin">Using the plug-in for GUI (version 2.x)</h3>
+<p>Download the plug-in for GUI as explained <a href="#t-plug-ins-bench">here</a> and install it as detailed <a href="T-plug-ins.html#t-plug-ins-inst">here</a></p>
+<p>Once the plugin is installed, two more options appear in the Workspace window: Benchmarking and Temporal Disaggregation.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/Image1_Bench.jpg" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Text</figcaption>
+</figure>
+</div>
+<section id="univariate-denton-and-cholette" class="level4">
+<h4 class="anchored" data-anchor-id="univariate-denton-and-cholette">Univariate: Denton and Cholette</h4>
+<p>To run Denton univariate case select:</p>
+<p>Statistical <strong>Methods</strong> <span class="math inline">\(\rightarrow\)</span> Benchmarking <span class="math inline">\(\rightarrow\)</span> Denton or Cholette</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/Image2_Bench.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption"><strong>Benchmarking tab</strong></figcaption>
+</figure>
+</div>
+<p>In both cases, a new window is displayed to launch one of the methods with the series selected. In the upper left side, drag the high frequency series from the Providers window and drop it in <strong>Drop Series here</strong> and the low frequency series in <strong>Drop Constraint here</strong>.</p>
+</section>
+<section id="denton" class="level4">
+<h4 class="anchored" data-anchor-id="denton">Denton</h4>
+<p>In the top right of the screen, select the <strong>Specifications</strong> button to set the specifications to apply each method. See below for a description of the available options on Denton method:</p>
+<ol type="1">
+<li><p><strong>Type</strong>: Aggregation function (Sum, Average, Last or First). This forces the low-frequency series to match the aggregation function selected of the high frequency series.</p></li>
+<li><p><strong>Multiplicative</strong>: if the checkbox is selected, the proportional Denton method is applied. Otherwise, additive Denton is applied.</p></li>
+<li><p><strong>Modified Denton</strong>: if the checkbox is selected, the modified Denton method is applied. Otherwise, original Denton is applied. It is recommended to select it; as original Denton perform a special treatment on the first observation.</p></li>
+<li><p><strong>Differencing</strong>: Number of regular differences. By default 1.</p></li>
+<li><p><strong>Default frequency</strong>: periodicity of the low frequency data. The options are: Yearly, HalfYearly, QuadriMonthly, Quarterly, Bimonthly and Monthly.</p></li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/Image3_Bench.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Denton Specifications</figcaption>
+</figure>
+</div>
+</section>
+<section id="a-bench-high-low-cholette" class="level4">
+<h4 class="anchored" data-anchor-id="a-bench-high-low-cholette">Cholette</h4>
+<p>See below for a description of the available options on Cholette method:</p>
+<ol type="1">
+<li><p><strong>Type</strong>: Aggregation function (Sum, Average, Last or First). This forces the low-frequency series to match the aggregation function selected of the high frequency series.</p></li>
+<li><p><strong>Aggregation frequency</strong>: periodicity of the low frequency data. The options are: Yearly, HalfYearly, QuadriMonthly, Quarterly, Bimonthly and Monthly.</p></li>
+<li><p><strong>Rho</strong>: value between <span class="math inline">\(-1\)</span> and <span class="math inline">\(1\)</span>. It is the coefficient of an AR(<span class="math inline">\(1\)</span>) model that follows the error term. The default value is <span class="math inline">\(1\)</span>, equivalent to applying Denton.</p></li>
+<li><p><strong>Lambda</strong>: value between <span class="math inline">\(0\)</span> and <span class="math inline">\(1\)</span>. It is the parameter <span class="math inline">\(\lambda\)</span> of the following function to be minimized in Cholette method:</p>
+<p><span class="math display">\[
+\sum_t \left( \frac{x_t - z_t}{\left| z_t \right|^{\lambda}} - \rho \frac{x_{t-1} - z_{t-1}}{\left| z_{t-1} \right|^{\lambda}}\right)^2
+\]</span></p>
+<p>Usually lambda is <span class="math inline">\(0\)</span> or <span class="math inline">\(1\)</span> equivalent to applying additive benchmarking and proportional benchmarking method respectively.</p></li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/Image4_Bench.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Cholette Specifications</figcaption>
+</figure>
+</div>
+<p>In both cases, Denton and Cholette methods, the output is a graph with the original series and the benchmarked series. There is no table with the results, but it is very easy to create one from the graph. Select the graph and select copy, then paste the values in excel (control-V).</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/Image5_Bench.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Denton output</figcaption>
+</figure>
+</div>
+</section>
+<section id="multi-variate-cholette" class="level4">
+<h4 class="anchored" data-anchor-id="multi-variate-cholette">Multi-variate Cholette</h4>
+<p>The only multi-variate benchmarking method available for the version 2 plugin, is multi-variate Cholette.</p>
+<p>The input for this method are a set of time series with different frequencies and a set of constraints, both contemporary and intertemporal. The output is a new set of time series, that corresponds to the former, now fulfilling the constraints.</p>
+<p>To run multi-variate Cholette select <em>Statistical methods</em> <span class="math inline">\(\rightarrow\)</span> <em>Benchmarking</em> <span class="math inline">\(\rightarrow\)</span> <em>Multi-variate Cholette</em>. Then, a box appears, where we can drop time series.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/CholetteMulti.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Multi-variate Cholette input</figcaption>
+</figure>
+</div>
+<p>The specification properties can be set by selecting <em>Window</em> <span class="math inline">\(\rightarrow\)</span> <em>Properties</em>. There are only three elements in the form: <em>Rho</em>, <em>Lambda</em> and <em>Constraints</em>. The two first are analogous to their <a href="#a-bench-high-low-cholette">univariate Cholette</a> counterparts. The third one allows to set constraints, both contemporary and intertemporal.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/PropCholetteMulti.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Multi-variate Cholette specification</figcaption>
+</figure>
+</div>
+<p>Clicking the three dots button from <em>Constraints</em>, opens the constraints list box.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/Constraints.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Constraints list</figcaption>
+</figure>
+</div>
+<p>From this box, the set of constraints can be added, just typing the constraint inside item and clicking <em>Add</em> button. The constraints must be written as follows:</p>
+<ul>
+<li><span class="math inline">\(y = a_1 * x_1 + \dots + a_n * x_n\)</span> where <span class="math inline">\(y, x_1, \dots, x_n\)</span> are same frequency time series and <span class="math inline">\(a_1, \dots, a_n\)</span> are constant.</li>
+<li><span class="math inline">\(c = a_1 * x_1 + \dots + a_n * x_n\)</span> where <span class="math inline">\(x_1, \dots, x_n\)</span> are same frequency time series and <span class="math inline">\(c, a_1, \dots, a_n\)</span> are constant.</li>
+<li><span class="math inline">\(c = x_1 + \dots + x_n\)</span> can be shortened as <span class="math inline">\(c = x?\)</span>.</li>
+<li><span class="math inline">\(S = \mathrm{sum}(s)\)</span> where <span class="math inline">\(S\)</span> is low-frequency and <span class="math inline">\(s\)</span> is high-frequency.</li>
+</ul>
+<p>Note that any time series put on the left hand side can’t appear on the right hand side of any other constraint. This is because left hand side quantities are fixed while right hand side quantities are adjusted so the equality holds.</p>
+<p>The output are the benchmarked high-frequency time series, that can be found in <em>Details</em> <span class="math inline">\(\rightarrow\)</span> <em>Benchmarked series</em>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/OutCholetteMulti.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Output multi-variate Cholette</figcaption>
+</figure>
+</div>
+</section>
+</section>
+<section id="using-the-plug-in-for-gui-version-3.x" class="level3">
+<h3 class="anchored" data-anchor-id="using-the-plug-in-for-gui-version-3.x">Using the plug-in for GUI (version 3.x)</h3>
+<p>Practical use of the plug-in for v 3.x is quasi identical to the one in v2.x described <a href="#a-bench-td-plugin">above</a>. Some methods are not available yet in v 3.x but the latter which contains Model</p>
+<p>Based Denton not included in v2.x, as stated <a href="#a-b-td-overview">here</a></p>
+</section>
+<section id="in-r-with-rjd3bench" class="level3">
+<h3 class="anchored" data-anchor-id="in-r-with-rjd3bench">In R with <code>rjd3bench</code></h3>
+<p>Use the [rjd3bench](https://github.com/rjdverse/rjd3bench) package and see its documentation pages. Browse its documentation on this <a href="https://rjdverse.github.io/rjd3bench/">GitHub page</a>.</p>
+<p>To get started browse the <a href="https://rjdverse.github.io/rjd3bench/articles/rjd3bench.html">vignette</a></p>
+<p>More information on R packages for JDemetra+ and installation procedures is provided in <a href="T-r-packages.html">this chapter</a></p>
+</section>
+</section>
+<section id="a-bench-tempd" class="level2">
+<h2 class="anchored" data-anchor-id="a-bench-tempd">Temporal Disaggregation</h2>
+<p>These methods are used to disaggregate a series from low frequency to high frequency. Temporal disaggregation methods developed in the plug-in are Chow-Lin, Fernández and Litterman.</p>
+<p>When there are high frequency related indicators, these methods provide high frequency estimations for a series whose sums, averages, first or last values are consistent with the observed low frequency series, applying a regression model where it is assumed that the high frequency series to be estimated follows a multiple regression with p related series (indicators).</p>
+<p>See Methods<span class="math inline">\(\rightarrow\)</span>Temporal disaggregation for more theoretical detail.</p>
+<section id="using-the-plug-in-for-gui" class="level3">
+<h3 class="anchored" data-anchor-id="using-the-plug-in-for-gui">Using the plug-in for GUI</h3>
+<p>Temporal disaggregation in the GUI is available with the same <a href="#a-bench-td-plugin">plug-in</a> as benchmarking (described in the sections above)</p>
+<p>To run Temporal Disaggregation methods select Temporal disaggregation<span class="math inline">\(\rightarrow\)</span> Regression Model:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/Image6_TD.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Temporal Disggregation</figcaption>
+</figure>
+</div>
+<p>A new window is displayed to launch one of the methods with the series selected. In the upper left side drag the low frequency series from the Providers window and drop it in <strong>Y box</strong> and the proxy series or indicator with high frequency series in <strong>X box</strong>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/Image7_TD.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Temporal Disggregation</figcaption>
+</figure>
+</div>
+<p>In the top right of the screen, select <strong>Specifications</strong> to set the specifications to apply each method. Here is a description of the available options on Temporal Disaggregation methods:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/Image8_TD.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Temporal Disggregation</figcaption>
+</figure>
+</div>
+<ol type="1">
+<li><strong>Estimation span</strong>: Specifies the span (data interval) of the time series to be used in the temporal disaggregation process. The user can restrict the span. The common settings are:</li>
+</ol>
+<table class="table">
+<colgroup>
+<col style="width: 13%">
+<col style="width: 72%">
+<col style="width: 13%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Option</th>
+<th>Description (expected format)</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>All</td>
+<td>default</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>From</td>
+<td>first observation included (yyyy-mm-dd)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>To</td>
+<td>last observation included (yyyy-mm-dd)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Between</td>
+<td>interval [from ; to] included (yyyy-mm-dd to yyyy-mm-dd)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>First</td>
+<td>number of observtions from the beginning of the series included (dynamic) (integer)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Last</td>
+<td>number of observations from the end of the series (dynamic)(integer)</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>Excluding</td>
+<td>excluding N first observation and P last observation from the computation,dynamic) (integer)</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>Preliminary check</td>
+<td>check to exclude highly problematic series e.g.&nbsp;the series with a number of identical observations and/or missing values above pre-specified threshold values. (True/False)</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<ol start="2" type="1">
+<li><strong>Error</strong>: determines the method to be applied and it refers to the model that follows the error term.</li>
+</ol>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Option</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Ar1</td>
+<td>Chow-Lin method (default)</td>
+</tr>
+<tr class="even">
+<td>Wn</td>
+<td>Classical Regression model</td>
+</tr>
+<tr class="odd">
+<td>Rw</td>
+<td>Fernández</td>
+</tr>
+<tr class="even">
+<td>RwAr1</td>
+<td>Litterman</td>
+</tr>
+<tr class="odd">
+<td>I2</td>
+<td>Integrated order 2</td>
+</tr>
+<tr class="even">
+<td>I3</td>
+<td>Integrated order 3</td>
+</tr>
+</tbody>
+</table>
+<ol start="3" type="1">
+<li><p><strong>Parameter</strong>: Coefficient of the AR(1) of the innovations model. It has a value between -1 and 1. This parameter exists only if RWar1 or Ar1 is selected in the error parameter.</p></li>
+<li><p><strong>Constant</strong>: a constant is included in the model if it is selected.</p></li>
+<li><p><strong>Trend</strong>: a linear trend is included in the model if it is selected.</p></li>
+<li><p><strong>Type</strong>: Aggregation function (Sum, Average, Last or First). This forces the low-frequency series to match the aggregation function selected of the high frequency series.</p></li>
+<li><p><strong>Default frequency</strong>: it is the frequency of the output series.</p></li>
+<li><p><strong>Advanced options</strong>: These parameters are related to state space model and the algorithm used to obtain the estimations.</p>
+<p>8.1. <strong>Diffuse regression coefficient</strong>: Indicates if the coefficients of the regression model are diffuse (T) or fixed unknown (F, default).</p></li>
+</ol>
+<p>Here are the results:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/Image9_TD.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Temporal Disaggregation</figcaption>
+</figure>
+</div>
+<p>Select <strong>Model</strong><span class="math inline">\(\rightarrow\)</span>Summary to see the estimation of <span class="math inline">\(rho\)</span> (coefficient of the AR(1) model) and the coefficient of the regression model. Additionally the BIC, AIC and AICC. It is also showed the variance decomposition in Indicators and Smoothing. Ideally, if the indicator adequately approximates the aggregate in the observable domain (low frequency model), the residuals of the low frequency model will be small and the indicator term will dominate. \</p>
+<p>To confirm that the model works well, select <strong>Model</strong><span class="math inline">\(\rightarrow\)</span>Residuals<span class="math inline">\(\rightarrow\)</span>Statistics and see the tests on the residuals of the model:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/Image10_TD.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Temporal Disggregation</figcaption>
+</figure>
+</div>
+<p>Select MainResults<span class="math inline">\(\rightarrow\)</span>Table to obtain the disaggregated series and standard deviation.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="All_images/Image11_TD.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Temporal Disggregation</figcaption>
+</figure>
+</div>
+<p>Select <strong>MainResults</strong><span class="math inline">\(\rightarrow\)</span>Chart to see a graph of the disaggregated series and the confidence interval.</p>
+</section>
+<section id="in-r-with-rjd3bench-1" class="level3">
+<h3 class="anchored" data-anchor-id="in-r-with-rjd3bench-1">In R with <code>rjd3bench</code></h3>
+<p>Use the [rjd3bench](https://github.com/rjdverse/rjd3bench) package and see its documentation pages. Browse its documentation on this <a href="https://rjdverse.github.io/rjd3bench/">GitHub page</a>.</p>
+<p>To get started browse the <a href="https://rjdverse.github.io/rjd3bench/articles/rjd3bench.html">vignette</a></p>
+<p>More information on R packages for JDemetra+ and installation procedures is provided in <a href="T-r-packages.html">this chapter</a></p>
+<section id="temporal-disaggregation-1" class="level4">
+<h4 class="anchored" data-anchor-id="temporal-disaggregation-1">Temporal Disaggregation</h4>
+<p>To perform Temporal Disaggregation methods use the function <strong>temporaldisaggregation</strong>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>output <span class="ot">&lt;-</span> rjd3bench<span class="sc">::</span><span class="fu">temporaldisaggregation</span>(</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">series =</span> y, <span class="at">indicators =</span> x, <span class="at">model =</span> <span class="st">"Rw"</span>, <span class="at">freq =</span> <span class="dv">12</span>,</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">conversion =</span> <span class="st">"Average"</span>, <span class="at">diffuse.algorithm =</span> <span class="st">"Diffuse"</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The input parameters are the same as in the GUI, see the R Documentation of the rjd3bench package for the description.</p>
+<p>The output is a list containing 3 elements:</p>
+<ol type="1">
+<li><p><strong>Regression</strong>: contains information about:</p>
+<ul>
+<li>Type of method applied:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>output<span class="sc">$</span>regression<span class="sc">$</span>type</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>The model (coefficient estimation, standard deviation and T-statistic):</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>output<span class="sc">$</span>regression<span class="sc">$</span>model</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>Conversion:Aggregation function (Sum, Average, Last or First):</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>output<span class="sc">$</span>regression<span class="sc">$</span>conversion</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></li>
+<li><p><strong>Estimation</strong>: contains information about:</p>
+<ul>
+<li>The disaggregated series:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>output<span class="sc">$</span>estimation<span class="sc">$</span>disagg</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>The standard deviation of the disaggregated series:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>output<span class="sc">$</span>estimation<span class="sc">$</span>edisagg</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>The regressor effect:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>output<span class="sc">$</span>estimation<span class="sc">$</span>regeffect</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>The smoothing part:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>output<span class="sc">$</span>estimation<span class="sc">$</span>smoothingpart</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>The <span class="math inline">\(rho\)</span> estimation (coefficient of the AR(1) model): This parameter exists only if RWar1 or Ar1 is selected in the model.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>output<span class="sc">$</span>estimation<span class="sc">$</span>parameter</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>The standard deviation of the AR(1) coefficient:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>output<span class="sc">$</span>estimation<span class="sc">$</span>eparameter</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></li>
+<li><p><strong>Likelihood</strong>: Contains information about the loglikelihood(ll), sum of squares of the residuals of the model (ssq), number of observations (nobs), number of parameters to be estimated (nparams), degrees of freedom (df), Akaike Information Criteria (aic), Akaike Information Criteria Corrected (aicc), Bayesian Information Criteria (bic), Bayesian Information Criteria Corrected (bic2).</p></li>
+</ol>
+
+
+</section>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./A-calendar-correction.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Calendar correction</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./A-trend-cycle-estimation.html" class="pagination-link">
+        <span class="nav-page-text">Trend-cycle estimation</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">This book was built with <a href="https://quarto.org/">Quarto</a>.</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right"></div>
+  </div>
+</footer>
+
+
+
+</body></html>
