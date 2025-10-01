@@ -19,9 +19,14 @@ JDemetra+ provides [algorithms](#part-A) for:
 
 ## Currently available versions
 
-The highest version currently recommended for production purposes is 2.2.4.
+The latest release in version 3 family can be found [here](https://github.com/jdemetra/jdplus-main/releases).
 
-Version 3.x  family provides, [among other things](#v3-vs-v2), extended features for seasonal adjustment and trend estimation, including **high frequency data**. The latest version 3.2.4 was released on July 11th 2024.
+Version 3.x  family provides, [among other things](#v3-vs-v2), extended features for seasonal adjustment and trend estimation, including **high frequency data**. 
+
+The latest release in version 2 family can be found [here](https://github.com/jdemetra/jdemetra-app/releases).
+
+The highest version using Java 8 is v2.2.4.
+
 
 ## Background
 
@@ -69,11 +74,11 @@ You can find the latest releases
 
 - in the v2.x family: [here](https://github.com/jdemetra/jdemetra-app/releases)
 
-As of April 2024, the latest version is [v2.2.4](https://github.com/jdemetra/jdemetra-app/releases/tag/v2.2.4)
+To install [v2.2.4](https://github.com/jdemetra/jdemetra-app/releases/tag/v2.2.4):
 
-Scroll down the page, download and unzip the file *jdemetra-2.2.4-bin.zip*.
+- Scroll down the page, download and unzip the file *jdemetra-2.2.4-bin.zip*.
 
-To start the application, run the file **nbdemetra64.exe** located in the following subfolder [...\\jdemetra-2.2.4-bin\\nbdemetra\\bin]{.path}
+- To start the application, run the file **nbdemetra64.exe** located in the following subfolder [...\\jdemetra-2.2.4-bin\\nbdemetra\\bin]{.path}
  
 Remark: You can create shortcuts to the executable files if you want to launch them from another folder (Desktop, project folder...).
 
@@ -82,15 +87,15 @@ Remark: You can create shortcuts to the executable files if you want to launch t
 
 You should install the latest release available denoted from now on v3.x.y 
 
-Scroll down the page, download and unzip the file *jdemetra-standalone-3.x.y-windows-x86_64.zip*, if you use Windows, or the zip corresponding to you OS in the list.
+- Scroll down the page, download and unzip the file *jdemetra-standalone-3.x.y-windows-x86_64.zip*, if you use Windows, or the zip corresponding to your OS in the list.
 
-To start the application, run the file **nbdemetra64.exe** located in the following subfolder [...\\jdemetra-standalone-3.x.y-windows-x86_64\\nbdemetra\\bin]{.path}
+- To start the application, run the file **nbdemetra64.exe** located in the following subfolder [...\\jdemetra-standalone-3.x.y-windows-x86_64\\nbdemetra\\bin]{.path}
 
-Version 3.x requires Java 17 or higher, *jdemetra-standalone-3.x.y-windows-x86_64.zip* contains a portable version of Java 21, so you don't have to deal with this issue on your computer.
+Version 3.x requires Java 17 or higher, *jdemetra-standalone-3.x.y-windows-x86_64.zip* contains a portable version of Java, so you don't have to deal with this issue on your computer.
 
 R packages related to version 3.x (rjd3...) also require Java 17 or higher, you can (and should) use the portable version provided with the graphical user interface to run them, this is explained [here](#Rconfig).
 
-### Additional plugins
+### Additional Plug-ins
 
 To benefit from extended features of the graphical user interface installing additional plug-ins is required. The list of available extensions and the installation procedure are detailed [here](#t-plug-ins). How to access the added features in the GUI is described [here](#t-gui-sa).
 
@@ -115,9 +120,9 @@ JDemetra+ has an executable module, called the [Cruncher](#t-prod), allowing to 
 
 To install it :
 
-- in v2, go to the [**JWSACruncher** page](https://github.com/jdemetra/jwsacruncher), **download** and **unzip** the compressed folder `jwsacruncher-2.2.4-bin.zip`.
+- in v2, go to the [**JWSACruncher** page](https://github.com/jdemetra/jwsacruncher), **download** and **unzip** the compressed folder `jwsacruncher-2.2.x-bin.zip`, corresponding to the version of your Graphical User Interface.
 
-- in v3, go to the [**jdplus-main** page](https://github.com/jdemetra/jdplus-main), **download** and **unzip** the compressed folder `jwsacruncher-standalone-3.x.y-windows-x86_64.zip`.
+- in v3, go to the [**jdplus-main** page](https://github.com/jdemetra/jdplus-main), **download** and **unzip** the compressed folder `jwsacruncher-standalone-3.x.y-windows-x86_64.zip`, corresponding to the version of your Graphical User Interface.
 
 ### R packages 
 
@@ -132,7 +137,7 @@ You can directly head over to this [GitHub page](https://github.com/rjdverse?vie
 
 To use rjd3 packages in R, you need Java 17 or higher.
 
-You can (and should) use the version of Java that comes with the Graphical User Interface (GUI). It is contained in the file **jdemetra-standalone-3.2.4-windows-x86_64.zip** available [on this page](https://github.com/jdemetra/jdplus-main/releases), in the "Assets" section, which you might have to expand to be able to see all the files.
+You can (and should) use the version of Java that comes with the Graphical User Interface (GUI). It is contained in the file **jdemetra-standalone-3.x.y-windows-x86_64.zip** available [on this page](https://github.com/jdemetra/jdplus-main/releases), in the "Assets" section, which you might have to expand to be able to see all the files.
 
 Once unzipped, the Java will be in located in  [C:\\Software\\jdemetra-standalone-3.x.y-windows-x86_64\\nbdemetra\\jdk-21.0.2+13-jre]{.path} (path to be adapted to your computer/server): this location must be declared in R.
 

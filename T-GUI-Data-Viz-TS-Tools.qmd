@@ -15,7 +15,7 @@ This chapter describes time series generic tools available in the Graphical User
 Additional chapters related to GUI features, provide information on:
 
 - [Overview](#t-gui-overview)
-- [Specific Seasonal Adjustement and Modelling features](#t-gui-sa)
+- [Specific Seasonal Adjustment and Modelling features](#t-gui-sa)
 - [Output: series, parameters and diagnostics](#t-gui-output)
 
 ## Data visualization
@@ -162,6 +162,8 @@ The *Auto-regressive-Properties* window contains the following options:
 
 -   **Resolution**-the value 1 plots the spectral density estimate for the frequencies $\omega_{j}=\frac{2\pi j}{n}$, where $n \in (-\pi;\pi)$ is the size of the sample used to estimate the AR model. Increasing this value, which is set to 5 by default, will increase the precision of this grid.
 
+<!-- QQ, PH: value 1 ? explain better  -->
+
 ### Periodogram
 
 Choose *Tools* →*Spectral analysis* → *Periodogram* and drag and drop a series from the *Providers* window to the empty *Periodogram* window.
@@ -178,7 +180,7 @@ The sample size and data transformations can be specified by opening the *Window
 
 -   **Last years**-the number of years at the end of the time series taken to produce periodogram. By default it is 0, which means that the whole time series is considered.
 
-    ![An example of a periodogram](All_images/image7_342.jpeg)
+    ![Example of a periodogram](All_images/image7_342.jpeg)
     
     ![Periodogram's properties](All_images/image6_342.jpeg)
 
@@ -204,7 +206,7 @@ Options for the Tuckey window can be specified by opening the *Window* → *Prop
 
 -   **Window length**--the size of the window that is used to smooth the auto-covariance function. A value of zero includes the whole series.
 
--   **Window type**--it refers to the weighting scheme that it is used to smooth the auto-covariance function. The available windows types (*Square*, *Welch*, *Tukey*, *Barlett*, *Hamming*, *Parzen*) are suitable to estimate the spectral density.
+-   **Window type**--it refers to the weighting scheme that it is used to smooth the auto-covariance function. Available windows types are: *Square*, *Welch*, *Tukey*, *Barlett*, *Hamming* and *Parzen*.
 
 ![Tukey spectrum's properties](All_images/image10_342.jpeg)
 
@@ -238,7 +240,7 @@ The test can be applied directly to any series by selecting the option *Statisti
 
 ![qs](All_images/qs.png)
 
-It is also visible in Main results panel and in diagnostics node.
+It is also visible in Main results panel and in Diagnostics node when an SA processing has been carried out.
 
 #### Friedman test for stable seasonality
 
@@ -249,7 +251,7 @@ The test can be applied directly to any series by selecting the option *Statisti
 
 If the null hypothesis of no stable seasonality is rejected at the 1% significance level, then the series is considered to be seasonal and the outcome of the test is displayed in green.
 
-It is also visible in Main results panel and in diagnostics node. (to be checked)
+It is also visible in Diagnostics node when an SA processing has been carried out.
 
 #### Identification of spectral peaks 
 
@@ -261,7 +263,7 @@ The test can be applied directly to any series by selecting the option *Statisti
 
 JDemetra+ considers critical values for $\alpha=1\%$ (code "T") and $\alpha=5\%$ (code "t") at each one of the seasonal frequencies represented in the table below, e.g. frequencies $\frac{\pi}{6}, \frac{\pi}{3}, \frac{\pi}{2}, \frac{2\pi}{3}\text{and} \frac{5\pi}{6}$ corresponding to 1, 2, 3, 4, 5 and 6 cycles per year in this example, since we are dealing with monthly data.
 
-##### In AR Spectrum definition {#t-GUI-tstools-id-p-ar}
+##### In an AR Spectrum {#t-GUI-tstools-id-p-ar}
 
 The test can be applied directly to any series by selecting the option *Statistical Methods \>\> Seasonal Adjustment \>\> Tools \>\> Seasonality Tests*. This is an example of how results are displayed for the case of a monthly series:
 
@@ -275,7 +277,9 @@ The test can be applied directly to any series by selecting the option *Statisti
 
 ![periodtest](All_images/periodogram.png)
 
-### Tests on residuals
+<!-- ### Tests on residuals -->
 
-Up coming content.
+<!-- Up coming content. -->
+
+<!-- to remove: as no tests on residuals (white noise) out of an SA process -->
 
