@@ -150,7 +150,7 @@ Xsa_t^{(2)}= X_t - Snorm_t^{(2)}
 $$
 
 
-## Processing stages and output {#m-X11-stages-output}
+## Processing stages {#m-X11-stages}
 
 To evaluate the different components of a series, while taking into
 account the possible presence of extreme observations, X11 will proceed
@@ -173,14 +173,13 @@ The algorithm is split into
 
 ![](All_images/ESTP_bbk_X11_detailed_computation.png)
 
+## Series description (input and output) {#m-X11-output}
 
 ### Stage A: Pre-adjustment
 
 If a [pre-treatment](#sa-pre-t) is performed using X-13-ARIMA algorithm is A step is not used, results in A table appearing in JDemetra+ output are a copy of pre-treatment results. 
 
 Detailed series produced at the end of stage A, including estimated effect from the [Reg-ARIMA part](#sa-pre-t)
-
-(to be checked: v2 vs v3 display, in GUI and R, here info based on v2)
 
 -   Table A1: Original raw series;
 
@@ -218,7 +217,7 @@ extreme observations](#X11-I-correc). This stage is performed by applying twice 
 
 Detailed series produced at the end of stage B:
 
--   Table B1: Original series after adjustment by the Reg-ARIMA model;
+-   Table B1: Linearized Series (Original series after adjustment by the Reg-ARIMA model);
 
 -   Table B2: Unmodified Trend (preliminary estimation using composite
     moving average);
@@ -256,7 +255,7 @@ Following the same steps as Stage B, this stage leads to table C20, which allows
 
 Detailed series produced at the end of stage C:
 
--   Table C1: Modified Raw Series;
+-   Table C1: Modified Linearized Series;
 
 -   Table C2: Trend (preliminary estimation using composite moving
     average);
@@ -278,11 +277,6 @@ Detailed series produced at the end of stage C:
 -   Table C13: Irregular Component;
 
 -   Table C20: Adjustment Values for the original series B1, allow to compute D1.
-
-(To be checked: C20 weights will be applied to B1 not C1)
-
-(Up coming here: computation steps from C1 to C20)
-
 
 ### Stage D: Final decomposition and seasonal adjustment
 
@@ -307,32 +301,51 @@ Detailed series produced at the end of stage D:
 
 -   Table D9: Replacement Values for Extreme SI Values;
 
--   Table D10: Final Seasonal Factors;
+-   Table D10: Final Seasonal Factors of the decomposition phase, without pre-adjustment effects meant to be allocated to the seasonal component in version 3, and with those effects version 2;
 
--   Table D10A: Forecast of Final Seasonal Factors;
+-   Table D10A: Forecast of Final Seasonal Factors of the decomposition phase;
 
--   Table D11: Final Seasonally Adjusted Series;
+-   Table D11: Final Seasonally Adjusted Series (obtained with D10 factors);
 
 -   Table D11A: Forecast of Final Seasonally Adjusted Series;
 
--   Table D12: Final Trend (estimation using Henderson moving
-    average);
+-   Table D12: Final Trend, without pre-adjustment effects meant to be allocated to the trend in version 3, and with those effects version 2;
+
+-   Table D12A: Forecast of Final Trend Component;
+
+-   Table D13: Final Irregular Component without pre-adjustment effects meant to be allocated to the irregular in version 3, and with those effects version 2;
+
+#### D-Final-Table {#m-X11-final-output}
+
+In version 3 the very final components including pre-adjustment effects are stored in the D-Final-Table
+
+-   Table D11: Final Seasonally Adjusted Series (obtained with D16 factors);
+
+-   Table D11A: Forecast of Final Seasonally Adjusted Series;
+
+-   Table D12: Final Trend ;
 
 -   Table D12A: Forecast of Final Trend Component;
 
 -   Table D13: Final Irregular Component;
 
--   Table D16: Seasonal and Calendar Effects;
+-   Table D16: Final Seasonal Factors ;
 
--   Table D16A: Forecast of Seasonal and Calendar Component;
+-   Table D16A: Forecast of Final Seasonal Factors;
 
 -   Table D18: Combined Calendar Effects Factors.
 
-All final components include pre-adjustment effects stemming from outliers or regressors used in the pre-treatment step. (to be checked: v2 vs v3,here info based on v2)
+<!-- equations à ajouter : see slides alloc  -->
 
-D10 doesn't contain calendar effects which are added in D16.
+<!-- In version 3 -->
 
-(Up coming here: computation steps from D1 to D20)
+
+<!-- In version 2 -->
+
+
+
+
+
 
 ### Stage E: Components modified for large extreme values
 
@@ -349,7 +362,6 @@ Detailed series produced at the end of stage E:
 
 -   Table E11: Robust Estimation of the Final SA Series
 
-(Up coming here: computation steps for E Tables)
 
 ## Quality Measures {#m-X11-qm}
 
@@ -605,7 +617,7 @@ The algorithm chooses between different filter lengths automatically according t
 
 In iteration D, Table D10 shows an estimate of the seasonal factors
 implemented on the basis of the modified SI (Seasonal: Irregular)
-factors estimated in Tables D4 and D9bis. This component will have to be
+factors estimated in Tables D4 and D9bis. This component will be
 smoothed to estimate the seasonal component; depending on the importance
 of the irregular in the SI component
 

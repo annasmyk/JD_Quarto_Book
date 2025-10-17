@@ -4,124 +4,125 @@
 
 How to navigate output
 
-Names
 
-Indications and example in the relevant algo or tool chapter
+<!-- Names -->
 
-Here comprehensive (target) lists
+<!-- Indications and example in the relevant algo or tool chapter -->
 
-## What is displayed or generated ?
+<!-- Here comprehensive (target) lists -->
 
-Output: 3 types of objects
+<!-- ## What is displayed or generated ? -->
 
--   series (final and intermediate)
+<!-- Output: 3 types of objects -->
 
--   parameters (automatic, user-defined or resulting from the estimation process)
+<!-- -   series (final and intermediate) -->
 
--   diagnostics
+<!-- -   parameters (automatic, user-defined or resulting from the estimation process) -->
 
-displayed
+<!-- -   diagnostics -->
 
--   gui
+<!-- displayed -->
 
--   R packages
+<!-- -   gui -->
 
-dictionaries user defined functions (deprecated)
+<!-- -   R packages -->
 
-<!-- maj java dicos  -->
+<!-- dictionaries user defined functions (deprecated) -->
 
-generated to files or R objects (lists of lists)
+<!-- <!-- maj java dicos  --> -->
 
-Gathered in 2 data structures
+<!-- generated to files or R objects (lists of lists) -->
 
--   time series organised in data tables
+<!-- Gathered in 2 data structures -->
 
--   individual data (for each series: parameters and diagnostics)
+<!-- -   time series organised in data tables -->
 
-## How to access it
+<!-- -   individual data (for each series: parameters and diagnostics) -->
 
-Below different lists We flog differences between v2 and v3
+<!-- ## How to access it -->
 
-<!-- file from old doc GUI_Output_items.txt in Documents/JD_Quarto_Book_AUX/All_pages -->
+<!-- Below different lists We flog differences between v2 and v3 -->
 
-<!-- use: https://www.tablesgenerator.com/markdown_tables -->
+<!-- <!-- file from old doc GUI_Output_items.txt in Documents/JD_Quarto_Book_AUX/All_pages --> -->
 
-## Series
+<!-- <!-- use: https://www.tablesgenerator.com/markdown_tables --> -->
 
-fields: concept, name in the software (GUI, cruncher, R), algo used ? or by algo ?
+<!-- ## Series -->
 
-| Concept | Name |   |
-|--------------------------------------|------------------|----------------|
-| Original series | $$y$$ |  |
-| Forecasts of the original series | $$y\_ f$$ |  |
-| Standard errors of the forecasts of the original series | $$y\_ ef$$ |  |
-| Interpolated series | $$y\_ c$$ |  |
-| Forecasts of the interpolated series | $$yc\_ f$$ |  |
-| Standard errors of the forecasts of the interpolated series | $$yc\_ ef$$ |  |
-| Linearised series (not transformed) | $$y\_ lin$$ |  |
-| Linearised series (transformed) | $$l$$ |  |
-| Series corrected for calendar effects | $${ycal}$$ |  |
-| Forecasts of the series corrected for calendar effects | $$ycal\_ f$$ |  |
-| Forecasts of the linearised series | $$l\_ f$$ |  |
-| Backcasts of the linearised series | $$l\_ b$$ |  |
-| Trend (including deterministic effects) | $$t$$ |  |
-| Forecasts of the trend | $$t\_ f$$ |  |
-| Seasonally adjusted series (including deterministic effects) | $${sa}$$ |  |
-| Forecasts of the seasonally adjusted series | $$sa\_ f$$ |  |
-| Seasonal component (including deterministic effects) | $$s$$ |  |
-| Forecasts of the seasonal component | $$s\_ f$$ |  |
-| Irregular component (including deterministic effects) | $$i$$ |  |
-| Forecasts of the irregular component | $$i\_ f$$ |  |
-| All deterministic effects | $${det}$$ |  |
-| Forecasts of the deterministic effects | $$det\_ f$$ |  |
-| Calendar effects | $${cal}$$ |  |
-| Forecasts of the calendar effects | $$cal\_ f$$ |  |
-| Trading day effect | $${tde}$$ |  |
-| Forecasts of the trading day effect | $$tde\_ f$$ |  |
-| Moving holidays effects | $${mhe}$$ |  |
-| Forecasts of the moving holidays effects | $$mhe\_ f$$ |  |
-| Easter effect | $${ee}$$ |  |
-| Forecasts of the Easter effect | $$ee\_ f$$ |  |
-| Other moving holidays effects | $${omhe}$$ |  |
-| Forecasts of the other moving holidays effects | $$omhe\_ f$$ |  |
-| All outliers effects | $${out}$$ |  |
-| Forecasts of all outliers effects | $$out\_ f$$ |  |
-| Outliers effects related to irregular (AO, TC) | $$out\_ i$$ |  |
-| Forecasts of outliers effects related to irregular (TC) | $$out\_ i\_ f$$ |  |
-| Outliers effects related to trend (LS) | $$out\_ t$$ |  |
-| Forecasts of outliers effects related to trend (LS) | $$out\_ t\_ f$$ |  |
-| Outliers effects related to seasonal (SO) | $$out\_ s$$ |  |
-| Forecasts of outliers effects related to seasonal (SO) | $$out\_ s\_ f$$ |  |
-| All other regression effects | $${reg}$$ |  |
-| Forecasts of all other regression effects | $$reg\_ f$$ |  |
-| Regression effects related to irregular | $$reg\_ i$$ |  |
-| Forecasts of regression effects related to irregular | $$reg\_ i\_ f$$ |  |
-| Regression effects related to trend | $$reg\_ t$$ |  |
-| Forecasts of regression effects related to trend | $$reg\_ t\_ f$$ |  |
-| Regression effects related to seasonal | $$reg\_ s$$ |  |
-| Forecasts of regression effects related to seasonal | $$reg\_ s\_ f$$ |  |
-| Regression effects related to seasonally adjusted series | $$reg\_ sa$$ |  |
-| Forecasts of regression effects related to seasonally adjusted series | $$reg\_ sa\_ f$$ |  |
-| Separate regression effects | $$reg\_ y$$ |  |
-| Forecasts of separate regression effects | $$reg\_ y\_ f$$ |  |
-| Full residuals of the Reg-ARIMA model | $${fullresiduals}$$ |  |
-| Linearised series used as input in the decomposition | $$decomposition.y\_ lin$$ |  |
-| Forecast of the linearised series used as input in the decomposition | $$decomposition.y\_ lin\_ f$$ |  |
-| Trend produced by the decomposition | $$decomposition.t\_ lin$$ |  |
-| Forecasts of the trend produced by the decomposition | $$decomposition.t\_ lin\_ f$$ |  |
-| Seasonal component produced by the decomposition | $$decomposition.s\_ lin$$ |  |
-| Forecasts of the Seasonal component produced by the decomposition | $$decomposition.s\_ lin\_ f$$ |  |
-| Irregular produced by the decomposition | $$decomposition.i\_ lin$$ |  |
-| Forecasts of the irregular produced by the decomposition | $$decomposition.i\_ lin\_ f$$ |  |
-| Seasonally adjusted series produced by the decomposition | $$decomposition.sa\_ lin$$ |  |
-| Forecasts of the seasonally adjusted series produced by the decomposition | $$decomposition.sa\_ lin\_ f$$ |  |
-| Seasonal-Irregular produced by the decomposition | $$decomposition.si\_ lin$$ |  |
-| For X-13ARIMA-Seats only. Series from the X-11 decomposition (x = a, b, c, d, e; y=a1...) | $$decomposition.x - tables.y$$ |  |
-| Benchmarked seasonally adjusted series | $${benchmarking.result}$$ |  |
-| Target for the benchmarking | $${benchmarking.target}$$ |  |
+<!-- fields: concept, name in the software (GUI, cruncher, R), algo used ? or by algo ? -->
 
-## Diagnostics
+<!-- | Concept | Name |   | -->
+<!-- |--------------------------------------|------------------|----------------| -->
+<!-- | Original series | $$y$$ |  | -->
+<!-- | Forecasts of the original series | $$y\_ f$$ |  | -->
+<!-- | Standard errors of the forecasts of the original series | $$y\_ ef$$ |  | -->
+<!-- | Interpolated series | $$y\_ c$$ |  | -->
+<!-- | Forecasts of the interpolated series | $$yc\_ f$$ |  | -->
+<!-- | Standard errors of the forecasts of the interpolated series | $$yc\_ ef$$ |  | -->
+<!-- | Linearised series (not transformed) | $$y\_ lin$$ |  | -->
+<!-- | Linearised series (transformed) | $$l$$ |  | -->
+<!-- | Series corrected for calendar effects | $${ycal}$$ |  | -->
+<!-- | Forecasts of the series corrected for calendar effects | $$ycal\_ f$$ |  | -->
+<!-- | Forecasts of the linearised series | $$l\_ f$$ |  | -->
+<!-- | Backcasts of the linearised series | $$l\_ b$$ |  | -->
+<!-- | Trend (including deterministic effects) | $$t$$ |  | -->
+<!-- | Forecasts of the trend | $$t\_ f$$ |  | -->
+<!-- | Seasonally adjusted series (including deterministic effects) | $${sa}$$ |  | -->
+<!-- | Forecasts of the seasonally adjusted series | $$sa\_ f$$ |  | -->
+<!-- | Seasonal component (including deterministic effects) | $$s$$ |  | -->
+<!-- | Forecasts of the seasonal component | $$s\_ f$$ |  | -->
+<!-- | Irregular component (including deterministic effects) | $$i$$ |  | -->
+<!-- | Forecasts of the irregular component | $$i\_ f$$ |  | -->
+<!-- | All deterministic effects | $${det}$$ |  | -->
+<!-- | Forecasts of the deterministic effects | $$det\_ f$$ |  | -->
+<!-- | Calendar effects | $${cal}$$ |  | -->
+<!-- | Forecasts of the calendar effects | $$cal\_ f$$ |  | -->
+<!-- | Trading day effect | $${tde}$$ |  | -->
+<!-- | Forecasts of the trading day effect | $$tde\_ f$$ |  | -->
+<!-- | Moving holidays effects | $${mhe}$$ |  | -->
+<!-- | Forecasts of the moving holidays effects | $$mhe\_ f$$ |  | -->
+<!-- | Easter effect | $${ee}$$ |  | -->
+<!-- | Forecasts of the Easter effect | $$ee\_ f$$ |  | -->
+<!-- | Other moving holidays effects | $${omhe}$$ |  | -->
+<!-- | Forecasts of the other moving holidays effects | $$omhe\_ f$$ |  | -->
+<!-- | All outliers effects | $${out}$$ |  | -->
+<!-- | Forecasts of all outliers effects | $$out\_ f$$ |  | -->
+<!-- | Outliers effects related to irregular (AO, TC) | $$out\_ i$$ |  | -->
+<!-- | Forecasts of outliers effects related to irregular (TC) | $$out\_ i\_ f$$ |  | -->
+<!-- | Outliers effects related to trend (LS) | $$out\_ t$$ |  | -->
+<!-- | Forecasts of outliers effects related to trend (LS) | $$out\_ t\_ f$$ |  | -->
+<!-- | Outliers effects related to seasonal (SO) | $$out\_ s$$ |  | -->
+<!-- | Forecasts of outliers effects related to seasonal (SO) | $$out\_ s\_ f$$ |  | -->
+<!-- | All other regression effects | $${reg}$$ |  | -->
+<!-- | Forecasts of all other regression effects | $$reg\_ f$$ |  | -->
+<!-- | Regression effects related to irregular | $$reg\_ i$$ |  | -->
+<!-- | Forecasts of regression effects related to irregular | $$reg\_ i\_ f$$ |  | -->
+<!-- | Regression effects related to trend | $$reg\_ t$$ |  | -->
+<!-- | Forecasts of regression effects related to trend | $$reg\_ t\_ f$$ |  | -->
+<!-- | Regression effects related to seasonal | $$reg\_ s$$ |  | -->
+<!-- | Forecasts of regression effects related to seasonal | $$reg\_ s\_ f$$ |  | -->
+<!-- | Regression effects related to seasonally adjusted series | $$reg\_ sa$$ |  | -->
+<!-- | Forecasts of regression effects related to seasonally adjusted series | $$reg\_ sa\_ f$$ |  | -->
+<!-- | Separate regression effects | $$reg\_ y$$ |  | -->
+<!-- | Forecasts of separate regression effects | $$reg\_ y\_ f$$ |  | -->
+<!-- | Full residuals of the Reg-ARIMA model | $${fullresiduals}$$ |  | -->
+<!-- | Linearised series used as input in the decomposition | $$decomposition.y\_ lin$$ |  | -->
+<!-- | Forecast of the linearised series used as input in the decomposition | $$decomposition.y\_ lin\_ f$$ |  | -->
+<!-- | Trend produced by the decomposition | $$decomposition.t\_ lin$$ |  | -->
+<!-- | Forecasts of the trend produced by the decomposition | $$decomposition.t\_ lin\_ f$$ |  | -->
+<!-- | Seasonal component produced by the decomposition | $$decomposition.s\_ lin$$ |  | -->
+<!-- | Forecasts of the Seasonal component produced by the decomposition | $$decomposition.s\_ lin\_ f$$ |  | -->
+<!-- | Irregular produced by the decomposition | $$decomposition.i\_ lin$$ |  | -->
+<!-- | Forecasts of the irregular produced by the decomposition | $$decomposition.i\_ lin\_ f$$ |  | -->
+<!-- | Seasonally adjusted series produced by the decomposition | $$decomposition.sa\_ lin$$ |  | -->
+<!-- | Forecasts of the seasonally adjusted series produced by the decomposition | $$decomposition.sa\_ lin\_ f$$ |  | -->
+<!-- | Seasonal-Irregular produced by the decomposition | $$decomposition.si\_ lin$$ |  | -->
+<!-- | For X-13ARIMA-Seats only. Series from the X-11 decomposition (x = a, b, c, d, e; y=a1...) | $$decomposition.x - tables.y$$ |  | -->
+<!-- | Benchmarked seasonally adjusted series | $${benchmarking.result}$$ |  | -->
+<!-- | Target for the benchmarking | $${benchmarking.target}$$ |  | -->
 
-## Parameters
+<!-- ## Diagnostics -->
 
-## Cruncher Output
+<!-- ## Parameters -->
+
+<!-- ## Cruncher Output -->
