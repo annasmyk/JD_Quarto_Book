@@ -190,7 +190,7 @@ NODE Main Results \> SI-Ratios
 
 ![**S-I Ratio**](All_images/SA_MainResults_SI_ratios.png)
 
-For each period (month, quarter) the final value of the seasonal factors (without calendar factors, Table D10) is plotted (blue line). The dots represent $S+I$ or $S*I$ in the multiplicative case, where I= Table D8. The red straight line is the average of the factors over the decomposition (estimation) [span](#sa-pre-t-spans).
+For each period (month, quarter) the final value of the seasonal factors (without calendar factors, Table D10) is plotted (blue line). The dots represent $S+I$ or $S*I$ in the multiplicative case (Series D8). The red straight line is the average of the factors over the decomposition (estimation) [span](#sa-pre-t-spans).
 
 In GUI all values cannot be retrieved.
 
