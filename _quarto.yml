@@ -119,7 +119,7 @@ book:
         - M-Temp-Disagg-Bench.qmd ##(#m-bench)
         - M-revision-analysis.qmd ##(#m-revs)
     #- Output_Description.qmd ##(#output-chap)
-    - references.qmd
+    #- references.qmd
 bibliography: references.bib
 
 format:
