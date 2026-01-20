@@ -70,7 +70,7 @@ book:
           city: Madrid
           url: "https://www.ine.es/"
       role: "Collaborator"
-  date: "10/17/2025"
+  date: "20/01/2026"
   page-navigation: true
   chapters:
     - index.qmd
@@ -119,7 +119,7 @@ book:
         - M-Temp-Disagg-Bench.qmd ##(#m-bench)
         - M-revision-analysis.qmd ##(#m-revs)
     #- Output_Description.qmd ##(#output-chap)
-    #- references.qmd
+    - references.bib
 bibliography: references.bib
 
 format:

@@ -398,12 +398,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
       </ul>
   </li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./references.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">References</span></a>
-  </div>
-</li>
     </ul>
     </div>
 </nav>
@@ -414,8 +408,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#in-this-chapter" id="toc-in-this-chapter" class="nav-link active" data-scroll-target="#in-this-chapter">In this Chapter</a></li>
-  <li><a href="#rationale-for-calendar-correction" id="toc-rationale-for-calendar-correction" class="nav-link" data-scroll-target="#rationale-for-calendar-correction">Rationale for Calendar correction</a></li>
+  <li><a href="#rationale-for-calendar-correction" id="toc-rationale-for-calendar-correction" class="nav-link active" data-scroll-target="#rationale-for-calendar-correction">Rationale for Calendar correction</a></li>
   <li><a href="#modelling-calendar-effects" id="toc-modelling-calendar-effects" class="nav-link" data-scroll-target="#modelling-calendar-effects">Modelling calendar effects</a>
   <ul class="collapse">
   <li><a href="#regression-model-for-type-of-days" id="toc-regression-model-for-type-of-days" class="nav-link" data-scroll-target="#regression-model-for-type-of-days">Regression Model for type of days</a></li>
@@ -455,8 +448,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<section id="in-this-chapter" class="level2">
-<h2 class="anchored" data-anchor-id="in-this-chapter">In this Chapter</h2>
+<p>In this Chapter</p>
 <p>This chapter is divided in two parts. The first one (theory) outlines the rationale for calendar correction and the underlying modelling. The second part (practice) describes how relevant regressors for calendar correction are built in JDemetra+.</p>
 <p>As calendar effects are deterministic, they can be corrected with a regression model. In the algorithms X-13-ARIMA and Tramo-Seats it boils down to adding suitable regressors to the <a href="A-sa-pre-treatment.html">pre-treatment phase</a>). This chapter will describe how to generate a set of regressors corresponding to the desired correction, which will happen according to the following steps:</p>
 <ul>
@@ -475,7 +467,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>How to generate other types of regressors is described <a href="A-outlier-detection.html">here</a> and how to plug them into Reg-ARIMA models is detailed <a href="A-sa-pre-treatment.html">here</a></p>
 <!-- ## Tools Map -->
 <!-- up coming content -->
-</section>
 <section id="rationale-for-calendar-correction" class="level2">
 <h2 class="anchored" data-anchor-id="rationale-for-calendar-correction">Rationale for Calendar correction</h2>
 <p>A calendar is heterogeneous, it at least composed of:</p>

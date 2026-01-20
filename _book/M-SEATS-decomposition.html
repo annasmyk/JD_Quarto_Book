@@ -20,7 +20,26 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -364,12 +383,6 @@ ul.task-list li input[type="checkbox"] {
 </li>
       </ul>
   </li>
-        <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./references.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">References</span></a>
-  </div>
-</li>
     </ul>
     </div>
 </nav>
@@ -412,9 +425,9 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>Seats is an ARIMA Model Based (AMB) decomposition which is the second part of Tramo-Seats seasonal adjustment algorithm, originally developed by the Bank of Spain.</p>
-<p>Seats is a program for estimating unobserved components in a time series. It follows the ARIMA-model-based (AMB) method, developed from the work of CLEVELAND, W.P., and TIAO, G.C. (1976), BURMAN, J.P. (1980), HILLMER, S.C., and TIAO, G.C. (1982), BELL, W.R., and HILLMER, S.C. (1984) and MARAVALL, A., and PIERCE, D.A. (1987).</p>
-<p>(up coming here compact reference)</p>
+<p>Seats is an ARIMA Model Based (AMB) decomposition method which is the second part of Tramo-Seats seasonal adjustment algorithm, originally developed by the Bank of Spain <span class="citation" data-cites="caporello2004program">(<a href="#ref-caporello2004program" role="doc-biblioref">Caporello and Maravall 2004</a>)</span>.</p>
+<p>Seats draws from the ARIMA-model-based (AMB) decomposition framework developed by CLEVELAND, W.P., and TIAO, G.C. <span class="citation" data-cites="cleveland1976decomposition">(<a href="#ref-cleveland1976decomposition" role="doc-biblioref">1976</a>)</span>, BURMAN, J.P. <span class="citation" data-cites="Burman1980">(<a href="#ref-Burman1980" role="doc-biblioref">1980</a>)</span>, HILLMER, S.C., and TIAO, G.C. <span class="citation" data-cites="HillmerTiao1982">(<a href="#ref-HillmerTiao1982" role="doc-biblioref">1982</a>)</span>, BELL, W.R., and HILLMER, S.C. <span class="citation" data-cites="BellHillmer1984">(<a href="#ref-BellHillmer1984" role="doc-biblioref">1984</a>)</span> and MARAVALL, A., and PIERCE, D.A. <span class="citation" data-cites="maravall1987prototypical">(<a href="#ref-maravall1987prototypical" role="doc-biblioref">1987</a>)</span>.</p>
+<p>A methodological overview of the entire process can be found in - maravall 1995 - planas book</p>
 <p>In recent years, Seats implementation in JDemetra+ v 3.x has been extended to infra-monthly data (weekly, daily, hourly…). Handling this kind of data gave way to a tailored AMB decomposition whose peculiarities are described in <a href="#m-sa-hf">this chapter</a>.</p>
 <section id="m-seats-intro" class="level2">
 <h2 class="anchored" data-anchor-id="m-seats-intro">In this chapter</h2>
@@ -863,6 +876,26 @@ r_{it} = \widehat{x}_{it} - \widehat{x}_{it|t} = \xi_{i}(F)^{+}a_{t + 1}
 <p>is a zero-mean stationary MA process. As a result, historical and preliminary estimators are co-integrated. From <a href="#eq-25">Equation&nbsp;<span>25</span></a> the relative size of the full revision and the speed of convergence can be obtained.</p>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-BellHillmer1984" class="csl-entry" role="listitem">
+Bell, William R, and Steven C Hillmer. 1984. <span>“<span class="nocase">Issues Involved With the Seasonal Adjustment of Economic Time Series</span>.”</span> <em>Journal of Business &amp; Economic Statistics</em> 2 (4): 291–320.
+</div>
+<div id="ref-Burman1980" class="csl-entry" role="listitem">
+Burman, J P. 1980. <span>“<span class="nocase">Seasonal Adjustment by Signal Extraction</span>.”</span> <em>Journal of the Royal Statistical Society: Series A (General)</em> 143 (3): 321–37.
+</div>
+<div id="ref-caporello2004program" class="csl-entry" role="listitem">
+Caporello, Gianluca, and Agustin Maravall. 2004. <span>“Program <span>TSW</span>: <span>R</span>evised Reference Manual.”</span> {T}echnical {R}eport, {R}esearch {D}epartment. Banco de España. <a href="https://www.bde.es/f/webbde/SES/Secciones/Publicaciones/PublicacionesSeriadas/DocumentosOcasionales/04/Fic/do0408e.pdf">https://www.bde.es/f/webbde/SES/Secciones/Publicaciones/PublicacionesSeriadas/DocumentosOcasionales/04/Fic/do0408e.pdf</a>.
+</div>
+<div id="ref-cleveland1976decomposition" class="csl-entry" role="listitem">
+Cleveland, William P, and George C Tiao. 1976. <span>“Decomposition of Seasonal Time Series: A Model for the Census x-11 Program.”</span> <em>Journal of the American Statistical Association</em> 71 (355): 581–87.
+</div>
+<div id="ref-HillmerTiao1982" class="csl-entry" role="listitem">
+Hillmer, Steven C, and George C Tiao. 1982. <span>“<span class="nocase">An ARIMA Model-Based Approach to Seasonal Adjustment</span>.”</span> <em>Journal of the American Statistical Association</em> 77 (377): 63–70.
+</div>
+<div id="ref-maravall1987prototypical" class="csl-entry" role="listitem">
+Maravall, Agustin, and David A Pierce. 1987. <span>“A Prototypical Seasonal Adjustment Model.”</span> <em>Journal of Time Series Analysis</em> 8 (2): 177–93.
+</div>
+</div>
 </section>
 </section>
 <section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
