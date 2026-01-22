@@ -12,7 +12,7 @@
 <meta name="author" content="Maria Novas Filgueira">
 <meta name="author" content="Luis Sanguiao Sande">
 <meta name="author" content="Felix Aparicio Perez">
-<meta name="dcterms.date" content="2027-08-01">
+<meta name="dcterms.date" content="2026-01-20">
 
 <title>JDemetra+ documentation</title>
 <style>
@@ -426,6 +426,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#cruncher" id="toc-cruncher" class="nav-link" data-scroll-target="#cruncher">Cruncher</a></li>
   <li><a href="#r-packages" id="toc-r-packages" class="nav-link" data-scroll-target="#r-packages">R packages</a></li>
   </ul></li>
+  <li><a href="#COSA-abstract" id="toc-COSA-abstract" class="nav-link" data-scroll-target="#COSA-abstract">COSA project</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/annasmyk/JD_Quarto_Book/edit/main/index.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/annasmyk/JD_Quarto_Book/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
@@ -511,7 +512,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">August 1, 2027</p>
+      <p class="date">January 20, 2026</p>
     </div>
   </div>
   
@@ -523,7 +524,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="what-is-jdemetra" class="level1 unnumbered">
 <h1 class="unnumbered">What is JDemetra+?</h1>
-<p><a href="https://github.com/jdemetra">JDemetra+</a> is an open source software for <strong>seasonal adjustment and time series analysis</strong>, developed in the framework of Eurostat’s “Centre of Excellence on Statistical Methods and Tools” by the National Bank of Belgium with the support of the Bundesbank and Insee. It has been officially recommended by Eurostat to the members of the European Statistical System since 2015. It is unique in its combination of very fast Java routines, a <a href="T-GUI-Overview.html"><strong>Graphical User Interface</strong></a> and an <a href="https://github.com/rjdverse?view_as=public"><strong>ecosystem of R packages (rjdverse)</strong></a>. The graphical interface provides structured visual feedback suitable for refined analysis and training. R tools allow the user to combine the capabilities of JDemetra+ with the versatility of the R world, be it for statistical functions or data wrangling. A pdf version of this documentation is available <a href="https://github.com/annasmyk/JD_Quarto_Book/blob/main/_book/JDemetra%2B-documentation.pdf">here</a></p>
+<p><a href="https://github.com/jdemetra">JDemetra+</a> is an open source software for <strong>seasonal adjustment and time series analysis</strong>, developed by the National Bank of Belgium with the support of the Bundesbank, Insee and the partners of the <a href="#COSA-abstract">COSA</a> project, co-founded by Eurostat. JDemetra+ has been officially recommended by Eurostat to the members of the European Statistical System since 2015. It is unique in its combination of very fast Java routines, a <a href="T-GUI-Overview.html"><strong>Graphical User Interface</strong></a> and an <a href="https://github.com/rjdverse?view_as=public"><strong>ecosystem of R packages (rjdverse)</strong></a>. The graphical interface provides structured visual feedback suitable for refined analysis and training. R tools allow to combine the capabilities of JDemetra+ with the versatility of the R world, be it for statistical functions or data wrangling. A pdf version of this documentation is available <a href="https://github.com/annasmyk/JD_Quarto_Book/blob/main/_book/JDemetra%2B-documentation.pdf">here</a></p>
 <section id="main-features" class="level2">
 <h2 class="anchored" data-anchor-id="main-features">Main Features</h2>
 <p>JDemetra+ provides <a href="P_Algorithms.html">algorithms</a> for:</p>
@@ -647,10 +648,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul></li>
 </ul>
 <p>Follow R packages installation procedure and run basic examples from the readme files of each package. They are all listed on <a href="https://github.com/rjdverse?view_as=public">this page</a></p>
-
-
 </section>
 </section>
+</section>
+<section id="COSA-abstract" class="level2">
+<h2 class="anchored" data-anchor-id="COSA-abstract">COSA project</h2>
+<p>The COSA project is composed of two Centres of Excellence (CoE): one on Time Series Analysis (TSA), coordinated by Insee, and one on Statistical Disclosure Control (SDC) coordinated by CBS. In a context of development of common tools and methods within the ESS, this action will carry on the work of the STACE project (2020-2024) around three pillars: knowledge sharing and support to practitioners, development and maintenance of bespoke software (JDemetra+ for TSA, τ-ARGUS and sdcMicro for SDC) and methodological guidance (Handbooks, Guidelines, research papers). The overarching goals is to provide user friendly, efficient and technically up-to date tools for statistical production in both fields.</p>
+<p>In the previous project JDemetra+ has undergone a major refactoring with the development of version 3.x providing extensions of TSA algorithms, e.g.&nbsp;seasonal adjustment of high frequency data. The current action will aim at consolidating and completing this new version, by further extending some algorithms, improving technical and user-documentation, uploading R packages on CRAN and adapting JDemetra+ to new IT environments, like cloud infrastructure.</p>
+<p>Τ-ARGUS is considered to be the standard software for table protection. However, τ-ARGUS urgently needs to be modernized. The current project will make a start with developing/designing a modern software architecture for and apply some of the ideas in a proof of concept. The other SDC tools as well as the “old” τ-ARGUS needs to be supported.</p>
+<p>Eleven institutions (Insee, CBS, NBB, Istat, INE, Destatis, SURS, HSO, Statistic Austria, Iceland and Norway) are beneficiaries from this grant and will contribute in the aforementioned directions with the collaboration of the Deutsche Bundesbank in TSA. Additional institutions will be involved as members of user-groups and observers (ECB, ABS, OECD…).</p>
+<p>Results will be presented at workshops and conferences and developments can be followed on dedicated Github repositories.</p>
+
+
 </section>
 </section>
 
