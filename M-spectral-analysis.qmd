@@ -1,8 +1,11 @@
-# Spectral Analysis Principles and Tools {#m-spectrum .unnumbered}
+# Spectral Analysis Concepts and Tools {#m-spectrum .unnumbered}
 
 ## In this chapter
 
-This chapter provides some guidance on spectral analysis, which will allow to understand the principle of various spectral analysis tools available in JDemetra+, via [Graphical User Interface](#t-GUI-tstools-spectral) and [R packages](#t-r-packs).
+This chapter provides some guidance on spectral analysis, which will allow to understand the spectral analysis tools available in JDemetra+ [Graphical User Interface](#t-GUI-tstools-spectral).
+
+<!-- and [R packages](#t-r-packs) -->
+<!-- what do we have in R ? toolkit or SA packs: nothing, rjd3filter!: not really spectral approach -->
 
 -   explanation of spectral graphs here, but description in GUI chap
 

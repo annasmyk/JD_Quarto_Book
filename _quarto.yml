@@ -75,6 +75,7 @@ book:
   chapters:
     - index.qmd
     ##- example.qmd
+    - quickstart.qmd
     - G-how-to-use-this-book.qmd ## (#G-use-book)
     - G-news-v3-vs-v2.qmd ##(#v3-vs-v2)
     ##- G-jd-history.qmd ##(#g-jd-hist)
