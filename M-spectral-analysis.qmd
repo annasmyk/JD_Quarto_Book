@@ -2,30 +2,33 @@
 
 ## In this chapter
 
-This chapter provides some guidance on spectral analysis, which will allow to understand the spectral analysis tools available in JDemetra+ [Graphical User Interface](#t-GUI-tstools-spectral).
+This chapter provides some guidance on spectral analysis in order to understand the spectral analysis tools available in JDemetra+ [Graphical User Interface](#t-GUI-tstools-spectral).
+
+<!-- and also to understand some seasonality tests ? -->
 
 <!-- and [R packages](#t-r-packs) -->
 <!-- what do we have in R ? toolkit or SA packs: nothing, rjd3filter!: not really spectral approach -->
 
--   explanation of spectral graphs here, but description in GUI chap
+<!-- -   explanation of spectral graphs here, but description in GUI chap -->
 
--   outputs of tests ?
+<!-- -   outputs of tests ? -->
 
--   description of spectral graphs in GUI can be found here
+<!-- -   description of spectral graphs in GUI can be found here -->
 
 ## Spectral analysis concepts
 
-A time series $x_{t}$ with stationary covariance, mean $μ$ and $k^{th}$ autocovariance $E((x_{t}-\mu)(x_{t-k}\mu))=\gamma(k)$ can be described as a weighted sum of periodic trigonometric functions: $sin(\omega t)$ and $cos(\omega t)$, where $\omega=\frac{2*pi}{T}$ denotes frequency. Spectral analysis investigates this frequency domain representation of $x_{t}$ to determine how important cycles of different frequencies are in accounting for the behaviour of $x_{t}$.
+A stationary time series $x_{t}$ with mean $μ$ and autocovariance $\gamma(k)=E((x_{t}-\mu)(x_{t-k}-\mu))=$ can be described as a weighted sum of periodic trigonometric functions: $sin(\omega t)$ and $cos(\omega t)$, where $\omega=\frac{2*pi}{T}$ denotes frequency. Spectral analysis investigates this frequency domain representation of $x_{t}$ to determine how important cycles of different frequencies are in accounting for the behaviour of $x_{t}$.
 
-Assuming that the autocovariances $\gamma(k)$ are absolutely summable($\sum_{k=-\infty}^{\infty}|\gamma(k)|<\infty$), the autocovariance generating function, which summarizes these autocovariances through a scalar valued function, is given by @eq-1 (HAMILTON, J.D. (1994)).
+Assuming that the autocovariances $\gamma(k)$ are absolutely summable($\sum_{k=-\infty}^{\infty}|\gamma(k)|<\infty$), the Auto-Covariance Generating Function is given by the following equations (HAMILTON, J.D. (1994)).
+
 
 $$
-acgf(z)=\sum_{k=-\infty}^{\infty}{z^{k}\gamma(k)}
+acgf(z)=\sum_{k=-\infty}^{\infty}\gamma(k){z^{k}}
 $$ {#eq-1}
 
 where $z$ denotes a complex scalar.
 
-Once the @eq-1 is divided by $\pi$ and evaluated at some $z{=e}^{-i\omega}=cos\omega-isin\omega$, where $i=\sqrt{-1}$ and $\omega$ is a real scalar, $-\infty < \ \omega < \infty$, the result of this transformation is called a population spectrum $f(\omega)$for $\ x_{t}$, given in @eq-2 (HAMILTON, J.D. (1994)).
+Once @eq-1 is divided by $\pi$ and evaluated at some $z{=e}^{-i\omega}=cos\omega-isin\omega$, where $i=\sqrt{-1}$ and $\omega$ is a real scalar, $-\infty < \ \omega < \infty$, the result of this transformation is called a population spectrum $f(\omega)$for $\ x_{t}$, given in @eq-2 (HAMILTON, J.D. (1994)).
 
 $$
 f(\omega)=\frac{1}{\pi}\sum_{k=-\infty}^{\infty}{e^{-ik\omega}\gamma(k)}

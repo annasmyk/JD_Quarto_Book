@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>JDemetra+ documentation - Spectral Analysis Principles and Tools</title>
+<title>JDemetra+ documentation - Spectral Analysis Concepts and Tools</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -76,7 +76,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./P_Methods.html">Methods</a></li><li class="breadcrumb-item"><a href="./M-spectral-analysis.html">Spectral Analysis Principles and Tools</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./P_Methods.html">Methods</a></li><li class="breadcrumb-item"><a href="./M-spectral-analysis.html">Spectral Analysis Concepts and Tools</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -317,7 +317,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./M-spectral-analysis.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Spectral Analysis Principles and Tools</span></a>
+ <span class="menu-text">Spectral Analysis Concepts and Tools</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -395,7 +395,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span id="m-spectrum" class="quarto-section-identifier">Spectral Analysis Principles and Tools</span></h1>
+<h1 class="title"><span id="m-spectrum" class="quarto-section-identifier">Spectral Analysis Concepts and Tools</span></h1>
 </div>
 
 
@@ -412,22 +412,23 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="in-this-chapter" class="level2">
 <h2 class="anchored" data-anchor-id="in-this-chapter">In this chapter</h2>
-<p>This chapter provides some guidance on spectral analysis, which will allow to understand the principle of various spectral analysis tools available in JDemetra+, via <a href="#t-GUI-tstools-spectral">Graphical User Interface</a> and <a href="T-r-packages.html">R packages</a>.</p>
-<ul>
-<li><p>explanation of spectral graphs here, but description in GUI chap</p></li>
-<li><p>outputs of tests ?</p></li>
-<li><p>description of spectral graphs in GUI can be found here</p></li>
-</ul>
+<p>This chapter provides some guidance on spectral analysis in order to understand the spectral analysis tools available in JDemetra+ <a href="#t-GUI-tstools-spectral">Graphical User Interface</a>.</p>
+<!-- and also to understand some seasonality tests ? -->
+<!-- and [R packages](#t-r-packs) -->
+<!-- what do we have in R ? toolkit or SA packs: nothing, rjd3filter!: not really spectral approach -->
+<!-- -   explanation of spectral graphs here, but description in GUI chap -->
+<!-- -   outputs of tests ? -->
+<!-- -   description of spectral graphs in GUI can be found here -->
 </section>
 <section id="spectral-analysis-concepts" class="level2">
 <h2 class="anchored" data-anchor-id="spectral-analysis-concepts">Spectral analysis concepts</h2>
-<p>A time series <span class="math inline">\(x_{t}\)</span> with stationary covariance, mean <span class="math inline">\(μ\)</span> and <span class="math inline">\(k^{th}\)</span> autocovariance <span class="math inline">\(E((x_{t}-\mu)(x_{t-k}\mu))=\gamma(k)\)</span> can be described as a weighted sum of periodic trigonometric functions: <span class="math inline">\(sin(\omega t)\)</span> and <span class="math inline">\(cos(\omega t)\)</span>, where <span class="math inline">\(\omega=\frac{2*pi}{T}\)</span> denotes frequency. Spectral analysis investigates this frequency domain representation of <span class="math inline">\(x_{t}\)</span> to determine how important cycles of different frequencies are in accounting for the behaviour of <span class="math inline">\(x_{t}\)</span>.</p>
-<p>Assuming that the autocovariances <span class="math inline">\(\gamma(k)\)</span> are absolutely summable(<span class="math inline">\(\sum_{k=-\infty}^{\infty}|\gamma(k)|&lt;\infty\)</span>), the autocovariance generating function, which summarizes these autocovariances through a scalar valued function, is given by <a href="M-tests.html#eq-1">Equation&nbsp;<span>1</span></a> (HAMILTON, J.D. (1994)).</p>
+<p>A stationary time series <span class="math inline">\(x_{t}\)</span> with mean <span class="math inline">\(μ\)</span> and autocovariance <span class="math inline">\(\gamma(k)=E((x_{t}-\mu)(x_{t-k}-\mu))=\)</span> can be described as a weighted sum of periodic trigonometric functions: <span class="math inline">\(sin(\omega t)\)</span> and <span class="math inline">\(cos(\omega t)\)</span>, where <span class="math inline">\(\omega=\frac{2*pi}{T}\)</span> denotes frequency. Spectral analysis investigates this frequency domain representation of <span class="math inline">\(x_{t}\)</span> to determine how important cycles of different frequencies are in accounting for the behaviour of <span class="math inline">\(x_{t}\)</span>.</p>
+<p>Assuming that the autocovariances <span class="math inline">\(\gamma(k)\)</span> are absolutely summable(<span class="math inline">\(\sum_{k=-\infty}^{\infty}|\gamma(k)|&lt;\infty\)</span>), the Auto-Covariance Generating Function is given by the following equations (HAMILTON, J.D. (1994)).</p>
 <p><span id="eq-1"><span class="math display">\[
-acgf(z)=\sum_{k=-\infty}^{\infty}{z^{k}\gamma(k)}
+acgf(z)=\sum_{k=-\infty}^{\infty}\gamma(k){z^{k}}
 \tag{1}\]</span></span></p>
 <p>where <span class="math inline">\(z\)</span> denotes a complex scalar.</p>
-<p>Once the <a href="M-tests.html#eq-1">Equation&nbsp;<span>1</span></a> is divided by <span class="math inline">\(\pi\)</span> and evaluated at some <span class="math inline">\(z{=e}^{-i\omega}=cos\omega-isin\omega\)</span>, where <span class="math inline">\(i=\sqrt{-1}\)</span> and <span class="math inline">\(\omega\)</span> is a real scalar, <span class="math inline">\(-\infty &lt; \ \omega &lt; \infty\)</span>, the result of this transformation is called a population spectrum <span class="math inline">\(f(\omega)\)</span>for <span class="math inline">\(\ x_{t}\)</span>, given in <a href="M-tests.html#eq-2">Equation&nbsp;<span>2</span></a> (HAMILTON, J.D. (1994)).</p>
+<p>Once <a href="M-tests.html#eq-1">Equation&nbsp;<span>1</span></a> is divided by <span class="math inline">\(\pi\)</span> and evaluated at some <span class="math inline">\(z{=e}^{-i\omega}=cos\omega-isin\omega\)</span>, where <span class="math inline">\(i=\sqrt{-1}\)</span> and <span class="math inline">\(\omega\)</span> is a real scalar, <span class="math inline">\(-\infty &lt; \ \omega &lt; \infty\)</span>, the result of this transformation is called a population spectrum <span class="math inline">\(f(\omega)\)</span>for <span class="math inline">\(\ x_{t}\)</span>, given in <a href="M-tests.html#eq-2">Equation&nbsp;<span>2</span></a> (HAMILTON, J.D. (1994)).</p>
 <p><span id="eq-2"><span class="math display">\[
 f(\omega)=\frac{1}{\pi}\sum_{k=-\infty}^{\infty}{e^{-ik\omega}\gamma(k)}
 \tag{2}\]</span></span></p>
