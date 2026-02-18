@@ -1,14 +1,9 @@
-# Editing list
+# Guidelines and Editing list
 
 ## Chapter Specific Issues 
 
 ### Preface
 
-A: improve install GUI link (don't leave raw link to GitHub): ok 
-
-A: revamp tutorials (jd and not only sa) : ok 
-
-A: revamp rjdemetra general readme, and specific ones 
 
 ### How to Use this Book
 
@@ -29,8 +24,8 @@ web explo stack
 ### In All ALGO chapters 
 
 -   R version 3 code to be added
--   remove theory related parts
--   much less text than current doc (too long)
+-   remove theory related parts (add to methods)
+-   much less text than old doc (too long)
 -   method details: to method chapters
 -   tools details in tools: GUI or R
 
@@ -38,7 +33,7 @@ when describing parameters
 
 -   1 common description
 -   2 setting in GUI
--   3 setting in R
+-   3 setting in R (v3 only now, leave existing v2 part)
 
 
 ### A-sa-overview
@@ -71,24 +66,12 @@ impossible (?) to create several intervention variables
 
 ### A-rev-policies 
 
-add - v3 visuals (progressive) 
-- fixed auto reg param - inter chapter links : r packs, cruncher
-
-obj here: general explanations + examples ? here : explain voc discrepancies vs guidelines bbk controlled current link to plug in illustration links on covid
 
 #### Revision Policies
 
-general concepts - identified vs estimated - linearization phase - X11 - Seats
-
-here concepts of domain spec, point spec
-
-concurrent = first estimation or redo everything (never overrides user defined parameters)
 
 #### Implemententing revision policies in R
 
-add examples 
-
-add example with rjd3workspace
 
 ### A-sa-hf.qmd
 
@@ -128,7 +111,7 @@ frequency 41 et 41 survival of 1/60 discrete step in X12 (cf sokup findley)
 
 On theory part:
 
--   manque effet de paques (cf regressor and ICA: hole)
+-   easter effect (cf regressor in ICA: hole)
 
 -   length of period
 
@@ -146,7 +129,7 @@ On practical part:
 
 adjust param
 
--   stcok series
+-   stock series
 
 cf book x12 and SH
 
@@ -158,21 +141,11 @@ explain problems and mixing with seasonality ...
 
 ### A-benchmarking.qmd
 
-review maria's work (cfr email remarks)
 
-add rjd3 bench and link help pages
-
-resources
-
--   corentin L , beamer rome
-
--   maria, ine, beamer ocde
 
 ### A-trend-cycle-estimation.qmd
 
-see alain
 
-see karsten paper on HF
 
 ### A-nowcasting.qmd
 
@@ -180,8 +153,6 @@ plug in v2
 package v3
 
 ## T-graphical-user-interface.qmd
-
-why use the graphical user interface ? what is not directly available in R yet?
 
 objective: describe the general features (independent of algorithms)
 
@@ -221,6 +192,14 @@ Topics voir what should be tackled here
 
 - direct indirect seasonal adjustment 
 
+chapter name/scope to change: encompass all stat methods
+
+ADD
+
+- algos from plug-ins 
+
+- algos from incubator (also plug ins)
+
  
 ### ADD : List of Output items
 
@@ -255,9 +234,6 @@ X11+
 
 ### M-spectral-analysis
 
-add: - R code or references to - rjd3sa (?) references to tests - more explanations on spectral analysis rationale
-
-Vocabulary precision and concise definitions - spectral density - periodogram - spectral density estimator - "spectrum" is used too ubiquitously
 
 ### M-Reg-ARIMA-modelling
 
@@ -288,11 +264,10 @@ calendar effects" (from old doc: true ?)"
 
 Edit content goal of the chapter: details on X-11 which won't be in the SA chapter
 
-see - my notes on X-11 - formulas from training yc estp - formulas from HF paper or beamer
+
 
 ### M-STL-decomposition
 
-resources : - papier HF - papier Daniel O on dsa
 
 ### M-Seats-decomposition
 
@@ -300,7 +275,6 @@ resources : - papier HF - papier Daniel O on dsa
 
 ### M-Trend-Estimation-Local-Polynomials
 
-see with KW / AQLT
 
 ### M-tests.qmd
 
