@@ -109,8 +109,11 @@ The specifications and output for the seasonal adjustment procedure are displaye
 
 ![**The *Workspace* window with the nodes for the seasonal adjustment procedure marked**](All_images/A_Ref_d2.png)
 
+#### Specifications 
 
-### Results panel {#results-panel}
+#### Output
+
+##### Results panel {#results-panel}
 
 
 The blank zone in the figure above (on the right of the view) is the location where JDemetra+ displays various windows. More than one window can be displayed at the same time. Windows can overlap with each other with the foremost window being the one in focus or active. The active window has a darkened title bar. [The windows in the results panel can be arranged in many different ways](#window-menu), depending on the user's needs. The example below shows one of the possible views of this panel. The results of the user's analysis are displayed in an accompanying window. The picture below shows two panels -- a window containing seasonal adjustment results (upper panel) and another one containing an autoregressive spectrum (lower panel).
@@ -193,3 +196,55 @@ The *Details* node include the basic statistics for the relative differences bet
 ![**Details of the differences between direct and indirect seasonal adjustment results**](All_images/UG_SF_image12.jpg)
 
 [^1]: Description based on @guidelines2015.
+
+## Conversion of X13-Arima-Seats specifications to JDemetra+ {#X13-Spec-conv}
+
+<!-- Les fichiers `.spc` seront convertis en en fichiers `.xml`.  -->
+<!-- Vous pouvez utiliser le [SpecParser](https://github.com/bbkrd/SpecParser) (la documentation est [ici](https://bbkrd.github.io/pages/specparser/)). -->
+
+<!-- 1) Vous devez installer le plugin **SpecParser** dans JDemetra+. La procédure est décrite [ici](https://jdemetra-new-documentation.netlify.app/t-plug-ins#t-plug-ins-inst) et vous pouvez trouver le plugin [ici](https://github.com/bbkrd/SpecParser/releases/download/2.0.22/SpecParser-2.0.22.nbm). -->
+
+<!-- 2) Vous pouvez ouvrir JDemetra+ en version 2 et dans le panneau Workspace vous devez créer un nouveau document X13 : -->
+
+<!-- ![](img/migrate-specs/ws-panel.png) -->
+
+
+<!-- 3) Ensuite, vous pouvez cliquer à droite sur votre document pour ouvrir le **SpecParser**. -->
+
+<!-- ![](img/migrate-specs/open-spec-parser.png) -->
+
+<!-- 4) Une nouvelle fenêtre s'ouvre et vous cliquez sur **Load WinX12Spec** pour charger votre fichier `.spc` (un par un...) -->
+
+<!-- ![](img/migrate-specs/load-win-spec.png) -->
+
+<!-- 5) Vous choisissez votre spécification puis vous cliquez sur **Open** -->
+
+<!-- ![](img/migrate-specs/choose-spec.png) -->
+
+<!-- 6) Enfin votre spécification apparaît mais vous **ne pouvez pas l'exporter** et la sauvegarder directement car vous n'avez pas vos données associées à la spécification. -->
+
+<!-- ![](img/migrate-specs/display-spec.png) -->
+
+<!-- 7) Vous pouvez donc ouvrir la spécification avec le bouton **Spécification** (à droite)  -->
+
+<!-- ![](img/migrate-specs/spec-button.png) -->
+
+<!-- 8) Créez une nouvelle spécification X13 -->
+
+<!-- ![](img/migrate-specs/new-spec.png) -->
+
+<!-- 9)	Et réécrire votre spécification en fonction de la nouvelle spécification. -->
+
+<!-- ![](img/migrate-specs/rewrite.png) -->
+
+<!-- 10) A gauche (en rouge) se trouve la nouvelle spécification que j'ai créée avec les options par défaut et à gauche (en vert) votre spécification importée. Vous devez donc modifier votre spécification créée avec les mêmes paramètres. -->
+
+<!-- 11)	Une fois que vous avez copié exactement votre spécification, vous pouvez la sauvegarder en cliquant sur **OK**. -->
+
+<!-- ![](img/migrate-specs/save-spec.png) -->
+
+<!-- 12) Vous pouvez ensuite sauvegarder votre espace de travail et votre spécification (au format `.xml`) sera sauvegardée dans le dossier X13Spec. -->
+
+
+
+

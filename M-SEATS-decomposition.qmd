@@ -4,11 +4,17 @@ Seats is an ARIMA Model Based (AMB) decomposition method which is the second par
 
 Seats draws from the ARIMA-model-based (AMB) decomposition framework developed by CLEVELAND, W.P., and TIAO, G.C. [-@cleveland1976decomposition], BURMAN, J.P. [-@Burman1980], HILLMER, S.C., and TIAO, G.C. [-@HillmerTiao1982], BELL, W.R., and HILLMER, S.C. [-@BellHillmer1984] and MARAVALL, A., and PIERCE, D.A. [-@maravall1987prototypical].
 
-A methodological overview of the entire process can be found in 
-- maravall 1995
-- planas book 
 
+<!-- References: -->
+<!-- A methodological overview of the entire process can be found in  -->
+<!-- - maravall 1995: cannot find ref  -->
+<!-- - planas book  -->
+<!-- KEY: explanation holes vs planas or Gomez ? -->
 
+<!-- should attach the 2 pdfs to quarto book ? -->
+
+<!-- Logistical issues: -->
+<!-- - equation numbers -->
 
 In recent years, Seats implementation in JDemetra+ v 3.x has been extended to infra-monthly data (weekly, daily, hourly...). Handling this kind of data gave way to a tailored AMB decomposition whose peculiarities are described in [this chapter](#m-sa-hf).
 
@@ -22,71 +28,73 @@ The practical implementation as well as all the options, using the graphical use
 
 ## Seats steps {#m-seats-steps}
 
-Seats decomposes the linearized series into trend, seasonal, transitory and irregular components, provides forecasts for these components, together with the associated standard errors, and finally assign the deterministic effects to each component yielding the final components.
+Seats decomposes the linearized series into trend, seasonal, transitory and irregular components, provides forecasts for these components, together with the associated standard errors, and finally assigns the deterministic effects to each component yielding the final components.
 
 ### Input from Tramo
 
-In JDemetra+ the input for the model based signal extraction procedure is always provided by Tramo and includes the original series $y_{t}$, the linearized series $x_{t}$ (i.e. the original series $y_{t}$ with the deterministic effects removed), the ARIMA model for the stochastic (linearized) time series $x_{t}$ and the deterministic effects (calendar effects, outliers and other regression variable effects).
+In JDemetra+ the input for the model based signal extraction procedure is always provided by Tramo and includes the original series $y_{t}$, the linearized series $x_{t}$ (i.e. the original series $y_{t}$ with the deterministic effects removed), the ARIMA model for the linearized time series $x_{t}$ and the deterministic effects (calendar, outliers and other regression variable effects).
 
-### ARIMA modelling of the input series
+### ARIMA modelling of the raw series
 
-One of the fundamental assumptions made by Seats is that the linearized time series $x_{t}$ follows the ARIMA model:
+One of the fundamental assumptions made by Seats is that the linearized time series $x_{t}$ follows an ARIMA model:
 
 $$
-\phi(B)\delta(B)x_{t} = \theta(B)a_{t}
+\phi(B)\delta(B)x_{t} = \Theta(B)a_{t}
 $$ {#eq-1}
 
 where:
 
--   $B$ -- the backshift operator $(Bx_{t} = x_{t - 1})$;
+-   $B$ -- backshift operator $B(x_{t}) = x_{t - 1}$;
 
--   $\delta(B)$ -- a non-stationary autoregressive (AR) polynomial in $B$ (unit roots);
+-   $s$ -- number of observations per year
 
--   $\theta(B)$ -- an invertible moving average (MA) polynomial in $B$ and in $B^{S}$, which can be expressed in the multiplicative form $(1 + \vartheta_{1}B + \ldots{+ \ \vartheta}{q}B^{q})(1 + \Theta{1}B^{s} + \ldots{+ \ \Theta}_{Q}B^{\text{sQ}})$ ;
+-   $\delta(B)$ -- a non-stationary autoregressive (AR) polynomial in $B$ and $B^{S}$ (regular and seasonal unit roots);
 
--   $phi(B)$ -- a stationary autoregressive (AR) polynomial in $B$ and in $B^{S}$ containing regular and seasonal unit roots, with *s* representing the number of observations per year;
+-   $\Theta(B)$ -- an invertible moving average (MA) polynomial in $B$ and in $B^{S}$, which can be expressed in the multiplicative form $(1 + \vartheta_{1}B + \ldots{+ \ \vartheta_{q}}B^{q})(1 + \theta_{1}B^{s} + \ldots{+ \ \theta}_{Q}B^{\text{sQ}})$ ;
 
--   $a_{t}$ -- a white-noise variable with the variance $V(a)$.
+-   $phi(B)$ -- a stationary autoregressive (AR) polynomial in $B$ and in $B^{S}$ 
 
-It should be noted that the stochastic time series can be predicted using its past observations and making an error. The variable $a_{t}$, which is assumed to be white noise, is the fundamental *innovation* to the series at time *t*, that is the part that cannot be predicted based on the past history of the series.
+-   $a_{t}$ -- a white-noise variable with the variance $V_{a}$.
 
-Denoting $\varphi(B) = \phi(B)\delta(B)$,can be written in a more concise form as
+It should be noted that the time series $x_{t}$ can be predicted using its past observations and making an error. The variable $a_{t}$, which is assumed to be white noise, is the fundamental *innovation* to the series at time *t*, that is the part that cannot be predicted based on the past history of the series.
+
+Denoting $\Phi(B) = \phi(B)\delta(B)$,can be written in a more concise form as
 
 $$
-\varphi(B)x_{t} = \theta(B)a_{t}
+\Phi(B)x_{t} = \Theta(B)a_{t}
 $$ {#eq-2}
 
-where $\varphi(B)$ contains both the stationary and the nonstationary roots.
+where $\Phi(B)$ contains both the stationary and the nonstationary (unit) roots.
 
 ### Derivation of the models for the components
 
-Let us consider the additive decomposition model
+Let us consider an additive decomposition model(if a multiplicative model is better suited, the series can be log-transformed)
 
 $$
 x_{t} = \sum_{i = 1}^{k}x_{\text{it}}
 $$ {#eq-3}
 
-where *i* refers to the orthogonal components: trend, seasonal, transitory or irregular. Apart from the irregular component, supposed to be a white noise, it is assumed that each component follows the ARIMA model which can be represented, using the notation of @eq-2 as:
+where *i* refers to the components: trend, seasonal, transitory and irregular. These components are by assumption orthogonal. Apart from the irregular component, supposed to be a white noise, it is assumed that each component follows an ARIMA model which can be represented, using the notation of @eq-2 as:
 
 $$
-\varphi_{i}(B)\ x_{\text{it}} = \theta_{i}(B)a_{\text{it}}
+\Phi_{i}(B)x_{\text{it}} = \Theta_{i}(B)a_{\text{it}}
 $$ {#eq-4}
 
 where
 
--   $\varphi_{i}(B) = \phi_{i}(B)\delta_{i}(B),...x_{\text{it}}$ is the *i*-*th* unobserved component,
+-   $\Phi_{i}(B) = \phi_{i}(B)\delta_{i}(B)$,
 
--   $\varphi_{i}(B)$ and $\theta_{i}(B)$ are finite polynomials of order $p_{i}$ and $q_{i}$, respectively,
+-   $\Phi_{i}(B)$ and $\Theta_{i}(B)$ are finite polynomials of order $p_{i}$ and $q_{i}$, respectively,
 
--   $a_{\text{it}}$, the disturbance associated with such component, is a white noise process with zero mean and constant variance $V(a_{i})$ and $a_{\text{it}}$ and $a_{\text{jt}}$ are not correlated for $i \neq j$ and for any $t$..
+-   $a_{\text{it}}$ is a white noise process with zero mean and constant variance $V_{ai}$ and $a_{\text{it}}$ and $a_{\text{jt}}$ are not correlated for $i \neq j$ and for any $t$..
 
-These disturbances are functions of the innovations in the series and are called "pseudo-innovations" in the literature concerning the AMB decomposition as they refer to the components that are never observed In the JDemetra+ documentation the term "innovations" is used to refer to "pseudo-innovations".(GÓMEZ, V., and MARAVALL, A. (2001a).
+These disturbances are functions of the innovations in the series and are called "pseudo-innovations" in the literature concerning the AMB decomposition as they refer to the components that are never observed, in JDemetra+ documentation the term "innovations" is used to refer to "pseudo-innovations".(GÓMEZ, V., and MARAVALL, A. (2001a).
 
-The following assumptions hold for @eq-4. For each $\text{i}$ the polynomials $\phi_{i}(B)$, $\delta_{i}(B)$ and $\theta_{i}(B)$ are prime and of finite order. The roots of $\delta_{i}(B)$ lies on the unit circle; those of $\phi_{i}(B)$ lie outside, while all the roots of $\theta_{i}(B)$ are on or outside the unit circle. This means that nonstationary and noninvertible components are allowed. Since different roots of the AR polynomial induce peaks in the spectrum of the series at different frequencies, and given that different components are associated with the spectral peaks for different frequencies, it is assumed that for $i \neq j$ the polynomials$\ \phi_{i}(B)$ and $\phi_{j}(B)$ do not share any common root (they are coprime). Finally, it is assumed that the polynomials $\theta_{i}(B),\ i = 1,\ldots,k$ are prime share no unit root in common, guaranteeing the invertibility of the overall series. In fact, since the unit root of $\theta_{i}(B)$ induce a spectral zero, when the polynomials $\theta_{i}(B),\ i = 1,\ldots,k$ share no unit root in common, there is no frequency for which all component spectra become zero.
+The following assumptions hold for @eq-4. For each $\text{i}$ the polynomials $\phi_{i}(B)$, $\delta_{i}(B)$ and $\Theta_{i}(B)$ are prime and of finite order. The roots of $\delta_{i}(B)$ lies on the unit circle; those of $\phi_{i}(B)$ lie outside, while all the roots of $\Theta_{i}(B)$ are on or outside the unit circle. This means that nonstationary and noninvertible components are allowed. Since different roots of the AR polynomial induce peaks in the spectrum of the series at different frequencies, and given that different components are associated with the spectral peaks for different frequencies, it is assumed that for $i \neq j$ the polynomials$\ \phi_{i}(B)$ and $\phi_{j}(B)$ do not share any common root (they are coprime). Finally, it is assumed that the polynomials $\Theta_{i}(B),\ i = 1,\ldots,k$ are prime and share no unit root in common, guaranteeing the invertibility of the overall series. In fact, since a unit root in $\Theta_{i}(B)$ induces a spectral zero, when the polynomials $\Theta_{i}(B),\ i = 1,\ldots,k$ share no unit root in common, there is no frequency for which all component spectra become zero.
 
 For description of the spectrum see chapter on [Spectral Analysis](#m-spectrum).(MARAVALL, A. (1995).
 
-Since aggregation of ARIMA models yields ARIMA models, the series $x_{t}$ will also follow an ARIMA model, as in @eq-2, and consequently the following identity can be derived:
+As $x_{t}$ also follows an ARIMA model (@eq-2), the following identity can be derived by aggregating the models of the components:
 
 $$
 \frac{\theta(B)}{\varphi(B)}a_{t} = \sum_{i = 1}^{k}{\frac{\theta_{i}(B)}{\varphi_{i}(B)}a_{\text{it}}}
@@ -319,9 +327,9 @@ where
 
 -   $\psi(B)= \frac{\theta(B)}{\phi(B)}$,
 
--   $k_{s}=\frac{V(a_{s})}{V(a)}$,
+-   $k_{s}=\frac{V(a_{s})}{V_{a}}$,
 
-$V(a_{s})$ is the variance of $a_{st}$ and $V(a)$ is the variance of $a_{t}$.
+$V(a_{s})$ is the variance of $a_{st}$ and $V_{a}$ is the variance of $a_{t}$.
 
 Expressing the $\psi(B)$ polynomials as functions of the AR and MA polynomials, after cancellation of roots, the estimator of $s_{t}$ can be expressed as:
 
@@ -358,7 +366,7 @@ The WK filter from @eq-24 can also be expressed as a ratio of two pseudo-autocov
 The ACGF function of an ARIMA process is expressed as: 
 
 $$
-acgf(B) = \frac{\theta(B)\theta(F)}{\phi(B)\delta(B)\phi(F)\delta(F)}V(a)
+acgf(B) = \frac{\theta(B)\theta(F)}{\phi(B)\delta(B)\phi(F)\delta(F)}V_{a}
 $$ {#eq-26}
 
 And, the WK filter can be rewritten as:
@@ -371,7 +379,7 @@ where:
 
 -   $\gamma_{s}(B,F) = \frac{\theta_{s}(B)\theta_{s}(F)}{\phi_{s}(B)\delta_{s}(B)\phi_{s}(F)\delta_{s}(F)}V(a_{s})$ is the p-ACGF of $s_{t}$;
 
--   $\gamma(B,F) = \frac{\theta(B)\theta(F)}{\phi(B)\delta(B)\phi(F)\delta(F)}V(a)$ is the p-ACGF of $x_{t}$.
+-   $\gamma(B,F) = \frac{\theta(B)\theta(F)}{\phi(B)\delta(B)\phi(F)\delta(F)}V_{a}$ is the p-ACGF of $x_{t}$.
 
 From @eq-24 it can be seen that the WK filter depends on both the component and the series models. Consequently, the estimator of the component and the WK filter reflect the characteristic of data and by construction, the WK filter adapts itself to the series under consideration. Therefore, the ARIMA model is of particular importance for the Seats method. Its misspecification results in an incorrect decomposition.
 
