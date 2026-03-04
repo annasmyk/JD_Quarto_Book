@@ -1,12 +1,13 @@
 # JDemetra+ History {.unnumbered #g-jd-hist}
 
-(under construction)
-
 ## In this chapter
 
-- history of the project, people who built the software
+We try to cast some light at history of the project and be grateful to people who contributed...
 
-- evolution of the software
+If you end up reading this and have elements to share (anecdotes, pictures, articles....), please don't hesitate to write in. Consider also writing a guest blog post [here](https://jdemetra-universe-blog.netlify.app/).
 
-### Time line 
+
+## Articles 
+
+- a paper from [Insee](Articles/History JD+ (Insee).pdf)
 

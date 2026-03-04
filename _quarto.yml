@@ -70,7 +70,7 @@ book:
           city: Madrid
           url: "https://www.ine.es/"
       role: "Collaborator"
-  date: "02/10/2026"
+  date: "03/03/2026"
   page-navigation: true
   chapters:
     - index.qmd
@@ -78,7 +78,7 @@ book:
     ##- quickstart.qmd
     - G-how-to-use-this-book.qmd ## (#G-use-book)
     - G-news-v3-vs-v2.qmd ##(#v3-vs-v2)
-    ##- G-jd-history.qmd ##(#g-jd-hist)
+    - G-jd-history.qmd ##(#g-jd-hist)
     - part: P_Algorithms.qmd ##(#part-A)
       chapters:
         - A-RegArima-Tramo-Modelling-Overview.qmd ## (#a-reg-a)
@@ -120,6 +120,7 @@ book:
         - M-Temp-Disagg-Bench.qmd ##(#m-bench)
         - M-revision-analysis.qmd ##(#m-revs)
     #- Output_Description.qmd ##(#output-chap)
+    # - part: Use-Cases.qmd ##(#part-T)
     - references.bib
 bibliography: references.bib
 

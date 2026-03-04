@@ -23,6 +23,7 @@ web explo stack
 
 ### In All ALGO chapters 
 
+-   version 3 before version T 
 -   R version 3 code to be added
 -   remove theory related parts (add to methods)
 -   much less text than old doc (too long)

@@ -6,6 +6,20 @@ A pdf version of this documentation is available [here](https://github.com/annas
 
 ![](All_images/JD+-Eurostat-COSA.png)
 
+## User Support / Useful links
+
+If you need user support, please raise an issue in this [repository](https://github.com/stace-tsa-shop/UserSupport)
+
+For specific questions related to **production of seasonally** adjusted series you can look up [these pages](https://saproductionwithjdemetraandr.netlify.app/)
+
+To keep up with all JDemetra+ related news head over to the [**JDemetra+ Universe Blog**](https://jdemetra-universe-blog.netlify.app/)
+
+You can also [browse](https://github.com/TanguyBarthelemy/JD_Tutorials) and [watch](https://www.youtube.com/@TSwithJDemetraandR) tutorials for JDemetra+. On this [YouTube channel](https://www.youtube.com/@TSwithJDemetraandR) you will also find JDemetra+ related webinars.
+
+
+
+
+
 ## Main Features
 
 JDemetra+ provides [algorithms](#part-A) for:
@@ -46,18 +60,6 @@ Key methodological explanations and state-of-the-art description and references 
 -   [Handbook on seasonal adjustment (2018)](https://ec.europa.eu/eurostat/documents/3859598/8939616/KS-GQ-18-001-EN-N.pdf) 
 
 -   [Handbook on rapid estimates (2017)](https://ec.europa.eu/eurostat/documents/3859598/8555708/KS-GQ-17-008-EN-N.pdf)
-
-
-
-
-## Useful links
-
-To get started, you can [browse](https://github.com/TanguyBarthelemy/JD_Tutorials) and [watch](https://www.youtube.com/@TSwithJDemetraandR) tutorials for JDemetra+. On this [YouTube channel](https://www.youtube.com/@TSwithJDemetraandR) you will also find JDemetra+ related webinars.
-
-If you need user support, please raise an issue in this [repository](https://github.com/stace-tsa-shop/UserSupport)
-
-To keep up with all JDemetra+ related news head over to the [**JDemetra+ Universe Blog**](https://jdemetra-universe-blog.netlify.app/)
-
 
 
 

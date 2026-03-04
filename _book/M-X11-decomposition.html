@@ -145,6 +145,12 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">New Features in v 3.x family</span></a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./G-jd-history.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">JDemetra+ History</span></a>
+  </div>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./P_Algorithms.html" class="sidebar-item-text sidebar-link">
@@ -340,6 +346,12 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./M-sa-hf.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SA of high-frequency data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./M-tests.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Tests</span></a>
   </div>
@@ -428,7 +440,7 @@ ul.task-list li input[type="checkbox"] {
 <p>X11 is the decomposition part of X-13-ARIMA seasonal adjustment algorithm originally developed by the US Census Bureau. It is a non parametric algorithm based on <a href="#m-x11-ma">moving averages</a>.</p>
 <p>The genuine X11 algorithm was meant to decompose monthly (<span class="math inline">\(p=12\)</span>) and quarterly series (<span class="math inline">\(p=4\)</span>). In JDemetra+ half-yearly data (<span class="math inline">\(p=2\)</span>), quadri-monthly (<span class="math inline">\(p=3\)</span>) and bi-monthly data (<span class="math inline">\(p=6\)</span>) can also be handled. (<span class="math inline">\(p=3\)</span> and <span class="math inline">\(p=6\)</span> only in version 3.x)</p>
 <p>In the following chapter, explanations and examples are based on monthly and quarterly data, but the principles can be extended to other supra-monthly frequencies.</p>
-<p>In recent years, X11 implementation in JDemetra+ v 3.x has been extended to infra-monthly data (weekly, daily, hourly…). Handling this kind of data gave way to a tailored X11 algorithm whose peculiarities are described in <a href="#m-sa-hf">this chapter</a>.</p>
+<p>In recent years, X11 implementation in JDemetra+ v 3.x has been extended to infra-monthly data (weekly, daily, hourly…). Handling this kind of data gave way to a tailored X11 algorithm whose peculiarities are described in <a href="M-sa-hf.html">this chapter</a>.</p>
 <section id="m-X11-intro" class="level2">
 <h2 class="anchored" data-anchor-id="m-X11-intro">In this chapter</h2>
 <p>This chapter provides details on - <a href="#X11-steps">algorithm steps</a> - <a href="#m-X11-stages-output">computation stages and detailed output series</a> - <a href="#m-X11-qm">quality measures</a> - <a href="#m-X11-filters-length-choice">filter length choices</a> - <a href="#X11-I-correc">extreme values correction</a></p>

@@ -12,7 +12,7 @@
 <meta name="author" content="Maria Novas Filgueira">
 <meta name="author" content="Luis Sanguiao Sande">
 <meta name="author" content="Felix Aparicio Perez">
-<meta name="dcterms.date" content="2026-02-10">
+<meta name="dcterms.date" content="2026-03-03">
 
 <title>JDemetra+ documentation</title>
 <style>
@@ -181,6 +181,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <div class="sidebar-item-container"> 
   <a href="./G-news-v3-vs-v2.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">New Features in v 3.x family</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./G-jd-history.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">JDemetra+ History</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -378,6 +384,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./M-sa-hf.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SA of high-frequency data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./M-tests.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Tests</span></a>
   </div>
@@ -414,10 +426,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul>
   <li><a href="#what-is-jdemetra" id="toc-what-is-jdemetra" class="nav-link active" data-scroll-target="#what-is-jdemetra">What is JDemetra+?</a>
   <ul class="collapse">
+  <li><a href="#user-support-useful-links" id="toc-user-support-useful-links" class="nav-link" data-scroll-target="#user-support-useful-links">User Support / Useful links</a></li>
   <li><a href="#main-features" id="toc-main-features" class="nav-link" data-scroll-target="#main-features">Main Features</a></li>
   <li><a href="#currently-available-versions" id="toc-currently-available-versions" class="nav-link" data-scroll-target="#currently-available-versions">Currently available versions</a></li>
   <li><a href="#background" id="toc-background" class="nav-link" data-scroll-target="#background">Background</a></li>
-  <li><a href="#useful-links" id="toc-useful-links" class="nav-link" data-scroll-target="#useful-links">Useful links</a></li>
   <li><a href="#how-to-contribute" id="toc-how-to-contribute" class="nav-link" data-scroll-target="#how-to-contribute">How to contribute</a></li>
   <li><a href="#installing-the-software" id="toc-installing-the-software" class="nav-link" data-scroll-target="#installing-the-software">Installing the software</a>
   <ul class="collapse">
@@ -512,7 +524,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">February 10, 2026</p>
+      <p class="date">March 3, 2026</p>
     </div>
   </div>
   
@@ -526,6 +538,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h1 class="unnumbered">What is JDemetra+?</h1>
 <p><a href="https://github.com/jdemetra">JDemetra+</a> is an open source software for <strong>seasonal adjustment and time series analysis</strong>, developed by the National Bank of Belgium with the support of the Bundesbank, Insee and the partners of the <a href="#COSA-abstract">COSA</a>, (<strong>CO</strong>fidentiality <strong>S</strong>easonal <strong>A</strong>djustment and time series), project co-founded by Eurostat. JDemetra+ has been officially recommended by Eurostat to the members of the European Statistical System since 2015. It is unique in its combination of very fast Java routines, a <a href="T-GUI-Overview.html"><strong>Graphical User Interface</strong></a> and an <a href="https://github.com/rjdverse?view_as=public"><strong>ecosystem of R packages (rjdverse)</strong></a>. The graphical interface provides structured visual feedback suitable for refined analysis and training. R tools allow to combine the capabilities of JDemetra+ with the versatility of the R world, be it for statistical functions or data wrangling. A pdf version of this documentation is available <a href="https://github.com/annasmyk/JD_Quarto_Book/blob/main/_book/JDemetra%2B-documentation.pdf">here</a></p>
 <p><img src="All_images/JD+-Eurostat-COSA.png" class="img-fluid"></p>
+<section id="user-support-useful-links" class="level2">
+<h2 class="anchored" data-anchor-id="user-support-useful-links">User Support / Useful links</h2>
+<p>If you need user support, please raise an issue in this <a href="https://github.com/stace-tsa-shop/UserSupport">repository</a></p>
+<p>For specific questions related to <strong>production of seasonally</strong> adjusted series you can look up <a href="https://saproductionwithjdemetraandr.netlify.app/">these pages</a></p>
+<p>To keep up with all JDemetra+ related news head over to the <a href="https://jdemetra-universe-blog.netlify.app/"><strong>JDemetra+ Universe Blog</strong></a></p>
+<p>You can also <a href="https://github.com/TanguyBarthelemy/JD_Tutorials">browse</a> and <a href="https://www.youtube.com/@TSwithJDemetraandR">watch</a> tutorials for JDemetra+. On this <a href="https://www.youtube.com/@TSwithJDemetraandR">YouTube channel</a> you will also find JDemetra+ related webinars.</p>
+</section>
 <section id="main-features" class="level2">
 <h2 class="anchored" data-anchor-id="main-features">Main Features</h2>
 <p>JDemetra+ provides <a href="P_Algorithms.html">algorithms</a> for:</p>
@@ -557,12 +576,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><p><a href="https://ec.europa.eu/eurostat/documents/3859598/8939616/KS-GQ-18-001-EN-N.pdf">Handbook on seasonal adjustment (2018)</a></p></li>
 <li><p><a href="https://ec.europa.eu/eurostat/documents/3859598/8555708/KS-GQ-17-008-EN-N.pdf">Handbook on rapid estimates (2017)</a></p></li>
 </ul>
-</section>
-<section id="useful-links" class="level2">
-<h2 class="anchored" data-anchor-id="useful-links">Useful links</h2>
-<p>To get started, you can <a href="https://github.com/TanguyBarthelemy/JD_Tutorials">browse</a> and <a href="https://www.youtube.com/@TSwithJDemetraandR">watch</a> tutorials for JDemetra+. On this <a href="https://www.youtube.com/@TSwithJDemetraandR">YouTube channel</a> you will also find JDemetra+ related webinars.</p>
-<p>If you need user support, please raise an issue in this <a href="https://github.com/stace-tsa-shop/UserSupport">repository</a></p>
-<p>To keep up with all JDemetra+ related news head over to the <a href="https://jdemetra-universe-blog.netlify.app/"><strong>JDemetra+ Universe Blog</strong></a></p>
 </section>
 <section id="how-to-contribute" class="level2">
 <h2 class="anchored" data-anchor-id="how-to-contribute">How to contribute</h2>

@@ -145,6 +145,12 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">New Features in v 3.x family</span></a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./G-jd-history.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">JDemetra+ History</span></a>
+  </div>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="./P_Algorithms.html" class="sidebar-item-text sidebar-link">
@@ -340,6 +346,12 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./M-sa-hf.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SA of high-frequency data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./M-tests.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Tests</span></a>
   </div>
@@ -503,7 +515,7 @@ f(\omega)=\frac{1}{\pi}[\ \gamma(0)+2\sum_{k=1}^{\infty}{\ \gamma(k)}cos\text{ω
 <p><span class="math display">\[
 \mathbf{e}_{n/2}={(-(n^{-\frac{1}{2}}),n^{-\frac{1}{2}},\ldots,{-(n)}^{-\frac{1}{2}}),n^{-\frac{1}{2}})}^{'}
 \]</span></p>
-<p><a href="M-SEATS-decomposition.html#eq-9">Equation&nbsp;<span>9</span></a> can be seen as an OLS regression of <span class="math inline">\(x_{t}\)</span> on a constant and the trigonometric terms. As the vector of explanatory variables includes <span class="math inline">\(n\)</span> elements, the number of explanatory variables in <a href="M-SEATS-decomposition.html#eq-9">Equation&nbsp;<span>9</span></a> is equal to the number of observations. HAMILTON, J.D. (1994) shows that the explanatory variables are linearly independent, which implies that an OLS regression yields a perfect fit (i.e.&nbsp;without an error term). The coefficients have the form of a simple OLS projection of the data on the orthonormal basis:</p>
+<p><a href="#eq-9">Equation&nbsp;<span>9</span></a> can be seen as an OLS regression of <span class="math inline">\(x_{t}\)</span> on a constant and the trigonometric terms. As the vector of explanatory variables includes <span class="math inline">\(n\)</span> elements, the number of explanatory variables in <a href="#eq-9">Equation&nbsp;<span>9</span></a> is equal to the number of observations. HAMILTON, J.D. (1994) shows that the explanatory variables are linearly independent, which implies that an OLS regression yields a perfect fit (i.e.&nbsp;without an error term). The coefficients have the form of a simple OLS projection of the data on the orthonormal basis:</p>
 <p><span id="eq-11"><span class="math display">\[
 \widehat{a}_{0}=\frac{1}{\sqrt{n}}\sum_{t=1}^{n}x_{t}
 \tag{11}\]</span></span></p>
@@ -519,7 +531,7 @@ f(\omega)=\frac{1}{\pi}[\ \gamma(0)+2\sum_{k=1}^{\infty}{\ \gamma(k)}cos\text{ω
 <p><span id="eq-15"><span class="math display">\[
 {\widehat{\beta}}_{j}=2^{1/2}r_{j}\sin{\theta_{j}}={(\frac{n}{2})}^{-1/2}\sum_{t=1}^{n}x_{t}\sin{(t\frac{2\pi j}{n})}, j=1,\ldots,[\frac{n-1}{2}]
 \tag{15}\]</span></span></p>
-<p>With <a href="M-SEATS-decomposition.html#eq-9">Equation&nbsp;<span>9</span></a> the total sum of squares <span class="math inline">\(\sum_{t=1}^{n}|x_{t} |^{2}\)</span> can be decomposed into <span class="math inline">\(2 \times [\frac{n-1}{2}]\)</span> components corresponding to <span class="math inline">\(\mathbf{c}_{j}\)</span> and <span class="math inline">\(\mathbf{s}_{j}\)</span>, which are grouped to produce the “frequency <span class="math inline">\(ω_{j}\)</span>” component for <span class="math inline">\(1 \geq j \geq [\frac{n-1}{2}]\)</span>. As it is shown in the table below, the value of the periodogram at the frequency <span class="math inline">\(\omega_{j}\)</span> is the contribution of the <span class="math inline">\(j^{\text{th}}\)</span> harmonic to the total sum of squares <span class="math inline">\(\sum_{t=1}^{n}|x_{t} |^{2}\)</span>.</p>
+<p>With <a href="#eq-9">Equation&nbsp;<span>9</span></a> the total sum of squares <span class="math inline">\(\sum_{t=1}^{n}|x_{t} |^{2}\)</span> can be decomposed into <span class="math inline">\(2 \times [\frac{n-1}{2}]\)</span> components corresponding to <span class="math inline">\(\mathbf{c}_{j}\)</span> and <span class="math inline">\(\mathbf{s}_{j}\)</span>, which are grouped to produce the “frequency <span class="math inline">\(ω_{j}\)</span>” component for <span class="math inline">\(1 \geq j \geq [\frac{n-1}{2}]\)</span>. As it is shown in the table below, the value of the periodogram at the frequency <span class="math inline">\(\omega_{j}\)</span> is the contribution of the <span class="math inline">\(j^{\text{th}}\)</span> harmonic to the total sum of squares <span class="math inline">\(\sum_{t=1}^{n}|x_{t} |^{2}\)</span>.</p>
 <p><strong>Decomposition of sum of squares into components corresponding to the harmonics</strong></p>
 <table class="table">
 <colgroup>
@@ -581,7 +593,7 @@ I(\omega_{j})\mathbf{=}\begin{matrix}r_{j}^{2}=\frac{1}{2}{(\alpha}_{j}^{2}+\bet
 \end{matrix}
 \tag{16}\]</span></span></p>
 <p>where <span class="math inline">\(j=0,\ldots,[\frac{n}{2}]\)</span>.</p>
-<p>Since <span class="math inline">\(\mathbf{x}-\overline{\mathbf{x}}\)</span> are generated by an orthonormal basis, and <span class="math inline">\(\overline{\mathbf{x}}\mathbf{=}a_{0}\mathbf{e}_{0}\)</span> <a href="M-SEATS-decomposition.html#eq-9">Equation&nbsp;<span>9</span></a> can be rearranged to show that the sum of squares is equal to the sum of the squared coefficients:</p>
+<p>Since <span class="math inline">\(\mathbf{x}-\overline{\mathbf{x}}\)</span> are generated by an orthonormal basis, and <span class="math inline">\(\overline{\mathbf{x}}\mathbf{=}a_{0}\mathbf{e}_{0}\)</span> <a href="#eq-9">Equation&nbsp;<span>9</span></a> can be rearranged to show that the sum of squares is equal to the sum of the squared coefficients:</p>
 <p><span id="eq-17"><span class="math display">\[
 \mathbf{x}-a_{0}\mathbf{e}_{0}=\sum_{j=1}^{[(n-1)/2]}(\alpha_{j}\mathbf{c}_{j}+\beta_{j}\mathbf{s}_{j})+a_{n/2}\mathbf{e}_{n/2}
 \tag{17}\]</span></span></p>
@@ -591,13 +603,13 @@ n^{-1}\sum_{t=1}^{n}{(x_{t}-\overline{x})}^{2}=n^{-1}(\sum_{k=1}^{[(n-1)/2]}2{r_
 +{a_{n/2}}^{2})
 \tag{18}\]</span></span></p>
 <p>where <span class="math inline">\(a_{n/2}^{2}\)</span> is excluded if <span class="math inline">\(n\)</span> is odd.</p>
-<p>The term <span class="math inline">\(2{r_{j}}^{2}\)</span> in <a href="M-SEATS-decomposition.html#eq-18">Equation&nbsp;<span>18</span></a> is then the contribution of the <span class="math inline">\(j^{\text{th}}\)</span> harmonic to the variance and <a href="M-SEATS-decomposition.html#eq-18">Equation&nbsp;<span>18</span></a> shows then how the total variance is partitioned.</p>
+<p>The term <span class="math inline">\(2{r_{j}}^{2}\)</span> in <a href="M-SEATS-decomposition.html#eq-18">Equation&nbsp;<span>12</span></a> is then the contribution of the <span class="math inline">\(j^{\text{th}}\)</span> harmonic to the variance and <a href="M-SEATS-decomposition.html#eq-18">Equation&nbsp;<span>12</span></a> shows then how the total variance is partitioned.</p>
 <p>The periodogram ordinate <span class="math inline">\(I(\omega_{j})\)</span> and the autocovariance coefficient <span class="math inline">\(\gamma(k)\)</span> are both quadratic forms of <span class="math inline">\(x_{t}\)</span>. It can be shown that the periodogram and autocovariance function are related and the periodogram can be written in terms of the sample autocovariance function for any non-zero Fourier frequency <span class="math inline">\(ω_{j}\)</span> (The proof is given in BROCKWELL, P.J., and DAVIS, R.A. (2006)).</p>
 <p><span id="eq-19"><span class="math display">\[
 I(\omega_{j})=\sum_{|k |&lt; n}^{\ }{\widehat{\gamma}(k)}_{\ }e^{-ik\omega_{j}}={\widehat{\gamma}(0)}_{\ }+2\sum_{k=1}^{n-1}{\widehat{\gamma}(k)\cos{(k\omega_{j})}}_{\ }
 \tag{19}\]</span></span></p>
 <p>and for the zero frequency <span class="math inline">\(\ I(0)=n|\overline{x}|^{2}\)</span>.</p>
-<p>Once comparing <a href="M-SEATS-decomposition.html#eq-19">Equation&nbsp;<span>19</span></a> with an expression of the spectral density of a stationary process:</p>
+<p>Once comparing <a href="M-SEATS-decomposition.html#eq-19">Equation&nbsp;<span>13</span></a> with an expression of the spectral density of a stationary process:</p>
 <p><span id="eq-20"><span class="math display">\[
 f(\omega_{\ })=\frac{1}{2\pi}\sum_{k &lt;-\infty}^{\infty}{\gamma(k)}_{\ }e^{-ik\omega_{\ }}=\frac{1}{2\pi}[{\gamma(0)}_{\ }+2(\sum_{k=1}^{\infty}{\gamma(k)\cos{(k\omega_{\ })}})]
 \tag{20}\]</span></span></p>
