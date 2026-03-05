@@ -102,8 +102,7 @@ Documentation [here](https://rjdverse.github.io/rjd3nowcasting/)
 
 Revision analysis on vintages can be performed with rjd3revision package.
 
-Documentation \[here\](<https://rjdverse.github.io/rjd3revisions/>)<https://rjdverse.github.io/rjd3revisions/>
-
+Documentation [here](https://rjdverse.github.io/rjd3revisions/)
 <!-- TO BE ADDED -->
 
 <!-- ## Time series tools {#t-r-packs-tstools} -->
